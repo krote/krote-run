@@ -1,0 +1,122 @@
+{
+  "common": {
+    "siteName": "KroteRun",
+    "siteDescription": "マラソン大会ポータルサイト",
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "notFound": "ページが見つかりません",
+    "backToTop": "トップに戻る"
+  },
+  "nav": {
+    "home": "ホーム",
+    "races": "大会一覧",
+    "calendar": "カレンダー",
+    "settings": "設定"
+  },
+  "home": {
+    "hero": {
+      "title": "あなたの次のマラソンを見つけよう",
+      "subtitle": "全国のマラソン大会情報をまとめてチェック",
+      "searchPlaceholder": "大会名・都道府県で検索",
+      "searchButton": "検索する"
+    },
+    "sections": {
+      "upcoming": "近日開催の大会",
+      "popular": "人気の大会",
+      "byRegion": "地域から探す"
+    }
+  },
+  "races": {
+    "title": "マラソン大会一覧",
+    "count": "{count}件の大会",
+    "search": "大会を検索",
+    "noResults": "条件に合う大会が見つかりませんでした",
+    "filter": {
+      "title": "絞り込み",
+      "clear": "クリア",
+      "distance": "距離",
+      "prefecture": "都道府県",
+      "level": "レベル",
+      "terrain": "コース種別",
+      "dateFrom": "開催日（から）",
+      "dateTo": "開催日（まで）",
+      "all": "すべて"
+    },
+    "distance": {
+      "full": "フルマラソン",
+      "half": "ハーフマラソン",
+      "10k": "10km",
+      "5k": "5km",
+      "ultra": "ウルトラマラソン",
+      "other": "その他"
+    },
+    "level": {
+      "beginner": "初心者向け",
+      "intermediate": "中級者向け",
+      "advanced": "上級者向け"
+    },
+    "terrain": {
+      "road": "ロード",
+      "trail": "トレイル",
+      "track": "トラック",
+      "mixed": "ミックス"
+    },
+    "card": {
+      "date": "開催日",
+      "location": "開催地",
+      "distance": "距離",
+      "capacity": "定員",
+      "elevation": "累積獲得標高",
+      "apply": "エントリー",
+      "details": "詳細を見る",
+      "closed": "受付終了",
+      "upcoming": "受付予定"
+    },
+    "detail": {
+      "overview": "大会概要",
+      "course": "コース情報",
+      "access": "アクセス",
+      "gift": "参加賞",
+      "applicationPeriod": "エントリー期間",
+      "fee": "参加費",
+      "cutoffTime": "制限時間",
+      "website": "公式サイト"
+    }
+  },
+  "calendar": {
+    "title": "大会カレンダー",
+    "months": ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+    "weekdays": ["日", "月", "火", "水", "木", "金", "土"],
+    "prev": "前月",
+    "next": "翌月",
+    "today": "今月"
+  },
+  "access": {
+    "title": "アクセス確認",
+    "inputLabel": "出発駅・住所を入力",
+    "inputPlaceholder": "例：新宿駅、東京都渋谷区",
+    "checkButton": "確認する",
+    "result": {
+      "nearestStation": "最寄り駅",
+      "walkingTime": "徒歩{minutes}分",
+      "bus": "バス",
+      "shuttle": "シャトルバス",
+      "parking": "駐車場"
+    }
+  },
+  "settings": {
+    "title": "設定",
+    "language": "言語",
+    "languageJa": "日本語",
+    "languageEn": "English",
+    "homePrefecture": "居住都道府県",
+    "homePrefectureNote": "地域に合わせた大会情報を優先表示します",
+    "notifications": "通知設定",
+    "theme": "テーマ",
+    "themeLight": "ライト",
+    "themeDark": "ダーク",
+    "themeSystem": "システム設定に従う",
+    "save": "保存する",
+    "saved": "保存しました"
+  }
+}

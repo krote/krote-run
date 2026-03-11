@@ -1,0 +1,122 @@
+{
+  "common": {
+    "siteName": "KroteRun",
+    "siteDescription": "Marathon Race Portal",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "notFound": "Page not found",
+    "backToTop": "Back to top"
+  },
+  "nav": {
+    "home": "Home",
+    "races": "Races",
+    "calendar": "Calendar",
+    "settings": "Settings"
+  },
+  "home": {
+    "hero": {
+      "title": "Find Your Next Marathon",
+      "subtitle": "Browse marathon races across Japan all in one place",
+      "searchPlaceholder": "Search by race name or prefecture",
+      "searchButton": "Search"
+    },
+    "sections": {
+      "upcoming": "Upcoming Races",
+      "popular": "Popular Races",
+      "byRegion": "Browse by Region"
+    }
+  },
+  "races": {
+    "title": "Marathon Races",
+    "count": "{count} races",
+    "search": "Search races",
+    "noResults": "No races found matching your criteria",
+    "filter": {
+      "title": "Filter",
+      "clear": "Clear",
+      "distance": "Distance",
+      "prefecture": "Prefecture",
+      "level": "Level",
+      "terrain": "Course Type",
+      "dateFrom": "Date from",
+      "dateTo": "Date to",
+      "all": "All"
+    },
+    "distance": {
+      "full": "Full Marathon",
+      "half": "Half Marathon",
+      "10k": "10km",
+      "5k": "5km",
+      "ultra": "Ultra Marathon",
+      "other": "Other"
+    },
+    "level": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "terrain": {
+      "road": "Road",
+      "trail": "Trail",
+      "track": "Track",
+      "mixed": "Mixed"
+    },
+    "card": {
+      "date": "Date",
+      "location": "Location",
+      "distance": "Distance",
+      "capacity": "Capacity",
+      "elevation": "Elevation gain",
+      "apply": "Register",
+      "details": "View Details",
+      "closed": "Closed",
+      "upcoming": "Coming soon"
+    },
+    "detail": {
+      "overview": "Overview",
+      "course": "Course",
+      "access": "Access",
+      "gift": "Finisher gift",
+      "applicationPeriod": "Registration period",
+      "fee": "Entry fee",
+      "cutoffTime": "Time limit",
+      "website": "Official website"
+    }
+  },
+  "calendar": {
+    "title": "Race Calendar",
+    "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    "weekdays": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "prev": "Previous",
+    "next": "Next",
+    "today": "This month"
+  },
+  "access": {
+    "title": "Access Checker",
+    "inputLabel": "Enter your departure station or address",
+    "inputPlaceholder": "e.g. Shinjuku Station, Shibuya, Tokyo",
+    "checkButton": "Check",
+    "result": {
+      "nearestStation": "Nearest station",
+      "walkingTime": "{minutes} min walk",
+      "bus": "Bus",
+      "shuttle": "Shuttle bus",
+      "parking": "Parking"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "languageJa": "日本語",
+    "languageEn": "English",
+    "homePrefecture": "Home Prefecture",
+    "homePrefectureNote": "We'll prioritize races near your home prefecture",
+    "notifications": "Notifications",
+    "theme": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "Follow system",
+    "save": "Save",
+    "saved": "Saved!"
+  }
+}

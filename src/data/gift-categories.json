@@ -1,0 +1,98 @@
+[
+  {
+    "id": "food",
+    "name": "食べ物・お菓子",
+    "nameEn": "Food & Snacks",
+    "icon": "🍱",
+    "description": "地元の食材や名産品、スイーツなど",
+    "descriptionEn": "Local produce, sweets, and regional specialties"
+  },
+  {
+    "id": "drink",
+    "name": "飲み物",
+    "nameEn": "Drinks",
+    "icon": "🥤",
+    "description": "スポーツドリンク、水、地元の飲料など",
+    "descriptionEn": "Sports drinks, water, local beverages"
+  },
+  {
+    "id": "medal",
+    "name": "メダル・トロフィー",
+    "nameEn": "Medal / Trophy",
+    "icon": "🥇",
+    "description": "完走メダルやトロフィー",
+    "descriptionEn": "Finisher medal or trophy"
+  },
+  {
+    "id": "tshirt",
+    "name": "Tシャツ・ウェア",
+    "nameEn": "T-shirt / Apparel",
+    "icon": "👕",
+    "description": "大会オリジナルのTシャツやランニングウェア",
+    "descriptionEn": "Race-branded t-shirt or running apparel"
+  },
+  {
+    "id": "towel",
+    "name": "タオル",
+    "nameEn": "Towel",
+    "icon": "🧣",
+    "description": "フェイスタオルやバスタオル",
+    "descriptionEn": "Face towel or bath towel"
+  },
+  {
+    "id": "bag",
+    "name": "バッグ・巾着",
+    "nameEn": "Bag",
+    "icon": "👜",
+    "description": "エコバッグやトートバッグなど",
+    "descriptionEn": "Eco bag, tote bag, or drawstring bag"
+  },
+  {
+    "id": "coupon",
+    "name": "クーポン・券",
+    "nameEn": "Coupon / Voucher",
+    "icon": "🎟️",
+    "description": "地元店舗やオンラインで使えるクーポン",
+    "descriptionEn": "Coupons for local shops or online stores"
+  },
+  {
+    "id": "cosmetics",
+    "name": "スキンケア・コスメ",
+    "nameEn": "Skincare / Cosmetics",
+    "icon": "🧴",
+    "description": "日焼け止めや保湿クリームなど",
+    "descriptionEn": "Sunscreen, moisturizer, or other skincare products"
+  },
+  {
+    "id": "supplement",
+    "name": "サプリメント",
+    "nameEn": "Supplements",
+    "icon": "💊",
+    "description": "プロテインやビタミン類など",
+    "descriptionEn": "Protein, vitamins, or other supplements"
+  },
+  {
+    "id": "goods",
+    "name": "スポーツグッズ",
+    "nameEn": "Sports Goods",
+    "icon": "🏃",
+    "description": "ランニング用品やスポーツ小物",
+    "descriptionEn": "Running accessories and sports goods"
+  },
+  {
+    "id": "charity",
+    "name": "チャリティ寄付",
+    "nameEn": "Charity Donation",
+    "icon": "❤️",
+    "description": "参加費の一部が寄付されます",
+    "descriptionEn": "A portion of entry fee goes to charity"
+  },
+  {
+    "id": "other",
+    "name": "その他",
+    "nameEn": "Other",
+    "icon": "🎁",
+    "description": "上記以外の参加賞",
+    "descriptionEn": "Other finisher gifts"
+  }
+]

@@ -1,18 +1,17 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import type { CourseMapData } from '@/lib/types';
+import type { CourseProfile } from '@/lib/types';
 
 // NOTE: Import as dynamic with ssr:false to avoid SSR issues with Leaflet
-// Usage in pages:
-//   const CourseMap = dynamic(() => import('@/components/course/CourseMap'), { ssr: false })
+// Usage in pages via CourseMapLoader component
 
 interface CourseMapProps {
-  courseMap: CourseMapData;
+  courseProfile: CourseProfile;
   className?: string;
 }
 
-export default function CourseMap({ courseMap, className = '' }: CourseMapProps) {
+export default function CourseMap({ courseProfile, className = '' }: CourseMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   // Store map instance to prevent re-initialization
   const leafletMapRef = useRef<ReturnType<typeof import('leaflet')['map']> | null>(null);
@@ -32,18 +31,28 @@ export default function CourseMap({ courseMap, className = '' }: CourseMapProps)
 
       if (!mapRef.current) return;
 
-      const map = L.map(mapRef.current).setView(
-        [courseMap.centerLat, courseMap.centerLng],
-        courseMap.zoom,
-      );
+      const points = courseProfile.points;
+      const centerLat = points.length > 0
+        ? points.reduce((sum, p) => sum + p.lat, 0) / points.length
+        : 35.6762;
+      const centerLng = points.length > 0
+        ? points.reduce((sum, p) => sum + p.lng, 0) / points.length
+        : 139.6503;
+
+      const map = L.map(mapRef.current).setView([centerLat, centerLng], 13);
       leafletMapRef.current = map;
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map);
 
-      // Add center marker
-      L.marker([courseMap.centerLat, courseMap.centerLng]).addTo(map);
+      if (points.length > 0) {
+        const latlngs = points.map((p) => [p.lat, p.lng] as [number, number]);
+        L.polyline(latlngs, { color: '#2563eb', weight: 3 }).addTo(map);
+        L.marker([points[0].lat, points[0].lng]).addTo(map);
+      } else {
+        L.marker([centerLat, centerLng]).addTo(map);
+      }
     });
 
     return () => {

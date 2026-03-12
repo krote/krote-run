@@ -2,16 +2,20 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import type { AccessInfo } from '@/lib/types';
+import type { AccessPoint } from '@/lib/types';
 
 interface AccessCheckerProps {
-  access: AccessInfo;
+  accessPoints: AccessPoint[];
 }
 
-export default function AccessChecker({ access }: AccessCheckerProps) {
+export default function AccessChecker({ accessPoints }: AccessCheckerProps) {
   const t = useTranslations('access');
   const [departure, setDeparture] = useState('');
   const [showResult, setShowResult] = useState(false);
+  const [locale, setLocale] = useState<'ja' | 'en'>('ja');
+
+  // Detect locale from i18n context if needed; default to ja
+  void setLocale;
 
   function handleCheck() {
     if (departure.trim()) {
@@ -19,9 +23,29 @@ export default function AccessChecker({ access }: AccessCheckerProps) {
     }
   }
 
+  if (accessPoints.length === 0) return null;
+
+  const primary = accessPoints[0];
+
   return (
     <div className="bg-gray-50 rounded-xl p-5">
       <h3 className="font-semibold text-gray-900 mb-4">{t('title')}</h3>
+
+      {/* Access points list */}
+      <div className="space-y-3 text-sm mb-4">
+        {accessPoints.map((ap, i) => (
+          <div key={i} className="flex items-start gap-2 p-3 bg-white rounded-lg border border-gray-100">
+            <span className="text-lg">🚉</span>
+            <div>
+              <p className="font-medium text-gray-900">{ap.station_name_ja}</p>
+              {ap.station_name_en && (
+                <p className="text-xs text-gray-400">{ap.station_name_en}</p>
+              )}
+              <p className="text-gray-600 mt-0.5">{ap.transport_to_venue_ja}</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
       {/* Input */}
       <div className="flex gap-2 mb-4">
@@ -43,68 +67,13 @@ export default function AccessChecker({ access }: AccessCheckerProps) {
         </button>
       </div>
 
-      {/* Access info */}
-      <div className="space-y-3 text-sm">
-        {access.nearestStation && (
-          <div className="flex items-start gap-2 p-3 bg-white rounded-lg border border-gray-100">
-            <span className="text-lg">🚉</span>
-            <div>
-              <p className="font-medium text-gray-900">{t('result.nearestStation')}</p>
-              <p className="text-gray-600">
-                {access.nearestStation}
-                {access.walkingMinutes && (
-                  <span className="ml-2 text-primary">
-                    {t('result.walkingTime', { minutes: access.walkingMinutes })}
-                  </span>
-                )}
-              </p>
-            </div>
-          </div>
-        )}
-
-        {access.busInfo && (
-          <div className="flex items-start gap-2 p-3 bg-white rounded-lg border border-gray-100">
-            <span className="text-lg">🚌</span>
-            <div>
-              <p className="font-medium text-gray-900">{t('result.bus')}</p>
-              <p className="text-gray-600">{access.busInfo}</p>
-            </div>
-          </div>
-        )}
-
-        {access.shuttleInfo && (
-          <div className="flex items-start gap-2 p-3 bg-white rounded-lg border border-gray-100">
-            <span className="text-lg">🚐</span>
-            <div>
-              <p className="font-medium text-gray-900">{t('result.shuttle')}</p>
-              <p className="text-gray-600">{access.shuttleInfo}</p>
-            </div>
-          </div>
-        )}
-
-        {access.parkingAvailable && (
-          <div className="flex items-start gap-2 p-3 bg-white rounded-lg border border-gray-100">
-            <span className="text-lg">🅿️</span>
-            <div>
-              <p className="font-medium text-gray-900">{t('result.parking')}</p>
-              <p className="text-gray-600">
-                {access.parkingCapacity
-                  ? `${access.parkingCapacity.toLocaleString()}台`
-                  : 'あり'}
-                {access.parkingFee && ` / ¥${access.parkingFee.toLocaleString()}`}
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
-
       {/* Departure result */}
       {showResult && departure && (
-        <div className="mt-4 p-3 bg-blue-50 rounded-lg text-sm">
+        <div className="p-3 bg-blue-50 rounded-lg text-sm">
           <p className="text-blue-700">
             <strong>{departure}</strong> からのアクセス情報は{' '}
             <a
-              href={`https://www.google.com/maps/dir/${encodeURIComponent(departure)}/${encodeURIComponent(access.nearestStation ?? '')}`}
+              href={`https://www.google.com/maps/dir/${encodeURIComponent(departure)}/${encodeURIComponent(`${primary.latitude},${primary.longitude}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-blue-900"

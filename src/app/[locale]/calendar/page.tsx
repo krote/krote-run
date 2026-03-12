@@ -134,7 +134,7 @@ export default async function CalendarPage({
                       href={`/races/${race.id}`}
                       className="block text-xs bg-primary text-white rounded px-1.5 py-0.5 truncate hover:bg-primary-dark transition-colors"
                     >
-                      {race.name}
+                      {race.name_ja}
                     </Link>
                   ))}
                   {dayRaces.length > 2 && (

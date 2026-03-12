@@ -9,14 +9,12 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
-import type { ElevationPoint } from '@/lib/types';
+import type { CoursePoint } from '@/lib/types';
 
-// NOTE: Import as dynamic with ssr:false for consistency
-// Usage in pages:
-//   const ElevationChart = dynamic(() => import('@/components/course/ElevationChart'), { ssr: false })
+// NOTE: Import as dynamic with ssr:false via ElevationChartLoader
 
 interface ElevationChartProps {
-  data: ElevationPoint[];
+  data: CoursePoint[];
   className?: string;
 }
 
@@ -47,8 +45,8 @@ function CustomTooltip({
 export default function ElevationChart({ data, className = '' }: ElevationChartProps) {
   if (data.length === 0) return null;
 
-  const minElev = Math.min(...data.map((d) => d.elevationM));
-  const maxElev = Math.max(...data.map((d) => d.elevationM));
+  const minElev = Math.min(...data.map((d) => d.ele));
+  const maxElev = Math.max(...data.map((d) => d.ele));
   const padding = Math.max(20, (maxElev - minElev) * 0.1);
 
   return (
@@ -63,7 +61,7 @@ export default function ElevationChart({ data, className = '' }: ElevationChartP
           </defs>
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis
-            dataKey="distanceKm"
+            dataKey="dist_km"
             tickFormatter={(v: number) => `${v.toFixed(0)}km`}
             tick={{ fontSize: 11, fill: '#6b7280' }}
             tickLine={false}
@@ -78,7 +76,7 @@ export default function ElevationChart({ data, className = '' }: ElevationChartP
           <Tooltip content={<CustomTooltip />} />
           <Area
             type="monotone"
-            dataKey="elevationM"
+            dataKey="ele"
             stroke="#2563eb"
             strokeWidth={2}
             fill="url(#elevationGradient)"

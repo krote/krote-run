@@ -24,9 +24,9 @@ export async function getRaceById(id: string): Promise<Race | null> {
   }
 }
 
-export async function getRacesByPrefecture(prefectureCode: string): Promise<Race[]> {
+export async function getRacesByPrefecture(prefecture: string): Promise<Race[]> {
   const races = await getRaces();
-  return races.filter((r) => r.prefectureCode === prefectureCode);
+  return races.filter((r) => r.prefecture === prefecture);
 }
 
 export async function getUpcomingRaces(limit = 6): Promise<Race[]> {

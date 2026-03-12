@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import type { Race, Prefecture, RaceFilter as RaceFilterType, Locale } from '@/lib/types';
-import { filterRaces, sortRacesByDate } from '@/lib/utils';
+import { filterRaces, sortRacesByDate, emptyFilter } from '@/lib/utils';
 import RaceCard from './RaceCard';
 import RaceFilter from './RaceFilter';
 
@@ -15,7 +15,7 @@ interface RaceListProps {
 
 export default function RaceList({ races, prefectures, locale }: RaceListProps) {
   const t = useTranslations('races');
-  const [filter, setFilter] = useState<RaceFilterType>({});
+  const [filter, setFilter] = useState<RaceFilterType>(emptyFilter());
 
   const filteredRaces = useMemo(() => {
     const filtered = filterRaces(races, filter);

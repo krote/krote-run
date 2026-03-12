@@ -2,11 +2,9 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { getRaceById, getGiftCategories } from '@/lib/data';
-import { formatDate, formatDateRange, formatCurrency, getMainDistance } from '@/lib/utils';
+import { formatDate, formatCurrency, getMainCategory, getRaceName, getRaceDescription, getRaceCity } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/lib/types';
-import CourseMap from '@/components/course/CourseMapLoader';
-import ElevationChart from '@/components/course/ElevationChartLoader';
 
 export async function generateMetadata({
   params,
@@ -16,7 +14,7 @@ export async function generateMetadata({
   const { id } = await params;
   const race = await getRaceById(id);
   if (!race) return {};
-  return { title: race.name };
+  return { title: race.name_ja };
 }
 
 export default async function RaceDetailPage({
@@ -34,8 +32,10 @@ export default async function RaceDetailPage({
 
   if (!race) notFound();
 
-  const mainDistance = getMainDistance(race.distances);
+  const mainCategory = getMainCategory(race.categories);
   const giftCategoryMap = new Map(giftCategories.map((c) => [c.id, c]));
+  const raceName = getRaceName(race, locale);
+  const raceDesc = getRaceDescription(race, locale);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -45,7 +45,7 @@ export default async function RaceDetailPage({
         {' / '}
         <Link href="/races" className="hover:text-primary">{locale === 'ja' ? '大会一覧' : 'Races'}</Link>
         {' / '}
-        <span className="text-gray-900">{race.name}</span>
+        <span className="text-gray-900">{raceName}</span>
       </nav>
 
       {/* Header */}
@@ -57,27 +57,25 @@ export default async function RaceDetailPage({
             </span>
           ))}
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">{race.name}</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">{raceName}</h1>
         <div className="flex flex-wrap gap-4 text-gray-600">
-          <span>📅 {formatDateRange(race.date, race.endDate, locale)}</span>
-          <span>📍 {race.prefecture} {race.city}</span>
-          {mainDistance && (
-            <span>🏃 {mainDistance.distanceKm}km</span>
+          <span>📅 {formatDate(race.date, locale)}</span>
+          <span>📍 {getRaceCity(race, locale)}</span>
+          {mainCategory && (
+            <span>🏃 {mainCategory.distance_km}km</span>
           )}
         </div>
       </div>
 
       {/* Description */}
-      {(locale === 'ja' ? race.description : race.descriptionEn ?? race.description) && (
+      {raceDesc && (
         <section className="mb-8">
           <h2 className="text-xl font-bold mb-3">{t('overview')}</h2>
-          <p className="text-gray-700 leading-relaxed">
-            {locale === 'ja' ? race.description : (race.descriptionEn ?? race.description)}
-          </p>
+          <p className="text-gray-700 leading-relaxed">{raceDesc}</p>
         </section>
       )}
 
-      {/* Distances table */}
+      {/* Categories table */}
       <section className="mb-8">
         <h2 className="text-xl font-bold mb-4">{t('course')}</h2>
         <div className="overflow-x-auto">
@@ -91,13 +89,17 @@ export default async function RaceDetailPage({
               </tr>
             </thead>
             <tbody>
-              {race.distances.map((d, i) => (
+              {race.categories.map((cat, i) => (
                 <tr key={i} className="hover:bg-gray-50">
-                  <td className="p-3 border border-gray-200">{locale === 'ja' ? d.category : d.categoryEn}</td>
-                  <td className="p-3 border border-gray-200 text-right">{d.distanceKm}km</td>
-                  <td className="p-3 border border-gray-200 text-right">{d.cutoffTime ?? '—'}</td>
+                  <td className="p-3 border border-gray-200">
+                    {locale === 'ja' ? (cat.name_ja ?? cat.distance_type) : (cat.name_en ?? cat.distance_type)}
+                  </td>
+                  <td className="p-3 border border-gray-200 text-right">{cat.distance_km}km</td>
                   <td className="p-3 border border-gray-200 text-right">
-                    {d.fee ? formatCurrency(d.fee) : '—'}
+                    {cat.time_limit_minutes > 0 ? `${Math.floor(cat.time_limit_minutes / 60)}:${String(cat.time_limit_minutes % 60).padStart(2, '0')}` : '—'}
+                  </td>
+                  <td className="p-3 border border-gray-200 text-right">
+                    {cat.entry_fee ? formatCurrency(cat.entry_fee) : '—'}
                   </td>
                 </tr>
               ))}
@@ -106,81 +108,101 @@ export default async function RaceDetailPage({
         </div>
       </section>
 
-      {/* Course Map */}
-      {race.courseMap && (
-        <section className="mb-8">
-          <h2 className="text-xl font-bold mb-4">コースマップ</h2>
-          <CourseMap courseMap={race.courseMap} />
-          {race.courseMap.elevationProfile && race.courseMap.elevationProfile.length > 0 && (
-            <div className="mt-4">
-              <h3 className="text-base font-semibold mb-2">高低差</h3>
-              <ElevationChart data={race.courseMap.elevationProfile} />
+      {/* Course info */}
+      {(race.course_info.max_elevation_m > 0 || race.course_info.highlights_ja) && (
+        <section className="mb-8 p-4 bg-gray-50 rounded-lg">
+          <h2 className="text-xl font-bold mb-3">コース情報</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm mb-3">
+            <div>
+              <p className="text-gray-500 text-xs mb-1">最高標高</p>
+              <p className="font-semibold">{race.course_info.max_elevation_m}m</p>
             </div>
+            <div>
+              <p className="text-gray-500 text-xs mb-1">最低標高</p>
+              <p className="font-semibold">{race.course_info.min_elevation_m}m</p>
+            </div>
+            <div>
+              <p className="text-gray-500 text-xs mb-1">高低差</p>
+              <p className="font-semibold">{race.course_info.elevation_diff_m}m</p>
+            </div>
+          </div>
+          {(locale === 'ja' ? race.course_info.highlights_ja : race.course_info.highlights_en) && (
+            <p className="text-gray-700 text-sm">
+              {locale === 'ja' ? race.course_info.highlights_ja : race.course_info.highlights_en}
+            </p>
           )}
         </section>
       )}
 
       {/* Application period */}
-      {race.applicationPeriod && (
-        <section className="mb-8 p-4 bg-blue-50 rounded-lg">
-          <h2 className="text-xl font-bold mb-2">{t('applicationPeriod')}</h2>
-          <p className="text-gray-700">
-            {formatDate(race.applicationPeriod.start, locale)}
-            {' 〜 '}
-            {formatDate(race.applicationPeriod.end, locale)}
-          </p>
-          {race.website && (
-            <a
-              href={race.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-3 px-5 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-medium"
-            >
-              {t('website')} →
-            </a>
-          )}
-        </section>
-      )}
+      <section className="mb-8 p-4 bg-blue-50 rounded-lg">
+        <h2 className="text-xl font-bold mb-2">{t('applicationPeriod')}</h2>
+        <p className="text-gray-700">
+          {formatDate(race.entry_start_date, locale)}
+          {' 〜 '}
+          {formatDate(race.entry_end_date, locale)}
+        </p>
+        {race.official_url && (
+          <a
+            href={race.official_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-3 px-5 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-medium"
+          >
+            {t('website')} →
+          </a>
+        )}
+      </section>
 
       {/* Access */}
-      {race.access && (
+      {race.access_points.length > 0 && (
         <section className="mb-8">
           <h2 className="text-xl font-bold mb-4">{t('access')}</h2>
-          <div className="space-y-2 text-gray-700">
-            {race.access.nearestStation && (
-              <p>🚉 最寄り駅: {race.access.nearestStation}
-                {race.access.walkingMinutes && ` (徒歩${race.access.walkingMinutes}分)`}
-              </p>
-            )}
-            {race.access.busInfo && <p>🚌 {race.access.busInfo}</p>}
-            {race.access.shuttleInfo && <p>🚐 {race.access.shuttleInfo}</p>}
-            {race.access.parkingAvailable && (
-              <p>🅿️ 駐車場あり
-                {race.access.parkingCapacity && ` (${race.access.parkingCapacity}台)`}
-                {race.access.parkingFee && ` / ${formatCurrency(race.access.parkingFee)}`}
-              </p>
-            )}
+          <div className="space-y-3">
+            {race.access_points.map((ap, i) => (
+              <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg text-sm">
+                <span className="text-lg">🚉</span>
+                <div>
+                  <p className="font-medium text-gray-900">
+                    {locale === 'ja' ? ap.station_name_ja : ap.station_name_en}
+                  </p>
+                  <p className="text-gray-600 mt-0.5">
+                    {locale === 'ja' ? ap.transport_to_venue_ja : ap.transport_to_venue_en}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       )}
 
-      {/* Gift */}
-      {race.gift && race.gift.categories.length > 0 && (
+      {/* Participation gifts */}
+      {race.participation_gifts.length > 0 && (
         <section className="mb-8">
           <h2 className="text-xl font-bold mb-4">{t('gift')}</h2>
-          <div className="flex flex-wrap gap-3">
-            {race.gift.categories.map((catId) => {
-              const cat = giftCategoryMap.get(catId);
-              if (!cat) return null;
-              return (
-                <div key={catId} className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full">
-                  <span>{cat.icon}</span>
-                  <span className="text-sm font-medium">{locale === 'ja' ? cat.name : cat.nameEn}</span>
-                </div>
-              );
-            })}
-          </div>
-          {race.gift.notes && <p className="mt-3 text-sm text-gray-600">{race.gift.notes}</p>}
+          {race.participation_gifts.map((gift, i) => (
+            <div key={i} className="mb-4">
+              <div className="flex flex-wrap gap-3 mb-2">
+                {gift.gift_categories.map((catId) => {
+                  const cat = giftCategoryMap.get(catId);
+                  if (!cat) return null;
+                  return (
+                    <div key={catId} className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full">
+                      <span>{cat.icon}</span>
+                      <span className="text-sm font-medium">
+                        {locale === 'ja' ? cat.name_ja : cat.name_en}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+              {(locale === 'ja' ? gift.description_ja : gift.description_en) && (
+                <p className="text-sm text-gray-600">
+                  {locale === 'ja' ? gift.description_ja : gift.description_en}
+                </p>
+              )}
+            </div>
+          ))}
         </section>
       )}
     </div>

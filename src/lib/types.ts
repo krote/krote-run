@@ -1,14 +1,8 @@
 // ==================
-// Core Types
+// Locale
 // ==================
 
 export type Locale = 'ja' | 'en';
-
-export type Distance = 'full' | 'half' | '10k' | '5k' | 'ultra' | 'other';
-
-export type Level = 'beginner' | 'intermediate' | 'advanced';
-
-export type Terrain = 'road' | 'trail' | 'track' | 'mixed';
 
 // ==================
 // Race
@@ -16,90 +10,198 @@ export type Terrain = 'road' | 'trail' | 'track' | 'mixed';
 
 export interface Race {
   id: string;
-  name: string;
-  nameEn: string;
+  name_ja: string;
+  name_en: string;
   date: string; // ISO date string e.g. "2025-03-15"
-  endDate?: string;
-  prefecture: string; // e.g. "東京都"
-  prefectureCode: string; // e.g. "13"
-  city: string;
-  venue?: string;
-  distances: DistanceEntry[];
-  website?: string;
-  applicationPeriod?: {
-    start: string;
-    end: string;
-  };
-  capacity?: number;
-  level: Level;
-  terrain: Terrain;
+  prefecture: string; // 都道府県コード e.g. "13"
+  city_ja: string;
+  city_en: string;
+  description_ja: string;
+  description_en: string;
+  official_url: string;
+  /** 全カテゴリ共通の参加費。カテゴリ別の場合は null */
+  entry_fee: number | null;
+  /** true のとき entry_fee は null でカテゴリ別に設定 */
+  entry_fee_by_category: boolean;
+  entry_capacity: number;
+  entry_start_date: string; // ISO date string
+  entry_end_date: string; // ISO date string
+  reception_type: ReceptionType;
+  reception_note_ja: string;
+  reception_note_en: string;
   tags: string[];
-  description?: string;
-  descriptionEn?: string;
-  courseMap?: CourseMapData;
-  access?: AccessInfo;
-  gift?: GiftInfo;
-  createdAt?: string;
-  updatedAt?: string;
+  course_gpx_file: string | null;
+  course_info: CourseInfo;
+  categories: RaceCategory[];
+  aid_stations: AidStation[];
+  checkpoints: Checkpoint[];
+  access_points: AccessPoint[];
+  nearby_spots: NearbySpot[];
+  weather_history: WeatherHistory[];
+  participation_gifts: ParticipationGift[];
+  created_at: string; // ISO datetime string
+  updated_at: string; // ISO datetime string
 }
 
-export interface DistanceEntry {
-  category: string; // e.g. "フルマラソン"
-  categoryEn: string; // e.g. "Full Marathon"
-  distanceKm: number;
-  elevationM?: number; // cumulative elevation gain
-  cutoffTime?: string; // e.g. "06:00:00"
-  fee?: number; // JPY
+export type ReceptionType = 'pre_day' | 'race_day' | 'both' | 'pre_mail' | 'none';
+
+// ==================
+// RaceCategory / Wave
+// ==================
+
+export interface RaceCategory {
+  distance_type: DistanceType;
+  distance_km: number;
+  time_limit_minutes: number;
+  start_time: string; // e.g. "08:30"
+  capacity: number;
+  entry_fee: number | null;
+  entry_fee_u25: number | null;
+  name_ja: string | null;
+  name_en: string | null;
+  description_ja: string | null;
+  description_en: string | null;
+  waves: Wave[] | null;
 }
 
-// ==================
-// Course
-// ==================
+export type DistanceType = 'full' | 'half' | '10k' | '5k' | 'ultra' | 'other';
 
-export interface CourseMapData {
-  centerLat: number;
-  centerLng: number;
-  zoom: number;
-  gpxFile?: string; // filename under src/data/gpx/
-  elevationProfile?: ElevationPoint[];
-}
-
-export interface ElevationPoint {
-  distanceKm: number;
-  elevationM: number;
-}
-
-// ==================
-// Access
-// ==================
-
-export interface AccessInfo {
-  nearestStation?: string;
-  walkingMinutes?: number;
-  busInfo?: string;
-  shuttleInfo?: string;
-  parkingAvailable: boolean;
-  parkingCapacity?: number;
-  parkingFee?: number; // JPY/day
+export interface Wave {
+  wave: string; // e.g. "A", "B", "第1ウェーブ"
+  start_time: string; // e.g. "09:00"
+  end_time: string; // e.g. "15:00"
 }
 
 // ==================
-// Gift
+// CourseInfo
 // ==================
 
-export interface GiftInfo {
-  categories: string[]; // GiftCategory IDs
-  notes?: string;
-  notesEn?: string;
+export interface CourseInfo {
+  max_elevation_m: number;
+  min_elevation_m: number;
+  elevation_diff_m: number;
+  surface: CourseSurface;
+  /** 認定情報 e.g. ["AIMS", "陸連公認"] */
+  certification: string[];
+  highlights_ja: string;
+  highlights_en: string;
+  notes_ja: string | null;
+  notes_en: string | null;
+}
+
+export type CourseSurface = 'road' | 'trail' | 'mixed';
+
+// ==================
+// AidStation
+// ==================
+
+export interface AidStation {
+  distance_km: number;
+  offerings_ja: string;
+  offerings_en: string;
+  is_featured: boolean;
+}
+
+// ==================
+// Checkpoint
+// ==================
+
+export interface Checkpoint {
+  distance_km: number;
+  closing_time: string; // e.g. "11:30"
+}
+
+// ==================
+// AccessPoint
+// ==================
+
+export interface AccessPoint {
+  station_name_ja: string;
+  station_name_en: string;
+  station_code: string;
+  transport_to_venue_ja: string;
+  transport_to_venue_en: string;
+  latitude: number;
+  longitude: number;
+}
+
+// ==================
+// NearbySpot
+// ==================
+
+export type NearbySpotType = '観光地' | '温泉' | 'グルメ' | '宿泊';
+
+export interface NearbySpot {
+  type: NearbySpotType;
+  name_ja: string;
+  name_en: string;
+  description_ja: string;
+  description_en: string;
+  distance_from_venue: string; // e.g. "徒歩5分", "車で15分"
+  url: string | null;
+  latitude: number;
+  longitude: number;
+}
+
+// ==================
+// WeatherHistory
+// ==================
+
+export interface WeatherHistory {
+  year: number;
+  avg_temp: number; // °C
+  max_temp: number; // °C
+  min_temp: number; // °C
+  humidity_pct: number; // 0–100
+  precipitation_mm: number;
+  wind_speed_ms: number;
+}
+
+// ==================
+// ParticipationGift
+// ==================
+
+export type GiftCategoryId =
+  | 'medal'
+  | 'tshirt'
+  | 'towel'
+  | 'local_product'
+  | 'food'
+  | 'goods'
+  | 'coupon'
+  | 'other';
+
+export interface ParticipationGift {
+  gift_categories: GiftCategoryId[];
+  description_ja: string;
+  description_en: string;
+  image: string | null;
 }
 
 export interface GiftCategory {
-  id: string;
-  name: string;
-  nameEn: string;
+  id: GiftCategoryId;
+  name_ja: string;
+  name_en: string;
   icon: string; // emoji
-  description?: string;
-  descriptionEn?: string;
+}
+
+// ==================
+// CourseProfile（ビルド時自動生成）
+// ==================
+
+export interface CourseProfile {
+  race_id: string;
+  distance_km: number;
+  total_elevation_gain_m: number;
+  total_elevation_loss_m: number;
+  points: CoursePoint[];
+}
+
+export interface CoursePoint {
+  lat: number;
+  lng: number;
+  ele: number; // elevation in metres
+  dist_km: number;
 }
 
 // ==================
@@ -117,16 +219,26 @@ export interface Prefecture {
 }
 
 // ==================
-// Filter
+// UserSetting（localStorage用）
+// ==================
+
+export interface UserSetting {
+  home_station_name: string;
+  home_station_code: string;
+  preferred_language: Locale;
+  favorite_race_ids: string[];
+}
+
+// ==================
+// RaceFilter（検索フィルタ）
 // ==================
 
 export interface RaceFilter {
-  distance?: string; // Distance type key
-  prefectureCode?: string;
-  level?: Level;
-  terrain?: Terrain;
-  dateFrom?: string;
-  dateTo?: string;
-  tags?: string[];
-  searchQuery?: string;
+  month: number | null; // 1–12
+  prefecture: string | null; // 都道府県コード
+  distanceType: DistanceType | null;
+  giftCategory: GiftCategoryId | null;
+  timeLimitMin: number | null; // 分単位の最小制限時間
+  tags: string[];
+  searchText: string;
 }

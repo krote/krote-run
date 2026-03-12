@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import type { CourseMapData } from '@/lib/types';
+import type { CourseProfile } from '@/lib/types';
 
 const CourseMapDynamic = dynamic(() => import('./CourseMap'), {
   ssr: false,
@@ -12,6 +12,6 @@ const CourseMapDynamic = dynamic(() => import('./CourseMap'), {
   ),
 });
 
-export default function CourseMapLoader({ courseMap }: { courseMap: CourseMapData }) {
-  return <CourseMapDynamic courseMap={courseMap} />;
+export default function CourseMapLoader({ courseProfile }: { courseProfile: CourseProfile }) {
+  return <CourseMapDynamic courseProfile={courseProfile} />;
 }

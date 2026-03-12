@@ -1,4 +1,4 @@
-import type { DistanceEntry, Locale, RaceFilter, Race } from './types';
+import type { RaceCategory, Race, RaceFilter, Locale, DistanceType } from './types';
 
 // ==================
 // Date formatting
@@ -34,7 +34,7 @@ export function formatDateRange(
 // Distance formatting
 // ==================
 
-const DISTANCE_LABELS: Record<string, { ja: string; en: string }> = {
+const DISTANCE_LABELS: Record<DistanceType, { ja: string; en: string }> = {
   full: { ja: 'フルマラソン', en: 'Full Marathon' },
   half: { ja: 'ハーフマラソン', en: 'Half Marathon' },
   '10k': { ja: '10km', en: '10km' },
@@ -49,18 +49,43 @@ export function formatDistanceKm(km: number): string {
   return `${km}km`;
 }
 
-export function getDistanceLabel(key: string, locale: Locale): string {
+export function getDistanceLabel(key: DistanceType, locale: Locale): string {
   return DISTANCE_LABELS[key]?.[locale] ?? key;
 }
 
-export function getMainDistance(distances: DistanceEntry[]): DistanceEntry | null {
-  if (distances.length === 0) return null;
-  // Prefer full marathon, then longest
-  const full = distances.find(
-    (d) => d.distanceKm === 42.195 || d.category.includes('フル') || d.categoryEn.includes('Full'),
-  );
+export function getMainCategory(categories: RaceCategory[]): RaceCategory | null {
+  if (categories.length === 0) return null;
+  const full = categories.find((c) => c.distance_type === 'full');
   if (full) return full;
-  return distances.reduce((max, d) => (d.distanceKm > max.distanceKm ? d : max), distances[0]);
+  return categories.reduce((max, c) => (c.distance_km > max.distance_km ? c : max), categories[0]);
+}
+
+export function getCategoryLabel(cat: RaceCategory, locale: Locale): string {
+  if (locale === 'en' && cat.name_en) return cat.name_en;
+  if (locale === 'ja' && cat.name_ja) return cat.name_ja;
+  return getDistanceLabel(cat.distance_type, locale);
+}
+
+export function formatTimeLimitMinutes(minutes: number): string {
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  return m === 0 ? `${h}時間` : `${h}時間${m}分`;
+}
+
+// ==================
+// Locale helpers
+// ==================
+
+export function getRaceName(race: Race, locale: Locale): string {
+  return locale === 'en' ? race.name_en : race.name_ja;
+}
+
+export function getRaceCity(race: Race, locale: Locale): string {
+  return locale === 'en' ? race.city_en : race.city_ja;
+}
+
+export function getRaceDescription(race: Race, locale: Locale): string {
+  return locale === 'en' ? race.description_en : race.description_ja;
 }
 
 // ==================
@@ -75,29 +100,64 @@ export function formatCurrency(amount: number): string {
 // Race filtering
 // ==================
 
+export function emptyFilter(): RaceFilter {
+  return {
+    month: null,
+    prefecture: null,
+    distanceType: null,
+    giftCategory: null,
+    timeLimitMin: null,
+    tags: [],
+    searchText: '',
+  };
+}
+
+export function isFilterEmpty(filter: RaceFilter): boolean {
+  return (
+    filter.month === null &&
+    filter.prefecture === null &&
+    filter.distanceType === null &&
+    filter.giftCategory === null &&
+    filter.timeLimitMin === null &&
+    filter.tags.length === 0 &&
+    filter.searchText === ''
+  );
+}
+
 export function filterRaces(races: Race[], filter: RaceFilter): Race[] {
   return races.filter((race) => {
-    if (filter.prefectureCode && race.prefectureCode !== filter.prefectureCode) return false;
-    if (filter.level && race.level !== filter.level) return false;
-    if (filter.terrain && race.terrain !== filter.terrain) return false;
-    if (filter.dateFrom && race.date < filter.dateFrom) return false;
-    if (filter.dateTo && race.date > filter.dateTo) return false;
+    if (filter.prefecture && race.prefecture !== filter.prefecture) return false;
 
-    if (filter.distance) {
-      const hasDistance = race.distances.some((d) => {
-        if (filter.distance === 'full') return d.distanceKm === 42.195;
-        if (filter.distance === 'half') return d.distanceKm === 21.0975;
-        if (filter.distance === '10k') return d.distanceKm === 10;
-        if (filter.distance === '5k') return d.distanceKm === 5;
-        if (filter.distance === 'ultra') return d.distanceKm > 42.195;
-        return true;
-      });
-      if (!hasDistance) return false;
+    if (filter.month !== null) {
+      const raceMonth = new Date(race.date).getMonth() + 1;
+      if (raceMonth !== filter.month) return false;
     }
 
-    if (filter.searchQuery) {
-      const q = filter.searchQuery.toLowerCase();
-      if (!race.name.toLowerCase().includes(q) && !race.nameEn.toLowerCase().includes(q)) {
+    if (filter.distanceType) {
+      const hasType = race.categories.some((c) => c.distance_type === filter.distanceType);
+      if (!hasType) return false;
+    }
+
+    if (filter.giftCategory) {
+      const hasGift = race.participation_gifts.some((g) =>
+        g.gift_categories.includes(filter.giftCategory!),
+      );
+      if (!hasGift) return false;
+    }
+
+    if (filter.timeLimitMin !== null) {
+      const hasTime = race.categories.some((c) => c.time_limit_minutes >= filter.timeLimitMin!);
+      if (!hasTime) return false;
+    }
+
+    if (filter.tags.length > 0) {
+      const hasAllTags = filter.tags.every((tag) => race.tags.includes(tag));
+      if (!hasAllTags) return false;
+    }
+
+    if (filter.searchText) {
+      const q = filter.searchText.toLowerCase();
+      if (!race.name_ja.toLowerCase().includes(q) && !race.name_en.toLowerCase().includes(q)) {
         return false;
       }
     }

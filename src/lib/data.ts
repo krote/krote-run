@@ -1,27 +1,211 @@
-import type { Race, Prefecture, GiftCategory } from './types';
+import { eq, gte, asc } from "drizzle-orm";
+import { getDatabase } from "./db/client";
+import * as schema from "./db/schema";
+import type {
+  Race, Prefecture, GiftCategory, RaceCategory, Wave, CourseInfo,
+  AidStation, Checkpoint, AccessPoint, NearbySpot, WeatherHistory,
+  ParticipationGift, GiftCategoryId, CourseSurface, ReceptionType, NearbySpotType,
+} from "./types";
+
+// ==================
+// Row → Type 変換ヘルパー
+// ==================
+
+function parseJson<T>(json: string, fallback: T): T {
+  try {
+    return JSON.parse(json) as T;
+  } catch {
+    return fallback;
+  }
+}
+
+type RaceRow = typeof schema.races.$inferSelect;
+type CategoryRow = typeof schema.race_categories.$inferSelect;
+type AidStationRow = typeof schema.aid_stations.$inferSelect;
+type CheckpointRow = typeof schema.checkpoints.$inferSelect;
+type AccessPointRow = typeof schema.access_points.$inferSelect;
+type NearbySpotRow = typeof schema.nearby_spots.$inferSelect;
+type WeatherRow = typeof schema.weather_history.$inferSelect;
+type GiftRow = typeof schema.participation_gifts.$inferSelect;
+
+function rowToCategory(row: CategoryRow): RaceCategory {
+  return {
+    distance_type: row.distance_type as RaceCategory["distance_type"],
+    distance_km: row.distance_km,
+    time_limit_minutes: row.time_limit_minutes,
+    start_time: row.start_time,
+    capacity: row.capacity,
+    entry_fee: row.entry_fee ?? null,
+    entry_fee_u25: row.entry_fee_u25 ?? null,
+    name_ja: row.name_ja ?? null,
+    name_en: row.name_en ?? null,
+    description_ja: row.description_ja ?? null,
+    description_en: row.description_en ?? null,
+    waves: parseJson<Wave[] | null>(row.waves, null),
+  };
+}
+
+function rowToAidStation(row: AidStationRow): AidStation {
+  return {
+    distance_km: row.distance_km,
+    offerings_ja: row.offerings_ja,
+    offerings_en: row.offerings_en,
+    is_featured: row.is_featured,
+  };
+}
+
+function rowToCheckpoint(row: CheckpointRow): Checkpoint {
+  return {
+    distance_km: row.distance_km,
+    closing_time: row.closing_time,
+  };
+}
+
+function rowToAccessPoint(row: AccessPointRow): AccessPoint {
+  return {
+    station_name_ja: row.station_name_ja,
+    station_name_en: row.station_name_en,
+    station_code: row.station_code,
+    transport_to_venue_ja: row.transport_to_venue_ja,
+    transport_to_venue_en: row.transport_to_venue_en,
+    latitude: row.latitude,
+    longitude: row.longitude,
+  };
+}
+
+function rowToNearbySpot(row: NearbySpotRow): NearbySpot {
+  return {
+    type: row.type as NearbySpotType,
+    name_ja: row.name_ja,
+    name_en: row.name_en,
+    description_ja: row.description_ja,
+    description_en: row.description_en,
+    distance_from_venue: row.distance_from_venue,
+    url: row.url ?? null,
+    latitude: row.latitude,
+    longitude: row.longitude,
+  };
+}
+
+function rowToWeather(row: WeatherRow): WeatherHistory {
+  return {
+    year: row.year,
+    avg_temp: row.avg_temp,
+    max_temp: row.max_temp,
+    min_temp: row.min_temp,
+    humidity_pct: row.humidity_pct,
+    precipitation_mm: row.precipitation_mm,
+    wind_speed_ms: row.wind_speed_ms,
+  };
+}
+
+function rowToGift(row: GiftRow): ParticipationGift {
+  return {
+    gift_categories: parseJson<GiftCategoryId[]>(row.gift_categories, []),
+    description_ja: row.description_ja,
+    description_en: row.description_en,
+    image: row.image ?? null,
+  };
+}
+
+function assembleRace(
+  row: RaceRow,
+  categories: CategoryRow[],
+  aidStations: AidStationRow[],
+  checkpointRows: CheckpointRow[],
+  accessPointRows: AccessPointRow[],
+  nearbySpotRows: NearbySpotRow[],
+  weatherRows: WeatherRow[],
+  giftRows: GiftRow[],
+): Race {
+  const course_info: CourseInfo = {
+    max_elevation_m: row.course_max_elevation_m,
+    min_elevation_m: row.course_min_elevation_m,
+    elevation_diff_m: row.course_elevation_diff_m,
+    surface: row.course_surface as CourseSurface,
+    certification: parseJson<string[]>(row.course_certification, []),
+    highlights_ja: row.course_highlights_ja,
+    highlights_en: row.course_highlights_en,
+    notes_ja: row.course_notes_ja ?? null,
+    notes_en: row.course_notes_en ?? null,
+  };
+
+  return {
+    id: row.id,
+    name_ja: row.name_ja,
+    name_en: row.name_en,
+    date: row.date,
+    prefecture: row.prefecture,
+    city_ja: row.city_ja,
+    city_en: row.city_en,
+    description_ja: row.description_ja,
+    description_en: row.description_en,
+    official_url: row.official_url,
+    entry_fee: row.entry_fee ?? null,
+    entry_fee_by_category: row.entry_fee_by_category,
+    entry_capacity: row.entry_capacity,
+    entry_start_date: row.entry_start_date,
+    entry_end_date: row.entry_end_date,
+    reception_type: row.reception_type as ReceptionType,
+    reception_note_ja: row.reception_note_ja,
+    reception_note_en: row.reception_note_en,
+    tags: parseJson<string[]>(row.tags, []),
+    course_gpx_file: row.course_gpx_file ?? null,
+    course_info,
+    categories: categories.map(rowToCategory),
+    aid_stations: aidStations.map(rowToAidStation),
+    checkpoints: checkpointRows.map(rowToCheckpoint),
+    access_points: accessPointRows.map(rowToAccessPoint),
+    nearby_spots: nearbySpotRows.map(rowToNearbySpot),
+    weather_history: weatherRows.map(rowToWeather),
+    participation_gifts: giftRows.map(rowToGift),
+    created_at: row.created_at,
+    updated_at: row.updated_at,
+  };
+}
 
 // ==================
 // Race data
 // ==================
 
 export async function getRaces(): Promise<Race[]> {
-  try {
-    const { default: races } = await import('../data/races/index.json');
-    return races as Race[];
-  } catch {
-    return [];
-  }
+  const db = getDatabase();
+
+  const [raceRows, categoryRows, giftRows] = await db.batch([
+    db.select().from(schema.races).orderBy(asc(schema.races.date)),
+    db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
+    db.select().from(schema.participation_gifts).orderBy(asc(schema.participation_gifts.sort_order)),
+  ]);
+
+  return raceRows.map((row) =>
+    assembleRace(
+      row,
+      categoryRows.filter((c) => c.race_id === row.id),
+      [], [], [], [], [],
+      giftRows.filter((g) => g.race_id === row.id),
+    ),
+  );
 }
 
 export async function getRaceById(id: string): Promise<Race | null> {
-  try {
-    const { default: race } = await import(`../data/races/${id}.json`);
-    return race as Race;
-  } catch {
-    // Fall back to scanning all races
-    const races = await getRaces();
-    return races.find((r) => r.id === id) ?? null;
-  }
+  const db = getDatabase();
+
+  const [raceRows, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows] =
+    await db.batch([
+      db.select().from(schema.races).where(eq(schema.races.id, id)),
+      db.select().from(schema.race_categories).where(eq(schema.race_categories.race_id, id)).orderBy(asc(schema.race_categories.sort_order)),
+      db.select().from(schema.aid_stations).where(eq(schema.aid_stations.race_id, id)),
+      db.select().from(schema.checkpoints).where(eq(schema.checkpoints.race_id, id)),
+      db.select().from(schema.access_points).where(eq(schema.access_points.race_id, id)).orderBy(asc(schema.access_points.sort_order)),
+      db.select().from(schema.nearby_spots).where(eq(schema.nearby_spots.race_id, id)),
+      db.select().from(schema.weather_history).where(eq(schema.weather_history.race_id, id)),
+      db.select().from(schema.participation_gifts).where(eq(schema.participation_gifts.race_id, id)).orderBy(asc(schema.participation_gifts.sort_order)),
+    ]);
+
+  const row = raceRows[0];
+  if (!row) return null;
+
+  return assembleRace(row, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows);
 }
 
 export async function getRacesByPrefecture(prefecture: string): Promise<Race[]> {
@@ -30,12 +214,25 @@ export async function getRacesByPrefecture(prefecture: string): Promise<Race[]> 
 }
 
 export async function getUpcomingRaces(limit = 6): Promise<Race[]> {
-  const races = await getRaces();
-  const today = new Date().toISOString().split('T')[0];
-  return races
-    .filter((r) => r.date >= today)
-    .sort((a, b) => a.date.localeCompare(b.date))
-    .slice(0, limit);
+  const db = getDatabase();
+  const today = new Date().toISOString().split("T")[0];
+
+  const [raceRows, categoryRows, giftRows] = await db.batch([
+    db.select().from(schema.races).where(gte(schema.races.date, today)).orderBy(asc(schema.races.date)),
+    db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
+    db.select().from(schema.participation_gifts),
+  ]);
+
+  const limited = raceRows.slice(0, limit);
+
+  return limited.map((row) =>
+    assembleRace(
+      row,
+      categoryRows.filter((c) => c.race_id === row.id),
+      [], [], [], [], [],
+      giftRows.filter((g) => g.race_id === row.id),
+    ),
+  );
 }
 
 // ==================
@@ -43,13 +240,33 @@ export async function getUpcomingRaces(limit = 6): Promise<Race[]> {
 // ==================
 
 export async function getPrefectures(): Promise<Prefecture[]> {
-  const { default: prefectures } = await import('../data/prefectures.json');
-  return prefectures as Prefecture[];
+  const db = getDatabase();
+  const rows = await db.select().from(schema.prefectures).all();
+  return rows.map((r) => ({
+    code: r.code,
+    name: r.name,
+    nameEn: r.name_en,
+    region: r.region,
+    regionEn: r.region_en,
+    lat: r.lat,
+    lng: r.lng,
+  }));
 }
 
 export async function getPrefectureByCode(code: string): Promise<Prefecture | null> {
-  const prefectures = await getPrefectures();
-  return prefectures.find((p) => p.code === code) ?? null;
+  const db = getDatabase();
+  const rows = await db.select().from(schema.prefectures).where(eq(schema.prefectures.code, code));
+  const r = rows[0];
+  if (!r) return null;
+  return {
+    code: r.code,
+    name: r.name,
+    nameEn: r.name_en,
+    region: r.region,
+    regionEn: r.region_en,
+    lat: r.lat,
+    lng: r.lng,
+  };
 }
 
 // ==================
@@ -57,11 +274,25 @@ export async function getPrefectureByCode(code: string): Promise<Prefecture | nu
 // ==================
 
 export async function getGiftCategories(): Promise<GiftCategory[]> {
-  const { default: categories } = await import('../data/gift-categories.json');
-  return categories as GiftCategory[];
+  const db = getDatabase();
+  const rows = await db.select().from(schema.gift_categories).all();
+  return rows.map((r) => ({
+    id: r.id as GiftCategoryId,
+    name_ja: r.name_ja,
+    name_en: r.name_en,
+    icon: r.icon,
+  }));
 }
 
 export async function getGiftCategoryById(id: string): Promise<GiftCategory | null> {
-  const categories = await getGiftCategories();
-  return categories.find((c) => c.id === id) ?? null;
+  const db = getDatabase();
+  const rows = await db.select().from(schema.gift_categories).where(eq(schema.gift_categories.id, id));
+  const r = rows[0];
+  if (!r) return null;
+  return {
+    id: r.id as GiftCategoryId,
+    name_ja: r.name_ja,
+    name_en: r.name_en,
+    icon: r.icon,
+  };
 }

@@ -15,6 +15,8 @@
     "db:migrate:remote": "npx wrangler d1 migrations apply krote-run-db --remote",
     "db:seed:local": "npx wrangler d1 execute krote-run-db --local --file=./migrations/seed.sql",
     "db:seed:remote": "npx wrangler d1 execute krote-run-db --remote --file=./migrations/seed.sql",
+    "db:seed-races:local": "npx wrangler d1 execute krote-run-db --local --file=./migrations/seed-races.sql",
+    "db:seed-races:remote": "npx wrangler d1 execute krote-run-db --remote --file=./migrations/seed-races.sql",
     "db:studio": "npx drizzle-kit studio"
   },
   "dependencies": {

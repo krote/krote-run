@@ -1,0 +1,326 @@
+{
+  "id": "challenge-fuji5lakes-2026",
+  "name_ja": "第36回 チャレンジ富士五湖ウルトラマラソン",
+  "name_en": "36th Challenge Fuji Five Lakes Ultra Marathon",
+  "date": "2026-04-19",
+  "prefecture": "19",
+  "city_ja": "富士吉田市",
+  "city_en": "Fujiyoshida City",
+  "description_ja": "世界遺産・富士山と五つの湖を舞台にしたウルトラマラソン大会。62km・80km・100km・120kmの4種目から実力に合わせて選べる。フラットなコースと春の走りやすい気候で、初めてのウルトラマラソンにもおすすめ。120kmの部はSPARTATHLON一般エントリー枠の国際レース基準を満たす大会。",
+  "description_en": "An ultra marathon set against the World Heritage site of Mt. Fuji and five beautiful lakes. Choose from 4 distances: 62km, 80km, 100km, and 120km to match your ability. The flat course and pleasant spring climate make it ideal for first-time ultra marathon runners. The 120km category meets the international race criteria for SPARTATHLON general entry.",
+  "official_url": "https://www.r-wellness.com/fuji5/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 4500,
+  "entry_start_date": "2025-10-24",
+  "entry_end_date": "2026-01-31",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "ゼッケン・計測タグは大会約3週間前に発送。参加案内はメールで配信。前日（4/18）に受付あり。",
+  "reception_note_en": "Race bibs and timing tags are mailed approximately 3 weeks before the event. Participation guide sent by email. On-site registration available the day before (4/18).",
+  "tags": ["ウルトラマラソン", "富士山", "世界遺産", "初ウルトラおすすめ", "フラット", "景色が良い", "SPARTATHLON基準"],
+  "course_gpx_file": null,
+
+  "categories": [
+    {
+      "distance_type": "ultra",
+      "distance_km": 120,
+      "time_limit_minutes": 915,
+      "start_time": "04:00",
+      "capacity": 680,
+      "entry_fee": 25000,
+      "entry_fee_u25": 20000,
+      "name_ja": "FUJI 5LAKES 120km",
+      "name_en": "FUJI 5LAKES 120km",
+      "description_ja": "富士五湖すべてを巡るコース。SPARTATHLON一般エントリー枠の国際レース基準対象（12時間以内完走が条件）",
+      "description_en": "Course circling all five Fuji lakes. Qualifies for SPARTATHLON general entry (must finish within 12 hours)",
+      "waves": [
+        { "wave": "A", "start_time": "04:00", "end_time": "19:15" },
+        { "wave": "B", "start_time": "04:15", "end_time": "19:30" }
+      ]
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 100,
+      "time_limit_minutes": 840,
+      "start_time": "04:30",
+      "capacity": 2090,
+      "entry_fee": 23000,
+      "entry_fee_u25": 18400,
+      "name_ja": "FUJI 4LAKES 100km",
+      "name_en": "FUJI 4LAKES 100km",
+      "description_ja": "本栖湖を除く四湖を巡るコース",
+      "description_en": "Course circling four lakes (excluding Lake Motosu)",
+      "waves": [
+        { "wave": "C", "start_time": "04:30", "end_time": "18:30" },
+        { "wave": "D", "start_time": "04:45", "end_time": "18:45" },
+        { "wave": "E", "start_time": "05:00", "end_time": "19:00" }
+      ]
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 80,
+      "time_limit_minutes": 750,
+      "start_time": "06:00",
+      "capacity": 1040,
+      "entry_fee": 21500,
+      "entry_fee_u25": 17200,
+      "name_ja": "FUJI 4LAKES 80km",
+      "name_en": "FUJI 4LAKES 80km",
+      "description_ja": "山中湖を除く四湖を巡るコース",
+      "description_en": "Course circling four lakes (excluding Lake Yamanaka)",
+      "waves": [
+        { "wave": "F", "start_time": "06:00", "end_time": "18:30" }
+      ]
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 62,
+      "time_limit_minutes": 660,
+      "start_time": "06:45",
+      "capacity": 690,
+      "entry_fee": 19500,
+      "entry_fee_u25": 15600,
+      "name_ja": "FUJI 3LAKES 62km",
+      "name_en": "FUJI 3LAKES 62km",
+      "description_ja": "山中湖・本栖湖を除く三湖を巡るコース。初ウルトラにおすすめ",
+      "description_en": "Course circling three lakes (excluding Lake Yamanaka and Lake Motosu). Recommended for first ultra marathon",
+      "waves": [
+        { "wave": "G", "start_time": "06:45", "end_time": "17:45" },
+        { "wave": "H", "start_time": "07:00", "end_time": "18:00" }
+      ]
+    }
+  ],
+
+  "participation_gifts": [
+    {
+      "gift_categories": ["tshirt", "medal", "towel"],
+      "description_ja": "大会オリジナルTシャツ（THE NORTH FACE製・先着2,800名。先着数到達後はオリジナルタオルに変更）、完走メダル（完走者）、WEB完走証（完走者）",
+      "description_en": "Official race T-shirt by THE NORTH FACE (first 2,800 entries; changes to original towel after limit reached), Finisher medal (finishers), Web finisher certificate (finishers)",
+      "image": null
+    }
+  ],
+
+  "aid_stations": [
+    {
+      "distance_km": 10.0,
+      "offerings_ja": "水、スポーツドリンク、補給食",
+      "offerings_en": "Water, sports drink, snacks",
+      "is_featured": false
+    },
+    {
+      "distance_km": 20.0,
+      "offerings_ja": "水、スポーツドリンク、補給食、バナナ",
+      "offerings_en": "Water, sports drink, snacks, banana",
+      "is_featured": false
+    },
+    {
+      "distance_km": 30.0,
+      "offerings_ja": "水、スポーツドリンク、補給食",
+      "offerings_en": "Water, sports drink, snacks",
+      "is_featured": false
+    },
+    {
+      "distance_km": 40.0,
+      "offerings_ja": "水、スポーツドリンク、補給食、おにぎり",
+      "offerings_en": "Water, sports drink, snacks, rice ball",
+      "is_featured": false
+    },
+    {
+      "distance_km": 50.0,
+      "offerings_ja": "水、スポーツドリンク、補給食",
+      "offerings_en": "Water, sports drink, snacks",
+      "is_featured": false
+    },
+    {
+      "distance_km": 60.0,
+      "offerings_ja": "水、スポーツドリンク、補給食",
+      "offerings_en": "Water, sports drink, snacks",
+      "is_featured": false
+    },
+    {
+      "distance_km": 75.0,
+      "offerings_ja": "水、スポーツドリンク、補給食",
+      "offerings_en": "Water, sports drink, snacks",
+      "is_featured": false
+    },
+    {
+      "distance_km": 90.0,
+      "offerings_ja": "水、スポーツドリンク、補給食",
+      "offerings_en": "Water, sports drink, snacks",
+      "is_featured": false
+    },
+    {
+      "distance_km": 105.0,
+      "offerings_ja": "水、スポーツドリンク、補給食",
+      "offerings_en": "Water, sports drink, snacks",
+      "is_featured": false
+    }
+  ],
+
+  "access_points": [
+    {
+      "station_name_ja": "富士山駅",
+      "station_name_en": "Fujisan Station",
+      "station_code": "fujisan",
+      "transport_to_venue_ja": "富士山駅から富士北麓公園までシャトルバス運行（大会当日早朝）。または徒歩約30分。",
+      "transport_to_venue_en": "Shuttle bus from Fujisan Station to Fuji Hokuroku Park (early morning on race day). Or approx. 30 min walk.",
+      "latitude": 35.4879,
+      "longitude": 138.7948
+    },
+    {
+      "station_name_ja": "河口湖駅",
+      "station_name_en": "Kawaguchiko Station",
+      "station_code": "kawaguchiko",
+      "transport_to_venue_ja": "河口湖駅からタクシーで約15分。大会当日のシャトルバスは富士山駅発。",
+      "transport_to_venue_en": "Approx. 15 min by taxi from Kawaguchiko Station. Race day shuttle buses depart from Fujisan Station.",
+      "latitude": 35.4997,
+      "longitude": 138.7656
+    }
+  ],
+
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "富士山五合目",
+      "name_en": "Mt. Fuji 5th Station",
+      "description_ja": "標高約2,300mの富士山五合目。4月はまだ冬季閉鎖中の場合があるが、富士スバルラインからの富士山の眺望は圧巻。",
+      "description_en": "Mt. Fuji 5th Station at approx. 2,300m altitude. May still be closed in April, but the views of Mt. Fuji from the Fuji Subaru Line are spectacular.",
+      "distance_from_venue": "富士北麓公園から車で約40分",
+      "url": null,
+      "latitude": 35.3606,
+      "longitude": 138.7274
+    },
+    {
+      "type": "温泉",
+      "name_ja": "富士山溶岩の湯 泉水",
+      "name_en": "Fuji Lava Hot Spring Sensui",
+      "description_ja": "富士山の溶岩を使用した温泉施設。レース後のリカバリーに最適。富士山駅から徒歩圏内。",
+      "description_en": "A hot spring facility using Mt. Fuji lava rocks. Perfect for post-race recovery. Within walking distance from Fujisan Station.",
+      "distance_from_venue": "富士山駅から徒歩約10分",
+      "url": null,
+      "latitude": 35.4870,
+      "longitude": 138.7900
+    },
+    {
+      "type": "温泉",
+      "name_ja": "山中湖温泉 紅富士の湯",
+      "name_en": "Yamanakako Onsen Beni Fuji no Yu",
+      "description_ja": "山中湖畔にある日帰り温泉施設。露天風呂から富士山を一望できる。",
+      "description_en": "A day-trip hot spring facility on the shore of Lake Yamanaka. Enjoy panoramic views of Mt. Fuji from the outdoor bath.",
+      "distance_from_venue": "富士北麓公園から車で約20分",
+      "url": null,
+      "latitude": 35.4200,
+      "longitude": 138.8600
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "吉田のうどん",
+      "name_en": "Yoshida Udon",
+      "description_ja": "富士吉田市の名物料理。太くてコシの強い麺と味噌ベースのスープが特徴。市内に50軒以上のうどん店がある。レース後のエネルギー補給に最適。",
+      "description_en": "A specialty dish of Fujiyoshida City. Characterized by thick, chewy noodles and miso-based soup. Over 50 udon shops in the city. Perfect for post-race energy replenishment.",
+      "distance_from_venue": "富士山駅周辺",
+      "url": null,
+      "latitude": 35.4879,
+      "longitude": 138.7948
+    },
+    {
+      "type": "観光地",
+      "name_ja": "忍野八海",
+      "name_en": "Oshino Hakkai",
+      "description_ja": "富士山の伏流水が湧き出す8つの池からなる景勝地。世界遺産「富士山」の構成資産のひとつ。透明度の高い水面に映る富士山が美しい。",
+      "description_en": "A scenic spot consisting of 8 ponds fed by Mt. Fuji's underground water. Part of the World Heritage 'Mt. Fuji' site. The clear water reflecting Mt. Fuji is breathtaking.",
+      "distance_from_venue": "富士北麓公園から車で約15分",
+      "url": null,
+      "latitude": 35.4578,
+      "longitude": 138.8306
+    },
+    {
+      "type": "観光地",
+      "name_ja": "河口湖",
+      "name_en": "Lake Kawaguchi",
+      "description_ja": "富士五湖の中で最もアクセスが良い湖。4月は桜と富士山の共演が楽しめる。コース上でも湖畔を走る。",
+      "description_en": "The most accessible of the Fuji Five Lakes. In April, enjoy cherry blossoms with Mt. Fuji. The course runs along the lakeshore.",
+      "distance_from_venue": "富士北麓公園から車で約10分",
+      "url": null,
+      "latitude": 35.5100,
+      "longitude": 138.7500
+    }
+  ],
+
+  "weather_history": [
+    {
+      "year": 2025,
+      "avg_temp": 10.2,
+      "max_temp": 16.5,
+      "min_temp": 2.8,
+      "humidity_pct": 58,
+      "precipitation_mm": 1.5,
+      "wind_speed_ms": 2.0
+    },
+    {
+      "year": 2024,
+      "avg_temp": 12.0,
+      "max_temp": 18.8,
+      "min_temp": 4.5,
+      "humidity_pct": 52,
+      "precipitation_mm": 0.0,
+      "wind_speed_ms": 2.5
+    },
+    {
+      "year": 2023,
+      "avg_temp": 13.5,
+      "max_temp": 20.1,
+      "min_temp": 5.8,
+      "humidity_pct": 50,
+      "precipitation_mm": 0.0,
+      "wind_speed_ms": 2.2
+    },
+    {
+      "year": 2022,
+      "avg_temp": 9.8,
+      "max_temp": 15.0,
+      "min_temp": 2.2,
+      "humidity_pct": 65,
+      "precipitation_mm": 8.0,
+      "wind_speed_ms": 3.0
+    },
+    {
+      "year": 2019,
+      "avg_temp": 8.5,
+      "max_temp": 13.8,
+      "min_temp": 1.0,
+      "humidity_pct": 60,
+      "precipitation_mm": 3.5,
+      "wind_speed_ms": 2.8
+    }
+  ],
+
+  "course_info": {
+    "max_elevation_m": 1050,
+    "min_elevation_m": 830,
+    "elevation_diff_m": 220,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "河口湖畔の桜並木、西湖からの富士山眺望、精進湖、本栖湖（120kmのみ）、山中湖（100km・120kmのみ）、富士北麓公園（スタート・フィニッシュ）",
+    "highlights_en": "Cherry blossom-lined Lake Kawaguchi shore, Mt. Fuji views from Lake Saiko, Lake Shoji, Lake Motosu (120km only), Lake Yamanaka (100km & 120km only), Fuji Hokuroku Park (start/finish)",
+    "notes_ja": "紙コップでの給水提供なし。携帯ボトル・カップ必須。補給食・防寒具・雨対策も携帯必須。標高830〜1050mのため、早朝は気温が低い（4月でも氷点下の可能性あり）。",
+    "notes_en": "No paper cup water service. Carry your own bottle/cup. Must carry supplies, cold weather gear, and rain protection. Elevation 830-1050m, so early morning temperatures can be very low (below freezing possible even in April)."
+  },
+
+  "checkpoints": [],
+
+  "created_at": "2026-03-10T00:00:00Z",
+  "updated_at": "2026-03-10T00:00:00Z",
+
+  "_metadata": {
+    "data_source": "公式サイト (r-wellness.com/fuji5/) 、スポーツエントリー、PR TIMES プレスリリース等の公開情報から手動転記",
+    "data_accuracy_notes": [
+      "参加費は第36回大会の公式情報に基づく（全種目一律+1,000円の値上げ反映済み）",
+      "エイドステーションの提供内容・設置距離は過去大会の一般的な情報を参考に記載。正確な内容は大会ごとに異なる。紙コップなし・携帯ボトル必須は公式情報",
+      "気象データは富士吉田市の4月中旬の概算値。標高が高いため長野市より低温。正式には気象庁データで要検証",
+      "関門（checkpoints）情報は未取得。公式の最終案内で確認が必要",
+      "WAVEの時刻は第36回大会の公式情報に基づく"
+    ],
+    "last_verified": "2026-03-10"
+  }
+}

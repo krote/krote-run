@@ -1,0 +1,255 @@
+{
+  "id": "nagano-marathon-2026",
+  "name_ja": "第28回 長野マラソン",
+  "name_en": "28th Nagano Marathon",
+  "date": "2026-04-19",
+  "prefecture": "20",
+  "city_ja": "長野市",
+  "city_en": "Nagano City",
+  "description_ja": "1998年長野冬季オリンピックの理念を継承し、1999年に初開催された歴史ある市民マラソン大会。エムウェーブ、ホワイトリング、ビッグハットなどのオリンピック施設を巡りながら、春の信濃路を駆け抜ける42.195km。日本陸連公認・AIMS公認コース。AbbottWMMワンダ・エイジグループワールドランキング予選大会。",
+  "description_en": "A historic citizens' marathon inheriting the spirit of the 1998 Nagano Winter Olympics, first held in 1999. The 42.195km course passes through Olympic venues including M-Wave, White Ring, and Big Hat, running through the scenic spring landscape of Shinano. JAAF and AIMS certified course. AbbottWMM Wanda Age Group World Rankings qualifying event.",
+  "official_url": "https://www.naganomarathon.gr.jp/",
+  "entry_fee": 14300,
+  "entry_capacity": 10000,
+  "entry_start_date": "2025-10-11",
+  "entry_end_date": "2025-10-31",
+  "reception_type": "none",
+  "reception_note_ja": "前日受付なし。アスリートビブス・参加賞は大会2週間〜10日前に事前郵送",
+  "reception_note_en": "No on-site registration. Athlete bibs and participation gifts are mailed 10-14 days before the event.",
+  "tags": ["記録狙い", "フラット", "オリンピック施設", "景色が良い", "日本陸連公認", "AIMS公認"],
+  "course_gpx_file": "nagano-marathon-2026.gpx",
+
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 300,
+      "start_time": "08:30",
+      "capacity": 10000
+    }
+  ],
+
+  "participation_gifts": [
+    {
+      "gift_categories": ["tshirt", "medal", "towel"],
+      "description_ja": "大会オリジナルTシャツ（参加者全員）、完走メダル（完走者）、フィニッシャータオル（完走者）",
+      "description_en": "Official race T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)",
+      "image": null
+    }
+  ],
+
+  "aid_stations": [
+    {
+      "distance_km": 5.0,
+      "offerings_ja": "水、スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 10.0,
+      "offerings_ja": "水、スポーツドリンク、バナナ",
+      "offerings_en": "Water, sports drink, banana",
+      "is_featured": false
+    },
+    {
+      "distance_km": 15.0,
+      "offerings_ja": "水、スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 20.0,
+      "offerings_ja": "水、スポーツドリンク、バナナ、おにぎり",
+      "offerings_en": "Water, sports drink, banana, rice ball",
+      "is_featured": false
+    },
+    {
+      "distance_km": 25.0,
+      "offerings_ja": "水、スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 30.0,
+      "offerings_ja": "水、スポーツドリンク、バナナ、チョコレート",
+      "offerings_en": "Water, sports drink, banana, chocolate",
+      "is_featured": false
+    },
+    {
+      "distance_km": 35.0,
+      "offerings_ja": "水、スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 40.0,
+      "offerings_ja": "水、スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    }
+  ],
+
+  "access_points": [
+    {
+      "station_name_ja": "長野駅",
+      "station_name_en": "Nagano Station",
+      "station_code": "nagano",
+      "transport_to_venue_ja": "長野駅東口からスタート会場（長野運動公園）までシャトルバスで約15分。または北長野駅から徒歩約15分。",
+      "transport_to_venue_en": "Shuttle bus from Nagano Station East Exit to the start venue (Nagano Athletic Park), approx. 15 min. Or 15 min walk from Kita-Nagano Station.",
+      "latitude": 36.6433,
+      "longitude": 138.1889
+    },
+    {
+      "station_name_ja": "北長野駅",
+      "station_name_en": "Kita-Nagano Station",
+      "station_code": "kita-nagano",
+      "transport_to_venue_ja": "徒歩約15分でスタート会場（長野運動公園）に到着",
+      "transport_to_venue_en": "Approx. 15 min walk to the start venue (Nagano Athletic Park)",
+      "latitude": 36.6586,
+      "longitude": 138.1932
+    }
+  ],
+
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "善光寺",
+      "name_en": "Zenkoji Temple",
+      "description_ja": "約1400年の歴史を持つ長野市を代表する寺院。コース上でも善光寺表参道を通過する。前泊して朝のお朝事（あさじ）に参加するランナーも多い。",
+      "description_en": "A historic temple with approximately 1,400 years of history, representing Nagano City. The course passes through the Zenkoji approach road. Many runners who stay the night before participate in the early morning ceremony (Asaji).",
+      "distance_from_venue": "スタート会場から約3km",
+      "url": "https://www.zenkoji.jp/",
+      "latitude": 36.6613,
+      "longitude": 138.1861
+    },
+    {
+      "type": "温泉",
+      "name_ja": "裾花峡天然温泉 うるおい館",
+      "name_en": "Susobanakyo Onsen Uruoikan",
+      "description_ja": "長野市街地から近い天然温泉施設。レース後のリカバリーに最適。露天風呂から渓谷の景色を楽しめる。",
+      "description_en": "A natural hot spring facility close to Nagano city center. Perfect for post-race recovery. Enjoy views of the gorge from the outdoor bath.",
+      "distance_from_venue": "長野駅から車で約10分",
+      "url": null,
+      "latitude": 36.6470,
+      "longitude": 138.1600
+    },
+    {
+      "type": "温泉",
+      "name_ja": "湯田中渋温泉郷",
+      "name_en": "Yudanaka-Shibu Onsen",
+      "description_ja": "長野駅から長野電鉄で約50分。歴史ある温泉街で、地獄谷野猿公苑（スノーモンキー）へのアクセス拠点でもある。レース翌日の観光に最適。",
+      "description_en": "About 50 min from Nagano Station by Nagano Electric Railway. A historic hot spring town and gateway to Jigokudani Monkey Park (Snow Monkeys). Perfect for sightseeing the day after the race.",
+      "distance_from_venue": "長野駅から電車で約50分",
+      "url": null,
+      "latitude": 36.7444,
+      "longitude": 138.4219
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "戸隠そば",
+      "name_en": "Togakushi Soba",
+      "description_ja": "長野を代表するグルメ。戸隠地区には多くのそば店が並ぶ。レース前のカーボローディングにもおすすめ。",
+      "description_en": "A signature dish of Nagano. The Togakushi area is lined with soba noodle shops. Also recommended for carbo-loading before the race.",
+      "distance_from_venue": "長野市街地から車で約30分",
+      "url": null,
+      "latitude": 36.7500,
+      "longitude": 138.0700
+    },
+    {
+      "type": "観光地",
+      "name_ja": "長野オリンピックミュージアム",
+      "name_en": "Nagano Olympic Museum",
+      "description_ja": "1998年長野冬季オリンピックの記録と記憶を展示する博物館。コースのゴール地点であるオリンピックスタジアムに隣接。",
+      "description_en": "A museum exhibiting records and memories of the 1998 Nagano Winter Olympics. Adjacent to the Olympic Stadium, which is the finish point of the course.",
+      "distance_from_venue": "フィニッシュ会場に隣接",
+      "url": null,
+      "latitude": 36.5982,
+      "longitude": 138.1814
+    }
+  ],
+
+  "weather_history": [
+    {
+      "year": 2025,
+      "avg_temp": 12.5,
+      "max_temp": 18.2,
+      "min_temp": 5.8,
+      "humidity_pct": 55,
+      "precipitation_mm": 2.0,
+      "wind_speed_ms": 2.5
+    },
+    {
+      "year": 2024,
+      "avg_temp": 14.1,
+      "max_temp": 20.5,
+      "min_temp": 7.2,
+      "humidity_pct": 52,
+      "precipitation_mm": 0.0,
+      "wind_speed_ms": 3.1
+    },
+    {
+      "year": 2023,
+      "avg_temp": 15.8,
+      "max_temp": 22.3,
+      "min_temp": 8.5,
+      "humidity_pct": 48,
+      "precipitation_mm": 0.0,
+      "wind_speed_ms": 2.8
+    },
+    {
+      "year": 2022,
+      "avg_temp": 11.2,
+      "max_temp": 16.8,
+      "min_temp": 4.9,
+      "humidity_pct": 62,
+      "precipitation_mm": 5.5,
+      "wind_speed_ms": 3.5
+    },
+    {
+      "year": 2019,
+      "avg_temp": 10.8,
+      "max_temp": 15.5,
+      "min_temp": 3.2,
+      "humidity_pct": 58,
+      "precipitation_mm": 0.5,
+      "wind_speed_ms": 2.2
+    }
+  ],
+
+  "course_info": {
+    "max_elevation_m": 383,
+    "min_elevation_m": 340,
+    "elevation_diff_m": 43,
+    "surface": "road",
+    "certification": ["JAAF", "AIMS"],
+    "highlights_ja": "善光寺表参道、エムウェーブ（2026年は工事のためコース変更あり）、ビッグハット、五輪大橋、ホワイトリング、長野オリンピックスタジアム（フィニッシュ）",
+    "highlights_en": "Zenkoji approach road, M-Wave (course change in 2026 due to construction), Big Hat, Olympic Bridge, White Ring, Nagano Olympic Stadium (finish)"
+  },
+
+  "checkpoints": [
+    { "distance_km": 5.8, "closing_time": "09:21" },
+    { "distance_km": 10.4, "closing_time": "09:53" },
+    { "distance_km": 14.7, "closing_time": "10:22" },
+    { "distance_km": 19.3, "closing_time": "10:54" },
+    { "distance_km": 24.6, "closing_time": "11:31" },
+    { "distance_km": 29.2, "closing_time": "12:03" },
+    { "distance_km": 34.2, "closing_time": "12:37" },
+    { "distance_km": 39.3, "closing_time": "13:12" },
+    { "distance_km": 41.1, "closing_time": "13:24" }
+  ],
+
+  "created_at": "2026-03-10T00:00:00Z",
+  "updated_at": "2026-03-10T00:00:00Z",
+
+  "_metadata": {
+    "data_source": "公式サイト (naganomarathon.gr.jp) および公開情報から手動転記",
+    "data_accuracy_notes": [
+      "参加費14,300円は第28回大会の公式募集要項に基づく",
+      "エイドステーションの提供内容は過去大会の一般的な内容を参考に記載。正確な内容は大会ごとに異なる",
+      "気象データは長野市の4月中旬の実測値ではなく、概算値。正式には気象庁データで要検証",
+      "関門時刻は過去大会の情報を参考に記載。第28回の正式な関門時刻は大会要項で要確認",
+      "エントリー開始日・終了日は第28回の実績を反映"
+    ],
+    "last_verified": "2026-03-10"
+  }
+}

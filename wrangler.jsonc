@@ -1,26 +1,35 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "krote-run",
-  "compatibility_date": "2025-01-01",
-  "compatibility_flags": ["nodejs_compat"],
-  "pages_build_output_dir": ".open-next/assets",
-
-  // D1 データベース
-  // wrangler d1 create krote-run-db で作成後、database_id を更新してください
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "krote-run-db",
-      "database_id": "YOUR_D1_DATABASE_ID"
-    }
-  ],
-
-  // R2 バケット（GPXファイル・画像用）
-  // wrangler r2 bucket create krote-run-assets で作成してください
-  "r2_buckets": [
-    {
-      "binding": "R2",
-      "bucket_name": "krote-run-assets"
-    }
-  ]
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "krote-run",
+	"compatibility_date": "2025-01-01",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"pages_build_output_dir": ".open-next/assets",
+	// D1 データベース
+	// wrangler d1 create krote-run-db で作成後、database_id を更新してください
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "krote-run-db",
+			"database_id": "f040020b-5f9f-4d38-907e-3f56b3db38ae"
+		},
+		{
+			"binding": "krote_run_db",
+			"database_name": "krote-run-db",
+			"database_id": "f040020b-5f9f-4d38-907e-3f56b3db38ae"
+		}
+	],
+	// R2 バケット（GPXファイル・画像用）
+	// wrangler r2 bucket create krote-run-assets で作成してください
+	"r2_buckets": [
+		{
+			"binding": "R2",
+			"bucket_name": "krote-run-assets"
+		},
+		{
+			"bucket_name": "krote-run-assets",
+			"binding": "krote_run_assets"
+		}
+	]
 }

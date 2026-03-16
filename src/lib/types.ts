@@ -24,8 +24,8 @@ export interface Race {
   /** true のとき entry_fee は null でカテゴリ別に設定 */
   entry_fee_by_category: boolean;
   entry_capacity: number;
-  entry_start_date: string; // ISO date string
-  entry_end_date: string; // ISO date string
+  entry_start_date: string | null;
+  entry_end_date: string | null;
   reception_type: ReceptionType;
   reception_note_ja: string;
   reception_note_en: string;

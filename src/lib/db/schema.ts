@@ -19,8 +19,8 @@ export const races = sqliteTable("races", {
   entry_fee:             integer("entry_fee"),             // null = カテゴリ別
   entry_fee_by_category: integer("entry_fee_by_category", { mode: "boolean" }).notNull().default(false),
   entry_capacity:        integer("entry_capacity").notNull().default(0),
-  entry_start_date:      text("entry_start_date").notNull(),
-  entry_end_date:        text("entry_end_date").notNull(),
+  entry_start_date:      text("entry_start_date"),
+  entry_end_date:        text("entry_end_date"),
   reception_type:        text("reception_type").notNull().default("race_day"),
   reception_note_ja:     text("reception_note_ja").notNull().default(""),
   reception_note_en:     text("reception_note_en").notNull().default(""),

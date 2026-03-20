@@ -1,0 +1,94 @@
+{
+  "id": "kagoshima-marathon-2026",
+  "name_ja": "鹿児島マラソン",
+  "name_en": "Kagoshima Marathon",
+  "date": "2026-03-01",
+  "prefecture": "46",
+  "city_ja": "鹿児島市",
+  "city_en": "Kagoshima City",
+  "description_ja": "桜島を望みながら走るフルマラソン。錦江湾沿いの雄大な景色が魅力。",
+  "description_en": "A full marathon with views of Sakurajima volcano. Features magnificent scenery along Kinko Bay.",
+  "official_url": "https://www.kagoshima-marathon.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "景色が良い",
+    "火山"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "桜島、錦江湾",
+    "highlights_en": "Sakurajima, Kinko Bay",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 420,
+      "start_time": null,
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "桜島",
+      "name_en": "Sakurajima",
+      "description_ja": "コース上から望める活火山。フェリーで15分。溶岩原や展望台からの眺望が圧巻。",
+      "description_en": "An active volcano visible from the course. 15 min by ferry. Lava fields and observation decks.",
+      "distance_from_venue": "鹿児島港からフェリー15分",
+      "url": null,
+      "latitude": 31.5856,
+      "longitude": 130.6569
+    },
+    {
+      "type": "温泉",
+      "name_ja": "指宿温泉",
+      "name_en": "Ibusuki Onsen",
+      "description_ja": "砂むし温泉で有名。鹿児島市から特急で約1時間。レース翌日の遠足に。",
+      "description_en": "Famous for sand steam baths. About 1 hour by express from Kagoshima. Day trip the day after.",
+      "distance_from_venue": "鹿児島市から特急約1時間",
+      "url": null,
+      "latitude": 31.25,
+      "longitude": 130.65
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

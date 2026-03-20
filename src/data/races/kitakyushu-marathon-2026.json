@@ -1,0 +1,83 @@
+{
+  "id": "kitakyushu-marathon-2026",
+  "name_ja": "北九州マラソン",
+  "name_en": "Kitakyushu Marathon",
+  "date": "2026-02-15",
+  "prefecture": "40",
+  "city_ja": "北九州市",
+  "city_en": "Kitakyushu City",
+  "description_ja": "福岡県北九州市で開催されるフルマラソン。小倉の市街地と関門海峡を望むコース。",
+  "description_en": "A full marathon in Kitakyushu, Fukuoka. Course features Kokura city center and views of the Kanmon Strait.",
+  "official_url": "https://kitakyushu-marathon.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "景色が良い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "小倉市街地、関門海峡",
+    "highlights_en": "Kokura city center, Kanmon Strait",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": null,
+      "start_time": "09:00",
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "門司港レトロ",
+      "name_en": "Mojiko Retro",
+      "description_ja": "大正ロマンの雰囲気が残る港町。焼きカレーが名物。",
+      "description_en": "A port town with Taisho-era atmosphere. Famous for baked curry.",
+      "distance_from_venue": "小倉から電車約15分",
+      "url": null,
+      "latitude": 33.95,
+      "longitude": 130.9611
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal",
+        "towel"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル、フィニッシャータオル",
+      "description_en": "Race T-shirt, Finisher medal, Finisher towel",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "id": "kumamoto-castle-marathon-2026",
+  "name_ja": "熊本城マラソン",
+  "name_en": "Kumamoto Castle Marathon",
+  "date": "2026-02-15",
+  "prefecture": "43",
+  "city_ja": "熊本市",
+  "city_en": "Kumamoto City",
+  "description_ja": "熊本城を発着点とするフルマラソン。復興のシンボル・熊本城を目指してゴールする感動のフィニッシュ。",
+  "description_en": "A full marathon starting and finishing at Kumamoto Castle, the symbol of the city's recovery.",
+  "official_url": "https://kumamotojyo-marathon.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "城下町",
+    "景色が良い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "熊本城",
+    "highlights_en": "Kumamoto Castle",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 420,
+      "start_time": "09:00",
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "熊本城",
+      "name_en": "Kumamoto Castle",
+      "description_ja": "日本三名城の一つ。震災復興のシンボル。ゴール地点から近い。",
+      "description_en": "One of Japan's three famous castles. Symbol of earthquake recovery. Close to the finish.",
+      "distance_from_venue": "ゴール付近",
+      "url": null,
+      "latitude": 32.806,
+      "longitude": 130.7058
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "馬刺し・太平燕",
+      "name_en": "Horse Sashimi & Taipien",
+      "description_ja": "熊本を代表するグルメ。馬刺しと太平燕（春雨スープ）はぜひ試したい。",
+      "description_en": "Kumamoto's signature dishes. Horse sashimi and taipien (glass noodle soup) are must-tries.",
+      "distance_from_venue": "熊本市内",
+      "url": null,
+      "latitude": 32.8032,
+      "longitude": 130.7079
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-16T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-16",
+    "detail_level": "medium"
+  }
+}

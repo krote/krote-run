@@ -15,15 +15,59 @@
   },
   "home": {
     "hero": {
-      "title": "あなたの次のマラソンを見つけよう",
-      "subtitle": "全国のマラソン大会情報をまとめてチェック",
-      "searchPlaceholder": "大会名・都道府県で検索",
-      "searchButton": "検索する"
+      "eyebrow": "2026年 レースシーズン",
+      "titleLine1": "日本の",
+      "titleEm": "感動を、",
+      "subtitle": "全国47都道府県、52大会のレース情報を一括検索。桜の春ランから山岳の秋コースまで。",
+      "searchPlaceholder": "都市・距離・季節で検索…",
+      "searchButton": "検索"
+    },
+    "meta": {
+      "racesLabel": "大会登録数",
+      "prefLabel": "都道府県",
+      "entryLabel": "エントリー受付中",
+      "seasonRange": "春〜冬",
+      "seasonLabel": "年間開催"
     },
     "sections": {
       "upcoming": "近日開催の大会",
-      "popular": "人気の大会",
-      "byRegion": "地域から探す"
+      "upcomingSub": "開催日順・あなたの次のジャパンマラソン",
+      "viewAll": "すべて見る →",
+      "toggleMag": "マガジン",
+      "toggleExp": "体験で探す"
+    },
+    "why": {
+      "eyebrow": "なぜ、日本で走るのか",
+      "title": "レースを超えた、",
+      "titleEm": "忘れられない体験。",
+      "item1Title": "圧倒的な景観",
+      "item1Desc": "神社・城・桜・富士山。日本のコースはそれ自体が観光ツアーだ。",
+      "item2Title": "世界一のエイドステーション",
+      "item2Desc": "おにぎり・みそ汁・地元グルメ。こんな給食、世界中どこにもない。",
+      "item3Title": "熱狂的な沿道の応援",
+      "item3Desc": "太鼓・踊り・声援。沿道の熱気が、あなたをゴールまで運んでくれる。",
+      "item4Title": "圧巻の大会運営",
+      "item4Desc": "正確な計測・整備されたコース・そしておもてなし。日本のレースは信頼が違う。"
+    },
+    "footer": {
+      "tagline": "日本全国のマラソン・ランニング大会情報ポータル。",
+      "madeFor": "日本を走る人のために",
+      "findRace": "大会を探す",
+      "info": "サイト情報",
+      "byRegion": "地域から探す",
+      "byDistance": "距離から探す",
+      "bySeason": "季節から探す",
+      "howToEnter": "エントリー方法"
+    },
+    "card": {
+      "distance": "距離",
+      "timeLimit": "制限時間",
+      "runners": "定員",
+      "viewDetails": "詳細を見る",
+      "viewRace": "詳細を見る",
+      "enter": "エントリー",
+      "entryOpen": "受付中",
+      "closed": "受付終了"
     }
   },
   "races": {
@@ -31,16 +75,21 @@
     "count": "{count}件の大会",
     "search": "大会を検索",
     "noResults": "条件に合う大会が見つかりませんでした",
+    "eyebrow": "2026年シーズン",
+    "subtitle": "件の大会を掲載中",
     "filter": {
       "title": "絞り込み",
-      "clear": "クリア",
-      "distance": "距離",
+      "clear": "すべてクリア",
+      "distance": "距離カテゴリ",
+      "month": "開催月",
       "prefecture": "都道府県",
       "level": "レベル",
       "terrain": "コース種別",
       "dateFrom": "開催日（から）",
       "dateTo": "開催日（まで）",
-      "all": "すべて"
+      "all": "すべて",
+      "toggleMag": "マガジン",
+      "toggleExp": "体験で探す"
     },
     "distance": {
       "full": "フルマラソン",
@@ -74,13 +123,42 @@
     },
     "detail": {
       "overview": "大会概要",
-      "course": "コース情報",
+      "course": "コース・カテゴリ",
+      "courseInfo": "コース詳細",
+      "checkpoints": "関門情報",
+      "aidStations": "エイドステーション",
       "access": "アクセス",
+      "nearby": "周辺スポット",
+      "weather": "当日の気象",
       "gift": "参加賞",
       "applicationPeriod": "エントリー期間",
       "fee": "参加費",
       "cutoffTime": "制限時間",
-      "website": "公式サイト"
+      "website": "公式サイト",
+      "backToRaces": "← 大会一覧",
+      "entryOpen": "エントリー受付中",
+      "entryClosed": "受付終了",
+      "notYetOpen": "受付前",
+      "category": "カテゴリ",
+      "distance": "距離",
+      "startTime": "スタート",
+      "capacity": "定員",
+      "surface": {
+        "road": "ロード",
+        "trail": "トレイル",
+        "mixed": "ミックス"
+      },
+      "elevation": "標高",
+      "maxElev": "最高",
+      "minElev": "最低",
+      "diff": "高低差",
+      "featured": "注目",
+      "spotType": {
+        "sightseeing": "観光地",
+        "onsen": "温泉",
+        "gourmet": "グルメ",
+        "accommodation": "宿泊"
+      }
     }
   },
   "calendar": {

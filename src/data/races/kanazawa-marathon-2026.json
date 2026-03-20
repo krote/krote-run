@@ -1,0 +1,109 @@
+{
+  "id": "kanazawa-marathon-2026",
+  "name_ja": "金沢マラソン",
+  "name_en": "Kanazawa Marathon",
+  "date": "2026-10-25",
+  "prefecture": "17",
+  "city_ja": "金沢市",
+  "city_en": "Kanazawa City",
+  "description_ja": "加賀百万石の城下町・金沢を走るフルマラソン。兼六園や金沢城など歴史的名所を巡るコース。ご当地グルメのエイドが充実。",
+  "description_en": "A full marathon through Kanazawa, the historic castle town. The course passes Kenroku-en Garden, Kanazawa Castle, and more. Known for excellent local food at aid stations.",
+  "official_url": "https://www.kanazawa-marathon.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "城下町",
+    "観光",
+    "ご当地エイド充実",
+    "景色が良い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "兼六園、金沢城、ひがし茶屋街付近",
+    "highlights_en": "Kenroku-en Garden, Kanazawa Castle, Higashi Chaya District area",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 420,
+      "start_time": "08:30",
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "兼六園",
+      "name_en": "Kenroku-en Garden",
+      "description_ja": "日本三名園の一つ。コース上から望める。秋の紅葉が美しい。",
+      "description_en": "One of Japan's three most beautiful gardens. Visible from the course. Beautiful autumn foliage.",
+      "distance_from_venue": "コース付近",
+      "url": null,
+      "latitude": 36.5625,
+      "longitude": 136.6625
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "近江町市場",
+      "name_en": "Omicho Market",
+      "description_ja": "金沢の台所。新鮮な海鮮が楽しめる。レース後の食べ歩きに最適。",
+      "description_en": "Kanazawa's kitchen. Enjoy fresh seafood. Perfect for post-race food tours.",
+      "distance_from_venue": "金沢市中心部",
+      "url": null,
+      "latitude": 36.5719,
+      "longitude": 136.6563
+    },
+    {
+      "type": "温泉",
+      "name_ja": "金沢駅周辺の温泉施設",
+      "name_en": "Hot spring facilities near Kanazawa Station",
+      "description_ja": "金沢駅周辺には日帰り温泉施設あり。レース後のリカバリーに。",
+      "description_en": "Day-trip hot spring facilities available near Kanazawa Station. For post-race recovery.",
+      "distance_from_venue": "金沢駅周辺",
+      "url": null,
+      "latitude": 36.5781,
+      "longitude": 136.6486
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal",
+        "local_product"
+      ],
+      "description_ja": "大会オリジナルTシャツ、完走メダル、地元特産品",
+      "description_en": "Official race T-shirt, Finisher medal, Local specialty products",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

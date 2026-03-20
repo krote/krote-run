@@ -42,6 +42,12 @@
     "icon": "🎟️"
   },
   {
+    "id": "certificate",
+    "name_ja": "完走証",
+    "name_en": "Finisher Certificate",
+    "icon": "📜"
+  },
+  {
     "id": "other",
     "name_ja": "その他",
     "name_en": "Other",

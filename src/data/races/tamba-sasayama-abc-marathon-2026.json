@@ -1,0 +1,85 @@
+{
+  "id": "tamba-sasayama-abc-marathon-2026",
+  "name_ja": "丹波篠山ABCマラソン",
+  "name_en": "Tamba-Sasayama ABC Marathon",
+  "date": "2026-03-01",
+  "prefecture": "28",
+  "city_ja": "丹波篠山市",
+  "city_en": "Tamba-Sasayama City",
+  "description_ja": "兵庫県丹波篠山で開催。城下町の風情と田園風景の中を走る。制限時間5時間30分。",
+  "description_en": "Held in Tamba-Sasayama, Hyogo. Run through a castle town atmosphere and rural landscapes. 5.5-hour time limit.",
+  "official_url": "https://tambasasayama-abc-marathon.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "城下町"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "篠山城跡、田園風景",
+    "highlights_en": "Sasayama Castle ruins, rural landscape",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 330,
+      "start_time": null,
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "グルメ",
+      "name_ja": "丹波篠山の黒豆・ぼたん鍋",
+      "name_en": "Tamba-Sasayama Black Beans & Botan Nabe",
+      "description_ja": "丹波の黒豆と猪肉のぼたん鍋が名物。秋〜冬が旬。",
+      "description_en": "Famous for Tamba black beans and boar meat hot pot. Best in autumn-winter.",
+      "distance_from_venue": "篠山市内",
+      "url": null,
+      "latitude": 35.0764,
+      "longitude": 135.2203
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "local_product"
+      ],
+      "description_ja": "大会Tシャツ、丹波の特産品",
+      "description_en": "Race T-shirt, Tamba local products",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

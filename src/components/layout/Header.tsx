@@ -5,8 +5,7 @@ import { Link, usePathname } from '@/i18n/navigation';
 import { useState } from 'react';
 
 const NAV_LINKS = [
-  { href: '/', labelKey: 'home' },
-  { href: '/races', labelKey: 'races' },
+  { href: '/races',    labelKey: 'races'    },
   { href: '/calendar', labelKey: 'calendar' },
   { href: '/settings', labelKey: 'settings' },
 ] as const;
@@ -18,92 +17,98 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
-            <span className="text-2xl">🏃</span>
-            <span>KroteRun</span>
-          </Link>
+    <header className="sticky top-0 z-50 bg-white border-b border-[var(--color-border)]">
+      <div className="max-w-[1120px] mx-auto px-9 h-[60px] flex items-center justify-between">
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1">
-            {NAV_LINKS.map(({ href, labelKey }) => (
-              <Link
-                key={href}
-                href={href}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  pathname === href
-                    ? 'bg-primary-50 text-primary'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                }`}
-              >
-                {t(labelKey)}
-              </Link>
-            ))}
-          </nav>
+        {/* Logo */}
+        <Link href="/" className="flex flex-col leading-none text-decoration-none no-underline">
+          <span className="font-serif text-[1.25rem] font-bold tracking-[0.02em] text-[var(--color-ink)]">
+            KroteRun
+            <sup className="font-sans text-[0.52em] tracking-[0.18em] text-[var(--color-primary)] align-super ml-1 font-semibold">
+              JAPAN
+            </sup>
+          </span>
+        </Link>
 
-          {/* Locale switcher (desktop) */}
-          <div className="hidden md:flex items-center gap-2">
-            <span className="text-xs text-gray-400">
-              {locale === 'ja' ? 'JA' : 'EN'}
-            </span>
+        {/* Desktop nav */}
+        <nav className="hidden md:flex gap-8">
+          {NAV_LINKS.map(({ href, labelKey }) => (
             <Link
-              href={pathname}
-              locale={locale === 'ja' ? 'en' : 'ja'}
-              className="px-3 py-1.5 text-xs font-medium text-gray-600 border border-gray-200 rounded-md hover:border-primary hover:text-primary transition-colors"
+              key={href}
+              href={href}
+              className={`text-[0.83rem] font-medium tracking-[0.03em] transition-colors no-underline ${
+                pathname === href
+                  ? 'text-[var(--color-ink)]'
+                  : 'text-[var(--color-mid)] hover:text-[var(--color-ink)]'
+              }`}
             >
-              {locale === 'ja' ? 'EN' : 'JA'}
+              {t(labelKey)}
             </Link>
-          </div>
+          ))}
+        </nav>
 
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+        {/* Language switcher */}
+        <div className="hidden md:flex border border-[var(--color-border)] rounded-[3px] overflow-hidden">
+          <Link
+            href={pathname}
+            locale="ja"
+            className={`text-[0.72rem] font-semibold tracking-[0.08em] px-3 py-1.5 border-r border-[var(--color-border)] transition-all no-underline ${
+              locale === 'ja'
+                ? 'bg-[var(--color-ink)] text-white'
+                : 'bg-white text-[var(--color-mid)] hover:text-[var(--color-ink)]'
+            }`}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {menuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+            JA
+          </Link>
+          <Link
+            href={pathname}
+            locale="en"
+            className={`text-[0.72rem] font-semibold tracking-[0.08em] px-3 py-1.5 transition-all no-underline ${
+              locale === 'en'
+                ? 'bg-[var(--color-ink)] text-white'
+                : 'bg-white text-[var(--color-mid)] hover:text-[var(--color-ink)]'
+            }`}
+          >
+            EN
+          </Link>
         </div>
 
-        {/* Mobile nav */}
-        {menuOpen && (
-          <div className="md:hidden py-3 border-t border-gray-100">
-            {NAV_LINKS.map(({ href, labelKey }) => (
-              <Link
-                key={href}
-                href={href}
-                className={`block px-4 py-2.5 text-sm font-medium rounded-lg mb-1 ${
-                  pathname === href
-                    ? 'bg-primary-50 text-primary'
-                    : 'text-gray-600 hover:bg-gray-100'
-                }`}
-                onClick={() => setMenuOpen(false)}
-              >
-                {t(labelKey)}
-              </Link>
-            ))}
-            <div className="px-4 pt-2 pb-1 border-t border-gray-100 mt-2">
-              <Link
-                href={pathname}
-                locale={locale === 'ja' ? 'en' : 'ja'}
-                className="text-sm text-gray-500 hover:text-primary"
-                onClick={() => setMenuOpen(false)}
-              >
-                {locale === 'ja' ? 'Switch to English' : '日本語に切り替え'}
-              </Link>
-            </div>
-          </div>
-        )}
+        {/* Mobile menu button */}
+        <button
+          className="md:hidden p-2 rounded text-[var(--color-mid)] hover:bg-[var(--color-cream)]"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {menuOpen
+              ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            }
+          </svg>
+        </button>
       </div>
+
+      {/* Mobile nav */}
+      {menuOpen && (
+        <div className="md:hidden border-t border-[var(--color-border)] bg-white py-3 px-9">
+          {NAV_LINKS.map(({ href, labelKey }) => (
+            <Link
+              key={href}
+              href={href}
+              className={`block py-2.5 text-sm font-medium no-underline ${
+                pathname === href ? 'text-[var(--color-ink)]' : 'text-[var(--color-mid)]'
+              }`}
+              onClick={() => setMenuOpen(false)}
+            >
+              {t(labelKey)}
+            </Link>
+          ))}
+          <div className="flex gap-3 pt-3 mt-2 border-t border-[var(--color-border)]">
+            <Link href={pathname} locale="ja" className={`text-sm font-semibold no-underline ${locale === 'ja' ? 'text-[var(--color-ink)]' : 'text-[var(--color-mid)]'}`} onClick={() => setMenuOpen(false)}>JA</Link>
+            <Link href={pathname} locale="en" className={`text-sm font-semibold no-underline ${locale === 'en' ? 'text-[var(--color-ink)]' : 'text-[var(--color-mid)]'}`} onClick={() => setMenuOpen(false)}>EN</Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

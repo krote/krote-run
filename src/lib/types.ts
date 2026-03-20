@@ -169,6 +169,7 @@ export type GiftCategoryId =
   | 'food'
   | 'goods'
   | 'coupon'
+  | 'certificate'
   | 'other';
 
 export interface ParticipationGift {
@@ -237,7 +238,7 @@ export interface RaceFilter {
   month: number | null; // 1–12
   prefecture: string | null; // 都道府県コード
   distanceType: DistanceType | null;
-  giftCategory: GiftCategoryId | null;
+  giftCategories: GiftCategoryId[];
   timeLimitMin: number | null; // 分単位の最小制限時間
   tags: string[];
   searchText: string;

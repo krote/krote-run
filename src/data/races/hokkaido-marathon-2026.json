@@ -1,0 +1,109 @@
+{
+  "id": "hokkaido-marathon-2026",
+  "name_ja": "北海道マラソン",
+  "name_en": "Hokkaido Marathon",
+  "date": "2026-08-30",
+  "prefecture": "01",
+  "city_ja": "札幌市",
+  "city_en": "Sapporo City",
+  "description_ja": "夏に開催される日本唯一の大規模フルマラソン。札幌の市街地と北海道大学キャンパス内を走る。MGCシリーズG2大会。",
+  "description_en": "Japan's only large-scale summer full marathon. Run through Sapporo's city center and Hokkaido University campus. MGC Series G2 event.",
+  "official_url": "https://hokkaido-marathon.com",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": "pre_day",
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "夏マラソン",
+    "大規模",
+    "北海道",
+    "日本陸連公認"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "大通公園、北海道大学、豊平川",
+    "highlights_en": "Odori Park, Hokkaido University, Toyohira River",
+    "notes_ja": "夏開催のため暑さ対策が必須。制限時間5時間。",
+    "notes_en": "Summer heat countermeasures essential. 5-hour time limit."
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 300,
+      "start_time": "08:30",
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "大通公園",
+      "name_en": "Odori Park",
+      "description_ja": "スタート・フィニッシュ地点。札幌を代表する都市公園。大会当日は大きな声援で包まれる。",
+      "description_en": "Start/Finish area. Sapporo's iconic urban park. Filled with cheers on race day.",
+      "distance_from_venue": "スタート・フィニッシュ地点",
+      "url": null,
+      "latitude": 43.0589,
+      "longitude": 141.3476
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "札幌ラーメン横丁",
+      "name_en": "Sapporo Ramen Yokocho",
+      "description_ja": "味噌ラーメンの聖地。レース後のエネルギー補給に最適。",
+      "description_en": "The holy ground of miso ramen. Perfect for post-race energy replenishment.",
+      "distance_from_venue": "すすきの付近",
+      "url": null,
+      "latitude": 43.0537,
+      "longitude": 141.3525
+    },
+    {
+      "type": "温泉",
+      "name_ja": "定山渓温泉",
+      "name_en": "Jozankei Onsen",
+      "description_ja": "札幌の奥座敷と呼ばれる温泉地。レース翌日の観光に。札幌中心部からバスで約60分。",
+      "description_en": "Known as Sapporo's inner parlor. For sightseeing the day after. About 60 min by bus from central Sapporo.",
+      "distance_from_venue": "札幌中心部からバス約60分",
+      "url": null,
+      "latitude": 42.9694,
+      "longitude": 141.1667
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal"
+      ],
+      "description_ja": "大会オリジナルTシャツ、完走メダル",
+      "description_en": "Official race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "id": "kix-senshu-marathon-2026",
+  "name_ja": "KIX泉州国際マラソン",
+  "name_en": "KIX Senshu International Marathon",
+  "date": "2026-02-08",
+  "prefecture": "27",
+  "city_ja": "堺市〜泉佐野市",
+  "city_en": "Sakai to Izumisano",
+  "description_ja": "大阪南部の泉州地域を走るフルマラソン。関西国際空港連絡橋付近をコースに含む。",
+  "description_en": "A full marathon through the Senshu area of southern Osaka, with parts of the course near the Kansai International Airport bridge.",
+  "official_url": "http://www.senshu-marathon.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "記録狙い",
+    "フラット"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "泉州の海岸沿い",
+    "highlights_en": "Senshu coastline",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 300,
+      "start_time": "10:30",
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "岸和田城",
+      "name_en": "Kishiwada Castle",
+      "description_ja": "だんじり祭りで有名な岸和田の城。コース付近。",
+      "description_en": "The castle in Kishiwada, famous for the Danjiri Festival. Near the course.",
+      "distance_from_venue": "コース付近",
+      "url": null,
+      "latitude": 34.4608,
+      "longitude": 135.3706
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

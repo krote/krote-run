@@ -1,78 +1,91 @@
 import type { Race, Locale } from '@/lib/types';
-import { formatDate, getMainCategory, getCategoryLabel, getRaceName, getRaceCity } from '@/lib/utils';
+import { formatDate, getMainCategory, getRaceName, getRaceCity, getRaceDescription } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 
 interface RaceCardProps {
   race: Race;
   locale: Locale;
 }
 
+function timeLimitLabel(minutes: number, locale: Locale): string {
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  if (locale === 'en') return m === 0 ? `${h}h 00m` : `${h}h ${m}m`;
+  return m === 0 ? `${h}時間` : `${h}時間${m}分`;
+}
+
 export default function RaceCard({ race, locale }: RaceCardProps) {
+  const t = useTranslations('home.card');
   const mainCategory = getMainCategory(race.categories);
   const today = new Date().toISOString().split('T')[0];
   const isPast = race.date < today;
-  const isEntryOpen = today >= race.entry_start_date && today <= race.entry_end_date;
+  const isEntryOpen =
+    race.entry_start_date !== null &&
+    race.entry_end_date !== null &&
+    today >= race.entry_start_date &&
+    today <= race.entry_end_date;
+
+  const desc = getRaceDescription(race, locale);
+  const tagline = desc.length > 88 ? desc.slice(0, 88).trimEnd() + '…' : desc;
+
+  const locationLabel = locale === 'en'
+    ? `${getRaceCity(race, locale)}`
+    : `${getRaceCity(race, locale)}`;
 
   return (
-    <article className={`bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow ${isPast ? 'opacity-70' : ''}`}>
-      {/* Card header accent */}
-      <div className="h-1.5 bg-gradient-to-r from-primary to-primary-light" />
-
-      <div className="p-5">
-        {/* Badges */}
-        <div className="flex flex-wrap gap-2 mb-3">
-          {mainCategory && (
-            <span className="text-xs px-2 py-0.5 rounded-full bg-primary-50 text-primary font-medium">
-              {getCategoryLabel(mainCategory, locale)}
+    <article className="bg-white rounded-[2px] overflow-hidden hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-shadow">
+      {/* Gradient image placeholder */}
+      <div className="h-[150px] flex items-center justify-center text-5xl relative overflow-hidden bg-gradient-to-br from-[#1a3a2a] to-[#2d6a4f]">
+        <div className="absolute inset-0 flex items-end justify-between p-3.5 pb-2.5"
+          style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)' }}>
+          <span className="text-[0.64rem] font-semibold tracking-[0.1em] uppercase text-white/80">
+            {locationLabel}
+          </span>
+          {!isPast && isEntryOpen && (
+            <span className="text-[0.62rem] font-bold tracking-[0.06em] uppercase px-2 py-0.5 rounded-[2px] bg-[var(--color-primary)] text-white">
+              {t('entryOpen')}
             </span>
           )}
           {isPast && (
-            <span className="text-xs px-2 py-0.5 rounded-full bg-gray-200 text-gray-500">終了</span>
-          )}
-          {isEntryOpen && !isPast && (
-            <span className="text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-700 font-medium">
-              {locale === 'ja' ? 'エントリー受付中' : 'Entry Open'}
+            <span className="text-[0.62rem] font-bold tracking-[0.06em] uppercase px-2 py-0.5 rounded-[2px] bg-white/20 text-white/85">
+              {t('closed')}
             </span>
           )}
         </div>
+      </div>
 
-        {/* Title */}
-        <h3 className="font-bold text-gray-900 text-base leading-snug mb-3 line-clamp-2">
+      {/* Body */}
+      <div className="px-5 pt-[18px] pb-5">
+        <div className="text-[0.72rem] text-[var(--color-light)] mb-1.5 tracking-[0.04em]">
+          {formatDate(race.date, locale)}
+        </div>
+        <h3 className="font-serif text-[1.05rem] font-bold text-[var(--color-ink)] leading-[1.3] mb-2">
           {getRaceName(race, locale)}
         </h3>
+        <p className="text-[0.78rem] text-[var(--color-mid)] leading-[1.65] mb-3.5 italic">
+          &ldquo;{tagline}&rdquo;
+        </p>
 
-        {/* Info */}
-        <div className="space-y-1.5 text-sm text-gray-600 mb-4">
-          <div className="flex items-center gap-2">
-            <span className="text-base">📅</span>
-            <span>{formatDate(race.date, locale)}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-base">📍</span>
-            <span>{getRaceCity(race, locale)}</span>
-          </div>
-          {mainCategory && (
-            <div className="flex items-center gap-2">
-              <span className="text-base">🏃</span>
-              <span>{mainCategory.distance_km}km</span>
+        {/* Stats */}
+        {mainCategory && (
+          <div className="flex gap-4 py-3 border-t border-b border-[var(--color-border)] mb-3.5">
+            <div className="flex flex-col gap-px">
+              <span className="text-[0.88rem] font-semibold text-[var(--color-ink)]">{mainCategory.distance_km}km</span>
+              <span className="text-[0.63rem] text-[var(--color-light)] tracking-[0.05em] uppercase">{t('distance')}</span>
             </div>
-          )}
-          {race.entry_capacity > 0 && (
-            <div className="flex items-center gap-2">
-              <span className="text-base">👥</span>
-              <span>{race.entry_capacity.toLocaleString()}人</span>
-            </div>
-          )}
-        </div>
-
-        {/* Tags */}
-        {race.tags.length > 0 && (
-          <div className="flex flex-wrap gap-1 mb-4">
-            {race.tags.slice(0, 3).map((tag) => (
-              <span key={tag} className="text-xs px-2 py-0.5 bg-gray-100 text-gray-600 rounded">
-                {tag}
-              </span>
-            ))}
+            {mainCategory.time_limit_minutes > 0 && (
+              <div className="flex flex-col gap-px">
+                <span className="text-[0.88rem] font-semibold text-[var(--color-ink)]">{timeLimitLabel(mainCategory.time_limit_minutes, locale)}</span>
+                <span className="text-[0.63rem] text-[var(--color-light)] tracking-[0.05em] uppercase">{t('timeLimit')}</span>
+              </div>
+            )}
+            {race.entry_capacity > 0 && (
+              <div className="flex flex-col gap-px">
+                <span className="text-[0.88rem] font-semibold text-[var(--color-ink)]">{race.entry_capacity.toLocaleString()}</span>
+                <span className="text-[0.63rem] text-[var(--color-light)] tracking-[0.05em] uppercase">{t('runners')}</span>
+              </div>
+            )}
           </div>
         )}
 
@@ -80,18 +93,18 @@ export default function RaceCard({ race, locale }: RaceCardProps) {
         <div className="flex gap-2">
           <Link
             href={`/races/${race.id}`}
-            className="flex-1 text-center px-4 py-2 text-sm font-medium text-primary border border-primary rounded-lg hover:bg-primary hover:text-white transition-colors"
+            className="flex-1 text-center py-[9px] text-[0.78rem] font-semibold text-[var(--color-ink)] border border-[var(--color-border)] hover:border-[var(--color-ink)] transition-colors no-underline tracking-[0.04em]"
           >
-            {locale === 'ja' ? '詳細を見る' : 'View Details'}
+            {t('viewDetails')}
           </Link>
-          {race.official_url && isEntryOpen && (
+          {isEntryOpen && !isPast && race.official_url && (
             <a
               href={race.official_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 text-sm font-medium bg-accent text-white rounded-lg hover:bg-accent-dark transition-colors"
+              className="px-3.5 py-[9px] text-[0.78rem] font-semibold bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-colors no-underline tracking-[0.04em]"
             >
-              {locale === 'ja' ? 'エントリー' : 'Apply'}
+              {t('enter')}
             </a>
           )}
         </div>

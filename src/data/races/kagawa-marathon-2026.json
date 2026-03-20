@@ -1,0 +1,85 @@
+{
+  "id": "kagawa-marathon-2026",
+  "name_ja": "かがわマラソン",
+  "name_en": "Kagawa Marathon",
+  "date": "2026-03-15",
+  "prefecture": "37",
+  "city_ja": "高松市",
+  "city_en": "Takamatsu City",
+  "description_ja": "2026年が第1回大会の新しいフルマラソン。香川県の瀬戸内海沿いを走る。うどん県ならではのエイドに期待。",
+  "description_en": "A brand new marathon with its first edition in 2026. Run along the Seto Inland Sea in Kagawa, the udon prefecture.",
+  "official_url": "https://kagawa-marathon.com",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": 10000,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "第1回大会",
+    "海沿い",
+    "ご当地エイド"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "瀬戸内海",
+    "highlights_en": "Seto Inland Sea",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 360,
+      "start_time": null,
+      "capacity": 10000
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "グルメ",
+      "name_ja": "讃岐うどん",
+      "name_en": "Sanuki Udon",
+      "description_ja": "香川を代表するご当地グルメ。コシの強い麺とシンプルなだしが特徴。市内に多数の名店。",
+      "description_en": "Kagawa's signature dish. Characterized by chewy noodles and simple broth. Many famous shops in the city.",
+      "distance_from_venue": "高松市内各所",
+      "url": null,
+      "latitude": 34.3403,
+      "longitude": 134.0472
+    },
+    {
+      "type": "観光地",
+      "name_ja": "栗林公園",
+      "name_en": "Ritsurin Garden",
+      "description_ja": "国の特別名勝。日本を代表する回遊式大名庭園。",
+      "description_en": "A Special Place of Scenic Beauty. One of Japan's finest strolling gardens.",
+      "distance_from_venue": "高松市内",
+      "url": null,
+      "latitude": 34.3289,
+      "longitude": 134.0467
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

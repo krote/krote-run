@@ -1,0 +1,98 @@
+{
+  "id": "beppu-oita-marathon-2026",
+  "name_ja": "別府大分毎日マラソン",
+  "name_en": "Beppu-Oita Mainichi Marathon",
+  "date": "2026-02-01",
+  "prefecture": "44",
+  "city_ja": "大分市・別府市",
+  "city_en": "Oita & Beppu City",
+  "description_ja": "大分県で開催される歴史あるエリートマラソン。MGCシリーズG1大会。別府温泉から大分を結ぶ海岸沿いの高速コース。",
+  "description_en": "A prestigious elite marathon in Oita Prefecture. MGC Series G1 event. A fast coastal course connecting Beppu Onsen to Oita.",
+  "official_url": "https://www.betsudai.com",
+  "entry_fee": 15000,
+  "entry_fee_by_category": false,
+  "entry_capacity": 4000,
+  "entry_start_date": "2025-08-29",
+  "entry_end_date": "2025-09-11",
+  "reception_type": "pre_day",
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "エリート大会",
+    "日本陸連公認",
+    "記録狙い",
+    "フラット",
+    "温泉"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "別府温泉街、別大国道の海岸線",
+    "highlights_en": "Beppu hot spring town, Betsudai coastal road",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": null,
+      "start_time": "12:00",
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "温泉",
+      "name_ja": "別府温泉",
+      "name_en": "Beppu Onsen",
+      "description_ja": "日本一の湧出量を誇る温泉地。地獄めぐりが有名。レース後に様々な泉質の温泉を楽しめる。",
+      "description_en": "Japan's top hot spring area by water output. Famous for 'Hell Tours'. Enjoy various hot spring types after the race.",
+      "distance_from_venue": "スタート地点付近",
+      "url": null,
+      "latitude": 33.2847,
+      "longitude": 131.5006
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "別府冷麺・とり天",
+      "name_en": "Beppu Cold Noodles & Chicken Tempura",
+      "description_ja": "別府のご当地グルメ。冷麺ととり天は名物。",
+      "description_en": "Beppu's local specialties. Cold noodles and chicken tempura.",
+      "distance_from_venue": "別府市内",
+      "url": null,
+      "latitude": 33.2847,
+      "longitude": 131.5006
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会Tシャツ",
+      "description_en": "Race T-shirt",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-16T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-16",
+    "detail_level": "medium"
+  }
+}

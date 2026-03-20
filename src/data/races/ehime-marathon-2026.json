@@ -1,0 +1,98 @@
+{
+  "id": "ehime-marathon-2026",
+  "name_ja": "愛媛マラソン",
+  "name_en": "Ehime Marathon",
+  "date": "2026-02-01",
+  "prefecture": "38",
+  "city_ja": "松山市",
+  "city_en": "Matsuyama City",
+  "description_ja": "愛媛県松山市で開催されるフルマラソン。松山城や道後温泉など、歴史ある街並みを走る。レース後は道後温泉でリカバリー。",
+  "description_en": "A full marathon in Matsuyama, Ehime. Run through historic streets past Matsuyama Castle and Dogo Onsen. Recover at Dogo Onsen after the race.",
+  "official_url": "https://ehimemarathon.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2025-08-01",
+  "entry_end_date": "2025-08-19",
+  "reception_type": "both",
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "温泉",
+    "景色が良い",
+    "城下町"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "松山城、道後温泉",
+    "highlights_en": "Matsuyama Castle, Dogo Onsen",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 360,
+      "start_time": "10:00",
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "温泉",
+      "name_ja": "道後温泉",
+      "name_en": "Dogo Onsen",
+      "description_ja": "日本最古の温泉の一つ。フィニッシュ地点から近く、レース後のリカバリーに最適。夏目漱石の「坊ちゃん」の舞台としても有名。",
+      "description_en": "One of Japan's oldest hot springs. Close to the finish and perfect for post-race recovery. Famous as the setting of Natsume Soseki's 'Botchan'.",
+      "distance_from_venue": "フィニッシュ付近",
+      "url": null,
+      "latitude": 33.8492,
+      "longitude": 132.7867
+    },
+    {
+      "type": "観光地",
+      "name_ja": "松山城",
+      "name_en": "Matsuyama Castle",
+      "description_ja": "現存12天守の一つ。コース上から望める。ロープウェイで天守閣へ。",
+      "description_en": "One of Japan's 12 surviving original castle keeps. Visible from the course. Ropeway access to the keep.",
+      "distance_from_venue": "コース付近",
+      "url": null,
+      "latitude": 33.8456,
+      "longitude": 132.7656
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal",
+        "towel"
+      ],
+      "description_ja": "大会オリジナルTシャツ、完走メダル、今治タオル（完走者）",
+      "description_en": "Official race T-shirt, Finisher medal, Imabari towel (finishers)",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

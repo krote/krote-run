@@ -105,7 +105,7 @@ export function emptyFilter(): RaceFilter {
     month: null,
     prefecture: null,
     distanceType: null,
-    giftCategory: null,
+    giftCategories: [],
     timeLimitMin: null,
     tags: [],
     searchText: '',
@@ -117,7 +117,7 @@ export function isFilterEmpty(filter: RaceFilter): boolean {
     filter.month === null &&
     filter.prefecture === null &&
     filter.distanceType === null &&
-    filter.giftCategory === null &&
+    filter.giftCategories.length === 0 &&
     filter.timeLimitMin === null &&
     filter.tags.length === 0 &&
     filter.searchText === ''
@@ -138,9 +138,9 @@ export function filterRaces(races: Race[], filter: RaceFilter): Race[] {
       if (!hasType) return false;
     }
 
-    if (filter.giftCategory) {
-      const hasGift = race.participation_gifts.some((g) =>
-        g.gift_categories.includes(filter.giftCategory!),
+    if (filter.giftCategories.length > 0) {
+      const hasGift = filter.giftCategories.some((catId) =>
+        race.participation_gifts.some((g) => g.gift_categories.includes(catId)),
       );
       if (!hasGift) return false;
     }

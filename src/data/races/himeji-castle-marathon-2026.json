@@ -1,0 +1,85 @@
+{
+  "id": "himeji-castle-marathon-2026",
+  "name_ja": "世界遺産姫路城マラソン",
+  "name_en": "World Heritage Himeji Castle Marathon",
+  "date": "2026-02-22",
+  "prefecture": "28",
+  "city_ja": "姫路市",
+  "city_en": "Himeji City",
+  "description_ja": "世界遺産・姫路城を望みながら走るフルマラソン。2027年は開催休止予定のため、次回参加機会は要確認。",
+  "description_en": "A full marathon with views of World Heritage Himeji Castle. Note: 2027 edition is planned to be suspended.",
+  "official_url": "https://www.himeji-marathon.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": 9000,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "世界遺産",
+    "城下町",
+    "景色が良い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "姫路城",
+    "highlights_en": "Himeji Castle",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 360,
+      "start_time": null,
+      "capacity": 9000
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "姫路城",
+      "name_en": "Himeji Castle",
+      "description_ja": "世界遺産・国宝の白鷺城。日本で最も美しい城の一つ。コース上から望める。",
+      "description_en": "A World Heritage and National Treasure. One of Japan's most beautiful castles. Visible from the course.",
+      "distance_from_venue": "コース上",
+      "url": null,
+      "latitude": 34.8394,
+      "longitude": 134.6939
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal",
+        "towel"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル、フィニッシャータオル",
+      "description_en": "Race T-shirt, Finisher medal, Finisher towel",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

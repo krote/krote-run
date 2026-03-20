@@ -1,0 +1,96 @@
+{
+  "id": "naha-marathon-2026",
+  "name_ja": "NAHAマラソン",
+  "name_en": "NAHA Marathon",
+  "date": "2026-12-06",
+  "prefecture": "47",
+  "city_ja": "那覇市",
+  "city_en": "Naha City",
+  "description_ja": "沖縄・那覇で開催される日本最南端の大規模フルマラソン。南国の温暖な気候で走れる12月の人気大会。制限時間6時間15分。",
+  "description_en": "Japan's southernmost large-scale full marathon in Naha, Okinawa. A popular December race in the subtropical climate. 6 hour 15 min time limit.",
+  "official_url": "https://www.naha-marathon.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "大規模",
+    "温暖",
+    "沖縄"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "国際通り、那覇市街、沖縄の風景",
+    "highlights_en": "Kokusai Street, Naha city, Okinawan scenery",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 375,
+      "start_time": "09:00",
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "首里城",
+      "name_en": "Shuri Castle",
+      "description_ja": "琉球王国の歴史を伝える世界遺産。復元工事が進む。コースからも比較的近い。",
+      "description_en": "A World Heritage site conveying the history of the Ryukyu Kingdom. Restoration work in progress.",
+      "distance_from_venue": "那覇市街から車で約15分",
+      "url": null,
+      "latitude": 26.217,
+      "longitude": 127.7195
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "沖縄そば",
+      "name_en": "Okinawa Soba",
+      "description_ja": "沖縄を代表するご当地グルメ。あっさりとしたスープと太麺が特徴。レース後のエネルギー補給に。",
+      "description_en": "Okinawa's signature local dish. Characterized by light broth and thick noodles. Perfect for post-race energy.",
+      "distance_from_venue": "那覇市内各所",
+      "url": null,
+      "latitude": 26.3344,
+      "longitude": 127.7679
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal"
+      ],
+      "description_ja": "大会オリジナルTシャツ、完走メダル",
+      "description_en": "Official race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

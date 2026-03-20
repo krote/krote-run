@@ -1,0 +1,85 @@
+{
+  "id": "shonan-international-marathon-2026",
+  "name_ja": "湘南国際マラソン",
+  "name_en": "Shonan International Marathon",
+  "date": "2026-12-06",
+  "prefecture": "14",
+  "city_ja": "大磯町〜江の島",
+  "city_en": "Oiso to Enoshima",
+  "description_ja": "湘南の海岸線を走るフルマラソン。江の島と富士山を望みながら走れる人気大会。マイボトル・マイカップ必携。",
+  "description_en": "A full marathon along the Shonan coast. A popular race with views of Enoshima and Mt. Fuji. Must carry your own bottle/cup.",
+  "official_url": "https://www.shonan-kokusai.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "海沿い",
+    "景色が良い",
+    "富士山"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "湘南海岸、江の島、富士山",
+    "highlights_en": "Shonan coast, Enoshima, Mt. Fuji",
+    "notes_ja": "マイボトル・マイカップ必携。紙コップでの給水なし。",
+    "notes_en": "Must carry your own bottle/cup. No paper cup water service."
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 390,
+      "start_time": null,
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "江の島",
+      "name_en": "Enoshima",
+      "description_ja": "コースの折り返し地点付近。湘南のシンボル。しらす丼やサザエが名物。",
+      "description_en": "Near the turnaround point. Symbol of Shonan. Famous for shirasu bowl and turban shell.",
+      "distance_from_venue": "コース折り返し付近",
+      "url": null,
+      "latitude": 35.2994,
+      "longitude": 139.4806
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-16T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+    ],
+    "last_verified": "2026-03-16",
+    "detail_level": "medium"
+  }
+}

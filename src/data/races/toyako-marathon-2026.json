@@ -1,0 +1,95 @@
+{
+  "id": "toyako-marathon-2026",
+  "name_ja": "洞爺湖マラソン",
+  "name_en": "Lake Toya Marathon",
+  "date": "2026-05-17",
+  "prefecture": "01",
+  "city_ja": "洞爺湖町",
+  "city_en": "Toyako Town",
+  "description_ja": "北海道・洞爺湖畔を一周するフルマラソン。羊蹄山と洞爺湖の絶景を楽しめる。新緑の季節に開催。",
+  "description_en": "A full marathon circling Lake Toya in Hokkaido. Enjoy magnificent views of Mt. Yotei and Lake Toya in the fresh green season.",
+  "official_url": "https://www.toyako-marathon.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "景色が良い",
+    "湖畔",
+    "北海道"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "洞爺湖、羊蹄山",
+    "highlights_en": "Lake Toya, Mt. Yotei",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "温泉",
+      "name_ja": "洞爺湖温泉",
+      "name_en": "Lake Toya Onsen",
+      "description_ja": "洞爺湖畔の温泉街。湖と羊蹄山を望む露天風呂が魅力。レース後のリカバリーに最適。",
+      "description_en": "Hot spring town on the shore of Lake Toya. Open-air baths with views of the lake and Mt. Yotei. Perfect for post-race recovery.",
+      "distance_from_venue": "会場付近",
+      "url": null,
+      "latitude": 42.55,
+      "longitude": 140.85
+    },
+    {
+      "type": "観光地",
+      "name_ja": "有珠山・昭和新山",
+      "name_en": "Mt. Usu & Showa-Shinzan",
+      "description_ja": "活火山とその噴火で誕生した昭和新山。ロープウェイで山頂へ。洞爺湖を一望。",
+      "description_en": "An active volcano and Showa-Shinzan born from its eruption. Ropeway to the summit with panoramic lake views.",
+      "distance_from_venue": "洞爺湖温泉から車約10分",
+      "url": null,
+      "latitude": 42.5389,
+      "longitude": 140.8411
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

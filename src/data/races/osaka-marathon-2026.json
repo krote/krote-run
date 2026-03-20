@@ -1,0 +1,110 @@
+{
+  "id": "osaka-marathon-2026",
+  "name_ja": "大阪マラソン",
+  "name_en": "Osaka Marathon",
+  "date": "2026-02-22",
+  "prefecture": "27",
+  "city_ja": "大阪市",
+  "city_en": "Osaka City",
+  "description_ja": "大阪の名所を巡る大規模都市型マラソン。大阪城、通天閣、御堂筋などを走る。MGCシリーズG1大会。制限時間7時間。",
+  "description_en": "A large-scale urban marathon touring Osaka's landmarks including Osaka Castle, Tsutenkaku, and Midosuji. MGC Series G1 event. 7-hour time limit.",
+  "official_url": "https://www.osaka-marathon.com",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": 31970,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": "pre_day",
+  "reception_note_ja": "EXPO会場にて前日受付",
+  "reception_note_en": "Pre-race registration at EXPO venue",
+  "tags": [
+    "大規模",
+    "初心者おすすめ",
+    "観光",
+    "日本陸連公認"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "大阪城、御堂筋、通天閣、中之島",
+    "highlights_en": "Osaka Castle, Midosuji, Tsutenkaku, Nakanoshima",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 420,
+      "start_time": "09:15",
+      "capacity": 31970
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "大阪城",
+      "name_en": "Osaka Castle",
+      "description_ja": "コース上を通過する大阪のシンボル。天守閣からの眺望は壮観。",
+      "description_en": "The symbol of Osaka on the course. The view from the castle tower is magnificent.",
+      "distance_from_venue": "コース上（約8km地点）",
+      "url": null,
+      "latitude": 35.6586,
+      "longitude": 135.5261
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "道頓堀",
+      "name_en": "Dotonbori",
+      "description_ja": "大阪グルメの中心地。たこ焼き、お好み焼きなど大阪名物が集結。レース後の食べ歩きに最適。",
+      "description_en": "The heart of Osaka's food culture. Takoyaki, okonomiyaki, and more. Perfect for post-race food tours.",
+      "distance_from_venue": "コース付近",
+      "url": null,
+      "latitude": 35.6595,
+      "longitude": 135.5023
+    },
+    {
+      "type": "温泉",
+      "name_ja": "スパワールド世界の大温泉",
+      "name_en": "Spa World",
+      "description_ja": "通天閣近くの大型温泉施設。レース後のリカバリーに。コースの近くにあり便利。",
+      "description_en": "A large hot spring facility near Tsutenkaku. Convenient for post-race recovery, located near the course.",
+      "distance_from_venue": "通天閣付近",
+      "url": null,
+      "latitude": 34.6522,
+      "longitude": 135.5064
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal",
+        "towel"
+      ],
+      "description_ja": "参加記念Tシャツ、完走メダル、フィニッシャータオル",
+      "description_en": "Commemorative T-shirt, Finisher medal, Finisher towel",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

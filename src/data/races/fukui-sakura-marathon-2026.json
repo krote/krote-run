@@ -1,0 +1,95 @@
+{
+  "id": "fukui-sakura-marathon-2026",
+  "name_ja": "ふくい桜マラソン",
+  "name_en": "Fukui Sakura Marathon",
+  "date": "2026-03-29",
+  "prefecture": "18",
+  "city_ja": "福井市",
+  "city_en": "Fukui City",
+  "description_ja": "2024年に始まった福井県のフルマラソン。桜並木と恐竜博物館で知られる福井を走る。制限時間7時間。",
+  "description_en": "Fukui Prefecture's marathon started in 2024. Run through Fukui known for cherry blossoms and the Dinosaur Museum. 7-hour time limit.",
+  "official_url": "https://www.fukui-sakura-marathon.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": 13200,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "桜",
+    "初心者おすすめ"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "桜並木、足羽川",
+    "highlights_en": "Cherry blossom trees, Asuwa River",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 420,
+      "start_time": null,
+      "capacity": 13200
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "永平寺",
+      "name_en": "Eiheiji Temple",
+      "description_ja": "曹洞宗の大本山。荘厳な修行道場。福井市から車約30分。",
+      "description_en": "The head temple of Soto Zen. A solemn training monastery. About 30 min by car from Fukui city.",
+      "distance_from_venue": "福井市から車約30分",
+      "url": null,
+      "latitude": 36.0833,
+      "longitude": 136.35
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "越前おろしそば",
+      "name_en": "Echizen Oroshi Soba",
+      "description_ja": "大根おろしとだしで食べる福井名物のそば。レース後のエネルギー補給に。",
+      "description_en": "Fukui's specialty soba with grated radish and broth. For post-race energy.",
+      "distance_from_venue": "福井市内",
+      "url": null,
+      "latitude": 36.0652,
+      "longitude": 136.2199
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal",
+        "towel"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル、フィニッシャータオル",
+      "description_en": "Race T-shirt, Finisher medal, Finisher towel",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

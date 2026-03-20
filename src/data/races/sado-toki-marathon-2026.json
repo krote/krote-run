@@ -1,0 +1,95 @@
+{
+  "id": "sado-toki-marathon-2026",
+  "name_ja": "佐渡トキマラソン",
+  "name_en": "Sado Toki Marathon",
+  "date": "2026-04-26",
+  "prefecture": "15",
+  "city_ja": "佐渡市",
+  "city_en": "Sado City",
+  "description_ja": "佐渡島で開催されるフルマラソン。自然豊かな離島を走る。トキをモチーフにした大会。",
+  "description_en": "A full marathon on Sado Island. Run through the nature-rich island. The race features the crested ibis (toki) as its motif.",
+  "official_url": "https://www.scsf.jp/marathon/index.html",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "離島",
+    "景色が良い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "佐渡島の自然",
+    "highlights_en": "Nature of Sado Island",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "佐渡金山",
+      "name_en": "Sado Kinzan Gold Mine",
+      "description_ja": "世界遺産登録された佐渡金山。江戸時代の金採掘の歴史を学べる。",
+      "description_en": "The World Heritage Sado Gold Mine. Learn about Edo-period gold mining history.",
+      "distance_from_venue": "佐渡島内",
+      "url": null,
+      "latitude": 38.0667,
+      "longitude": 138.2333
+    },
+    {
+      "type": "観光地",
+      "name_ja": "トキの森公園",
+      "name_en": "Toki no Mori Park",
+      "description_ja": "国の特別天然記念物トキを間近で観察できる施設。大会のモチーフであるトキに会える。",
+      "description_en": "A facility to observe the crested ibis, a national special natural monument, up close.",
+      "distance_from_venue": "佐渡島内",
+      "url": null,
+      "latitude": 38.0333,
+      "longitude": 138.3667
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal",
+        "local_product"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル、佐渡の特産品",
+      "description_en": "Race T-shirt, Finisher medal, Sado Island local products",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

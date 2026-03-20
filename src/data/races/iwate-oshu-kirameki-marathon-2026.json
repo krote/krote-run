@@ -1,0 +1,81 @@
+{
+  "id": "iwate-oshu-kirameki-marathon-2026",
+  "name_ja": "いわて奥州きらめきマラソン",
+  "name_en": "Iwate Oshu Kirameki Marathon",
+  "date": "2026-05-17",
+  "prefecture": "03",
+  "city_ja": "奥州市",
+  "city_en": "Oshu City",
+  "description_ja": "岩手県奥州市で開催。奥州の自然と歴史を感じながら走るフルマラソン。",
+  "description_en": "A full marathon in Oshu City, Iwate, running through the nature and history of the region.",
+  "official_url": "https://oshukirameki.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "中尊寺金色堂",
+      "name_en": "Chusonji Konjikido",
+      "description_ja": "世界遺産・平泉。奥州藤原氏の栄華を伝える。奥州市から車約30分。",
+      "description_en": "World Heritage Hiraizumi. Tells of the glory of the Oshu Fujiwara clan. About 30 min by car from Oshu.",
+      "distance_from_venue": "奥州市から車約30分",
+      "url": null,
+      "latitude": 39.0,
+      "longitude": 141.1
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

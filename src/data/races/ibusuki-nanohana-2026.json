@@ -1,0 +1,129 @@
+{
+  "id": "ibusuki-nanohana-2026",
+  "name_ja": "いぶすき菜の花マラソン",
+  "name_en": "Ibusuki Nanohana Marathon",
+  "date": "2026-01-11",
+  "prefecture": "46",
+  "city_ja": "指宿市",
+  "city_en": "Ibusuki City",
+  "description_ja": "南国の指宿を舞台に、菜の花が咲き誇る温暖な1月に開催されるフルマラソン。開聞岳や錦江湾の絶景を楽しみながら走れる。レース後は砂むし温泉が楽しめる。",
+  "description_en": "A full marathon held in warm January in Ibusuki, surrounded by blooming canola flowers. Enjoy views of Mt. Kaimon and Kinko Bay. Sand steam baths available after the race.",
+  "official_url": "https://ibusuki-nanohana.com",
+  "entry_fee": 10000,
+  "entry_fee_by_category": false,
+  "entry_capacity": 10000,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": "pre_mail",
+  "reception_note_ja": "アスリートビブスは事前郵送。記念品引換は前日・当日に総合体育館にて。",
+  "reception_note_en": "Bibs mailed in advance. Gift exchange at gymnasium the day before and on race day.",
+  "tags": [
+    "景色が良い",
+    "温泉",
+    "温暖",
+    "初心者おすすめ",
+    "ご当地エイド充実",
+    "日本陸連公認"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "開聞岳、錦江湾、菜の花ロード",
+    "highlights_en": "Mt. Kaimon, Kinko Bay, canola flower road",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 480,
+      "start_time": "09:00",
+      "capacity": 10000
+    }
+  ],
+  "aid_stations": [
+    {
+      "distance_km": 7.0,
+      "offerings_ja": "水、スポーツドリンク、さつまいも",
+      "offerings_en": "Water, sports drink, sweet potato",
+      "is_featured": true
+    },
+    {
+      "distance_km": 14.0,
+      "offerings_ja": "水、スポーツドリンク、菜の花漬け",
+      "offerings_en": "Water, sports drink, pickled canola flowers",
+      "is_featured": true
+    },
+    {
+      "distance_km": 21.0,
+      "offerings_ja": "水、スポーツドリンク、ぜんざい、ふかし芋",
+      "offerings_en": "Water, sports drink, sweet red bean soup, steamed sweet potato",
+      "is_featured": true
+    },
+    {
+      "distance_km": 28.0,
+      "offerings_ja": "水、スポーツドリンク、茶ぶし",
+      "offerings_en": "Water, sports drink, tea-steamed rice cake",
+      "is_featured": true
+    },
+    {
+      "distance_km": 35.0,
+      "offerings_ja": "水、スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    }
+  ],
+  "checkpoints": [],
+  "access_points": [
+    {
+      "station_name_ja": "指宿駅",
+      "station_name_en": "Ibusuki Station",
+      "station_code": "ibusuki",
+      "transport_to_venue_ja": "JR指宿駅から徒歩約15分",
+      "transport_to_venue_en": "About 15 min walk from JR Ibusuki Station",
+      "latitude": 31.2544,
+      "longitude": 130.6556
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "温泉",
+      "name_ja": "砂むし温泉",
+      "name_en": "Sand Steam Bath (Sunamushi Onsen)",
+      "description_ja": "指宿名物の砂蒸し温泉。海岸の天然砂の中に埋まって温まる独特の体験。レース後のリカバリーに最適。",
+      "description_en": "Ibusuki's famous sand steam bath. A unique experience of being buried in naturally heated sand on the beach. Perfect for post-race recovery.",
+      "distance_from_venue": "指宿市内",
+      "url": null,
+      "latitude": 31.2283,
+      "longitude": 130.6367
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会記念品（参加者全員）",
+      "description_en": "Commemorative gift (all participants)",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-16T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-16",
+    "detail_level": "full"
+  }
+}

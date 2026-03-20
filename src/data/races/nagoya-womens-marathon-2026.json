@@ -1,0 +1,97 @@
+{
+  "id": "nagoya-womens-marathon-2026",
+  "name_ja": "名古屋ウィメンズマラソン",
+  "name_en": "Nagoya Women's Marathon",
+  "date": "2026-03-08",
+  "prefecture": "23",
+  "city_ja": "名古屋市",
+  "city_en": "Nagoya City",
+  "description_ja": "世界最大の女性限定マラソン。完走者全員にティファニーのオリジナルペンダントが贈られる。MGCシリーズ女子G1大会。",
+  "description_en": "The world's largest women-only marathon. All finishers receive an original Tiffany pendant. MGC Series Women's G1 event.",
+  "official_url": "https://womens-marathon.nagoya",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": 20000,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": "pre_day",
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "女性限定",
+    "大規模",
+    "日本陸連公認"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "名古屋ドーム（バンテリンドーム ナゴヤ）、名古屋城付近",
+    "highlights_en": "Nagoya Dome (Vantelin Dome Nagoya), near Nagoya Castle",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 420,
+      "start_time": "09:10",
+      "capacity": 20000
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "名古屋城",
+      "name_en": "Nagoya Castle",
+      "description_ja": "金のシャチホコで有名な名古屋のシンボル。コース上から望める。",
+      "description_en": "Nagoya's symbol, famous for its golden shachihoko (dolphin-like ornaments). Visible from the course.",
+      "distance_from_venue": "コース付近",
+      "url": null,
+      "latitude": 35.1856,
+      "longitude": 136.8992
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "名古屋めし",
+      "name_en": "Nagoya Meshi",
+      "description_ja": "味噌カツ、ひつまぶし、手羽先など名古屋名物が充実。レース後のご褒美に。",
+      "description_en": "Miso katsu, hitsumabushi, chicken wings and more Nagoya specialties. A reward after the race.",
+      "distance_from_venue": "名古屋市内",
+      "url": null,
+      "latitude": 35.1709,
+      "longitude": 136.8815
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "medal",
+        "goods"
+      ],
+      "description_ja": "ティファニー オリジナルペンダント（完走者全員）",
+      "description_en": "Tiffany original pendant (all finishers)",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

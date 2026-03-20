@@ -1,0 +1,80 @@
+{
+  "id": "tokushima-marathon-2026",
+  "name_ja": "とくしまマラソン",
+  "name_en": "Tokushima Marathon",
+  "date": "2026-03-22",
+  "prefecture": "36",
+  "city_ja": "徳島市",
+  "city_en": "Tokushima City",
+  "description_ja": "吉野川沿いを走る徳島のフルマラソン。阿波踊りの街を駆け抜ける。",
+  "description_en": "A full marathon along the Yoshino River in Tokushima, the city of Awa Odori dance.",
+  "official_url": "https://www.tokushima-marathon.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "吉野川",
+    "highlights_en": "Yoshino River",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "鳴門の渦潮",
+      "name_en": "Naruto Whirlpools",
+      "description_ja": "世界三大潮流の一つ。大鳴門橋の遊歩道から渦潮を観察できる。",
+      "description_en": "One of the world's three great tidal currents. Observe whirlpools from the Onaruto Bridge walkway.",
+      "distance_from_venue": "徳島市から車約1時間",
+      "url": null,
+      "latitude": 34.2333,
+      "longitude": 134.6333
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

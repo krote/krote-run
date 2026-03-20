@@ -1,39 +1,23 @@
 @import "tailwindcss";
 
-/* ===========================
-   Design Tokens
-   =========================== */
 @theme {
-  /* Primary color (blue) */
-  --color-primary: #2563eb;
-  --color-primary-dark: #1d4ed8;
-  --color-primary-light: #3b82f6;
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
+  --color-primary:      #c0392b;
+  --color-primary-dark: #9a2d20;
+  --color-ink:          #1a1714;
+  --color-ink2:         #3d3830;
+  --color-mid:          #7a7060;
+  --color-light:        #b0a898;
+  --color-cream:        #faf8f4;
+  --color-border:       #e4dfd8;
 
-  /* Accent color (red) */
-  --color-accent: #dc2626;
-  --color-accent-dark: #b91c1c;
-  --color-accent-light: #ef4444;
-
-  /* Fonts - referenced from next/font CSS variables */
-  --font-sans: var(--font-inter, ui-sans-serif), var(--font-noto-sans-jp, sans-serif), system-ui, sans-serif;
-  --font-mono: ui-monospace, monospace;
+  --font-sans:  var(--font-dm-sans,   'DM Sans'),   var(--font-noto-sans-jp, 'Noto Sans JP'), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair,  'Playfair Display'), ui-serif, Georgia, serif;
+  --font-mono:  ui-monospace, monospace;
 }
 
-/* ===========================
-   Base Styles
-   =========================== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #faf8f4;
+  --foreground: #1a1714;
 }
 
 body {

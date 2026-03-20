@@ -1,0 +1,83 @@
+{
+  "id": "aomori-sakura-marathon-2026",
+  "name_ja": "あおもり桜マラソン",
+  "name_en": "Aomori Sakura Marathon",
+  "date": "2026-04-19",
+  "prefecture": "02",
+  "city_ja": "青森市",
+  "city_en": "Aomori City",
+  "description_ja": "桜の季節に開催される青森のフルマラソン。八甲田山や陸奥湾を望むコース。",
+  "description_en": "A full marathon in Aomori during cherry blossom season. Course with views of Mt. Hakkoda and Mutsu Bay.",
+  "official_url": "https://aomori-sakuramarathon.com",
+  "entry_fee": 7000,
+  "entry_fee_by_category": false,
+  "entry_capacity": 2400,
+  "entry_start_date": "2025-11-01",
+  "entry_end_date": "2026-01-30",
+  "reception_type": "pre_mail",
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "桜",
+    "景色が良い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "八甲田山、陸奥湾、桜並木",
+    "highlights_en": "Mt. Hakkoda, Mutsu Bay, cherry blossom trees",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": "5:30",
+      "start_time": "08:50",
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "弘前城・弘前公園",
+      "name_en": "Hirosaki Castle & Park",
+      "description_ja": "日本屈指の桜の名所。4月下旬は桜まつりの時期と重なる可能性あり。",
+      "description_en": "One of Japan's top cherry blossom spots. Late April may coincide with the cherry blossom festival.",
+      "distance_from_venue": "青森市から車約1時間",
+      "url": null,
+      "latitude": 40.6072,
+      "longitude": 140.4639
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

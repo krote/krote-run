@@ -15,15 +15,59 @@
   },
   "home": {
     "hero": {
-      "title": "Find Your Next Marathon",
-      "subtitle": "Browse marathon races across Japan all in one place",
-      "searchPlaceholder": "Search by race name or prefecture",
+      "eyebrow": "2026 Racing Season",
+      "titleLine1": "Run through the",
+      "titleEm": "heart of Japan.",
+      "subtitle": "52 marathons across every prefecture — from cherry blossom spring runs to autumn mountain trails.",
+      "searchPlaceholder": "Search by city, distance, season…",
       "searchButton": "Search"
+    },
+    "meta": {
+      "racesLabel": "Races Listed",
+      "prefLabel": "Prefectures",
+      "entryLabel": "Entry Open Now",
+      "seasonRange": "Spring — Winter",
+      "seasonLabel": "Year-Round"
     },
     "sections": {
       "upcoming": "Upcoming Races",
-      "popular": "Popular Races",
-      "byRegion": "Browse by Region"
+      "upcomingSub": "Sorted by date — your next Japan marathon",
+      "viewAll": "View All →",
+      "toggleMag": "Magazine",
+      "toggleExp": "Experience"
+    },
+    "why": {
+      "eyebrow": "Why run in Japan?",
+      "title": "More than a race.",
+      "titleEm": "It's an experience.",
+      "item1Title": "Iconic Scenery",
+      "item1Desc": "Temples, castles, cherry blossoms, and Mt. Fuji — every course is a sightseeing tour.",
+      "item2Title": "Legendary Aid Stations",
+      "item2Desc": "Onigiri, miso soup, and local snacks at every checkpoint — nowhere else does this.",
+      "item3Title": "Incredible Crowd Support",
+      "item3Desc": "Enthusiastic spectators line every street — cheering, drumming, dancing all day.",
+      "item4Title": "World-Class Organisation",
+      "item4Desc": "Precise timing, immaculate courses, and the legendary hospitality Japan is famous for."
+    },
+    "footer": {
+      "tagline": "Your guide to marathons and running races across Japan.",
+      "madeFor": "Made for runners visiting Japan",
+      "findRace": "Find a Race",
+      "info": "Info",
+      "byRegion": "By Region",
+      "byDistance": "By Distance",
+      "bySeason": "By Season",
+      "howToEnter": "How to Enter"
+    },
+    "card": {
+      "distance": "Distance",
+      "timeLimit": "Time Limit",
+      "runners": "Runners",
+      "viewDetails": "View Details",
+      "viewRace": "View Race",
+      "enter": "Enter",
+      "entryOpen": "Entry Open",
+      "closed": "Closed"
     }
   },
   "races": {
@@ -31,16 +75,21 @@
     "count": "{count} races",
     "search": "Search races",
     "noResults": "No races found matching your criteria",
+    "eyebrow": "2026 Season",
+    "subtitle": "races listed across Japan",
     "filter": {
       "title": "Filter",
-      "clear": "Clear",
+      "clear": "Clear all",
       "distance": "Distance",
-      "prefecture": "Prefecture",
+      "month": "Month",
+      "prefecture": "Prefecture / Region",
       "level": "Level",
       "terrain": "Course Type",
       "dateFrom": "Date from",
       "dateTo": "Date to",
-      "all": "All"
+      "all": "All",
+      "toggleMag": "Magazine",
+      "toggleExp": "Experience"
     },
     "distance": {
       "full": "Full Marathon",
@@ -74,13 +123,42 @@
     },
     "detail": {
       "overview": "Overview",
-      "course": "Course",
-      "access": "Access",
-      "gift": "Finisher gift",
-      "applicationPeriod": "Registration period",
+      "course": "Course & Categories",
+      "courseInfo": "Course Details",
+      "checkpoints": "Checkpoints",
+      "aidStations": "Aid Stations",
+      "access": "Getting There",
+      "nearby": "Nearby Spots",
+      "weather": "Race Day Weather",
+      "gift": "Finisher Gift",
+      "applicationPeriod": "Registration Period",
       "fee": "Entry fee",
       "cutoffTime": "Time limit",
-      "website": "Official website"
+      "website": "Official Website",
+      "backToRaces": "← All Races",
+      "entryOpen": "Entry Open",
+      "entryClosed": "Entry Closed",
+      "notYetOpen": "Not Yet Open",
+      "category": "Category",
+      "distance": "Distance",
+      "startTime": "Start",
+      "capacity": "Capacity",
+      "surface": {
+        "road": "Road",
+        "trail": "Trail",
+        "mixed": "Mixed"
+      },
+      "elevation": "Elevation",
+      "maxElev": "Max",
+      "minElev": "Min",
+      "diff": "Diff",
+      "featured": "Featured",
+      "spotType": {
+        "sightseeing": "Sightseeing",
+        "onsen": "Hot Spring",
+        "gourmet": "Gourmet",
+        "accommodation": "Stay"
+      }
     }
   },
   "calendar": {

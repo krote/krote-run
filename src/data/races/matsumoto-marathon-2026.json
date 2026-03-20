@@ -1,0 +1,99 @@
+{
+  "id": "matsumoto-marathon-2026",
+  "name_ja": "松本マラソン",
+  "name_en": "Matsumoto Marathon",
+  "date": "2026-11-08",
+  "prefecture": "20",
+  "city_ja": "松本市",
+  "city_en": "Matsumoto City",
+  "description_ja": "北アルプスと松本城を望むフルマラソン。国宝松本城の城下町を走る。制限時間6時間。",
+  "description_en": "A full marathon with views of the Northern Alps and Matsumoto Castle. Run through the castle town of National Treasure Matsumoto Castle. 6-hour time limit.",
+  "official_url": "https://www.matsumoto-marathon.jp",
+  "entry_fee": 12000,
+  "entry_fee_by_category": false,
+  "entry_capacity": 6000,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "城下町",
+    "景色が良い",
+    "アルプス"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": 114,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "松本城、北アルプス、薄川",
+    "highlights_en": "Matsumoto Castle, Northern Alps, Susuki River",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 360,
+      "start_time": "08:15",
+      "capacity": 6000
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "松本城",
+      "name_en": "Matsumoto Castle",
+      "description_ja": "国宝五城の一つ。黒と白のコントラストが美しい。コース上から望める。",
+      "description_en": "One of Japan's five National Treasure castles. Beautiful black and white contrast. Visible from the course.",
+      "distance_from_venue": "コース付近",
+      "url": null,
+      "latitude": 36.2381,
+      "longitude": 137.97
+    },
+    {
+      "type": "温泉",
+      "name_ja": "浅間温泉",
+      "name_en": "Asama Onsen",
+      "description_ja": "松本市街から近い歴史ある温泉地。レース後のリカバリーに最適。",
+      "description_en": "A historic hot spring area close to Matsumoto city. Perfect for post-race recovery.",
+      "distance_from_venue": "松本市街から車約15分",
+      "url": null,
+      "latitude": 36.25,
+      "longitude": 138.0167
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal",
+        "towel"
+      ],
+      "description_ja": "大会オリジナルTシャツ、完走メダル、フィニッシャータオル",
+      "description_en": "Official race T-shirt, Finisher medal, Finisher towel",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "id": "tokyo-marathon-2026",
+  "name_ja": "東京マラソン",
+  "name_en": "Tokyo Marathon",
+  "date": "2026-03-01",
+  "prefecture": "13",
+  "city_ja": "新宿区〜千代田区",
+  "city_en": "Shinjuku to Chiyoda",
+  "description_ja": "日本最大規模の市民マラソン。東京都庁をスタートし、皇居、浅草、銀座など東京の名所を巡り東京駅前でフィニッシュ。ワールドマラソンメジャーズの一つ。",
+  "description_en": "Japan's largest citizens' marathon. Starting from Tokyo Metropolitan Government, passing the Imperial Palace, Asakusa, Ginza, finishing at Tokyo Station. One of the World Marathon Majors.",
+  "official_url": "https://www.marathon.tokyo",
+  "entry_fee": 23300,
+  "entry_fee_by_category": false,
+  "entry_capacity": 38500,
+  "entry_start_date": "2025-08-15",
+  "entry_end_date": "2025-08-29",
+  "reception_type": "pre_day",
+  "reception_note_ja": "EXPO会場（東京ビッグサイト）にて前日受付。2/26-28。大会当日の受付なし。",
+  "reception_note_en": "Pre-race registration at EXPO venue (Tokyo Big Sight). Feb 26-28. No registration on race day.",
+  "tags": [
+    "大規模",
+    "初心者おすすめ",
+    "フラット",
+    "観光",
+    "ワールドメジャーズ",
+    "日本陸連公認"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": 40,
+    "min_elevation_m": 3,
+    "elevation_diff_m": 37,
+    "surface": "road",
+    "certification": [
+      "JAAF",
+      "AIMS",
+      "WMM"
+    ],
+    "highlights_ja": "東京都庁、皇居、浅草雷門、銀座、東京タワー、東京駅丸の内",
+    "highlights_en": "Tokyo Metropolitan Government, Imperial Palace, Asakusa Kaminarimon, Ginza, Tokyo Tower, Tokyo Station Marunouchi",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 420,
+      "start_time": "09:10",
+      "capacity": 38500
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [
+    {
+      "station_name_ja": "新宿駅",
+      "station_name_en": "Shinjuku Station",
+      "station_code": "shinjuku",
+      "transport_to_venue_ja": "新宿駅西口から徒歩約10分でスタート会場（東京都庁前）",
+      "transport_to_venue_en": "10 min walk from Shinjuku Station West Exit to the start (Tokyo Metropolitan Government)",
+      "latitude": 35.6896,
+      "longitude": 139.6999
+    },
+    {
+      "station_name_ja": "都庁前駅",
+      "station_name_en": "Tochomae Station",
+      "station_code": "tochomae",
+      "transport_to_venue_ja": "都営大江戸線都庁前駅直結",
+      "transport_to_venue_en": "Direct access from Toei Oedo Line Tochomae Station",
+      "latitude": 35.6915,
+      "longitude": 139.6917
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "浅草寺・雷門",
+      "name_en": "Sensoji Temple & Kaminarimon",
+      "description_ja": "コース上を通過する東京を代表する観光名所。外国人ランナーにも人気のスポット。",
+      "description_en": "An iconic Tokyo landmark on the course. Popular with international runners.",
+      "distance_from_venue": "コース上（約15km地点）",
+      "url": null,
+      "latitude": 35.7148,
+      "longitude": 139.7967
+    },
+    {
+      "type": "観光地",
+      "name_ja": "皇居",
+      "name_en": "Imperial Palace",
+      "description_ja": "コースの中盤で皇居周辺を通過。普段はランナーの聖地として知られるランニングコース。",
+      "description_en": "The course passes near the Imperial Palace in the middle section. Known as a holy ground for runners.",
+      "distance_from_venue": "コース上（約37km地点）",
+      "url": null,
+      "latitude": 35.6852,
+      "longitude": 139.7528
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "東京駅周辺グルメ",
+      "name_en": "Tokyo Station Area Dining",
+      "description_ja": "フィニッシュ地点の東京駅周辺には多数の飲食店。レース後の打ち上げに最適。",
+      "description_en": "Numerous restaurants around Tokyo Station at the finish. Perfect for post-race celebrations.",
+      "distance_from_venue": "フィニッシュ地点周辺",
+      "url": null,
+      "latitude": 35.6812,
+      "longitude": 139.7671
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal",
+        "towel"
+      ],
+      "description_ja": "参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）",
+      "description_en": "Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

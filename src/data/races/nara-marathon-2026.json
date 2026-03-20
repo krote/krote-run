@@ -1,0 +1,98 @@
+{
+  "id": "nara-marathon-2026",
+  "name_ja": "奈良マラソン",
+  "name_en": "Nara Marathon",
+  "date": "2026-12-13",
+  "prefecture": "29",
+  "city_ja": "奈良市",
+  "city_en": "Nara City",
+  "description_ja": "世界遺産の古都・奈良を走るフルマラソン。東大寺、春日大社などの名所を巡る。アップダウンが多いが、運営の評価が非常に高い人気大会。",
+  "description_en": "A full marathon through the ancient World Heritage city of Nara. Pass Todai-ji, Kasuga Shrine, and more. Hilly course but highly rated operations.",
+  "official_url": "https://www.nara-marathon.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "世界遺産",
+    "観光",
+    "アップダウン多い",
+    "景色が良い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "東大寺、春日大社、平城宮跡、奈良公園",
+    "highlights_en": "Todai-ji, Kasuga Shrine, Heijo Palace ruins, Nara Park",
+    "notes_ja": "アップダウンが多い。坂道対策が必要。",
+    "notes_en": "Many hills. Hill training recommended."
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 360,
+      "start_time": null,
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "東大寺（大仏殿）",
+      "name_en": "Todai-ji (Great Buddha Hall)",
+      "description_ja": "世界最大級の木造建築物。コース上で大仏殿を望みながら走れる。鹿がコースを横切ることも。",
+      "description_en": "One of the world's largest wooden structures. Run with views of the Great Buddha Hall. Deer may cross the course.",
+      "distance_from_venue": "コース上",
+      "url": null,
+      "latitude": 34.689,
+      "longitude": 135.8398
+    },
+    {
+      "type": "温泉",
+      "name_ja": "ゆららの湯 奈良店",
+      "name_en": "Yurara no Yu Nara",
+      "description_ja": "奈良市内の日帰り温泉施設。レース後のリカバリーに便利。",
+      "description_en": "A day-trip hot spring facility in Nara city. Convenient for post-race recovery.",
+      "distance_from_venue": "奈良市内",
+      "url": null,
+      "latitude": 34.6851,
+      "longitude": 135.8048
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal",
+        "towel"
+      ],
+      "description_ja": "大会オリジナルTシャツ、完走メダル、フィニッシャータオル",
+      "description_en": "Official race T-shirt, Finisher medal, Finisher towel",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

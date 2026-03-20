@@ -17,9 +17,16 @@
   "reception_type": "pre_mail",
   "reception_note_ja": "ゼッケン・計測タグは大会約3週間前に発送。参加案内はメールで配信。前日（4/18）に受付あり。",
   "reception_note_en": "Race bibs and timing tags are mailed approximately 3 weeks before the event. Participation guide sent by email. On-site registration available the day before (4/18).",
-  "tags": ["ウルトラマラソン", "富士山", "世界遺産", "初ウルトラおすすめ", "フラット", "景色が良い", "SPARTATHLON基準"],
+  "tags": [
+    "ウルトラマラソン",
+    "富士山",
+    "世界遺産",
+    "初ウルトラおすすめ",
+    "フラット",
+    "景色が良い",
+    "SPARTATHLON基準"
+  ],
   "course_gpx_file": null,
-
   "categories": [
     {
       "distance_type": "ultra",
@@ -34,8 +41,16 @@
       "description_ja": "富士五湖すべてを巡るコース。SPARTATHLON一般エントリー枠の国際レース基準対象（12時間以内完走が条件）",
       "description_en": "Course circling all five Fuji lakes. Qualifies for SPARTATHLON general entry (must finish within 12 hours)",
       "waves": [
-        { "wave": "A", "start_time": "04:00", "end_time": "19:15" },
-        { "wave": "B", "start_time": "04:15", "end_time": "19:30" }
+        {
+          "wave": "A",
+          "start_time": "04:00",
+          "end_time": "19:15"
+        },
+        {
+          "wave": "B",
+          "start_time": "04:15",
+          "end_time": "19:30"
+        }
       ]
     },
     {
@@ -51,9 +66,21 @@
       "description_ja": "本栖湖を除く四湖を巡るコース",
       "description_en": "Course circling four lakes (excluding Lake Motosu)",
       "waves": [
-        { "wave": "C", "start_time": "04:30", "end_time": "18:30" },
-        { "wave": "D", "start_time": "04:45", "end_time": "18:45" },
-        { "wave": "E", "start_time": "05:00", "end_time": "19:00" }
+        {
+          "wave": "C",
+          "start_time": "04:30",
+          "end_time": "18:30"
+        },
+        {
+          "wave": "D",
+          "start_time": "04:45",
+          "end_time": "18:45"
+        },
+        {
+          "wave": "E",
+          "start_time": "05:00",
+          "end_time": "19:00"
+        }
       ]
     },
     {
@@ -69,7 +96,11 @@
       "description_ja": "山中湖を除く四湖を巡るコース",
       "description_en": "Course circling four lakes (excluding Lake Yamanaka)",
       "waves": [
-        { "wave": "F", "start_time": "06:00", "end_time": "18:30" }
+        {
+          "wave": "F",
+          "start_time": "06:00",
+          "end_time": "18:30"
+        }
       ]
     },
     {
@@ -85,21 +116,31 @@
       "description_ja": "山中湖・本栖湖を除く三湖を巡るコース。初ウルトラにおすすめ",
       "description_en": "Course circling three lakes (excluding Lake Yamanaka and Lake Motosu). Recommended for first ultra marathon",
       "waves": [
-        { "wave": "G", "start_time": "06:45", "end_time": "17:45" },
-        { "wave": "H", "start_time": "07:00", "end_time": "18:00" }
+        {
+          "wave": "G",
+          "start_time": "06:45",
+          "end_time": "17:45"
+        },
+        {
+          "wave": "H",
+          "start_time": "07:00",
+          "end_time": "18:00"
+        }
       ]
     }
   ],
-
   "participation_gifts": [
     {
-      "gift_categories": ["tshirt", "medal", "towel"],
+      "gift_categories": [
+        "tshirt",
+        "medal",
+        "towel"
+      ],
       "description_ja": "大会オリジナルTシャツ（THE NORTH FACE製・先着2,800名。先着数到達後はオリジナルタオルに変更）、完走メダル（完走者）、WEB完走証（完走者）",
       "description_en": "Official race T-shirt by THE NORTH FACE (first 2,800 entries; changes to original towel after limit reached), Finisher medal (finishers), Web finisher certificate (finishers)",
       "image": null
     }
   ],
-
   "aid_stations": [
     {
       "distance_km": 10.0,
@@ -156,7 +197,6 @@
       "is_featured": false
     }
   ],
-
   "access_points": [
     {
       "station_name_ja": "富士山駅",
@@ -177,7 +217,6 @@
       "longitude": 138.7656
     }
   ],
-
   "nearby_spots": [
     {
       "type": "観光地",
@@ -198,8 +237,8 @@
       "description_en": "A hot spring facility using Mt. Fuji lava rocks. Perfect for post-race recovery. Within walking distance from Fujisan Station.",
       "distance_from_venue": "富士山駅から徒歩約10分",
       "url": null,
-      "latitude": 35.4870,
-      "longitude": 138.7900
+      "latitude": 35.487,
+      "longitude": 138.79
     },
     {
       "type": "温泉",
@@ -209,8 +248,8 @@
       "description_en": "A day-trip hot spring facility on the shore of Lake Yamanaka. Enjoy panoramic views of Mt. Fuji from the outdoor bath.",
       "distance_from_venue": "富士北麓公園から車で約20分",
       "url": null,
-      "latitude": 35.4200,
-      "longitude": 138.8600
+      "latitude": 35.42,
+      "longitude": 138.86
     },
     {
       "type": "グルメ",
@@ -242,11 +281,10 @@
       "description_en": "The most accessible of the Fuji Five Lakes. In April, enjoy cherry blossoms with Mt. Fuji. The course runs along the lakeshore.",
       "distance_from_venue": "富士北麓公園から車で約10分",
       "url": null,
-      "latitude": 35.5100,
-      "longitude": 138.7500
+      "latitude": 35.51,
+      "longitude": 138.75
     }
   ],
-
   "weather_history": [
     {
       "year": 2025,
@@ -294,7 +332,6 @@
       "wind_speed_ms": 2.8
     }
   ],
-
   "course_info": {
     "max_elevation_m": 1050,
     "min_elevation_m": 830,
@@ -306,12 +343,9 @@
     "notes_ja": "紙コップでの給水提供なし。携帯ボトル・カップ必須。補給食・防寒具・雨対策も携帯必須。標高830〜1050mのため、早朝は気温が低い（4月でも氷点下の可能性あり）。",
     "notes_en": "No paper cup water service. Carry your own bottle/cup. Must carry supplies, cold weather gear, and rain protection. Elevation 830-1050m, so early morning temperatures can be very low (below freezing possible even in April)."
   },
-
   "checkpoints": [],
-
   "created_at": "2026-03-10T00:00:00Z",
   "updated_at": "2026-03-10T00:00:00Z",
-
   "_metadata": {
     "data_source": "公式サイト (r-wellness.com/fuji5/) 、スポーツエントリー、PR TIMES プレスリリース等の公開情報から手動転記",
     "data_accuracy_notes": [
@@ -321,6 +355,7 @@
       "関門（checkpoints）情報は未取得。公式の最終案内で確認が必要",
       "WAVEの時刻は第36回大会の公式情報に基づく"
     ],
-    "last_verified": "2026-03-10"
+    "last_verified": "2026-03-10",
+    "detail_level": "full"
   }
 }

@@ -1,0 +1,87 @@
+{
+  "id": "biwako-marathon-2026",
+  "name_ja": "びわ湖マラソン",
+  "name_en": "Biwako Marathon",
+  "date": "2026-03-08",
+  "prefecture": "25",
+  "city_ja": "大津市",
+  "city_en": "Otsu City",
+  "description_ja": "日本最大の湖・琵琶湖畔を走るフルマラソン。湖と比叡山の絶景を楽しめるフラットなコース。",
+  "description_en": "A full marathon along Lake Biwa, Japan's largest lake. A flat course with views of the lake and Mt. Hiei.",
+  "official_url": "https://biwako-marathon.com",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": 7000,
+  "entry_start_date": "2025-08-01",
+  "entry_end_date": "2025-10-31",
+  "reception_type": "pre_mail",
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "フラット",
+    "景色が良い",
+    "湖畔"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "琵琶湖畔、比叡山",
+    "highlights_en": "Lake Biwa shore, Mt. Hiei",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 360,
+      "start_time": "08:20",
+      "capacity": 7000
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "琵琶湖",
+      "name_en": "Lake Biwa",
+      "description_ja": "日本最大の湖。コース全体で湖畔を走る。水面に映る比叡山の景色が美しい。",
+      "description_en": "Japan's largest lake. The entire course runs along the lakeshore. Beautiful views of Mt. Hiei reflected on the water.",
+      "distance_from_venue": "コース上",
+      "url": null,
+      "latitude": 35.3506,
+      "longitude": 136.0689
+    },
+    {
+      "type": "温泉",
+      "name_ja": "おごと温泉",
+      "name_en": "Ogoto Onsen",
+      "description_ja": "琵琶湖西岸の温泉地。コース付近。レース後のリカバリーに便利。",
+      "description_en": "Hot spring town on the west shore of Lake Biwa. Near the course. Convenient for post-race recovery.",
+      "distance_from_venue": "コース付近",
+      "url": null,
+      "latitude": 35.1167,
+      "longitude": 135.8833
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

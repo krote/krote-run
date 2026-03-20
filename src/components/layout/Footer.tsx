@@ -2,57 +2,52 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 
 export default function Footer() {
-  const t = useTranslations('nav');
+  const t = useTranslations('home.footer');
+  const tNav = useTranslations('nav');
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-gray-400 mt-auto">
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+    <footer className="bg-[#0f0e0c] pt-11 pb-7 px-9">
+      <div className="max-w-[1120px] mx-auto">
+        <div className="flex justify-between gap-12 flex-wrap">
+
           {/* Brand */}
-          <div>
-            <div className="flex items-center gap-2 text-white font-bold text-lg mb-3">
-              <span className="text-2xl">🏃</span>
-              <span>KroteRun</span>
+          <div className="max-w-[210px]">
+            <div className="font-serif text-[1.1rem] text-white mb-3">
+              Krote<span className="text-[var(--color-primary)]">Run</span> Japan
             </div>
-            <p className="text-sm leading-relaxed">
-              全国のマラソン大会情報をまとめてチェックできるポータルサイトです。
-            </p>
+            <p className="text-[0.78rem] text-[#444] leading-7">{t('tagline')}</p>
           </div>
 
-          {/* Navigation */}
-          <div>
-            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wide">ナビゲーション</h3>
-            <ul className="space-y-2">
-              {(['home', 'races', 'calendar', 'settings'] as const).map((key) => (
-                <li key={key}>
-                  <Link
-                    href={key === 'home' ? '/' : `/${key}`}
-                    className="text-sm hover:text-white transition-colors"
-                  >
-                    {t(key)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Info */}
-          <div>
-            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wide">Information</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <span>Built with Next.js {/* version */}</span>
-              </li>
-              <li>
-                <span>Data updated regularly</span>
-              </li>
-            </ul>
+          {/* Links */}
+          <div className="flex gap-14 flex-wrap">
+            <div>
+              <h4 className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase text-[#333] mb-4">
+                {t('findRace')}
+              </h4>
+              <ul className="space-y-[9px]">
+                <li><Link href="/races" className="text-[0.8rem] text-[#555] hover:text-white no-underline transition-colors">{tNav('races')}</Link></li>
+                <li><Link href="/calendar" className="text-[0.8rem] text-[#555] hover:text-white no-underline transition-colors">{tNav('calendar')}</Link></li>
+                <li><Link href="/races" className="text-[0.8rem] text-[#555] hover:text-white no-underline transition-colors">{t('byRegion')}</Link></li>
+                <li><Link href="/races" className="text-[0.8rem] text-[#555] hover:text-white no-underline transition-colors">{t('byDistance')}</Link></li>
+                <li><Link href="/races" className="text-[0.8rem] text-[#555] hover:text-white no-underline transition-colors">{t('bySeason')}</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase text-[#333] mb-4">
+                {t('info')}
+              </h4>
+              <ul className="space-y-[9px]">
+                <li><Link href="/settings" className="text-[0.8rem] text-[#555] hover:text-white no-underline transition-colors">{tNav('settings')}</Link></li>
+                <li><span className="text-[0.8rem] text-[#555]">{t('howToEnter')}</span></li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-6 text-sm text-center">
-          © {year} KroteRun. All rights reserved.
+        <div className="mt-7 pt-[18px] border-t border-[#1a1a1a] flex justify-between text-[0.72rem] text-[#333] flex-wrap gap-2">
+          <span>© {year} KroteRun. All rights reserved.</span>
+          <span>{t('madeFor')}</span>
         </div>
       </div>
     </footer>

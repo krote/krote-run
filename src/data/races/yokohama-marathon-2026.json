@@ -1,0 +1,97 @@
+{
+  "id": "yokohama-marathon-2026",
+  "name_ja": "横浜マラソン",
+  "name_en": "Yokohama Marathon",
+  "date": "2026-10-25",
+  "prefecture": "14",
+  "city_ja": "横浜市",
+  "city_en": "Yokohama City",
+  "description_ja": "みなとみらいを発着点とする横浜の大規模フルマラソン。首都高速湾岸線を走れる貴重な大会。",
+  "description_en": "A large-scale marathon starting and finishing in Minato Mirai, Yokohama. A rare opportunity to run on the Metropolitan Expressway Bayshore Route.",
+  "official_url": "https://yokohamamarathon.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "大規模",
+    "景色が良い",
+    "海沿い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "みなとみらい、赤レンガ倉庫、首都高速湾岸線、山下公園",
+    "highlights_en": "Minato Mirai, Red Brick Warehouse, Bayshore Expressway, Yamashita Park",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 390,
+      "start_time": "08:30",
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "みなとみらい・赤レンガ倉庫",
+      "name_en": "Minato Mirai & Red Brick Warehouse",
+      "description_ja": "スタート・フィニッシュエリア周辺。横浜を代表する観光スポット。ショッピングやグルメも充実。",
+      "description_en": "Around the start/finish area. Yokohama's iconic landmark. Shopping and dining.",
+      "distance_from_venue": "スタート・フィニッシュ付近",
+      "url": null,
+      "latitude": 35.4537,
+      "longitude": 139.6429
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "横浜中華街",
+      "name_en": "Yokohama Chinatown",
+      "description_ja": "日本最大の中華街。レース後の食べ歩きに最適。",
+      "description_en": "Japan's largest Chinatown. Perfect for post-race food tours.",
+      "distance_from_venue": "みなとみらいから徒歩約15分",
+      "url": null,
+      "latitude": 35.4422,
+      "longitude": 139.6453
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal",
+        "towel"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル、フィニッシャータオル",
+      "description_en": "Race T-shirt, Finisher medal, Finisher towel",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-16T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+    ],
+    "last_verified": "2026-03-16",
+    "detail_level": "medium"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "id": "kobe-marathon-2026",
+  "name_ja": "神戸マラソン",
+  "name_en": "Kobe Marathon",
+  "date": "2026-11-15",
+  "prefecture": "28",
+  "city_ja": "神戸市",
+  "city_en": "Kobe City",
+  "description_ja": "神戸の港町を走る大規模フルマラソン。明石海峡大橋の折り返しが見どころ。「感謝と友情」がテーマ。",
+  "description_en": "A large-scale marathon through the port city of Kobe. The turnaround point near Akashi Kaikyo Bridge is a highlight. Theme: Gratitude and Friendship.",
+  "official_url": "https://www.kobe-marathon.net",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": "pre_day",
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "大規模",
+    "景色が良い",
+    "海沿い",
+    "日本陸連公認"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "明石海峡大橋、ポートアイランド、ハーバーランド",
+    "highlights_en": "Akashi Kaikyo Bridge, Port Island, Harborland",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 420,
+      "start_time": "09:00",
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "明石海峡大橋",
+      "name_en": "Akashi Kaikyo Bridge",
+      "description_ja": "コースの折り返し地点付近。世界最長の吊り橋を間近に見ながら走れる。",
+      "description_en": "Near the turnaround point. Run with views of the world's longest suspension bridge.",
+      "distance_from_venue": "コース上",
+      "url": null,
+      "latitude": 34.6167,
+      "longitude": 135.0222
+    },
+    {
+      "type": "温泉",
+      "name_ja": "有馬温泉",
+      "name_en": "Arima Onsen",
+      "description_ja": "日本三大古湯の一つ。神戸市街からバスで約30分。金泉・銀泉が楽しめる。レース翌日に最適。",
+      "description_en": "One of Japan's three oldest hot springs. About 30 min by bus from Kobe city. Enjoy gold and silver springs. Perfect for the day after the race.",
+      "distance_from_venue": "神戸市街からバス約30分",
+      "url": null,
+      "latitude": 34.7978,
+      "longitude": 135.2475
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "神戸牛",
+      "name_en": "Kobe Beef",
+      "description_ja": "世界的に有名なブランド和牛。レース後のご褒美に。三宮・元町エリアに名店多数。",
+      "description_en": "World-famous premium wagyu beef. A reward after the race. Many restaurants in Sannomiya-Motomachi area.",
+      "distance_from_venue": "三宮・元町エリア",
+      "url": null,
+      "latitude": 34.6913,
+      "longitude": 135.1956
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal",
+        "towel"
+      ],
+      "description_ja": "大会オリジナルTシャツ、完走メダル、フィニッシャータオル",
+      "description_en": "Official race T-shirt, Finisher medal, Finisher towel",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+    ],
+    "last_verified": "2026-03-15",
+    "detail_level": "medium"
+  }
+}

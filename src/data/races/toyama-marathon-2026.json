@@ -1,0 +1,95 @@
+{
+  "id": "toyama-marathon-2026",
+  "name_ja": "富山マラソン",
+  "name_en": "Toyama Marathon",
+  "date": "2026-11-01",
+  "prefecture": "16",
+  "city_ja": "富山市〜高岡市",
+  "city_en": "Toyama to Takaoka",
+  "description_ja": "立山連峰を望みながら走るフルマラソン。新湊大橋を渡るコースが特徴。富山湾の景色が美しい。",
+  "description_en": "A full marathon with views of the Tateyama mountain range. Features crossing the Shinminato Bridge with beautiful Toyama Bay scenery.",
+  "official_url": "https://www.toyamamarathon.com",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "景色が良い",
+    "橋"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "立山連峰、新湊大橋、富山湾",
+    "highlights_en": "Tateyama Mountains, Shinminato Bridge, Toyama Bay",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 420,
+      "start_time": null,
+      "capacity": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "立山黒部アルペンルート",
+      "name_en": "Tateyama Kurobe Alpine Route",
+      "description_ja": "世界有数の山岳観光ルート。レース翌日の観光に。11月上旬は紅葉シーズン。",
+      "description_en": "One of the world's premier mountain sightseeing routes. For sightseeing the day after. Early November is autumn foliage season.",
+      "distance_from_venue": "富山駅から電鉄富山駅経由",
+      "url": null,
+      "latitude": 36.5778,
+      "longitude": 137.6028
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "富山ブラックラーメン・白えび",
+      "name_en": "Toyama Black Ramen & White Shrimp",
+      "description_ja": "富山名物の濃い醤油ラーメンと、富山湾の宝石・白えび。",
+      "description_en": "Toyama's dark soy sauce ramen and white shrimp, jewels of Toyama Bay.",
+      "distance_from_venue": "富山市内",
+      "url": null,
+      "latitude": 36.6953,
+      "longitude": 137.2113
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-16T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+    ],
+    "last_verified": "2026-03-16",
+    "detail_level": "medium"
+  }
+}

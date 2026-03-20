@@ -132,6 +132,13 @@ function generateRaceSQL(r) {
     });
   }
 
+  // race_results
+  if (r.result) {
+    const res = r.result;
+    lines.push(`INSERT OR REPLACE INTO race_results (race_id, participants_count, finishers_count, finisher_rate_pct, weather_condition_ja, weather_condition_en, temperature_c, max_temp_c, min_temp_c, wind_speed_ms, humidity_pct, notes_ja, notes_en) VALUES
+  (${esc(r.id)}, ${esc(res.participants_count ?? null)}, ${esc(res.finishers_count ?? null)}, ${esc(res.finisher_rate_pct ?? null)}, ${esc(res.weather_condition_ja || '')}, ${esc(res.weather_condition_en || '')}, ${esc(res.temperature_c ?? null)}, ${esc(res.max_temp_c ?? null)}, ${esc(res.min_temp_c ?? null)}, ${esc(res.wind_speed_ms ?? null)}, ${esc(res.humidity_pct ?? null)}, ${esc(res.notes_ja ?? null)}, ${esc(res.notes_en ?? null)});`);
+  }
+
   return lines.join('\n');
 }
 

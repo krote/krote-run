@@ -10,6 +10,7 @@
   "description_en": "A historic citizens' marathon inheriting the spirit of the 1998 Nagano Winter Olympics, first held in 1999. The 42.195km course passes through Olympic venues including M-Wave, White Ring, and Big Hat, running through the scenic spring landscape of Shinano. JAAF and AIMS certified course. AbbottWMM Wanda Age Group World Rankings qualifying event.",
   "official_url": "https://www.naganomarathon.gr.jp/",
   "entry_fee": 14300,
+  "entry_fee_by_category": false,
   "entry_capacity": 10000,
   "entry_start_date": "2025-10-11",
   "entry_end_date": "2025-10-31",
@@ -25,75 +26,122 @@
     "AIMS公認"
   ],
   "course_gpx_file": "nagano-marathon-2026.gpx",
+  "course_info": {
+    "max_elevation_m": 383,
+    "min_elevation_m": 340,
+    "elevation_diff_m": 43,
+    "surface": "road",
+    "certification": [
+      "JAAF",
+      "AIMS"
+    ],
+    "highlights_ja": "善光寺表参道、エムウェーブ（2026年は工事のためコース変更あり）、ビッグハット、五輪大橋、ホワイトリング、長野オリンピックスタジアム（フィニッシュ）",
+    "highlights_en": "Zenkoji approach road, M-Wave (course change in 2026 due to construction), Big Hat, Olympic Bridge, White Ring, Nagano Olympic Stadium (finish)",
+    "notes_ja": null,
+    "notes_en": null
+  },
   "categories": [
     {
       "distance_type": "full",
       "distance_km": 42.195,
       "time_limit_minutes": 300,
       "start_time": "08:30",
-      "capacity": 10000
-    }
-  ],
-  "participation_gifts": [
-    {
-      "gift_categories": [
-        "tshirt",
-        "medal",
-        "towel"
-      ],
-      "description_ja": "大会オリジナルTシャツ（参加者全員）、完走メダル（完走者）、フィニッシャータオル（完走者）",
-      "description_en": "Official race T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)",
-      "image": null
+      "capacity": 10000,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
     }
   ],
   "aid_stations": [
     {
-      "distance_km": 5.0,
+      "distance_km": 5,
       "offerings_ja": "水、スポーツドリンク",
       "offerings_en": "Water, sports drink",
       "is_featured": false
     },
     {
-      "distance_km": 10.0,
+      "distance_km": 10,
       "offerings_ja": "水、スポーツドリンク、バナナ",
       "offerings_en": "Water, sports drink, banana",
       "is_featured": false
     },
     {
-      "distance_km": 15.0,
+      "distance_km": 15,
       "offerings_ja": "水、スポーツドリンク",
       "offerings_en": "Water, sports drink",
       "is_featured": false
     },
     {
-      "distance_km": 20.0,
+      "distance_km": 20,
       "offerings_ja": "水、スポーツドリンク、バナナ、おにぎり",
       "offerings_en": "Water, sports drink, banana, rice ball",
       "is_featured": false
     },
     {
-      "distance_km": 25.0,
+      "distance_km": 25,
       "offerings_ja": "水、スポーツドリンク",
       "offerings_en": "Water, sports drink",
       "is_featured": false
     },
     {
-      "distance_km": 30.0,
+      "distance_km": 30,
       "offerings_ja": "水、スポーツドリンク、バナナ、チョコレート",
       "offerings_en": "Water, sports drink, banana, chocolate",
       "is_featured": false
     },
     {
-      "distance_km": 35.0,
+      "distance_km": 35,
       "offerings_ja": "水、スポーツドリンク",
       "offerings_en": "Water, sports drink",
       "is_featured": false
     },
     {
-      "distance_km": 40.0,
+      "distance_km": 40,
       "offerings_ja": "水、スポーツドリンク",
       "offerings_en": "Water, sports drink",
       "is_featured": false
+    }
+  ],
+  "checkpoints": [
+    {
+      "distance_km": 5.8,
+      "closing_time": "09:21"
+    },
+    {
+      "distance_km": 10.4,
+      "closing_time": "09:53"
+    },
+    {
+      "distance_km": 14.7,
+      "closing_time": "10:22"
+    },
+    {
+      "distance_km": 19.3,
+      "closing_time": "10:54"
+    },
+    {
+      "distance_km": 24.6,
+      "closing_time": "11:31"
+    },
+    {
+      "distance_km": 29.2,
+      "closing_time": "12:03"
+    },
+    {
+      "distance_km": 34.2,
+      "closing_time": "12:37"
+    },
+    {
+      "distance_km": 39.3,
+      "closing_time": "13:12"
+    },
+    {
+      "distance_km": 41.1,
+      "closing_time": "13:24"
     }
   ],
   "access_points": [
@@ -180,7 +228,7 @@
       "max_temp": 18.2,
       "min_temp": 5.8,
       "humidity_pct": 55,
-      "precipitation_mm": 2.0,
+      "precipitation_mm": 2,
       "wind_speed_ms": 2.5
     },
     {
@@ -189,7 +237,7 @@
       "max_temp": 20.5,
       "min_temp": 7.2,
       "humidity_pct": 52,
-      "precipitation_mm": 0.0,
+      "precipitation_mm": 0,
       "wind_speed_ms": 3.1
     },
     {
@@ -198,7 +246,7 @@
       "max_temp": 22.3,
       "min_temp": 8.5,
       "humidity_pct": 48,
-      "precipitation_mm": 0.0,
+      "precipitation_mm": 0,
       "wind_speed_ms": 2.8
     },
     {
@@ -220,56 +268,19 @@
       "wind_speed_ms": 2.2
     }
   ],
-  "course_info": {
-    "max_elevation_m": 383,
-    "min_elevation_m": 340,
-    "elevation_diff_m": 43,
-    "surface": "road",
-    "certification": [
-      "JAAF",
-      "AIMS"
-    ],
-    "highlights_ja": "善光寺表参道、エムウェーブ（2026年は工事のためコース変更あり）、ビッグハット、五輪大橋、ホワイトリング、長野オリンピックスタジアム（フィニッシュ）",
-    "highlights_en": "Zenkoji approach road, M-Wave (course change in 2026 due to construction), Big Hat, Olympic Bridge, White Ring, Nagano Olympic Stadium (finish)"
-  },
-  "checkpoints": [
+  "participation_gifts": [
     {
-      "distance_km": 5.8,
-      "closing_time": "09:21"
-    },
-    {
-      "distance_km": 10.4,
-      "closing_time": "09:53"
-    },
-    {
-      "distance_km": 14.7,
-      "closing_time": "10:22"
-    },
-    {
-      "distance_km": 19.3,
-      "closing_time": "10:54"
-    },
-    {
-      "distance_km": 24.6,
-      "closing_time": "11:31"
-    },
-    {
-      "distance_km": 29.2,
-      "closing_time": "12:03"
-    },
-    {
-      "distance_km": 34.2,
-      "closing_time": "12:37"
-    },
-    {
-      "distance_km": 39.3,
-      "closing_time": "13:12"
-    },
-    {
-      "distance_km": 41.1,
-      "closing_time": "13:24"
+      "gift_categories": [
+        "tshirt",
+        "medal",
+        "towel"
+      ],
+      "description_ja": "大会オリジナルTシャツ（参加者全員）、完走メダル（完走者）、フィニッシャータオル（完走者）",
+      "description_en": "Official race T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)",
+      "image": null
     }
   ],
+  "result": null,
   "created_at": "2026-03-10T00:00:00Z",
   "updated_at": "2026-03-10T00:00:00Z",
   "_metadata": {

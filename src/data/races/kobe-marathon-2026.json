@@ -15,8 +15,8 @@
   "entry_start_date": null,
   "entry_end_date": null,
   "reception_type": "pre_day",
-  "reception_note_ja": null,
-  "reception_note_en": null,
+  "reception_note_ja": "",
+  "reception_note_en": "",
   "tags": [
     "大規模",
     "景色が良い",
@@ -43,7 +43,14 @@
       "distance_km": 42.195,
       "time_limit_minutes": 420,
       "start_time": "09:00",
-      "capacity": null
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
     }
   ],
   "aid_stations": [],
@@ -97,6 +104,7 @@
       "image": null
     }
   ],
+  "result": null,
   "created_at": "2026-03-15T00:00:00Z",
   "updated_at": "2026-03-15T00:00:00Z",
   "_metadata": {

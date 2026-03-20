@@ -15,8 +15,8 @@
   "entry_start_date": null,
   "entry_end_date": null,
   "reception_type": null,
-  "reception_note_ja": null,
-  "reception_note_en": null,
+  "reception_note_ja": "",
+  "reception_note_en": "",
   "tags": [],
   "course_gpx_file": null,
   "course_info": {
@@ -36,7 +36,14 @@
       "distance_km": 42.195,
       "time_limit_minutes": null,
       "start_time": null,
-      "capacity": null
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
     }
   ],
   "aid_stations": [],
@@ -51,7 +58,7 @@
       "description_en": "World Heritage Hiraizumi. Tells of the glory of the Oshu Fujiwara clan. About 30 min by car from Oshu.",
       "distance_from_venue": "奥州市から車約30分",
       "url": null,
-      "latitude": 39.0,
+      "latitude": 39,
       "longitude": 141.1
     }
   ],
@@ -67,6 +74,7 @@
       "image": null
     }
   ],
+  "result": null,
   "created_at": "2026-03-15T00:00:00Z",
   "updated_at": "2026-03-15T00:00:00Z",
   "_metadata": {

@@ -27,6 +27,17 @@
     "SPARTATHLON基準"
   ],
   "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": 1050,
+    "min_elevation_m": 830,
+    "elevation_diff_m": 220,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "河口湖畔の桜並木、西湖からの富士山眺望、精進湖、本栖湖（120kmのみ）、山中湖（100km・120kmのみ）、富士北麓公園（スタート・フィニッシュ）",
+    "highlights_en": "Cherry blossom-lined Lake Kawaguchi shore, Mt. Fuji views from Lake Saiko, Lake Shoji, Lake Motosu (120km only), Lake Yamanaka (100km & 120km only), Fuji Hokuroku Park (start/finish)",
+    "notes_ja": "紙コップでの給水提供なし。携帯ボトル・カップ必須。補給食・防寒具・雨対策も携帯必須。標高830〜1050mのため、早朝は気温が低い（4月でも氷点下の可能性あり）。",
+    "notes_en": "No paper cup water service. Carry your own bottle/cup. Must carry supplies, cold weather gear, and rain protection. Elevation 830-1050m, so early morning temperatures can be very low (below freezing possible even in April)."
+  },
   "categories": [
     {
       "distance_type": "ultra",
@@ -129,74 +140,63 @@
       ]
     }
   ],
-  "participation_gifts": [
-    {
-      "gift_categories": [
-        "tshirt",
-        "medal",
-        "towel"
-      ],
-      "description_ja": "大会オリジナルTシャツ（THE NORTH FACE製・先着2,800名。先着数到達後はオリジナルタオルに変更）、完走メダル（完走者）、WEB完走証（完走者）",
-      "description_en": "Official race T-shirt by THE NORTH FACE (first 2,800 entries; changes to original towel after limit reached), Finisher medal (finishers), Web finisher certificate (finishers)",
-      "image": null
-    }
-  ],
   "aid_stations": [
     {
-      "distance_km": 10.0,
+      "distance_km": 10,
       "offerings_ja": "水、スポーツドリンク、補給食",
       "offerings_en": "Water, sports drink, snacks",
       "is_featured": false
     },
     {
-      "distance_km": 20.0,
+      "distance_km": 20,
       "offerings_ja": "水、スポーツドリンク、補給食、バナナ",
       "offerings_en": "Water, sports drink, snacks, banana",
       "is_featured": false
     },
     {
-      "distance_km": 30.0,
+      "distance_km": 30,
       "offerings_ja": "水、スポーツドリンク、補給食",
       "offerings_en": "Water, sports drink, snacks",
       "is_featured": false
     },
     {
-      "distance_km": 40.0,
+      "distance_km": 40,
       "offerings_ja": "水、スポーツドリンク、補給食、おにぎり",
       "offerings_en": "Water, sports drink, snacks, rice ball",
       "is_featured": false
     },
     {
-      "distance_km": 50.0,
+      "distance_km": 50,
       "offerings_ja": "水、スポーツドリンク、補給食",
       "offerings_en": "Water, sports drink, snacks",
       "is_featured": false
     },
     {
-      "distance_km": 60.0,
+      "distance_km": 60,
       "offerings_ja": "水、スポーツドリンク、補給食",
       "offerings_en": "Water, sports drink, snacks",
       "is_featured": false
     },
     {
-      "distance_km": 75.0,
+      "distance_km": 75,
       "offerings_ja": "水、スポーツドリンク、補給食",
       "offerings_en": "Water, sports drink, snacks",
       "is_featured": false
     },
     {
-      "distance_km": 90.0,
+      "distance_km": 90,
       "offerings_ja": "水、スポーツドリンク、補給食",
       "offerings_en": "Water, sports drink, snacks",
       "is_featured": false
     },
     {
-      "distance_km": 105.0,
+      "distance_km": 105,
       "offerings_ja": "水、スポーツドリンク、補給食",
       "offerings_en": "Water, sports drink, snacks",
       "is_featured": false
     }
   ],
+  "checkpoints": [],
   "access_points": [
     {
       "station_name_ja": "富士山駅",
@@ -293,15 +293,15 @@
       "min_temp": 2.8,
       "humidity_pct": 58,
       "precipitation_mm": 1.5,
-      "wind_speed_ms": 2.0
+      "wind_speed_ms": 2
     },
     {
       "year": 2024,
-      "avg_temp": 12.0,
+      "avg_temp": 12,
       "max_temp": 18.8,
       "min_temp": 4.5,
       "humidity_pct": 52,
-      "precipitation_mm": 0.0,
+      "precipitation_mm": 0,
       "wind_speed_ms": 2.5
     },
     {
@@ -310,40 +310,41 @@
       "max_temp": 20.1,
       "min_temp": 5.8,
       "humidity_pct": 50,
-      "precipitation_mm": 0.0,
+      "precipitation_mm": 0,
       "wind_speed_ms": 2.2
     },
     {
       "year": 2022,
       "avg_temp": 9.8,
-      "max_temp": 15.0,
+      "max_temp": 15,
       "min_temp": 2.2,
       "humidity_pct": 65,
-      "precipitation_mm": 8.0,
-      "wind_speed_ms": 3.0
+      "precipitation_mm": 8,
+      "wind_speed_ms": 3
     },
     {
       "year": 2019,
       "avg_temp": 8.5,
       "max_temp": 13.8,
-      "min_temp": 1.0,
+      "min_temp": 1,
       "humidity_pct": 60,
       "precipitation_mm": 3.5,
       "wind_speed_ms": 2.8
     }
   ],
-  "course_info": {
-    "max_elevation_m": 1050,
-    "min_elevation_m": 830,
-    "elevation_diff_m": 220,
-    "surface": "road",
-    "certification": [],
-    "highlights_ja": "河口湖畔の桜並木、西湖からの富士山眺望、精進湖、本栖湖（120kmのみ）、山中湖（100km・120kmのみ）、富士北麓公園（スタート・フィニッシュ）",
-    "highlights_en": "Cherry blossom-lined Lake Kawaguchi shore, Mt. Fuji views from Lake Saiko, Lake Shoji, Lake Motosu (120km only), Lake Yamanaka (100km & 120km only), Fuji Hokuroku Park (start/finish)",
-    "notes_ja": "紙コップでの給水提供なし。携帯ボトル・カップ必須。補給食・防寒具・雨対策も携帯必須。標高830〜1050mのため、早朝は気温が低い（4月でも氷点下の可能性あり）。",
-    "notes_en": "No paper cup water service. Carry your own bottle/cup. Must carry supplies, cold weather gear, and rain protection. Elevation 830-1050m, so early morning temperatures can be very low (below freezing possible even in April)."
-  },
-  "checkpoints": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "medal",
+        "towel"
+      ],
+      "description_ja": "大会オリジナルTシャツ（THE NORTH FACE製・先着2,800名。先着数到達後はオリジナルタオルに変更）、完走メダル（完走者）、WEB完走証（完走者）",
+      "description_en": "Official race T-shirt by THE NORTH FACE (first 2,800 entries; changes to original towel after limit reached), Finisher medal (finishers), Web finisher certificate (finishers)",
+      "image": null
+    }
+  ],
+  "result": null,
   "created_at": "2026-03-10T00:00:00Z",
   "updated_at": "2026-03-10T00:00:00Z",
   "_metadata": {

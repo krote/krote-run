@@ -169,6 +169,41 @@ export const participation_gifts = sqliteTable("participation_gifts", {
 ]);
 
 // ==================
+// race_series (シリーズマスタ)
+// ==================
+
+export const race_series = sqliteTable("race_series", {
+  id:              text("id").primaryKey(),          // e.g. "nagano-marathon"
+  name_ja:         text("name_ja").notNull(),         // "長野マラソン"
+  name_en:         text("name_en").notNull(),         // "Nagano Marathon"
+  first_held_year: integer("first_held_year"),        // 初開催年
+  website_url:     text("website_url"),
+});
+
+// ==================
+// race_results (各年の実績)
+// ==================
+
+export const race_results = sqliteTable("race_results", {
+  id:                   integer("id").primaryKey({ autoIncrement: true }),
+  race_id:              text("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
+  participants_count:   integer("participants_count"),
+  finishers_count:      integer("finishers_count"),
+  finisher_rate_pct:    real("finisher_rate_pct"),
+  weather_condition_ja: text("weather_condition_ja").notNull().default(""),
+  weather_condition_en: text("weather_condition_en").notNull().default(""),
+  temperature_c:        real("temperature_c"),
+  max_temp_c:           real("max_temp_c"),
+  min_temp_c:           real("min_temp_c"),
+  wind_speed_ms:        real("wind_speed_ms"),
+  humidity_pct:         real("humidity_pct"),
+  notes_ja:             text("notes_ja"),
+  notes_en:             text("notes_en"),
+}, (t) => [
+  index("race_results_race_id_idx").on(t.race_id),
+]);
+
+// ==================
 // gift_categories (マスターデータ)
 // ==================
 
@@ -197,7 +232,7 @@ export const prefectures = sqliteTable("prefectures", {
 // Relations
 // ==================
 
-export const racesRelations = relations(races, ({ many }) => ({
+export const racesRelations = relations(races, ({ many, one }) => ({
   categories:          many(race_categories),
   aid_stations:        many(aid_stations),
   checkpoints:         many(checkpoints),
@@ -205,6 +240,11 @@ export const racesRelations = relations(races, ({ many }) => ({
   nearby_spots:        many(nearby_spots),
   weather_history:     many(weather_history),
   participation_gifts: many(participation_gifts),
+  result:              one(race_results, { fields: [races.id], references: [race_results.race_id] }),
+}));
+
+export const raceResultsRelations = relations(race_results, ({ one }) => ({
+  race: one(races, { fields: [race_results.race_id], references: [races.id] }),
 }));
 
 export const raceCategoriesRelations = relations(race_categories, ({ one }) => ({

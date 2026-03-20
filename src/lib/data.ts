@@ -1,10 +1,12 @@
 import { eq, gte, asc } from "drizzle-orm";
 import { getDatabase } from "./db/client";
 import * as schema from "./db/schema";
+import { like } from "drizzle-orm";
 import type {
   Race, Prefecture, GiftCategory, RaceCategory, Wave, CourseInfo,
   AidStation, Checkpoint, AccessPoint, NearbySpot, WeatherHistory,
   ParticipationGift, GiftCategoryId, CourseSurface, ReceptionType, NearbySpotType,
+  RaceSeries, RaceResult,
 } from "./types";
 
 // ==================
@@ -108,6 +110,25 @@ function rowToGift(row: GiftRow): ParticipationGift {
   };
 }
 
+type ResultRow = typeof schema.race_results.$inferSelect;
+
+function rowToResult(row: ResultRow): RaceResult {
+  return {
+    participants_count:   row.participants_count ?? null,
+    finishers_count:      row.finishers_count ?? null,
+    finisher_rate_pct:    row.finisher_rate_pct ?? null,
+    weather_condition_ja: row.weather_condition_ja,
+    weather_condition_en: row.weather_condition_en,
+    temperature_c:        row.temperature_c ?? null,
+    max_temp_c:           row.max_temp_c ?? null,
+    min_temp_c:           row.min_temp_c ?? null,
+    wind_speed_ms:        row.wind_speed_ms ?? null,
+    humidity_pct:         row.humidity_pct ?? null,
+    notes_ja:             row.notes_ja ?? null,
+    notes_en:             row.notes_en ?? null,
+  };
+}
+
 function assembleRace(
   row: RaceRow,
   categories: CategoryRow[],
@@ -117,6 +138,7 @@ function assembleRace(
   nearbySpotRows: NearbySpotRow[],
   weatherRows: WeatherRow[],
   giftRows: GiftRow[],
+  resultRows: ResultRow[] = [],
 ): Race {
   const course_info: CourseInfo = {
     max_elevation_m: row.course_max_elevation_m,
@@ -159,6 +181,7 @@ function assembleRace(
     nearby_spots: nearbySpotRows.map(rowToNearbySpot),
     weather_history: weatherRows.map(rowToWeather),
     participation_gifts: giftRows.map(rowToGift),
+    result: resultRows.length > 0 ? rowToResult(resultRows[0]) : null,
     created_at: row.created_at,
     updated_at: row.updated_at,
   };
@@ -190,7 +213,7 @@ export async function getRaces(): Promise<Race[]> {
 export async function getRaceById(id: string): Promise<Race | null> {
   const db = getDatabase();
 
-  const [raceRows, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows] =
+  const [raceRows, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows] =
     await db.batch([
       db.select().from(schema.races).where(eq(schema.races.id, id)),
       db.select().from(schema.race_categories).where(eq(schema.race_categories.race_id, id)).orderBy(asc(schema.race_categories.sort_order)),
@@ -200,12 +223,13 @@ export async function getRaceById(id: string): Promise<Race | null> {
       db.select().from(schema.nearby_spots).where(eq(schema.nearby_spots.race_id, id)),
       db.select().from(schema.weather_history).where(eq(schema.weather_history.race_id, id)),
       db.select().from(schema.participation_gifts).where(eq(schema.participation_gifts.race_id, id)).orderBy(asc(schema.participation_gifts.sort_order)),
+      db.select().from(schema.race_results).where(eq(schema.race_results.race_id, id)),
     ]);
 
   const row = raceRows[0];
   if (!row) return null;
 
-  return assembleRace(row, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows);
+  return assembleRace(row, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows);
 }
 
 export async function getRacesByPrefecture(prefecture: string): Promise<Race[]> {
@@ -282,6 +306,55 @@ export async function getGiftCategories(): Promise<GiftCategory[]> {
     name_en: r.name_en,
     icon: r.icon,
   }));
+}
+
+// ==================
+// Race series
+// ==================
+
+/** レースIDからシリーズIDを導出する（末尾の -YYYY を除去） */
+export function toSeriesId(raceId: string): string {
+  return raceId.replace(/-\d{4}$/, '');
+}
+
+export async function getSeriesById(seriesId: string): Promise<RaceSeries | null> {
+  const db = getDatabase();
+  const rows = await db.select().from(schema.race_series).where(eq(schema.race_series.id, seriesId));
+  const r = rows[0];
+  if (!r) return null;
+  return {
+    id: r.id,
+    name_ja: r.name_ja,
+    name_en: r.name_en,
+    first_held_year: r.first_held_year ?? null,
+    website_url: r.website_url ?? null,
+  };
+}
+
+/** 同シリーズの全大会を日付降順で取得（自分自身を除く） */
+export async function getSeriesRaces(seriesId: string, excludeRaceId: string): Promise<Race[]> {
+  const db = getDatabase();
+
+  const [raceRows, categoryRows, giftRows, resultRows] = await db.batch([
+    db.select().from(schema.races)
+      .where(like(schema.races.id, `${seriesId}-%`))
+      .orderBy(asc(schema.races.date)),
+    db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
+    db.select().from(schema.participation_gifts),
+    db.select().from(schema.race_results),
+  ]);
+
+  return raceRows
+    .filter((row) => row.id !== excludeRaceId)
+    .map((row) =>
+      assembleRace(
+        row,
+        categoryRows.filter((c) => c.race_id === row.id),
+        [], [], [], [], [],
+        giftRows.filter((g) => g.race_id === row.id),
+        resultRows.filter((r) => r.race_id === row.id),
+      ),
+    );
 }
 
 export async function getGiftCategoryById(id: string): Promise<GiftCategory | null> {

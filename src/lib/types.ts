@@ -39,6 +39,7 @@ export interface Race {
   nearby_spots: NearbySpot[];
   weather_history: WeatherHistory[];
   participation_gifts: ParticipationGift[];
+  result: RaceResult | null;      // 開催実績（未開催の場合は null）
   created_at: string; // ISO datetime string
   updated_at: string; // ISO datetime string
 }
@@ -184,6 +185,37 @@ export interface GiftCategory {
   name_ja: string;
   name_en: string;
   icon: string; // emoji
+}
+
+// ==================
+// RaceSeries（シリーズマスタ）
+// ==================
+
+export interface RaceSeries {
+  id: string;             // e.g. "nagano-marathon"
+  name_ja: string;        // "長野マラソン"
+  name_en: string;        // "Nagano Marathon"
+  first_held_year: number | null;
+  website_url: string | null;
+}
+
+// ==================
+// RaceResult（各年の大会実績）
+// ==================
+
+export interface RaceResult {
+  participants_count: number | null;
+  finishers_count: number | null;
+  finisher_rate_pct: number | null;
+  weather_condition_ja: string;
+  weather_condition_en: string;
+  temperature_c: number | null;
+  max_temp_c: number | null;
+  min_temp_c: number | null;
+  wind_speed_ms: number | null;
+  humidity_pct: number | null;
+  notes_ja: string | null;
+  notes_en: string | null;
 }
 
 // ==================

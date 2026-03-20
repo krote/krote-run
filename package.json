@@ -17,7 +17,10 @@
     "db:seed:remote": "npx wrangler d1 execute krote-run-db --remote --file=./migrations/seed.sql",
     "db:seed-races:local": "npx wrangler d1 execute krote-run-db --local --file=./migrations/seed-races.sql",
     "db:seed-races:remote": "npx wrangler d1 execute krote-run-db --remote --file=./migrations/seed-races.sql",
-    "db:studio": "npx drizzle-kit studio"
+    "db:studio": "npx drizzle-kit studio",
+    "db:series:generate": "node scripts/generate-seed-series.js",
+    "db:series:local": "npm run db:series:generate && npx wrangler d1 execute krote-run-db --local --file=./migrations/seed-series.sql",
+    "db:series:remote": "npm run db:series:generate && npx wrangler d1 execute krote-run-db --remote --file=./migrations/seed-series.sql"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.7.0",

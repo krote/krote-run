@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { getRaceById, getGiftCategories } from '@/lib/data';
 import { formatDate, formatCurrency, getMainCategory, getRaceName, getRaceDescription, getRaceCity, getCategoryLabel } from '@/lib/utils';
+import { toSeriesId, getSeriesById, getSeriesRaces } from '@/lib/data';
 import { Link } from '@/i18n/navigation';
 import type { Locale, NearbySpotType } from '@/lib/types';
 
@@ -64,10 +65,13 @@ export default async function RaceDetailPage({
 }) {
   const { locale: rawLocale, id } = await params;
   const locale = rawLocale as Locale;
-  const [race, giftCategories, t] = await Promise.all([
+  const seriesId = toSeriesId(id);
+  const [race, giftCategories, t, series, seriesRaces] = await Promise.all([
     getRaceById(id),
     getGiftCategories(),
     getTranslations({ locale, namespace: 'races.detail' }),
+    getSeriesById(seriesId),
+    getSeriesRaces(seriesId, id),
   ]);
 
   if (!race) notFound();
@@ -495,6 +499,186 @@ export default async function RaceDetailPage({
                 );
               })}
             </div>
+          </section>
+        )}
+
+        {/* Race Result */}
+        {race.result && (
+          <section>
+            <SectionLabel>{locale === 'ja' ? '開催実績' : 'Results'}</SectionLabel>
+            <SectionTitle>{locale === 'ja' ? 'レース実績' : 'Race Results'}</SectionTitle>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
+              {race.result.participants_count !== null && (
+                <Card className="text-center">
+                  <p className="text-2xl font-bold" style={{ color: 'var(--color-ink)' }}>
+                    {race.result.participants_count.toLocaleString()}
+                  </p>
+                  <p className="text-xs mt-0.5" style={{ color: 'var(--color-mid)' }}>
+                    {locale === 'ja' ? '参加者数' : 'Participants'}
+                  </p>
+                </Card>
+              )}
+              {race.result.finishers_count !== null && (
+                <Card className="text-center">
+                  <p className="text-2xl font-bold" style={{ color: 'var(--color-ink)' }}>
+                    {race.result.finishers_count.toLocaleString()}
+                  </p>
+                  <p className="text-xs mt-0.5" style={{ color: 'var(--color-mid)' }}>
+                    {locale === 'ja' ? '完走者数' : 'Finishers'}
+                  </p>
+                </Card>
+              )}
+              {race.result.finisher_rate_pct !== null && (
+                <Card className="text-center">
+                  <p className="text-2xl font-bold" style={{ color: 'var(--color-ink)' }}>
+                    {race.result.finisher_rate_pct.toFixed(1)}%
+                  </p>
+                  <p className="text-xs mt-0.5" style={{ color: 'var(--color-mid)' }}>
+                    {locale === 'ja' ? '完走率' : 'Finish Rate'}
+                  </p>
+                </Card>
+              )}
+              {race.result.temperature_c !== null && (
+                <Card className="text-center">
+                  <p className="text-2xl font-bold" style={{ color: 'var(--color-ink)' }}>
+                    {race.result.temperature_c}°C
+                  </p>
+                  <p className="text-xs mt-0.5" style={{ color: 'var(--color-mid)' }}>
+                    {locale === 'ja' ? '当日気温' : 'Temperature'}
+                  </p>
+                </Card>
+              )}
+            </div>
+            {/* Weather details */}
+            {race.result.weather_condition_ja && (
+              <Card>
+                <div className="flex flex-wrap gap-5 text-sm">
+                  <div>
+                    <p className="text-xs mb-0.5" style={{ color: 'var(--color-mid)' }}>
+                      {locale === 'ja' ? '天気' : 'Weather'}
+                    </p>
+                    <p className="font-medium">
+                      {locale === 'ja' ? race.result.weather_condition_ja : race.result.weather_condition_en}
+                    </p>
+                  </div>
+                  {race.result.max_temp_c !== null && (
+                    <div>
+                      <p className="text-xs mb-0.5" style={{ color: 'var(--color-mid)' }}>{locale === 'ja' ? '最高気温' : 'Max'}</p>
+                      <p className="font-medium" style={{ color: '#c0392b' }}>{race.result.max_temp_c}°C</p>
+                    </div>
+                  )}
+                  {race.result.min_temp_c !== null && (
+                    <div>
+                      <p className="text-xs mb-0.5" style={{ color: 'var(--color-mid)' }}>{locale === 'ja' ? '最低気温' : 'Min'}</p>
+                      <p className="font-medium" style={{ color: '#2980b9' }}>{race.result.min_temp_c}°C</p>
+                    </div>
+                  )}
+                  {race.result.wind_speed_ms !== null && (
+                    <div>
+                      <p className="text-xs mb-0.5" style={{ color: 'var(--color-mid)' }}>{locale === 'ja' ? '風速' : 'Wind'}</p>
+                      <p className="font-medium">{race.result.wind_speed_ms} m/s</p>
+                    </div>
+                  )}
+                  {race.result.humidity_pct !== null && (
+                    <div>
+                      <p className="text-xs mb-0.5" style={{ color: 'var(--color-mid)' }}>{locale === 'ja' ? '湿度' : 'Humidity'}</p>
+                      <p className="font-medium">{race.result.humidity_pct}%</p>
+                    </div>
+                  )}
+                </div>
+                {race.result.notes_ja && (
+                  <p className="text-sm mt-3 pt-3 leading-relaxed" style={{ borderTop: '1px solid var(--color-border)', color: 'var(--color-ink2)' }}>
+                    {locale === 'ja' ? race.result.notes_ja : race.result.notes_en}
+                  </p>
+                )}
+              </Card>
+            )}
+          </section>
+        )}
+
+        {/* Past Editions */}
+        {(seriesRaces.length > 0 || series) && (
+          <section>
+            <SectionLabel>{locale === 'ja' ? 'シリーズ' : 'Series'}</SectionLabel>
+            <SectionTitle>
+              {series
+                ? (locale === 'ja' ? series.name_ja : series.name_en)
+                : (locale === 'ja' ? '過去の大会' : 'Past Editions')}
+            </SectionTitle>
+            {seriesRaces.length === 0 ? (
+              <Card>
+                <p className="text-sm" style={{ color: 'var(--color-mid)' }}>
+                  {locale === 'ja'
+                    ? '他の年の大会データはまだ登録されていません。'
+                    : 'No other editions are registered yet.'}
+                </p>
+              </Card>
+            ) : (
+              <div className="space-y-2">
+                {seriesRaces.map((r) => {
+                  const rMainCat = getMainCategory(r.categories);
+                  const rYear = r.date.slice(0, 4);
+                  const isPastRace = r.date < new Date().toISOString().split('T')[0];
+                  return (
+                    <Link
+                      key={r.id}
+                      href={`/races/${r.id}`}
+                      className="block no-underline"
+                    >
+                      <Card className="hover:border-[var(--color-primary)] transition-colors cursor-pointer">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-4">
+                            <span
+                              className="text-lg font-bold font-serif w-12 shrink-0"
+                              style={{ color: 'var(--color-primary)' }}
+                            >
+                              {rYear}
+                            </span>
+                            <div>
+                              <p className="font-medium text-sm" style={{ color: 'var(--color-ink)' }}>
+                                {getRaceName(r, locale)}
+                              </p>
+                              <p className="text-xs" style={{ color: 'var(--color-mid)' }}>
+                                {formatDate(r.date, locale)}
+                                {rMainCat && ` · ${rMainCat.distance_km}km`}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-3 shrink-0">
+                            {/* Result stats if available */}
+                            {r.result?.participants_count !== null && r.result?.participants_count !== undefined && (
+                              <div className="text-right hidden sm:block">
+                                <p className="text-sm font-semibold" style={{ color: 'var(--color-ink)' }}>
+                                  {r.result.participants_count.toLocaleString()}
+                                </p>
+                                <p className="text-xs" style={{ color: 'var(--color-light)' }}>
+                                  {locale === 'ja' ? '参加者' : 'runners'}
+                                </p>
+                              </div>
+                            )}
+                            {r.result?.weather_condition_ja && (
+                              <div className="text-right hidden sm:block">
+                                <p className="text-sm font-semibold" style={{ color: 'var(--color-ink)' }}>
+                                  {r.result.temperature_c !== null ? `${r.result.temperature_c}°C` : '—'}
+                                </p>
+                                <p className="text-xs" style={{ color: 'var(--color-light)' }}>
+                                  {locale === 'ja' ? r.result.weather_condition_ja : r.result.weather_condition_en}
+                                </p>
+                              </div>
+                            )}
+                            <span className="text-xs" style={{ color: isPastRace ? 'var(--color-mid)' : 'var(--color-primary)' }}>
+                              {isPastRace
+                                ? (locale === 'ja' ? '終了' : 'Ended')
+                                : (locale === 'ja' ? '開催予定' : 'Upcoming')}
+                            </span>
+                          </div>
+                        </div>
+                      </Card>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
           </section>
         )}
 

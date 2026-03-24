@@ -177,3 +177,9 @@
 
 - `/init` スキルで `CLAUDE.md` を新規作成（コマンド・アーキテクチャ・i18n・データフロー・スタイリング等を記載）
 - `README.md` を現在の構成（52大会・新デザイン・フィルター機能・シリーズ/結果モデル）に合わせて全面刷新
+
+## 2026-03-24 カレンダーに申し込み期間を表示
+
+- `src/app/[locale]/calendar/page.tsx`: 申込開始日・申込締切日もカレンダーに表示するよう実装。イベントを `CalendarEvent`（race / entry_start / entry_end）に統一し、各日付セルに色分けバッジを表示（赤: 大会当日、緑: 申込開始、オレンジ: 申込締切）。1セルあたり最大3件表示、超過分は "+N件" で省略。カレンダー下部に凡例を追加
+- `src/messages/ja.json`: `calendar` 名前空間に `raceDay`・`entryStart`・`entryEnd`・`legend` キーを追加
+- `src/messages/en.json`: 同上（英語訳）

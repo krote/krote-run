@@ -169,7 +169,11 @@
     "weekdays": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
     "prev": "Previous",
     "next": "Next",
-    "today": "This month"
+    "today": "This month",
+    "raceDay": "Race Day",
+    "entryStart": "Entry Opens",
+    "entryEnd": "Entry Closes",
+    "legend": "Legend"
   },
   "access": {
     "title": "Access Checker",

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { getRaces } from '@/lib/data';
 import { Link } from '@/i18n/navigation';
+import type { Race } from '@/lib/types';
 
 export async function generateMetadata({
   params,
@@ -21,6 +22,9 @@ function getFirstDayOfMonth(year: number, month: number): number {
   return new Date(year, month, 1).getDay();
 }
 
+type EventType = 'race' | 'entry_start' | 'entry_end';
+type CalendarEvent = { type: EventType; race: Race };
+
 export default async function CalendarPage({
   params,
   searchParams,
@@ -37,12 +41,20 @@ export default async function CalendarPage({
   const t = await getTranslations({ locale, namespace: 'calendar' });
   const races = await getRaces();
 
-  // Group races by date
-  const racesByDate = new Map<string, typeof races>();
+  // Build events map: date string → list of CalendarEvent
+  const eventsByDate = new Map<string, CalendarEvent[]>();
+
+  function addEvent(dateStr: string | null | undefined, event: CalendarEvent) {
+    if (!dateStr) return;
+    const key = dateStr.split('T')[0];
+    if (!eventsByDate.has(key)) eventsByDate.set(key, []);
+    eventsByDate.get(key)!.push(event);
+  }
+
   races.forEach((race) => {
-    const key = race.date.split('T')[0];
-    if (!racesByDate.has(key)) racesByDate.set(key, []);
-    racesByDate.get(key)!.push(race);
+    addEvent(race.date, { type: 'race', race });
+    addEvent(race.entry_start_date, { type: 'entry_start', race });
+    addEvent(race.entry_end_date, { type: 'entry_end', race });
   });
 
   const daysInMonth = getDaysInMonth(year, month);
@@ -54,6 +66,20 @@ export default async function CalendarPage({
   const monthNames = t.raw('months') as string[];
   const weekdayNames = t.raw('weekdays') as string[];
   const monthLabel = `${year}年${monthNames[month]}`;
+
+  // Badge styles per event type
+  const badgeStyles: Record<EventType, string> = {
+    race: 'bg-primary text-white hover:bg-primary/80',
+    entry_start: 'bg-green-600 text-white hover:bg-green-700',
+    entry_end: 'bg-amber-500 text-white hover:bg-amber-600',
+  };
+
+  const eventLabel = (event: CalendarEvent): string => {
+    const name = locale === 'en' ? (event.race.name_en ?? event.race.name_ja) : event.race.name_ja;
+    if (event.type === 'entry_start') return `${t('entryStart')} ${name}`;
+    if (event.type === 'entry_end') return `${t('entryEnd')} ${name}`;
+    return name;
+  };
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -103,10 +129,12 @@ export default async function CalendarPage({
           {Array.from({ length: daysInMonth }).map((_, i) => {
             const day = i + 1;
             const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-            const dayRaces = racesByDate.get(dateStr) ?? [];
+            const events = eventsByDate.get(dateStr) ?? [];
             const isToday =
               day === now.getDate() && month === now.getMonth() && year === now.getFullYear();
             const dayOfWeek = (firstDay + i) % 7;
+            const visibleEvents = events.slice(0, 3);
+            const overflow = events.length - visibleEvents.length;
 
             return (
               <div
@@ -127,23 +155,40 @@ export default async function CalendarPage({
                   {day}
                 </span>
                 <div className="space-y-1">
-                  {dayRaces.slice(0, 2).map((race) => (
+                  {visibleEvents.map((event, idx) => (
                     <Link
-                      key={race.id}
-                      href={`/races/${race.id}`}
-                      className="block text-xs bg-primary text-white rounded px-1.5 py-0.5 truncate hover:bg-primary-dark transition-colors"
+                      key={`${event.type}-${event.race.id}-${idx}`}
+                      href={`/races/${event.race.id}`}
+                      className={`block text-xs rounded px-1.5 py-0.5 truncate transition-colors ${badgeStyles[event.type]}`}
                     >
-                      {race.name_ja}
+                      {eventLabel(event)}
                     </Link>
                   ))}
-                  {dayRaces.length > 2 && (
-                    <span className="text-xs text-gray-500">+{dayRaces.length - 2}件</span>
+                  {overflow > 0 && (
+                    <span className="text-xs text-gray-500">+{overflow}件</span>
                   )}
                 </div>
               </div>
             );
           })}
         </div>
+      </div>
+
+      {/* Legend */}
+      <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-gray-600">
+        <span className="font-medium">{t('legend')}:</span>
+        <span className="flex items-center gap-1.5">
+          <span className="inline-block w-3 h-3 rounded-sm bg-primary" />
+          {t('raceDay')}
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="inline-block w-3 h-3 rounded-sm bg-green-600" />
+          {t('entryStart')}
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="inline-block w-3 h-3 rounded-sm bg-amber-500" />
+          {t('entryEnd')}
+        </span>
       </div>
     </div>
   );

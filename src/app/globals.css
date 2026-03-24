@@ -10,9 +10,10 @@
   --color-cream:        #faf8f4;
   --color-border:       #e4dfd8;
 
-  --font-sans:  var(--font-dm-sans,   'DM Sans'),   var(--font-noto-sans-jp, 'Noto Sans JP'), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-playfair,  'Playfair Display'), ui-serif, Georgia, serif;
-  --font-mono:  ui-monospace, monospace;
+  --font-sans:   var(--font-dm-sans,      'DM Sans'),   var(--font-noto-sans-jp, 'Noto Sans JP'), ui-sans-serif, system-ui, sans-serif;
+  --font-serif:  var(--font-playfair,    'Playfair Display'), ui-serif, Georgia, serif;
+  --font-mono:   ui-monospace, monospace;
+  --font-number: var(--font-montserrat,  'Montserrat'), var(--font-dm-sans, 'DM Sans'), ui-sans-serif;
 }
 
 :root {

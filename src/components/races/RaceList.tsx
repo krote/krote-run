@@ -20,6 +20,12 @@ export default function RaceList({ races, prefectures, giftCategories, locale }:
   const [filter, setFilter] = useState<RaceFilterType>(emptyFilter());
   const [view, setView] = useState<'mag' | 'exp'>('mag');
 
+  const availableTags = useMemo(() => {
+    const tagSet = new Set<string>();
+    races.forEach((r) => r.tags?.forEach((tag) => tagSet.add(tag)));
+    return [...tagSet].sort();
+  }, [races]);
+
   const filteredRaces = useMemo(() => {
     const filtered = filterRaces(races, filter);
     return sortRacesByDate(filtered);
@@ -34,6 +40,7 @@ export default function RaceList({ races, prefectures, giftCategories, locale }:
             filter={filter}
             prefectures={prefectures}
             giftCategories={giftCategories}
+            availableTags={availableTags}
             locale={locale}
             onChange={setFilter}
           />
@@ -84,7 +91,7 @@ export default function RaceList({ races, prefectures, giftCategories, locale }:
             <p className="text-sm">{t('noResults')}</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {filteredRaces.map((race) =>
               view === 'mag' ? (
                 <RaceCard key={race.id} race={race} locale={locale} />

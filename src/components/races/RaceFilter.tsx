@@ -8,6 +8,7 @@ interface RaceFilterProps {
   filter: RaceFilterType;
   prefectures: Prefecture[];
   giftCategories: GiftCategory[];
+  availableTags: string[];
   locale: string;
   onChange: (filter: RaceFilterType) => void;
 }
@@ -17,7 +18,7 @@ const DISTANCE_TYPES: DistanceType[] = ['full', 'half', '10k', '5k', 'ultra'];
 const MONTHS_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const MONTHS_JA = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
 
-export default function RaceFilter({ filter, prefectures, giftCategories, locale, onChange }: RaceFilterProps) {
+export default function RaceFilter({ filter, prefectures, giftCategories, availableTags, locale, onChange }: RaceFilterProps) {
   const t = useTranslations('races.filter');
   const monthLabels = locale === 'ja' ? MONTHS_JA : MONTHS_EN;
 
@@ -157,6 +158,37 @@ export default function RaceFilter({ filter, prefectures, giftCategories, locale
             })}
           </div>
         </div>
+
+        {/* Tags (OR multi-select) */}
+        {availableTags.length > 0 && (
+          <div>
+            <label
+              className="block text-[0.68rem] font-bold tracking-[0.12em] uppercase mb-2"
+              style={{ color: 'var(--color-mid)' }}
+            >
+              {locale === 'ja' ? 'タグ' : 'Tags'}
+            </label>
+            <div className="flex flex-wrap gap-1.5">
+              {availableTags.map((tag) => {
+                const isActive = filter.tags.includes(tag);
+                return (
+                  <FilterPill
+                    key={tag}
+                    active={isActive}
+                    onClick={() => {
+                      const next = isActive
+                        ? filter.tags.filter((t) => t !== tag)
+                        : [...filter.tags, tag];
+                      onChange({ ...filter, tags: next });
+                    }}
+                  >
+                    {tag}
+                  </FilterPill>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {/* Prefecture */}
         <div>

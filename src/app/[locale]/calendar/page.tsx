@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { getRaces } from '@/lib/data';
-import { formatDate } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 
 export async function generateMetadata({

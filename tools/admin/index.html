@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HASHIRU Admin</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="layout">
+
+    <!-- ── サイドバー ── -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">HASHIRU <span>Admin</span></div>
+        <input class="search" id="search" type="text" placeholder="大会名で検索…" />
+      </div>
+      <ul class="race-list" id="race-list"></ul>
+    </aside>
+
+    <!-- ── メインエリア ── -->
+    <main class="main">
+      <div class="empty-state" id="empty-state">
+        <p>← 左の大会リストから編集する大会を選択してください</p>
+      </div>
+
+      <div class="editor" id="editor" style="display:none">
+
+        <!-- トップバー -->
+        <div class="editor-topbar">
+          <div class="editor-title" id="editor-title">—</div>
+          <div class="topbar-actions">
+            <span class="save-status" id="save-status"></span>
+            <button class="btn btn-secondary" id="btn-toggle-preview" title="公式サイトプレビューを表示/非表示">🌐 公式サイト</button>
+            <button class="btn btn-primary" id="btn-save">保存</button>
+          </div>
+        </div>
+
+        <!-- フォーム本体 -->
+        <div class="form-body">
+
+          <!-- 基本情報 -->
+          <section class="form-section">
+            <h2 class="section-title">基本情報</h2>
+            <div class="form-grid">
+              <div class="field full">
+                <label>大会ID <span class="readonly-badge">読み取り専用</span></label>
+                <input type="text" id="f-id" readonly />
+              </div>
+              <div class="field">
+                <label>大会名（日本語）<span class="readonly-badge">シリーズ名</span></label>
+                <input type="text" id="f-name_ja" />
+              </div>
+              <div class="field with-action">
+                <label>大会名（English）<span class="readonly-badge">シリーズ名</span></label>
+                <div class="input-row">
+                  <input type="text" id="f-name_en" />
+                  <button class="btn btn-translate" data-src="f-name_ja" data-dst="f-name_en" data-field="name">🔄 翻訳</button>
+                </div>
+              </div>
+              <div class="field">
+                <label>正式名称（日本語）</label>
+                <input type="text" id="f-full_name_ja" placeholder="例: 第51回東京マラソン2026" />
+              </div>
+              <div class="field with-action">
+                <label>正式名称（English）</label>
+                <div class="input-row">
+                  <input type="text" id="f-full_name_en" placeholder="e.g. The 51st Tokyo Marathon 2026" />
+                  <button class="btn btn-translate" data-src="f-full_name_ja" data-dst="f-full_name_en" data-field="name">🔄 翻訳</button>
+                </div>
+              </div>
+              <div class="field">
+                <label>開催回次</label>
+                <input type="number" id="f-edition" min="1" placeholder="例: 51" />
+              </div>
+              <div class="field">
+                <label>開催日</label>
+                <input type="date" id="f-date" />
+              </div>
+              <div class="field">
+                <label>都道府県</label>
+                <select id="f-prefecture"></select>
+              </div>
+              <div class="field">
+                <label>開催地（日本語）</label>
+                <input type="text" id="f-city_ja" />
+              </div>
+              <div class="field with-action">
+                <label>開催地（English）</label>
+                <div class="input-row">
+                  <input type="text" id="f-city_en" />
+                  <button class="btn btn-translate" data-src="f-city_ja" data-dst="f-city_en" data-field="name">🔄 翻訳</button>
+                </div>
+              </div>
+              <div class="field full">
+                <label>公式サイトURL</label>
+                <input type="url" id="f-official_url" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 説明文 -->
+          <section class="form-section">
+            <h2 class="section-title">説明文</h2>
+            <div class="field full">
+              <label>説明文（日本語）</label>
+              <textarea id="f-description_ja" rows="4"></textarea>
+            </div>
+            <div class="field full with-action">
+              <label>説明文（English）</label>
+              <div class="input-row align-top">
+                <textarea id="f-description_en" rows="4"></textarea>
+                <button class="btn btn-translate" data-src="f-description_ja" data-dst="f-description_en" data-field="description">🔄 翻訳</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- エントリー情報 -->
+          <section class="form-section">
+            <h2 class="section-title">エントリー情報</h2>
+            <div class="form-grid">
+              <div class="field">
+                <label>エントリー開始日</label>
+                <input type="date" id="f-entry_start_date" />
+              </div>
+              <div class="field">
+                <label>エントリー終了日</label>
+                <input type="date" id="f-entry_end_date" />
+              </div>
+              <div class="field">
+                <label>受付方法</label>
+                <select id="f-reception_type">
+                  <option value="pre_day">前日受付</option>
+                  <option value="same_day">当日受付</option>
+                  <option value="mail">郵送</option>
+                  <option value="none">なし</option>
+                </select>
+              </div>
+            </div>
+            <div class="field full">
+              <label>受付メモ（日本語）</label>
+              <textarea id="f-reception_note_ja" rows="2"></textarea>
+            </div>
+            <div class="field full with-action">
+              <label>受付メモ（English）</label>
+              <div class="input-row align-top">
+                <textarea id="f-reception_note_en" rows="2"></textarea>
+                <button class="btn btn-translate" data-src="f-reception_note_ja" data-dst="f-reception_note_en" data-field="name">🔄 翻訳</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- カテゴリ（距離種目） -->
+          <section class="form-section">
+            <h2 class="section-title">距離カテゴリ</h2>
+            <div id="categories-container"></div>
+            <button class="btn btn-secondary" id="btn-add-category">＋ カテゴリを追加</button>
+          </section>
+
+          <!-- タグ -->
+          <section class="form-section">
+            <h2 class="section-title">タグ</h2>
+            <div class="tag-grid" id="tag-grid"></div>
+          </section>
+
+          <!-- アイキャッチ画像 -->
+          <section class="form-section">
+            <h2 class="section-title">アイキャッチ画像</h2>
+            <div class="image-area">
+              <div class="image-preview" id="image-preview">
+                <span class="image-placeholder">画像なし</span>
+              </div>
+              <div class="image-controls">
+                <label class="btn btn-secondary" for="image-upload">📁 ファイルを選択</label>
+                <input type="file" id="image-upload" accept="image/jpeg,image/png,image/webp" style="display:none" />
+                <p class="image-hint">JPEG / PNG / WebP<br>推奨: 800×500px 以上<br>保存先: public/images/races/{id}.jpg</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- コース -->
+          <section class="form-section">
+            <h2 class="section-title">コース</h2>
+            <div class="field full">
+              <label>GPXファイル名</label>
+              <input type="text" id="f-course_gpx_file" placeholder="例: nagano-marathon-2026.gpx" />
+            </div>
+          </section>
+
+        </div><!-- /form-body -->
+      </div><!-- /editor -->
+
+      <!-- リサイズハンドル -->
+      <div class="resize-handle hidden" id="resize-handle"></div>
+
+      <!-- 公式サイトプレビュー -->
+      <div class="preview-pane hidden" id="preview-pane">
+        <div class="preview-topbar">
+          <span class="preview-url" id="preview-url">—</span>
+          <a class="btn btn-secondary" id="preview-open" href="#" target="_blank" rel="noopener">↗ 開く</a>
+        </div>
+        <iframe class="preview-iframe" id="preview-iframe" sandbox="allow-scripts allow-same-origin allow-forms" title="公式サイト"></iframe>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

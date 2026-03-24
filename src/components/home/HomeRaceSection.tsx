@@ -62,7 +62,7 @@ export default function HomeRaceSection({ races, locale }: Props) {
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {races.length > 0
           ? races.map((race) =>
               view === 'mag'

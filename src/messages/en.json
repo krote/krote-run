@@ -1,7 +1,7 @@
 {
   "common": {
-    "siteName": "KroteRun",
-    "siteDescription": "Marathon Race Portal",
+    "siteName": "HASHIRU",
+    "siteDescription": "Japan Marathon Race Guide",
     "loading": "Loading...",
     "error": "An error occurred",
     "notFound": "Page not found",
@@ -57,7 +57,9 @@
       "byRegion": "By Region",
       "byDistance": "By Distance",
       "bySeason": "By Season",
-      "howToEnter": "How to Enter"
+      "howToEnter": "How to Enter",
+      "about": "About HASHIRU",
+      "privacy": "Privacy Policy"
     },
     "card": {
       "distance": "Distance",

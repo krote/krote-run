@@ -11,7 +11,35 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'races' });
-  return { title: t('title') };
+  const isJa = locale !== 'en';
+  const description = isJa
+    ? '日本全国のマラソン大会を距離・月・都道府県・タグで検索できる大会情報ポータル。フルマラソン・ハーフマラソン・ウルトラマラソンまで網羅。'
+    : 'Find Japan marathon races by distance, month, prefecture and tags. Full, half, ultra marathons and more.';
+  const url = `https://hashiru.run/${locale}/races`;
+
+  return {
+    title: t('title'),
+    description,
+    alternates: {
+      canonical: url,
+      languages: {
+        ja: 'https://hashiru.run/ja/races',
+        en: 'https://hashiru.run/en/races',
+      },
+    },
+    openGraph: {
+      type: 'website',
+      title: t('title'),
+      description,
+      url,
+      siteName: 'HASHIRU',
+    },
+    twitter: {
+      card: 'summary',
+      title: t('title'),
+      description,
+    },
+  };
 }
 
 export default async function RacesPage({

@@ -12,6 +12,11 @@ export interface Race {
   id: string;
   name_ja: string;
   name_en: string;
+  /** 回次・年号を含む正式名称。例: "第51回東京マラソン2026" */
+  full_name_ja: string | null;
+  full_name_en: string | null;
+  /** 開催回次。例: 51 */
+  edition: number | null;
   date: string; // ISO date string e.g. "2025-03-15"
   prefecture: string; // 都道府県コード e.g. "13"
   city_ja: string;

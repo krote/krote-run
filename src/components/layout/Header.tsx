@@ -23,7 +23,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex flex-col leading-none text-decoration-none no-underline">
           <span className="font-serif text-[1.25rem] font-bold tracking-[0.02em] text-[var(--color-ink)]">
-            KroteRun
+            HASHIRU
             <sup className="font-sans text-[0.52em] tracking-[0.18em] text-[var(--color-primary)] align-super ml-1 font-semibold">
               JAPAN
             </sup>
@@ -39,7 +39,7 @@ export default function Header() {
               className={`text-[0.83rem] font-medium tracking-[0.03em] transition-colors no-underline ${
                 pathname === href
                   ? 'text-[var(--color-ink)]'
-                  : 'text-[var(--color-mid)] hover:text-[var(--color-ink)]'
+                  : 'text-[var(--color-ink2)] hover:text-[var(--color-ink)]'
               }`}
             >
               {t(labelKey)}
@@ -55,7 +55,7 @@ export default function Header() {
             className={`text-[0.72rem] font-semibold tracking-[0.08em] px-3 py-1.5 border-r border-[var(--color-border)] transition-all no-underline ${
               locale === 'ja'
                 ? 'bg-[var(--color-ink)] text-white'
-                : 'bg-white text-[var(--color-mid)] hover:text-[var(--color-ink)]'
+                : 'bg-white text-[var(--color-ink2)] hover:text-[var(--color-ink)]'
             }`}
           >
             JA
@@ -66,7 +66,7 @@ export default function Header() {
             className={`text-[0.72rem] font-semibold tracking-[0.08em] px-3 py-1.5 transition-all no-underline ${
               locale === 'en'
                 ? 'bg-[var(--color-ink)] text-white'
-                : 'bg-white text-[var(--color-mid)] hover:text-[var(--color-ink)]'
+                : 'bg-white text-[var(--color-ink2)] hover:text-[var(--color-ink)]'
             }`}
           >
             EN
@@ -75,7 +75,7 @@ export default function Header() {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden p-2 rounded text-[var(--color-mid)] hover:bg-[var(--color-cream)]"
+          className="md:hidden p-2 rounded text-[var(--color-ink2)] hover:bg-[var(--color-cream)]"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -96,7 +96,7 @@ export default function Header() {
               key={href}
               href={href}
               className={`block py-2.5 text-sm font-medium no-underline ${
-                pathname === href ? 'text-[var(--color-ink)]' : 'text-[var(--color-mid)]'
+                pathname === href ? 'text-[var(--color-ink)]' : 'text-[var(--color-ink2)]'
               }`}
               onClick={() => setMenuOpen(false)}
             >
@@ -104,8 +104,8 @@ export default function Header() {
             </Link>
           ))}
           <div className="flex gap-3 pt-3 mt-2 border-t border-[var(--color-border)]">
-            <Link href={pathname} locale="ja" className={`text-sm font-semibold no-underline ${locale === 'ja' ? 'text-[var(--color-ink)]' : 'text-[var(--color-mid)]'}`} onClick={() => setMenuOpen(false)}>JA</Link>
-            <Link href={pathname} locale="en" className={`text-sm font-semibold no-underline ${locale === 'en' ? 'text-[var(--color-ink)]' : 'text-[var(--color-mid)]'}`} onClick={() => setMenuOpen(false)}>EN</Link>
+            <Link href={pathname} locale="ja" className={`text-sm font-semibold no-underline ${locale === 'ja' ? 'text-[var(--color-ink)]' : 'text-[var(--color-ink2)]'}`} onClick={() => setMenuOpen(false)}>JA</Link>
+            <Link href={pathname} locale="en" className={`text-sm font-semibold no-underline ${locale === 'en' ? 'text-[var(--color-ink)]' : 'text-[var(--color-ink2)]'}`} onClick={() => setMenuOpen(false)}>EN</Link>
           </div>
         </div>
       )}

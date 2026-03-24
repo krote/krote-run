@@ -14,39 +14,40 @@ export default function Footer() {
           {/* Brand */}
           <div className="max-w-[210px]">
             <div className="font-serif text-[1.1rem] text-white mb-3">
-              Krote<span className="text-[var(--color-primary)]">Run</span> Japan
+              HASHIRU <span className="text-[var(--color-primary)]">JAPAN</span>
             </div>
-            <p className="text-[0.78rem] text-[#444] leading-7">{t('tagline')}</p>
+            <p className="text-[0.78rem] text-[#888] leading-7">{t('tagline')}</p>
           </div>
 
           {/* Links */}
           <div className="flex gap-14 flex-wrap">
             <div>
-              <h4 className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase text-[#333] mb-4">
+              <h4 className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase text-[#666] mb-4">
                 {t('findRace')}
               </h4>
               <ul className="space-y-[9px]">
-                <li><Link href="/races" className="text-[0.8rem] text-[#555] hover:text-white no-underline transition-colors">{tNav('races')}</Link></li>
-                <li><Link href="/calendar" className="text-[0.8rem] text-[#555] hover:text-white no-underline transition-colors">{tNav('calendar')}</Link></li>
-                <li><Link href="/races" className="text-[0.8rem] text-[#555] hover:text-white no-underline transition-colors">{t('byRegion')}</Link></li>
-                <li><Link href="/races" className="text-[0.8rem] text-[#555] hover:text-white no-underline transition-colors">{t('byDistance')}</Link></li>
-                <li><Link href="/races" className="text-[0.8rem] text-[#555] hover:text-white no-underline transition-colors">{t('bySeason')}</Link></li>
+                <li><Link href="/races" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{tNav('races')}</Link></li>
+                <li><Link href="/calendar" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{tNav('calendar')}</Link></li>
+                <li><Link href="/races" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('byRegion')}</Link></li>
+                <li><Link href="/races" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('byDistance')}</Link></li>
+                <li><Link href="/races" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('bySeason')}</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase text-[#333] mb-4">
+              <h4 className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase text-[#666] mb-4">
                 {t('info')}
               </h4>
               <ul className="space-y-[9px]">
-                <li><Link href="/settings" className="text-[0.8rem] text-[#555] hover:text-white no-underline transition-colors">{tNav('settings')}</Link></li>
-                <li><span className="text-[0.8rem] text-[#555]">{t('howToEnter')}</span></li>
+                <li><Link href="/about" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('about')}</Link></li>
+                <li><Link href="/privacy" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('privacy')}</Link></li>
+                <li><Link href="/settings" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{tNav('settings')}</Link></li>
               </ul>
             </div>
           </div>
         </div>
 
-        <div className="mt-7 pt-[18px] border-t border-[#1a1a1a] flex justify-between text-[0.72rem] text-[#333] flex-wrap gap-2">
-          <span>© {year} KroteRun. All rights reserved.</span>
+        <div className="mt-7 pt-[18px] border-t border-[#2d2d2d] flex justify-between text-[0.72rem] text-[#777] flex-wrap gap-2">
+          <span>© {year} HASHIRU. All rights reserved.</span>
           <span>{t('madeFor')}</span>
         </div>
       </div>

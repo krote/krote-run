@@ -12,11 +12,6 @@ export default function AccessChecker({ accessPoints }: AccessCheckerProps) {
   const t = useTranslations('access');
   const [departure, setDeparture] = useState('');
   const [showResult, setShowResult] = useState(false);
-  const [locale, setLocale] = useState<'ja' | 'en'>('ja');
-
-  // Detect locale from i18n context if needed; default to ja
-  void setLocale;
-
   function handleCheck() {
     if (departure.trim()) {
       setShowResult(true);

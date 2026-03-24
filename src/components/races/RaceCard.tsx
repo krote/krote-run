@@ -1,23 +1,78 @@
 import type { Race, Locale } from '@/lib/types';
-import { formatDate, getMainCategory, getRaceName, getRaceCity, getRaceDescription } from '@/lib/utils';
+import { formatDate, getRaceName, getRaceCity } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
-import { useTranslations } from 'next-intl';
+import prefecturesData from '@/data/prefectures.json';
 
 interface RaceCardProps {
   race: Race;
   locale: Locale;
 }
 
-function timeLimitLabel(minutes: number, locale: Locale): string {
-  const h = Math.floor(minutes / 60);
-  const m = minutes % 60;
-  if (locale === 'en') return m === 0 ? `${h}h 00m` : `${h}h ${m}m`;
-  return m === 0 ? `${h}時間` : `${h}時間${m}分`;
+const PREF_MAP = new Map(
+  (prefecturesData as { code: string; name: string; nameEn: string }[]).map((p) => [
+    p.code,
+    { ja: p.name, en: p.nameEn },
+  ])
+);
+
+const TAG_EN: Record<string, string> = {
+  'AIMS公認': 'AIMS Certified',
+  'SPARTATHLON基準': 'Spartathlon Qualifier',
+  'ご当地エイド': 'Local Aid',
+  'ご当地エイド充実': 'Rich Local Aid',
+  'ご当地グルメ': 'Local Food',
+  'アップダウン多い': 'Hilly',
+  'アルプス': 'Alps',
+  'ウルトラマラソン': 'Ultra Marathon',
+  'エリート大会': 'Elite Race',
+  'オリンピック施設': 'Olympic Venue',
+  'コスパが良い': 'Good Value',
+  'フラット': 'Flat Course',
+  'ワールドメジャーズ': 'World Majors',
+  '世界遺産': 'World Heritage',
+  '中止（2026年大会）': 'Cancelled (2026)',
+  '初ウルトラおすすめ': 'First Ultra',
+  '初心者おすすめ': 'Beginner Friendly',
+  '北海道': 'Hokkaido',
+  '城下町': 'Castle Town',
+  '夏マラソン': 'Summer Race',
+  '大規模': 'Large Scale',
+  '女性限定': 'Women Only',
+  '富士山': 'Mt. Fuji',
+  '日本陸連公認': 'JAAF Certified',
+  '景色が良い': 'Scenic',
+  '桜': 'Cherry Blossom',
+  '橋': 'Bridge Course',
+  '歴史': 'Historical',
+  '歴史ある大会': 'Long-running Race',
+  '沖縄': 'Okinawa',
+  '海沿い': 'Coastal',
+  '温暖': 'Warm Climate',
+  '温泉': 'Hot Spring',
+  '湖畔': 'Lakeside',
+  '火山': 'Volcanic',
+  '第1回大会': '1st Edition',
+  '紅葉': 'Autumn Foliage',
+  '観光': 'Sightseeing',
+  '記録狙い': 'Fast Course',
+  '離島': 'Island',
+};
+
+const CARD_GRADIENTS = [
+  'linear-gradient(145deg, #1e3a2a 0%, #2a5a3f 100%)',
+  'linear-gradient(145deg, #1a1f3c 0%, #242d58 100%)',
+  'linear-gradient(145deg, #2a1818 0%, #4a2424 100%)',
+  'linear-gradient(145deg, #18282a 0%, #1e3e42 100%)',
+  'linear-gradient(145deg, #2a2010 0%, #463820 100%)',
+  'linear-gradient(145deg, #1c1a2e 0%, #2c2850 100%)',
+];
+
+function getCardGradient(id: string): string {
+  const n = [...id].reduce((a, c) => a + c.charCodeAt(0), 0) % CARD_GRADIENTS.length;
+  return CARD_GRADIENTS[n];
 }
 
 export default function RaceCard({ race, locale }: RaceCardProps) {
-  const t = useTranslations('home.card');
-  const mainCategory = getMainCategory(race.categories);
   const today = new Date().toISOString().split('T')[0];
   const isPast = race.date < today;
   const isEntryOpen =
@@ -25,90 +80,183 @@ export default function RaceCard({ race, locale }: RaceCardProps) {
     race.entry_end_date !== null &&
     today >= race.entry_start_date &&
     today <= race.entry_end_date;
+  const isClosingSoon =
+    isEntryOpen &&
+    race.entry_end_date !== null &&
+    new Date(race.entry_end_date).getTime() - new Date(today).getTime() <= 14 * 24 * 60 * 60 * 1000;
+  const isEntryClosed =
+    !isEntryOpen &&
+    !isPast &&
+    race.entry_end_date !== null &&
+    today > race.entry_end_date;
 
-  const desc = getRaceDescription(race, locale);
-  const tagline = desc.length > 88 ? desc.slice(0, 88).trimEnd() + '…' : desc;
+  // 距離: 長い順にカンマ区切り
+  const distances = [...race.categories]
+    .sort((a, b) => b.distance_km - a.distance_km)
+    .map((c) => `${c.distance_km}km`);
+  const distanceLabel = distances.join('、');
 
-  const locationLabel = locale === 'en'
-    ? `${getRaceCity(race, locale)}`
-    : `${getRaceCity(race, locale)}`;
+  // 開催地: 都道府県 + 市区町村
+  const pref = PREF_MAP.get(race.prefecture);
+  const prefLabel = locale === 'ja' ? pref?.ja ?? '' : pref?.en ?? '';
+  const cityLabel = getRaceCity(race, locale);
+  const locationLabel = prefLabel ? `${prefLabel} ${cityLabel}` : cityLabel;
+
+  // エントリー期間
+  const entryPeriod = (() => {
+    if (!race.entry_start_date && !race.entry_end_date) return null;
+    const fmt = (d: string) => formatDate(d, locale);
+    if (race.entry_start_date && race.entry_end_date)
+      return `${fmt(race.entry_start_date)} 〜 ${fmt(race.entry_end_date)}`;
+    if (race.entry_end_date)
+      return locale === 'ja' ? `〜 ${fmt(race.entry_end_date)}` : `Until ${fmt(race.entry_end_date)}`;
+    return null;
+  })();
 
   return (
-    <article className="bg-white rounded-[2px] overflow-hidden hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-shadow">
-      {/* Gradient image placeholder */}
-      <div className="h-[150px] flex items-center justify-center text-5xl relative overflow-hidden bg-gradient-to-br from-[#1a3a2a] to-[#2d6a4f]">
-        <div className="absolute inset-0 flex items-end justify-between p-3.5 pb-2.5"
-          style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)' }}>
-          <span className="text-[0.64rem] font-semibold tracking-[0.1em] uppercase text-white/80">
-            {locationLabel}
-          </span>
-          {!isPast && isEntryOpen && (
-            <span className="text-[0.62rem] font-bold tracking-[0.06em] uppercase px-2 py-0.5 rounded-[2px] bg-[var(--color-primary)] text-white">
-              {t('entryOpen')}
-            </span>
-          )}
-          {isPast && (
-            <span className="text-[0.62rem] font-bold tracking-[0.06em] uppercase px-2 py-0.5 rounded-[2px] bg-white/20 text-white/85">
-              {t('closed')}
-            </span>
-          )}
-        </div>
-      </div>
+    <Link
+      href={`/races/${race.id}`}
+      className="group block no-underline"
+      style={{ color: 'inherit' }}
+    >
+      <article
+        className="bg-white rounded-[3px] overflow-hidden flex flex-col cursor-pointer"
+        style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.06)', border: '1px solid var(--color-border)' }}
+      >
+        {/* Image area */}
+        <div className="relative h-[150px] overflow-hidden flex-shrink-0">
+          <div
+            className="absolute inset-0"
+            style={{ background: getCardGradient(race.id) }}
+          />
+          {/* 実際の画像があれば表示（なければグラデーションにフォールバック） */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`/images/races/${race.id}.jpg`}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 55%)' }}
+          />
 
-      {/* Body */}
-      <div className="px-5 pt-[18px] pb-5">
-        <div className="text-[0.72rem] text-[var(--color-light)] mb-1.5 tracking-[0.04em]">
-          {formatDate(race.date, locale)}
-        </div>
-        <h3 className="font-serif text-[1.05rem] font-bold text-[var(--color-ink)] leading-[1.3] mb-2">
-          {getRaceName(race, locale)}
-        </h3>
-        <p className="text-[0.78rem] text-[var(--color-mid)] leading-[1.65] mb-3.5 italic">
-          &ldquo;{tagline}&rdquo;
-        </p>
-
-        {/* Stats */}
-        {mainCategory && (
-          <div className="flex gap-4 py-3 border-t border-b border-[var(--color-border)] mb-3.5">
-            <div className="flex flex-col gap-px">
-              <span className="text-[0.88rem] font-semibold text-[var(--color-ink)]">{mainCategory.distance_km}km</span>
-              <span className="text-[0.63rem] text-[var(--color-light)] tracking-[0.05em] uppercase">{t('distance')}</span>
-            </div>
-            {mainCategory.time_limit_minutes > 0 && (
-              <div className="flex flex-col gap-px">
-                <span className="text-[0.88rem] font-semibold text-[var(--color-ink)]">{timeLimitLabel(mainCategory.time_limit_minutes, locale)}</span>
-                <span className="text-[0.63rem] text-[var(--color-light)] tracking-[0.05em] uppercase">{t('timeLimit')}</span>
-              </div>
+          {/* Status badge */}
+          <div className="absolute top-2.5 left-3 flex gap-1.5">
+            {!isPast && isClosingSoon && (
+              <span
+                className="text-[0.58rem] font-bold tracking-[0.06em] px-2 py-[3px] rounded-[2px]"
+                style={{ background: '#d97706', color: 'white' }}
+              >
+                {locale === 'ja' ? 'もうすぐ締切' : 'Closing Soon'}
+              </span>
             )}
-            {race.entry_capacity > 0 && (
-              <div className="flex flex-col gap-px">
-                <span className="text-[0.88rem] font-semibold text-[var(--color-ink)]">{race.entry_capacity.toLocaleString()}</span>
-                <span className="text-[0.63rem] text-[var(--color-light)] tracking-[0.05em] uppercase">{t('runners')}</span>
-              </div>
+            {!isPast && isEntryOpen && !isClosingSoon && (
+              <span
+                className="text-[0.58rem] font-bold tracking-[0.06em] px-2 py-[3px] rounded-[2px]"
+                style={{ background: 'var(--color-primary)', color: 'white' }}
+              >
+                {locale === 'ja' ? 'エントリー受付中' : 'Entry Open'}
+              </span>
+            )}
+            {!isPast && isEntryClosed && (
+              <span
+                className="text-[0.58rem] font-bold tracking-[0.06em] px-2 py-[3px] rounded-[2px]"
+                style={{ background: 'rgba(0,0,0,0.4)', color: 'rgba(255,255,255,0.75)' }}
+              >
+                {locale === 'ja' ? '受付終了' : 'Entry Closed'}
+              </span>
+            )}
+            {isPast && (
+              <span
+                className="text-[0.58rem] font-bold tracking-[0.06em] px-2 py-[3px] rounded-[2px]"
+                style={{ background: 'rgba(0,0,0,0.4)', color: 'rgba(255,255,255,0.75)' }}
+              >
+                {locale === 'ja' ? '開催済み' : 'Past'}
+              </span>
             )}
           </div>
-        )}
 
-        {/* Actions */}
-        <div className="flex gap-2">
-          <Link
-            href={`/races/${race.id}`}
-            className="flex-1 text-center py-[9px] text-[0.78rem] font-semibold text-[var(--color-ink)] border border-[var(--color-border)] hover:border-[var(--color-ink)] transition-colors no-underline tracking-[0.04em]"
+          {/* Location — bottom */}
+          <div className="absolute bottom-2.5 left-3">
+            <span className="text-[0.63rem] font-medium text-white/80">
+              📍 {locationLabel}
+            </span>
+          </div>
+        </div>
+
+        {/* Body */}
+        <div className="px-4 pt-4 pb-4 flex flex-col gap-2.5">
+          {/* Date */}
+          <p
+            className="text-[0.67rem] font-semibold tracking-[0.08em]"
+            style={{ color: 'var(--color-primary)', fontFamily: 'var(--font-number)' }}
           >
-            {t('viewDetails')}
-          </Link>
-          {isEntryOpen && !isPast && race.official_url && (
-            <a
-              href={race.official_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3.5 py-[9px] text-[0.78rem] font-semibold bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-colors no-underline tracking-[0.04em]"
-            >
-              {t('enter')}
-            </a>
+            {formatDate(race.date, locale)}
+          </p>
+
+          {/* Title */}
+          <h3
+            className="font-serif text-[1rem] font-bold leading-[1.3]"
+            style={{ color: 'var(--color-ink)' }}
+          >
+            {getRaceName(race, locale)}
+          </h3>
+
+          {/* Info rows */}
+          <div className="flex flex-col gap-1.5 pt-2" style={{ borderTop: '1px solid var(--color-border)' }}>
+            {/* Entry period */}
+            {entryPeriod && (
+              <div className="flex items-baseline gap-2">
+                <span
+                  className="text-[0.6rem] tracking-[0.08em] uppercase w-14 flex-shrink-0"
+                  style={{ color: 'var(--color-light)' }}
+                >
+                  {locale === 'ja' ? 'エントリー' : 'Entry'}
+                </span>
+                <span
+                  className="text-[0.72rem] tabular-nums"
+                  style={{ color: 'var(--color-mid)', fontFamily: 'var(--font-number)' }}
+                >
+                  {entryPeriod}
+                </span>
+              </div>
+            )}
+
+            {/* Distance */}
+            <div className="flex items-baseline gap-2">
+              <span
+                className="text-[0.6rem] tracking-[0.08em] uppercase w-14 flex-shrink-0"
+                style={{ color: 'var(--color-light)' }}
+              >
+                {locale === 'ja' ? '距離' : 'Dist.'}
+              </span>
+              <span
+                className="text-[0.8rem] font-semibold tabular-nums"
+                style={{ color: 'var(--color-ink)', fontFamily: 'var(--font-number)' }}
+              >
+                {distanceLabel}
+              </span>
+            </div>
+          </div>
+
+          {/* Tags */}
+          {race.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1 pt-1">
+              {race.tags.slice(0, 3).map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[0.58rem] font-medium px-1.5 py-0.5 rounded-[2px]"
+                  style={{ background: 'var(--color-cream)', color: 'var(--color-mid)', border: '1px solid var(--color-border)' }}
+                >
+                  {locale === 'ja' ? tag : (TAG_EN[tag] ?? tag)}
+                </span>
+              ))}
+            </div>
           )}
         </div>
-      </div>
-    </article>
+      </article>
+    </Link>
   );
 }

@@ -6,16 +6,45 @@ import { formatDate, formatCurrency, getMainCategory, getRaceName, getRaceDescri
 import { toSeriesId, getSeriesById, getSeriesRaces } from '@/lib/data';
 import { Link } from '@/i18n/navigation';
 import type { Locale, NearbySpotType } from '@/lib/types';
+import CourseProfileSection from '@/components/course/CourseProfileSection';
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string; id: string }>;
 }): Promise<Metadata> {
-  const { id } = await params;
+  const { locale, id } = await params;
   const race = await getRaceById(id);
   if (!race) return {};
-  return { title: race.name_ja };
+
+  const isJa = locale !== 'en';
+  const name = isJa ? race.name_ja : (race.name_en ?? race.name_ja);
+  const description = isJa ? race.description_ja : (race.description_en ?? race.description_ja);
+  const url = `https://hashiru.run/${locale}/races/${id}`;
+
+  return {
+    title: name,
+    description,
+    alternates: {
+      canonical: url,
+      languages: {
+        ja: `https://hashiru.run/ja/races/${id}`,
+        en: `https://hashiru.run/en/races/${id}`,
+      },
+    },
+    openGraph: {
+      type: 'website',
+      title: name,
+      description,
+      url,
+      siteName: 'HASHIRU',
+    },
+    twitter: {
+      card: 'summary',
+      title: name,
+      description,
+    },
+  };
 }
 
 const NEARBY_TYPE: Record<NearbySpotType, { en: string; icon: string }> = {
@@ -78,7 +107,8 @@ export default async function RaceDetailPage({
 
   const mainCategory = getMainCategory(race.categories);
   const giftCategoryMap = new Map(giftCategories.map((c) => [c.id, c]));
-  const raceName = getRaceName(race, locale);
+  const raceSeriesName = getRaceName(race, locale);
+  const raceName = (locale === 'ja' ? race.full_name_ja : race.full_name_en) ?? raceSeriesName;
   const raceDesc = getRaceDescription(race, locale);
   const today = new Date().toISOString().split('T')[0];
   const isPast = race.date < today;
@@ -89,8 +119,32 @@ export default async function RaceDetailPage({
     today <= race.entry_end_date;
   const isNotYetOpen = race.entry_start_date !== null && today < race.entry_start_date;
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SportsEvent',
+    name: raceName,
+    description: raceDesc,
+    startDate: race.date,
+    url: race.official_url ?? `https://hashiru.run/${locale}/races/${id}`,
+    eventStatus: isPast
+      ? 'https://schema.org/EventPostponed'
+      : 'https://schema.org/EventScheduled',
+    location: {
+      '@type': 'Place',
+      name: getRaceCity(race, locale),
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'JP',
+      },
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ── Hero ── */}
       <div style={{ background: 'var(--color-ink)' }} className="text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-6 pb-10">
@@ -117,9 +171,15 @@ export default async function RaceDetailPage({
           )}
 
           {/* Race name */}
-          <h1 className="font-serif text-3xl md:text-4xl font-bold leading-tight mb-4">
+          <h1 className="font-serif text-3xl md:text-4xl font-bold leading-tight mb-2">
             {raceName}
           </h1>
+          {/* シリーズ名（正式名称と異なる場合のみ表示） */}
+          {raceName !== raceSeriesName && (
+            <p className="text-sm mb-4" style={{ color: 'var(--color-light)' }}>
+              {raceSeriesName}
+            </p>
+          )}
 
           {/* Meta row */}
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm mb-5" style={{ color: 'var(--color-light)' }}>
@@ -230,6 +290,13 @@ export default async function RaceDetailPage({
               </tbody>
             </table>
           </Card>
+
+          {/* コースプロフィール（地図 + 高低差チャート） */}
+          {race.course_gpx_file && (
+            <div className="mb-4">
+              <CourseProfileSection raceId={id} locale={locale} />
+            </div>
+          )}
 
           {/* Course info */}
           {(race.course_info.max_elevation_m > 0 || race.course_info.highlights_ja) && (

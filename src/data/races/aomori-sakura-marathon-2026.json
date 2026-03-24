@@ -2,6 +2,9 @@
   "id": "aomori-sakura-marathon-2026",
   "name_ja": "あおもり桜マラソン",
   "name_en": "Aomori Sakura Marathon",
+  "full_name_ja": "あおもり桜マラソン2026",
+  "full_name_en": "Aomori Sakura Marathon",
+  "edition": null,
   "date": "2026-04-19",
   "prefecture": "02",
   "city_ja": "青森市",
@@ -9,17 +12,17 @@
   "description_ja": "桜の季節に開催される青森のフルマラソン。八甲田山や陸奥湾を望むコース。",
   "description_en": "A full marathon in Aomori during cherry blossom season. Course with views of Mt. Hakkoda and Mutsu Bay.",
   "official_url": "https://aomori-sakuramarathon.com",
-  "entry_fee": 7000,
-  "entry_fee_by_category": false,
-  "entry_capacity": 2400,
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
   "entry_start_date": "2025-11-01",
   "entry_end_date": "2026-01-30",
-  "reception_type": "pre_mail",
+  "reception_type": "mail",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [
-    "桜",
-    "景色が良い"
+    "景色が良い",
+    "桜"
   ],
   "course_gpx_file": null,
   "course_info": {
@@ -37,16 +40,26 @@
     {
       "distance_type": "full",
       "distance_km": 42.195,
-      "time_limit_minutes": "5:30",
+      "time_limit_minutes": 330,
       "start_time": "08:50",
-      "capacity": null,
-      "entry_fee": null,
-      "entry_fee_u25": null,
-      "name_ja": null,
-      "name_en": null,
-      "description_ja": null,
-      "description_en": null,
-      "waves": null
+      "capacity": 2400,
+      "entry_fee": 7000
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.09,
+      "time_limit_minutes": 180,
+      "start_time": "09:40",
+      "capacity": 1500,
+      "entry_fee": 5000
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 80,
+      "start_time": "09:10",
+      "capacity": 1600,
+      "entry_fee": 3000
     }
   ],
   "aid_stations": [],

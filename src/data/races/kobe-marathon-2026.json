@@ -2,6 +2,9 @@
   "id": "kobe-marathon-2026",
   "name_ja": "神戸マラソン",
   "name_en": "Kobe Marathon",
+  "full_name_ja": "神戸マラソン2026",
+  "full_name_en": "Kobe Marathon",
+  "edition": null,
   "date": "2026-11-15",
   "prefecture": "28",
   "city_ja": "神戸市",
@@ -9,9 +12,9 @@
   "description_ja": "神戸の港町を走る大規模フルマラソン。明石海峡大橋の折り返しが見どころ。「感謝と友情」がテーマ。",
   "description_en": "A large-scale marathon through the port city of Kobe. The turnaround point near Akashi Kaikyo Bridge is a highlight. Theme: Gratitude and Friendship.",
   "official_url": "https://www.kobe-marathon.net",
-  "entry_fee": null,
-  "entry_fee_by_category": false,
-  "entry_capacity": null,
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
   "entry_start_date": null,
   "entry_end_date": null,
   "reception_type": "pre_day",
@@ -19,9 +22,9 @@
   "reception_note_en": "",
   "tags": [
     "大規模",
+    "日本陸連公認",
     "景色が良い",
-    "海沿い",
-    "日本陸連公認"
+    "海沿い"
   ],
   "course_gpx_file": null,
   "course_info": {
@@ -43,7 +46,7 @@
       "distance_km": 42.195,
       "time_limit_minutes": 420,
       "start_time": "09:00",
-      "capacity": null,
+      "capacity": 0,
       "entry_fee": null,
       "entry_fee_u25": null,
       "name_ja": null,

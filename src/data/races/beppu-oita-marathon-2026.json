@@ -2,6 +2,9 @@
   "id": "beppu-oita-marathon-2026",
   "name_ja": "別府大分毎日マラソン",
   "name_en": "Beppu-Oita Mainichi Marathon",
+  "full_name_ja": "第74回 別府大分毎日マラソン",
+  "full_name_en": "Beppu-Oita Mainichi Marathon",
+  "edition": null,
   "date": "2026-02-01",
   "prefecture": "44",
   "city_ja": "大分市・別府市",
@@ -9,9 +12,9 @@
   "description_ja": "大分県で開催される歴史あるエリートマラソン。MGCシリーズG1大会。別府温泉から大分を結ぶ海岸沿いの高速コース。",
   "description_en": "A prestigious elite marathon in Oita Prefecture. MGC Series G1 event. A fast coastal course connecting Beppu Onsen to Oita.",
   "official_url": "https://www.betsudai.com",
-  "entry_fee": 15000,
-  "entry_fee_by_category": false,
-  "entry_capacity": 4000,
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
   "entry_start_date": "2025-08-29",
   "entry_end_date": "2025-09-11",
   "reception_type": "pre_day",
@@ -19,10 +22,10 @@
   "reception_note_en": "",
   "tags": [
     "エリート大会",
-    "日本陸連公認",
-    "記録狙い",
     "フラット",
-    "温泉"
+    "日本陸連公認",
+    "温泉",
+    "記録狙い"
   ],
   "course_gpx_file": null,
   "course_info": {
@@ -42,16 +45,10 @@
     {
       "distance_type": "full",
       "distance_km": 42.195,
-      "time_limit_minutes": null,
+      "time_limit_minutes": 0,
       "start_time": "12:00",
-      "capacity": null,
-      "entry_fee": null,
-      "entry_fee_u25": null,
-      "name_ja": null,
-      "name_en": null,
-      "description_ja": null,
-      "description_en": null,
-      "waves": null
+      "capacity": 4000,
+      "entry_fee": 15000
     }
   ],
   "aid_stations": [],

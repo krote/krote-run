@@ -1,7 +1,10 @@
 {
   "id": "challenge-fuji5lakes-2026",
-  "name_ja": "第36回 チャレンジ富士五湖ウルトラマラソン",
-  "name_en": "36th Challenge Fuji Five Lakes Ultra Marathon",
+  "name_ja": "チャレンジ富士五湖ウルトラマラソン",
+  "name_en": "Challenge Fuji Five Lakes Ultra Marathon",
+  "full_name_ja": "第36回 チャレンジ富士五湖ウルトラマラソン",
+  "full_name_en": "36th Challenge Fuji Five Lakes Ultra Marathon",
+  "edition": 36,
   "date": "2026-04-19",
   "prefecture": "19",
   "city_ja": "富士吉田市",
@@ -9,22 +12,22 @@
   "description_ja": "世界遺産・富士山と五つの湖を舞台にしたウルトラマラソン大会。62km・80km・100km・120kmの4種目から実力に合わせて選べる。フラットなコースと春の走りやすい気候で、初めてのウルトラマラソンにもおすすめ。120kmの部はSPARTATHLON一般エントリー枠の国際レース基準を満たす大会。",
   "description_en": "An ultra marathon set against the World Heritage site of Mt. Fuji and five beautiful lakes. Choose from 4 distances: 62km, 80km, 100km, and 120km to match your ability. The flat course and pleasant spring climate make it ideal for first-time ultra marathon runners. The 120km category meets the international race criteria for SPARTATHLON general entry.",
   "official_url": "https://www.r-wellness.com/fuji5/",
-  "entry_fee": null,
+  "entry_fee": 0,
   "entry_fee_by_category": true,
   "entry_capacity": 4500,
   "entry_start_date": "2025-10-24",
   "entry_end_date": "2026-01-31",
-  "reception_type": "pre_mail",
+  "reception_type": "",
   "reception_note_ja": "ゼッケン・計測タグは大会約3週間前に発送。参加案内はメールで配信。前日（4/18）に受付あり。",
   "reception_note_en": "Race bibs and timing tags are mailed approximately 3 weeks before the event. Participation guide sent by email. On-site registration available the day before (4/18).",
   "tags": [
+    "SPARTATHLON基準",
     "ウルトラマラソン",
-    "富士山",
+    "フラット",
     "世界遺産",
     "初ウルトラおすすめ",
-    "フラット",
-    "景色が良い",
-    "SPARTATHLON基準"
+    "富士山",
+    "景色が良い"
   ],
   "course_gpx_file": null,
   "course_info": {
@@ -45,24 +48,7 @@
       "time_limit_minutes": 915,
       "start_time": "04:00",
       "capacity": 680,
-      "entry_fee": 25000,
-      "entry_fee_u25": 20000,
-      "name_ja": "FUJI 5LAKES 120km",
-      "name_en": "FUJI 5LAKES 120km",
-      "description_ja": "富士五湖すべてを巡るコース。SPARTATHLON一般エントリー枠の国際レース基準対象（12時間以内完走が条件）",
-      "description_en": "Course circling all five Fuji lakes. Qualifies for SPARTATHLON general entry (must finish within 12 hours)",
-      "waves": [
-        {
-          "wave": "A",
-          "start_time": "04:00",
-          "end_time": "19:15"
-        },
-        {
-          "wave": "B",
-          "start_time": "04:15",
-          "end_time": "19:30"
-        }
-      ]
+      "entry_fee": 0
     },
     {
       "distance_type": "ultra",
@@ -70,29 +56,7 @@
       "time_limit_minutes": 840,
       "start_time": "04:30",
       "capacity": 2090,
-      "entry_fee": 23000,
-      "entry_fee_u25": 18400,
-      "name_ja": "FUJI 4LAKES 100km",
-      "name_en": "FUJI 4LAKES 100km",
-      "description_ja": "本栖湖を除く四湖を巡るコース",
-      "description_en": "Course circling four lakes (excluding Lake Motosu)",
-      "waves": [
-        {
-          "wave": "C",
-          "start_time": "04:30",
-          "end_time": "18:30"
-        },
-        {
-          "wave": "D",
-          "start_time": "04:45",
-          "end_time": "18:45"
-        },
-        {
-          "wave": "E",
-          "start_time": "05:00",
-          "end_time": "19:00"
-        }
-      ]
+      "entry_fee": 0
     },
     {
       "distance_type": "ultra",
@@ -100,19 +64,7 @@
       "time_limit_minutes": 750,
       "start_time": "06:00",
       "capacity": 1040,
-      "entry_fee": 21500,
-      "entry_fee_u25": 17200,
-      "name_ja": "FUJI 4LAKES 80km",
-      "name_en": "FUJI 4LAKES 80km",
-      "description_ja": "山中湖を除く四湖を巡るコース",
-      "description_en": "Course circling four lakes (excluding Lake Yamanaka)",
-      "waves": [
-        {
-          "wave": "F",
-          "start_time": "06:00",
-          "end_time": "18:30"
-        }
-      ]
+      "entry_fee": 0
     },
     {
       "distance_type": "ultra",
@@ -120,24 +72,7 @@
       "time_limit_minutes": 660,
       "start_time": "06:45",
       "capacity": 690,
-      "entry_fee": 19500,
-      "entry_fee_u25": 15600,
-      "name_ja": "FUJI 3LAKES 62km",
-      "name_en": "FUJI 3LAKES 62km",
-      "description_ja": "山中湖・本栖湖を除く三湖を巡るコース。初ウルトラにおすすめ",
-      "description_en": "Course circling three lakes (excluding Lake Yamanaka and Lake Motosu). Recommended for first ultra marathon",
-      "waves": [
-        {
-          "wave": "G",
-          "start_time": "06:45",
-          "end_time": "17:45"
-        },
-        {
-          "wave": "H",
-          "start_time": "07:00",
-          "end_time": "18:00"
-        }
-      ]
+      "entry_fee": 0
     }
   ],
   "aid_stations": [

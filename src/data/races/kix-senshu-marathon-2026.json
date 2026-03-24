@@ -2,6 +2,9 @@
   "id": "kix-senshu-marathon-2026",
   "name_ja": "KIX泉州国際マラソン",
   "name_en": "KIX Senshu International Marathon",
+  "full_name_ja": "第 33 回 KIX 泉州国際マラソン～りんくう公園内特設周回コース～",
+  "full_name_en": "KIX Senshu International Marathon",
+  "edition": 33,
   "date": "2026-02-08",
   "prefecture": "27",
   "city_ja": "堺市〜泉佐野市",
@@ -9,17 +12,17 @@
   "description_ja": "大阪南部の泉州地域を走るフルマラソン。関西国際空港連絡橋付近をコースに含む。",
   "description_en": "A full marathon through the Senshu area of southern Osaka, with parts of the course near the Kansai International Airport bridge.",
   "official_url": "http://www.senshu-marathon.jp",
-  "entry_fee": null,
-  "entry_fee_by_category": false,
-  "entry_capacity": null,
-  "entry_start_date": null,
-  "entry_end_date": null,
-  "reception_type": null,
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2025-10-10",
+  "entry_end_date": "2025-11-30",
+  "reception_type": "pre_day",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [
-    "記録狙い",
-    "フラット"
+    "フラット",
+    "記録狙い"
   ],
   "course_gpx_file": null,
   "course_info": {
@@ -39,16 +42,24 @@
     {
       "distance_type": "full",
       "distance_km": 42.195,
-      "time_limit_minutes": 300,
+      "time_limit_minutes": 420,
       "start_time": "10:30",
-      "capacity": null,
-      "entry_fee": null,
+      "capacity": 700,
+      "entry_fee": 5000,
       "entry_fee_u25": null,
       "name_ja": null,
       "name_en": null,
       "description_ja": null,
       "description_en": null,
       "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "entry_fee": 4000,
+      "capacity": 300,
+      "time_limit_minutes": 180,
+      "start_time": ""
     }
   ],
   "aid_stations": [],

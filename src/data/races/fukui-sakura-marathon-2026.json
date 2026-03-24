@@ -2,6 +2,9 @@
   "id": "fukui-sakura-marathon-2026",
   "name_ja": "ふくい桜マラソン",
   "name_en": "Fukui Sakura Marathon",
+  "full_name_ja": "ふくい桜マラソン 2026",
+  "full_name_en": "Fukui Sakura Marathon",
+  "edition": null,
   "date": "2026-03-29",
   "prefecture": "18",
   "city_ja": "福井市",
@@ -9,17 +12,17 @@
   "description_ja": "2024年に始まった福井県のフルマラソン。桜並木と恐竜博物館で知られる福井を走る。制限時間7時間。",
   "description_en": "Fukui Prefecture's marathon started in 2024. Run through Fukui known for cherry blossoms and the Dinosaur Museum. 7-hour time limit.",
   "official_url": "https://www.fukui-sakura-marathon.jp",
-  "entry_fee": null,
-  "entry_fee_by_category": false,
-  "entry_capacity": 13200,
-  "entry_start_date": null,
-  "entry_end_date": null,
-  "reception_type": null,
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2025-09-25",
+  "entry_end_date": "2025-11-10",
+  "reception_type": "pre_day",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [
-    "桜",
-    "初心者おすすめ"
+    "初心者おすすめ",
+    "桜"
   ],
   "course_gpx_file": null,
   "course_info": {
@@ -38,15 +41,25 @@
       "distance_type": "full",
       "distance_km": 42.195,
       "time_limit_minutes": 420,
-      "start_time": null,
+      "start_time": "08:30",
       "capacity": 13200,
-      "entry_fee": null,
-      "entry_fee_u25": null,
-      "name_ja": null,
-      "name_en": null,
-      "description_ja": null,
-      "description_en": null,
-      "waves": null
+      "entry_fee": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 0,
+      "start_time": "09:15",
+      "capacity": 1300,
+      "entry_fee": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.5,
+      "time_limit_minutes": 0,
+      "start_time": "09:30",
+      "capacity": 500,
+      "entry_fee": null
     }
   ],
   "aid_stations": [],

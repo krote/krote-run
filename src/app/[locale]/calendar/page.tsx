@@ -22,8 +22,12 @@ function getFirstDayOfMonth(year: number, month: number): number {
   return new Date(year, month, 1).getDay();
 }
 
-type EventType = 'race' | 'entry_start' | 'entry_end';
-type CalendarEvent = { type: EventType; race: Race };
+type EntryBand = {
+  race: Race;
+  isStart: boolean;    // actual entry_start_date
+  isEnd: boolean;      // actual entry_end_date
+  isRowStart: boolean; // Sunday continuation (not actual start)
+};
 
 export default async function CalendarPage({
   params,
@@ -41,20 +45,47 @@ export default async function CalendarPage({
   const t = await getTranslations({ locale, namespace: 'calendar' });
   const races = await getRaces();
 
-  // Build events map: date string → list of CalendarEvent
-  const eventsByDate = new Map<string, CalendarEvent[]>();
+  // Race day events
+  const raceDaysByDate = new Map<string, Race[]>();
+  races.forEach((race) => {
+    const key = race.date.split('T')[0];
+    if (!raceDaysByDate.has(key)) raceDaysByDate.set(key, []);
+    raceDaysByDate.get(key)!.push(race);
+  });
 
-  function addEvent(dateStr: string | null | undefined, event: CalendarEvent) {
-    if (!dateStr) return;
-    const key = dateStr.split('T')[0];
-    if (!eventsByDate.has(key)) eventsByDate.set(key, []);
-    eventsByDate.get(key)!.push(event);
-  }
+  // Entry period bands: expand each race's entry period into per-day entries
+  const entryBandsByDate = new Map<string, EntryBand[]>();
+  const monthStart = new Date(year, month, 1);
+  const monthEnd = new Date(year, month + 1, 0);
 
   races.forEach((race) => {
-    addEvent(race.date, { type: 'race', race });
-    addEvent(race.entry_start_date, { type: 'entry_start', race });
-    addEvent(race.entry_end_date, { type: 'entry_end', race });
+    const entryStartStr = race.entry_start_date?.split('T')[0] ?? null;
+    const entryEndStr = race.entry_end_date?.split('T')[0] ?? null;
+    if (!entryStartStr && !entryEndStr) return;
+
+    const periodStart = entryStartStr ? new Date(entryStartStr + 'T00:00:00') : monthStart;
+    const periodEnd = entryEndStr ? new Date(entryEndStr + 'T00:00:00') : monthEnd;
+
+    // Skip if no overlap with current month
+    if (periodStart > monthEnd || periodEnd < monthStart) return;
+
+    const effectiveStart = periodStart < monthStart ? monthStart : periodStart;
+    const effectiveEnd = periodEnd > monthEnd ? monthEnd : periodEnd;
+
+    let cur = new Date(effectiveStart.getTime());
+    while (cur <= effectiveEnd) {
+      const d = cur.getDate();
+      const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+      const dow = cur.getDay();
+      if (!entryBandsByDate.has(dateStr)) entryBandsByDate.set(dateStr, []);
+      entryBandsByDate.get(dateStr)!.push({
+        race,
+        isStart: dateStr === entryStartStr,
+        isEnd: dateStr === entryEndStr,
+        isRowStart: dow === 0 && dateStr !== entryStartStr,
+      });
+      cur = new Date(cur.getTime() + 86400000);
+    }
   });
 
   const daysInMonth = getDaysInMonth(year, month);
@@ -67,19 +98,8 @@ export default async function CalendarPage({
   const weekdayNames = t.raw('weekdays') as string[];
   const monthLabel = `${year}年${monthNames[month]}`;
 
-  // Badge styles per event type
-  const badgeStyles: Record<EventType, string> = {
-    race: 'bg-primary text-white hover:bg-primary/80',
-    entry_start: 'bg-green-600 text-white hover:bg-green-700',
-    entry_end: 'bg-amber-500 text-white hover:bg-amber-600',
-  };
-
-  const eventLabel = (event: CalendarEvent): string => {
-    const name = locale === 'en' ? (event.race.name_en ?? event.race.name_ja) : event.race.name_ja;
-    if (event.type === 'entry_start') return `${t('entryStart')} ${name}`;
-    if (event.type === 'entry_end') return `${t('entryEnd')} ${name}`;
-    return name;
-  };
+  const raceName = (race: Race) =>
+    locale === 'en' ? (race.name_en ?? race.name_ja) : race.name_ja;
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -118,50 +138,97 @@ export default async function CalendarPage({
           ))}
         </div>
 
-        {/* Calendar days */}
+        {/* Calendar days — cells have no horizontal padding; bands handle their own margins */}
         <div className="grid grid-cols-7">
           {/* Empty cells before first day */}
           {Array.from({ length: firstDay }).map((_, i) => (
-            <div key={`empty-${i}`} className="min-h-24 p-2 border-b border-r border-gray-100 bg-gray-50" />
+            <div key={`empty-${i}`} className="min-h-28 border-b border-r border-gray-100 bg-gray-50" />
           ))}
 
           {/* Day cells */}
           {Array.from({ length: daysInMonth }).map((_, i) => {
             const day = i + 1;
             const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-            const events = eventsByDate.get(dateStr) ?? [];
+            const dayRaces = raceDaysByDate.get(dateStr) ?? [];
+            const entryBands = entryBandsByDate.get(dateStr) ?? [];
             const isToday =
               day === now.getDate() && month === now.getMonth() && year === now.getFullYear();
             const dayOfWeek = (firstDay + i) % 7;
-            const visibleEvents = events.slice(0, 3);
-            const overflow = events.length - visibleEvents.length;
+
+            // Overflow count across bands and race badges
+            const MAX_BANDS = 2;
+            const MAX_RACES = 1;
+            const visibleBands = entryBands.slice(0, MAX_BANDS);
+            const visibleRaces = dayRaces.slice(0, MAX_RACES);
+            const overflow =
+              (entryBands.length - visibleBands.length) +
+              (dayRaces.length - visibleRaces.length);
 
             return (
               <div
                 key={day}
-                className={`min-h-24 p-2 border-b border-r border-gray-100 ${isToday ? 'bg-blue-50' : 'hover:bg-gray-50'}`}
+                className={`min-h-28 border-b border-r border-gray-100 ${isToday ? 'bg-blue-50' : 'hover:bg-gray-50'}`}
               >
-                <span
-                  className={`inline-flex items-center justify-center w-7 h-7 rounded-full text-sm font-medium mb-1 ${
-                    isToday
-                      ? 'bg-primary text-white'
-                      : dayOfWeek === 0
-                      ? 'text-accent'
-                      : dayOfWeek === 6
-                      ? 'text-primary'
-                      : 'text-gray-700'
-                  }`}
-                >
-                  {day}
-                </span>
-                <div className="space-y-1">
-                  {visibleEvents.map((event, idx) => (
+                {/* Date number */}
+                <div className="px-2 pt-2 pb-1">
+                  <span
+                    className={`inline-flex items-center justify-center w-7 h-7 rounded-full text-sm font-medium ${
+                      isToday
+                        ? 'bg-primary text-white'
+                        : dayOfWeek === 0
+                        ? 'text-accent'
+                        : dayOfWeek === 6
+                        ? 'text-primary'
+                        : 'text-gray-700'
+                    }`}
+                  >
+                    {day}
+                  </span>
+                </div>
+
+                {/* Entry period bands */}
+                <div className="space-y-px">
+                  {visibleBands.map((band) => {
+                    const name = raceName(band.race);
+                    let label = '';
+                    if (band.isStart) label = `${t('entryStart')} ${name}`;
+                    else if (band.isEnd) label = `${t('entryEnd')} ${name}`;
+                    else if (band.isRowStart) label = name;
+
+                    // Determine margin/rounding based on position within period
+                    let cx =
+                      'flex items-center h-5 text-xs overflow-hidden text-green-900 bg-green-100 transition-colors hover:bg-green-200 ';
+                    if (band.isStart && band.isEnd) {
+                      // Single-day pill
+                      cx += 'mx-2 rounded-full px-2';
+                    } else if (band.isStart) {
+                      // Left-rounded, extends to right border
+                      cx += 'ml-2 rounded-l-full pl-2 pr-1';
+                    } else if (band.isEnd) {
+                      // Right-rounded, extends from left border
+                      cx += 'mr-2 rounded-r-full pl-1 pr-2';
+                    } else {
+                      // Middle strip — full cell width (no horizontal margin or padding)
+                      cx += '';
+                    }
+
+                    return (
+                      <Link key={band.race.id} href={`/races/${band.race.id}`} className={cx}>
+                        {label && <span className="truncate">{label}</span>}
+                      </Link>
+                    );
+                  })}
+                </div>
+
+                {/* Race day badges */}
+                <div className="px-2 mt-1 space-y-1">
+                  {visibleRaces.map((race) => (
                     <Link
-                      key={`${event.type}-${event.race.id}-${idx}`}
-                      href={`/races/${event.race.id}`}
-                      className={`block text-xs rounded px-1.5 py-0.5 truncate transition-colors ${badgeStyles[event.type]}`}
+                      key={race.id}
+                      href={`/races/${race.id}`}
+                      className="block text-xs bg-primary text-white rounded px-1.5 py-0.5 truncate hover:bg-primary/80 transition-colors"
                     >
-                      {eventLabel(event)}
+                      {raceName(race)}
                     </Link>
                   ))}
                   {overflow > 0 && (
@@ -182,12 +249,8 @@ export default async function CalendarPage({
           {t('raceDay')}
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="inline-block w-3 h-3 rounded-sm bg-green-600" />
-          {t('entryStart')}
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="inline-block w-3 h-3 rounded-sm bg-amber-500" />
-          {t('entryEnd')}
+          <span className="inline-block w-8 h-3 bg-green-100 rounded-full" />
+          {t('entryPeriod')}
         </span>
       </div>
     </div>

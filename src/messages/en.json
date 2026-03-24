@@ -173,6 +173,7 @@
     "raceDay": "Race Day",
     "entryStart": "Entry Opens",
     "entryEnd": "Entry Closes",
+    "entryPeriod": "Entry Period",
     "legend": "Legend"
   },
   "access": {

@@ -507,3 +507,288 @@ function bindEvents() {
     }
   });
 }
+
+// ── タブ切り替え ────────────────────────────────────────────────────
+let currentTab = 'races'; // 'races' | 'check'
+
+document.getElementById('tab-races').addEventListener('click', () => switchTab('races'));
+document.getElementById('tab-check').addEventListener('click', () => switchTab('check'));
+
+function switchTab(tab) {
+  currentTab = tab;
+
+  document.getElementById('tab-races').classList.toggle('active', tab === 'races');
+  document.getElementById('tab-check').classList.toggle('active', tab === 'check');
+
+  // サイドバー
+  document.getElementById('race-list').classList.toggle('hidden', tab !== 'races');
+  document.getElementById('series-list').classList.toggle('hidden', tab !== 'check');
+  document.getElementById('search').style.display = tab === 'races' ? '' : 'none';
+
+  // メインエリア
+  const inEditor = document.getElementById('editor').style.display !== 'none';
+  document.getElementById('empty-state').style.display = (tab === 'races' && !inEditor) ? 'flex' : 'none';
+  document.getElementById('editor').style.display = (tab === 'races' && inEditor) ? 'flex' : 'none';
+  document.getElementById('resize-handle').classList.add('hidden');
+  document.getElementById('preview-pane').classList.add('hidden');
+  document.getElementById('check-area').classList.toggle('hidden', tab !== 'check');
+
+  if (tab === 'check') loadSeriesList();
+}
+
+// ── シリーズ一覧 ────────────────────────────────────────────────────
+let currentCheckSeriesId = null;
+let lastCheckResult = null;
+
+async function loadSeriesList() {
+  const list = document.getElementById('series-list');
+  list.innerHTML = '<li style="padding:12px 14px;color:rgba(255,255,255,0.3);font-size:12px;">読み込み中…</li>';
+
+  try {
+    const res = await fetch('/api/series');
+    const series = await res.json();
+
+    list.innerHTML = series.map(s => {
+      const hasUrl = !!s.latestRace?.official_url;
+      return `
+        <li class="series-item" data-id="${s.id}">
+          <div class="series-item-info">
+            <div class="series-item-name">${s.name_ja}</div>
+            ${s.latestRace ? `<div class="series-item-date">${s.latestRace.date}</div>` : ''}
+            ${!hasUrl ? '<div class="series-item-no-url">公式URLなし</div>' : ''}
+          </div>
+          <button class="btn btn-check" data-id="${s.id}" ${hasUrl ? '' : 'disabled'}>チェック</button>
+        </li>
+      `;
+    }).join('');
+
+    list.querySelectorAll('.btn-check:not([disabled])').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const sid = btn.dataset.id;
+        const seriesName = btn.closest('.series-item').querySelector('.series-item-name').textContent;
+        startSeriesCheck(sid, seriesName);
+      });
+    });
+
+    list.querySelectorAll('.series-item').forEach(el => {
+      el.addEventListener('click', () => {
+        document.querySelectorAll('.series-item').forEach(i => i.classList.remove('active'));
+        el.classList.add('active');
+      });
+    });
+
+  } catch (err) {
+    list.innerHTML = `<li style="padding:12px 14px;color:#e07060;font-size:12px;">エラー: ${err.message}</li>`;
+  }
+}
+
+// ── シリーズチェック実行 ─────────────────────────────────────────────
+async function startSeriesCheck(seriesId, seriesName) {
+  currentCheckSeriesId = seriesId;
+  lastCheckResult = null;
+
+  // アクティブ表示
+  document.querySelectorAll('.series-item').forEach(el => {
+    el.classList.toggle('active', el.dataset.id === seriesId);
+  });
+
+  // チェック中表示
+  document.getElementById('check-empty').classList.add('hidden');
+  document.getElementById('check-result').classList.add('hidden');
+
+  const loadingEl = document.createElement('div');
+  loadingEl.className = 'check-empty';
+  loadingEl.id = 'check-loading';
+  loadingEl.innerHTML = `<p>🔍 ${seriesName} をチェック中…<br><span style="font-size:11px;opacity:0.7">公式サイトにアクセスしています</span></p>`;
+  document.getElementById('check-panel').appendChild(loadingEl);
+
+  // チェック中はボタン無効化
+  const btn = document.querySelector(`.btn-check[data-id="${seriesId}"]`);
+  if (btn) { btn.disabled = true; btn.textContent = '確認中…'; }
+
+  try {
+    const res = await fetch('/api/series-check', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ seriesId }),
+    });
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(data.error || 'チェック失敗');
+
+    lastCheckResult = data;
+    renderCheckResult(data);
+
+  } catch (err) {
+    document.getElementById('check-panel').querySelector('#check-loading')?.remove();
+    document.getElementById('check-empty').classList.remove('hidden');
+    document.getElementById('check-empty').innerHTML = `<p style="color:var(--primary)">エラー: ${err.message}</p>`;
+  } finally {
+    const loadEl = document.getElementById('check-loading');
+    if (loadEl) loadEl.remove();
+    if (btn) { btn.disabled = false; btn.textContent = 'チェック'; }
+  }
+}
+
+// ── チェック結果レンダリング ──────────────────────────────────────────
+const DATE_STATUS_LABELS = {
+  same:      { text: '同じ大会',           cls: 'badge-same' },
+  next_race: { text: '次回大会の可能性',    cls: 'badge-next' },
+  ambiguous: { text: '開催日が異なります',  cls: 'badge-ambiguous' },
+  unknown:   { text: '日付を取得できず',    cls: 'badge-unknown' },
+};
+
+function renderCheckResult(data) {
+  document.getElementById('check-result').classList.remove('hidden');
+  document.getElementById('check-empty').classList.add('hidden');
+
+  // タイトル
+  document.getElementById('check-series-name').textContent = data.seriesName;
+
+  // ステータスバッジ
+  const statusInfo = DATE_STATUS_LABELS[data.dateStatus] || DATE_STATUS_LABELS.unknown;
+  const badge = document.getElementById('check-status-badge');
+  badge.textContent = statusInfo.text;
+  badge.className = `check-status-badge ${statusInfo.cls}`;
+
+  // 参照URL
+  const sourceBar = document.getElementById('check-source-bar');
+  sourceBar.innerHTML = '<strong>参照元:</strong> ' + data.sourceUrls.map((u, i) =>
+    `<a class="check-source-url" href="${u}" target="_blank" rel="noopener">${u}</a>${i < data.sourceUrls.length - 1 ? '<span class="check-source-sep">・</span>' : ''}`
+  ).join('');
+
+  // 差分テーブル
+  const tbody = document.getElementById('diff-tbody');
+  const changedDiff = data.diff.filter(d => d.changed);
+  const noChangeDiff = data.diff.filter(d => !d.changed);
+
+  if (changedDiff.length === 0 && data.dateStatus === 'same') {
+    document.getElementById('check-no-change').classList.remove('hidden');
+    document.getElementById('check-diff-area').style.display = 'none';
+    return;
+  }
+
+  document.getElementById('check-no-change').classList.add('hidden');
+  document.getElementById('check-diff-area').style.display = '';
+
+  tbody.innerHTML = [...changedDiff, ...noChangeDiff].map(d => `
+    <tr class="${d.changed ? 'diff-row-changed' : ''}">
+      <td>${d.label}</td>
+      <td>${d.current ?? '<span style="color:var(--light)">未設定</span>'}</td>
+      <td>${d.extracted ?? '<span style="color:var(--light)">取得できず</span>'}</td>
+      <td style="text-align:center">
+        ${d.changed
+          ? `<input type="checkbox" class="diff-check" data-key="${d.key}" checked />`
+          : '<span style="color:var(--light);font-size:11px;">—</span>'
+        }
+      </td>
+    </tr>
+  `).join('');
+
+  // AI特記事項
+  const notesEl = document.getElementById('check-notes');
+  if (data.extracted?.notes) {
+    notesEl.classList.remove('hidden');
+    notesEl.innerHTML = `<strong>AI特記事項</strong>${data.extracted.notes}`;
+  } else {
+    notesEl.classList.add('hidden');
+  }
+
+  // アクションボタン
+  renderCheckActions(data);
+}
+
+function renderCheckActions(data) {
+  const actionsEl = document.getElementById('check-actions');
+
+  if (data.dateStatus === 'same') {
+    actionsEl.innerHTML = `
+      <button class="btn btn-apply-update" id="btn-do-update">既存データを更新</button>
+      <span class="action-hint">チェックボックスで選択した項目を ${data.currentRaceId}.json に上書きします</span>
+    `;
+    document.getElementById('btn-do-update').addEventListener('click', () => applyCheck('update', data));
+
+  } else if (data.dateStatus === 'next_race') {
+    actionsEl.innerHTML = `
+      <button class="btn btn-apply-new" id="btn-do-new">次回大会として新規追加</button>
+      <button class="btn btn-secondary" id="btn-do-update-anyway">既存を更新</button>
+      <span class="action-hint">
+        登録済み開催日 ${data.currentDate} は過去です。
+        ${data.newRaceId ? `新規ファイル: <strong>${data.newRaceId}.json</strong>` : ''}
+      </span>
+    `;
+    document.getElementById('btn-do-new').addEventListener('click', () => applyCheck('new', data));
+    document.getElementById('btn-do-update-anyway').addEventListener('click', () => applyCheck('update', data));
+
+  } else if (data.dateStatus === 'ambiguous') {
+    actionsEl.innerHTML = `
+      <button class="btn btn-apply-new" id="btn-do-new">新規大会として追加</button>
+      <button class="btn btn-apply-update" id="btn-do-update">既存を更新（日付変更扱い）</button>
+      <span class="action-hint">
+        登録日 ${data.currentDate} と抽出日 ${data.extracted?.date} が異なります。
+        ${data.newRaceId ? `新規ID候補: <strong>${data.newRaceId}</strong>` : ''}
+      </span>
+    `;
+    document.getElementById('btn-do-new').addEventListener('click', () => applyCheck('new', data));
+    document.getElementById('btn-do-update').addEventListener('click', () => applyCheck('update', data));
+
+  } else {
+    actionsEl.innerHTML = `<span style="color:var(--light);font-size:12px;">日付情報が取得できなかったため適用できません。手動で確認してください。</span>`;
+  }
+}
+
+// ── チェック結果を適用 ────────────────────────────────────────────────
+async function applyCheck(mode, data) {
+  // チェックされた項目のみ updates に含める
+  const updates = {};
+  document.querySelectorAll('.diff-check:checked').forEach(cb => {
+    const key = cb.dataset.key;
+    const row = data.diff.find(d => d.key === key);
+    if (row) updates[key] = row.extracted;
+  });
+
+  if (Object.keys(updates).length === 0) {
+    alert('適用する項目を1つ以上選択してください');
+    return;
+  }
+
+  const confirmMsg = mode === 'new'
+    ? `${data.newRaceId}.json を新規作成します。よろしいですか？`
+    : `${data.currentRaceId}.json を更新します。よろしいですか？`;
+  if (!confirm(confirmMsg)) return;
+
+  // ボタン無効化
+  document.querySelectorAll('#check-actions .btn').forEach(b => { b.disabled = true; });
+
+  try {
+    const res = await fetch('/api/series-apply', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        raceId: data.currentRaceId,
+        updates,
+        mode,
+        newRaceId: mode === 'new' ? data.newRaceId : undefined,
+      }),
+    });
+    const result = await res.json();
+    if (!res.ok) throw new Error(result.error || '保存失敗');
+
+    const msg = mode === 'new'
+      ? `✓ ${result.id}.json を新規作成しました`
+      : `✓ ${result.id}.json を更新しました`;
+
+    const noticeEl = document.createElement('div');
+    noticeEl.style.cssText = 'padding:12px 16px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:4px;color:#15803d;font-size:13px;font-weight:600;';
+    noticeEl.textContent = msg;
+    document.getElementById('check-actions').after(noticeEl);
+
+    // 大会一覧を更新
+    loadRaceList();
+
+  } catch (err) {
+    alert(`エラー: ${err.message}`);
+    document.querySelectorAll('#check-actions .btn').forEach(b => { b.disabled = false; });
+  }
+}

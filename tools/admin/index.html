@@ -13,13 +13,28 @@
     <aside class="sidebar">
       <div class="sidebar-header">
         <div class="logo">HASHIRU <span>Admin</span></div>
+
+        <!-- タブ -->
+        <div class="tab-bar">
+          <button class="tab-btn active" id="tab-races">大会一覧</button>
+          <button class="tab-btn" id="tab-check">更新チェック</button>
+        </div>
+
+        <!-- 大会一覧用検索 -->
         <input class="search" id="search" type="text" placeholder="大会名で検索…" />
       </div>
+
+      <!-- 大会リスト（大会一覧タブ） -->
       <ul class="race-list" id="race-list"></ul>
+
+      <!-- シリーズリスト（更新チェックタブ） -->
+      <ul class="series-list hidden" id="series-list"></ul>
     </aside>
 
     <!-- ── メインエリア ── -->
     <main class="main">
+
+      <!-- 大会編集エリア -->
       <div class="empty-state" id="empty-state">
         <p>← 左の大会リストから編集する大会を選択してください</p>
       </div>
@@ -201,6 +216,58 @@
         </div>
         <iframe class="preview-iframe" id="preview-iframe" sandbox="allow-scripts allow-same-origin allow-forms" title="公式サイト"></iframe>
       </div>
+
+      <!-- ── 更新チェックエリア ── -->
+      <div class="check-area hidden" id="check-area">
+
+        <!-- 左: チェック結果パネル -->
+        <div class="check-panel" id="check-panel">
+          <div class="check-empty" id="check-empty">
+            <p>← シリーズを選択して「チェック」ボタンを押してください</p>
+          </div>
+
+          <div class="check-result hidden" id="check-result">
+            <!-- topbar -->
+            <div class="check-topbar">
+              <div class="check-series-name" id="check-series-name">—</div>
+              <div class="check-topbar-right">
+                <span class="check-status-badge" id="check-status-badge"></span>
+              </div>
+            </div>
+
+            <!-- 参照元URL -->
+            <div class="check-source-bar" id="check-source-bar"></div>
+
+            <!-- 差分テーブル -->
+            <div class="check-body">
+              <div id="check-no-change" class="check-no-change hidden">
+                <p>✓ 変更はありません（抽出された情報は登録済みデータと一致しています）</p>
+              </div>
+
+              <div id="check-diff-area">
+                <table class="diff-table" id="diff-table">
+                  <thead>
+                    <tr>
+                      <th>フィールド</th>
+                      <th>現在の値</th>
+                      <th>抽出された値</th>
+                      <th class="col-apply">適用</th>
+                    </tr>
+                  </thead>
+                  <tbody id="diff-tbody"></tbody>
+                </table>
+
+                <!-- AI特記事項 -->
+                <div class="check-notes hidden" id="check-notes"></div>
+
+                <!-- アクションボタン -->
+                <div class="check-actions" id="check-actions"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /check-area -->
 
     </main>
   </div>

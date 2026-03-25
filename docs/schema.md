@@ -19,6 +19,7 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | カラム | 型 | NULL | デフォルト | 備考 |
 |---|---|---|---|---|
 | id | text | NO | — | PK。例: `nagano-marathon-2026` |
+| series_id | text | YES | — | FK → race_series.id。末尾の `-YYYY` を除いた値 |
 | name_ja | text | NO | — | シリーズ名（年度をまたいで変わらない名称）|
 | name_en | text | NO | — | |
 | full_name_ja | text | YES | — | 回次・年号入り正式名称。例: `第51回東京マラソン2026` |

@@ -1,7 +1,6 @@
 import { eq, gte, asc } from "drizzle-orm";
 import { getDatabase } from "./db/client";
 import * as schema from "./db/schema";
-import { like } from "drizzle-orm";
 import type {
   Race, Prefecture, GiftCategory, RaceCategory, Wave, CourseInfo,
   AidStation, Checkpoint, AccessPoint, NearbySpot, WeatherHistory,
@@ -340,7 +339,7 @@ export async function getSeriesRaces(seriesId: string, excludeRaceId: string): P
 
   const [raceRows, categoryRows, giftRows, resultRows] = await db.batch([
     db.select().from(schema.races)
-      .where(like(schema.races.id, `${seriesId}-%`))
+      .where(eq(schema.races.series_id, seriesId))
       .orderBy(asc(schema.races.date)),
     db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
     db.select().from(schema.participation_gifts),

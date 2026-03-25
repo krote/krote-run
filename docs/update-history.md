@@ -189,6 +189,22 @@
 - `src/app/[locale]/calendar/page.tsx`: 申込期間を帯（バンド）形式で表示するよう改修。セルの水平パディングを帯ゾーンから除去し、開始日は左角丸＋ラベル、終了日は右角丸＋ラベル、中間日は全幅グリーン帯（ラベルなし）、週をまたぐ場合は日曜セルで大会名を再表示
 - `src/messages/ja.json` / `en.json`: 凡例キーを `entryPeriod` に更新
 
+## 2026-03-25 管理ツール：公式サイト更新チェック機能
+
+- `src/lib/db/schema.ts`: `races` テーブルに `series_id TEXT FK→race_series.id` を追加
+- `migrations/0004_races_series_id.sql`: `series_id` 追加マイグレーション（既存データは SUBSTR(id,1,LENGTH(id)-5) で自動埋め）
+- `src/lib/data.ts`: `getSeriesRaces()` の LIKE クエリを `eq(series_id)` に変更、不要な `like` import を削除
+- `package.json`: `@aws-sdk/client-bedrock-runtime` を追加（Bedrock経由でClaude呼び出し）
+- `tools/admin-server.js`:
+  - `GET /api/series` — JSONファイルからシリーズ一覧（最新大会情報付き）を返す
+  - `POST /api/series-check` — 公式URL を fetch → 開催概要リンクを自動探索 → BedrockでJSON抽出 → DB差分を返す
+  - `POST /api/series-apply` — `mode: update` で既存JSON上書き / `mode: new` で新規JSONを作成
+  - AWS Bedrock (claude-3-5-haiku) による HTML→構造化データ抽出（開催日・申込期間・参加費・定員）
+- `tools/admin/index.html`: 「更新チェック」タブ・シリーズリスト・差分レビューパネルを追加
+- `tools/admin/style.css`: タブ・シリーズリスト・差分テーブル・ステータスバッジ等のスタイルを追加
+- `tools/admin/app.js`: タブ切り替え・シリーズ一覧読み込み・チェック実行・差分レンダリング・適用ロジックを追加
+- `docs/schema.md`: races テーブルに `series_id` カラムを追記
+
 ## 2026-03-25 管理画面（大会追加・削除）を追加
 
 - `src/lib/data.ts`: `getAllSeries()`・`getAllPrefectures()`・`getAdminRaces()` を追加

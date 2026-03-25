@@ -360,6 +360,42 @@ export async function getSeriesRaces(seriesId: string, excludeRaceId: string): P
     );
 }
 
+export async function getAllSeries(): Promise<RaceSeries[]> {
+  const db = getDatabase();
+  const rows = await db.select().from(schema.race_series).orderBy(asc(schema.race_series.name_ja));
+  return rows.map((r) => ({
+    id: r.id,
+    name_ja: r.name_ja,
+    name_en: r.name_en,
+    first_held_year: r.first_held_year ?? null,
+    website_url: r.website_url ?? null,
+  }));
+}
+
+export async function getAllPrefectures(): Promise<Prefecture[]> {
+  const db = getDatabase();
+  const rows = await db.select().from(schema.prefectures).orderBy(asc(schema.prefectures.code));
+  return rows.map((r) => ({
+    code: r.code,
+    name: r.name,
+    nameEn: r.name_en,
+    region: r.region,
+    regionEn: r.region_en,
+    lat: r.lat,
+    lng: r.lng,
+  }));
+}
+
+/** 管理画面用: 全レースの基本情報を返す（詳細なし） */
+export async function getAdminRaces(): Promise<{ id: string; name_ja: string; date: string; prefecture: string }[]> {
+  const db = getDatabase();
+  const rows = await db
+    .select({ id: schema.races.id, name_ja: schema.races.name_ja, date: schema.races.date, prefecture: schema.races.prefecture })
+    .from(schema.races)
+    .orderBy(asc(schema.races.date));
+  return rows;
+}
+
 export async function getGiftCategoryById(id: string): Promise<GiftCategory | null> {
   const db = getDatabase();
   const rows = await db.select().from(schema.gift_categories).where(eq(schema.gift_categories.id, id));

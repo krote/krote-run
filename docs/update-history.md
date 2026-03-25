@@ -183,3 +183,17 @@
 - `src/app/[locale]/calendar/page.tsx`: 申込開始日・申込締切日もカレンダーに表示するよう実装。イベントを `CalendarEvent`（race / entry_start / entry_end）に統一し、各日付セルに色分けバッジを表示（赤: 大会当日、緑: 申込開始、オレンジ: 申込締切）。1セルあたり最大3件表示、超過分は "+N件" で省略。カレンダー下部に凡例を追加
 - `src/messages/ja.json`: `calendar` 名前空間に `raceDay`・`entryStart`・`entryEnd`・`legend` キーを追加
 - `src/messages/en.json`: 同上（英語訳）
+
+## 2026-03-25 カレンダーの申込期間を帯表示に変更
+
+- `src/app/[locale]/calendar/page.tsx`: 申込期間を帯（バンド）形式で表示するよう改修。セルの水平パディングを帯ゾーンから除去し、開始日は左角丸＋ラベル、終了日は右角丸＋ラベル、中間日は全幅グリーン帯（ラベルなし）、週をまたぐ場合は日曜セルで大会名を再表示
+- `src/messages/ja.json` / `en.json`: 凡例キーを `entryPeriod` に更新
+
+## 2026-03-25 管理画面（大会追加・削除）を追加
+
+- `src/lib/data.ts`: `getAllSeries()`・`getAllPrefectures()`・`getAdminRaces()` を追加
+- `src/lib/admin-actions.ts`: Server Actions `createRace`・`deleteRace` を新規作成。既存シリーズへの大会追加・新シリーズ作成の両フローに対応
+- `src/app/[locale]/admin/page.tsx`: 管理ダッシュボード（大会一覧＋削除ボタン・年度グループ）
+- `src/app/[locale]/admin/DeleteRaceButton.tsx`: 削除確認ダイアログ付きClient Component
+- `src/app/[locale]/admin/races/new/page.tsx`: 新規大会追加ページ
+- `src/app/[locale]/admin/races/new/RaceForm.tsx`: フォームClient Component（シリーズ選択・基本情報・エントリー情報・カテゴリ追加/削除）

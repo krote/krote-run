@@ -38,7 +38,7 @@ npm run cf:preview               # ビルド + wrangler pages dev（localhost:87
 npm run cf:deploy                # ビルド + wrangler pages deploy
 ```
 
-> **Windowsの注意**: Node.js コマンドはPowerShell経由で実行する必要があります。bashから呼び出す場合は `powershell -Command "Set-Location 'C:\Dev\krote-run'; npm run build"` を使用してください。
+> **Windowsの注意**: Node.js コマンドはPowerShell経由で実行する必要があります。bashから呼び出す場合は `powershell -Command "Set-Location 'g:\Dev\krote-run'; npm run build"` を使用してください。
 
 > `npm run dev` は `next.config.ts` の `initOpenNextCloudflareForDev()` を通じてローカルD1に接続します。ローカルDBは `.wrangler/state/` に保存されます。
 

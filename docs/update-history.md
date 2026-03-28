@@ -177,3 +177,10 @@
 
 - `/init` スキルで `CLAUDE.md` を新規作成（コマンド・アーキテクチャ・i18n・データフロー・スタイリング等を記載）
 - `README.md` を現在の構成（52大会・新デザイン・フィルター機能・シリーズ/結果モデル）に合わせて全面刷新
+
+## 2026-03-28 ネットワークドライブ対応（wrangler ローカル状態をローカルドライブに移行）
+
+- `next.config.ts`: `initOpenNextCloudflareForDev` に `persist: { path: join(homedir(), '.wrangler', 'states', 'krote-run', 'v3') }` を追加（SMB ネットワークドライブ上の SQLite WAL モード問題を回避）
+- `package.json`: ローカル DB 操作スクリプト（`db:migrate:local`, `db:seed:local`, `db:seed-races:local`, `db:series:local`）に `--persist-to %USERPROFILE%/.wrangler/states/krote-run` を追加
+- `CLAUDE.md`: Windows コマンド例のパスを `C:\Dev\krote-run` → `g:\Dev\krote-run` に更新
+- ローカル D1 データを `C:\Users\krote\.wrangler\states\krote-run\v3\` に再マイグレーション・シード適用

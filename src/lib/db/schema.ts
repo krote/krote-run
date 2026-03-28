@@ -9,6 +9,7 @@ export const races = sqliteTable("races", {
   id:                    text("id").primaryKey(),
   name_ja:               text("name_ja").notNull(),
   name_en:               text("name_en").notNull(),
+  series_id:             text("series_id").references(() => race_series.id), // シリーズFK
   full_name_ja:          text("full_name_ja"),             // 回次・年号入り正式名称（任意）
   full_name_en:          text("full_name_en"),
   edition:               integer("edition"),               // 開催回次（任意）

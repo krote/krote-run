@@ -1,7 +1,6 @@
 import { eq, gte, asc } from "drizzle-orm";
 import { getDatabase } from "./db/client";
 import * as schema from "./db/schema";
-import { like } from "drizzle-orm";
 import type {
   Race, Prefecture, GiftCategory, RaceCategory, Wave, CourseInfo,
   AidStation, Checkpoint, AccessPoint, NearbySpot, WeatherHistory,
@@ -340,7 +339,7 @@ export async function getSeriesRaces(seriesId: string, excludeRaceId: string): P
 
   const [raceRows, categoryRows, giftRows, resultRows] = await db.batch([
     db.select().from(schema.races)
-      .where(like(schema.races.id, `${seriesId}-%`))
+      .where(eq(schema.races.series_id, seriesId))
       .orderBy(asc(schema.races.date)),
     db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
     db.select().from(schema.participation_gifts),
@@ -358,6 +357,42 @@ export async function getSeriesRaces(seriesId: string, excludeRaceId: string): P
         resultRows.filter((r) => r.race_id === row.id),
       ),
     );
+}
+
+export async function getAllSeries(): Promise<RaceSeries[]> {
+  const db = getDatabase();
+  const rows = await db.select().from(schema.race_series).orderBy(asc(schema.race_series.name_ja));
+  return rows.map((r) => ({
+    id: r.id,
+    name_ja: r.name_ja,
+    name_en: r.name_en,
+    first_held_year: r.first_held_year ?? null,
+    website_url: r.website_url ?? null,
+  }));
+}
+
+export async function getAllPrefectures(): Promise<Prefecture[]> {
+  const db = getDatabase();
+  const rows = await db.select().from(schema.prefectures).orderBy(asc(schema.prefectures.code));
+  return rows.map((r) => ({
+    code: r.code,
+    name: r.name,
+    nameEn: r.name_en,
+    region: r.region,
+    regionEn: r.region_en,
+    lat: r.lat,
+    lng: r.lng,
+  }));
+}
+
+/** 管理画面用: 全レースの基本情報を返す（詳細なし） */
+export async function getAdminRaces(): Promise<{ id: string; name_ja: string; date: string; prefecture: string }[]> {
+  const db = getDatabase();
+  const rows = await db
+    .select({ id: schema.races.id, name_ja: schema.races.name_ja, date: schema.races.date, prefecture: schema.races.prefecture })
+    .from(schema.races)
+    .orderBy(asc(schema.races.date));
+  return rows;
 }
 
 export async function getGiftCategoryById(id: string): Promise<GiftCategory | null> {

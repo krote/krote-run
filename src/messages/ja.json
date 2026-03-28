@@ -169,7 +169,12 @@
     "weekdays": ["日", "月", "火", "水", "木", "金", "土"],
     "prev": "前月",
     "next": "翌月",
-    "today": "今月"
+    "today": "今月",
+    "raceDay": "大会当日",
+    "entryStart": "申込開始",
+    "entryEnd": "申込締切",
+    "entryPeriod": "申込期間",
+    "legend": "凡例"
   },
   "access": {
     "title": "アクセス確認",

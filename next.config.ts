@@ -1,14 +1,17 @@
 import createNextIntlPlugin from 'next-intl/plugin';
 import type { NextConfig } from 'next';
-import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare';
-import { join } from 'path';
-import { homedir } from 'os';
 
-// ネットワークドライブ上の SQLite は WAL モードが動作しないため、
-// wrangler のローカル状態をユーザーのホームディレクトリに保持する
-initOpenNextCloudflareForDev({
-  persist: { path: join(homedir(), '.wrangler', 'states', 'krote-run', 'v3') },
-});
+// 開発時のみ: ネットワークドライブ上の SQLite WAL問題を回避するため
+// wrangler のローカル状態をホームディレクトリに保持する
+// 本番ビルド時は呼ばないこと（Workerが存在しないローカルパスを参照して全ルート404になる）
+if (process.env.NODE_ENV === 'development') {
+  const { initOpenNextCloudflareForDev } = require('@opennextjs/cloudflare');
+  const { join } = require('path');
+  const { homedir } = require('os');
+  initOpenNextCloudflareForDev({
+    persist: { path: join(homedir(), '.wrangler', 'states', 'krote-run', 'v3') },
+  });
+}
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 

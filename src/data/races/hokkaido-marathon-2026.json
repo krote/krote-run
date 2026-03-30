@@ -15,8 +15,8 @@
   "entry_fee": 0,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
-  "entry_start_date": "2026-03-27",
-  "entry_end_date": null,
+  "entry_start_date": "2026-03-29",
+  "entry_end_date": "2026-04-24",
   "reception_type": "pre_day",
   "reception_note_ja": "",
   "reception_note_en": "",
@@ -37,16 +37,16 @@
     ],
     "highlights_ja": "大通公園、北海道大学、豊平川",
     "highlights_en": "Odori Park, Hokkaido University, Toyohira River",
-    "notes_ja": "夏開催のため暑さ対策が必須。制限時間5時間。",
-    "notes_en": "Summer heat countermeasures essential. 5-hour time limit."
+    "notes_ja": "夏開催のため暑さ対策が必須。制限時間6時間。",
+    "notes_en": "Summer heat countermeasures essential. 6-hour time limit."
   },
   "categories": [
     {
       "distance_type": "full",
       "distance_km": 42.195,
-      "time_limit_minutes": 300,
+      "time_limit_minutes": 360,
       "start_time": "08:30",
-      "capacity": 0,
+      "capacity": 20000,
       "entry_fee": 16500,
       "entry_fee_u25": null,
       "name_ja": null,

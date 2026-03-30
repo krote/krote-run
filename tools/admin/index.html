@@ -21,7 +21,10 @@
         </div>
 
         <!-- 大会一覧用検索 -->
-        <input class="search" id="search" type="text" placeholder="大会名で検索…" />
+        <div class="search-row">
+          <input class="search" id="search" type="text" placeholder="大会名で検索…" />
+          <button class="btn-add-race" id="btn-add-race" title="大会を追加">＋</button>
+        </div>
       </div>
 
       <!-- 大会リスト（大会一覧タブ） -->
@@ -48,6 +51,7 @@
             <span class="save-status" id="save-status"></span>
             <button class="btn btn-secondary" id="btn-toggle-preview" title="公式サイトプレビューを表示/非表示">🌐 公式サイト</button>
             <button class="btn btn-primary" id="btn-save">保存</button>
+            <button class="btn btn-danger" id="btn-delete">削除</button>
           </div>
         </div>
 
@@ -178,6 +182,13 @@
             <div class="tag-grid" id="tag-grid"></div>
           </section>
 
+          <!-- 参加賞 -->
+          <section class="form-section">
+            <h2 class="section-title">参加賞</h2>
+            <div id="gifts-container"></div>
+            <button class="btn btn-secondary" id="btn-add-gift">＋ 参加賞を追加</button>
+          </section>
+
           <!-- アイキャッチ画像 -->
           <section class="form-section">
             <h2 class="section-title">アイキャッチ画像</h2>
@@ -270,6 +281,72 @@
       </div><!-- /check-area -->
 
     </main>
+  </div>
+
+  <!-- ── 大会追加モーダル ── -->
+  <div class="modal-overlay hidden" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">大会を追加</h2>
+        <button class="modal-close" id="modal-close">✕</button>
+      </div>
+
+      <!-- モード切替 -->
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-mode="from-series">既存シリーズに追加</button>
+        <button class="modal-tab" data-mode="new-series">新規シリーズを作成</button>
+      </div>
+
+      <!-- 既存シリーズモード -->
+      <div class="modal-body" id="modal-from-series">
+        <p class="modal-hint">既存シリーズの最新大会データをコピーして新しい年の大会を作成します。</p>
+        <div class="field">
+          <label>シリーズ</label>
+          <select id="m-series-select"><option value="">読み込み中…</option></select>
+        </div>
+        <div class="field">
+          <label>開催年</label>
+          <input type="number" id="m-year-existing" min="2020" max="2035" placeholder="例: 2027" />
+        </div>
+        <div class="modal-id-preview">ID: <span id="m-id-preview-existing">—</span></div>
+      </div>
+
+      <!-- 新規シリーズモード -->
+      <div class="modal-body hidden" id="modal-new-series">
+        <p class="modal-hint">新しいシリーズと大会を一から作成します。</p>
+        <div class="field">
+          <label>シリーズID <span class="modal-hint-inline">英小文字・数字・ハイフン（例: tokyo-marathon）</span></label>
+          <input type="text" id="m-series-id" placeholder="例: tokyo-marathon" />
+        </div>
+        <div class="field">
+          <label>大会名（日本語）</label>
+          <input type="text" id="m-name-ja" placeholder="例: 東京マラソン" />
+        </div>
+        <div class="field">
+          <label>大会名（English）</label>
+          <input type="text" id="m-name-en" placeholder="e.g. Tokyo Marathon" />
+        </div>
+        <div class="field">
+          <label>開催年</label>
+          <input type="number" id="m-year-new" min="2020" max="2035" placeholder="例: 2027" />
+        </div>
+        <div class="field">
+          <label>開催日（仮でも可）</label>
+          <input type="date" id="m-date-new" />
+        </div>
+        <div class="field">
+          <label>都道府県</label>
+          <select id="m-prefecture-new"></select>
+        </div>
+        <div class="modal-id-preview">ID: <span id="m-id-preview-new">—</span></div>
+      </div>
+
+      <div class="modal-footer">
+        <span class="modal-error hidden" id="modal-error"></span>
+        <button class="btn btn-secondary" id="modal-cancel">キャンセル</button>
+        <button class="btn btn-primary" id="modal-submit">作成して編集</button>
+      </div>
+    </div>
   </div>
 
   <script src="/app.js"></script>

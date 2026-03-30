@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import type { Race, Prefecture, GiftCategory, RaceFilter as RaceFilterType, Locale } from '@/lib/types';
-import { filterRaces, sortRacesByDate, emptyFilter } from '@/lib/utils';
+import { filterRaces, sortRacesByDate, defaultFilter } from '@/lib/utils';
 import RaceCard from './RaceCard';
 import RaceCardExp from './RaceCardExp';
 import RaceFilter from './RaceFilter';
@@ -17,7 +17,7 @@ interface RaceListProps {
 
 export default function RaceList({ races, prefectures, giftCategories, locale }: RaceListProps) {
   const t = useTranslations('races');
-  const [filter, setFilter] = useState<RaceFilterType>(emptyFilter());
+  const [filter, setFilter] = useState<RaceFilterType>(defaultFilter());
   const [view, setView] = useState<'mag' | 'exp'>('mag');
 
   const availableTags = useMemo(() => {

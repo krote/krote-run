@@ -1,0 +1,85 @@
+{
+  "id": "tomisato-suikaroad-2026",
+  "name_ja": "富里スイカロードレース",
+  "name_en": "Tomisato Suika Road Race",
+  "full_name_ja": "第43回富里スイカロードレース大会",
+  "full_name_en": "43rd Tomisato Suika Road Race",
+  "edition": 43,
+  "date": "2026-06-14",
+  "prefecture": "12",
+  "city_ja": "富里市",
+  "city_en": "Tomisato City, Chiba",
+  "description_ja": "スイカの一大産地・千葉県富里市で毎年6月に開催される人気大会。エイドステーションでスイカを食べながら走れる名物大会。コース沿いのスイカ畑が広がる田園風景の中、7kmと10kmで競う。マイカップ給水対応。",
+  "description_en": "A popular race held every June in Tomisato City, Chiba, the top watermelon-producing area in Japan. Famous for eating watermelon at aid stations while running. Race through scenic watermelon fields in 7km and 10km distances. Supports personal cup hydration.",
+  "official_url": "https://tomisato-suikaroad.jp/",
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-02-22",
+  "entry_end_date": "2026-04-04",
+  "reception_type": "same_day",
+  "reception_note_ja": "雨天決行。スポーツエントリー（インターネット）で申込。先着順。",
+  "reception_note_en": "Held rain or shine. Entry via Sports Entry (online). First-come, first-served.",
+  "tags": [
+    "ご当地エイド",
+    "ご当地グルメ",
+    "コスパが良い",
+    "初心者おすすめ",
+    "夏マラソン"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "スイカ畑の田園風景",
+    "highlights_en": "Scenic watermelon fields",
+    "notes_ja": "エイドでスイカ配布。マイカップ給水対応。",
+    "notes_en": "Watermelon served at aid stations. Personal cup hydration supported."
+  },
+  "categories": [
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "entry_fee": 6500,
+      "capacity": 1500,
+      "time_limit_minutes": 70,
+      "start_time": "09:15"
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 7,
+      "entry_fee": 6500,
+      "capacity": 5100,
+      "time_limit_minutes": 90,
+      "start_time": "10:00"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "Tシャツ（大会当日、「Tシャツ引換所」で引き換え）",
+      "description_en": "",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-03-30T00:00:00Z",
+  "updated_at": "2026-03-30T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://tomisato-suikaroad.jp/）・大会要項ページ",
+    "data_accuracy_notes": [
+      "基本情報のみ。エイド、周辺スポット等は未入力"
+    ],
+    "last_verified": "2026-03-30",
+    "detail_level": "basic"
+  }
+}

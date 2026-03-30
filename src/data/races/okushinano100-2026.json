@@ -1,0 +1,90 @@
+{
+  "id": "okushinano100-2026",
+  "name_ja": "奥信濃100トレイルランニングレース",
+  "name_en": "Okushinano 100 Trail Running Race",
+  "full_name_ja": "奥信濃100トレイルランニングレース2026",
+  "full_name_en": "Okushinano 100 Trail Running Race 2026",
+  "edition": null,
+  "date": "2026-06-05",
+  "prefecture": "20",
+  "city_ja": "長野県飯山市・木島平村ほか",
+  "city_en": "Iiyama City / Kijimadaira Village, Nagano",
+  "description_ja": "長野県奥信濃の豊かな自然の中を走るトレイルランニングレース。「たくさんの方に奥信濃の幸せなトレイルランニングを楽しんでほしい。トレイルランニングと奥信濃が100年続くように」という願いを込めた大会。100km・50km・25km・8kmの4種目。スタートはSBCホテル前（旧木島平スキー場）。",
+  "description_en": "A trail running race through the lush natural landscape of Okushinano in Nagano Prefecture. Four distances: 100km, 50km, 25km, and 8km. Start at the former Kijimadaira Ski Resort (SBC Hotel).",
+  "official_url": "https://okushinano100.com/",
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2025-12-14",
+  "entry_end_date": "2026-05-10",
+  "reception_type": "pre_day",
+  "reception_note_ja": "100km・50km：2025年12月14日〜2026年2月28日。25km・8km：2025年12月14日〜2026年5月10日。学割あり。",
+  "reception_note_en": "100km/50km: Dec 14, 2025 – Feb 28, 2026. 25km/8km: Dec 14, 2025 – May 10, 2026. Student discounts available.",
+  "tags": [
+    "ウルトラマラソン",
+    "アップダウン多い",
+    "アルプス",
+    "景色が良い",
+    "初ウルトラおすすめ"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "trail",
+    "certification": [],
+    "highlights_ja": "奥信濃の山岳トレイル、木島平村〜飯山市周辺",
+    "highlights_en": "Mountain trails of Okushinano, Kijimadaira to Iiyama area",
+    "notes_ja": "3日間開催（6/5〜6/7）。登山道整備活動も実施。",
+    "notes_en": "3-day event (Jun 5–7). Trail maintenance activities also conducted."
+  },
+  "categories": [
+    {
+      "distance_type": "ultra",
+      "distance_km": 100,
+      "entry_fee": 31000,
+      "capacity": 700,
+      "time_limit_minutes": 1260,
+      "start_time": "05:00"
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 50,
+      "entry_fee": 15500,
+      "capacity": 400,
+      "time_limit_minutes": 630,
+      "start_time": "11:30"
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 25,
+      "entry_fee": 9900,
+      "capacity": 300,
+      "time_limit_minutes": 420,
+      "start_time": "07:00"
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 8,
+      "entry_fee": 5000,
+      "capacity": 300,
+      "time_limit_minutes": 120,
+      "start_time": "07:30"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-03-30T00:00:00Z",
+  "updated_at": "2026-03-30T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://okushinano100.com/）・大会概要ページ",
+    "data_accuracy_notes": ["基本情報のみ。エントリー開始日は2025年12月。エイド、周辺スポット等は未入力"],
+    "last_verified": "2026-03-30",
+    "detail_level": "basic"
+  }
+}

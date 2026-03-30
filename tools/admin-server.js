@@ -9,6 +9,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
+const { execSync } = require('child_process');
 
 const PORT = 4000;
 const ROOT = path.join(__dirname, '..');
@@ -248,6 +249,28 @@ ${content}`;
   return JSON.parse(jsonMatch[0]);
 }
 
+// ── ローカルDB同期 ────────────────────────────────────────────────
+function syncLocalDb() {
+  const persistPath = path.join(
+    process.env.USERPROFILE || process.env.HOME || '',
+    '.wrangler', 'states', 'krote-run'
+  );
+  try {
+    console.log('[DB同期] シードSQL生成中...');
+    execSync('node scripts/generate-seed-races.js', { cwd: ROOT, stdio: 'pipe' });
+    console.log('[DB同期] ローカルDBに反映中...');
+    execSync(
+      `npx wrangler d1 execute krote-run-db --local --file=./migrations/seed-races.sql --persist-to "${persistPath}"`,
+      { cwd: ROOT, stdio: 'pipe' }
+    );
+    console.log('[DB同期] 完了');
+    return { ok: true };
+  } catch (err) {
+    console.error('[DB同期] エラー:', err.stderr?.toString() || err.message);
+    return { ok: false, error: err.message };
+  }
+}
+
 // ── シリーズユーティリティ ────────────────────────────────────────
 function toSeriesId(raceId) {
   return raceId.replace(/-\d{4}$/, '');
@@ -315,7 +338,7 @@ const server = http.createServer(async (req, res) => {
   if (method === 'OPTIONS') {
     res.writeHead(204, {
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET,PUT,POST',
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
       'Access-Control-Allow-Headers': 'Content-Type',
     });
     return res.end();
@@ -363,8 +386,97 @@ const server = http.createServer(async (req, res) => {
         const data = JSON.parse(body);
         fs.writeFileSync(filePath, JSON.stringify(data, null, 2) + '\n', 'utf-8');
         console.log(`[保存] ${id}`);
-        return jsonRes(res, { ok: true });
+        const sync = syncLocalDb();
+        return jsonRes(res, { ok: true, dbSync: sync });
       }
+
+      if (method === 'DELETE') {
+        if (!fs.existsSync(filePath)) return jsonRes(res, { error: 'Not found' }, 404);
+        fs.unlinkSync(filePath);
+        console.log(`[削除] ${id}`);
+        const sync = syncLocalDb();
+        return jsonRes(res, { ok: true, dbSync: sync });
+      }
+    }
+
+    // ── API: 大会新規作成 ──
+    if (method === 'POST' && pathname === '/api/races') {
+      const { mode, seriesId, year, name_ja, name_en, date, prefecture } = JSON.parse(await readBody(req));
+      if (!seriesId || !year) return jsonRes(res, { error: 'seriesId, year が必要です' }, 400);
+      const now = new Date().toISOString();
+      const raceId = `${seriesId}-${year}`;
+      const destPath = path.join(RACES_DIR, `${raceId}.json`);
+      if (fs.existsSync(destPath)) return jsonRes(res, { error: `${raceId}.json は既に存在します` }, 409);
+
+      if (mode === 'from-series') {
+        // 既存シリーズの最新大会をコピーして新規作成
+        const files = fs.readdirSync(RACES_DIR)
+          .filter(f => f.endsWith('.json') && f !== 'index.json' && f.startsWith(seriesId + '-'))
+          .sort();
+        if (files.length === 0) return jsonRes(res, { error: 'シリーズのJSONが見つかりません' }, 404);
+        const latest = JSON.parse(fs.readFileSync(path.join(RACES_DIR, files[files.length - 1]), 'utf-8'));
+        const newRace = {
+          ...latest,
+          id: raceId,
+          date: `${year}-01-01`,
+          entry_start_date: null,
+          entry_end_date: null,
+          result: null,
+          created_at: now,
+          updated_at: now,
+        };
+        fs.writeFileSync(destPath, JSON.stringify(newRace, null, 2) + '\n', 'utf-8');
+        console.log(`[新規作成(既存シリーズ)] ${raceId}`);
+        const sync1 = syncLocalDb();
+        return jsonRes(res, { ok: true, id: raceId, dbSync: sync1 });
+
+      } else if (mode === 'new-series') {
+        if (!name_ja) return jsonRes(res, { error: 'name_ja が必要です' }, 400);
+        const newRace = {
+          id: raceId,
+          name_ja,
+          name_en: name_en || '',
+          full_name_ja: null,
+          full_name_en: null,
+          edition: null,
+          date: date || `${year}-01-01`,
+          prefecture: prefecture || '13',
+          city_ja: '',
+          city_en: '',
+          description_ja: '',
+          description_en: '',
+          official_url: null,
+          entry_fee: 0,
+          entry_fee_by_category: true,
+          entry_capacity: 0,
+          entry_start_date: null,
+          entry_end_date: null,
+          reception_type: 'pre_day',
+          reception_note_ja: '',
+          reception_note_en: '',
+          tags: [],
+          course_gpx_file: null,
+          course_info: {
+            max_elevation_m: null, min_elevation_m: null, elevation_diff_m: null,
+            surface: 'road', certification: [],
+            highlights_ja: '', highlights_en: '', notes_ja: '', notes_en: '',
+          },
+          categories: [],
+          aid_stations: [],
+          checkpoints: [],
+          access_points: [],
+          nearby_spots: [],
+          result: null,
+          created_at: now,
+          updated_at: now,
+        };
+        fs.writeFileSync(destPath, JSON.stringify(newRace, null, 2) + '\n', 'utf-8');
+        console.log(`[新規作成(新シリーズ)] ${raceId}`);
+        const sync2 = syncLocalDb();
+        return jsonRes(res, { ok: true, id: raceId, dbSync: sync2 });
+      }
+
+      return jsonRes(res, { error: '不正なmode' }, 400);
     }
 
     // ── API: 翻訳 ──
@@ -468,7 +580,8 @@ const server = http.createServer(async (req, res) => {
         };
         fs.writeFileSync(srcPath, JSON.stringify(updated, null, 2) + '\n', 'utf-8');
         console.log(`[更新] ${raceId}`);
-        return jsonRes(res, { ok: true, id: raceId, mode: 'update' });
+        const syncU = syncLocalDb();
+        return jsonRes(res, { ok: true, id: raceId, mode: 'update', dbSync: syncU });
 
       } else if (mode === 'new') {
         // 新規ファイルを作成
@@ -496,7 +609,8 @@ const server = http.createServer(async (req, res) => {
         };
         fs.writeFileSync(destPath, JSON.stringify(newRace, null, 2) + '\n', 'utf-8');
         console.log(`[新規作成] ${targetId}`);
-        return jsonRes(res, { ok: true, id: targetId, mode: 'new' });
+        const syncN = syncLocalDb();
+        return jsonRes(res, { ok: true, id: targetId, mode: 'new', dbSync: syncN });
       }
 
       return jsonRes(res, { error: '不正なmode' }, 400);

@@ -1,0 +1,74 @@
+{
+  "id": "osj-ontake100-2026",
+  "name_ja": "OSJ ONTAKE100",
+  "name_en": "OSJ ONTAKE100",
+  "full_name_ja": "OSJ ONTAKE100 2026",
+  "full_name_en": "OSJ ONTAKE100 2026",
+  "edition": null,
+  "date": "2026-07-18",
+  "prefecture": "20",
+  "city_ja": "長野県木曽郡王滝村",
+  "city_en": "Otaki Village, Kiso District, Nagano",
+  "description_ja": "御嶽山（標高3,067m）麓の通常立入禁止の国有林を特別開放して行われる夜間スタートのロングレース。100Kと100マイルの2種目。深い森と御嶽山の雄大な景色の中を走る。「フィニッシュの感動は格別」と称されるOSJが誇るロングレースシリーズの一戦。",
+  "description_en": "A night-start long race through special-access national forest at the foot of Mt. Ontake (3,067m). Two distances: 100K and 100 Miles. Run through deep forest with majestic views of Mt. Ontake. Part of OSJ's premier long-race series, renowned for an exceptional finish experience.",
+  "official_url": "https://www.outdoorsportsjapan.com/trail/ontake100/",
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-02-01",
+  "entry_end_date": "2026-06-14",
+  "reception_type": "pre_day",
+  "reception_note_ja": "一般エントリー：2025年11月14日〜12月12日（終了）。追加エントリー：2026年2月1日〜6月14日（空きがある場合）。",
+  "reception_note_en": "General entry: Nov 14 – Dec 12, 2025 (closed). Additional entry: Feb 1 – Jun 14, 2026 (if spots available).",
+  "tags": [
+    "ウルトラマラソン",
+    "アップダウン多い",
+    "景色が良い",
+    "歴史ある大会",
+    "火山"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "trail",
+    "certification": [],
+    "highlights_ja": "御嶽山麓国有林、特別開放区域",
+    "highlights_en": "National forest at Mt. Ontake base, specially opened restricted area",
+    "notes_ja": "100マイル：7/18(土)20:00スタート。100K：7/19(日)0:00スタート。",
+    "notes_en": "100 Mile: Jul 18 (Sat) 20:00 start. 100K: Jul 19 (Sun) 00:00 start."
+  },
+  "categories": [
+    {
+      "distance_type": "ultra",
+      "distance_km": 163,
+      "entry_fee": 21000,
+      "capacity": 200,
+      "time_limit_minutes": 1440,
+      "start_time": "20:00"
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 109,
+      "entry_fee": 19000,
+      "capacity": 1200,
+      "time_limit_minutes": 1200,
+      "start_time": "00:00"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-03-30T00:00:00Z",
+  "updated_at": "2026-03-30T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://www.outdoorsportsjapan.com/trail/ontake100/）・大会概要ページ",
+    "data_accuracy_notes": ["基本情報のみ。距離は約163km・約109kmの推定値。エイド、周辺スポット等は未入力"],
+    "last_verified": "2026-03-30",
+    "detail_level": "basic"
+  }
+}

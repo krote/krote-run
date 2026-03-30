@@ -1,8 +1,8 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import type { Prefecture, GiftCategory, RaceFilter as RaceFilterType, DistanceType } from '@/lib/types';
-import { emptyFilter, getDistanceLabel, isFilterEmpty } from '@/lib/utils';
+import type { Prefecture, GiftCategory, RaceFilter as RaceFilterType, RaceStatus, DistanceType } from '@/lib/types';
+import { defaultFilter, getDistanceLabel, isDefaultFilter } from '@/lib/utils';
 
 interface RaceFilterProps {
   filter: RaceFilterType;
@@ -18,15 +18,22 @@ const DISTANCE_TYPES: DistanceType[] = ['full', 'half', '10k', '5k', 'ultra'];
 const MONTHS_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const MONTHS_JA = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
 
+const STATUS_OPTIONS: { value: RaceStatus; labelJa: string; labelEn: string }[] = [
+  { value: 'open_entry',     labelJa: '受付中',     labelEn: 'Entry Open' },
+  { value: 'entry_not_open', labelJa: '受付前',     labelEn: 'Opening Soon' },
+  { value: 'entry_closed',   labelJa: '受付終了',   labelEn: 'Entry Closed' },
+  { value: 'past',           labelJa: '開催済み',   labelEn: 'Past' },
+];
+
 export default function RaceFilter({ filter, prefectures, giftCategories, availableTags, locale, onChange }: RaceFilterProps) {
   const t = useTranslations('races.filter');
   const monthLabels = locale === 'ja' ? MONTHS_JA : MONTHS_EN;
 
   function handleClear() {
-    onChange(emptyFilter());
+    onChange(defaultFilter());
   }
 
-  const hasFilter = !isFilterEmpty(filter);
+  const hasFilter = !isDefaultFilter(filter);
 
   return (
     <div
@@ -50,6 +57,38 @@ export default function RaceFilter({ filter, prefectures, giftCategories, availa
       </div>
 
       <div className="space-y-5">
+        {/* Status */}
+        <div>
+          <label
+            className="block text-[0.68rem] font-bold tracking-[0.12em] uppercase mb-2"
+            style={{ color: 'var(--color-mid)' }}
+          >
+            {locale === 'ja' ? 'ステータス' : 'Status'}
+          </label>
+          <div className="flex flex-wrap gap-1.5">
+            {STATUS_OPTIONS.map(({ value, labelJa, labelEn }) => {
+              const isActive = filter.statuses.length === 0 || filter.statuses.includes(value);
+              return (
+                <FilterPill
+                  key={value}
+                  active={isActive}
+                  onClick={() => {
+                    const current = filter.statuses.length === 0
+                      ? STATUS_OPTIONS.map((s) => s.value)
+                      : [...filter.statuses];
+                    const next = current.includes(value)
+                      ? current.filter((s) => s !== value)
+                      : [...current, value];
+                    onChange({ ...filter, statuses: next.length === STATUS_OPTIONS.length ? [] : next });
+                  }}
+                >
+                  {locale === 'ja' ? labelJa : labelEn}
+                </FilterPill>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Search */}
         <div>
           <input

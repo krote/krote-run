@@ -220,3 +220,59 @@
 - `package.json`: ローカル DB 操作スクリプト（`db:migrate:local`, `db:seed:local`, `db:seed-races:local`, `db:series:local`）に `--persist-to %USERPROFILE%/.wrangler/states/krote-run` を追加
 - `CLAUDE.md`: Windows コマンド例のパスを `C:\Dev\krote-run` → `g:\Dev\krote-run` に更新
 - ローカル D1 データを `C:\Users\krote\.wrangler\states\krote-run\v3\` に再マイグレーション・シード適用
+
+## 2026-03-29 プロジェクトフォルダをCドライブに移動
+
+- 作業フォルダを `G:\Dev\krote-run`（ネットワークドライブ）から `C:\Dev\krote-run`（ローカルドライブ）に移動
+- `CLAUDE.md`: Windows コマンド例のパスを `g:\Dev\krote-run` → `C:\Dev\krote-run` に修正
+
+## 2026-03-29 大会データ追加・修正（Runnet週間エントリー開始大会より）
+
+- 新規追加（4件）:
+  - `src/data/races/ichinoseki-half-marathon-2026.json`: 第45回一関国際ハーフマラソン（岩手、9/27）
+  - `src/data/races/akita-nairiku-ultra-2026.json`: 北緯40°秋田内陸リゾートカップ100キロ（秋田、9/27）
+  - `src/data/races/asahikawa-half-marathon-2026.json`: 旭川ハーフマラソン第18回（北海道、9/27）
+  - `src/data/races/higashinipon-half-marathon-2026.json`: 第10回東日本ハーフマラソン（神奈川、10/4）
+- 修正（2件）:
+  - `hokkaido-marathon-2026.json`: 制限時間を300分→360分（6時間）に修正
+  - `tazawako-marathon-2026.json`: 20km制限時間0→180分、10km制限時間0→120分に修正、誤ったGPXファイル参照を削除
+- 参照元: https://runnet.jp/runtes/guide/weekly/260327.html および各大会公式サイト
+
+## 2026-03-30 大会データ追加（公式サイトより5件）
+
+- 新規追加（5件）:
+  - `src/data/races/chiba-aqualine-marathon-2026.json`: ちばアクアラインマラソン2026（千葉、11/8、フル+ハーフ）
+  - `src/data/races/tomisato-suikaroad-2026.json`: 第43回富里スイカロードレース大会（千葉、6/14、10km+7km）
+  - `src/data/races/okushinano100-2026.json`: 奥信濃100トレイルランニングレース2026（長野、6/5-7、100km/50km/25km/8km）
+  - `src/data/races/osj-ontake100-2026.json`: OSJ ONTAKE100 2026（長野、7/18-19、100マイル+100K）
+  - `src/data/races/higashine-sakuranbo-marathon-2026.json`: さくらんぼマラソン大会2026（山形、6/7、ハーフ+10km+5km）
+- 参照元: 各大会公式サイト
+
+## 2026-03-31 大会一覧：ステータスフィルタ追加・デフォルト開催済み非表示
+
+- `src/lib/types.ts`: `RaceStatus` 型（`open_entry` / `entry_not_open` / `entry_closed` / `past`）を追加。`RaceFilter` に `statuses: RaceStatus[]` フィールドを追加
+- `src/lib/utils.ts`:
+  - `getRaceStatus(race)` を追加（今日の日付と比較してステータスを判定）
+  - `defaultFilter()` を追加（`statuses: ['open_entry', 'entry_not_open', 'entry_closed']` — 開催済み非表示がデフォルト）
+  - `isDefaultFilter()` を追加（デフォルト状態との比較用）
+  - `filterRaces()` にステータスフィルタロジックを追加
+  - ソートは開催日昇順（`sortRacesByDate` 既存のまま維持）
+- `src/components/races/RaceFilter.tsx`: フィルターパネル先頭にステータス選択ピル（受付中・受付前・受付終了・開催済み）を追加。クリアボタンは `defaultFilter()` へリセット
+- `src/components/races/RaceList.tsx`: 初期フィルタを `emptyFilter()` → `defaultFilter()` に変更
+
+## 2026-03-30 ホーム画面リニューアル（Hero縮小・3セクション化）
+
+- `src/app/[locale]/page.tsx`:
+  - Hero セクションの高さを縮小（min-h 560px→240px、py-16→py-10、H1フォントサイズ縮小）
+  - statsRow（ハードコード数字）・MetaBar を削除
+  - subtitle のハードコード件数（"52大会・47都道府県"）を汎用テキストに変更
+  - 「近日開催」「エントリー受付中」「まもなく受付開始」の3グループをフェッチして `HomeSections` に渡す
+- `src/components/home/HomeSections.tsx` を新規作成:
+  - 3セクション共通のマガジン/体験トグルを上部に配置
+  - 各セクションが空の場合は非表示
+  - 受付中は緑、まもなく受付開始は青のアクセントカラー
+- `src/lib/data.ts`:
+  - `getOpenEntryRaces(limit)` を追加（entry_start_date ≤ 今日 ≤ entry_end_date、締切順）
+  - `getSoonOpeningEntryRaces(limit)` を追加（今日〜30日以内にエントリー開始）
+  - drizzle-orm の `lte`, `and`, `isNotNull` をインポートに追加
+- `src/messages/ja.json` / `en.json`: subtitle・sections キーを更新・追加

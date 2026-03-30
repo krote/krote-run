@@ -1,4 +1,4 @@
-import { eq, gte, asc } from "drizzle-orm";
+import { eq, gte, lte, and, isNotNull, asc } from "drizzle-orm";
 import { getDatabase } from "./db/client";
 import * as schema from "./db/schema";
 import type {
@@ -258,6 +258,50 @@ export async function getUpcomingRaces(limit = 6): Promise<Race[]> {
       [], [], [], [], [],
       giftRows.filter((g) => g.race_id === row.id),
     ),
+  );
+}
+
+export async function getOpenEntryRaces(limit = 8): Promise<Race[]> {
+  const db = getDatabase();
+  const today = new Date().toISOString().split("T")[0];
+
+  const [raceRows, categoryRows, giftRows] = await db.batch([
+    db.select().from(schema.races).where(
+      and(
+        isNotNull(schema.races.entry_start_date),
+        isNotNull(schema.races.entry_end_date),
+        lte(schema.races.entry_start_date, today),
+        gte(schema.races.entry_end_date, today),
+      )
+    ).orderBy(asc(schema.races.entry_end_date)),
+    db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
+    db.select().from(schema.participation_gifts),
+  ]);
+
+  return raceRows.slice(0, limit).map((row) =>
+    assembleRace(row, categoryRows.filter((c) => c.race_id === row.id), [], [], [], [], [], giftRows.filter((g) => g.race_id === row.id)),
+  );
+}
+
+export async function getSoonOpeningEntryRaces(limit = 6): Promise<Race[]> {
+  const db = getDatabase();
+  const today = new Date().toISOString().split("T")[0];
+  const in30days = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
+
+  const [raceRows, categoryRows, giftRows] = await db.batch([
+    db.select().from(schema.races).where(
+      and(
+        isNotNull(schema.races.entry_start_date),
+        gte(schema.races.entry_start_date, today),
+        lte(schema.races.entry_start_date, in30days),
+      )
+    ).orderBy(asc(schema.races.entry_start_date)),
+    db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
+    db.select().from(schema.participation_gifts),
+  ]);
+
+  return raceRows.slice(0, limit).map((row) =>
+    assembleRace(row, categoryRows.filter((c) => c.race_id === row.id), [], [], [], [], [], giftRows.filter((g) => g.race_id === row.id)),
   );
 }
 

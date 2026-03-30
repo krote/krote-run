@@ -5,7 +5,7 @@
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
-	"pages_build_output_dir": ".open-next/assets",
+	"pages_build_output_dir": ".open-next",
 	// D1 データベース
 	// wrangler d1 create krote-run-db で作成後、database_id を更新してください
 	"d1_databases": [

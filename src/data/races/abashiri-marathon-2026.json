@@ -1,0 +1,64 @@
+{
+  "id": "abashiri-marathon-2026",
+  "name_ja": "オホーツク網走マラソン",
+  "name_en": "Okhotsk Abashiri Marathon",
+  "full_name_ja": "オホーツク網走マラソン2026",
+  "full_name_en": "Okhotsk Abashiri Marathon 2026",
+  "edition": null,
+  "date": "2026-09-27",
+  "prefecture": "01",
+  "city_ja": "北海道網走市",
+  "city_en": "Abashiri, Hokkaido",
+  "description_ja": "",
+  "description_en": "",
+  "official_url": "https://www.abashiri-marathon.jp/",
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-04-01",
+  "entry_end_date": "2026-07-16",
+  "reception_type": "mail",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "",
+    "highlights_en": "",
+    "notes_ja": "",
+    "notes_en": ""
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 19542,
+      "entry_fee": 12000,
+      "capacity": 2600,
+      "time_limit_minutes": 390,
+      "start_time": "08:45"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "result": null,
+  "created_at": "2026-03-29T11:38:18.538Z",
+  "updated_at": "2026-03-29T11:38:18.538Z",
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "medal",
+        "goods"
+      ],
+      "description_ja": "YAMAtune製オリジナルソックス、ランニンググローブ、おもてなしブース飲食券",
+      "description_en": "",
+      "image": null
+    }
+  ]
+}

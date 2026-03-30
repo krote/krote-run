@@ -2,9 +2,9 @@
   "id": "tsukuba-marathon-2026",
   "name_ja": "つくばマラソン",
   "name_en": "Tsukuba Marathon",
-  "full_name_ja": null,
-  "full_name_en": null,
-  "edition": null,
+  "full_name_ja": "第46回つくばマラソン",
+  "full_name_en": "Tsukuba Marathon",
+  "edition": 46,
   "date": "2026-11-22",
   "prefecture": "08",
   "city_ja": "つくば市",
@@ -12,12 +12,12 @@
   "description_ja": "筑波研究学園都市を走るフルマラソン。フラットなコースで記録を狙いやすい。2025年にコースを大幅変更。",
   "description_en": "A full marathon through Tsukuba Science City. The flat course is ideal for personal records. Course significantly changed in 2025.",
   "official_url": "https://www.tsukuba-marathon.com",
-  "entry_fee": null,
-  "entry_fee_by_category": false,
-  "entry_capacity": null,
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
   "entry_start_date": null,
   "entry_end_date": null,
-  "reception_type": null,
+  "reception_type": "pre_day",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [
@@ -42,9 +42,9 @@
     {
       "distance_type": "full",
       "distance_km": 42.195,
-      "time_limit_minutes": null,
-      "start_time": null,
-      "capacity": null,
+      "time_limit_minutes": 0,
+      "start_time": "",
+      "capacity": 0,
       "entry_fee": null,
       "entry_fee_u25": null,
       "name_ja": null,
@@ -74,8 +74,8 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "tshirt",
-        "medal"
+        "medal",
+        "tshirt"
       ],
       "description_ja": "大会Tシャツ、完走メダル",
       "description_en": "Race T-shirt, Finisher medal",

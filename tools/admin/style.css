@@ -45,8 +45,10 @@ body {
 }
 .logo span { color: var(--primary); }
 
+.search-row { display: flex; gap: 6px; align-items: center; }
+
 .search {
-  width: 100%;
+  flex: 1;
   background: rgba(255,255,255,0.07);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 3px;
@@ -57,14 +59,33 @@ body {
 }
 .search::placeholder { color: rgba(255,255,255,0.3); }
 
+.btn-add-race {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-add-race:hover { background: #a93226; }
+
 .race-list {
   flex: 1;
   overflow-y: auto;
   list-style: none;
   padding: 6px 0;
 }
-.race-list::-webkit-scrollbar { width: 4px; }
-.race-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+.race-list::-webkit-scrollbar { width: 6px; }
+.race-list::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+.race-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.35); border-radius: 3px; }
+.race-list::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.55); }
 
 .race-item {
   padding: 9px 14px;
@@ -74,6 +95,7 @@ body {
 }
 .race-item:hover { background: rgba(255,255,255,0.05); }
 .race-item.active { background: rgba(192,57,43,0.18); border-left-color: var(--primary); }
+.hidden { display: none !important; }
 .race-item.hidden { display: none; }
 
 .race-item-name {
@@ -319,6 +341,58 @@ textarea { resize: vertical; line-height: 1.6; }
 }
 .category-row label { font-size: 10.5px; color: var(--mid); }
 
+/* ── 参加賞 ── */
+.gift-row {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 14px;
+  margin-bottom: 10px;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gift-row-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gift-row-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--mid);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.gift-categories-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.gift-cat-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--ink2);
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: white;
+  user-select: none;
+  transition: background 0.1s, border-color 0.1s;
+}
+.gift-cat-item:hover { border-color: var(--ink2); }
+.gift-cat-item.selected { background: var(--ink); color: white; border-color: var(--ink); }
+.gift-cat-item input { display: none; }
+
+.gift-fields { display: flex; flex-direction: column; gap: 8px; }
+
 /* ── タグ ── */
 .tag-grid {
   display: flex;
@@ -372,8 +446,10 @@ textarea { resize: vertical; line-height: 1.6; }
   list-style: none;
   padding: 6px 0;
 }
-.series-list::-webkit-scrollbar { width: 4px; }
-.series-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+.series-list::-webkit-scrollbar { width: 6px; }
+.series-list::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+.series-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.35); border-radius: 3px; }
+.series-list::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.55); }
 
 .series-item {
   padding: 8px 14px;
@@ -594,3 +670,111 @@ textarea { resize: vertical; line-height: 1.6; }
 
 .image-controls { display: flex; flex-direction: column; gap: 10px; }
 .image-hint { font-size: 11px; color: var(--light); line-height: 1.7; }
+
+/* ── 大会追加モーダル ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  border-radius: 8px;
+  width: 480px;
+  max-width: 95vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.modal-title { font-size: 15px; font-weight: 700; color: var(--ink); margin: 0; }
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--mid);
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+.modal-close:hover { color: var(--ink); }
+
+.modal-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  padding: 0 20px;
+}
+.modal-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 10px 14px;
+  font-size: 12.5px;
+  color: var(--mid);
+  cursor: pointer;
+  margin-bottom: -1px;
+}
+.modal-tab.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600; }
+
+.modal-body {
+  padding: 18px 20px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.modal-body .field { display: flex; flex-direction: column; gap: 4px; }
+.modal-body label { font-size: 12px; font-weight: 500; color: var(--ink); }
+.modal-body input[type="text"],
+.modal-body input[type="number"],
+.modal-body input[type="date"],
+.modal-body select {
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--ink);
+  background: white;
+  outline: none;
+}
+.modal-body input:focus, .modal-body select:focus { border-color: var(--primary); }
+
+.modal-hint { font-size: 12px; color: var(--mid); margin: 0; }
+.modal-hint-inline { font-size: 11px; color: var(--light); font-weight: 400; }
+.modal-id-preview {
+  font-size: 12px;
+  color: var(--mid);
+  background: var(--cream);
+  border-radius: 4px;
+  padding: 6px 10px;
+}
+.modal-id-preview strong { color: var(--ink); font-family: monospace; }
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+}
+.modal-footer .btn { padding: 8px 18px; font-size: 13px; }
+.modal-footer .btn-primary { margin-left: auto; }
+.modal-error {
+  font-size: 12px;
+  color: var(--primary);
+  flex: 1;
+}

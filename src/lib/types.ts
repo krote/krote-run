@@ -268,6 +268,17 @@ export interface UserSetting {
 }
 
 // ==================
+// RaceStatus
+// ==================
+
+/** レースのエントリー・開催状態 */
+export type RaceStatus =
+  | 'open_entry'      // 受付中
+  | 'entry_not_open'  // 受付前（エントリー開始前）
+  | 'entry_closed'    // 受付終了（開催前）
+  | 'past';           // 開催済み
+
+// ==================
 // RaceFilter（検索フィルタ）
 // ==================
 
@@ -279,4 +290,6 @@ export interface RaceFilter {
   timeLimitMin: number | null; // 分単位の最小制限時間
   tags: string[];
   searchText: string;
+  /** 表示するステータス。空配列 = すべて表示 */
+  statuses: RaceStatus[];
 }

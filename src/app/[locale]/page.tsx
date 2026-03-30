@@ -1,8 +1,8 @@
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
-import { getUpcomingRaces } from '@/lib/data';
-import HomeRaceSection from '@/components/home/HomeRaceSection';
+import { getUpcomingRaces, getOpenEntryRaces, getSoonOpeningEntryRaces } from '@/lib/data';
+import HomeSections from '@/components/home/HomeSections';
 import type { Locale } from '@/lib/types';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -17,9 +17,10 @@ function HeroSection() {
 
   return (
     <section
-      className="relative flex items-center justify-center min-h-[560px] md:min-h-[640px] overflow-hidden"
+      className="relative flex items-center justify-center overflow-hidden"
       style={{
         background: 'linear-gradient(160deg, #0c1510 0%, #1a1714 45%, #0e1520 100%)',
+        minHeight: '240px',
       }}
     >
       {/* Ambient light overlays */}
@@ -31,74 +32,23 @@ function HeroSection() {
             'radial-gradient(ellipse 50% 60% at 80% 10%, rgba(30,60,40,0.25) 0%, transparent 70%)',
         }}
       />
-      {/* Thin horizontal rule accent */}
       <div className="absolute top-0 left-0 right-0 h-px bg-white/5" />
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-[680px] mx-auto px-6 py-16">
-        <p className="inline-flex items-center gap-3 text-[0.68rem] font-semibold tracking-[0.22em] uppercase text-[var(--color-primary)] mb-6">
+      <div className="relative z-10 text-center max-w-[680px] mx-auto px-6 py-10">
+        <p className="inline-flex items-center gap-3 text-[0.68rem] font-semibold tracking-[0.22em] uppercase text-[var(--color-primary)] mb-4">
           <span className="inline-block w-6 h-px bg-[var(--color-primary)]" />
           {t('eyebrow')}
           <span className="inline-block w-6 h-px bg-[var(--color-primary)]" />
         </p>
-        <h1 className="font-serif text-[2.8rem] md:text-[3.8rem] font-bold text-white leading-[1.1] tracking-[-0.015em] mb-5">
-          {t('titleLine1')}<br />
-          <em className="not-italic" style={{ color: '#f0c4bb' }}>{t('titleEm')}</em>
+        <h1 className="font-serif text-[2.2rem] md:text-[2.8rem] font-bold text-white leading-[1.1] tracking-[-0.015em] mb-4">
+          {t('titleLine1')}&nbsp;<em className="not-italic" style={{ color: '#f0c4bb' }}>{t('titleEm')}</em>
         </h1>
-        <p className="text-[0.9rem] text-white/45 leading-[1.9] mb-10 max-w-[440px] mx-auto">
+        <p className="text-[0.85rem] text-white/45 leading-[1.8] max-w-[440px] mx-auto">
           {t('subtitle')}
         </p>
-
-        {/* Search bar */}
-        <div
-          className="flex max-w-[480px] mx-auto rounded-[4px] overflow-hidden shadow-[0_4px_32px_rgba(0,0,0,0.4)]"
-          style={{ border: '1px solid rgba(255,255,255,0.12)' }}
-        >
-          <input
-            type="text"
-            placeholder={t('searchPlaceholder')}
-            className="flex-1 border-none outline-none text-[0.88rem] px-5 py-3.5 placeholder:text-[#888]"
-            style={{ background: 'rgba(255,255,255,0.07)', color: 'white' }}
-          />
-          <button
-            className="text-white text-[0.82rem] font-semibold tracking-[0.08em] px-6 py-3.5 transition-colors whitespace-nowrap"
-            style={{ background: 'var(--color-primary)' }}
-          >
-            {t('searchButton')}
-          </button>
-        </div>
-
-        {/* Stats row */}
-        <div className="flex justify-center gap-8 mt-10 text-white/30 text-[0.7rem] tracking-[0.12em] uppercase">
-          <span><strong className="text-white/60 font-semibold" style={{ fontFamily: 'var(--font-number)' }}>52</strong> RACES</span>
-          <span className="w-px bg-white/10" />
-          <span><strong className="text-white/60 font-semibold" style={{ fontFamily: 'var(--font-number)' }}>47</strong> PREFECTURES</span>
-          <span className="w-px bg-white/10" />
-          <span><strong className="text-white/60 font-semibold" style={{ fontFamily: 'var(--font-number)' }}>42.195</strong> KM</span>
-        </div>
       </div>
     </section>
-  );
-}
-
-// ─── Meta bar ───────────────────────────────────────────────────
-function MetaBar() {
-  const t = useTranslations('home.meta');
-  return (
-    <div className="bg-[var(--color-primary)] px-9 py-[10px] flex flex-wrap gap-x-10 gap-y-1">
-      <span className="text-[0.72rem] font-medium tracking-[0.1em] uppercase text-white/75">
-        <strong className="text-white font-bold">52</strong> {t('racesLabel')}
-      </span>
-      <span className="text-[0.72rem] font-medium tracking-[0.1em] uppercase text-white/75">
-        <strong className="text-white font-bold">47</strong> {t('prefLabel')}
-      </span>
-      <span className="text-[0.72rem] font-medium tracking-[0.1em] uppercase text-white/75">
-        <strong className="text-white font-bold">12</strong> {t('entryLabel')}
-      </span>
-      <span className="text-[0.72rem] font-medium tracking-[0.1em] uppercase text-white/75">
-        <strong className="text-white font-bold">{t('seasonRange')}</strong> {t('seasonLabel')}
-      </span>
-    </div>
   );
 }
 
@@ -143,13 +93,21 @@ function WhySection() {
 // ─── Page ───────────────────────────────────────────────────────
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const upcomingRaces = await getUpcomingRaces(6);
+  const [upcomingRaces, openEntryRaces, soonOpeningRaces] = await Promise.all([
+    getUpcomingRaces(6),
+    getOpenEntryRaces(8),
+    getSoonOpeningEntryRaces(6),
+  ]);
 
   return (
     <>
       <HeroSection />
-      <MetaBar />
-      <HomeRaceSection races={upcomingRaces} locale={locale as Locale} />
+      <HomeSections
+        upcoming={upcomingRaces}
+        openEntry={openEntryRaces}
+        soonOpening={soonOpeningRaces}
+        locale={locale as Locale}
+      />
       <WhySection />
     </>
   );

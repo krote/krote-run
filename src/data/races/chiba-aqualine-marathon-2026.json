@@ -1,0 +1,88 @@
+{
+  "id": "chiba-aqualine-marathon-2026",
+  "name_ja": "ちばアクアラインマラソン",
+  "name_en": "Chiba Aqualine Marathon",
+  "full_name_ja": "ちばアクアラインマラソン2026",
+  "full_name_en": "Chiba Aqualine Marathon 2026",
+  "edition": null,
+  "date": "2026-11-08",
+  "prefecture": "12",
+  "city_ja": "木更津市・袖ケ浦市",
+  "city_en": "Kisarazu City / Sodegaura City, Chiba",
+  "description_ja": "東京湾アクアライン（木更津金田IC〜海ほたる）を往復走行する国内唯一の大会。海抜40.85mの橋梁から見渡す東京湾の絶景が最大の魅力。後半は袖ケ浦の田園地帯を走る。強風時は短縮コースに変更される場合あり。",
+  "description_en": "Japan's only marathon traversing the Tokyo Bay Aqualine. Run across the iconic bridge with panoramic views of Tokyo Bay at 40.85m elevation. The course continues through Sodegaura's farmlands. May switch to a shortened course in strong winds.",
+  "official_url": "https://chiba-aqualine-marathon.com/",
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-03-22",
+  "entry_end_date": "2026-04-12",
+  "reception_type": "mail",
+  "reception_note_ja": "一般枠：3/22〜4/12。アスリート・学生・女性・海外枠：3/22〜5/7。レイトエントリー枠：5/31〜6/8。システム利用料別途。",
+  "reception_note_en": "General entry: Mar 22 - Apr 12. Athlete/Student/Women/Overseas entries: Mar 22 - May 7. Late entry: May 31 - Jun 8. System fee applies separately.",
+  "tags": [
+    "大規模",
+    "日本陸連公認",
+    "景色が良い",
+    "橋",
+    "海沿い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": 41,
+    "min_elevation_m": 0,
+    "elevation_diff_m": 41,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "東京湾アクアライン、海ほたる、袖ケ浦の田園地帯",
+    "highlights_en": "Tokyo Bay Aqualine, Umihotaru PA, Sodegaura farmlands",
+    "notes_ja": "強風時は短縮コース（マラソン→31.4km、ハーフ→10.3km）に変更。給水16箇所、給食15箇所、関門9箇所。",
+    "notes_en": "May be shortened to 31.4km / 10.3km in strong winds. 16 water stations, 15 food stations, 9 checkpoints."
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "entry_fee": 16500,
+      "capacity": 12000,
+      "time_limit_minutes": 375,
+      "start_time": "09:45"
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "entry_fee": 13500,
+      "capacity": 5000,
+      "time_limit_minutes": 205,
+      "start_time": "09:45"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "medal",
+        "tshirt"
+      ],
+      "description_ja": "参加賞Tシャツ、完走メダル",
+      "description_en": "",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-03-30T00:00:00Z",
+  "updated_at": "2026-03-30T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://chiba-aqualine-marathon.com/）・募集要項ページ",
+    "data_accuracy_notes": [
+      "基本情報のみ。エイド、周辺スポット等は未入力"
+    ],
+    "last_verified": "2026-03-30",
+    "detail_level": "basic"
+  }
+}

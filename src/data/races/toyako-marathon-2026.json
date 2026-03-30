@@ -2,8 +2,8 @@
   "id": "toyako-marathon-2026",
   "name_ja": "洞爺湖マラソン",
   "name_en": "Lake Toya Marathon",
-  "full_name_ja": null,
-  "full_name_en": null,
+  "full_name_ja": "ANA洞爺湖マラソン2026",
+  "full_name_en": "Lake Toya Marathon",
   "edition": null,
   "date": "2026-05-17",
   "prefecture": "01",
@@ -12,18 +12,18 @@
   "description_ja": "北海道・洞爺湖畔を一周するフルマラソン。羊蹄山と洞爺湖の絶景を楽しめる。新緑の季節に開催。",
   "description_en": "A full marathon circling Lake Toya in Hokkaido. Enjoy magnificent views of Mt. Yotei and Lake Toya in the fresh green season.",
   "official_url": "https://www.toyako-marathon.jp",
-  "entry_fee": null,
-  "entry_fee_by_category": false,
-  "entry_capacity": null,
-  "entry_start_date": null,
-  "entry_end_date": null,
-  "reception_type": null,
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-02-01",
+  "entry_end_date": "2026-03-08",
+  "reception_type": "pre_day",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [
+    "北海道",
     "景色が良い",
-    "湖畔",
-    "北海道"
+    "湖畔"
   ],
   "course_gpx_file": null,
   "course_info": {
@@ -41,9 +41,9 @@
     {
       "distance_type": "full",
       "distance_km": 42.195,
-      "time_limit_minutes": null,
-      "start_time": null,
-      "capacity": null,
+      "time_limit_minutes": 0,
+      "start_time": "",
+      "capacity": 0,
       "entry_fee": null,
       "entry_fee_u25": null,
       "name_ja": null,
@@ -84,10 +84,10 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "tshirt",
-        "medal"
+        "medal",
+        "tshirt"
       ],
-      "description_ja": "大会Tシャツ、完走メダル",
+      "description_ja": "大会Tシャツとトートバッグ及びフェイスタオル、完走メダル",
       "description_en": "Race T-shirt, Finisher medal",
       "image": null
     }

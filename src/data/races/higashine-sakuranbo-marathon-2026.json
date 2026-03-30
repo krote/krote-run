@@ -1,0 +1,94 @@
+{
+  "id": "higashine-sakuranbo-marathon-2026",
+  "name_ja": "さくらんぼマラソン大会",
+  "name_en": "Sakuranbo Marathon",
+  "full_name_ja": "さくらんぼマラソン大会2026",
+  "full_name_en": "Sakuranbo Marathon 2026",
+  "edition": null,
+  "date": "2026-06-07",
+  "prefecture": "06",
+  "city_ja": "山形県東根市",
+  "city_en": "Higashine City, Yamagata",
+  "description_ja": "さくらんぼの名産地・山形県東根市で毎年6月に開催される大会。陸上自衛隊神町駐屯地をスタート・フィニッシュ地点とし、フルーツラインの周回コースを走る。ハーフマラソン・10km・5kmの3種目。さくらんぼの季節に合わせた地域密着型のレース。",
+  "description_en": "A popular race held every June in Higashine City, Yamagata, famous for its cherries. The course starts and finishes at JGSDF Kanomachi Garrison and loops around the Fruit Line road. Three distances: half marathon, 10km, and 5km.",
+  "official_url": "https://www.sakuranbo-m.jp/",
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-02-01",
+  "entry_end_date": "2026-03-31",
+  "reception_type": "pre_day",
+  "reception_note_ja": "エントリー期間：2026年2月1日〜3月31日。",
+  "reception_note_en": "Entry period: Feb 1 – Mar 31, 2026.",
+  "tags": [
+    "ご当地グルメ",
+    "初心者おすすめ",
+    "夏マラソン",
+    "景色が良い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "フルーツライン、神町駐屯地周辺",
+    "highlights_en": "Fruit Line road, Kanomachi Garrison area",
+    "notes_ja": "スタート・フィニッシュ：陸上自衛隊神町駐屯地。",
+    "notes_en": "Start/Finish: JGSDF Kanomachi Garrison."
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "entry_fee": 6000,
+      "capacity": 5500,
+      "time_limit_minutes": 170,
+      "start_time": "08:40"
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "entry_fee": 6000,
+      "capacity": 2000,
+      "time_limit_minutes": 95,
+      "start_time": "09:15"
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 5,
+      "entry_fee": 5500,
+      "capacity": 1500,
+      "time_limit_minutes": 50,
+      "start_time": "08:05"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "local_product",
+        "food"
+      ],
+      "description_ja": "さくらんぼ「佐藤錦」、山形県産米おにぎり、大会記念Ｔシャツ、冷凍フルーツ（予定）",
+      "description_en": "",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-03-30T00:00:00Z",
+  "updated_at": "2026-03-30T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://www.sakuranbo-m.jp/）・大会概要ページ",
+    "data_accuracy_notes": [
+      "基本情報のみ。エイド、周辺スポット等は未入力"
+    ],
+    "last_verified": "2026-03-30",
+    "detail_level": "basic"
+  }
+}

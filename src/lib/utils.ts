@@ -1,4 +1,4 @@
-import type { RaceCategory, Race, RaceFilter, Locale, DistanceType } from './types';
+import type { RaceCategory, Race, RaceFilter, RaceStatus, Locale, DistanceType } from './types';
 
 // ==================
 // Date formatting
@@ -97,9 +97,37 @@ export function formatCurrency(amount: number): string {
 }
 
 // ==================
+// Race status
+// ==================
+
+export function getRaceStatus(race: Race): RaceStatus {
+  const today = new Date().toISOString().split('T')[0];
+  if (race.date < today) return 'past';
+  const { entry_start_date: es, entry_end_date: ee } = race;
+  if (es && ee && es <= today && ee >= today) return 'open_entry';
+  if (es && es > today) return 'entry_not_open';
+  return 'entry_closed';
+}
+
+// ==================
 // Race filtering
 // ==================
 
+/** デフォルト初期フィルタ（開催済みを非表示） */
+export function defaultFilter(): RaceFilter {
+  return {
+    month: null,
+    prefecture: null,
+    distanceType: null,
+    giftCategories: [],
+    timeLimitMin: null,
+    tags: [],
+    searchText: '',
+    statuses: ['open_entry', 'entry_not_open', 'entry_closed'],
+  };
+}
+
+/** 完全クリア（すべて表示） */
 export function emptyFilter(): RaceFilter {
   return {
     month: null,
@@ -109,7 +137,23 @@ export function emptyFilter(): RaceFilter {
     timeLimitMin: null,
     tags: [],
     searchText: '',
+    statuses: [],
   };
+}
+
+export function isDefaultFilter(filter: RaceFilter): boolean {
+  const def = defaultFilter();
+  return (
+    filter.month === null &&
+    filter.prefecture === null &&
+    filter.distanceType === null &&
+    filter.giftCategories.length === 0 &&
+    filter.timeLimitMin === null &&
+    filter.tags.length === 0 &&
+    filter.searchText === '' &&
+    filter.statuses.length === def.statuses.length &&
+    def.statuses.every((s) => filter.statuses.includes(s))
+  );
 }
 
 export function isFilterEmpty(filter: RaceFilter): boolean {
@@ -120,12 +164,18 @@ export function isFilterEmpty(filter: RaceFilter): boolean {
     filter.giftCategories.length === 0 &&
     filter.timeLimitMin === null &&
     filter.tags.length === 0 &&
-    filter.searchText === ''
+    filter.searchText === '' &&
+    filter.statuses.length === 0
   );
 }
 
 export function filterRaces(races: Race[], filter: RaceFilter): Race[] {
   return races.filter((race) => {
+    if (filter.statuses.length > 0) {
+      const status = getRaceStatus(race);
+      if (!filter.statuses.includes(status)) return false;
+    }
+
     if (filter.prefecture && race.prefecture !== filter.prefecture) return false;
 
     if (filter.month !== null) {

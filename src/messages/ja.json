@@ -18,7 +18,7 @@
       "eyebrow": "2026年 レースシーズン",
       "titleLine1": "日本の",
       "titleEm": "感動を、",
-      "subtitle": "全国47都道府県、52大会のレース情報を一括検索。桜の春ランから山岳の秋コースまで。",
+      "subtitle": "全国各地のマラソン・トレイルランレース情報。桜の春ランから山岳の秋コースまで。",
       "searchPlaceholder": "都市・距離・季節で検索…",
       "searchButton": "検索"
     },
@@ -31,7 +31,11 @@
     },
     "sections": {
       "upcoming": "近日開催の大会",
-      "upcomingSub": "開催日順・あなたの次のジャパンマラソン",
+      "upcomingSub": "開催日順 — あなたの次のジャパンマラソン",
+      "openEntry": "エントリー受付中",
+      "openEntrySub": "今すぐ申し込める大会 — 締切が近い順",
+      "soonOpening": "まもなく受付開始",
+      "soonOpeningSub": "30日以内にエントリー受付が始まる大会",
       "viewAll": "すべて見る →",
       "toggleMag": "マガジン",
       "toggleExp": "体験で探す"

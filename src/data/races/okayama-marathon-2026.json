@@ -2,8 +2,8 @@
   "id": "okayama-marathon-2026",
   "name_ja": "おかやまマラソン",
   "name_en": "Okayama Marathon",
-  "full_name_ja": null,
-  "full_name_en": null,
+  "full_name_ja": "おかやまマラソン2026",
+  "full_name_en": "Okayama Marathon",
   "edition": null,
   "date": "2026-11-08",
   "prefecture": "33",
@@ -12,13 +12,13 @@
   "description_ja": "岡山城や後楽園を巡る岡山のフルマラソン。",
   "description_en": "A full marathon in Okayama passing Okayama Castle and Korakuen Garden.",
   "official_url": "https://www.okayamamarathon.jp",
-  "entry_fee": null,
-  "entry_fee_by_category": false,
-  "entry_capacity": null,
-  "entry_start_date": null,
-  "entry_end_date": null,
-  "reception_type": null,
-  "reception_note_ja": "",
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-04-16",
+  "entry_end_date": "2026-05-18",
+  "reception_type": "pre_day",
+  "reception_note_ja": "LAWSON DO! SPORTS(ウェブ)\nLoppi端末(ローソン・ミニストップ店頭)",
   "reception_note_en": "",
   "tags": [
     "城下町",
@@ -41,8 +41,8 @@
       "distance_type": "full",
       "distance_km": 42.195,
       "time_limit_minutes": 360,
-      "start_time": null,
-      "capacity": null,
+      "start_time": "",
+      "capacity": 0,
       "entry_fee": null,
       "entry_fee_u25": null,
       "name_ja": null,
@@ -72,8 +72,8 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "tshirt",
-        "medal"
+        "medal",
+        "tshirt"
       ],
       "description_ja": "大会Tシャツ、完走メダル",
       "description_en": "Race T-shirt, Finisher medal",

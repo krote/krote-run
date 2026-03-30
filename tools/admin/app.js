@@ -29,6 +29,18 @@ const ALL_TAGS = [
   '第1回大会', '紅葉', '観光', '記録狙い', '離島',
 ];
 
+const GIFT_CATEGORIES = [
+  { id: 'medal',         label: 'メダル・トロフィー', icon: '🥇' },
+  { id: 'tshirt',        label: 'Tシャツ・ウェア',   icon: '👕' },
+  { id: 'towel',         label: 'タオル',             icon: '🧣' },
+  { id: 'local_product', label: '地元産品',           icon: '🎎' },
+  { id: 'food',          label: '食べ物・お菓子',     icon: '🍱' },
+  { id: 'goods',         label: 'スポーツグッズ',     icon: '🏃' },
+  { id: 'coupon',        label: 'クーポン・券',        icon: '🎟️' },
+  { id: 'certificate',   label: '完走証',             icon: '📜' },
+  { id: 'other',         label: 'その他',             icon: '🎁' },
+];
+
 const DISTANCE_TYPES = [
   { value: 'full', label: 'フルマラソン (42.195km)' },
   { value: 'half', label: 'ハーフ (21.0975km)' },
@@ -165,6 +177,9 @@ function populateForm(r) {
     el.classList.toggle('selected', checked);
   });
 
+  // 参加賞
+  renderGifts(r.participation_gifts ?? []);
+
   // コース
   setVal('f-course_gpx_file', r.course_gpx_file ?? '');
 
@@ -233,6 +248,112 @@ function addCategoryRow(cat = {}, index) {
 
 document.getElementById('btn-add-category').addEventListener('click', () => {
   addCategoryRow();
+  markDirty();
+});
+
+// ── 参加賞 ─────────────────────────────────────────────────────────
+function renderGifts(gifts) {
+  const container = document.getElementById('gifts-container');
+  container.innerHTML = '';
+  gifts.forEach(gift => addGiftRow(gift));
+}
+
+function addGiftRow(gift = {}) {
+  const container = document.getElementById('gifts-container');
+  const selectedCats = new Set(gift.gift_categories ?? []);
+  const row = document.createElement('div');
+  row.className = 'gift-row';
+
+  row.innerHTML = `
+    <div class="gift-row-header">
+      <span class="gift-row-label">参加賞 ${container.children.length + 1}</span>
+      <button class="btn btn-danger btn-remove-gift">削除</button>
+    </div>
+    <div class="gift-categories-grid">
+      ${GIFT_CATEGORIES.map(c => `
+        <label class="gift-cat-item${selectedCats.has(c.id) ? ' selected' : ''}">
+          <input type="checkbox" value="${c.id}" ${selectedCats.has(c.id) ? 'checked' : ''} />
+          ${c.icon} ${c.label}
+        </label>
+      `).join('')}
+    </div>
+    <div class="gift-fields">
+      <div class="field full">
+        <label>説明（日本語）</label>
+        <textarea class="gift-desc-ja" rows="2">${gift.description_ja ?? ''}</textarea>
+      </div>
+      <div class="field full">
+        <label>説明（English）</label>
+        <div class="input-row align-top">
+          <textarea class="gift-desc-en" rows="2">${gift.description_en ?? ''}</textarea>
+          <button class="btn btn-translate gift-translate">🔄 翻訳</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // カテゴリチェックボックス
+  row.querySelectorAll('.gift-cat-item').forEach(el => {
+    el.addEventListener('click', () => {
+      const cb = el.querySelector('input');
+      cb.checked = !cb.checked;
+      el.classList.toggle('selected', cb.checked);
+      markDirty();
+    });
+  });
+
+  // 翻訳ボタン
+  row.querySelector('.gift-translate').addEventListener('click', async (e) => {
+    const btn = e.currentTarget;
+    const srcEl = row.querySelector('.gift-desc-ja');
+    const dstEl = row.querySelector('.gift-desc-en');
+    const text = srcEl.value.trim();
+    if (!text) return alert('翻訳する日本語テキストを入力してください');
+    btn.disabled = true;
+    btn.textContent = '翻訳中…';
+    try {
+      const res = await fetch('/api/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text, field: 'description' }),
+      });
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      dstEl.value = data.translated;
+      markDirty();
+    } catch (err) {
+      alert(`翻訳エラー: ${err.message}`);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = '🔄 翻訳';
+    }
+  });
+
+  // 削除ボタン
+  row.querySelector('.btn-remove-gift').addEventListener('click', () => {
+    row.remove();
+    // 番号を振り直す
+    document.querySelectorAll('.gift-row-label').forEach((el, i) => {
+      el.textContent = `参加賞 ${i + 1}`;
+    });
+    markDirty();
+  });
+
+  row.querySelectorAll('textarea').forEach(el => el.addEventListener('input', markDirty));
+  container.appendChild(row);
+}
+
+function collectGifts() {
+  return [...document.querySelectorAll('.gift-row')].map(row => ({
+    gift_categories: [...row.querySelectorAll('.gift-cat-item input:checked')].map(cb => cb.value),
+    description_ja: row.querySelector('.gift-desc-ja').value,
+    description_en: row.querySelector('.gift-desc-en').value,
+    image: null,
+  }));
+}
+
+document.getElementById('btn-add-gift').addEventListener('click', () => {
+  addGiftRow();
   markDirty();
 });
 
@@ -326,6 +447,7 @@ function buildRaceData() {
     categories,
     tags,
     course_gpx_file: getVal('f-course_gpx_file') || null,
+    participation_gifts: collectGifts(),
   };
 }
 
@@ -507,6 +629,153 @@ function bindEvents() {
     }
   });
 }
+
+// ── 大会削除 ───────────────────────────────────────────────────────
+document.getElementById('btn-delete').addEventListener('click', async () => {
+  if (!currentRace) return;
+  const name = currentRace.full_name_ja || currentRace.name_ja;
+  if (!confirm(`「${name}」を削除しますか？\nこの操作は元に戻せません。`)) return;
+
+  try {
+    const res = await fetch(`/api/races/${currentRace.id}`, { method: 'DELETE' });
+    if (!res.ok) throw new Error((await res.json()).error || '削除失敗');
+
+    // エディターを閉じてリスト更新
+    currentRace = null;
+    isDirty = false;
+    document.getElementById('editor').style.display = 'none';
+    document.getElementById('empty-state').style.display = 'flex';
+    await loadRaceList();
+  } catch (err) {
+    alert(`削除エラー: ${err.message}`);
+  }
+});
+
+// ── 大会追加モーダル ───────────────────────────────────────────────
+let modalMode = 'from-series';
+let modalSeriesList = [];
+
+document.getElementById('btn-add-race').addEventListener('click', openAddModal);
+document.getElementById('modal-close').addEventListener('click', closeAddModal);
+document.getElementById('modal-cancel').addEventListener('click', closeAddModal);
+document.getElementById('modal-overlay').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('modal-overlay')) closeAddModal();
+});
+
+document.querySelectorAll('.modal-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    modalMode = tab.dataset.mode;
+    document.querySelectorAll('.modal-tab').forEach(t => t.classList.toggle('active', t === tab));
+    document.getElementById('modal-from-series').classList.toggle('hidden', modalMode !== 'from-series');
+    document.getElementById('modal-new-series').classList.toggle('hidden', modalMode !== 'new-series');
+    updateModalIdPreview();
+  });
+});
+
+// ID プレビュー更新
+document.getElementById('m-series-select').addEventListener('change', updateModalIdPreview);
+document.getElementById('m-year-existing').addEventListener('input', updateModalIdPreview);
+document.getElementById('m-series-id').addEventListener('input', updateModalIdPreview);
+document.getElementById('m-year-new').addEventListener('input', updateModalIdPreview);
+
+function updateModalIdPreview() {
+  if (modalMode === 'from-series') {
+    const sid = document.getElementById('m-series-select').value;
+    const year = document.getElementById('m-year-existing').value;
+    const preview = sid && year ? `${sid}-${year}` : '—';
+    document.getElementById('m-id-preview-existing').textContent = preview;
+  } else {
+    const sid = document.getElementById('m-series-id').value.trim();
+    const year = document.getElementById('m-year-new').value;
+    const preview = sid && year ? `${sid}-${year}` : '—';
+    document.getElementById('m-id-preview-new').textContent = preview;
+  }
+}
+
+async function openAddModal() {
+  // 都道府県セレクトを初期化（モーダル用）
+  const sel = document.getElementById('m-prefecture-new');
+  if (!sel.children.length) {
+    sel.innerHTML = PREFECTURES.map(p => `<option value="${p.code}">${p.name}</option>`).join('');
+  }
+
+  // シリーズ一覧を取得
+  const seriesSel = document.getElementById('m-series-select');
+  seriesSel.innerHTML = '<option value="">読み込み中…</option>';
+  try {
+    const res = await fetch('/api/series');
+    modalSeriesList = await res.json();
+    seriesSel.innerHTML = modalSeriesList.map(s =>
+      `<option value="${s.id}">${s.name_ja}</option>`
+    ).join('');
+  } catch {
+    seriesSel.innerHTML = '<option value="">取得失敗</option>';
+  }
+
+  // デフォルト年を設定
+  const nextYear = new Date().getFullYear() + 1;
+  document.getElementById('m-year-existing').value = nextYear;
+  document.getElementById('m-year-new').value = nextYear;
+  updateModalIdPreview();
+
+  document.getElementById('modal-error').textContent = '';
+  document.getElementById('modal-error').classList.add('hidden');
+  document.getElementById('modal-overlay').classList.remove('hidden');
+}
+
+function closeAddModal() {
+  document.getElementById('modal-overlay').classList.add('hidden');
+}
+
+document.getElementById('modal-submit').addEventListener('click', async () => {
+  const errorEl = document.getElementById('modal-error');
+  errorEl.classList.add('hidden');
+  const submitBtn = document.getElementById('modal-submit');
+  submitBtn.disabled = true;
+  submitBtn.textContent = '作成中…';
+
+  try {
+    let body;
+    if (modalMode === 'from-series') {
+      const seriesId = document.getElementById('m-series-select').value;
+      const year = document.getElementById('m-year-existing').value;
+      if (!seriesId) throw new Error('シリーズを選択してください');
+      if (!year) throw new Error('開催年を入力してください');
+      body = { mode: 'from-series', seriesId, year };
+    } else {
+      const seriesId = document.getElementById('m-series-id').value.trim();
+      const name_ja = document.getElementById('m-name-ja').value.trim();
+      const name_en = document.getElementById('m-name-en').value.trim();
+      const year = document.getElementById('m-year-new').value;
+      const date = document.getElementById('m-date-new').value;
+      const prefecture = document.getElementById('m-prefecture-new').value;
+      if (!seriesId) throw new Error('シリーズIDを入力してください');
+      if (!/^[a-z0-9-]+$/.test(seriesId)) throw new Error('シリーズIDは英小文字・数字・ハイフンのみ使用できます');
+      if (!name_ja) throw new Error('大会名（日本語）を入力してください');
+      if (!year) throw new Error('開催年を入力してください');
+      body = { mode: 'new-series', seriesId, year, name_ja, name_en, date, prefecture };
+    }
+
+    const res = await fetch('/api/races', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || '作成失敗');
+
+    closeAddModal();
+    await loadRaceList();
+    // 作成した大会をエディターで開く
+    loadRace(data.id);
+  } catch (err) {
+    errorEl.textContent = err.message;
+    errorEl.classList.remove('hidden');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = '作成して編集';
+  }
+});
 
 // ── タブ切り替え ────────────────────────────────────────────────────
 let currentTab = 'races'; // 'races' | 'check'

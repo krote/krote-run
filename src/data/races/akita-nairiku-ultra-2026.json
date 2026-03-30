@@ -1,0 +1,83 @@
+{
+  "id": "akita-nairiku-ultra-2026",
+  "name_ja": "北緯40°秋田内陸リゾートカップ100キロチャレンジマラソン",
+  "name_en": "Latitude 40° Akita Nairiku Resort Cup 100km Challenge Marathon",
+  "full_name_ja": "2026北緯40°秋田内陸リゾートカップ100キロチャレンジマラソン",
+  "full_name_en": "2026 Latitude 40° Akita Nairiku Resort Cup 100km Challenge Marathon",
+  "edition": null,
+  "date": "2026-09-27",
+  "prefecture": "05",
+  "city_ja": "秋田県仙北市・北秋田市",
+  "city_en": "Senboku City / Kitaakita City, Akita",
+  "description_ja": "秋田内陸縦貫鉄道沿いを走るウルトラマラソン。最大高低差531mのアップダウンあるコースを100km・70km・50kmの3種目で競う。きりたんぽなど秋田の郷土料理がふるまわれるエイドステーションが名物。",
+  "description_en": "An ultra marathon along the Akita Nairiku Railway line. Three distances (100km, 70km, 50km) through a course with 531m elevation difference. Famous for aid stations serving local Akita cuisine including kiritanpo.",
+  "official_url": "https://www.kumagera.ne.jp/a100km/",
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-04-01",
+  "entry_end_date": "2026-06-30",
+  "reception_type": "pre_day",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [
+    "ウルトラマラソン",
+    "アップダウン多い",
+    "ご当地エイド",
+    "ご当地グルメ",
+    "初ウルトラおすすめ",
+    "温泉"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": 531,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "秋田内陸縦貫鉄道沿い、田沢湖高原、最大高低差531m",
+    "highlights_en": "Along Akita Nairiku Railway, Tazawako Highland, 531m elevation difference",
+    "notes_ja": "きりたんぽ等ご当地グルメのエイドあり。",
+    "notes_en": "Aid stations featuring local cuisine including kiritanpo."
+  },
+  "categories": [
+    {
+      "distance_type": "ultra",
+      "distance_km": 100,
+      "entry_fee": 22000,
+      "capacity": 650,
+      "time_limit_minutes": 780,
+      "start_time": "05:00"
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 70,
+      "entry_fee": 19000,
+      "capacity": 150,
+      "time_limit_minutes": 570,
+      "start_time": "06:00"
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 50,
+      "entry_fee": 18000,
+      "capacity": 250,
+      "time_limit_minutes": 420,
+      "start_time": "07:00"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-03-29T00:00:00Z",
+  "updated_at": "2026-03-29T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://www.kumagera.ne.jp/a100km/）およびRunnet掲載情報",
+    "data_accuracy_notes": ["基本情報のみ。スタート時間は推定値。エイド、周辺スポット等は未入力"],
+    "last_verified": "2026-03-29",
+    "detail_level": "basic"
+  }
+}

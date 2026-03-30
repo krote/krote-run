@@ -1,0 +1,69 @@
+{
+  "id": "tazawako-marathon-2026",
+  "name_ja": "田沢湖マラソン",
+  "name_en": "TAZAWAKO MARATHON",
+  "full_name_ja": "第39回田沢湖マラソン",
+  "full_name_en": "TAZAWAKO MARATHON",
+  "edition": 39,
+  "date": "2026-09-20",
+  "prefecture": "05",
+  "city_ja": "秋田県仙北市",
+  "city_en": "",
+  "description_ja": "笑顔も深さも日本一！！～田沢湖ブルーを駆けぬけろ～\n田沢湖マラソンは、1986年、県内初のフルマラソン大会として始まりました。 全国のフルマラソン大会の中でも開催時期が早いことで愛好者からの人気が高く、近年では国内外から3,000人前後が出場しています。 国内でも屈指の難コースといわれる日本一深い神秘の田沢湖を周回することで、国内外に仙北市の魅力を発信し、交流人口の増加を図りたいと考えています。",
+  "description_en": "",
+  "official_url": "https://tazawako-marathon.com/",
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-04-01",
+  "entry_end_date": "2026-05-27",
+  "reception_type": "mail",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "",
+    "highlights_en": "",
+    "notes_ja": "",
+    "notes_en": ""
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "entry_fee": 10000,
+      "capacity": 1600,
+      "time_limit_minutes": 360,
+      "start_time": "08:30"
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 20,
+      "entry_fee": 8000,
+      "capacity": 2000,
+      "time_limit_minutes": 180,
+      "start_time": "09:00"
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "entry_fee": 6000,
+      "capacity": 1600,
+      "time_limit_minutes": 120,
+      "start_time": "09:00"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "result": null,
+  "created_at": "2026-03-29T11:30:29.091Z",
+  "updated_at": "2026-03-29T11:30:29.091Z"
+}

@@ -18,7 +18,7 @@
       "eyebrow": "2026 Racing Season",
       "titleLine1": "Run through the",
       "titleEm": "heart of Japan.",
-      "subtitle": "52 marathons across every prefecture — from cherry blossom spring runs to autumn mountain trails.",
+      "subtitle": "Marathons and trail runs across Japan — from cherry blossom spring runs to autumn mountain trails.",
       "searchPlaceholder": "Search by city, distance, season…",
       "searchButton": "Search"
     },
@@ -32,6 +32,10 @@
     "sections": {
       "upcoming": "Upcoming Races",
       "upcomingSub": "Sorted by date — your next Japan marathon",
+      "openEntry": "Entry Open Now",
+      "openEntrySub": "Register today — sorted by closing deadline",
+      "soonOpening": "Opening Soon",
+      "soonOpeningSub": "Entry opens within 30 days",
       "viewAll": "View All →",
       "toggleMag": "Magazine",
       "toggleExp": "Experience"

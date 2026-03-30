@@ -1,0 +1,73 @@
+{
+  "id": "ichinoseki-half-marathon-2026",
+  "name_ja": "一関国際ハーフマラソン",
+  "name_en": "Ichinoseki International Half Marathon",
+  "full_name_ja": "第45回一関国際ハーフマラソン・第5回ハーフマラソンみちのく選手権",
+  "full_name_en": "45th Ichinoseki International Half Marathon",
+  "edition": 45,
+  "date": "2026-09-27",
+  "prefecture": "03",
+  "city_ja": "岩手県一関市",
+  "city_en": "Ichinoseki City, Iwate",
+  "description_ja": "最大高低差わずか15mのフラットコースを誇る一関国際ハーフマラソン。日本陸連公認の高速コースで、賞金レースとしても知られる。みちのく選手権も同時開催。優秀成績者にはホノルルマラソン派遣の特典あり。",
+  "description_en": "A flat course with only 15m elevation difference, the Ichinoseki International Half Marathon is a JAAF-certified fast course with prize money. Held simultaneously with the Michinoku Championship. Top finishers receive an invitation to the Honolulu Marathon.",
+  "official_url": "https://ichinoseki-half.jp/",
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-04-01",
+  "entry_end_date": "2026-06-30",
+  "reception_type": "pre_day",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [
+    "フラット",
+    "日本陸連公認",
+    "記録狙い",
+    "歴史ある大会"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": 15,
+    "surface": "road",
+    "certification": ["JAAF"],
+    "highlights_ja": "最大高低差15mのフラットコース",
+    "highlights_en": "Flat course with only 15m elevation difference",
+    "notes_ja": "賞金あり。ホノルルマラソン派遣特典あり。",
+    "notes_en": "Prize money available. Invitation to Honolulu Marathon for top finishers."
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "entry_fee": 6000,
+      "capacity": 2000,
+      "time_limit_minutes": 170,
+      "start_time": "09:00"
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "entry_fee": 6000,
+      "capacity": 500,
+      "time_limit_minutes": 85,
+      "start_time": "09:00"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-03-29T00:00:00Z",
+  "updated_at": "2026-03-29T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://ichinoseki-half.jp/）およびRunnet掲載情報",
+    "data_accuracy_notes": ["基本情報のみ。エイド、周辺スポット等は未入力"],
+    "last_verified": "2026-03-29",
+    "detail_level": "basic"
+  }
+}

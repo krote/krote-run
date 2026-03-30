@@ -2,9 +2,9 @@
   "id": "sado-toki-marathon-2026",
   "name_ja": "佐渡トキマラソン",
   "name_en": "Sado Toki Marathon",
-  "full_name_ja": null,
-  "full_name_en": null,
-  "edition": null,
+  "full_name_ja": "第17回佐渡トキマラソン",
+  "full_name_en": "Sado Toki Marathon",
+  "edition": 17,
   "date": "2026-04-26",
   "prefecture": "15",
   "city_ja": "佐渡市",
@@ -12,17 +12,17 @@
   "description_ja": "佐渡島で開催されるフルマラソン。自然豊かな離島を走る。トキをモチーフにした大会。",
   "description_en": "A full marathon on Sado Island. Run through the nature-rich island. The race features the crested ibis (toki) as its motif.",
   "official_url": "https://www.scsf.jp/marathon/index.html",
-  "entry_fee": null,
-  "entry_fee_by_category": false,
-  "entry_capacity": null,
-  "entry_start_date": null,
-  "entry_end_date": null,
-  "reception_type": null,
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2025-12-01",
+  "entry_end_date": "2026-03-22",
+  "reception_type": "mail",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [
-    "離島",
-    "景色が良い"
+    "景色が良い",
+    "離島"
   ],
   "course_gpx_file": null,
   "course_info": {
@@ -40,9 +40,9 @@
     {
       "distance_type": "full",
       "distance_km": 42.195,
-      "time_limit_minutes": null,
-      "start_time": null,
-      "capacity": null,
+      "time_limit_minutes": 0,
+      "start_time": "",
+      "capacity": 0,
       "entry_fee": null,
       "entry_fee_u25": null,
       "name_ja": null,
@@ -83,8 +83,8 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "tshirt",
         "medal",
+        "tshirt",
         "local_product"
       ],
       "description_ja": "大会Tシャツ、完走メダル、佐渡の特産品",

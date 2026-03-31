@@ -103,6 +103,10 @@ export function formatCurrency(amount: number): string {
 export function getRaceStatus(race: Race): RaceStatus {
   const today = new Date().toISOString().split('T')[0];
   if (race.date < today) return 'past';
+  const periods = race.entry_periods ?? [];
+  if (periods.some((p) => p.start_date <= today && p.end_date >= today)) return 'open_entry';
+  if (periods.some((p) => p.start_date > today)) return 'entry_not_open';
+  // Phase 2 で削除予定: 旧フィールドへのフォールバック
   const { entry_start_date: es, entry_end_date: ee } = race;
   if (es && ee && es <= today && ee >= today) return 'open_entry';
   if (es && es > today) return 'entry_not_open';

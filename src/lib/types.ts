@@ -44,12 +44,29 @@ export interface Race {
   nearby_spots: NearbySpot[];
   weather_history: WeatherHistory[];
   participation_gifts: ParticipationGift[];
+  entry_periods: EntryPeriod[];
   result: RaceResult | null;      // 開催実績（未開催の場合は null）
   created_at: string; // ISO datetime string
   updated_at: string; // ISO datetime string
 }
 
 export type ReceptionType = 'pre_day' | 'race_day' | 'both' | 'pre_mail' | 'none';
+
+// ==================
+// EntryPeriod
+// ==================
+
+export interface EntryPeriod {
+  id: number;
+  race_id: string;
+  category_id: number | null;
+  label_ja: string;
+  label_en: string;
+  start_date: string; // YYYY-MM-DD
+  end_date: string;   // YYYY-MM-DD
+  entry_fee: number | null;
+  sort_order: number;
+}
 
 // ==================
 // RaceCategory / Wave

@@ -104,5 +104,14 @@
     ],
     "last_verified": "2026-03-15",
     "detail_level": "medium"
-  }
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2025-08-01",
+      "end_date": "2025-10-31",
+      "entry_fee": null
+    }
+  ]
 }

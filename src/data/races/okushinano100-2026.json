@@ -83,8 +83,19 @@
   "updated_at": "2026-03-30T00:00:00Z",
   "_metadata": {
     "data_source": "公式サイト（https://okushinano100.com/）・大会概要ページ",
-    "data_accuracy_notes": ["基本情報のみ。エントリー開始日は2025年12月。エイド、周辺スポット等は未入力"],
+    "data_accuracy_notes": [
+      "基本情報のみ。エントリー開始日は2025年12月。エイド、周辺スポット等は未入力"
+    ],
     "last_verified": "2026-03-30",
     "detail_level": "basic"
-  }
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2025-12-14",
+      "end_date": "2026-05-10",
+      "entry_fee": null
+    }
+  ]
 }

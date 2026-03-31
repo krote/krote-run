@@ -67,8 +67,19 @@
   "updated_at": "2026-03-30T00:00:00Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.outdoorsportsjapan.com/trail/ontake100/）・大会概要ページ",
-    "data_accuracy_notes": ["基本情報のみ。距離は約163km・約109kmの推定値。エイド、周辺スポット等は未入力"],
+    "data_accuracy_notes": [
+      "基本情報のみ。距離は約163km・約109kmの推定値。エイド、周辺スポット等は未入力"
+    ],
     "last_verified": "2026-03-30",
     "detail_level": "basic"
-  }
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-02-01",
+      "end_date": "2026-06-14",
+      "entry_fee": null
+    }
+  ]
 }

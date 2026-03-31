@@ -104,7 +104,9 @@ export default function RaceCard({ race, locale }: RaceCardProps) {
 
   // エントリー期間
   const entryPeriod = (() => {
-    if (!race.entry_start_date && !race.entry_end_date) return null;
+    if (!race.entry_start_date && !race.entry_end_date) {
+      return isPast ? null : (locale === 'ja' ? '未発表' : 'TBA');
+    }
     const fmt = (d: string) => formatDate(d, locale);
     if (race.entry_start_date && race.entry_end_date)
       return `${fmt(race.entry_start_date)} 〜 ${fmt(race.entry_end_date)}`;
@@ -217,7 +219,12 @@ export default function RaceCard({ race, locale }: RaceCardProps) {
                 </span>
                 <span
                   className="text-[0.72rem] tabular-nums"
-                  style={{ color: 'var(--color-mid)', fontFamily: 'var(--font-number)' }}
+                  style={{
+                    color: (entryPeriod === '未発表' || entryPeriod === 'TBA')
+                      ? 'var(--color-light)'
+                      : 'var(--color-mid)',
+                    fontFamily: 'var(--font-number)',
+                  }}
                 >
                   {entryPeriod}
                 </span>

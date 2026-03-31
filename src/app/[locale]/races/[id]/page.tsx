@@ -424,26 +424,38 @@ export default async function RaceDetailPage({
                 <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
                   {locale === 'ja' ? '受付期間' : 'Period'}
                 </p>
-                <p className="font-medium">
-                  {race.entry_start_date ? formatDate(race.entry_start_date, locale) : '—'}
-                  {' — '}
-                  {race.entry_end_date ? formatDate(race.entry_end_date, locale) : '—'}
+                <p className="font-medium" style={{ color: (!race.entry_start_date && !race.entry_end_date && !isPast) ? 'var(--color-light)' : undefined }}>
+                  {race.entry_start_date && race.entry_end_date
+                    ? `${formatDate(race.entry_start_date, locale)} — ${formatDate(race.entry_end_date, locale)}`
+                    : isPast
+                    ? '—'
+                    : t('unpublished')}
                 </p>
               </div>
-              {race.entry_capacity > 0 && (
-                <div>
-                  <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
-                    {t('capacity')}
-                  </p>
-                  <p className="font-medium">{race.entry_capacity.toLocaleString()}{locale === 'ja' ? '人' : ' runners'}</p>
-                </div>
-              )}
-              {!race.entry_fee_by_category && race.entry_fee && (
+              <div>
+                <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
+                  {t('capacity')}
+                </p>
+                <p className="font-medium" style={{ color: (!race.entry_capacity && !isPast) ? 'var(--color-light)' : undefined }}>
+                  {race.entry_capacity > 0
+                    ? `${race.entry_capacity.toLocaleString()}${locale === 'ja' ? '人' : ' runners'}`
+                    : isPast
+                    ? '—'
+                    : t('unpublished')}
+                </p>
+              </div>
+              {!race.entry_fee_by_category && (
                 <div>
                   <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
                     {t('fee')}
                   </p>
-                  <p className="font-medium">{formatCurrency(race.entry_fee)}</p>
+                  <p className="font-medium" style={{ color: (race.entry_fee === null && !isPast) ? 'var(--color-light)' : undefined }}>
+                    {race.entry_fee !== null
+                      ? formatCurrency(race.entry_fee)
+                      : isPast
+                      ? '—'
+                      : t('unpublished')}
+                  </p>
                 </div>
               )}
             </div>

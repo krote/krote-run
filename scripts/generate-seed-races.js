@@ -132,6 +132,14 @@ function generateRaceSQL(r) {
     });
   }
 
+  // race_entry_periods
+  if (r.entry_periods && r.entry_periods.length > 0) {
+    r.entry_periods.forEach((ep, idx) => {
+      lines.push(`INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  (${esc(r.id)}, ${esc(ep.category_id ?? null)}, ${esc(ep.label_ja || '一般エントリー')}, ${esc(ep.label_en || 'General Entry')}, ${esc(ep.start_date)}, ${esc(ep.end_date)}, ${esc(ep.entry_fee ?? null)}, ${idx});`);
+    });
+  }
+
   // race_results
   if (r.result) {
     const res = r.result;

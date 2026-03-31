@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Preview — International</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ===== TOC ===== */
+    .toc {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: #111; height: 44px;
+      display: flex; align-items: center; gap: 0; padding: 0 24px;
+    }
+    .toc-label { color: #666; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; margin-right: 20px; }
+    .toc a { color: #aaa; font-size: .8rem; font-family: 'DM Sans', sans-serif; text-decoration: none; padding: 0 16px; border-right: 1px solid #333; line-height: 44px; transition: color .15s; }
+    .toc a:first-of-type { border-left: 1px solid #333; }
+    .toc a:hover { color: #fff; }
+
+    body { background: #e8e4df; padding-top: 44px; }
+
+    .variant-label {
+      max-width: 960px; margin: 0 auto;
+      padding: 48px 24px 20px;
+    }
+    .variant-label h2 { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; font-weight: 600; color: #222; margin-bottom: 4px; }
+    .variant-label p { font-family: 'DM Sans', sans-serif; font-size: .85rem; color: #888; }
+    .variant-label hr { border: none; border-top: 1px solid #ccc; margin-top: 16px; }
+
+    .preview-frame {
+      max-width: 960px; margin: 0 auto 12px;
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 12px 48px rgba(0,0,0,.2);
+    }
+
+    /* ============================================================
+       PLAN 1 — Travel Magazine
+    ============================================================ */
+
+    /* colors */
+    .p1 {
+      --cream:   #faf8f4;
+      --white:   #ffffff;
+      --ink:     #1a1714;
+      --ink2:    #3d3830;
+      --mid:     #7a7060;
+      --light:   #b0a898;
+      --border:  #e4dfd8;
+      --red:     #c0392b;
+      --red-dim: rgba(192,57,43,.08);
+      font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    /* header */
+    .p1-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      height: 60px; display: flex; align-items: center;
+      padding: 0 36px; justify-content: space-between;
+    }
+    .p1-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700; color: var(--ink);
+      letter-spacing: .02em; text-decoration: none;
+    }
+    .p1-logo sup { font-size: .5em; vertical-align: super; color: var(--red); letter-spacing: .15em; font-family: 'DM Sans', sans-serif; }
+    .p1-nav { display: flex; gap: 32px; }
+    .p1-nav a { font-size: .82rem; font-weight: 500; color: var(--mid); text-decoration: none; letter-spacing: .04em; transition: color .15s; }
+    .p1-nav a:hover, .p1-nav a.on { color: var(--ink); }
+    .p1-header-right { display: flex; align-items: center; gap: 16px; }
+    .p1-lang { font-size: .72rem; font-weight: 600; color: var(--mid); letter-spacing: .1em; text-decoration: none; border: 1px solid var(--border); padding: 4px 10px; border-radius: 3px; }
+    .p1-lang:hover { border-color: var(--ink); color: var(--ink); }
+
+    /* hero */
+    .p1-hero {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 480px; background: var(--ink);
+    }
+    .p1-hero-left {
+      padding: 64px 48px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .p1-hero-eyebrow {
+      font-size: .7rem; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--red);
+      margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+    }
+    .p1-hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--red); }
+    .p1-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem; font-weight: 700; color: #fff;
+      line-height: 1.15; margin-bottom: 20px; letter-spacing: -.01em;
+    }
+    .p1-hero h1 em { font-style: italic; color: #f5c6c0; }
+    .p1-hero-sub {
+      font-size: .9rem; color: rgba(255,255,255,.55); line-height: 1.8;
+      margin-bottom: 36px; max-width: 360px;
+    }
+    .p1-search {
+      display: flex; gap: 0; max-width: 380px;
+      border: 1px solid rgba(255,255,255,.2); border-radius: 3px; overflow: hidden;
+    }
+    .p1-search input {
+      flex: 1; background: rgba(255,255,255,.07); border: none; outline: none;
+      color: #fff; font-size: .88rem; padding: 12px 16px; font-family: inherit;
+    }
+    .p1-search input::placeholder { color: rgba(255,255,255,.3); }
+    .p1-search-btn {
+      background: var(--red); color: #fff; border: none;
+      padding: 12px 20px; font-size: .82rem; font-weight: 600; font-family: inherit;
+      cursor: pointer; letter-spacing: .06em; white-space: nowrap;
+    }
+    /* hero right — magazine photo collage */
+    .p1-hero-right {
+      display: grid; grid-template-rows: 1fr 1fr; grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .p1-photo {
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; position: relative; overflow: hidden;
+    }
+    .p1-photo-label {
+      position: absolute; bottom: 10px; left: 12px;
+      font-size: .65rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: rgba(255,255,255,.8);
+      text-shadow: 0 1px 4px rgba(0,0,0,.5);
+    }
+    .p1-photo.span2 { grid-column: 1 / -1; }
+
+    /* issue bar */
+    .p1-issue {
+      background: var(--red); color: #fff;
+      padding: 10px 36px; font-size: .72rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      display: flex; gap: 32px; align-items: center;
+    }
+    .p1-issue-item { opacity: .85; }
+    .p1-issue-item strong { opacity: 1; }
+
+    /* section */
+    .p1-section { padding: 52px 36px; }
+    .p1-section-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 32px;
+      border-bottom: 2px solid var(--ink); padding-bottom: 12px;
+    }
+    .p1-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700; color: var(--ink);
+    }
+    .p1-section-sub { font-size: .78rem; color: var(--mid); font-style: italic; }
+    .p1-all { font-size: .75rem; font-weight: 600; color: var(--red); text-decoration: none; letter-spacing: .06em; text-transform: uppercase; }
+
+    /* cards */
+    .p1-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .p1-card { background: var(--white); border-radius: 2px; overflow: hidden; }
+    .p1-card-img {
+      height: 140px; display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; position: relative;
+    }
+    .p1-card-img-meta {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,.65));
+      padding: 20px 14px 10px;
+      display: flex; justify-content: space-between; align-items: flex-end;
+    }
+    .p1-card-location { font-size: .68rem; color: rgba(255,255,255,.85); font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+    .p1-card-badge {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 2px;
+    }
+    .badge-open-red { background: var(--red); color: #fff; }
+    .badge-closed { background: rgba(255,255,255,.25); color: rgba(255,255,255,.85); }
+    .p1-card-body { padding: 16px 18px 20px; }
+    .p1-card-date { font-size: .72rem; color: var(--light); margin-bottom: 6px; letter-spacing: .04em; }
+    .p1-card-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); line-height: 1.35; margin-bottom: 10px; }
+    .p1-card-tagline { font-size: .78rem; color: var(--mid); line-height: 1.6; margin-bottom: 14px; font-style: italic; }
+    .p1-card-stats { display: flex; gap: 14px; margin-bottom: 14px; }
+    .p1-card-stat { display: flex; flex-direction: column; }
+    .p1-card-stat-val { font-size: .85rem; font-weight: 600; color: var(--ink); }
+    .p1-card-stat-lbl { font-size: .65rem; color: var(--light); letter-spacing: .05em; }
+    .p1-card-divider { height: 1px; background: var(--border); margin-bottom: 14px; }
+    .p1-card-footer { display: flex; gap: 8px; }
+    .p1-btn { flex: 1; text-align: center; padding: 9px; font-size: .78rem; font-weight: 600; color: var(--ink); border: 1px solid var(--border); text-decoration: none; letter-spacing: .04em; transition: all .15s; }
+    .p1-btn:hover { border-color: var(--ink); }
+    .p1-btn-entry { background: var(--red); color: #fff; border-color: var(--red); flex: none; padding: 9px 14px; }
+    .p1-btn-entry:hover { background: #9a2d20; }
+
+    /* feature strip */
+    .p1-feature {
+      background: var(--ink); padding: 52px 36px;
+      display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: center;
+    }
+    .p1-feature-label { font-size: .68rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin-bottom: 16px; }
+    .p1-feature-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #fff; line-height: 1.25; }
+    .p1-feature-title em { font-style: italic; color: #f5c6c0; }
+    .p1-feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .p1-feature-item { display: flex; gap: 14px; align-items: flex-start; }
+    .p1-feature-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .p1-feature-item-title { font-size: .88rem; font-weight: 600; color: #fff; margin-bottom: 3px; }
+    .p1-feature-item-desc { font-size: .78rem; color: rgba(255,255,255,.45); line-height: 1.6; }
+
+    /* footer */
+    .p1-footer { background: #111; padding: 40px 36px 28px; }
+    .p1-footer-inner { display: flex; justify-content: space-between; gap: 40px; }
+    .p1-footer-brand { max-width: 200px; }
+    .p1-footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #fff; margin-bottom: 10px; }
+    .p1-footer-desc { font-size: .78rem; color: #555; line-height: 1.7; }
+    .p1-footer-links { display: flex; gap: 48px; }
+    .p1-footer-col h4 { font-size: .68rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #444; margin-bottom: 14px; }
+    .p1-footer-col a { display: block; font-size: .8rem; color: #666; text-decoration: none; margin-bottom: 8px; }
+    .p1-footer-col a:hover { color: #fff; }
+    .p1-footer-bottom { margin-top: 28px; padding-top: 16px; border-top: 1px solid #222; font-size: .72rem; color: #333; display: flex; justify-content: space-between; }
+
+    /* ============================================================
+       PLAN 3 — Japan Experience
+    ============================================================ */
+    .p3 {
+      --white: #ffffff;
+      --bg:    #f7f5f2;
+      --ink:   #18181b;
+      --ink2:  #3f3f46;
+      --mid:   #71717a;
+      --light: #a1a1aa;
+      --border:#e4e4e7;
+      --red:   #c0392b;
+      --red-bg:rgba(192,57,43,.06);
+      --red-border: rgba(192,57,43,.2);
+      font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+      background: var(--bg); color: var(--ink);
+    }
+
+    /* header */
+    .p3-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      height: 60px; display: flex; align-items: center;
+      padding: 0 32px; justify-content: space-between;
+    }
+    .p3-logo { font-size: 1.1rem; font-weight: 700; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .p3-logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); }
+    .p3-nav { display: flex; gap: 4px; }
+    .p3-nav a { font-size: .82rem; font-weight: 500; color: var(--mid); text-decoration: none; padding: 5px 14px; border-radius: 6px; transition: all .15s; }
+    .p3-nav a:hover { background: var(--bg); color: var(--ink); }
+    .p3-nav a.on { color: var(--ink); background: var(--bg); }
+    .p3-lang { font-size: .72rem; font-weight: 600; color: var(--mid); text-decoration: none; border: 1px solid var(--border); padding: 4px 10px; border-radius: 20px; }
+
+    /* hero — 大会のエクスペリエンスを前面に */
+    .p3-hero { background: var(--white); border-bottom: 1px solid var(--border); }
+    .p3-hero-main {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 400px;
+    }
+    .p3-hero-img {
+      background: linear-gradient(160deg, #1a1208, #2c1a0e);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem; position: relative; overflow: hidden;
+    }
+    /* 鳥居のシルエットを右端に薄く */
+    .p3-hero-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, transparent 60%, rgba(0,0,0,.4));
+    }
+    .p3-hero-img-caption {
+      position: absolute; bottom: 16px; left: 20px;
+      font-size: .68rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: rgba(255,255,255,.6);
+    }
+    .p3-hero-text {
+      padding: 52px 44px; display: flex; flex-direction: column; justify-content: center;
+    }
+    .p3-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--red); margin-bottom: 18px;
+    }
+    .p3-eyebrow-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--red); }
+    .p3-hero h1 {
+      font-size: 2.4rem; font-weight: 700; line-height: 1.2;
+      color: var(--ink); margin-bottom: 16px; letter-spacing: -.02em;
+    }
+    .p3-hero h1 span { color: var(--red); }
+    .p3-hero-desc { font-size: .9rem; color: var(--mid); line-height: 1.75; margin-bottom: 28px; }
+    .p3-hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .p3-hero-badge {
+      font-size: .75rem; font-weight: 500; color: var(--ink2);
+      border: 1px solid var(--border); border-radius: 20px;
+      padding: 5px 14px; display: flex; align-items: center; gap: 6px;
+    }
+    .p3-search-row { display: flex; gap: 8px; }
+    .p3-search-input {
+      flex: 1; border: 1px solid var(--border); border-radius: 6px;
+      padding: 10px 16px; font-size: .88rem; font-family: inherit; outline: none; color: var(--ink);
+      background: var(--bg);
+    }
+    .p3-search-input:focus { border-color: var(--red); }
+    .p3-search-btn {
+      background: var(--red); color: #fff; border: none; border-radius: 6px;
+      padding: 10px 20px; font-size: .88rem; font-weight: 600; font-family: inherit;
+      cursor: pointer; white-space: nowrap;
+    }
+
+    /* experience chips */
+    .p3-chips {
+      background: var(--bg); border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex; gap: 8px; align-items: center; overflow-x: auto;
+    }
+    .p3-chip-label { font-size: .72rem; font-weight: 600; color: var(--light); letter-spacing: .08em; text-transform: uppercase; margin-right: 8px; white-space: nowrap; }
+    .p3-chip {
+      font-size: .78rem; font-weight: 500; color: var(--ink2);
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 20px; padding: 5px 14px; white-space: nowrap; cursor: pointer; transition: all .15s;
+    }
+    .p3-chip:hover, .p3-chip.on { background: var(--red); color: #fff; border-color: var(--red); }
+
+    /* section */
+    .p3-section { padding: 48px 32px; }
+    .p3-section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .p3-section-title { font-size: 1.1rem; font-weight: 700; color: var(--ink); }
+    .p3-section-sub { font-size: .8rem; color: var(--mid); margin-top: 2px; }
+    .p3-all { font-size: .8rem; font-weight: 600; color: var(--red); text-decoration: none; }
+
+    /* experience cards */
+    .p3-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .p3-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: box-shadow .2s, transform .2s; }
+    .p3-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.1); transform: translateY(-2px); }
+    .p3-card-img {
+      height: 130px; display: flex; align-items: center; justify-content: center;
+      font-size: 2.8rem; position: relative; overflow: hidden;
+    }
+    .p3-card-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,.55));
+    }
+    .p3-card-experience {
+      position: absolute; bottom: 10px; left: 12px; right: 12px;
+      font-size: .7rem; font-weight: 600; color: rgba(255,255,255,.9);
+      line-height: 1.4;
+    }
+    .p3-card-body { padding: 14px 16px 16px; }
+    .p3-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .p3-card-date { font-size: .72rem; color: var(--light); }
+    .p3-card-dist {
+      font-size: .68rem; font-weight: 700; padding: 2px 8px;
+      border-radius: 20px; background: var(--bg); color: var(--mid);
+      border: 1px solid var(--border); letter-spacing: .04em;
+    }
+    .p3-card-title { font-size: .95rem; font-weight: 700; color: var(--ink); line-height: 1.35; margin-bottom: 6px; }
+    .p3-card-loc { font-size: .75rem; color: var(--mid); margin-bottom: 12px; display: flex; align-items: center; gap: 4px; }
+    .p3-card-highlights { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; }
+    .p3-card-hl {
+      font-size: .75rem; color: var(--ink2);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .p3-card-hl::before { content: '✓'; color: var(--red); font-weight: 700; font-size: .7rem; }
+    .p3-card-footer { display: flex; gap: 8px; }
+    .p3-btn { flex: 1; text-align: center; padding: 8px; border-radius: 6px; font-size: .78rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border); color: var(--ink2); transition: all .15s; }
+    .p3-btn:hover { border-color: var(--red); color: var(--red); }
+    .p3-btn-entry { background: var(--red); color: #fff; border-color: var(--red); flex: none; padding: 8px 14px; }
+    .p3-btn-entry:hover { background: #9a2d20; }
+
+    /* why japan section */
+    .p3-why { background: var(--ink); padding: 52px 32px; }
+    .p3-why-inner { max-width: 860px; margin: 0 auto; }
+    .p3-why-eyebrow { font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+    .p3-why-title { font-size: 1.6rem; font-weight: 700; color: #fff; margin-bottom: 36px; line-height: 1.3; }
+    .p3-why-title em { font-style: normal; color: #fca5a5; }
+    .p3-why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .p3-why-item { border-top: 2px solid var(--red); padding-top: 18px; }
+    .p3-why-icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .p3-why-item-title { font-size: .9rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .p3-why-item-desc { font-size: .78rem; color: rgba(255,255,255,.45); line-height: 1.7; }
+
+    /* footer */
+    .p3-footer { background: #0f0f10; padding: 40px 32px 24px; }
+    .p3-footer-inner { display: flex; justify-content: space-between; gap: 40px; }
+    .p3-footer-brand { max-width: 200px; }
+    .p3-footer-logo { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .p3-footer-logo-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
+    .p3-footer-desc { font-size: .78rem; color: #444; line-height: 1.7; }
+    .p3-footer-links { display: flex; gap: 48px; }
+    .p3-footer-col h4 { font-size: .68rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #333; margin-bottom: 14px; }
+    .p3-footer-col a { display: block; font-size: .8rem; color: #555; text-decoration: none; margin-bottom: 8px; }
+    .p3-footer-col a:hover { color: #fff; }
+    .p3-footer-bottom { margin-top: 28px; padding-top: 16px; border-top: 1px solid #1a1a1a; font-size: .72rem; color: #333; }
+  </style>
+</head>
+<body>
+
+<div class="toc">
+  <span class="toc-label">International</span>
+  <a href="#p1">① Travel Magazine</a>
+  <a href="#p3">③ Japan Experience</a>
+</div>
+
+<!-- ============================================================ PLAN 1 -->
+<div id="p1" class="variant-label">
+  <h2>① Travel Magazine — Condé Nast × Marathon</h2>
+  <p>Editorial serif typography, photo-forward layout. Feels like a luxury travel publication. Evokes "I want to go there."</p>
+  <hr>
+</div>
+<div style="height:16px"></div>
+
+<div class="preview-frame p1">
+
+  <!-- header -->
+  <div class="p1-header">
+    <a href="#" class="p1-logo">KroteRun <sup>JAPAN</sup></a>
+    <nav class="p1-nav">
+      <a href="#" class="on">Races</a>
+      <a href="#">Calendar</a>
+      <a href="#">About</a>
+    </nav>
+    <div class="p1-header-right">
+      <a href="#" class="p1-lang">日本語</a>
+    </div>
+  </div>
+
+  <!-- hero -->
+  <div class="p1-hero">
+    <div class="p1-hero-left">
+      <div class="p1-hero-eyebrow">2026 Racing Season</div>
+      <h1>Run through<br><em>the heart<br>of Japan.</em></h1>
+      <p class="p1-hero-sub">52 marathons across every prefecture — from cherry blossom spring runs to autumn mountain trails.</p>
+      <div class="p1-search">
+        <input type="text" placeholder="Search by city, distance…" />
+        <button class="p1-search-btn">Search</button>
+      </div>
+    </div>
+    <div class="p1-hero-right">
+      <div class="p1-photo span2" style="background: linear-gradient(160deg,#1a3a2a,#2d6a4f); grid-column: 1/-1; height:200px">
+        🌸
+        <div class="p1-photo-label">Tokyo Marathon — Asakusa, km 14</div>
+      </div>
+      <div class="p1-photo" style="background: linear-gradient(160deg,#1e1a2e,#2d2660)">🏯
+        <div class="p1-photo-label">Kyoto Marathon</div>
+      </div>
+      <div class="p1-photo" style="background: linear-gradient(160deg,#1a2a1a,#2d5a2d)">🏔️
+        <div class="p1-photo-label">Fuji Five Lakes</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- issue bar -->
+  <div class="p1-issue">
+    <span class="p1-issue-item"><strong>52</strong> Races Listed</span>
+    <span class="p1-issue-item"><strong>47</strong> Prefectures</span>
+    <span class="p1-issue-item"><strong>12</strong> Entry Open Now</span>
+    <span class="p1-issue-item"><strong>Spring–Winter</strong> Year-Round</span>
+  </div>
+
+  <!-- upcoming -->
+  <div class="p1-section" style="background:#faf8f4">
+    <div class="p1-section-head">
+      <div>
+        <div class="p1-section-title">Upcoming Races</div>
+        <div class="p1-section-sub">Sorted by date — your next Japan marathon</div>
+      </div>
+      <a href="#" class="p1-all">View All →</a>
+    </div>
+    <div class="p1-grid">
+
+      <div class="p1-card">
+        <div class="p1-card-img" style="background:linear-gradient(160deg,#1e3a5f,#2d5a8f)">
+          🏙️
+          <div class="p1-card-img-meta">
+            <span class="p1-card-location">Tokyo, Kanto</span>
+            <span class="p1-card-badge badge-closed">Closed</span>
+          </div>
+        </div>
+        <div class="p1-card-body">
+          <div class="p1-card-date">March 1, 2026</div>
+          <h3 class="p1-card-title">Tokyo Marathon</h3>
+          <p class="p1-card-tagline">"Run the streets of the world's greatest city."</p>
+          <div class="p1-card-stats">
+            <div class="p1-card-stat"><span class="p1-card-stat-val">42.2km</span><span class="p1-card-stat-lbl">Distance</span></div>
+            <div class="p1-card-stat"><span class="p1-card-stat-val">7h 00m</span><span class="p1-card-stat-lbl">Time Limit</span></div>
+            <div class="p1-card-stat"><span class="p1-card-stat-val">38,500</span><span class="p1-card-stat-lbl">Runners</span></div>
+          </div>
+          <div class="p1-card-divider"></div>
+          <div class="p1-card-footer"><a href="#" class="p1-btn">View Details</a></div>
+        </div>
+      </div>
+
+      <div class="p1-card">
+        <div class="p1-card-img" style="background:linear-gradient(160deg,#1e3a1e,#2d5a2d)">
+          🏔️
+          <div class="p1-card-img-meta">
+            <span class="p1-card-location">Nagano, Chubu</span>
+            <span class="p1-card-badge badge-closed">Closed</span>
+          </div>
+        </div>
+        <div class="p1-card-body">
+          <div class="p1-card-date">April 19, 2026</div>
+          <h3 class="p1-card-title">Nagano Marathon</h3>
+          <p class="p1-card-tagline">"Olympic legacy routes through the Japanese Alps."</p>
+          <div class="p1-card-stats">
+            <div class="p1-card-stat"><span class="p1-card-stat-val">42.2km</span><span class="p1-card-stat-lbl">Distance</span></div>
+            <div class="p1-card-stat"><span class="p1-card-stat-val">5h 00m</span><span class="p1-card-stat-lbl">Time Limit</span></div>
+            <div class="p1-card-stat"><span class="p1-card-stat-val">10,000</span><span class="p1-card-stat-lbl">Runners</span></div>
+          </div>
+          <div class="p1-card-divider"></div>
+          <div class="p1-card-footer"><a href="#" class="p1-btn">View Details</a></div>
+        </div>
+      </div>
+
+      <div class="p1-card">
+        <div class="p1-card-img" style="background:linear-gradient(160deg,#0a2a3a,#0d4a6a)">
+          🌊
+          <div class="p1-card-img-meta">
+            <span class="p1-card-location">Hokkaido, Sapporo</span>
+            <span class="p1-card-badge badge-open-red">Entry Open</span>
+          </div>
+        </div>
+        <div class="p1-card-body">
+          <div class="p1-card-date">August 30, 2026</div>
+          <h3 class="p1-card-title">Hokkaido Marathon</h3>
+          <p class="p1-card-tagline">"Japan's coolest summer marathon, through Sapporo's wide boulevards."</p>
+          <div class="p1-card-stats">
+            <div class="p1-card-stat"><span class="p1-card-stat-val">42.2km</span><span class="p1-card-stat-lbl">Distance</span></div>
+            <div class="p1-card-stat"><span class="p1-card-stat-val">6h 00m</span><span class="p1-card-stat-lbl">Time Limit</span></div>
+            <div class="p1-card-stat"><span class="p1-card-stat-val">22,000</span><span class="p1-card-stat-lbl">Runners</span></div>
+          </div>
+          <div class="p1-card-divider"></div>
+          <div class="p1-card-footer">
+            <a href="#" class="p1-btn">View Details</a>
+            <a href="#" class="p1-btn p1-btn-entry">Enter</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- feature -->
+  <div class="p1-feature">
+    <div>
+      <div class="p1-feature-label">Why Japan?</div>
+      <div class="p1-feature-title">More than a race.<br>It's an <em>experience.</em></div>
+    </div>
+    <div class="p1-feature-list">
+      <div class="p1-feature-item">
+        <span class="p1-feature-icon">🌸</span>
+        <div>
+          <div class="p1-feature-item-title">Iconic Scenery</div>
+          <div class="p1-feature-item-desc">Run past temples, castles, cherry blossoms, and Mt. Fuji views.</div>
+        </div>
+      </div>
+      <div class="p1-feature-item">
+        <span class="p1-feature-icon">🍱</span>
+        <div>
+          <div class="p1-feature-item-title">Aid Station Culture</div>
+          <div class="p1-feature-item-desc">Onigiri, miso soup, and local snacks at every checkpoint.</div>
+        </div>
+      </div>
+      <div class="p1-feature-item">
+        <span class="p1-feature-icon">📣</span>
+        <div>
+          <div class="p1-feature-item-title">Crowd Support</div>
+          <div class="p1-feature-item-desc">Japan's enthusiastic spectators make every kilometer memorable.</div>
+        </div>
+      </div>
+      <div class="p1-feature-item">
+        <span class="p1-feature-icon">🏅</span>
+        <div>
+          <div class="p1-feature-item-title">World-Class Organization</div>
+          <div class="p1-feature-item-desc">Precise timing, clean courses, and legendary hospitality.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="p1-footer">
+    <div class="p1-footer-inner">
+      <div class="p1-footer-brand">
+        <div class="p1-footer-logo">KroteRun Japan</div>
+        <p class="p1-footer-desc">Your guide to marathons and running races across Japan.</p>
+      </div>
+      <div class="p1-footer-links">
+        <div class="p1-footer-col">
+          <h4>Find a Race</h4>
+          <a href="#">All Races</a>
+          <a href="#">Calendar</a>
+          <a href="#">By Region</a>
+          <a href="#">By Distance</a>
+        </div>
+        <div class="p1-footer-col">
+          <h4>Info</h4>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="p1-footer-bottom">
+      <span>© 2026 KroteRun. All rights reserved.</span>
+      <span>Made with ♥ for runners visiting Japan</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================ PLAN 3 -->
+<div id="p3" class="variant-label" style="margin-top:56px">
+  <h2>③ Japan Experience — Travel Guide × Race Portal</h2>
+  <p>Each race sold as a unique Japan experience. "What will you see and feel?" comes first, specs second.</p>
+  <hr>
+</div>
+<div style="height:16px"></div>
+
+<div class="preview-frame p3">
+
+  <!-- header -->
+  <div class="p3-header">
+    <a href="#" class="p3-logo"><span class="p3-logo-dot"></span>KroteRun</a>
+    <nav class="p3-nav">
+      <a href="#" class="on">Races</a>
+      <a href="#">Calendar</a>
+      <a href="#">About</a>
+    </nav>
+    <a href="#" class="p3-lang">日本語</a>
+  </div>
+
+  <!-- hero -->
+  <div class="p3-hero">
+    <div class="p3-hero-main">
+      <div class="p3-hero-img" style="background:linear-gradient(160deg,#1a1208,#3d2010)">
+        ⛩️
+        <div class="p3-hero-img-overlay"></div>
+        <div class="p3-hero-img-caption">Kyoto Marathon — Fushimi Inari, km 8</div>
+      </div>
+      <div class="p3-hero-text">
+        <div class="p3-eyebrow"><span class="p3-eyebrow-dot"></span>Japan Marathon Guide</div>
+        <h1>Run somewhere<br>you'll never<br><span>forget.</span></h1>
+        <p class="p3-hero-desc">52 races. 47 prefectures. One country unlike anywhere else to run.</p>
+        <div class="p3-hero-badges">
+          <span class="p3-hero-badge">🌸 Sakura season runs</span>
+          <span class="p3-hero-badge">🏔️ Mt. Fuji routes</span>
+          <span class="p3-hero-badge">🏯 Castle city courses</span>
+          <span class="p3-hero-badge">🍜 Epic aid stations</span>
+        </div>
+        <div class="p3-search-row">
+          <input class="p3-search-input" type="text" placeholder="Search races…" />
+          <button class="p3-search-btn">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- experience chips -->
+  <div class="p3-chips">
+    <span class="p3-chip-label">Experience</span>
+    <span class="p3-chip on">All</span>
+    <span class="p3-chip">🌸 Sakura</span>
+    <span class="p3-chip">🏔️ Mountain</span>
+    <span class="p3-chip">🏯 Castle</span>
+    <span class="p3-chip">🌊 Coastal</span>
+    <span class="p3-chip">🌃 City</span>
+    <span class="p3-chip">⛩️ Temple</span>
+    <span class="p3-chip">🌋 Fuji</span>
+  </div>
+
+  <!-- races -->
+  <div class="p3-section">
+    <div class="p3-section-head">
+      <div>
+        <div class="p3-section-title">Upcoming Races</div>
+        <div class="p3-section-sub">Sorted by date · 52 races total</div>
+      </div>
+      <a href="#" class="p3-all">View All →</a>
+    </div>
+    <div class="p3-grid">
+
+      <div class="p3-card">
+        <div class="p3-card-img" style="background:linear-gradient(160deg,#1e3a5f,#2d5a8f)">
+          🏙️
+          <div class="p3-card-img-overlay"></div>
+          <div class="p3-card-experience">Run past Asakusa, the Imperial Palace &amp; Tokyo Tower</div>
+        </div>
+        <div class="p3-card-body">
+          <div class="p3-card-top">
+            <span class="p3-card-date">Mar 1, 2026</span>
+            <span class="p3-card-dist">42.2 km</span>
+          </div>
+          <h3 class="p3-card-title">Tokyo Marathon</h3>
+          <div class="p3-card-loc">📍 Tokyo — World Marathon Major</div>
+          <div class="p3-card-highlights">
+            <span class="p3-card-hl">World Marathon Major</span>
+            <span class="p3-card-hl">Iconic city landmarks on course</span>
+            <span class="p3-card-hl">38,500 runners from 100+ countries</span>
+          </div>
+          <div class="p3-card-footer"><a href="#" class="p3-btn">View Race</a></div>
+        </div>
+      </div>
+
+      <div class="p3-card">
+        <div class="p3-card-img" style="background:linear-gradient(160deg,#1e3a1e,#2d5a3d)">
+          🏔️
+          <div class="p3-card-img-overlay"></div>
+          <div class="p3-card-experience">Olympic venues &amp; the Japanese Alps in spring</div>
+        </div>
+        <div class="p3-card-body">
+          <div class="p3-card-top">
+            <span class="p3-card-date">Apr 19, 2026</span>
+            <span class="p3-card-dist">42.2 km</span>
+          </div>
+          <h3 class="p3-card-title">Nagano Marathon</h3>
+          <div class="p3-card-loc">📍 Nagano — 1998 Winter Olympics city</div>
+          <div class="p3-card-highlights">
+            <span class="p3-card-hl">Run through 1998 Olympic venues</span>
+            <span class="p3-card-hl">JAAF &amp; AIMS certified flat course</span>
+            <span class="p3-card-hl">Spring alpine scenery</span>
+          </div>
+          <div class="p3-card-footer"><a href="#" class="p3-btn">View Race</a></div>
+        </div>
+      </div>
+
+      <div class="p3-card">
+        <div class="p3-card-img" style="background:linear-gradient(160deg,#0a2a3a,#0d4060)">
+          🌊
+          <div class="p3-card-img-overlay"></div>
+          <div class="p3-card-experience">Sapporo's wide boulevards in Japan's coolest summer</div>
+        </div>
+        <div class="p3-card-body">
+          <div class="p3-card-top">
+            <span class="p3-card-date">Aug 30, 2026</span>
+            <span class="p3-card-dist">42.2 km</span>
+          </div>
+          <h3 class="p3-card-title">Hokkaido Marathon</h3>
+          <div class="p3-card-loc">📍 Sapporo, Hokkaido</div>
+          <div class="p3-card-highlights">
+            <span class="p3-card-hl">Cooler temps — ideal for summer racing</span>
+            <span class="p3-card-hl">Beginner-friendly flat course</span>
+            <span class="p3-card-hl">Entry open now</span>
+          </div>
+          <div class="p3-card-footer">
+            <a href="#" class="p3-btn">View Race</a>
+            <a href="#" class="p3-btn p3-btn-entry">Enter</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- why japan -->
+  <div class="p3-why">
+    <div class="p3-why-inner">
+      <div class="p3-why-eyebrow">Why run in Japan?</div>
+      <div class="p3-why-title">Racing here is different.<br><em>Here's why runners keep coming back.</em></div>
+      <div class="p3-why-grid">
+        <div class="p3-why-item">
+          <div class="p3-why-icon">🍙</div>
+          <div class="p3-why-item-title">Aid stations like nowhere else</div>
+          <div class="p3-why-item-desc">Onigiri, miso soup, fruit, and local specialties every few kilometers.</div>
+        </div>
+        <div class="p3-why-item">
+          <div class="p3-why-icon">📣</div>
+          <div class="p3-why-item-title">Legendary crowd energy</div>
+          <div class="p3-why-item-desc">Japanese spectators line every street — cheering, drumming, dancing.</div>
+        </div>
+        <div class="p3-why-item">
+          <div class="p3-why-icon">🗺️</div>
+          <div class="p3-why-item-title">Courses as sightseeing tours</div>
+          <div class="p3-why-item-desc">Shrines, castles, coastlines — every race is a way to see Japan differently.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="p3-footer">
+    <div class="p3-footer-inner">
+      <div class="p3-footer-brand">
+        <div class="p3-footer-logo"><span class="p3-footer-logo-dot"></span>KroteRun</div>
+        <p class="p3-footer-desc">Your guide to marathons and running races across Japan.</p>
+      </div>
+      <div class="p3-footer-links">
+        <div class="p3-footer-col">
+          <h4>Find a Race</h4>
+          <a href="#">All Races</a>
+          <a href="#">Calendar</a>
+          <a href="#">By Region</a>
+          <a href="#">By Experience</a>
+        </div>
+        <div class="p3-footer-col">
+          <h4>Info</h4>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="p3-footer-bottom">© 2026 KroteRun. All rights reserved.</div>
+  </div>
+
+</div>
+
+<div style="height:64px"></div>
+</body>
+</html>

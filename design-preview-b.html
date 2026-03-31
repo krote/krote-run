@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>デザイン案B プレビュー</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #fafaf7;
+      --bg-card: #ffffff;
+      --green-900: #14532d;
+      --green-700: #15803d;
+      --green-600: #16a34a;
+      --green-100: #dcfce7;
+      --green-50:  #f0fdf4;
+      --terra:     #c2410c;
+      --terra-100: #ffedd5;
+      --sage:      #d1e8d4;
+      --text-dark: #1c1917;
+      --text-mid:  #44403c;
+      --text-light: #78716c;
+      --border:    #e7e5e0;
+      --shadow:    0 2px 12px rgba(0,0,0,.07);
+      --shadow-hover: 0 6px 24px rgba(0,0,0,.12);
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 50;
+    }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 8px;
+      font-weight: 700; font-size: 1.2rem;
+      color: var(--green-700); text-decoration: none;
+    }
+    .logo-mark {
+      width: 36px; height: 36px;
+      background: var(--green-700);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 1rem;
+    }
+    nav { display: flex; gap: 4px; }
+    nav a {
+      padding: 6px 16px; border-radius: 8px;
+      font-size: .875rem; font-weight: 500;
+      color: var(--text-mid); text-decoration: none;
+      transition: all .15s;
+    }
+    nav a:hover { background: var(--green-50); color: var(--green-700); }
+    nav a.active { background: var(--green-50); color: var(--green-700); }
+    .lang-btn {
+      padding: 5px 12px; border-radius: 6px; font-size: .75rem; font-weight: 500;
+      border: 1px solid var(--border); color: var(--text-mid);
+      text-decoration: none; transition: all .15s;
+    }
+    .lang-btn:hover { border-color: var(--green-700); color: var(--green-700); }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      background: linear-gradient(160deg, var(--green-900) 0%, #1a4731 60%, #2d5a3a 100%);
+      color: #fff;
+      padding: 80px 24px 100px;
+      overflow: hidden;
+    }
+    /* 山シルエット */
+    .hero-mountains {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 120px; opacity: .18;
+    }
+    /* 桜ドット装飾 */
+    .hero-dots {
+      position: absolute; top: 0; right: 0; width: 400px; height: 100%;
+      background-image: radial-gradient(circle, rgba(255,255,255,.12) 1.5px, transparent 1.5px);
+      background-size: 28px 28px;
+    }
+    .hero-content {
+      max-width: 640px; margin: 0 auto; text-align: center;
+      position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 100px;
+      padding: 4px 16px; font-size: .8rem; letter-spacing: .08em;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 2.75rem; font-weight: 700; line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: #86efac; }
+    .hero p {
+      font-size: 1.05rem; color: rgba(255,255,255,.8);
+      margin-bottom: 36px;
+    }
+    .search-bar {
+      display: flex; gap: 8px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 14px; padding: 8px 8px 8px 16px;
+      backdrop-filter: blur(8px);
+    }
+    .search-bar input {
+      flex: 1; background: transparent; border: none; outline: none;
+      color: #fff; font-size: .95rem;
+    }
+    .search-bar input::placeholder { color: rgba(255,255,255,.55); }
+    .btn-search {
+      background: var(--terra); color: #fff;
+      border: none; border-radius: 10px;
+      padding: 10px 24px; font-size: .9rem; font-weight: 600;
+      cursor: pointer; white-space: nowrap; transition: background .15s;
+    }
+    .btn-search:hover { background: #9a3412; }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      background: #fff; border-bottom: 1px solid var(--border);
+    }
+    .stats-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; gap: 0;
+    }
+    .stat {
+      padding: 18px 32px; border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num { font-size: 1.4rem; font-weight: 700; color: var(--green-700); }
+    .stat-label { font-size: .75rem; color: var(--text-light); }
+
+    /* ─── SECTION ─── */
+    .section { max-width: 1200px; margin: 0 auto; padding: 64px 24px; }
+    .section-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-size: 1.4rem; font-weight: 700;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-title::before {
+      content: '';
+      display: block; width: 4px; height: 1.4em;
+      background: var(--green-700); border-radius: 2px;
+    }
+    .view-all {
+      font-size: .85rem; font-weight: 500; color: var(--green-700);
+      text-decoration: none; display: flex; align-items: center; gap: 4px;
+    }
+    .view-all:hover { text-decoration: underline; }
+
+    /* ─── RACE CARDS ─── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .race-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: box-shadow .2s, transform .2s;
+      cursor: pointer;
+    }
+    .race-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+    /* 写真エリア */
+    .card-image {
+      height: 128px;
+      position: relative; overflow: hidden;
+    }
+    .card-image-bg {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+    }
+    .card-image-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,.45));
+    }
+    .card-image-date {
+      position: absolute; bottom: 10px; left: 14px;
+      color: #fff; font-size: .82rem; font-weight: 600;
+      text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    }
+    .card-image-badge {
+      position: absolute; top: 10px; right: 10px;
+      padding: 3px 10px; border-radius: 100px;
+      font-size: .72rem; font-weight: 700;
+    }
+    .badge-open { background: var(--terra); color: #fff; }
+    .badge-full { background: rgba(0,0,0,.5); color: #fff; }
+    /* 本文 */
+    .card-body { padding: 16px 18px 18px; }
+    .card-prefecture {
+      font-size: .75rem; color: var(--text-light);
+      display: flex; align-items: center; gap: 4px;
+      margin-bottom: 6px;
+    }
+    .card-title {
+      font-size: 1rem; font-weight: 700; line-height: 1.35;
+      margin-bottom: 10px; color: var(--text-dark);
+    }
+    .card-meta { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+    .card-meta-row {
+      font-size: .82rem; color: var(--text-mid);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .meta-icon { font-size: .9rem; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .tag {
+      font-size: .72rem; padding: 3px 10px; border-radius: 100px;
+      background: var(--green-50); color: var(--green-700);
+      border: 1px solid var(--green-100);
+    }
+    .tag-terra {
+      background: var(--terra-100); color: var(--terra);
+      border-color: #fed7aa;
+    }
+    .card-footer { display: flex; gap: 8px; }
+    .btn-detail {
+      flex: 1; text-align: center;
+      padding: 9px 0; border-radius: 10px;
+      font-size: .85rem; font-weight: 600;
+      border: 1.5px solid var(--green-700); color: var(--green-700);
+      text-decoration: none; transition: all .15s;
+    }
+    .btn-detail:hover { background: var(--green-700); color: #fff; }
+    .btn-entry {
+      padding: 9px 16px; border-radius: 10px;
+      font-size: .85rem; font-weight: 600;
+      background: var(--terra); color: #fff;
+      text-decoration: none; transition: background .15s;
+    }
+    .btn-entry:hover { background: #9a3412; }
+
+    /* ─── SEASON SECTION ─── */
+    .season-section {
+      background: var(--sage);
+      padding: 64px 24px;
+    }
+    .season-inner { max-width: 1200px; margin: 0 auto; }
+    .season-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+      margin-top: 32px;
+    }
+    .season-card {
+      background: #fff; border-radius: 14px; padding: 20px 18px;
+      box-shadow: var(--shadow);
+    }
+    .season-emoji { font-size: 1.8rem; margin-bottom: 10px; }
+    .season-name { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+    .season-count { font-size: .8rem; color: var(--text-light); }
+    .season-bar {
+      margin-top: 12px; height: 4px; border-radius: 2px;
+      background: var(--border);
+    }
+    .season-bar-fill {
+      height: 100%; border-radius: 2px; background: var(--green-700);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--green-900); color: rgba(255,255,255,.75);
+      padding: 48px 24px 32px;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 32px;
+    }
+    .footer-brand { max-width: 240px; }
+    .footer-logo {
+      font-size: 1.1rem; font-weight: 700; color: #fff;
+      display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+    }
+    .footer-desc { font-size: .82rem; line-height: 1.6; }
+    .footer-links { display: flex; gap: 48px; }
+    .footer-col h4 { color: #fff; font-size: .85rem; font-weight: 700; margin-bottom: 12px; }
+    .footer-col a {
+      display: block; color: rgba(255,255,255,.65);
+      font-size: .82rem; text-decoration: none; margin-bottom: 8px;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: 1200px; margin: 32px auto 0;
+      padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1);
+      font-size: .78rem; color: rgba(255,255,255,.4);
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">🏃</div>
+      KroteRun
+    </a>
+    <nav>
+      <a href="#" class="active">ホーム</a>
+      <a href="#">大会一覧</a>
+      <a href="#">カレンダー</a>
+      <a href="#">設定</a>
+    </nav>
+    <a href="#" class="lang-btn">EN</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dots"></div>
+  <!-- 山シルエットSVG -->
+  <svg class="hero-mountains" viewBox="0 0 1440 120" preserveAspectRatio="none" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,120 L0,80 L80,40 L200,90 L320,20 L440,70 L560,10 L680,60 L800,30 L900,75 L1020,15 L1140,65 L1260,35 L1380,80 L1440,55 L1440,120 Z"/>
+    <path d="M0,120 L0,100 L120,70 L260,105 L380,60 L500,95 L620,50 L740,90 L860,65 L980,100 L1100,70 L1220,95 L1340,75 L1440,90 L1440,120 Z" opacity=".6"/>
+  </svg>
+  <div class="hero-content">
+    <div class="hero-eyebrow">🌸 日本全国のマラソン大会情報</div>
+    <h1>走る旅を、<span>もっと楽しく。</span></h1>
+    <p>全国52大会のレース情報をまとめて検索。<br>コース・エントリー・アクセスまで一目でわかる。</p>
+    <div class="search-bar">
+      <input type="text" placeholder="大会名・都道府県・距離で検索…" />
+      <button class="btn-search">🔍 検索する</button>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat-num">52</span>
+      <span class="stat-label">登録大会数</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">47</span>
+      <span class="stat-label">都道府県</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">12</span>
+      <span class="stat-label">エントリー受付中</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">3月〜11月</span>
+      <span class="stat-label">開催シーズン</span>
+    </div>
+  </div>
+</div>
+
+<!-- UPCOMING RACES -->
+<div class="section">
+  <div class="section-header">
+    <h2 class="section-title">近日開催の大会</h2>
+    <a href="#" class="view-all">すべて見る →</a>
+  </div>
+
+  <div class="card-grid">
+
+    <!-- Card 1: 東京マラソン -->
+    <div class="race-card">
+      <div class="card-image">
+        <div class="card-image-bg" style="background: linear-gradient(135deg, #1e3a5f, #2d6a4f);">🏙️</div>
+        <div class="card-image-overlay"></div>
+        <div class="card-image-date">2026年3月1日（日）</div>
+        <div class="card-image-badge badge-full">受付終了</div>
+      </div>
+      <div class="card-body">
+        <div class="card-prefecture">📍 東京都 新宿区〜千代田区</div>
+        <h3 class="card-title">東京マラソン 2026</h3>
+        <div class="card-meta">
+          <div class="card-meta-row"><span class="meta-icon">🏃</span> フルマラソン 42.195km</div>
+          <div class="card-meta-row"><span class="meta-icon">⏱</span> 制限時間 7時間00分</div>
+          <div class="card-meta-row"><span class="meta-icon">👥</span> 定員 38,500人</div>
+        </div>
+        <div class="card-tags">
+          <span class="tag">ワールドメジャーズ</span>
+          <span class="tag">フラット</span>
+          <span class="tag tag-terra">大規模</span>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn-detail">詳細を見る</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: 長野マラソン -->
+    <div class="race-card">
+      <div class="card-image">
+        <div class="card-image-bg" style="background: linear-gradient(135deg, #1a4731, #4a7c59);">🏔️</div>
+        <div class="card-image-overlay"></div>
+        <div class="card-image-date">2026年4月19日（日）</div>
+        <div class="card-image-badge badge-full">受付終了</div>
+      </div>
+      <div class="card-body">
+        <div class="card-prefecture">📍 長野県 長野市</div>
+        <h3 class="card-title">第28回 長野マラソン</h3>
+        <div class="card-meta">
+          <div class="card-meta-row"><span class="meta-icon">🏃</span> フルマラソン 42.195km</div>
+          <div class="card-meta-row"><span class="meta-icon">⏱</span> 制限時間 5時間00分</div>
+          <div class="card-meta-row"><span class="meta-icon">👥</span> 定員 10,000人</div>
+        </div>
+        <div class="card-tags">
+          <span class="tag">日本陸連公認</span>
+          <span class="tag">記録狙い</span>
+          <span class="tag">オリンピック施設</span>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn-detail">詳細を見る</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: 北海道マラソン -->
+    <div class="race-card">
+      <div class="card-image">
+        <div class="card-image-bg" style="background: linear-gradient(135deg, #0c4a6e, #1e5f8a);">🌊</div>
+        <div class="card-image-overlay"></div>
+        <div class="card-image-date">2026年8月30日（日）</div>
+        <div class="card-image-badge badge-open">エントリー受付中</div>
+      </div>
+      <div class="card-body">
+        <div class="card-prefecture">📍 北海道 札幌市</div>
+        <h3 class="card-title">北海道マラソン 2026</h3>
+        <div class="card-meta">
+          <div class="card-meta-row"><span class="meta-icon">🏃</span> フルマラソン 42.195km</div>
+          <div class="card-meta-row"><span class="meta-icon">⏱</span> 制限時間 6時間00分</div>
+          <div class="card-meta-row"><span class="meta-icon">👥</span> 定員 22,000人</div>
+        </div>
+        <div class="card-tags">
+          <span class="tag">夏マラソン</span>
+          <span class="tag">景色が良い</span>
+          <span class="tag tag-terra">初心者おすすめ</span>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn-detail">詳細を見る</a>
+          <a href="#" class="btn-entry">エントリー</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SEASON SECTION -->
+<div class="season-section">
+  <div class="season-inner">
+    <div class="section-header">
+      <h2 class="section-title">シーズンから探す</h2>
+    </div>
+    <div class="season-grid">
+      <div class="season-card">
+        <div class="season-emoji">🌸</div>
+        <div class="season-name">春（3〜5月）</div>
+        <div class="season-count">22大会</div>
+        <div class="season-bar"><div class="season-bar-fill" style="width:85%"></div></div>
+      </div>
+      <div class="season-card">
+        <div class="season-emoji">☀️</div>
+        <div class="season-name">夏（6〜8月）</div>
+        <div class="season-count">4大会</div>
+        <div class="season-bar"><div class="season-bar-fill" style="width:20%; background:#f97316"></div></div>
+      </div>
+      <div class="season-card">
+        <div class="season-emoji">🍂</div>
+        <div class="season-name">秋（9〜11月）</div>
+        <div class="season-count">18大会</div>
+        <div class="season-bar"><div class="season-bar-fill" style="width:70%; background:#d97706"></div></div>
+      </div>
+      <div class="season-card">
+        <div class="season-emoji">❄️</div>
+        <div class="season-name">冬（12〜2月）</div>
+        <div class="season-count">8大会</div>
+        <div class="season-bar"><div class="season-bar-fill" style="width:35%; background:#0284c7"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">🏃 KroteRun</div>
+      <p class="footer-desc">日本全国のマラソン・ランニング大会情報を集めたポータルサイト。初心者からベテランランナーまで。</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>大会を探す</h4>
+        <a href="#">大会一覧</a>
+        <a href="#">カレンダー</a>
+        <a href="#">都道府県から</a>
+        <a href="#">距離から</a>
+      </div>
+      <div class="footer-col">
+        <h4>サイト情報</h4>
+        <a href="#">このサイトについて</a>
+        <a href="#">利用規約</a>
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">お問い合わせ</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 KroteRun. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>

@@ -76,8 +76,19 @@
   "updated_at": "2026-03-29T00:00:00Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.kumagera.ne.jp/a100km/）およびRunnet掲載情報",
-    "data_accuracy_notes": ["基本情報のみ。スタート時間は推定値。エイド、周辺スポット等は未入力"],
+    "data_accuracy_notes": [
+      "基本情報のみ。スタート時間は推定値。エイド、周辺スポット等は未入力"
+    ],
     "last_verified": "2026-03-29",
     "detail_level": "basic"
-  }
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-04-01",
+      "end_date": "2026-06-30",
+      "entry_fee": null
+    }
+  ]
 }

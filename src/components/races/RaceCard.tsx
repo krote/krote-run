@@ -75,20 +75,30 @@ function getCardGradient(id: string): string {
 export default function RaceCard({ race, locale }: RaceCardProps) {
   const today = new Date().toISOString().split('T')[0];
   const isPast = race.date < today;
-  const isEntryOpen =
-    race.entry_start_date !== null &&
-    race.entry_end_date !== null &&
-    today >= race.entry_start_date &&
-    today <= race.entry_end_date;
+  // entry_periods 優先、なければ旧フィールドにフォールバック
+  const periods = race.entry_periods ?? [];
+  const activePeriod = periods.find((p) => p.start_date <= today && p.end_date >= today)
+    ?? (race.entry_start_date && race.entry_end_date && today >= race.entry_start_date && today <= race.entry_end_date
+        ? { start_date: race.entry_start_date, end_date: race.entry_end_date } : null);
+  const futurePeriod = periods.find((p) => p.start_date > today)
+    ?? (race.entry_start_date && today < race.entry_start_date
+        ? { start_date: race.entry_start_date, end_date: race.entry_end_date ?? '' } : null);
+  const latestEndDate = periods.length > 0
+    ? periods.reduce((max, p) => p.end_date > max ? p.end_date : max, '')
+    : race.entry_end_date ?? null;
+
+  const isEntryOpen = !!activePeriod;
   const isClosingSoon =
     isEntryOpen &&
-    race.entry_end_date !== null &&
-    new Date(race.entry_end_date).getTime() - new Date(today).getTime() <= 14 * 24 * 60 * 60 * 1000;
+    activePeriod !== null &&
+    'end_date' in activePeriod &&
+    new Date(activePeriod.end_date).getTime() - new Date(today).getTime() <= 14 * 24 * 60 * 60 * 1000;
   const isEntryClosed =
     !isEntryOpen &&
     !isPast &&
-    race.entry_end_date !== null &&
-    today > race.entry_end_date;
+    !futurePeriod &&
+    latestEndDate !== null &&
+    today > latestEndDate;
 
   // 距離: 長い順にカンマ区切り
   const distances = [...race.categories]
@@ -102,12 +112,18 @@ export default function RaceCard({ race, locale }: RaceCardProps) {
   const cityLabel = getRaceCity(race, locale);
   const locationLabel = prefLabel ? `${prefLabel} ${cityLabel}` : cityLabel;
 
-  // エントリー期間
+  // エントリー期間表示: 最初の期間を表示（複数あれば「他N件」）
   const entryPeriod = (() => {
-    if (!race.entry_start_date && !race.entry_end_date) {
-      return isPast ? null : (locale === 'ja' ? '未発表' : 'TBA');
-    }
     const fmt = (d: string) => formatDate(d, locale);
+    if (periods.length > 0) {
+      const first = periods[0];
+      const base = `${fmt(first.start_date)} 〜 ${fmt(first.end_date)}`;
+      return periods.length > 1
+        ? `${base} ${locale === 'ja' ? `他${periods.length - 1}件` : `+${periods.length - 1} more`}`
+        : base;
+    }
+    // フォールバック
+    if (!race.entry_start_date && !race.entry_end_date) return isPast ? null : (locale === 'ja' ? '未発表' : 'TBA');
     if (race.entry_start_date && race.entry_end_date)
       return `${fmt(race.entry_start_date)} 〜 ${fmt(race.entry_end_date)}`;
     if (race.entry_end_date)

@@ -419,46 +419,114 @@ export default async function RaceDetailPage({
           <SectionLabel>{locale === 'ja' ? 'エントリー' : 'Registration'}</SectionLabel>
           <SectionTitle>{t('applicationPeriod')}</SectionTitle>
           <Card>
-            <div className="flex flex-wrap gap-6 mb-4">
-              <div>
-                <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
-                  {locale === 'ja' ? '受付期間' : 'Period'}
-                </p>
-                <p className="font-medium" style={{ color: (!race.entry_start_date && !race.entry_end_date && !isPast) ? 'var(--color-light)' : undefined }}>
-                  {race.entry_start_date && race.entry_end_date
-                    ? `${formatDate(race.entry_start_date, locale)} — ${formatDate(race.entry_end_date, locale)}`
-                    : isPast
-                    ? '—'
-                    : t('unpublished')}
-                </p>
+            {/* entry_periods がある場合は一覧表示、ない場合は旧フィールドにフォールバック */}
+            {race.entry_periods && race.entry_periods.length > 0 ? (
+              <div className="mb-4">
+                {race.entry_periods.length === 1 ? (
+                  // 1件のみの場合はシンプル表示
+                  <div className="flex flex-wrap gap-6">
+                    <div>
+                      <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
+                        {locale === 'ja' ? '受付期間' : 'Period'}
+                      </p>
+                      <p className="font-medium">
+                        {formatDate(race.entry_periods[0].start_date, locale)}
+                        {' — '}
+                        {formatDate(race.entry_periods[0].end_date, locale)}
+                      </p>
+                    </div>
+                    {race.entry_periods[0].entry_fee && (
+                      <div>
+                        <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
+                          {t('fee')}
+                        </p>
+                        <p className="font-medium">{formatCurrency(race.entry_periods[0].entry_fee)}</p>
+                      </div>
+                    )}
+                    {!race.entry_periods[0].entry_fee && !race.entry_fee_by_category && race.entry_fee && (
+                      <div>
+                        <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
+                          {t('fee')}
+                        </p>
+                        <p className="font-medium">{formatCurrency(race.entry_fee)}</p>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  // 複数エントリー期間の場合はテーブル表示
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr style={{ borderBottom: '2px solid var(--color-border)' }}>
+                          <th className="text-left pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>
+                            {locale === 'ja' ? '種別' : 'Type'}
+                          </th>
+                          <th className="text-left pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>
+                            {locale === 'ja' ? '受付期間' : 'Period'}
+                          </th>
+                          <th className="text-right pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>
+                            {t('fee')}
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {race.entry_periods.map((ep) => (
+                          <tr key={ep.id} style={{ borderBottom: '1px solid var(--color-border)' }} className="last:border-0">
+                            <td className="py-2.5 font-medium">
+                              {locale === 'ja' ? ep.label_ja : ep.label_en}
+                            </td>
+                            <td className="py-2.5">
+                              {formatDate(ep.start_date, locale)} — {formatDate(ep.end_date, locale)}
+                            </td>
+                            <td className="py-2.5 text-right">
+                              {ep.entry_fee
+                                ? formatCurrency(ep.entry_fee)
+                                : (!race.entry_fee_by_category && race.entry_fee)
+                                  ? formatCurrency(race.entry_fee)
+                                  : '—'}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
               </div>
-              <div>
+            ) : (
+              // フォールバック: 旧フィールド
+              <div className="flex flex-wrap gap-6 mb-4">
+                <div>
+                  <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
+                    {locale === 'ja' ? '受付期間' : 'Period'}
+                  </p>
+                  <p className="font-medium">
+                    {race.entry_start_date
+                      ? formatDate(race.entry_start_date, locale)
+                      : (!isPast ? <span style={{ color: 'var(--color-light)' }}>{t('unpublished')}</span> : '—')}
+                    {' — '}
+                    {race.entry_end_date
+                      ? formatDate(race.entry_end_date, locale)
+                      : (!isPast ? <span style={{ color: 'var(--color-light)' }}>{t('unpublished')}</span> : '—')}
+                  </p>
+                </div>
+                {!race.entry_fee_by_category && race.entry_fee && (
+                  <div>
+                    <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
+                      {t('fee')}
+                    </p>
+                    <p className="font-medium">{formatCurrency(race.entry_fee)}</p>
+                  </div>
+                )}
+              </div>
+            )}
+            {race.entry_capacity > 0 && (
+              <div className="mt-3 mb-4">
                 <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
                   {t('capacity')}
                 </p>
-                <p className="font-medium" style={{ color: (!race.entry_capacity && !isPast) ? 'var(--color-light)' : undefined }}>
-                  {race.entry_capacity > 0
-                    ? `${race.entry_capacity.toLocaleString()}${locale === 'ja' ? '人' : ' runners'}`
-                    : isPast
-                    ? '—'
-                    : t('unpublished')}
-                </p>
+                <p className="font-medium">{race.entry_capacity.toLocaleString()}{locale === 'ja' ? '人' : ' runners'}</p>
               </div>
-              {!race.entry_fee_by_category && (
-                <div>
-                  <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
-                    {t('fee')}
-                  </p>
-                  <p className="font-medium" style={{ color: (race.entry_fee === null && !isPast) ? 'var(--color-light)' : undefined }}>
-                    {race.entry_fee !== null
-                      ? formatCurrency(race.entry_fee)
-                      : isPast
-                      ? '—'
-                      : t('unpublished')}
-                  </p>
-                </div>
-              )}
-            </div>
+            )}
             {race.official_url && (
               <a
                 href={race.official_url}

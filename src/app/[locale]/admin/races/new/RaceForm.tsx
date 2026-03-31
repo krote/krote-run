@@ -39,9 +39,25 @@ export function RaceForm({
   prefectures: Prefecture[];
   locale: string;
 }) {
+  type EntryPeriodInput = {
+    label_ja: string;
+    label_en: string;
+    start_date: string;
+    end_date: string;
+    entry_fee: string;
+  };
+  const defaultEntryPeriod: EntryPeriodInput = {
+    label_ja: '一般エントリー',
+    label_en: 'General Entry',
+    start_date: '',
+    end_date: '',
+    entry_fee: '',
+  };
+
   const [state, action, isPending] = useActionState(createRace, null);
   const [seriesType, setSeriesType] = useState<'existing' | 'new'>('existing');
   const [categories, setCategories] = useState<Category[]>([{ ...defaultCategory }]);
+  const [entryPeriods, setEntryPeriods] = useState<EntryPeriodInput[]>([{ ...defaultEntryPeriod }]);
 
   const addCategory = () => setCategories((prev) => [...prev, { ...defaultCategory }]);
   const removeCategory = (i: number) => setCategories((prev) => prev.filter((_, idx) => idx !== i));
@@ -49,10 +65,17 @@ export function RaceForm({
     setCategories((prev) => prev.map((cat, idx) => (idx === i ? { ...cat, [field]: value } : cat)));
   };
 
+  const addEntryPeriod = () => setEntryPeriods((prev) => [...prev, { ...defaultEntryPeriod }]);
+  const removeEntryPeriod = (i: number) => setEntryPeriods((prev) => prev.filter((_, idx) => idx !== i));
+  const updateEntryPeriod = (i: number, field: keyof EntryPeriodInput, value: string) => {
+    setEntryPeriods((prev) => prev.map((ep, idx) => (idx === i ? { ...ep, [field]: value } : ep)));
+  };
+
   return (
     <form action={action} className="space-y-8">
       <input type="hidden" name="locale" value={locale} />
       <input type="hidden" name="category_count" value={categories.length} />
+      <input type="hidden" name="entry_period_count" value={entryPeriods.length} />
 
       {state?.error && (
         <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
@@ -202,20 +225,9 @@ export function RaceForm({
       <section className="space-y-4">
         <h2 className="text-base font-semibold text-gray-800 border-b border-gray-200 pb-2">エントリー情報</h2>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className={LABEL}>申込開始日</label>
-            <input type="date" name="entry_start_date" className={INPUT} />
-          </div>
-          <div>
-            <label className={LABEL}>申込締切日</label>
-            <input type="date" name="entry_end_date" className={INPUT} />
-          </div>
-        </div>
-
         <div className="grid grid-cols-3 gap-4">
           <div>
-            <label className={LABEL}>参加費（円）</label>
+            <label className={LABEL}>参加費（円・全種目共通）</label>
             <input type="number" name="entry_fee" min="0" placeholder="10000" className={INPUT} />
           </div>
           <div>
@@ -231,6 +243,96 @@ export function RaceForm({
               <option value="pre_mail">事前郵送</option>
               <option value="none">なし</option>
             </select>
+          </div>
+        </div>
+
+        {/* エントリー期間（複数対応） */}
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <label className={LABEL + ' mb-0'}>エントリー期間</label>
+            <button
+              type="button"
+              onClick={addEntryPeriod}
+              className="text-xs px-3 py-1.5 border border-gray-300 rounded text-gray-600 hover:border-primary hover:text-primary transition-colors"
+            >
+              ＋ 期間を追加
+            </button>
+          </div>
+          <div className="space-y-3">
+            {entryPeriods.map((ep, i) => (
+              <div key={i} className="border border-gray-200 rounded-lg p-3 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-medium text-gray-500">期間 {i + 1}</span>
+                  {entryPeriods.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => removeEntryPeriod(i)}
+                      className="text-xs text-red-500 hover:text-red-700 transition-colors"
+                    >
+                      削除
+                    </button>
+                  )}
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-1">種別（日本語）</label>
+                    <input
+                      type="text"
+                      name={`entry_period_${i}_label_ja`}
+                      value={ep.label_ja}
+                      onChange={(e) => updateEntryPeriod(i, 'label_ja', e.target.value)}
+                      placeholder="一般エントリー"
+                      className={INPUT}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-1">種別（英語）</label>
+                    <input
+                      type="text"
+                      name={`entry_period_${i}_label_en`}
+                      value={ep.label_en}
+                      onChange={(e) => updateEntryPeriod(i, 'label_en', e.target.value)}
+                      placeholder="General Entry"
+                      className={INPUT}
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-3 gap-2">
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-1">開始日</label>
+                    <input
+                      type="date"
+                      name={`entry_period_${i}_start_date`}
+                      value={ep.start_date}
+                      onChange={(e) => updateEntryPeriod(i, 'start_date', e.target.value)}
+                      className={INPUT}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-1">終了日</label>
+                    <input
+                      type="date"
+                      name={`entry_period_${i}_end_date`}
+                      value={ep.end_date}
+                      onChange={(e) => updateEntryPeriod(i, 'end_date', e.target.value)}
+                      className={INPUT}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-1">参加費（円）</label>
+                    <input
+                      type="number"
+                      name={`entry_period_${i}_entry_fee`}
+                      value={ep.entry_fee}
+                      onChange={(e) => updateEntryPeriod(i, 'entry_fee', e.target.value)}
+                      min="0"
+                      placeholder="任意"
+                      className={INPUT}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

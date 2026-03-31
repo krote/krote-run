@@ -32,7 +32,9 @@
     "min_elevation_m": null,
     "elevation_diff_m": 15,
     "surface": "road",
-    "certification": ["JAAF"],
+    "certification": [
+      "JAAF"
+    ],
     "highlights_ja": "最大高低差15mのフラットコース",
     "highlights_en": "Flat course with only 15m elevation difference",
     "notes_ja": "賞金あり。ホノルルマラソン派遣特典あり。",
@@ -66,8 +68,19 @@
   "updated_at": "2026-03-29T00:00:00Z",
   "_metadata": {
     "data_source": "公式サイト（https://ichinoseki-half.jp/）およびRunnet掲載情報",
-    "data_accuracy_notes": ["基本情報のみ。エイド、周辺スポット等は未入力"],
+    "data_accuracy_notes": [
+      "基本情報のみ。エイド、周辺スポット等は未入力"
+    ],
     "last_verified": "2026-03-29",
     "detail_level": "basic"
-  }
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-04-01",
+      "end_date": "2026-06-30",
+      "entry_fee": null
+    }
+  ]
 }

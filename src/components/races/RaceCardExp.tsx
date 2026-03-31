@@ -13,11 +13,13 @@ export default function RaceCardExp({ race, locale }: RaceCardExpProps) {
   const mainCategory = getMainCategory(race.categories);
   const today = new Date().toISOString().split('T')[0];
   const isPast = race.date < today;
-  const isEntryOpen =
-    race.entry_start_date !== null &&
-    race.entry_end_date !== null &&
-    today >= race.entry_start_date &&
-    today <= race.entry_end_date;
+  const periods = race.entry_periods ?? [];
+  const isEntryOpen = periods.length > 0
+    ? periods.some((p) => p.start_date <= today && p.end_date >= today)
+    : (race.entry_start_date !== null &&
+       race.entry_end_date !== null &&
+       today >= race.entry_start_date &&
+       today <= race.entry_end_date);
 
   // Build experience highlights from available data
   const highlights: string[] = [];

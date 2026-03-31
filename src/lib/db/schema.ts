@@ -208,6 +208,24 @@ export const race_results = sqliteTable("race_results", {
 ]);
 
 // ==================
+// race_entry_periods
+// ==================
+
+export const race_entry_periods = sqliteTable("race_entry_periods", {
+  id:          integer("id").primaryKey({ autoIncrement: true }),
+  race_id:     text("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
+  category_id: integer("category_id").references(() => race_categories.id, { onDelete: "cascade" }),
+  label_ja:    text("label_ja").notNull().default("一般エントリー"),
+  label_en:    text("label_en").notNull().default("General Entry"),
+  start_date:  text("start_date").notNull(),
+  end_date:    text("end_date").notNull(),
+  entry_fee:   integer("entry_fee"),
+  sort_order:  integer("sort_order").notNull().default(0),
+}, (t) => [
+  index("race_entry_periods_race_id_idx").on(t.race_id),
+]);
+
+// ==================
 // gift_categories (マスターデータ)
 // ==================
 
@@ -244,7 +262,12 @@ export const racesRelations = relations(races, ({ many, one }) => ({
   nearby_spots:        many(nearby_spots),
   weather_history:     many(weather_history),
   participation_gifts: many(participation_gifts),
+  entry_periods:       many(race_entry_periods),
   result:              one(race_results, { fields: [races.id], references: [race_results.race_id] }),
+}));
+
+export const raceEntryPeriodsRelations = relations(race_entry_periods, ({ one }) => ({
+  race: one(races, { fields: [race_entry_periods.race_id], references: [races.id] }),
 }));
 
 export const raceResultsRelations = relations(race_results, ({ one }) => ({

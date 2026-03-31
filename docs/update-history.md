@@ -276,3 +276,19 @@
   - `getSoonOpeningEntryRaces(limit)` を追加（今日〜30日以内にエントリー開始）
   - drizzle-orm の `lte`, `and`, `isNotNull` をインポートに追加
 - `src/messages/ja.json` / `en.json`: subtitle・sections キーを更新・追加
+
+## 2026-03-31 Issue #1: 複数エントリー期間対応
+
+- `src/lib/db/schema.ts`: `race_entry_periods` テーブルを追加（nullable `category_id` でレース全体 or 種目別対応）、relations を更新
+- `migrations/0005_race_entry_periods.sql`: Drizzle マイグレーションファイルを追加
+- `src/lib/types.ts`: `EntryPeriod` インターフェースを追加、`Race` に `entry_periods: EntryPeriod[]` フィールドを追加
+- `src/lib/data.ts`: 全クエリ関数で `race_entry_periods` を一括取得。`getOpenEntryRaces`/`getSoonOpeningEntryRaces` を EXISTS サブクエリに変更
+- `src/lib/utils.ts`: `getRaceStatus()` が `entry_periods` を優先使用し、旧フィールドにフォールバック
+- `src/data/races/*.json` (62件): `entry_periods` 配列を追加（既存の `entry_start_date`/`entry_end_date` から変換）
+- `scripts/add-entry-periods.js`: 一括 JSON 変換スクリプトを追加
+- `src/app/[locale]/calendar/page.tsx`: `EntryBand` に `period: EntryPeriod` を追加、各エントリー期間を個別の帯として表示
+- `src/app/[locale]/races/[id]/page.tsx`: エントリー期間セクションを更新。複数期間の場合はテーブル表示
+- `src/components/races/RaceCard.tsx`: `entry_periods` を使用したステータス計算・期間表示に更新（複数期間は「他N件」表示）
+- `src/components/races/RaceCardExp.tsx`: `entry_periods` を使用したステータス計算に更新
+- `src/app/[locale]/admin/races/new/RaceForm.tsx`: 複数エントリー期間の動的 UI を追加（追加・削除ボタン付き）
+- `src/lib/admin-actions.ts`: `race_entry_periods` テーブルへの保存処理を追加

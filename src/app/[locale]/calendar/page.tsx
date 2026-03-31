@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { getRaces } from '@/lib/data';
 import { Link } from '@/i18n/navigation';
-import type { Race } from '@/lib/types';
+import type { Race, EntryPeriod } from '@/lib/types';
 
 export async function generateMetadata({
   params,
@@ -24,8 +24,9 @@ function getFirstDayOfMonth(year: number, month: number): number {
 
 type EntryBand = {
   race: Race;
-  isStart: boolean;    // actual entry_start_date
-  isEnd: boolean;      // actual entry_end_date
+  period: EntryPeriod;
+  isStart: boolean;    // actual period start_date
+  isEnd: boolean;      // actual period end_date
   isRowStart: boolean; // Sunday continuation (not actual start)
 };
 
@@ -53,39 +54,46 @@ export default async function CalendarPage({
     raceDaysByDate.get(key)!.push(race);
   });
 
-  // Entry period bands: expand each race's entry period into per-day entries
+  // Entry period bands: expand each entry period into per-day entries
   const entryBandsByDate = new Map<string, EntryBand[]>();
   const monthStart = new Date(year, month, 1);
   const monthEnd = new Date(year, month + 1, 0);
 
   races.forEach((race) => {
-    const entryStartStr = race.entry_start_date?.split('T')[0] ?? null;
-    const entryEndStr = race.entry_end_date?.split('T')[0] ?? null;
-    if (!entryStartStr && !entryEndStr) return;
+    const periods = race.entry_periods ?? [];
+    // Fallback to old fields if no entry_periods
+    const effectivePeriods = periods.length > 0
+      ? periods
+      : (race.entry_start_date && race.entry_end_date
+          ? [{ id: 0, race_id: race.id, category_id: null, label_ja: '一般エントリー', label_en: 'General Entry', start_date: race.entry_start_date.split('T')[0], end_date: race.entry_end_date.split('T')[0], entry_fee: null, sort_order: 0 }]
+          : []);
 
-    const periodStart = entryStartStr ? new Date(entryStartStr + 'T00:00:00') : monthStart;
-    const periodEnd = entryEndStr ? new Date(entryEndStr + 'T00:00:00') : monthEnd;
+    effectivePeriods.forEach((period) => {
+      const periodStart = new Date(period.start_date + 'T00:00:00');
+      const periodEnd = new Date(period.end_date + 'T00:00:00');
 
-    // Skip if no overlap with current month
-    if (periodStart > monthEnd || periodEnd < monthStart) return;
+      // Skip if no overlap with current month
+      if (periodStart > monthEnd || periodEnd < monthStart) return;
 
-    const effectiveStart = periodStart < monthStart ? monthStart : periodStart;
-    const effectiveEnd = periodEnd > monthEnd ? monthEnd : periodEnd;
+      const effectiveStart = periodStart < monthStart ? monthStart : periodStart;
+      const effectiveEnd = periodEnd > monthEnd ? monthEnd : periodEnd;
 
-    let cur = new Date(effectiveStart.getTime());
-    while (cur <= effectiveEnd) {
-      const d = cur.getDate();
-      const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-      const dow = cur.getDay();
-      if (!entryBandsByDate.has(dateStr)) entryBandsByDate.set(dateStr, []);
-      entryBandsByDate.get(dateStr)!.push({
-        race,
-        isStart: dateStr === entryStartStr,
-        isEnd: dateStr === entryEndStr,
-        isRowStart: dow === 0 && dateStr !== entryStartStr,
-      });
-      cur = new Date(cur.getTime() + 86400000);
-    }
+      let cur = new Date(effectiveStart.getTime());
+      while (cur <= effectiveEnd) {
+        const d = cur.getDate();
+        const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+        const dow = cur.getDay();
+        if (!entryBandsByDate.has(dateStr)) entryBandsByDate.set(dateStr, []);
+        entryBandsByDate.get(dateStr)!.push({
+          race,
+          period,
+          isStart: dateStr === period.start_date,
+          isEnd: dateStr === period.end_date,
+          isRowStart: dow === 0 && dateStr !== period.start_date,
+        });
+        cur = new Date(cur.getTime() + 86400000);
+      }
+    });
   });
 
   const daysInMonth = getDaysInMonth(year, month);
@@ -190,8 +198,9 @@ export default async function CalendarPage({
                 <div className="space-y-px">
                   {visibleBands.map((band) => {
                     const name = raceName(band.race);
+                    const periodLabel = locale === 'en' ? band.period.label_en : band.period.label_ja;
                     let label = '';
-                    if (band.isStart) label = `${t('entryStart')} ${name}`;
+                    if (band.isStart) label = `${t('entryStart')} ${name}${periodLabel !== '一般エントリー' && periodLabel !== 'General Entry' ? ` (${periodLabel})` : ''}`;
                     else if (band.isEnd) label = `${t('entryEnd')} ${name}`;
                     else if (band.isRowStart) label = name;
 
@@ -213,7 +222,7 @@ export default async function CalendarPage({
                     }
 
                     return (
-                      <Link key={band.race.id} href={`/races/${band.race.id}`} className={cx}>
+                      <Link key={`${band.race.id}-${band.period.id ?? band.period.start_date}`} href={`/races/${band.race.id}`} className={cx}>
                         {label && <span className="truncate">{label}</span>}
                       </Link>
                     );

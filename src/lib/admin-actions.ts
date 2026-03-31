@@ -2,7 +2,7 @@
 
 import { redirect } from 'next/navigation';
 import { getDatabase } from '@/lib/db/client';
-import { races, race_categories, race_series } from '@/lib/db/schema';
+import { races, race_categories, race_series, race_entry_periods } from '@/lib/db/schema';
 import { eq } from 'drizzle-orm';
 
 export type ActionState = { error: string } | null;
@@ -85,8 +85,8 @@ export async function createRace(
     entry_fee: formData.get('entry_fee') ? parseInt(formData.get('entry_fee') as string) : null,
     entry_fee_by_category: false,
     entry_capacity: parseInt((formData.get('entry_capacity') as string) || '0'),
-    entry_start_date: (formData.get('entry_start_date') as string) || null,
-    entry_end_date: (formData.get('entry_end_date') as string) || null,
+    entry_start_date: null,
+    entry_end_date: null,
     reception_type: (formData.get('reception_type') as string) || 'race_day',
     reception_note_ja: '',
     reception_note_en: '',
@@ -125,6 +125,27 @@ export async function createRace(
       description_ja: null,
       description_en: null,
       waves: '[]',
+      sort_order: i,
+    });
+  }
+
+  // エントリー期間を追加
+  const entryPeriodCount = parseInt((formData.get('entry_period_count') as string) || '0');
+  for (let i = 0; i < entryPeriodCount; i++) {
+    const startDate = (formData.get(`entry_period_${i}_start_date`) as string) || '';
+    const endDate = (formData.get(`entry_period_${i}_end_date`) as string) || '';
+    if (!startDate || !endDate) continue;
+
+    await db.insert(race_entry_periods).values({
+      race_id: raceId,
+      category_id: null,
+      label_ja: (formData.get(`entry_period_${i}_label_ja`) as string) || '一般エントリー',
+      label_en: (formData.get(`entry_period_${i}_label_en`) as string) || 'General Entry',
+      start_date: startDate,
+      end_date: endDate,
+      entry_fee: formData.get(`entry_period_${i}_entry_fee`)
+        ? parseInt(formData.get(`entry_period_${i}_entry_fee`) as string)
+        : null,
       sort_order: i,
     });
   }

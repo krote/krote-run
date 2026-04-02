@@ -1,4 +1,4 @@
-import { eq, gte, lte, and, asc, sql } from "drizzle-orm";
+import { eq, gte, asc, sql } from "drizzle-orm";
 import { getDatabase } from "./db/client";
 import * as schema from "./db/schema";
 import type {

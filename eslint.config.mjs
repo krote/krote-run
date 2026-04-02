@@ -17,6 +17,8 @@ const eslintConfig = defineConfig([
     ".wrangler/**",
     // Node.js CJS seed/utility scripts (not TypeScript):
     "scripts/**",
+    // Node.js CJS admin server (not TypeScript):
+    "tools/**",
   ]),
 ]);
 

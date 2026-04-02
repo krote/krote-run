@@ -5,8 +5,11 @@ import type { NextConfig } from 'next';
 // wrangler のローカル状態をホームディレクトリに保持する
 // 本番ビルド時は呼ばないこと（Workerが存在しないローカルパスを参照して全ルート404になる）
 if (process.env.NODE_ENV === 'development') {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const { initOpenNextCloudflareForDev } = require('@opennextjs/cloudflare');
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const { join } = require('path');
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const { homedir } = require('os');
   initOpenNextCloudflareForDev({
     persist: { path: join(homedir(), '.wrangler', 'states', 'krote-run', 'v3') },

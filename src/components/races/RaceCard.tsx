@@ -1,6 +1,7 @@
 import type { Race, Locale } from '@/lib/types';
 import { formatDate, getRaceName, getRaceCity } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import prefecturesData from '@/data/prefectures.json';
 
 interface RaceCardProps {
@@ -73,6 +74,7 @@ function getCardGradient(id: string): string {
 }
 
 export default function RaceCard({ race, locale }: RaceCardProps) {
+  const t = useTranslations('races.detail');
   const today = new Date().toISOString().split('T')[0];
   const isPast = race.date < today;
   // entry_periods 優先、なければ旧フィールドにフォールバック
@@ -123,7 +125,7 @@ export default function RaceCard({ race, locale }: RaceCardProps) {
         : base;
     }
     // フォールバック
-    if (!race.entry_start_date && !race.entry_end_date) return isPast ? null : (locale === 'ja' ? '未発表' : 'TBA');
+    if (!race.entry_start_date && !race.entry_end_date) return isPast ? null : t('unpublished');
     if (race.entry_start_date && race.entry_end_date)
       return `${fmt(race.entry_start_date)} 〜 ${fmt(race.entry_end_date)}`;
     if (race.entry_end_date)
@@ -152,7 +154,8 @@ export default function RaceCard({ race, locale }: RaceCardProps) {
           <img
             src={`/images/races/${race.id}.jpg`}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover opacity-0"
+            onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = '1'; }}
             onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
           />
           <div

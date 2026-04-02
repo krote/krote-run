@@ -40,6 +40,8 @@ export default function RaceCardExp({ race, locale }: RaceCardExpProps) {
   // Third highlight: capacity or entry status
   if (isEntryOpen && !isPast) {
     highlights.push(locale === 'en' ? 'Entry open now' : 'エントリー受付中');
+  } else if (!isPast && periods.length === 0 && !race.entry_start_date && !race.entry_end_date) {
+    highlights.push(locale === 'en' ? 'TBA' : '未発表');
   } else if (race.entry_capacity > 0) {
     highlights.push(
       locale === 'en'

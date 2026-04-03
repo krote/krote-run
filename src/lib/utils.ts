@@ -235,25 +235,33 @@ export function sortRacesByDate(races: Race[], ascending = true): Race[] {
   });
 }
 
-/** 最終エントリー終了日を取得（entry_periods優先、なければ旧フィールド） */
-function getLatestEntryEnd(race: Race): string | null {
-  const periods = (race as { entry_periods?: { end_date: string }[] }).entry_periods ?? [];
+/** 受付中の期間のうち最も早い終了日を取得（締切が近い順用） */
+function getEarliestActiveEnd(race: Race, today: string): string | null {
+  const periods = (race as { entry_periods?: { start_date: string; end_date: string }[] }).entry_periods ?? [];
   if (periods.length > 0) {
-    return periods.reduce((max: string, p: { end_date: string }) => (p.end_date > max ? p.end_date : max), '');
+    const active = periods.filter((p) => p.start_date <= today && p.end_date >= today);
+    if (active.length === 0) return null;
+    return active.reduce((min, p) => (p.end_date < min ? p.end_date : min), active[0].end_date);
   }
-  return race.entry_end_date ?? null;
+  // 旧フィールドへのフォールバック
+  const es = race.entry_start_date;
+  const ee = race.entry_end_date;
+  if (es && ee && es <= today && ee >= today) return ee;
+  return null;
 }
 
-/** 最初のエントリー開始日を取得（entry_periods優先、なければ旧フィールド） */
-function getEarliestEntryStart(race: Race): string | null {
+/** 未来の期間のうち最も早い開始日を取得（受付開始が近い順用） */
+function getEarliestFutureStart(race: Race, today: string): string | null {
   const periods = (race as { entry_periods?: { start_date: string }[] }).entry_periods ?? [];
   if (periods.length > 0) {
-    return periods.reduce(
-      (min: string, p: { start_date: string }) => (p.start_date < min ? p.start_date : min),
-      periods[0].start_date,
-    );
+    const future = periods.filter((p) => p.start_date > today);
+    if (future.length === 0) return null;
+    return future.reduce((min, p) => (p.start_date < min ? p.start_date : min), future[0].start_date);
   }
-  return race.entry_start_date ?? null;
+  // 旧フィールドへのフォールバック
+  const es = race.entry_start_date;
+  if (es && es > today) return es;
+  return null;
 }
 
 export function sortRaces(races: Race[], sort: RaceSortKey): Race[] {
@@ -265,30 +273,28 @@ export function sortRaces(races: Race[], sort: RaceSortKey): Race[] {
   }
 
   if (sort === 'entry_closing_soon') {
+    // 受付中の期間で最も早く締め切るものを基準にソート。受付中でない大会は末尾
     return sorted.sort((a, b) => {
-      const ea = getLatestEntryEnd(a);
-      const eb = getLatestEntryEnd(b);
-      // 締切済み・未設定は末尾
-      const aExpired = !ea || ea < today;
-      const bExpired = !eb || eb < today;
-      if (aExpired && bExpired) return a.date.localeCompare(b.date);
-      if (aExpired) return 1;
-      if (bExpired) return -1;
-      return ea!.localeCompare(eb!);
+      const ea = getEarliestActiveEnd(a, today);
+      const eb = getEarliestActiveEnd(b, today);
+      if (!ea && !eb) return a.date.localeCompare(b.date);
+      if (!ea) return 1;
+      if (!eb) return -1;
+      return ea.localeCompare(eb);
     });
   }
 
   if (sort === 'entry_opening_soon') {
+    // 未来の期間で最も早く始まるものを基準にソート。未来の期間がない大会は末尾
     return sorted.sort((a, b) => {
-      const sa = getEarliestEntryStart(a);
-      const sb = getEarliestEntryStart(b);
-      // 開始済み・未設定は末尾
+      const sa = getEarliestFutureStart(a, today);
+      const sb = getEarliestFutureStart(b, today);
+      // 未来の受付なし・未設定は末尾
       const aStarted = !sa || sa <= today;
-      const bStarted = !sb || sb <= today;
-      if (aStarted && bStarted) return a.date.localeCompare(b.date);
-      if (aStarted) return 1;
-      if (bStarted) return -1;
-      return sa!.localeCompare(sb!);
+      if (!sa && !sb) return a.date.localeCompare(b.date);
+      if (!sa) return 1;
+      if (!sb) return -1;
+      return sa.localeCompare(sb);
     });
   }
 

@@ -278,6 +278,11 @@ export type RaceStatus =
   | 'entry_closed'    // 受付終了（開催前）
   | 'past';           // 開催済み
 
+export type RaceSortKey =
+  | 'date_asc'           // 開催日が近い順（デフォルト）
+  | 'entry_closing_soon' // エントリー締切が近い順
+  | 'entry_opening_soon'; // エントリー開始が近い順
+
 // ==================
 // RaceFilter（検索フィルタ）
 // ==================
@@ -292,4 +297,5 @@ export interface RaceFilter {
   searchText: string;
   /** 表示するステータス。空配列 = すべて表示 */
   statuses: RaceStatus[];
+  sort: RaceSortKey;
 }

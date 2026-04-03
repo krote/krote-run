@@ -124,6 +124,7 @@ export function defaultFilter(): RaceFilter {
     tags: [],
     searchText: '',
     statuses: ['open_entry', 'entry_not_open', 'entry_closed'],
+    sort: 'date_asc',
   };
 }
 

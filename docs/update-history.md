@@ -292,3 +292,37 @@
 - `src/components/races/RaceCardExp.tsx`: `entry_periods` を使用したステータス計算に更新
 - `src/app/[locale]/admin/races/new/RaceForm.tsx`: 複数エントリー期間の動的 UI を追加（追加・削除ボタン付き）
 - `src/lib/admin-actions.ts`: `race_entry_periods` テーブルへの保存処理を追加
+
+## 2026-04-02 エントリー未発表表示対応・画像フォールバック改善
+
+- `src/components/races/RaceCard.tsx`: 未発表表示を `useTranslations('races.detail')` 経由の i18n に変更。画像を `opacity-0` で初期化し `onLoad` で表示切替（壊れたアイコン防止）
+- `src/components/races/RaceCardExp.tsx`: エントリー期間・日程が未設定かつ開催前の大会に「未発表」ハイライトを追加
+- `src/messages/ja.json` / `en.json`: `races.detail.unpublished` キーを追加（「未発表」/「TBA」）
+- `migrations/seed-races-all.sql`: 60件分を再生成（entry_periods 含む）
+
+## 2026-04-02 Phase 1 自動テスト導入（ユーティリティ関数）
+
+- `vitest` + `@vitest/coverage-v8` をインストール
+- `vitest.config.ts` を作成（`@/` エイリアス、node 環境、coverage 設定）
+- `package.json` に `test` / `test:watch` / `test:coverage` スクリプトを追加
+- `src/lib/__tests__/fixtures.ts`: テスト用 makeRace / makeCategory / makeEntryPeriod ファクトリ
+- `src/lib/__tests__/utils.format.test.ts`: 日付・距離・金額フォーマット系（24テスト）
+- `src/lib/__tests__/utils.status.test.ts`: getRaceStatus（vi.setSystemTime で日付固定）（15テスト）
+- `src/lib/__tests__/utils.filter.test.ts`: filterRaces / sortRacesByDate（19テスト）
+- `src/lib/__tests__/utils.filter-state.test.ts`: defaultFilter / isDefaultFilter / isFilterEmpty / getMainCategory（14テスト）
+- `.github/workflows/test.yml`: push / PR 時に自動テスト + lint を実行
+- 合計 72テスト、全パス
+
+## 2026-04-03 管理ツールに未整備フィールド可視化機能を追加
+
+- `tools/admin-server.js`: `getMissingFields()` 純粋関数を追加（高優先3項目・中優先3項目を判定）、`/api/races` レスポンスに `missingCount: {high, medium}` を追加、`/api/completeness` エンドポイント新設（全大会の未整備フィールド詳細を返す）
+- `tools/admin/index.html`: サイドバータブに「データチェック」ボタンを追加、`#data-check-list`・`#data-check-area` のHTML追加
+- `tools/admin/app.js`: サイドバーの大会リストに未整備バッジ（高:N/中:N）を表示、`switchTab()` に `'data-check'` ケース追加、`loadDataCheck()` / `renderDcTable()` 関数を実装（年フィルタ・問題なし非表示・✗クリックで編集タブへ遷移）
+- `tools/admin/style.css`: `.missing-badge` / `.missing-high` / `.missing-medium` バッジスタイル、`.data-check-area` / `.dc-table` / `.dc-ok` / `.dc-ng` テーブルスタイルを追加
+
+## 2026-04-03 管理ツールのテスト追加・エラーハンドリング改善
+
+- `tools/admin-server.js`: `require.main === module` で起動を条件分岐し、`module.exports = { getMissingFields }` でテスト用エクスポートを追加
+- `tools/admin/app.js`: `loadDataCheck()` の fetch 後に `res.ok` チェックを追加（旧サーバー稼働時に "Unexpected token 'N'" が出る問題を修正し、「サーバーを再起動してください」と案内）
+- `tools/admin-server.test.js`: Node.js 組み込み `node:test` による `getMissingFields` ユニットテスト（23件）+ HTTP統合テスト（4件）を新規作成（計28テスト全パス）
+- `package.json`: `"test:admin": "node --test tools/admin-server.test.js"` スクリプト追加

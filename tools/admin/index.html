@@ -18,6 +18,7 @@
         <div class="tab-bar">
           <button class="tab-btn active" id="tab-races">大会一覧</button>
           <button class="tab-btn" id="tab-check">更新チェック</button>
+          <button class="tab-btn" id="tab-data-check">データチェック</button>
         </div>
 
         <!-- 大会一覧用検索 -->
@@ -32,6 +33,9 @@
 
       <!-- シリーズリスト（更新チェックタブ） -->
       <ul class="series-list hidden" id="series-list"></ul>
+
+      <!-- データチェックリスト（データチェックタブ） -->
+      <ul id="data-check-list" class="hidden"></ul>
     </aside>
 
     <!-- ── メインエリア ── -->
@@ -137,15 +141,9 @@
           <!-- エントリー情報 -->
           <section class="form-section">
             <h2 class="section-title">エントリー情報</h2>
-            <div class="form-grid">
-              <div class="field">
-                <label>エントリー開始日</label>
-                <input type="date" id="f-entry_start_date" />
-              </div>
-              <div class="field">
-                <label>エントリー終了日</label>
-                <input type="date" id="f-entry_end_date" />
-              </div>
+            <div id="entry-periods-container"></div>
+            <button class="btn btn-secondary" id="btn-add-entry-period">＋ エントリー期間を追加</button>
+            <div class="form-grid" style="margin-top:12px;">
               <div class="field">
                 <label>受付方法</label>
                 <select id="f-reception_type">
@@ -279,6 +277,22 @@
         </div>
 
       </div><!-- /check-area -->
+
+      <!-- ── データチェックエリア ── -->
+      <div class="data-check-area hidden" id="data-check-area">
+        <div class="check-topbar">
+          <div class="check-series-name">データ整備状況チェック</div>
+          <div class="check-topbar-right">
+            <select id="dc-year-filter" style="font-size:12px;padding:4px 8px;"><option value="">すべての年</option></select>
+            <label style="font-size:12px;color:var(--mid);display:flex;align-items:center;gap:4px;cursor:pointer;">
+              <input type="checkbox" id="dc-hide-ok" /> 問題なしを非表示
+            </label>
+          </div>
+        </div>
+        <div class="check-body">
+          <div id="dc-table-wrap"></div>
+        </div>
+      </div><!-- /data-check-area -->
 
     </main>
   </div>

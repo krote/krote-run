@@ -341,6 +341,30 @@ textarea { resize: vertical; line-height: 1.6; }
 }
 .category-row label { font-size: 10.5px; color: var(--mid); }
 
+/* ── エントリー期間 ── */
+.entry-period-row {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 8px;
+  background: var(--cream);
+}
+
+.entry-period-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.entry-period-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--mid);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 /* ── 参加賞 ── */
 .gift-row {
   border: 1px solid var(--border);
@@ -778,3 +802,27 @@ textarea { resize: vertical; line-height: 1.6; }
   color: var(--primary);
   flex: 1;
 }
+
+/* ── 未整備バッジ ── */
+.missing-badge { font-size: 10px; padding: 1px 5px; border-radius: 3px; font-weight: 700; }
+.missing-high   { background: #fed7aa; color: #c2410c; }
+.missing-medium { background: #e5e7eb; color: #6b7280; }
+
+/* ── データチェックエリア ── */
+.data-check-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── データチェックテーブル ── */
+.dc-table { width: 100%; border-collapse: collapse; font-size: 12px; background: white; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+.dc-table th { background: var(--ink); color: white; padding: 8px 10px; text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+.dc-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.dc-table tr:last-child td { border-bottom: none; }
+.dc-table tr:hover td { background: var(--cream); }
+.dc-name-cell { max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dc-ok  { color: #16a34a; font-weight: 700; text-align: center; }
+.dc-ng  { color: #dc2626; font-weight: 700; text-align: center; cursor: pointer; }
+.dc-ng:hover { text-decoration: underline; }

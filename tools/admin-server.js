@@ -249,6 +249,47 @@ ${content}`;
   return JSON.parse(jsonMatch[0]);
 }
 
+// ── 未整備フィールド判定 ──────────────────────────────────────────
+function getMissingFields(r) {
+  const high = [];
+  const medium = [];
+
+  // エントリー期間
+  const hasPeriods = r.entry_periods?.length > 0;
+  if (!hasPeriods && !r.entry_start_date) {
+    high.push({ field: 'entry_period', label: 'エントリー期間' });
+  }
+
+  // 参加費
+  if (!r.entry_fee_by_category && r.entry_fee == null) {
+    high.push({ field: 'entry_fee', label: '参加費' });
+  } else if (r.entry_fee_by_category) {
+    const allNull = (r.categories ?? []).every(c => c.entry_fee == null);
+    if (allNull) high.push({ field: 'entry_fee_cat', label: 'カテゴリ別参加費' });
+  }
+
+  // 公式URL
+  if (!r.official_url) {
+    high.push({ field: 'official_url', label: '公式URL' });
+  }
+
+  // 定員
+  if (!r.entry_capacity || r.entry_capacity === 0) {
+    medium.push({ field: 'entry_capacity', label: '定員' });
+  }
+
+  // 制限時間
+  const hasNoLimit = (r.categories ?? []).some(c => !c.time_limit_minutes || c.time_limit_minutes === 0);
+  if (hasNoLimit) medium.push({ field: 'time_limit', label: '制限時間' });
+
+  // 説明文
+  if (!r.description_ja) {
+    medium.push({ field: 'description', label: '説明文' });
+  }
+
+  return { high, medium };
+}
+
 // ── ローカルDB同期 ────────────────────────────────────────────────
 function syncLocalDb() {
   const persistPath = path.join(
@@ -365,9 +406,37 @@ const server = http.createServer(async (req, res) => {
         const hasImage = fs.existsSync(path.join(IMAGES_DIR, `${d.id}.jpg`)) ||
                          fs.existsSync(path.join(IMAGES_DIR, `${d.id}.png`)) ||
                          fs.existsSync(path.join(IMAGES_DIR, `${d.id}.webp`));
-        return { id: d.id, name_ja: d.name_ja, full_name_ja: d.full_name_ja ?? null, date: d.date, hasImage };
+        return {
+          id: d.id,
+          name_ja: d.name_ja,
+          full_name_ja: d.full_name_ja ?? null,
+          date: d.date,
+          hasImage,
+          missingCount: (() => {
+            const m = getMissingFields(d);
+            return { high: m.high.length, medium: m.medium.length };
+          })(),
+        };
       });
       return jsonRes(res, races);
+    }
+
+    // ── API: データ整備状況 ──
+    if (method === 'GET' && pathname === '/api/completeness') {
+      const files = fs.readdirSync(RACES_DIR)
+        .filter(f => f.endsWith('.json') && f !== 'index.json')
+        .sort();
+      const result = files.map(f => {
+        const d = JSON.parse(fs.readFileSync(path.join(RACES_DIR, f), 'utf-8'));
+        const { high, medium } = getMissingFields(d);
+        return {
+          id: d.id,
+          name_ja: d.full_name_ja ?? d.name_ja,
+          date: d.date,
+          missing: { high, medium },
+        };
+      });
+      return jsonRes(res, result);
     }
 
     // ── API: 大会1件取得 / 保存 ──
@@ -624,17 +693,22 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, () => {
-  console.log('\n🏃 HASHIRU Admin Server');
-  console.log(`   http://localhost:${PORT}`);
-  console.log('   Ctrl+C で終了\n');
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.log('⚠️  ANTHROPIC_API_KEY が未設定です。翻訳機能は使えません。');
-    console.log('   .env.local に ANTHROPIC_API_KEY=sk-ant-... を追加してください。\n');
-  }
-  const hasAwsCreds = process.env.AWS_ACCESS_KEY_ID || process.env.AWS_PROFILE;
-  if (!hasAwsCreds) {
-    console.log('⚠️  AWS認証情報が未設定です。更新チェック機能は使えません。');
-    console.log('   .env.local に AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY / AWS_REGION を追加してください。\n');
-  }
-});
+if (require.main === module) {
+  server.listen(PORT, () => {
+    console.log('\n🏃 HASHIRU Admin Server');
+    console.log(`   http://localhost:${PORT}`);
+    console.log('   Ctrl+C で終了\n');
+    if (!process.env.ANTHROPIC_API_KEY) {
+      console.log('⚠️  ANTHROPIC_API_KEY が未設定です。翻訳機能は使えません。');
+      console.log('   .env.local に ANTHROPIC_API_KEY=sk-ant-... を追加してください。\n');
+    }
+    const hasAwsCreds = process.env.AWS_ACCESS_KEY_ID || process.env.AWS_PROFILE;
+    if (!hasAwsCreds) {
+      console.log('⚠️  AWS認証情報が未設定です。更新チェック機能は使えません。');
+      console.log('   .env.local に AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY / AWS_REGION を追加してください。\n');
+    }
+  });
+} else {
+  // テスト用エクスポート
+  module.exports = { getMissingFields };
+}

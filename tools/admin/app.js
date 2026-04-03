@@ -91,15 +91,23 @@ async function loadRaceList() {
   const res = await fetch('/api/races');
   const races = await res.json();
   const list = document.getElementById('race-list');
-  list.innerHTML = races.map(r => `
+  list.innerHTML = races.map(r => {
+    const badge = r.missingCount?.high > 0
+      ? `<span class="missing-badge missing-high">高:${r.missingCount.high}</span>`
+      : r.missingCount?.medium > 0
+      ? `<span class="missing-badge missing-medium">中:${r.missingCount.medium}</span>`
+      : '';
+    return `
     <li class="race-item" data-id="${r.id}">
       <div class="race-item-name">${r.full_name_ja ?? r.name_ja}</div>
       <div class="race-item-meta">
         ${r.date}
         ${r.hasImage ? '<span class="img-badge">📷 画像あり</span>' : ''}
+        ${badge}
       </div>
     </li>
-  `).join('');
+  `;
+  }).join('');
 
   list.querySelectorAll('.race-item').forEach(el => {
     el.addEventListener('click', () => loadRace(el.dataset.id));
@@ -158,9 +166,8 @@ function populateForm(r) {
   setVal('f-description_ja', r.description_ja);
   setVal('f-description_en', r.description_en);
 
-  // エントリー
-  setVal('f-entry_start_date', r.entry_start_date ?? '');
-  setVal('f-entry_end_date', r.entry_end_date ?? '');
+  // エントリー期間
+  renderEntryPeriods(r.entry_periods ?? []);
   setVal('f-reception_type', r.reception_type ?? 'pre_day');
   setVal('f-reception_note_ja', r.reception_note_ja ?? '');
   setVal('f-reception_note_en', r.reception_note_en ?? '');
@@ -192,6 +199,74 @@ function setVal(id, val) {
   if (!el) return;
   el.value = val ?? '';
 }
+
+// ── エントリー期間 ─────────────────────────────────────────────────
+function renderEntryPeriods(periods) {
+  const container = document.getElementById('entry-periods-container');
+  container.innerHTML = '';
+  periods.forEach(p => addEntryPeriodRow(p));
+}
+
+function addEntryPeriodRow(period = {}) {
+  const container = document.getElementById('entry-periods-container');
+  const row = document.createElement('div');
+  row.className = 'entry-period-row';
+  row.innerHTML = `
+    <div class="entry-period-header">
+      <span class="entry-period-label">期間 ${container.children.length + 1}</span>
+      <button class="btn btn-danger btn-remove-period">削除</button>
+    </div>
+    <div class="form-grid">
+      <div class="field">
+        <label>開始日</label>
+        <input type="date" class="ep-start" value="${period.start_date ?? ''}" />
+      </div>
+      <div class="field">
+        <label>終了日</label>
+        <input type="date" class="ep-end" value="${period.end_date ?? ''}" />
+      </div>
+      <div class="field">
+        <label>参加費（円）</label>
+        <input type="number" class="ep-fee" min="0" value="${period.entry_fee ?? ''}" />
+      </div>
+      <div class="field">
+        <label>ラベル（日本語）</label>
+        <input type="text" class="ep-label-ja" value="${period.label_ja ?? ''}" placeholder="例: 一般エントリー" />
+      </div>
+      <div class="field">
+        <label>ラベル（English）</label>
+        <input type="text" class="ep-label-en" value="${period.label_en ?? ''}" placeholder="e.g. General Entry" />
+      </div>
+    </div>
+  `;
+
+  row.querySelector('.btn-remove-period').addEventListener('click', () => {
+    row.remove();
+    // 番号を振り直す
+    document.querySelectorAll('.entry-period-label').forEach((el, i) => {
+      el.textContent = `期間 ${i + 1}`;
+    });
+    markDirty();
+  });
+
+  row.querySelectorAll('input').forEach(el => el.addEventListener('input', markDirty));
+  container.appendChild(row);
+}
+
+function collectEntryPeriods() {
+  return [...document.querySelectorAll('.entry-period-row')].map(row => ({
+    start_date: row.querySelector('.ep-start').value || null,
+    end_date: row.querySelector('.ep-end').value || null,
+    entry_fee: parseInt(row.querySelector('.ep-fee').value) || null,
+    label_ja: row.querySelector('.ep-label-ja').value || '',
+    label_en: row.querySelector('.ep-label-en').value || '',
+  })).filter(p => p.start_date && p.end_date);
+}
+
+document.getElementById('btn-add-entry-period').addEventListener('click', () => {
+  addEntryPeriodRow();
+  markDirty();
+});
 
 // ── カテゴリ ───────────────────────────────────────────────────────
 function renderCategories(categories) {
@@ -421,6 +496,10 @@ function buildRaceData() {
   // タグ収集
   const tags = [...document.querySelectorAll('.tag-item.selected')].map(el => el.dataset.tag);
 
+  // エントリー期間収集（レガシーフィールドも最初の期間から自動導出）
+  const entryPeriods = collectEntryPeriods();
+  const firstPeriod = entryPeriods[0] ?? null;
+
   return {
     ...currentRace,
     entry_fee: null,
@@ -437,10 +516,10 @@ function buildRaceData() {
     description_ja: getVal('f-description_ja'),
     description_en: getVal('f-description_en'),
     official_url: getVal('f-official_url'),
-    entry_fee: parseInt(getVal('f-entry_fee')) || 0,
-    entry_capacity: parseInt(getVal('f-entry_capacity')) || 0,
-    entry_start_date: getVal('f-entry_start_date') || null,
-    entry_end_date: getVal('f-entry_end_date') || null,
+    entry_periods: entryPeriods,
+    // レガシーフィールド: 最初の期間から自動導出
+    entry_start_date: firstPeriod?.start_date ?? null,
+    entry_end_date: firstPeriod?.end_date ?? null,
     reception_type: getVal('f-reception_type'),
     reception_note_ja: getVal('f-reception_note_ja'),
     reception_note_en: getVal('f-reception_note_en'),
@@ -778,20 +857,23 @@ document.getElementById('modal-submit').addEventListener('click', async () => {
 });
 
 // ── タブ切り替え ────────────────────────────────────────────────────
-let currentTab = 'races'; // 'races' | 'check'
+let currentTab = 'races'; // 'races' | 'check' | 'data-check'
 
 document.getElementById('tab-races').addEventListener('click', () => switchTab('races'));
 document.getElementById('tab-check').addEventListener('click', () => switchTab('check'));
+document.getElementById('tab-data-check').addEventListener('click', () => switchTab('data-check'));
 
 function switchTab(tab) {
   currentTab = tab;
 
   document.getElementById('tab-races').classList.toggle('active', tab === 'races');
   document.getElementById('tab-check').classList.toggle('active', tab === 'check');
+  document.getElementById('tab-data-check').classList.toggle('active', tab === 'data-check');
 
   // サイドバー
   document.getElementById('race-list').classList.toggle('hidden', tab !== 'races');
   document.getElementById('series-list').classList.toggle('hidden', tab !== 'check');
+  document.getElementById('data-check-list').classList.toggle('hidden', tab !== 'data-check');
   document.getElementById('search').style.display = tab === 'races' ? '' : 'none';
 
   // メインエリア
@@ -801,8 +883,10 @@ function switchTab(tab) {
   document.getElementById('resize-handle').classList.add('hidden');
   document.getElementById('preview-pane').classList.add('hidden');
   document.getElementById('check-area').classList.toggle('hidden', tab !== 'check');
+  document.getElementById('data-check-area').classList.toggle('hidden', tab !== 'data-check');
 
   if (tab === 'check') loadSeriesList();
+  if (tab === 'data-check') loadDataCheck();
 }
 
 // ── シリーズ一覧 ────────────────────────────────────────────────────
@@ -1005,6 +1089,110 @@ function renderCheckActions(data) {
   } else {
     actionsEl.innerHTML = `<span style="color:var(--light);font-size:12px;">日付情報が取得できなかったため適用できません。手動で確認してください。</span>`;
   }
+}
+
+// ── データチェック ────────────────────────────────────────────────────
+let dcAllData = [];
+
+async function loadDataCheck() {
+  const wrap = document.getElementById('dc-table-wrap');
+  wrap.innerHTML = '<p style="padding:20px;color:var(--light);">読み込み中…</p>';
+
+  try {
+    const res = await fetch('/api/completeness');
+    if (!res.ok) throw new Error(`サーバーエラー: ${res.status} — サーバーを再起動してください`);
+    dcAllData = await res.json();
+
+    // 年フィルタを構築
+    const years = [...new Set(dcAllData.map(r => r.date?.slice(0, 4)).filter(Boolean))].sort().reverse();
+    const yearSel = document.getElementById('dc-year-filter');
+    yearSel.innerHTML = '<option value="">すべての年</option>' +
+      years.map(y => `<option value="${y}">${y}年</option>`).join('');
+
+    // イベントバインド（初回のみ）
+    if (!yearSel.dataset.bound) {
+      yearSel.dataset.bound = '1';
+      yearSel.addEventListener('change', renderDcTable);
+      document.getElementById('dc-hide-ok').addEventListener('change', renderDcTable);
+    }
+
+    renderDcTable();
+  } catch (err) {
+    wrap.innerHTML = `<p style="padding:20px;color:var(--primary);">エラー: ${err.message}</p>`;
+  }
+}
+
+const DC_FIELDS = [
+  { key: 'entry_period',   label: 'エントリー期間', priority: 'high' },
+  { key: 'entry_fee_cat',  label: '参加費',          priority: 'high' },
+  { key: 'official_url',   label: '公式URL',         priority: 'high' },
+  { key: 'entry_capacity', label: '定員',            priority: 'medium' },
+  { key: 'time_limit',     label: '制限時間',        priority: 'medium' },
+  { key: 'description',    label: '説明文',          priority: 'medium' },
+];
+
+function renderDcTable() {
+  const wrap = document.getElementById('dc-table-wrap');
+  const year = document.getElementById('dc-year-filter').value;
+  const hideOk = document.getElementById('dc-hide-ok').checked;
+
+  let data = dcAllData;
+  if (year) data = data.filter(r => r.date?.startsWith(year));
+
+  if (hideOk) {
+    data = data.filter(r => r.missing.high.length > 0 || r.missing.medium.length > 0);
+  }
+
+  if (data.length === 0) {
+    wrap.innerHTML = '<p style="padding:20px;color:var(--light);">該当する大会はありません</p>';
+    return;
+  }
+
+  const headerCells = DC_FIELDS.map(f => `<th>${f.label}</th>`).join('');
+  const rows = data.map(r => {
+    const allMissingFields = new Set([
+      ...r.missing.high.map(m => m.field),
+      ...r.missing.medium.map(m => m.field),
+    ]);
+    // entry_fee と entry_fee_cat は同じ列にまとめる
+    if (allMissingFields.has('entry_fee')) allMissingFields.add('entry_fee_cat');
+
+    const cells = DC_FIELDS.map(f => {
+      const ng = allMissingFields.has(f.key);
+      if (ng) {
+        return `<td class="dc-ng" data-id="${r.id}" title="${r.name_ja} — ${f.label}未整備">✗</td>`;
+      }
+      return `<td class="dc-ok">✓</td>`;
+    }).join('');
+
+    return `<tr>
+      <td class="dc-name-cell" title="${r.name_ja}">${r.name_ja}</td>
+      <td style="white-space:nowrap;font-size:11px;color:var(--mid);">${r.date ?? '—'}</td>
+      ${cells}
+    </tr>`;
+  }).join('');
+
+  wrap.innerHTML = `
+    <table class="dc-table">
+      <thead>
+        <tr>
+          <th>大会名</th>
+          <th>開催日</th>
+          ${headerCells}
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+  `;
+
+  // ✗ クリックで編集タブへ
+  wrap.querySelectorAll('.dc-ng').forEach(cell => {
+    cell.addEventListener('click', () => {
+      const id = cell.dataset.id;
+      switchTab('races');
+      loadRace(id);
+    });
+  });
 }
 
 // ── チェック結果を適用 ────────────────────────────────────────────────

@@ -97,6 +97,11 @@
       "toggleMag": "マガジン",
       "toggleExp": "体験で探す"
     },
+    "sort": {
+      "dateAsc": "開催日が近い順",
+      "entryClosingSoon": "締切が近い順",
+      "entryOpeningSoon": "受付開始が近い順"
+    },
     "distance": {
       "full": "フルマラソン",
       "half": "ハーフマラソン",

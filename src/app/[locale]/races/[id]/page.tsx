@@ -7,6 +7,7 @@ import { toSeriesId, getSeriesById, getSeriesRaces } from '@/lib/data';
 import { Link } from '@/i18n/navigation';
 import type { Locale, NearbySpotType } from '@/lib/types';
 import CourseProfileSection from '@/components/course/CourseProfileSection';
+import BackButton from '@/components/races/BackButton';
 
 export async function generateMetadata({
   params,
@@ -150,9 +151,7 @@ export default async function RaceDetailPage({
         <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-6 pb-10">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-xs mb-6" style={{ color: 'var(--color-light)' }}>
-            <Link href="/races" className="hover:text-white transition-colors">
-              {t('backToRaces')}
-            </Link>
+            <BackButton label={t('backToRaces')} fallbackHref="/races" />
           </nav>
 
           {/* Tags */}

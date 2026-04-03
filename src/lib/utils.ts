@@ -1,4 +1,4 @@
-import type { RaceCategory, Race, RaceFilter, RaceStatus, Locale, DistanceType } from './types';
+import type { RaceCategory, Race, RaceFilter, RaceStatus, Locale, DistanceType, RaceSortKey } from './types';
 
 // ==================
 // Date formatting
@@ -128,6 +128,8 @@ export function defaultFilter(): RaceFilter {
     tags: [],
     searchText: '',
     statuses: ['open_entry', 'entry_not_open', 'entry_closed'],
+    sort: 'date_asc',
+    view: 'mag',
   };
 }
 
@@ -142,6 +144,8 @@ export function emptyFilter(): RaceFilter {
     tags: [],
     searchText: '',
     statuses: [],
+    sort: 'date_asc',
+    view: 'mag',
   };
 }
 
@@ -229,6 +233,118 @@ export function sortRacesByDate(races: Race[], ascending = true): Race[] {
     const diff = new Date(a.date).getTime() - new Date(b.date).getTime();
     return ascending ? diff : -diff;
   });
+}
+
+/** 最終エントリー終了日を取得（entry_periods優先、なければ旧フィールド） */
+function getLatestEntryEnd(race: Race): string | null {
+  const periods = (race as { entry_periods?: { end_date: string }[] }).entry_periods ?? [];
+  if (periods.length > 0) {
+    return periods.reduce((max: string, p: { end_date: string }) => (p.end_date > max ? p.end_date : max), '');
+  }
+  return race.entry_end_date ?? null;
+}
+
+/** 最初のエントリー開始日を取得（entry_periods優先、なければ旧フィールド） */
+function getEarliestEntryStart(race: Race): string | null {
+  const periods = (race as { entry_periods?: { start_date: string }[] }).entry_periods ?? [];
+  if (periods.length > 0) {
+    return periods.reduce(
+      (min: string, p: { start_date: string }) => (p.start_date < min ? p.start_date : min),
+      periods[0].start_date,
+    );
+  }
+  return race.entry_start_date ?? null;
+}
+
+export function sortRaces(races: Race[], sort: RaceSortKey): Race[] {
+  const today = new Date().toISOString().split('T')[0];
+  const sorted = [...races];
+
+  if (sort === 'date_asc') {
+    return sorted.sort((a, b) => a.date.localeCompare(b.date));
+  }
+
+  if (sort === 'entry_closing_soon') {
+    return sorted.sort((a, b) => {
+      const ea = getLatestEntryEnd(a);
+      const eb = getLatestEntryEnd(b);
+      // 締切済み・未設定は末尾
+      const aExpired = !ea || ea < today;
+      const bExpired = !eb || eb < today;
+      if (aExpired && bExpired) return a.date.localeCompare(b.date);
+      if (aExpired) return 1;
+      if (bExpired) return -1;
+      return ea!.localeCompare(eb!);
+    });
+  }
+
+  if (sort === 'entry_opening_soon') {
+    return sorted.sort((a, b) => {
+      const sa = getEarliestEntryStart(a);
+      const sb = getEarliestEntryStart(b);
+      // 開始済み・未設定は末尾
+      const aStarted = !sa || sa <= today;
+      const bStarted = !sb || sb <= today;
+      if (aStarted && bStarted) return a.date.localeCompare(b.date);
+      if (aStarted) return 1;
+      if (bStarted) return -1;
+      return sa!.localeCompare(sb!);
+    });
+  }
+
+  return sorted;
+}
+
+// ==================
+// URL params ↔ RaceFilter
+// ==================
+
+const VALID_SORTS: RaceSortKey[] = ['date_asc', 'entry_closing_soon', 'entry_opening_soon'];
+const VALID_STATUSES: RaceFilter['statuses'] = ['open_entry', 'entry_not_open', 'entry_closed', 'past'];
+const VALID_DISTANCE_TYPES: DistanceType[] = ['full', 'half', '10k', '5k', 'ultra', 'other'];
+
+export function filterToSearchParams(filter: RaceFilter): URLSearchParams {
+  const params = new URLSearchParams();
+  if (filter.month !== null) params.set('month', String(filter.month));
+  if (filter.prefecture !== null) params.set('pref', filter.prefecture);
+  if (filter.distanceType !== null) params.set('dist', filter.distanceType);
+  if (filter.giftCategories.length > 0) params.set('gift', filter.giftCategories.join(','));
+  if (filter.tags.length > 0) params.set('tags', filter.tags.join(','));
+  if (filter.searchText) params.set('q', filter.searchText);
+  if (filter.statuses.length > 0) params.set('status', filter.statuses.join(','));
+  if (filter.sort !== 'date_asc') params.set('sort', filter.sort);
+  if (filter.view !== 'mag') params.set('view', filter.view);
+  return params;
+}
+
+export function searchParamsToFilter(params: URLSearchParams | Record<string, string>): RaceFilter {
+  const get = (key: string) =>
+    params instanceof URLSearchParams ? params.get(key) : (params[key] ?? null);
+
+  const month = get('month');
+  const sort = get('sort');
+  const view = get('view');
+  const statusRaw = get('status');
+  const giftRaw = get('gift');
+  const tagsRaw = get('tags');
+  const dist = get('dist');
+
+  const statuses = statusRaw
+    ? (statusRaw.split(',').filter((s) => VALID_STATUSES.includes(s as RaceStatus)) as RaceFilter['statuses'])
+    : (['open_entry', 'entry_not_open', 'entry_closed'] as RaceFilter['statuses']);
+
+  return {
+    month: month ? parseInt(month) : null,
+    prefecture: get('pref'),
+    distanceType: dist && VALID_DISTANCE_TYPES.includes(dist as DistanceType) ? (dist as DistanceType) : null,
+    giftCategories: giftRaw ? (giftRaw.split(',') as RaceFilter['giftCategories']) : [],
+    timeLimitMin: null,
+    tags: tagsRaw ? tagsRaw.split(',').filter(Boolean) : [],
+    searchText: get('q') ?? '',
+    statuses: statuses as RaceFilter['statuses'],
+    sort: sort && VALID_SORTS.includes(sort as RaceSortKey) ? (sort as RaceSortKey) : 'date_asc',
+    view: view === 'exp' ? 'exp' : 'mag',
+  };
 }
 
 // ==================

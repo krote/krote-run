@@ -97,6 +97,11 @@
       "toggleMag": "Magazine",
       "toggleExp": "Experience"
     },
+    "sort": {
+      "dateAsc": "Soonest first",
+      "entryClosingSoon": "Closing soon",
+      "entryOpeningSoon": "Opening soon"
+    },
     "distance": {
       "full": "Full Marathon",
       "half": "Half Marathon",

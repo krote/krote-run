@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { useRouter, usePathname } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import type { Race, Prefecture, GiftCategory, RaceFilter as RaceFilterType, Locale } from '@/lib/types';
@@ -22,7 +22,8 @@ export default function RaceList({ races, prefectures, giftCategories, locale, i
   const router = useRouter();
   const pathname = usePathname();
 
-  const filter = initialFilter ?? defaultFilter();
+  // ローカル state で即時反映しつつ、URL も同期することでブラウザ履歴に残す
+  const [filter, setFilterState] = useState<RaceFilterType>(initialFilter ?? defaultFilter());
   const view = filter.view;
 
   const availableTags = useMemo(() => {
@@ -37,6 +38,7 @@ export default function RaceList({ races, prefectures, giftCategories, locale, i
   }, [races, filter]);
 
   const updateFilter = useCallback((next: RaceFilterType) => {
+    setFilterState(next);
     const params = filterToSearchParams(next);
     const qs = params.toString();
     router.replace(`${pathname}${qs ? `?${qs}` : ''}`, { scroll: false });

@@ -12,6 +12,9 @@ vi.mock('next-intl', () => ({
       'noResults': '条件に合う大会が見つかりませんでした',
       'filter.toggleMag': 'マガジン',
       'filter.toggleExp': '体験で探す',
+      'sort.dateAsc': '開催日が近い順',
+      'sort.entryClosingSoon': '締切が近い順',
+      'sort.entryOpeningSoon': '受付開始が近い順',
       'filter.title': '絞り込み',
       'filter.clear': 'すべてクリア',
       'filter.distance': '距離カテゴリ',
@@ -29,6 +32,8 @@ vi.mock('@/i18n/navigation', () => ({
   Link: ({ href, children, ...props }: { href: string; children: React.ReactNode; [key: string]: unknown }) => (
     <a href={href} {...props}>{children}</a>
   ),
+  useRouter: () => ({ replace: vi.fn(), back: vi.fn() }),
+  usePathname: () => '/races',
 }));
 
 vi.mock('@/data/prefectures.json', () => ({

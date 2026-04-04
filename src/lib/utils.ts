@@ -290,7 +290,6 @@ export function sortRaces(races: Race[], sort: RaceSortKey): Race[] {
       const sa = getEarliestFutureStart(a, today);
       const sb = getEarliestFutureStart(b, today);
       // 未来の受付なし・未設定は末尾
-      const aStarted = !sa || sa <= today;
       if (!sa && !sb) return a.date.localeCompare(b.date);
       if (!sa) return 1;
       if (!sb) return -1;

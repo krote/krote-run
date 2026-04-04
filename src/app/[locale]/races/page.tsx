@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { getRaces, getPrefectures, getGiftCategories } from '@/lib/data';
 import RaceList from '@/components/races/RaceList';
 import type { Locale } from '@/lib/types';
+import { searchParamsToFilter } from '@/lib/utils';
 
 export async function generateMetadata({
   params,
@@ -44,11 +45,16 @@ export async function generateMetadata({
 
 export default async function RacesPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<Record<string, string>>;
 }) {
   const { locale: rawLocale } = await params;
   const locale = rawLocale as Locale;
+  const sp = await searchParams;
+  const initialFilter = searchParamsToFilter(sp);
+
   const t = await getTranslations({ locale, namespace: 'races' });
   const [races, prefectures, giftCategories] = await Promise.all([getRaces(), getPrefectures(), getGiftCategories()]);
 
@@ -75,7 +81,13 @@ export default async function RacesPage({
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-        <RaceList races={races} prefectures={prefectures} giftCategories={giftCategories} locale={locale} />
+        <RaceList
+          races={races}
+          prefectures={prefectures}
+          giftCategories={giftCategories}
+          locale={locale}
+          initialFilter={initialFilter}
+        />
       </div>
     </>
   );

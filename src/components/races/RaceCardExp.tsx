@@ -6,9 +6,10 @@ import { useTranslations } from 'next-intl';
 interface RaceCardExpProps {
   race: Race;
   locale: Locale;
+  from?: string;
 }
 
-export default function RaceCardExp({ race, locale }: RaceCardExpProps) {
+export default function RaceCardExp({ race, locale, from }: RaceCardExpProps) {
   const t = useTranslations('home.card');
   const mainCategory = getMainCategory(race.categories);
   const today = new Date().toISOString().split('T')[0];
@@ -104,7 +105,7 @@ export default function RaceCardExp({ race, locale }: RaceCardExpProps) {
         {/* Actions */}
         <div className="flex gap-2">
           <Link
-            href={`/races/${race.id}`}
+            href={from ? `/races/${race.id}?from=${from}` : `/races/${race.id}`}
             className="flex-1 text-center py-2 rounded-[6px] text-[0.78rem] font-semibold text-[var(--color-ink2)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors no-underline"
           >
             {t('viewRace')}

@@ -44,6 +44,7 @@ export default async function CalendarPage({
   const month = parseInt(sp.month ?? String(now.getMonth())); // 0-indexed
 
   const t = await getTranslations({ locale, namespace: 'calendar' });
+  const tNav = await getTranslations({ locale, namespace: 'nav' });
   const races = await getRaces();
 
   // Race day events
@@ -111,6 +112,13 @@ export default async function CalendarPage({
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
+      {/* Breadcrumb */}
+      <nav className="flex items-center gap-1.5 text-xs mb-4 text-gray-400" aria-label="breadcrumb">
+        <Link href="/" className="hover:text-gray-700 transition-colors">{tNav('home')}</Link>
+        <span aria-hidden="true">›</span>
+        <span className="text-gray-700">{tNav('calendar')}</span>
+      </nav>
+
       <h1 className="text-3xl font-bold text-gray-900 mb-8">{t('title')}</h1>
 
       {/* Month navigation */}
@@ -222,7 +230,7 @@ export default async function CalendarPage({
                     }
 
                     return (
-                      <Link key={`${band.race.id}-${band.period.id ?? band.period.start_date}`} href={`/races/${band.race.id}`} className={cx}>
+                      <Link key={`${band.race.id}-${band.period.id ?? band.period.start_date}`} href={`/races/${band.race.id}?from=calendar`} className={cx}>
                         {label && <span className="truncate">{label}</span>}
                       </Link>
                     );
@@ -234,7 +242,7 @@ export default async function CalendarPage({
                   {visibleRaces.map((race) => (
                     <Link
                       key={race.id}
-                      href={`/races/${race.id}`}
+                      href={`/races/${race.id}?from=calendar`}
                       className="block text-xs bg-primary text-white rounded px-1.5 py-0.5 truncate hover:bg-primary/80 transition-colors"
                     >
                       {raceName(race)}

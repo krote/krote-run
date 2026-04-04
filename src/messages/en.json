@@ -147,6 +147,11 @@
       "cutoffTime": "Time limit",
       "website": "Official Website",
       "backToRaces": "← All Races",
+      "breadcrumb": {
+        "home": "Home",
+        "races": "All Races",
+        "calendar": "Calendar"
+      },
       "entryOpen": "Entry Open",
       "entryClosed": "Entry Closed",
       "notYetOpen": "Not Yet Open",

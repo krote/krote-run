@@ -7,7 +7,7 @@ import { toSeriesId, getSeriesById, getSeriesRaces } from '@/lib/data';
 import { Link } from '@/i18n/navigation';
 import type { Locale, NearbySpotType } from '@/lib/types';
 import CourseProfileSection from '@/components/course/CourseProfileSection';
-import BackButton from '@/components/races/BackButton';
+import RaceBreadcrumb from '@/components/races/RaceBreadcrumb';
 
 export async function generateMetadata({
   params,
@@ -90,10 +90,14 @@ function Card({ children, className = '' }: { children: React.ReactNode; classNa
 
 export default async function RaceDetailPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; id: string }>;
+  searchParams: Promise<Record<string, string>>;
 }) {
   const { locale: rawLocale, id } = await params;
+  const sp = await searchParams;
+  const from = sp.from ?? null;
   const locale = rawLocale as Locale;
   const seriesId = toSeriesId(id);
   const [race, giftCategories, t, series, seriesRaces] = await Promise.all([
@@ -150,9 +154,15 @@ export default async function RaceDetailPage({
       <div style={{ background: 'var(--color-ink)' }} className="text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-6 pb-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs mb-6" style={{ color: 'var(--color-light)' }}>
-            <BackButton label={t('backToRaces')} fallbackHref="/races" />
-          </nav>
+          <RaceBreadcrumb
+            raceName={raceName}
+            from={from}
+            labels={{
+              home: t('breadcrumb.home'),
+              races: t('breadcrumb.races'),
+              calendar: t('breadcrumb.calendar'),
+            }}
+          />
 
           {/* Tags */}
           {race.tags.length > 0 && (

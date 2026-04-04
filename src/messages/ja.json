@@ -147,6 +147,11 @@
       "cutoffTime": "制限時間",
       "website": "公式サイト",
       "backToRaces": "← 大会一覧",
+      "breadcrumb": {
+        "home": "ホーム",
+        "races": "大会一覧",
+        "calendar": "カレンダー"
+      },
       "entryOpen": "エントリー受付中",
       "entryClosed": "受付終了",
       "notYetOpen": "受付前",

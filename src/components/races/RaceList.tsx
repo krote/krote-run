@@ -131,9 +131,9 @@ export default function RaceList({ races, prefectures, giftCategories, locale, i
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {filteredRaces.map((race) =>
               view === 'mag' ? (
-                <RaceCard key={race.id} race={race} locale={locale} />
+                <RaceCard key={race.id} race={race} locale={locale} from="races" />
               ) : (
-                <RaceCardExp key={race.id} race={race} locale={locale} />
+                <RaceCardExp key={race.id} race={race} locale={locale} from="races" />
               ),
             )}
           </div>

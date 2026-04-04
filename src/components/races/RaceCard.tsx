@@ -7,6 +7,7 @@ import prefecturesData from '@/data/prefectures.json';
 interface RaceCardProps {
   race: Race;
   locale: Locale;
+  from?: string;
 }
 
 const PREF_MAP = new Map(
@@ -73,7 +74,7 @@ function getCardGradient(id: string): string {
   return CARD_GRADIENTS[n];
 }
 
-export default function RaceCard({ race, locale }: RaceCardProps) {
+export default function RaceCard({ race, locale, from }: RaceCardProps) {
   const t = useTranslations('races.detail');
   const today = new Date().toISOString().split('T')[0];
   const isPast = race.date < today;
@@ -135,7 +136,7 @@ export default function RaceCard({ race, locale }: RaceCardProps) {
 
   return (
     <Link
-      href={`/races/${race.id}`}
+      href={from ? `/races/${race.id}?from=${from}` : `/races/${race.id}`}
       className="group block no-underline"
       style={{ color: 'inherit' }}
     >

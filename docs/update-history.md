@@ -326,3 +326,10 @@
 - `tools/admin/app.js`: `loadDataCheck()` の fetch 後に `res.ok` チェックを追加（旧サーバー稼働時に "Unexpected token 'N'" が出る問題を修正し、「サーバーを再起動してください」と案内）
 - `tools/admin-server.test.js`: Node.js 組み込み `node:test` による `getMissingFields` ユニットテスト（23件）+ HTTP統合テスト（4件）を新規作成（計28テスト全パス）
 - `package.json`: `"test:admin": "node --test tools/admin-server.test.js"` スクリプト追加
+
+
+## 2026-04-04 大会詳細ページにパンくずナビゲーション追加
+
+- `src/app/[locale]/races/[id]/page.tsx`: ヒーロー上部の「← 大会一覧」ボタンをパンくずリストに置き換え（ホーム › 大会一覧 › 大会名）
+- `src/messages/ja.json`, `src/messages/en.json`: `races.detail.breadcrumb.home` / `races.detail.breadcrumb.races` キーを追加
+- パンくず「大会一覧」部分は既存の `BackButton` を流用（同一オリジンからの遷移時は `router.back()`、直リンク・外部からは `/races` へフォールバック）

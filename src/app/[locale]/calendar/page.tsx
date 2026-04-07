@@ -60,6 +60,18 @@ export default async function CalendarPage({
   const monthStart = new Date(year, month, 1);
   const monthEnd = new Date(year, month + 1, 0);
 
+  // ── Lane assignment ─────────────────────────────────────────────────────────
+  // 各エントリー期間に固定レーン番号を割り当て、複数日にまたがる帯が
+  // 毎日同じ行に表示されるようにする（Googleカレンダー方式）
+  interface PeriodEntry {
+    race: Race;
+    period: EntryPeriod;
+    effectiveStart: string;
+    effectiveEnd: string;
+    key: string;
+  }
+  const allPeriods: PeriodEntry[] = [];
+
   races.forEach((race) => {
     const periods = race.entry_periods ?? [];
     // Fallback to old fields if no entry_periods
@@ -78,6 +90,16 @@ export default async function CalendarPage({
 
       const effectiveStart = periodStart < monthStart ? monthStart : periodStart;
       const effectiveEnd = periodEnd > monthEnd ? monthEnd : periodEnd;
+      const effStartStr = `${year}-${String(effectiveStart.getMonth() + 1).padStart(2, '0')}-${String(effectiveStart.getDate()).padStart(2, '0')}`;
+      const effEndStr = `${year}-${String(effectiveEnd.getMonth() + 1).padStart(2, '0')}-${String(effectiveEnd.getDate()).padStart(2, '0')}`;
+
+      allPeriods.push({
+        race,
+        period,
+        effectiveStart: effStartStr,
+        effectiveEnd: effEndStr,
+        key: `${race.id}__${period.id ?? period.start_date}`,
+      });
 
       let cur = new Date(effectiveStart.getTime());
       while (cur <= effectiveEnd) {
@@ -96,6 +118,22 @@ export default async function CalendarPage({
       }
     });
   });
+
+  // 開始日順にソートしてから貪欲法でレーン割り当て
+  allPeriods.sort((a, b) =>
+    a.effectiveStart !== b.effectiveStart
+      ? a.effectiveStart.localeCompare(b.effectiveStart)
+      : a.race.name_ja.localeCompare(b.race.name_ja),
+  );
+  const laneMap = new Map<string, number>();
+  const laneLastEnd: string[] = [];
+  for (const pe of allPeriods) {
+    let lane = laneLastEnd.findIndex((end) => end < pe.effectiveStart);
+    if (lane === -1) lane = laneLastEnd.length;
+    laneLastEnd[lane] = pe.effectiveEnd;
+    laneMap.set(pe.key, lane);
+  }
+  const totalLanes = laneLastEnd.length;
 
   const daysInMonth = getDaysInMonth(year, month);
   const firstDay = getFirstDayOfMonth(year, month);
@@ -194,9 +232,15 @@ export default async function CalendarPage({
                   </span>
                 </div>
 
-                {/* Entry period bands */}
+                {/* Entry period bands — レーン番号順に描画し位置を固定 */}
                 <div className="space-y-px">
-                  {entryBands.map((band) => {
+                  {Array.from({ length: totalLanes }, (_, lane) => {
+                    const band = entryBands.find(
+                      (b) => laneMap.get(`${b.race.id}__${b.period.id ?? b.period.start_date}`) === lane,
+                    );
+                    // 該当レーンに帯がない日はプレースホルダーで高さを確保
+                    if (!band) return <div key={lane} className="h-5" />;
+
                     const name = raceName(band.race);
                     const periodLabel = locale === 'en' ? band.period.label_en : band.period.label_ja;
                     let label = '';
@@ -204,27 +248,20 @@ export default async function CalendarPage({
                     else if (band.isEnd) label = `${t('entryEnd')} ${name}`;
                     else if (band.isRowStart) label = name;
 
-                    // Determine margin/rounding based on position within period
                     // ラベルがある開始セルはテキストをセル外へ食み出させる（overflow-visible + whitespace-nowrap）
                     const hasLabel = label !== '';
                     let cx =
                       `flex items-center h-5 text-xs text-green-900 bg-green-100 transition-colors hover:bg-green-200 ${hasLabel ? 'overflow-visible relative z-10' : 'overflow-hidden'} `;
                     if (band.isStart && band.isEnd) {
-                      // Single-day pill
                       cx += 'mx-2 rounded-full px-2';
                     } else if (band.isStart) {
-                      // Left-rounded, extends to right border
                       cx += 'ml-2 rounded-l-full pl-2 pr-1';
                     } else if (band.isEnd) {
-                      // Right-rounded, extends from left border
                       cx += 'mr-2 rounded-r-full pl-1 pr-2';
-                    } else {
-                      // Middle strip — full cell width (no horizontal margin or padding)
-                      cx += '';
                     }
 
                     return (
-                      <Link key={`${band.race.id}-${band.period.id ?? band.period.start_date}`} href={`/races/${band.race.id}?from=calendar`} className={cx}>
+                      <Link key={lane} href={`/races/${band.race.id}?from=calendar`} className={cx}>
                         {label && <span className="whitespace-nowrap">{label}</span>}
                       </Link>
                     );

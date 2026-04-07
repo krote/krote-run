@@ -90,7 +90,7 @@ export default async function CalendarPage({
           period,
           isStart: dateStr === period.start_date,
           isEnd: dateStr === period.end_date,
-          isRowStart: dow === 0 && dateStr !== period.start_date,
+          isRowStart: (dow === 0 || d === 1) && dateStr !== period.start_date,
         });
         cur = new Date(cur.getTime() + 86400000);
       }

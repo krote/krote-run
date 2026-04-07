@@ -171,14 +171,6 @@ export default async function CalendarPage({
               day === now.getDate() && month === now.getMonth() && year === now.getFullYear();
             const dayOfWeek = (firstDay + i) % 7;
 
-            // Overflow count across bands and race badges
-            const MAX_BANDS = 2;
-            const MAX_RACES = 1;
-            const visibleBands = entryBands.slice(0, MAX_BANDS);
-            const visibleRaces = dayRaces.slice(0, MAX_RACES);
-            const overflow =
-              (entryBands.length - visibleBands.length) +
-              (dayRaces.length - visibleRaces.length);
 
             return (
               <div
@@ -204,7 +196,7 @@ export default async function CalendarPage({
 
                 {/* Entry period bands */}
                 <div className="space-y-px">
-                  {visibleBands.map((band) => {
+                  {entryBands.map((band) => {
                     const name = raceName(band.race);
                     const periodLabel = locale === 'en' ? band.period.label_en : band.period.label_ja;
                     let label = '';
@@ -239,7 +231,7 @@ export default async function CalendarPage({
 
                 {/* Race day badges */}
                 <div className="px-2 mt-1 space-y-1">
-                  {visibleRaces.map((race) => (
+                  {dayRaces.map((race) => (
                     <Link
                       key={race.id}
                       href={`/races/${race.id}?from=calendar`}
@@ -248,9 +240,6 @@ export default async function CalendarPage({
                       {raceName(race)}
                     </Link>
                   ))}
-                  {overflow > 0 && (
-                    <span className="text-xs text-gray-500">+{overflow}件</span>
-                  )}
                 </div>
               </div>
             );

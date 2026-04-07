@@ -205,8 +205,10 @@ export default async function CalendarPage({
                     else if (band.isRowStart) label = name;
 
                     // Determine margin/rounding based on position within period
+                    // ラベルがある開始セルはテキストをセル外へ食み出させる（overflow-visible + whitespace-nowrap）
+                    const hasLabel = label !== '';
                     let cx =
-                      'flex items-center h-5 text-xs overflow-hidden text-green-900 bg-green-100 transition-colors hover:bg-green-200 ';
+                      `flex items-center h-5 text-xs text-green-900 bg-green-100 transition-colors hover:bg-green-200 ${hasLabel ? 'overflow-visible relative z-10' : 'overflow-hidden'} `;
                     if (band.isStart && band.isEnd) {
                       // Single-day pill
                       cx += 'mx-2 rounded-full px-2';
@@ -223,7 +225,7 @@ export default async function CalendarPage({
 
                     return (
                       <Link key={`${band.race.id}-${band.period.id ?? band.period.start_date}`} href={`/races/${band.race.id}?from=calendar`} className={cx}>
-                        {label && <span className="truncate">{label}</span>}
+                        {label && <span className="whitespace-nowrap">{label}</span>}
                       </Link>
                     );
                   })}

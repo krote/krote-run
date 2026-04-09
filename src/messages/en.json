@@ -11,7 +11,19 @@
     "home": "Home",
     "races": "Races",
     "calendar": "Calendar",
-    "settings": "Settings"
+    "settings": "Settings",
+    "mypage": "My Page",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "auth": {
+    "loginTitle": "Sign In",
+    "loginWithGoogle": "Sign in with Google",
+    "loginWithPasskey": "Sign in with Passkey",
+    "loginOptional": "Login is optional. You can register races you plan to attend.",
+    "logoutConfirm": "Sign out?",
+    "registerPasskey": "Register Passkey",
+    "mypage": "My Page"
   },
   "home": {
     "hero": {

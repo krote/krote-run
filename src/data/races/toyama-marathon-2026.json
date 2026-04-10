@@ -3,7 +3,7 @@
   "name_ja": "富山マラソン",
   "name_en": "Toyama Marathon",
   "full_name_ja": "富山マラソン2026",
-  "full_name_en": "Toyama Marathon",
+  "full_name_en": "Toyama Marathon 2026",
   "edition": null,
   "date": "2026-11-01",
   "prefecture": "16",
@@ -12,7 +12,7 @@
   "description_ja": "立山連峰を望みながら走るフルマラソン。新湊大橋を渡るコースが特徴。富山湾の景色が美しい。",
   "description_en": "A full marathon with views of the Tateyama mountain range. Features crossing the Shinminato Bridge with beautiful Toyama Bay scenery.",
   "official_url": "https://www.toyamamarathon.com",
-  "entry_fee": 0,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
   "entry_start_date": "2026-04-11",
@@ -41,9 +41,9 @@
       "distance_type": "full",
       "distance_km": 42.195,
       "time_limit_minutes": 420,
-      "start_time": "",
-      "capacity": 0,
-      "entry_fee": null,
+      "start_time": "09:30",
+      "capacity": 13000,
+      "entry_fee": 14000,
       "entry_fee_u25": null,
       "name_ja": null,
       "name_en": null,
@@ -106,11 +106,11 @@
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
       "start_date": "2026-04-11",
       "end_date": "2026-06-30",
-      "entry_fee": null
+      "entry_fee": 14000,
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry"
     }
   ]
 }

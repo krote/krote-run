@@ -15,6 +15,13 @@
       "when": 1775745141685,
       "tag": "0001_foamy_ma_gnuci",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1775833334458,
+      "tag": "0002_lyrical_korath",
+      "breakpoints": true
     }
   ]
 }

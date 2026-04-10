@@ -5,6 +5,7 @@ import { useRouter, usePathname } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 import { useState } from 'react';
 import { useSession, signOut } from '@/lib/auth-client';
+import UserRaceList from '@/components/mypage/UserRaceList';
 
 export default function MyPage() {
   const t = useTranslations('settings');
@@ -83,6 +84,16 @@ export default function MyPage() {
           </p>
         )}
       </section>
+
+      {/* Race registrations */}
+      {session && (
+        <section className="p-6 bg-white border border-[var(--color-border)] rounded-xl mb-6">
+          <h2 className="text-sm font-semibold mb-4" style={{ color: 'var(--color-mid)' }}>
+            登録中の大会
+          </h2>
+          <UserRaceList />
+        </section>
+      )}
 
       {/* Language */}
       <section className="p-6 bg-white border border-[var(--color-border)] rounded-xl mb-6">

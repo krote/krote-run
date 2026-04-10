@@ -242,6 +242,33 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | weather_history | weather_history_race_id_idx | race_id |
 | participation_gifts | participation_gifts_race_id_idx | race_id |
 | race_results | race_results_race_id_idx | race_id |
+| user_races | user_races_user_id_idx | user_id |
+| user_races | user_races_race_id_idx | race_id |
+| user_races | user_races_user_race_idx | user_id, race_id |
+
+---
+
+## user_races テーブル
+
+ユーザーと大会の登録情報（参加予定・受付開始前日リマインド）を管理する。
+
+| カラム | 型 | NULL | 備考 |
+|---|---|---|---|
+| id | text | NO | PK（UUID） |
+| user_id | text | NO | FK → user.id（CASCADE） |
+| race_id | text | NO | FK → races.id（CASCADE） |
+| is_planning | integer(boolean) | NO | 参加予定フラグ |
+| gcal_race_event_id | text | YES | レース当日の Google Calendar イベント ID |
+| entry_reminder | integer(boolean) | NO | 受付開始前日リマインドフラグ |
+| gcal_entry_event_id | text | YES | エントリー開始日の Google Calendar イベント ID |
+| created_at | text | NO | ISO8601 |
+| updated_at | text | NO | ISO8601 |
+
+**備考**
+- `is_planning` と `entry_reminder` はそれぞれ独立して ON/OFF 可能
+- `entry_reminder` はエントリー開始日（`races.entry_start_date`）が未来の大会のみ設定可能
+- GCal イベントは登録時に Google Calendar API で自動作成、フラグ OFF 時に自動削除
+- レース当日イベントはリマインダーなし、エントリー開始日イベントは前日（1440分前）に popup + email リマインダーを設定
 
 ---
 
@@ -253,3 +280,4 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0001_entry_dates_nullable.sql` | entry_start_date / entry_end_date を NULL 許容に変更 |
 | `migrations/0002_race_series_results.sql` | race_series / race_results テーブルを追加 |
 | `migrations/0003_race_full_name_edition.sql` | races に full_name_ja / full_name_en / edition カラムを追加 |
+| `migrations/0002_lyrical_korath.sql` | user_races テーブルを追加（Phase 2: 参加予定・受付開始前日リマインド） |

@@ -2,8 +2,8 @@
   "id": "soja-kibiji-marathon-2026",
   "name_ja": "そうじゃ吉備路マラソン",
   "name_en": "Soja Kibiji Marathon",
-  "full_name_ja": null,
-  "full_name_en": null,
+  "full_name_ja": "そうじゃ吉備路マラソン",
+  "full_name_en": "Soja Kibiji Marathon",
   "edition": null,
   "date": "2026-02-22",
   "prefecture": "33",
@@ -13,13 +13,13 @@
   "description_en": "Held in Soja City, Okayama. Run through the historic Kibiji landscape, passing a five-story pagoda and ancient burial mounds.",
   "official_url": "https://soja-kibijimarathon.jp",
   "entry_fee": null,
-  "entry_fee_by_category": false,
+  "entry_fee_by_category": true,
   "entry_capacity": null,
-  "entry_start_date": null,
-  "entry_end_date": null,
-  "reception_type": null,
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "entry_start_date": "2025-10-01",
+  "entry_end_date": "2026-01-03",
+  "reception_type": "mail",
+  "reception_note_ja": "すべての種目でナンバーカードを事前に発送させていただきます。\nそのため受付はございません。",
+  "reception_note_en": "Number cards for all events will be sent out in advance.\n\nTherefore, there is no registration required.",
   "tags": [
     "景色が良い",
     "歴史"
@@ -40,10 +40,10 @@
     {
       "distance_type": "full",
       "distance_km": 42.195,
-      "time_limit_minutes": null,
-      "start_time": null,
-      "capacity": null,
-      "entry_fee": null,
+      "time_limit_minutes": 360,
+      "start_time": "09:20",
+      "capacity": 2000,
+      "entry_fee": 9100,
       "entry_fee_u25": null,
       "name_ja": null,
       "name_en": null,
@@ -72,8 +72,8 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "tshirt",
-        "medal"
+        "medal",
+        "tshirt"
       ],
       "description_ja": "大会Tシャツ、完走メダル",
       "description_en": "Race T-shirt, Finisher medal",
@@ -92,5 +92,13 @@
     "last_verified": "2026-03-15",
     "detail_level": "medium"
   },
-  "entry_periods": []
+  "entry_periods": [
+    {
+      "start_date": "2025-10-01",
+      "end_date": "2026-01-03",
+      "entry_fee": 9100,
+      "label_ja": "",
+      "label_en": ""
+    }
+  ]
 }

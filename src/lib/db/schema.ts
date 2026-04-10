@@ -314,6 +314,28 @@ export const passkey = sqliteTable("passkey", {
 });
 
 // ==================
+// user_races (ユーザー大会登録)
+// ==================
+
+export const user_races = sqliteTable("user_races", {
+  id:                   text("id").primaryKey(),
+  user_id:              text("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+  race_id:              text("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
+  // 参加予定フラグ
+  is_planning:          integer("is_planning", { mode: "boolean" }).notNull().default(false),
+  gcal_race_event_id:   text("gcal_race_event_id"),   // レース当日のGCalイベントID
+  // 受付開始前日リマインドフラグ
+  entry_reminder:       integer("entry_reminder", { mode: "boolean" }).notNull().default(false),
+  gcal_entry_event_id:  text("gcal_entry_event_id"),  // エントリー開始日のGCalイベントID
+  created_at:           text("created_at").notNull(),
+  updated_at:           text("updated_at").notNull(),
+}, (t) => [
+  index("user_races_user_id_idx").on(t.user_id),
+  index("user_races_race_id_idx").on(t.race_id),
+  index("user_races_user_race_idx").on(t.user_id, t.race_id),
+]);
+
+// ==================
 // Relations
 // ==================
 
@@ -363,4 +385,9 @@ export const weatherHistoryRelations = relations(weather_history, ({ one }) => (
 
 export const participationGiftsRelations = relations(participation_gifts, ({ one }) => ({
   race: one(races, { fields: [participation_gifts.race_id], references: [races.id] }),
+}));
+
+export const userRacesRelations = relations(user_races, ({ one }) => ({
+  user: one(user, { fields: [user_races.user_id], references: [user.id] }),
+  race: one(races, { fields: [user_races.race_id], references: [races.id] }),
 }));

@@ -8,6 +8,7 @@ import { Link } from '@/i18n/navigation';
 import type { Locale, NearbySpotType } from '@/lib/types';
 import CourseProfileSection from '@/components/course/CourseProfileSection';
 import RaceBreadcrumb from '@/components/races/RaceBreadcrumb';
+import RaceRegistrationButtons from '@/components/races/RaceRegistrationButtons';
 
 export async function generateMetadata({
   params,
@@ -235,6 +236,17 @@ export default async function RaceDetailPage({
               </a>
             )}
           </div>
+
+          {/* 登録ボタン（ログイン済みのみ表示） */}
+          {!isPast && (
+            <RaceRegistrationButtons
+              raceId={race.id}
+              raceName={raceName}
+              raceDate={race.date}
+              entryStartDate={race.entry_start_date ?? null}
+              today={today}
+            />
+          )}
         </div>
       </div>
 

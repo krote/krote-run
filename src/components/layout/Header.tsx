@@ -9,7 +9,7 @@ import { useSession, signIn, signOut } from '@/lib/auth-client';
 const NAV_LINKS = [
   { href: '/races',    labelKey: 'races'    },
   { href: '/calendar', labelKey: 'calendar' },
-  { href: '/settings', labelKey: 'settings' },
+  { href: '/mypage',   labelKey: 'mypage'   },
 ] as const;
 
 function AuthButton() {

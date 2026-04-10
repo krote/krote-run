@@ -10,7 +10,6 @@ vi.mock('next-intl', () => ({
     const map: Record<string, string> = {
       'races': '大会一覧',
       'calendar': 'カレンダー',
-      'settings': '設定',
       'mypage': 'マイページ',
       'login': 'ログイン',
       'logout': 'ログアウト',

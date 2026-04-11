@@ -42,9 +42,9 @@ describe('createAuth', () => {
     createAuth(mockD1);
     const config = (betterAuth as ReturnType<typeof vi.fn>).mock.calls[0][0];
     expect(config.socialProviders?.google).toBeDefined();
-    expect(config.socialProviders.google.scope).toContain(
-      'https://www.googleapis.com/auth/calendar.events',
-    );
+    expect(config.socialProviders.google.scope).toContain('openid');
+    expect(config.socialProviders.google.scope).toContain('email');
+    expect(config.socialProviders.google.scope).toContain('profile');
   });
 
   it('呼び出すたびに新しいインスタンスを返す', () => {

@@ -26,13 +26,8 @@ export function createAuth(d1: D1Database) {
       google: {
         clientId: process.env.GOOGLE_CLIENT_ID ?? '',
         clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
-        // Google カレンダーへのイベント登録に必要なスコープを含む
-        scope: [
-          'openid',
-          'email',
-          'profile',
-          'https://www.googleapis.com/auth/calendar.events',
-        ],
+        // プロフィール情報のみ（カレンダーAPIは使わずURLスキームで代替）
+        scope: ['openid', 'email', 'profile'],
       },
     },
   });

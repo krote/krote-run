@@ -1,0 +1,73 @@
+{
+  "id": "hitachi-seaside-marathon-2026",
+  "name_ja": "ひたちシーサイドマラソン",
+  "name_en": "Hitachi Sea Side Marathon",
+  "full_name_ja": "ひたちシーサイドマラソン2026",
+  "full_name_en": "Hitachi Sea Side Marathon",
+  "edition": null,
+  "date": "2026-11-15",
+  "prefecture": "08",
+  "city_ja": "茨城県日立市東成沢町2-15-1",
+  "city_en": "2-15-1 Higashinari-cho, Hitachi, Ibaraki Prefecture",
+  "description_ja": "太平洋を望む日立シーサイドロードは、まるで海の上を走るような解放感を体感できます。\nコース中盤に位置する河原子海岸沿いでは、海を間近に感じながら走ることができます。\n景色と潮風が背中を押し、走る喜びを存分に味わえます。",
+  "description_en": "The Hitachi Seaside Road, overlooking the Pacific Ocean, offers a sense of freedom as if you were running right on the water.\nAlong the Kawaragi Coast, located in the middle of the course, you can run while feeling the ocean up close.\nWith the scenery and the sea breeze pushing you forward, you can fully savor the joy of running.",
+  "official_url": "https://hitachi-marathon.jp",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-04-13",
+  "entry_end_date": "2026-08-31",
+  "reception_type": "mail",
+  "reception_note_ja": "大会当日の受付はありません。10月末（予定）にアスリートビブス・ランナーズチップ等を郵送いたしますので、忘れずにお持ちください",
+  "reception_note_en": "There will be no on-site registration on the day of the event. We will mail your race bibs, timing chips, and other items by the end of October (tentative), so please be sure to bring them with you.",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "",
+    "highlights_en": "",
+    "notes_ja": "",
+    "notes_en": ""
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "entry_fee": 10000,
+      "capacity": 6000,
+      "time_limit_minutes": 360,
+      "start_time": "10:00"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "result": null,
+  "created_at": "2026-04-11T14:28:19.021Z",
+  "updated_at": "2026-04-11T14:28:19.021Z",
+  "entry_periods": [
+    {
+      "start_date": "2026-04-13",
+      "end_date": "2026-08-31",
+      "entry_fee": 10000,
+      "label_ja": "一般エントリー",
+      "label_en": ""
+    }
+  ],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "medal",
+        "towel"
+      ],
+      "description_ja": "出走特典\n（タオル）\n\n完走賞\n（完走メダル）",
+      "description_en": "",
+      "image": null
+    }
+  ]
+}

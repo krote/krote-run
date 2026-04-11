@@ -243,7 +243,21 @@ export default async function RaceDetailPage({
               raceId={race.id}
               raceName={raceName}
               raceDate={race.date}
-              entryStartDate={race.entry_start_date ?? null}
+              categories={race.categories.map((c) => ({
+                id: c.id,
+                name_ja: c.name_ja,
+                name_en: c.name_en,
+                distance_km: c.distance_km,
+                distance_type: c.distance_type,
+              }))}
+              entryPeriods={race.entry_periods
+                .filter((p) => p.start_date >= today)
+                .map((p) => ({
+                  id: p.id,
+                  label_ja: p.label_ja,
+                  label_en: p.label_en,
+                  start_date: p.start_date,
+                }))}
               today={today}
             />
           )}

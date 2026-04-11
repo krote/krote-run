@@ -250,7 +250,7 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 
 ## user_races テーブル
 
-ユーザーと大会の登録情報（参加予定・受付開始前日リマインド）を管理する。
+ユーザーと大会の登録情報（参加予定・エントリー期間別リマインド）を管理する。
 
 | カラム | 型 | NULL | 備考 |
 |---|---|---|---|
@@ -258,17 +258,17 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | user_id | text | NO | FK → user.id（CASCADE） |
 | race_id | text | NO | FK → races.id（CASCADE） |
 | is_planning | integer(boolean) | NO | 参加予定フラグ |
-| gcal_race_event_id | text | YES | レース当日の Google Calendar イベント ID |
-| entry_reminder | integer(boolean) | NO | 受付開始前日リマインドフラグ |
-| gcal_entry_event_id | text | YES | エントリー開始日の Google Calendar イベント ID |
+| planning_category_id | integer | YES | FK → race_categories.id（SET NULL）。参加予定カテゴリ |
+| entry_reminder_period_ids | text | NO | エントリーリマインド対象の entry_period id 一覧（JSON: number[]、デフォルト "[]"） |
 | created_at | text | NO | ISO8601 |
 | updated_at | text | NO | ISO8601 |
 
 **備考**
-- `is_planning` と `entry_reminder` はそれぞれ独立して ON/OFF 可能
-- `entry_reminder` はエントリー開始日（`races.entry_start_date`）が未来の大会のみ設定可能
-- GCal イベントは登録時に Google Calendar API で自動作成、フラグ OFF 時に自動削除
-- レース当日イベントはリマインダーなし、エントリー開始日イベントは前日（1440分前）に popup + email リマインダーを設定
+- `is_planning` と `entry_reminder_period_ids` はそれぞれ独立して設定可能
+- カテゴリが1種のみの大会では `planning_category_id` は自動的にそのカテゴリに設定
+- カテゴリが複数の場合はドロップダウンで選択
+- `entry_reminder_period_ids` は `race_entry_periods.id` の配列。エントリー期間ごとに個別に ON/OFF 可能
+- カレンダー連携は Google Calendar URL スキームで行う（OAuth 不要）。登録時に新タブで GCal イベント作成画面を開く
 
 ---
 
@@ -281,3 +281,5 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0002_race_series_results.sql` | race_series / race_results テーブルを追加 |
 | `migrations/0003_race_full_name_edition.sql` | races に full_name_ja / full_name_en / edition カラムを追加 |
 | `migrations/0002_lyrical_korath.sql` | user_races テーブルを追加（Phase 2: 参加予定・受付開始前日リマインド） |
+| `migrations/0003_sloppy_jack_power.sql` | user_races に planning_category_id / entry_reminder_period_ids を追加、entry_reminder / gcal_entry_event_id を削除 |
+| `migrations/0004_complex_justin_hammer.sql` | user_races から gcal_race_event_id / gcal_entry_event_ids を削除 |

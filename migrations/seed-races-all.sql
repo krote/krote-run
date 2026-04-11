@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-04-06T14:16:38.775Z
--- 対象ファイル数: 64 件（既存 2 件はskip）
+-- 生成日時: 2026-04-11T14:49:24.353Z
+-- 対象ファイル数: 66 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -28,7 +28,7 @@ INSERT OR REPLACE INTO races (
   '',
   '',
   'https://www.abashiri-marathon.jp/',
-  0,
+  NULL,
   1,
   0,
   '2026-04-01',
@@ -51,7 +51,7 @@ INSERT OR REPLACE INTO races (
   '2026-03-29T11:38:18.538Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('abashiri-marathon-2026', 'full', 19542, 390, '08:45', 2600, 12000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+  ('abashiri-marathon-2026', 'full', 42.195, 390, '08:45', 2600, 12000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('abashiri-marathon-2026', '["medal","goods"]', 'YAMAtune製オリジナルソックス、ランニンググローブ、おもてなしブース飲食券', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -372,7 +372,7 @@ INSERT OR REPLACE INTO races (
   '東京湾アクアライン（木更津金田IC〜海ほたる）を往復走行する国内唯一の大会。海抜40.85mの橋梁から見渡す東京湾の絶景が最大の魅力。後半は袖ケ浦の田園地帯を走る。強風時は短縮コースに変更される場合あり。',
   'Japan''s only marathon traversing the Tokyo Bay Aqualine. Run across the iconic bridge with panoramic views of Tokyo Bay at 40.85m elevation. The course continues through Sodegaura''s farmlands. May switch to a shortened course in strong winds.',
   'https://chiba-aqualine-marathon.com/',
-  0,
+  NULL,
   1,
   0,
   '2026-03-22',
@@ -401,7 +401,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('chiba-aqualine-marathon-2026', '["medal","tshirt"]', '参加賞Tシャツ、完走メダル', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('chiba-aqualine-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-03-22', '2026-04-12', NULL, 0);
+  ('chiba-aqualine-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-03-22', '2026-04-12', 16500, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('chiba-aqualine-marathon-2026', NULL, 'レイトエントリー', 'Late Entry', '2026-05-31', '2026-06-08', 16500, 1);
 
 -- ==================
 -- 愛媛マラソン (ehime-marathon-2026)
@@ -874,6 +876,69 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('himeji-castle-marathon-2026', '["tshirt","medal","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('himeji-castle-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-04', '2025-10-31', NULL, 0);
+
+-- ==================
+-- ひたちシーサイドマラソン (hitachi-seaside-marathon-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'hitachi-seaside-marathon-2026',
+  'ひたちシーサイドマラソン',
+  'Hitachi Sea Side Marathon',
+  '2026-11-15',
+  '08',
+  '茨城県日立市東成沢町2-15-1',
+  '2-15-1 Higashinari-cho, Hitachi, Ibaraki Prefecture',
+  '太平洋を望む日立シーサイドロードは、まるで海の上を走るような解放感を体感できます。
+コース中盤に位置する河原子海岸沿いでは、海を間近に感じながら走ることができます。
+景色と潮風が背中を押し、走る喜びを存分に味わえます。',
+  'The Hitachi Seaside Road, overlooking the Pacific Ocean, offers a sense of freedom as if you were running right on the water.
+Along the Kawaragi Coast, located in the middle of the course, you can run while feeling the ocean up close.
+With the scenery and the sea breeze pushing you forward, you can fully savor the joy of running.',
+  'https://hitachi-marathon.jp',
+  NULL,
+  1,
+  0,
+  '2026-04-13',
+  '2026-08-31',
+  'mail',
+  '大会当日の受付はありません。10月末（予定）にアスリートビブス・ランナーズチップ等を郵送いたしますので、忘れずにお持ちください',
+  'There will be no on-site registration on the day of the event. We will mail your race bibs, timing chips, and other items by the end of October (tentative), so please be sure to bring them with you.',
+  '[]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '',
+  '',
+  '',
+  '',
+  '2026-04-11T14:28:19.021Z',
+  '2026-04-11T14:28:19.021Z'
+);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
+  ('hitachi-seaside-marathon-2026', 'full', 42.195, 360, '10:00', 6000, 10000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('hitachi-seaside-marathon-2026', '["medal","towel"]', '出走特典
+（タオル）
+
+完走賞
+（完走メダル）', '', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('hitachi-seaside-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-13', '2026-08-31', 10000, 0);
 
 -- ==================
 -- 防府読売マラソン (hofu-yomiuri-marathon-2026)
@@ -2594,6 +2659,77 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('osaka-marathon-2026', '温泉', 'スパワールド世界の大温泉', 'Spa World', '通天閣近くの大型温泉施設。レース後のリカバリーに。コースの近くにあり便利。', 'A large hot spring facility near Tsutenkaku. Convenient for post-race recovery, located near the course.', '通天閣付近', NULL, 34.6522, 135.5064);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('osaka-marathon-2026', '["tshirt","medal","towel"]', '参加記念Tシャツ、完走メダル、フィニッシャータオル', 'Commemorative T-shirt, Finisher medal, Finisher towel', NULL, 0);
+
+-- ==================
+-- 大阪・淀川市民マラソン (osaka-yodo-river-citizens-marathon-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'osaka-yodo-river-citizens-marathon-2026',
+  '大阪・淀川市民マラソン',
+  'Osaka Yodo-River Citizens Marathon',
+  '2026-11-01',
+  '27',
+  '大阪府大阪市旭区太子橋３丁目１６−１６',
+  '16-16, 3-chome, Taishibashi, Asahi Ward, Osaka City, Osaka Prefecture',
+  '大阪・淀川市民マラソンは、市民の参加および完走する事に意義を求め、市民自らがつくりあげる市民参加型のマラソン大会として1997年にスタートしました。
+このマラソンは老若男女を問わず、勝つ事、速く走る事を主目的とせず、誰もが気軽に楽しめるマラソンで、日本で初めての市民による手作りの市民マラソンであると同時に、河川敷のみを走る日本で最初のマラソンでもあります。
+
+コースである淀川河川公園を走る事により淀川流域の自然環境を見直し、ランナーの健康と走る環境を考えたエコマラソンを目指しています。
+人間・環境・淀川…など、従来のマラソンにはあまりなかったキーワードを元に開催される、当マラソン大会を楽しんで頂ける事をスタッフ一同心より願っております。',
+  'The Osaka Yodogawa Citizens’ Marathon began in 1997 as a community-driven event created by the citizens themselves, with the primary purpose of encouraging public participation and the joy of finishing the race.
+This marathon is open to people of all ages and genders; it does not prioritize winning or running fast, but rather aims to be an event that anyone can enjoy casually. It is not only Japan’s first citizen-organized, community-driven marathon but also the first marathon in Japan to run exclusively along the riverbank.
+
+By running through the Yodogawa River Park, which serves as the course, we aim to raise awareness of the natural environment of the Yodogawa River basin and create an eco-marathon that prioritizes both runners’ health and the running environment.
+Based on themes such as “people,” “environment,” and “the Yodogawa River”—concepts rarely emphasized in traditional marathons—the entire staff sincerely hopes you will enjoy this event.',
+  'https://www.osaka42195.com/',
+  NULL,
+  1,
+  0,
+  '2026-04-17',
+  '2026-09-27',
+  'mail',
+  '',
+  '',
+  '[]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '',
+  '',
+  '',
+  '',
+  '2026-04-11T14:42:59.225Z',
+  '2026-04-11T14:42:59.225Z'
+);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
+  ('osaka-yodo-river-citizens-marathon-2026', 'full', 42.195, 480, '09:00', 4000, 9800, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
+  ('osaka-yodo-river-citizens-marathon-2026', 'half', 21, 240, '08:30', 4000, 8300, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
+  ('osaka-yodo-river-citizens-marathon-2026', '10k', 10, 120, '13:00', 2000, 4900, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('osaka-yodo-river-citizens-marathon-2026', '["tshirt","towel"]', '【フル・ハーフ】
+参加賞：Ｔシャツ（フリーサイズ）
+完走証：タオル
+【10km】
+参加賞：タオル', '', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('osaka-yodo-river-citizens-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-17', '2026-09-27', NULL, 0);
 
 -- ==================
 -- OSJ ONTAKE100 (osj-ontake100-2026)

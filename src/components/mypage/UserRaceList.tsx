@@ -8,10 +8,18 @@ interface UserRaceRow {
   id: string;
   race_id: string;
   is_planning: boolean;
-  entry_reminder: boolean;
+  planning_category_id: number | null;
+  entry_reminder_period_ids: string; // JSON
   gcal_race_event_id: string | null;
-  gcal_entry_event_id: string | null;
+  gcal_entry_event_ids: string; // JSON
   created_at: string;
+}
+
+interface CategoryInfo {
+  id: number;
+  name_ja: string | null;
+  distance_km: number;
+  distance_type: string;
 }
 
 interface RaceInfo {
@@ -19,6 +27,11 @@ interface RaceInfo {
   name_ja: string;
   full_name_ja: string | null;
   date: string;
+  categories: CategoryInfo[];
+}
+
+function getCatLabel(cat: CategoryInfo): string {
+  return cat.name_ja ?? `${cat.distance_km}km`;
 }
 
 export default function UserRaceList() {
@@ -63,7 +76,10 @@ export default function UserRaceList() {
   }
 
   const planning = rows.filter((r) => r.is_planning);
-  const reminders = rows.filter((r) => r.entry_reminder && !r.is_planning);
+  const reminders = rows.filter((r) => {
+    const ids: number[] = (() => { try { return JSON.parse(r.entry_reminder_period_ids ?? '[]'); } catch { return []; } })();
+    return ids.length > 0 && !r.is_planning;
+  });
 
   if (rows.length === 0) {
     return (
@@ -76,9 +92,16 @@ export default function UserRaceList() {
   function RaceItem({ row, badge }: { row: UserRaceRow; badge?: React.ReactNode }) {
     const race = raceMap.get(row.race_id);
     const name = race ? (race.full_name_ja ?? race.name_ja) : row.race_id;
+
+    // 参加予定カテゴリ
+    const cat = race?.categories?.find((c) => c.id === row.planning_category_id);
+
+    // リマインド設定済み期間数
+    const reminderIds: number[] = (() => { try { return JSON.parse(row.entry_reminder_period_ids ?? '[]'); } catch { return []; } })();
+
     return (
       <div className="flex items-center justify-between py-3 border-b border-[var(--color-border)] last:border-0">
-        <div>
+        <div className="flex-1 min-w-0">
           <Link
             href={`/races/${row.race_id}`}
             className="text-sm font-medium no-underline hover:underline"
@@ -86,14 +109,30 @@ export default function UserRaceList() {
           >
             {name}
           </Link>
-          {race && (
-            <p className="text-xs mt-0.5" style={{ color: 'var(--color-mid)' }}>
-              {race.date}
-            </p>
-          )}
+          <div className="flex flex-wrap items-center gap-2 mt-0.5">
+            {race && (
+              <span className="text-xs" style={{ color: 'var(--color-mid)' }}>
+                {race.date}
+              </span>
+            )}
+            {cat && row.is_planning && (
+              <span
+                className="text-xs px-2 py-0.5 rounded-[3px] font-medium"
+                style={{ background: 'var(--color-cream)', color: 'var(--color-ink2)', border: '1px solid var(--color-border)' }}
+              >
+                {getCatLabel(cat)} · {cat.distance_km}km
+              </span>
+            )}
+          </div>
         </div>
         <div className="flex items-center gap-2 shrink-0 ml-4">
           {badge}
+          {reminderIds.length > 0 && (
+            <span className="text-xs px-2 py-0.5 rounded-[3px]"
+              style={{ background: '#fef3c7', color: '#92400e' }}>
+              🔔 リマインド{reminderIds.length > 1 ? `×${reminderIds.length}` : ''}
+            </span>
+          )}
         </div>
       </div>
     );
@@ -108,18 +147,7 @@ export default function UserRaceList() {
           </p>
           <div>
             {planning.map((row) => (
-              <RaceItem
-                key={row.id}
-                row={row}
-                badge={
-                  row.entry_reminder ? (
-                    <span className="text-xs px-2 py-0.5 rounded-[3px]"
-                      style={{ background: '#fef3c7', color: '#92400e' }}>
-                      🔔 リマインド
-                    </span>
-                  ) : undefined
-                }
-              />
+              <RaceItem key={row.id} row={row} />
             ))}
           </div>
         </div>
@@ -132,16 +160,7 @@ export default function UserRaceList() {
           </p>
           <div>
             {reminders.map((row) => (
-              <RaceItem
-                key={row.id}
-                row={row}
-                badge={
-                  <span className="text-xs px-2 py-0.5 rounded-[3px]"
-                    style={{ background: '#fef3c7', color: '#92400e' }}>
-                    🔔 リマインド
-                  </span>
-                }
-              />
+              <RaceItem key={row.id} row={row} />
             ))}
           </div>
         </div>

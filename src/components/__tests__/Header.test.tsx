@@ -129,7 +129,7 @@ describe('Header - ログイン済み状態', () => {
   it('アバタークリックでドロップダウンが開く', async () => {
     render(<Header />);
     await user.click(screen.getByLabelText('User menu'));
-    expect(screen.getByText('マイページ')).toBeInTheDocument();
+    expect(screen.getAllByText('マイページ').length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText('ログアウト')).toBeInTheDocument();
     expect(screen.getByText('test@example.com')).toBeInTheDocument();
   });

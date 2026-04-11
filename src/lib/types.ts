@@ -73,6 +73,7 @@ export interface EntryPeriod {
 // ==================
 
 export interface RaceCategory {
+  id: number;
   distance_type: DistanceType;
   distance_km: number;
   time_limit_minutes: number;

@@ -1,8 +1,8 @@
 {
     "version":  "6",
     "dialect":  "sqlite",
-    "id":  "2f7e45e1-ac58-476b-b96f-8b0ce546a753",
-    "prevId":  "a7c3180d-2549-45a3-8fd2-ac2e32a679f4",
+    "id":  "451e9778-aa9d-493c-b3de-caab536a8304",
+    "prevId":  "2f7e45e1-ac58-476b-b96f-8b0ce546a753",
     "tables":  {
                    "access_points":  {
                                          "name":  "access_points",
@@ -1788,6 +1788,13 @@
                                                                           "autoincrement":  false,
                                                                           "default":  false
                                                                       },
+                                                      "planning_category_id":  {
+                                                                                   "name":  "planning_category_id",
+                                                                                   "type":  "integer",
+                                                                                   "primaryKey":  false,
+                                                                                   "notNull":  false,
+                                                                                   "autoincrement":  false
+                                                                               },
                                                       "gcal_race_event_id":  {
                                                                                  "name":  "gcal_race_event_id",
                                                                                  "type":  "text",
@@ -1795,21 +1802,22 @@
                                                                                  "notNull":  false,
                                                                                  "autoincrement":  false
                                                                              },
-                                                      "entry_reminder":  {
-                                                                             "name":  "entry_reminder",
-                                                                             "type":  "integer",
-                                                                             "primaryKey":  false,
-                                                                             "notNull":  true,
-                                                                             "autoincrement":  false,
-                                                                             "default":  false
-                                                                         },
-                                                      "gcal_entry_event_id":  {
-                                                                                  "name":  "gcal_entry_event_id",
-                                                                                  "type":  "text",
-                                                                                  "primaryKey":  false,
-                                                                                  "notNull":  false,
-                                                                                  "autoincrement":  false
-                                                                              },
+                                                      "entry_reminder_period_ids":  {
+                                                                                        "name":  "entry_reminder_period_ids",
+                                                                                        "type":  "text",
+                                                                                        "primaryKey":  false,
+                                                                                        "notNull":  true,
+                                                                                        "autoincrement":  false,
+                                                                                        "default":  "\u0027[]\u0027"
+                                                                                    },
+                                                      "gcal_entry_event_ids":  {
+                                                                                   "name":  "gcal_entry_event_ids",
+                                                                                   "type":  "text",
+                                                                                   "primaryKey":  false,
+                                                                                   "notNull":  true,
+                                                                                   "autoincrement":  false,
+                                                                                   "default":  "\u0027{}\u0027"
+                                                                               },
                                                       "created_at":  {
                                                                          "name":  "created_at",
                                                                          "type":  "text",
@@ -1875,7 +1883,20 @@
                                                                                                                ],
                                                                                                  "onDelete":  "cascade",
                                                                                                  "onUpdate":  "no action"
-                                                                                             }
+                                                                                             },
+                                                          "user_races_planning_category_id_race_categories_id_fk":  {
+                                                                                                                        "name":  "user_races_planning_category_id_race_categories_id_fk",
+                                                                                                                        "tableFrom":  "user_races",
+                                                                                                                        "tableTo":  "race_categories",
+                                                                                                                        "columnsFrom":  [
+                                                                                                                                            "planning_category_id"
+                                                                                                                                        ],
+                                                                                                                        "columnsTo":  [
+                                                                                                                                          "id"
+                                                                                                                                      ],
+                                                                                                                        "onDelete":  "set null",
+                                                                                                                        "onUpdate":  "no action"
+                                                                                                                    }
                                                       },
                                       "compositePrimaryKeys":  {
 

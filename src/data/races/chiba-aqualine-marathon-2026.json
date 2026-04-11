@@ -12,7 +12,7 @@
   "description_ja": "東京湾アクアライン（木更津金田IC〜海ほたる）を往復走行する国内唯一の大会。海抜40.85mの橋梁から見渡す東京湾の絶景が最大の魅力。後半は袖ケ浦の田園地帯を走る。強風時は短縮コースに変更される場合あり。",
   "description_en": "Japan's only marathon traversing the Tokyo Bay Aqualine. Run across the iconic bridge with panoramic views of Tokyo Bay at 40.85m elevation. The course continues through Sodegaura's farmlands. May switch to a shortened course in strong winds.",
   "official_url": "https://chiba-aqualine-marathon.com/",
-  "entry_fee": 0,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
   "entry_start_date": "2026-03-22",
@@ -87,11 +87,18 @@
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
       "start_date": "2026-03-22",
       "end_date": "2026-04-12",
-      "entry_fee": null
+      "entry_fee": 16500,
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry"
+    },
+    {
+      "start_date": "2026-05-31",
+      "end_date": "2026-06-08",
+      "entry_fee": 16500,
+      "label_ja": "レイトエントリー",
+      "label_en": "Late Entry"
     }
   ]
 }

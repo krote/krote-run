@@ -3,7 +3,7 @@
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, usePathname } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSession, signOut } from '@/lib/auth-client';
 import UserRaceList from '@/components/mypage/UserRaceList';
 
@@ -16,6 +16,17 @@ export default function MyPage() {
   const { data: session, isPending } = useSession();
 
   const [saved, setSaved] = useState(false);
+  const [gcalAutoOpen, setGcalAutoOpen] = useState(true);
+
+  useEffect(() => {
+    const stored = localStorage.getItem('hashiru_gcal_auto_open');
+    if (stored !== null) setGcalAutoOpen(stored !== 'false');
+  }, []);
+
+  function handleGcalToggle(value: boolean) {
+    setGcalAutoOpen(value);
+    localStorage.setItem('hashiru_gcal_auto_open', String(value));
+  }
 
   function handleLocaleChange(newLocale: string) {
     router.replace(pathname, { locale: newLocale as (typeof routing.locales)[number] });
@@ -138,6 +149,33 @@ export default function MyPage() {
             );
           })}
         </div>
+      </section>
+
+      {/* Google Calendar */}
+      <section className="p-6 bg-white border border-[var(--color-border)] rounded-xl mb-6">
+        <h2 className="text-sm font-semibold mb-1" style={{ color: 'var(--color-mid)' }}>
+          カレンダー連携
+        </h2>
+        <p className="text-xs mb-4" style={{ color: 'var(--color-mid)' }}>
+          参加予定・エントリーリマインドを登録したとき、Googleカレンダーの追加画面を自動で開きます。
+        </p>
+        <label className="flex items-center gap-3 cursor-pointer w-fit">
+          <button
+            role="switch"
+            aria-checked={gcalAutoOpen}
+            onClick={() => handleGcalToggle(!gcalAutoOpen)}
+            className="relative w-11 h-6 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+            style={{ background: gcalAutoOpen ? 'var(--color-primary)' : 'var(--color-border)' }}
+          >
+            <span
+              className="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform"
+              style={{ transform: gcalAutoOpen ? 'translateX(20px)' : 'translateX(0)' }}
+            />
+          </button>
+          <span className="text-sm" style={{ color: 'var(--color-ink)' }}>
+            Googleカレンダーに自動で追加する
+          </span>
+        </label>
       </section>
 
       <div className="flex items-center gap-4">

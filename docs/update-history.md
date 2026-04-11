@@ -333,3 +333,33 @@
 - `src/app/[locale]/races/[id]/page.tsx`: ヒーロー上部の「← 大会一覧」ボタンをパンくずリストに置き換え（ホーム › 大会一覧 › 大会名）
 - `src/messages/ja.json`, `src/messages/en.json`: `races.detail.breadcrumb.home` / `races.detail.breadcrumb.races` キーを追加
 - パンくず「大会一覧」部分は既存の `BackButton` を流用（同一オリジンからの遷移時は `router.back()`、直リンク・外部からは `/races` へフォールバック）
+
+## 2026-04-11 参加予定カテゴリ選択・エントリー期間別リマインド・ボタンUI改善
+
+- `src/lib/types.ts`: `RaceCategory` に `id: number` フィールドを追加
+- `src/lib/data.ts`: `rowToCategory` に `id` を追加
+- `src/lib/db/schema.ts`: `user_races` テーブルを変更 — `entry_reminder`/`gcal_entry_event_id` を削除し、`planning_category_id`（FK to race_categories）・`entry_reminder_period_ids`（JSON: number[]）・`gcal_entry_event_ids`（JSON: {[periodId]: eventId}）を追加
+- `migrations/0003_sloppy_jack_power.sql`: 上記スキーマ変更のマイグレーションSQL（手動修正）
+- `src/app/api/races/index/route.ts`: `categories` 情報を含むレスポンスに拡張（マイページ表示用）
+- `src/app/api/user/races/[raceId]/route.ts`: 新スキーマに対応 — カテゴリ選択保存、複数エントリー期間リマインド追加/削除、GCalイベント管理
+- `src/components/races/RaceRegistrationButtons.tsx`: 全面改修 — カテゴリ複数時ドロップダウン選択、エントリー期間別リマインドドロップダウン、ダーク背景対応の白アウトラインボタンに視認性改善
+- `src/components/mypage/UserRaceList.tsx`: 参加予定カテゴリ名・距離バッジを表示、リマインド件数表示
+- `src/app/[locale]/races/[id]/page.tsx`: `RaceRegistrationButtons` に `categories` と `entryPeriods`（今日以降のみ）を渡すよう更新
+- `src/components/__tests__/RaceRegistrationButtons.test.tsx`: 新 Props 構造に対応したテストに更新
+- `src/components/__tests__/Header.test.tsx`: マイページがnav+ドロップダウンの両方に表示される状況に対応
+
+## 2026-04-11 Google Calendar連携: リフレッシュトークン対応
+
+- `src/lib/auth.ts`: Google OAuth に `accessType: 'offline'` を追加（初回ログイン時にリフレッシュトークンを取得）
+- `src/app/api/user/races/[raceId]/route.ts`: `getGoogleAccessToken()` にトークン自動更新ロジックを追加 — `accessTokenExpiresAt` が30秒以内に切れる場合はリフレッシュトークンで更新し、DBの `accessToken`/`accessTokenExpiresAt` を上書き保存
+
+## 2026-04-11 Google Calendar連携をURLスキーム方式に変更
+
+- `src/lib/auth.ts`: Google OAuth スコープから `calendar.events` を削除し、基本スコープ（openid/email/profile）のみに戻す
+- `src/app/api/user/races/[raceId]/route.ts`: GCal API ロジックを完全削除 — DB更新（is_planning, planning_category_id, entry_reminder_period_ids）のみのシンプルな実装に
+- `src/lib/db/schema.ts`: `user_races` から `gcal_race_event_id`・`gcal_entry_event_ids` カラムを削除
+- `migrations/0004_complex_justin_hammer.sql`: 上記カラム削除のマイグレーションSQL
+- `src/components/races/RaceRegistrationButtons.tsx`: Google Calendar URLスキーム（`calendar.google.com/calendar/render?action=TEMPLATE`）を使った実装に変更。登録時に新タブでGCalイベント作成画面を開く。解除時はカレンダーから手動削除するよう案内テキストを表示
+- `src/lib/gcal.ts`: 削除（GCal API連携廃止）
+- `src/lib/__tests__/gcal.test.ts`: 削除（同上）
+- `src/lib/__tests__/auth.test.ts`: calendar.events スコープのアサーションを削除し、基本スコープの確認に更新

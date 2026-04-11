@@ -3,7 +3,7 @@
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, usePathname } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSession, signOut } from '@/lib/auth-client';
 import UserRaceList from '@/components/mypage/UserRaceList';
 
@@ -16,12 +16,10 @@ export default function MyPage() {
   const { data: session, isPending } = useSession();
 
   const [saved, setSaved] = useState(false);
-  const [gcalAutoOpen, setGcalAutoOpen] = useState(true);
-
-  useEffect(() => {
-    const stored = localStorage.getItem('hashiru_gcal_auto_open');
-    if (stored !== null) setGcalAutoOpen(stored !== 'false');
-  }, []);
+  const [gcalAutoOpen, setGcalAutoOpen] = useState(() => {
+    if (typeof window === 'undefined') return true;
+    try { return localStorage.getItem('hashiru_gcal_auto_open') !== 'false'; } catch { return true; }
+  });
 
   function handleGcalToggle(value: boolean) {
     setGcalAutoOpen(value);

@@ -12,7 +12,7 @@
   "description_ja": "",
   "description_en": "",
   "official_url": "https://www.abashiri-marathon.jp/",
-  "entry_fee": 0,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
   "entry_start_date": "2026-04-01",
@@ -36,7 +36,7 @@
   "categories": [
     {
       "distance_type": "full",
-      "distance_km": 19542,
+      "distance_km": 42.195,
       "entry_fee": 12000,
       "capacity": 2600,
       "time_limit_minutes": 390,
@@ -63,11 +63,11 @@
   ],
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
       "start_date": "2026-04-01",
       "end_date": "2026-07-16",
-      "entry_fee": null
+      "entry_fee": null,
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry"
     }
   ]
 }

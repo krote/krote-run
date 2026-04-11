@@ -11,13 +11,25 @@
     "home": "ホーム",
     "races": "大会一覧",
     "calendar": "カレンダー",
-    "settings": "設定"
+    "settings": "設定",
+    "mypage": "マイページ",
+    "login": "ログイン",
+    "logout": "ログアウト"
+  },
+  "auth": {
+    "loginTitle": "ログイン",
+    "loginWithGoogle": "Googleでログイン",
+    "loginWithPasskey": "パスキーでログイン",
+    "loginOptional": "ログインはオプションです。参加予定の登録などができます。",
+    "logoutConfirm": "ログアウトしますか？",
+    "registerPasskey": "パスキーを登録",
+    "mypage": "マイページ"
   },
   "home": {
     "hero": {
       "eyebrow": "2026年 レースシーズン",
-      "titleLine1": "日本の",
-      "titleEm": "感動を、",
+      "titleLine1": "日本を",
+      "titleEm": "走ろう",
       "subtitle": "全国各地のマラソン・トレイルランレース情報。桜の春ランから山岳の秋コースまで。",
       "searchPlaceholder": "都市・距離・季節で検索…",
       "searchButton": "検索"

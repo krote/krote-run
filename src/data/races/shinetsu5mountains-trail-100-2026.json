@@ -1,0 +1,84 @@
+{
+  "id": "shinetsu5mountains-trail-100-2026",
+  "name_ja": "信越五岳トレイルランニングレース",
+  "name_en": "SHINETSU FIVE MOUNTAINS TRAIL 100mile/110km",
+  "full_name_ja": "信越五岳トレイルランニングレース2026～パタゴニアCUP～",
+  "full_name_en": "SHINETSU FIVE MOUNTAINS TRAIL 100mile/110km",
+  "edition": null,
+  "date": "2026-09-21",
+  "prefecture": "15",
+  "city_ja": "信越高原（新潟県妙高市、長野県長野市、信濃町、飯綱町、飯山市）",
+  "city_en": "Shin'etsu Plateau (Myoko City, Niigata Prefecture; Nagano City, Shinano Town, Iizuna Town, Iiyama City, Nagano Prefecture)",
+  "description_ja": "トレイルランナー石川弘樹氏がプロデュースした、信越五岳を結ぶ全長160kmにも及ぶ山岳エリアと信越高原の各地域を繋いだ壮大なコース設定。\n家族や友人が選手にサポートを提供できるアシスタントポイントの設置、夜間走行となる選手の安全に配慮したぺーサ1名の同行を許可する区間の設定など、選手はじめ、沢山の人々がトレイルランニングの魅力を味わえるレーススタイル",
+  "description_en": "",
+  "official_url": "https://sfmt100.com",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-04-08",
+  "entry_end_date": "2026-04-15",
+  "reception_type": "pre_day",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [
+    "ウルトラマラソン"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "",
+    "highlights_en": "",
+    "notes_ja": "",
+    "notes_en": ""
+  },
+  "categories": [
+    {
+      "distance_type": "ultra",
+      "distance_km": 163,
+      "entry_fee": 47000,
+      "capacity": 600,
+      "time_limit_minutes": 1980,
+      "start_time": "18:30"
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 112,
+      "entry_fee": 35000,
+      "capacity": 700,
+      "time_limit_minutes": 1320,
+      "start_time": "05:30"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "result": null,
+  "created_at": "2026-04-05T07:49:25.657Z",
+  "updated_at": "2026-04-05T07:49:25.657Z",
+  "entry_periods": [
+    {
+      "start_date": "2026-04-08",
+      "end_date": "2026-04-15",
+      "entry_fee": null,
+      "label_ja": "一般エントリー",
+      "label_en": ""
+    }
+  ],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "food",
+        "goods"
+      ],
+      "description_ja": "パタゴニア製大会記念Tシャツ （キャプリーン･クール･デイリー・シャツ）\nあおばずんだ本舗 ずんだだんご\nマッハコーヒー コーヒーバッグ\nハニーアクション　トレイルピーナッツ\n快腸走　スタンバイ・リロード\nMAGMA アスリートバーリィ\nANDO_塩入り\n\n各種目完走者には完走証（名前、タイムを彫った木製楯）を贈呈し、加えて100mile完走者には記念バックルを贈呈します。",
+      "description_en": "",
+      "image": null
+    }
+  ]
+}

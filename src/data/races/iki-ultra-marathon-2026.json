@@ -1,0 +1,82 @@
+{
+  "id": "iki-ultra-marathon-2026",
+  "name_ja": "神々の島 壱岐ウルトラマラソン",
+  "name_en": "IKI ULTRA MARATHON",
+  "full_name_ja": "神々の島 壱岐ウルトラマラソン2026",
+  "full_name_en": "IKI ULTRA MARATHON",
+  "edition": 9,
+  "date": "2026-10-17",
+  "prefecture": "42",
+  "city_ja": "長崎県壱岐市",
+  "city_en": "Iki City, Nagasaki Prefecture",
+  "description_ja": "壱岐市が誇る歴史、文化、自然、パワースポット、グルメなどの多くの「しまの宝」を全国各地のウルトラマラソン愛好家に体感いただき、広く壱岐市の魅力をアピールするとともに、市民一体のおもてなしにより新しい交流のストーリーが育まれ、壱岐市の地域振興に寄与することを目的に開催します",
+  "description_en": "The event is held with the aim of allowing ultramarathon enthusiasts from all over Japan to experience the many \"treasures of the island\" that Iki City boasts, such as its history, culture, nature, power spots, and gourmet food, and to widely promote the charm of Iki City. It also aims to foster new stories of exchange through the hospitality of the citizens and contribute to the regional development of Iki City.",
+  "official_url": "https://iki-ultra.jp/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-04-10",
+  "entry_end_date": "2026-07-17",
+  "reception_type": "mail",
+  "reception_note_ja": "ゼッケン・計測タグ・参加賞等を事前発送します。前日受付は行いません",
+  "reception_note_en": "Race bibs, timing tags, and participation prizes will be sent out in advance. There will be no registration the day before the event.",
+  "tags": [
+    "ウルトラマラソン"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "",
+    "highlights_en": "",
+    "notes_ja": "",
+    "notes_en": ""
+  },
+  "categories": [
+    {
+      "distance_type": "ultra",
+      "distance_km": 100,
+      "entry_fee": 20000,
+      "capacity": 1000,
+      "time_limit_minutes": 840,
+      "start_time": "05:00"
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 50,
+      "entry_fee": 15000,
+      "capacity": 1000,
+      "time_limit_minutes": 480,
+      "start_time": "10:30"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "result": null,
+  "created_at": "2026-04-05T08:19:26.353Z",
+  "updated_at": "2026-04-05T08:19:26.353Z",
+  "entry_periods": [
+    {
+      "start_date": "2026-04-10",
+      "end_date": "2026-07-17",
+      "entry_fee": null,
+      "label_ja": "一般",
+      "label_en": "General Entry"
+    }
+  ],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "オリジナルTシャツ",
+      "description_en": "",
+      "image": null
+    }
+  ]
+}

@@ -251,6 +251,90 @@ export const prefectures = sqliteTable("prefectures", {
 });
 
 // ==================
+// Better Auth テーブル
+// ==================
+
+export const user = sqliteTable("user", {
+  id:            text("id").primaryKey(),
+  name:          text("name").notNull(),
+  email:         text("email").notNull().unique(),
+  emailVerified: integer("emailVerified", { mode: "boolean" }).notNull().default(false),
+  image:         text("image"),
+  createdAt:     integer("createdAt", { mode: "timestamp" }).notNull(),
+  updatedAt:     integer("updatedAt", { mode: "timestamp" }).notNull(),
+});
+
+export const session = sqliteTable("session", {
+  id:          text("id").primaryKey(),
+  expiresAt:   integer("expiresAt", { mode: "timestamp" }).notNull(),
+  token:       text("token").notNull().unique(),
+  createdAt:   integer("createdAt", { mode: "timestamp" }).notNull(),
+  updatedAt:   integer("updatedAt", { mode: "timestamp" }).notNull(),
+  ipAddress:   text("ipAddress"),
+  userAgent:   text("userAgent"),
+  userId:      text("userId").notNull().references(() => user.id, { onDelete: "cascade" }),
+});
+
+export const account = sqliteTable("account", {
+  id:                     text("id").primaryKey(),
+  accountId:              text("accountId").notNull(),
+  providerId:             text("providerId").notNull(),
+  userId:                 text("userId").notNull().references(() => user.id, { onDelete: "cascade" }),
+  accessToken:            text("accessToken"),
+  refreshToken:           text("refreshToken"),
+  idToken:                text("idToken"),
+  accessTokenExpiresAt:   integer("accessTokenExpiresAt", { mode: "timestamp" }),
+  refreshTokenExpiresAt:  integer("refreshTokenExpiresAt", { mode: "timestamp" }),
+  scope:                  text("scope"),
+  password:               text("password"),
+  createdAt:              integer("createdAt", { mode: "timestamp" }).notNull(),
+  updatedAt:              integer("updatedAt", { mode: "timestamp" }).notNull(),
+});
+
+export const verification = sqliteTable("verification", {
+  id:         text("id").primaryKey(),
+  identifier: text("identifier").notNull(),
+  value:      text("value").notNull(),
+  expiresAt:  integer("expiresAt", { mode: "timestamp" }).notNull(),
+  createdAt:  integer("createdAt", { mode: "timestamp" }),
+  updatedAt:  integer("updatedAt", { mode: "timestamp" }),
+});
+
+export const passkey = sqliteTable("passkey", {
+  id:            text("id").primaryKey(),
+  name:          text("name"),
+  publicKey:     text("publicKey").notNull(),
+  userId:        text("userId").notNull().references(() => user.id, { onDelete: "cascade" }),
+  webAuthnUserID: text("webAuthnUserID").notNull(),
+  counter:       integer("counter").notNull(),
+  deviceType:    text("deviceType").notNull(),
+  backedUp:      integer("backedUp", { mode: "boolean" }).notNull(),
+  transports:    text("transports"),
+  createdAt:     integer("createdAt", { mode: "timestamp" }),
+});
+
+// ==================
+// user_races (ユーザー大会登録)
+// ==================
+
+export const user_races = sqliteTable("user_races", {
+  id:                        text("id").primaryKey(),
+  user_id:                   text("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+  race_id:                   text("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
+  // 参加予定
+  is_planning:               integer("is_planning", { mode: "boolean" }).notNull().default(false),
+  planning_category_id:      integer("planning_category_id").references(() => race_categories.id, { onDelete: "set null" }),
+  // 受付開始前日リマインド（複数エントリー期間対応）
+  entry_reminder_period_ids: text("entry_reminder_period_ids").notNull().default("[]"), // JSON: number[]
+  created_at:                text("created_at").notNull(),
+  updated_at:                text("updated_at").notNull(),
+}, (t) => [
+  index("user_races_user_id_idx").on(t.user_id),
+  index("user_races_race_id_idx").on(t.race_id),
+  index("user_races_user_race_idx").on(t.user_id, t.race_id),
+]);
+
+// ==================
 // Relations
 // ==================
 
@@ -300,4 +384,9 @@ export const weatherHistoryRelations = relations(weather_history, ({ one }) => (
 
 export const participationGiftsRelations = relations(participation_gifts, ({ one }) => ({
   race: one(races, { fields: [participation_gifts.race_id], references: [races.id] }),
+}));
+
+export const userRacesRelations = relations(user_races, ({ one }) => ({
+  user: one(user, { fields: [user_races.user_id], references: [user.id] }),
+  race: one(races, { fields: [user_races.race_id], references: [races.id] }),
 }));

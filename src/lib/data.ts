@@ -31,6 +31,7 @@ type GiftRow = typeof schema.participation_gifts.$inferSelect;
 
 function rowToCategory(row: CategoryRow): RaceCategory {
   return {
+    id: row.id,
     distance_type: row.distance_type as RaceCategory["distance_type"],
     distance_km: row.distance_km,
     time_limit_minutes: row.time_limit_minutes,

@@ -8,6 +8,7 @@ import { Link } from '@/i18n/navigation';
 import type { Locale, NearbySpotType } from '@/lib/types';
 import CourseProfileSection from '@/components/course/CourseProfileSection';
 import RaceBreadcrumb from '@/components/races/RaceBreadcrumb';
+import RaceRegistrationButtons from '@/components/races/RaceRegistrationButtons';
 
 export async function generateMetadata({
   params,
@@ -235,6 +236,31 @@ export default async function RaceDetailPage({
               </a>
             )}
           </div>
+
+          {/* 登録ボタン（ログイン済みのみ表示） */}
+          {!isPast && (
+            <RaceRegistrationButtons
+              raceId={race.id}
+              raceName={raceName}
+              raceDate={race.date}
+              categories={race.categories.map((c) => ({
+                id: c.id,
+                name_ja: c.name_ja,
+                name_en: c.name_en,
+                distance_km: c.distance_km,
+                distance_type: c.distance_type,
+              }))}
+              entryPeriods={race.entry_periods
+                .filter((p) => p.start_date >= today)
+                .map((p) => ({
+                  id: p.id,
+                  label_ja: p.label_ja,
+                  label_en: p.label_en,
+                  start_date: p.start_date,
+                }))}
+              today={today}
+            />
+          )}
         </div>
       </div>
 

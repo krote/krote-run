@@ -2,8 +2,8 @@
   "id": "shonan-international-marathon-2026",
   "name_ja": "湘南国際マラソン",
   "name_en": "Shonan International Marathon",
-  "full_name_ja": null,
-  "full_name_en": null,
+  "full_name_ja": "湘南国際マラソン",
+  "full_name_en": "Shonan International Marathon",
   "edition": null,
   "date": "2026-12-06",
   "prefecture": "14",
@@ -13,17 +13,17 @@
   "description_en": "A full marathon along the Shonan coast. A popular race with views of Enoshima and Mt. Fuji. Must carry your own bottle/cup.",
   "official_url": "https://www.shonan-kokusai.jp",
   "entry_fee": null,
-  "entry_fee_by_category": false,
+  "entry_fee_by_category": true,
   "entry_capacity": null,
-  "entry_start_date": null,
-  "entry_end_date": null,
-  "reception_type": null,
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "entry_start_date": "2026-04-04",
+  "entry_end_date": "2026-09-09",
+  "reception_type": "mail",
+  "reception_note_ja": "計測タグは、ナンバーカードとともに事前に参加者へ発送します（事前のランナー受付はありません）。",
+  "reception_note_en": "Timing tags will be sent to participants in advance along with their race numbers (there is no pre-race runner registration).",
   "tags": [
-    "海沿い",
+    "富士山",
     "景色が良い",
-    "富士山"
+    "海沿い"
   ],
   "course_gpx_file": null,
   "course_info": {
@@ -41,16 +41,24 @@
     {
       "distance_type": "full",
       "distance_km": 42.195,
-      "time_limit_minutes": 390,
-      "start_time": null,
-      "capacity": null,
-      "entry_fee": null,
+      "time_limit_minutes": 345,
+      "start_time": "",
+      "capacity": 19500,
+      "entry_fee": 16000,
       "entry_fee_u25": null,
       "name_ja": null,
       "name_en": null,
       "description_ja": null,
       "description_en": null,
       "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "entry_fee": 8500,
+      "capacity": 4800,
+      "time_limit_minutes": 0,
+      "start_time": ""
     }
   ],
   "aid_stations": [],
@@ -73,8 +81,8 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "tshirt",
-        "medal"
+        "medal",
+        "tshirt"
       ],
       "description_ja": "大会Tシャツ、完走メダル",
       "description_en": "Race T-shirt, Finisher medal",
@@ -93,5 +101,13 @@
     "last_verified": "2026-03-16",
     "detail_level": "medium"
   },
-  "entry_periods": []
+  "entry_periods": [
+    {
+      "start_date": "2026-04-04",
+      "end_date": "2026-09-09",
+      "entry_fee": 16000,
+      "label_ja": "",
+      "label_en": ""
+    }
+  ]
 }

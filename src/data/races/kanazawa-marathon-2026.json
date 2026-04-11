@@ -12,11 +12,11 @@
   "description_ja": "加賀百万石の城下町・金沢を走るフルマラソン。兼六園や金沢城など歴史的名所を巡るコース。ご当地グルメのエイドが充実。",
   "description_en": "A full marathon through Kanazawa, the historic castle town. The course passes Kenroku-en Garden, Kanazawa Castle, and more. Known for excellent local food at aid stations.",
   "official_url": "https://www.kanazawa-marathon.jp",
-  "entry_fee": 0,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
-  "entry_start_date": null,
-  "entry_end_date": null,
+  "entry_start_date": "2026-04-10",
+  "entry_end_date": "2026-05-20",
   "reception_type": "pre_day",
   "reception_note_ja": "",
   "reception_note_en": "",
@@ -96,8 +96,8 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "tshirt",
         "medal",
+        "tshirt",
         "local_product"
       ],
       "description_ja": "大会オリジナルTシャツ、完走メダル、地元特産品",
@@ -117,5 +117,13 @@
     "last_verified": "2026-03-15",
     "detail_level": "medium"
   },
-  "entry_periods": []
+  "entry_periods": [
+    {
+      "start_date": "2026-04-10",
+      "end_date": "2026-05-20",
+      "entry_fee": 14000,
+      "label_ja": "",
+      "label_en": ""
+    }
+  ]
 }

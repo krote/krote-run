@@ -1,0 +1,89 @@
+{
+  "id": "osaka-yodo-river-citizens-marathon-2026",
+  "name_ja": "大阪・淀川市民マラソン",
+  "name_en": "Osaka Yodo-River Citizens Marathon",
+  "full_name_ja": "第28回大阪・淀川市民マラソン",
+  "full_name_en": "Osaka Yodo-River Citizens Marathon",
+  "edition": 28,
+  "date": "2026-11-01",
+  "prefecture": "27",
+  "city_ja": "大阪府大阪市旭区太子橋３丁目１６−１６",
+  "city_en": "16-16, 3-chome, Taishibashi, Asahi Ward, Osaka City, Osaka Prefecture",
+  "description_ja": "大阪・淀川市民マラソンは、市民の参加および完走する事に意義を求め、市民自らがつくりあげる市民参加型のマラソン大会として1997年にスタートしました。\nこのマラソンは老若男女を問わず、勝つ事、速く走る事を主目的とせず、誰もが気軽に楽しめるマラソンで、日本で初めての市民による手作りの市民マラソンであると同時に、河川敷のみを走る日本で最初のマラソンでもあります。\n\nコースである淀川河川公園を走る事により淀川流域の自然環境を見直し、ランナーの健康と走る環境を考えたエコマラソンを目指しています。\n人間・環境・淀川…など、従来のマラソンにはあまりなかったキーワードを元に開催される、当マラソン大会を楽しんで頂ける事をスタッフ一同心より願っております。",
+  "description_en": "The Osaka Yodogawa Citizens’ Marathon began in 1997 as a community-driven event created by the citizens themselves, with the primary purpose of encouraging public participation and the joy of finishing the race.\nThis marathon is open to people of all ages and genders; it does not prioritize winning or running fast, but rather aims to be an event that anyone can enjoy casually. It is not only Japan’s first citizen-organized, community-driven marathon but also the first marathon in Japan to run exclusively along the riverbank.\n\nBy running through the Yodogawa River Park, which serves as the course, we aim to raise awareness of the natural environment of the Yodogawa River basin and create an eco-marathon that prioritizes both runners’ health and the running environment.\nBased on themes such as “people,” “environment,” and “the Yodogawa River”—concepts rarely emphasized in traditional marathons—the entire staff sincerely hopes you will enjoy this event.",
+  "official_url": "https://www.osaka42195.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-04-17",
+  "entry_end_date": "2026-09-27",
+  "reception_type": "mail",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "",
+    "highlights_en": "",
+    "notes_ja": "",
+    "notes_en": ""
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "entry_fee": 9800,
+      "capacity": 4000,
+      "time_limit_minutes": 480,
+      "start_time": "09:00"
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21,
+      "entry_fee": 8300,
+      "capacity": 4000,
+      "time_limit_minutes": 240,
+      "start_time": "08:30"
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "entry_fee": 4900,
+      "capacity": 2000,
+      "time_limit_minutes": 120,
+      "start_time": "13:00"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "result": null,
+  "created_at": "2026-04-11T14:42:59.225Z",
+  "updated_at": "2026-04-11T14:42:59.225Z",
+  "entry_periods": [
+    {
+      "start_date": "2026-04-17",
+      "end_date": "2026-09-27",
+      "entry_fee": null,
+      "label_ja": "",
+      "label_en": ""
+    }
+  ],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "towel"
+      ],
+      "description_ja": "【フル・ハーフ】\n参加賞：Ｔシャツ（フリーサイズ）\n完走証：タオル\n【10km】\n参加賞：タオル",
+      "description_en": "",
+      "image": null
+    }
+  ]
+}

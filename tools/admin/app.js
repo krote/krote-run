@@ -476,6 +476,33 @@ async function saveRace() {
   }
 }
 
+// ── リモートDB登録 ────────────────────────────────────────────────
+document.getElementById('btn-sync-remote').addEventListener('click', syncRemoteDb);
+
+async function syncRemoteDb() {
+  if (!confirm('全レースデータをリモートDB（本番）に反映します。\nよろしいですか？')) return;
+
+  const btn = document.getElementById('btn-sync-remote');
+  const status = document.getElementById('save-status');
+  btn.disabled = true;
+  status.textContent = 'リモートDB登録中…';
+  status.className = 'save-status';
+
+  try {
+    const res = await fetch('/api/sync-remote', { method: 'POST' });
+    const data = await res.json();
+    if (!res.ok || !data.ok) throw new Error(data.error || 'リモートDB登録に失敗しました');
+    status.textContent = '✓ リモートDBに登録しました';
+    status.className = 'save-status success';
+    setTimeout(() => { status.textContent = ''; status.className = 'save-status'; }, 5000);
+  } catch (err) {
+    status.textContent = `エラー: ${err.message}`;
+    status.className = 'save-status error';
+  } finally {
+    btn.disabled = false;
+  }
+}
+
 function buildRaceData() {
   // カテゴリ収集
   const categories = [...document.querySelectorAll('.category-row')].map(row => ({

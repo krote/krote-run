@@ -291,23 +291,41 @@ function getMissingFields(r) {
 }
 
 // ── ローカルDB同期 ────────────────────────────────────────────────
-function syncLocalDb() {
+function syncLocalDb(exec = execSync) {
   const persistPath = path.join(
     process.env.USERPROFILE || process.env.HOME || '',
     '.wrangler', 'states', 'krote-run'
   );
   try {
     console.log('[DB同期] シードSQL生成中...');
-    execSync('node scripts/generate-seed-races.js', { cwd: ROOT, stdio: 'pipe' });
+    exec('node scripts/generate-seed-races.js', { cwd: ROOT, stdio: 'pipe' });
     console.log('[DB同期] ローカルDBに反映中...');
-    execSync(
-      `npx wrangler d1 execute krote-run-db --local --file=./migrations/seed-races.sql --persist-to "${persistPath}"`,
+    exec(
+      `npx wrangler d1 execute krote-run-db --local --file=./migrations/seed-races-all.sql --persist-to "${persistPath}"`,
       { cwd: ROOT, stdio: 'pipe' }
     );
     console.log('[DB同期] 完了');
     return { ok: true };
   } catch (err) {
     console.error('[DB同期] エラー:', err.stderr?.toString() || err.message);
+    return { ok: false, error: err.message };
+  }
+}
+
+// ── リモートDB同期 ────────────────────────────────────────────────
+function syncRemoteDb(exec = execSync) {
+  try {
+    console.log('[リモートDB同期] シードSQL生成中...');
+    exec('node scripts/generate-seed-races.js', { cwd: ROOT, stdio: 'pipe' });
+    console.log('[リモートDB同期] リモートDBに反映中...');
+    exec(
+      'npx wrangler d1 execute krote-run-db --remote --file=./migrations/seed-races-all.sql',
+      { cwd: ROOT, stdio: 'pipe' }
+    );
+    console.log('[リモートDB同期] 完了');
+    return { ok: true };
+  } catch (err) {
+    console.error('[リモートDB同期] エラー:', err.stderr?.toString() || err.message);
     return { ok: false, error: err.message };
   }
 }
@@ -548,6 +566,12 @@ const server = http.createServer(async (req, res) => {
       return jsonRes(res, { error: '不正なmode' }, 400);
     }
 
+    // ── API: リモートDB同期 ──
+    if (method === 'POST' && pathname === '/api/sync-remote') {
+      const sync = syncRemoteDb();
+      return jsonRes(res, sync, sync.ok ? 200 : 500);
+    }
+
     // ── API: 翻訳 ──
     if (method === 'POST' && pathname === '/api/translate') {
       const { text, field } = JSON.parse(await readBody(req));
@@ -710,5 +734,5 @@ if (require.main === module) {
   });
 } else {
   // テスト用エクスポート
-  module.exports = { getMissingFields };
+  module.exports = { getMissingFields, syncLocalDb, syncRemoteDb };
 }

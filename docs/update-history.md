@@ -363,3 +363,16 @@
 - `src/lib/gcal.ts`: 削除（GCal API連携廃止）
 - `src/lib/__tests__/gcal.test.ts`: 削除（同上）
 - `src/lib/__tests__/auth.test.ts`: calendar.events スコープのアサーションを削除し、基本スコープの確認に更新
+
+## 2026-04-13 管理ツール DB即時投入機能追加（Issue #16）
+
+- `tools/admin-server.js`
+  - `syncLocalDb()`: `seed-races.sql` → `seed-races-all.sql` に修正
+  - `syncLocalDb()` / `syncRemoteDb()`: `exec` パラメータを注入可能にしてテスト容易性を向上
+  - `syncRemoteDb()` 関数を新規追加（`wrangler d1 execute --remote`）
+  - `POST /api/sync-remote` エンドポイントを追加
+  - `module.exports` に `syncLocalDb` / `syncRemoteDb` を追加
+- `tools/admin/index.html`: 「☁ リモートDB登録」ボタン（`btn-sync-remote`）を追加
+- `tools/admin/app.js`: `syncRemoteDb()` 関数を追加（確認ダイアログ・ステータス表示付き）
+- `tools/admin/style.css`: `.btn-warning` スタイルを追加
+- `tools/admin-server.test.js`: `syncLocalDb` / `syncRemoteDb` のユニットテストを追加（9件）

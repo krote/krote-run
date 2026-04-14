@@ -8,7 +8,7 @@ const { test, describe } = require('node:test');
 const assert = require('node:assert/strict');
 const http = require('node:http');
 
-const { getMissingFields } = require('./admin-server');
+const { getMissingFields, syncLocalDb, syncRemoteDb } = require('./admin-server');
 
 // ── ヘルパー: HTTPリクエスト ──────────────────────────────────────────
 function httpGet(port, path) {
@@ -190,6 +190,79 @@ describe('getMissingFields', () => {
       const r = { entry_periods: [], entry_start_date: null, entry_fee_by_category: true, official_url: null, entry_capacity: 0, description_ja: '' };
       assert.doesNotThrow(() => getMissingFields(r));
     });
+  });
+});
+
+// ── syncLocalDb ユニットテスト ────────────────────────────────────────
+
+describe('syncLocalDb', () => {
+  test('seed-races-all.sql を使用する', () => {
+    const cmds = [];
+    const mockExec = (cmd) => cmds.push(cmd);
+    syncLocalDb(mockExec);
+    const wranglerCmd = cmds.find(c => c.includes('wrangler'));
+    assert.ok(wranglerCmd, 'wrangler コマンドが実行されること');
+    assert.ok(wranglerCmd.includes('seed-races-all.sql'), 'seed-races-all.sql を参照すること');
+    assert.ok(!wranglerCmd.replace('seed-races-all.sql', '').includes('seed-races.sql'), '古い seed-races.sql を参照しないこと');
+  });
+
+  test('--local フラグを使用する', () => {
+    const cmds = [];
+    const mockExec = (cmd) => cmds.push(cmd);
+    syncLocalDb(mockExec);
+    const wranglerCmd = cmds.find(c => c.includes('wrangler'));
+    assert.ok(wranglerCmd.includes('--local'), '--local フラグが含まれること');
+  });
+
+  test('execSync が成功すると { ok: true } を返す', () => {
+    const result = syncLocalDb(() => {});
+    assert.deepEqual(result, { ok: true });
+  });
+
+  test('execSync がエラーを投げると { ok: false, error: string } を返す', () => {
+    const result = syncLocalDb(() => { throw new Error('wrangler failed'); });
+    assert.equal(result.ok, false);
+    assert.ok(typeof result.error === 'string');
+  });
+});
+
+// ── syncRemoteDb ユニットテスト ───────────────────────────────────────
+
+describe('syncRemoteDb', () => {
+  test('seed-races-all.sql を使用する', () => {
+    const cmds = [];
+    const mockExec = (cmd) => cmds.push(cmd);
+    syncRemoteDb(mockExec);
+    const wranglerCmd = cmds.find(c => c.includes('wrangler'));
+    assert.ok(wranglerCmd, 'wrangler コマンドが実行されること');
+    assert.ok(wranglerCmd.includes('seed-races-all.sql'), 'seed-races-all.sql を参照すること');
+  });
+
+  test('--remote フラグを使用する', () => {
+    const cmds = [];
+    const mockExec = (cmd) => cmds.push(cmd);
+    syncRemoteDb(mockExec);
+    const wranglerCmd = cmds.find(c => c.includes('wrangler'));
+    assert.ok(wranglerCmd.includes('--remote'), '--remote フラグが含まれること');
+  });
+
+  test('--local フラグを使用しない', () => {
+    const cmds = [];
+    const mockExec = (cmd) => cmds.push(cmd);
+    syncRemoteDb(mockExec);
+    const wranglerCmd = cmds.find(c => c.includes('wrangler'));
+    assert.ok(!wranglerCmd.includes('--local'), '--local フラグが含まれないこと');
+  });
+
+  test('execSync が成功すると { ok: true } を返す', () => {
+    const result = syncRemoteDb(() => {});
+    assert.deepEqual(result, { ok: true });
+  });
+
+  test('execSync がエラーを投げると { ok: false, error: string } を返す', () => {
+    const result = syncRemoteDb(() => { throw new Error('wrangler failed'); });
+    assert.equal(result.ok, false);
+    assert.ok(typeof result.error === 'string');
   });
 });
 

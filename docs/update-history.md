@@ -376,3 +376,9 @@
 - `tools/admin/app.js`: `syncRemoteDb()` 関数を追加（確認ダイアログ・ステータス表示付き）
 - `tools/admin/style.css`: `.btn-warning` スタイルを追加
 - `tools/admin-server.test.js`: `syncLocalDb` / `syncRemoteDb` のユニットテストを追加（9件）
+
+## 2026-04-14 カレンダー本日ハイライトのJST対応（Issue #11）
+
+- `src/lib/utils.ts`: `getTodayJST()` 関数を追加（`Asia/Tokyo` タイムゾーンで YYYY-MM-DD を返す）
+- `src/app/[locale]/calendar/page.tsx`: `isToday` 判定を `new Date()` の UTC 基準から `getTodayJST()` によるJST基準に変更
+- `src/lib/__tests__/utils.date.test.ts`: `getTodayJST` のユニットテストを追加（UTC/JSTまたがり・年またぎを含む5件）

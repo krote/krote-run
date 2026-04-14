@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { getRaces } from '@/lib/data';
+import { getTodayJST } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 import type { Race, EntryPeriod } from '@/lib/types';
 
@@ -39,9 +40,10 @@ export default async function CalendarPage({
 }) {
   const { locale } = await params;
   const sp = await searchParams;
-  const now = new Date();
-  const year = parseInt(sp.year ?? String(now.getFullYear()));
-  const month = parseInt(sp.month ?? String(now.getMonth())); // 0-indexed
+  const todayJST = getTodayJST(); // 例: '2026-04-14'
+  const [todayYear, todayMonth0] = todayJST.split('-').map(Number);
+  const year = parseInt(sp.year ?? String(todayYear));
+  const month = parseInt(sp.month ?? String(todayMonth0 - 1)); // 0-indexed
 
   const t = await getTranslations({ locale, namespace: 'calendar' });
   const tNav = await getTranslations({ locale, namespace: 'nav' });
@@ -205,8 +207,7 @@ export default async function CalendarPage({
             const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
             const dayRaces = raceDaysByDate.get(dateStr) ?? [];
             const entryBands = entryBandsByDate.get(dateStr) ?? [];
-            const isToday =
-              day === now.getDate() && month === now.getMonth() && year === now.getFullYear();
+            const isToday = dateStr === todayJST;
             const dayOfWeek = (firstDay + i) % 7;
 
 

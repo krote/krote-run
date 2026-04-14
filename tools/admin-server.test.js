@@ -229,29 +229,30 @@ describe('syncLocalDb', () => {
 // ── syncRemoteDb ユニットテスト ───────────────────────────────────────
 
 describe('syncRemoteDb', () => {
-  test('seed-races-all.sql を使用する', () => {
+  test('npm run db:seed-races:remote を使用する', () => {
     const cmds = [];
     const mockExec = (cmd) => cmds.push(cmd);
     syncRemoteDb(mockExec);
-    const wranglerCmd = cmds.find(c => c.includes('wrangler'));
-    assert.ok(wranglerCmd, 'wrangler コマンドが実行されること');
-    assert.ok(wranglerCmd.includes('seed-races-all.sql'), 'seed-races-all.sql を参照すること');
+    const remoteCmd = cmds.find(c => c.includes('db:seed-races:remote'));
+    assert.ok(remoteCmd, 'db:seed-races:remote コマンドが実行されること');
   });
 
-  test('--remote フラグを使用する', () => {
+  test('npm run を使用する（wrangler を直接呼ばない）', () => {
     const cmds = [];
     const mockExec = (cmd) => cmds.push(cmd);
     syncRemoteDb(mockExec);
-    const wranglerCmd = cmds.find(c => c.includes('wrangler'));
-    assert.ok(wranglerCmd.includes('--remote'), '--remote フラグが含まれること');
+    const directWrangler = cmds.find(c => c.startsWith('npx wrangler') && c.includes('--remote'));
+    assert.ok(!directWrangler, 'npx wrangler --remote を直接呼ばないこと');
   });
 
-  test('--local フラグを使用しない', () => {
+  test('generate-seed-races.js を先に実行する', () => {
     const cmds = [];
     const mockExec = (cmd) => cmds.push(cmd);
     syncRemoteDb(mockExec);
-    const wranglerCmd = cmds.find(c => c.includes('wrangler'));
-    assert.ok(!wranglerCmd.includes('--local'), '--local フラグが含まれないこと');
+    const genIdx = cmds.findIndex(c => c.includes('generate-seed-races.js'));
+    const syncIdx = cmds.findIndex(c => c.includes('db:seed-races:remote'));
+    assert.ok(genIdx !== -1, 'generate-seed-races.js が実行されること');
+    assert.ok(genIdx < syncIdx, 'generate-seed-races.js が先に実行されること');
   });
 
   test('execSync が成功すると { ok: true } を返す', () => {

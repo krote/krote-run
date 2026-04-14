@@ -318,10 +318,8 @@ function syncRemoteDb(exec = execSync) {
     console.log('[リモートDB同期] シードSQL生成中...');
     exec('node scripts/generate-seed-races.js', { cwd: ROOT, stdio: 'pipe' });
     console.log('[リモートDB同期] リモートDBに反映中...');
-    exec(
-      'npx wrangler d1 execute krote-run-db --remote --file=./migrations/seed-races-all.sql',
-      { cwd: ROOT, stdio: 'pipe' }
-    );
+    // npm run 経由で実行することで cmd.exe 上の wrangler 認証情報を正しく引き継ぐ
+    exec('npm run db:seed-races:remote', { cwd: ROOT, stdio: 'pipe' });
     console.log('[リモートDB同期] 完了');
     return { ok: true };
   } catch (err) {

@@ -326,6 +326,7 @@ textarea { resize: vertical; line-height: 1.6; }
 .btn-secondary { background: var(--cream); color: var(--ink2); border: 1px solid var(--border); }
 .btn-translate { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; font-size: 11px; padding: 6px 10px; flex-shrink: 0; }
 .btn-danger { background: #fee2e2; color: #dc2626; border: 1px solid #fecaca; font-size: 11px; padding: 4px 8px; }
+.btn-warning { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; font-size: 13px; padding: 8px 14px; }
 
 /* ── カテゴリ ── */
 .category-row {

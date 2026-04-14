@@ -1,6 +1,15 @@
 import type { RaceCategory, Race, RaceFilter, RaceStatus, Locale, DistanceType, RaceSortKey } from './types';
 
 // ==================
+// Date utilities
+// ==================
+
+/** 現在の日本時刻（JST）を YYYY-MM-DD 形式で返す。Cloudflare Workers の UTC 環境でも正しく動作する */
+export function getTodayJST(): string {
+  return new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Tokyo' });
+}
+
+// ==================
 // Date formatting
 // ==================
 

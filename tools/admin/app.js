@@ -187,6 +187,9 @@ function populateForm(r) {
   // 参加賞
   renderGifts(r.participation_gifts ?? []);
 
+  // 周辺スポット
+  renderNearbySpots(r.nearby_spots ?? []);
+
   // コース
   setVal('f-course_gpx_file', r.course_gpx_file ?? '');
 
@@ -432,6 +435,163 @@ document.getElementById('btn-add-gift').addEventListener('click', () => {
   markDirty();
 });
 
+// ── 周辺スポット ────────────────────────────────────────────────
+
+const NEARBY_SPOT_TYPES = [
+  { value: '観光地', icon: '🏛️' },
+  { value: '温泉',   icon: '♨️' },
+  { value: 'グルメ', icon: '🍜' },
+  { value: '宿泊',   icon: '🏨' },
+];
+
+function renderNearbySpots(spots) {
+  const container = document.getElementById('nearby-spots-container');
+  container.innerHTML = '';
+  spots.forEach(spot => addNearbySpotRow(spot));
+}
+
+function addNearbySpotRow(spot = {}) {
+  const container = document.getElementById('nearby-spots-container');
+  const row = document.createElement('div');
+  row.className = 'nearby-spot-row';
+
+  const typeOptions = NEARBY_SPOT_TYPES.map(t =>
+    `<option value="${t.value}" ${spot.type === t.value ? 'selected' : ''}>${t.icon} ${t.value}</option>`
+  ).join('');
+
+  row.innerHTML = `
+    <div class="gift-row-header">
+      <span class="gift-row-label">スポット ${container.children.length + 1}</span>
+      <button class="btn btn-danger btn-remove-spot">削除</button>
+    </div>
+    <div class="nearby-spot-fields">
+      <div class="field">
+        <label>タイプ</label>
+        <select class="spot-type">${typeOptions}</select>
+      </div>
+      <div class="field">
+        <label>会場からの距離</label>
+        <input type="text" class="spot-distance" placeholder="例: 徒歩5分、車で15分" value="${spot.distance_from_venue ?? ''}">
+      </div>
+      <div class="field">
+        <label>名前（日本語）</label>
+        <input type="text" class="spot-name-ja" value="${spot.name_ja ?? ''}">
+      </div>
+      <div class="field">
+        <label>名前（English）</label>
+        <div class="input-row">
+          <input type="text" class="spot-name-en" value="${spot.name_en ?? ''}">
+          <button class="btn btn-translate spot-translate-name">🔄 翻訳</button>
+        </div>
+      </div>
+      <div class="field full">
+        <label>説明（日本語）</label>
+        <textarea class="spot-desc-ja" rows="2">${spot.description_ja ?? ''}</textarea>
+      </div>
+      <div class="field full">
+        <label>説明（English）</label>
+        <div class="input-row align-top">
+          <textarea class="spot-desc-en" rows="2">${spot.description_en ?? ''}</textarea>
+          <button class="btn btn-translate spot-translate-desc">🔄 翻訳</button>
+        </div>
+      </div>
+      <div class="field full">
+        <label>URL（任意）</label>
+        <input type="url" class="spot-url" placeholder="https://..." value="${spot.url ?? ''}">
+      </div>
+      <div class="field">
+        <label>緯度（任意）</label>
+        <input type="number" class="spot-lat" step="0.0001" value="${spot.latitude ?? ''}">
+      </div>
+      <div class="field">
+        <label>経度（任意）</label>
+        <input type="number" class="spot-lng" step="0.0001" value="${spot.longitude ?? ''}">
+      </div>
+    </div>
+  `;
+
+  // 翻訳ボタン（名前）
+  row.querySelector('.spot-translate-name').addEventListener('click', async (e) => {
+    const btn = e.currentTarget;
+    const srcEl = row.querySelector('.spot-name-ja');
+    const dstEl = row.querySelector('.spot-name-en');
+    const text = srcEl.value.trim();
+    if (!text) return alert('翻訳する日本語テキストを入力してください');
+    btn.disabled = true; btn.textContent = '翻訳中…';
+    try {
+      const res = await fetch('/api/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text, field: 'name' }),
+      });
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      dstEl.value = data.translated;
+      markDirty();
+    } catch (err) {
+      alert(`翻訳エラー: ${err.message}`);
+    } finally {
+      btn.disabled = false; btn.textContent = '🔄 翻訳';
+    }
+  });
+
+  // 翻訳ボタン（説明）
+  row.querySelector('.spot-translate-desc').addEventListener('click', async (e) => {
+    const btn = e.currentTarget;
+    const srcEl = row.querySelector('.spot-desc-ja');
+    const dstEl = row.querySelector('.spot-desc-en');
+    const text = srcEl.value.trim();
+    if (!text) return alert('翻訳する日本語テキストを入力してください');
+    btn.disabled = true; btn.textContent = '翻訳中…';
+    try {
+      const res = await fetch('/api/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text, field: 'description' }),
+      });
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      dstEl.value = data.translated;
+      markDirty();
+    } catch (err) {
+      alert(`翻訳エラー: ${err.message}`);
+    } finally {
+      btn.disabled = false; btn.textContent = '🔄 翻訳';
+    }
+  });
+
+  // 削除ボタン
+  row.querySelector('.btn-remove-spot').addEventListener('click', () => {
+    row.remove();
+    document.querySelectorAll('.nearby-spot-row .gift-row-label').forEach((el, i) => {
+      el.textContent = `スポット ${i + 1}`;
+    });
+    markDirty();
+  });
+
+  row.querySelectorAll('input, textarea, select').forEach(el => el.addEventListener('input', markDirty));
+  container.appendChild(row);
+}
+
+function collectNearbySpots() {
+  return [...document.querySelectorAll('.nearby-spot-row')].map(row => ({
+    type: row.querySelector('.spot-type').value,
+    name_ja: row.querySelector('.spot-name-ja').value,
+    name_en: row.querySelector('.spot-name-en').value,
+    description_ja: row.querySelector('.spot-desc-ja').value,
+    description_en: row.querySelector('.spot-desc-en').value,
+    distance_from_venue: row.querySelector('.spot-distance').value,
+    url: row.querySelector('.spot-url').value || null,
+    latitude: parseFloat(row.querySelector('.spot-lat').value) || null,
+    longitude: parseFloat(row.querySelector('.spot-lng').value) || null,
+  }));
+}
+
+document.getElementById('btn-add-nearby-spot').addEventListener('click', () => {
+  addNearbySpotRow();
+  markDirty();
+});
+
 // ── 保存 ───────────────────────────────────────────────────────────
 document.getElementById('btn-save').addEventListener('click', saveRace);
 
@@ -554,6 +714,7 @@ function buildRaceData() {
     tags,
     course_gpx_file: getVal('f-course_gpx_file') || null,
     participation_gifts: collectGifts(),
+    nearby_spots: collectNearbySpots(),
   };
 }
 

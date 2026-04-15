@@ -391,3 +391,11 @@
 - `src/messages/ja.json`, `src/messages/en.json`: footer に `guide` / `terms` キーを追加
 - `src/app/[locale]/terms/__tests__/page.test.ts`: generateMetadata テスト追加（4件）
 - `src/app/[locale]/guide/__tests__/page.test.ts`: generateMetadata テスト追加（4件）
+
+## 2026-04-15 管理ツールに周辺スポット編集機能を追加（Issue #19）
+
+- `tools/admin/app.js`: `renderNearbySpots` / `addNearbySpotRow` / `collectNearbySpots` を追加。`populateForm` と `buildRaceData` に連携を追加
+- `tools/admin/index.html`: 周辺スポットセクション（`#nearby-spots-container`）を追加
+- `tools/admin/style.css`: `.nearby-spot-row` / `.nearby-spot-fields` スタイルを追加
+- `tools/admin-server.js`: `getMissingFields()` に nearby_spots チェック（0件 → medium）を追加
+- `tools/admin-server.test.js`: nearby_spots の getMissingFields テストを追加（3件）

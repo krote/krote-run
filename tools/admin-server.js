@@ -287,6 +287,11 @@ function getMissingFields(r) {
     medium.push({ field: 'description', label: '説明文' });
   }
 
+  // 周辺スポット
+  if (!r.nearby_spots || r.nearby_spots.length === 0) {
+    medium.push({ field: 'nearby_spots', label: '周辺スポット' });
+  }
+
   return { high, medium };
 }
 

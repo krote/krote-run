@@ -79,6 +79,18 @@ export default async function AboutPage({
           </p>
         </section>
 
+        {/* 運営について */}
+        <section>
+          <h2 className="font-serif text-xl font-bold mb-3" style={{ color: 'var(--color-ink)' }}>
+            {isJa ? '運営について' : 'About This Site'}
+          </h2>
+          <p className="text-sm leading-8" style={{ color: 'var(--color-mid)' }}>
+            {isJa
+              ? '当サイトは、個人が公開情報をもとに収集・作成・運営しています。特定の大会主催者・スポーツ団体・企業とは一切関係なく、公式サイトでも代理店でもありません。掲載内容はすべて個人の調査によるものであり、各大会の公式情報とは独立しています。'
+              : 'HASHIRU is an independently operated site, created and maintained by an individual based on publicly available information. It has no affiliation with any race organizer, sports association, or company. All content reflects personal research and is independent of any official source.'}
+          </p>
+        </section>
+
         {/* 免責事項 */}
         <section>
           <h2 className="font-serif text-xl font-bold mb-3" style={{ color: 'var(--color-ink)' }}>
@@ -86,8 +98,8 @@ export default async function AboutPage({
           </h2>
           <p className="text-sm leading-8" style={{ color: 'var(--color-mid)' }}>
             {isJa
-              ? '当サイトに掲載している情報の正確性・完全性については万全を期しておりますが、その内容を保証するものではありません。掲載情報に基づいて被ったいかなる損害についても、当サイトは責任を負いかねます。'
-              : 'While we make every effort to ensure the accuracy of the information on this site, we cannot guarantee its completeness or accuracy. We are not responsible for any damages arising from the use of information on this site.'}
+              ? '当サイトに掲載している情報の正確性・完全性については万全を期しておりますが、その内容を保証するものではありません。大会の日程・エントリー情報・定員等は予告なく変更される場合があります。掲載情報に基づいて被ったいかなる損害についても、当サイトは責任を負いかねます。エントリーや参加の判断は必ず各大会の公式サイトでご確認ください。'
+              : 'While we make every effort to ensure the accuracy of the information on this site, we cannot guarantee its completeness or accuracy. Race dates, entry details, and capacities are subject to change without notice. We are not responsible for any damages arising from the use of information on this site. Always confirm details on each race\'s official website before registering.'}
           </p>
         </section>
 

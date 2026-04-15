@@ -418,6 +418,24 @@ textarea { resize: vertical; line-height: 1.6; }
 
 .gift-fields { display: flex; flex-direction: column; gap: 8px; }
 
+/* ── 周辺スポット ── */
+.nearby-spot-row {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 14px;
+  margin-bottom: 10px;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nearby-spot-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.nearby-spot-fields .field.full { grid-column: 1 / -1; }
+
 /* ── タグ ── */
 .tag-grid {
   display: flex;

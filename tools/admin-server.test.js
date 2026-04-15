@@ -163,6 +163,26 @@ describe('getMissingFields', () => {
     });
   });
 
+  describe('周辺スポット（medium）', () => {
+    test('nearby_spots が空配列 → medium に追加', () => {
+      const r = { entry_periods: [{ start_date: '2026-01-01' }], entry_start_date: null, entry_fee_by_category: true, categories: [{ entry_fee: 5000, time_limit_minutes: 360 }], official_url: 'https://example.com', entry_capacity: 100, description_ja: '説明', nearby_spots: [] };
+      const { medium } = getMissingFields(r);
+      assert.ok(medium.some(f => f.field === 'nearby_spots'));
+    });
+
+    test('nearby_spots が undefined → medium に追加', () => {
+      const r = { entry_periods: [{ start_date: '2026-01-01' }], entry_start_date: null, entry_fee_by_category: true, categories: [{ entry_fee: 5000, time_limit_minutes: 360 }], official_url: 'https://example.com', entry_capacity: 100, description_ja: '説明' };
+      const { medium } = getMissingFields(r);
+      assert.ok(medium.some(f => f.field === 'nearby_spots'));
+    });
+
+    test('nearby_spots に1件以上あり → 追加しない', () => {
+      const r = { entry_periods: [{ start_date: '2026-01-01' }], entry_start_date: null, entry_fee_by_category: true, categories: [{ entry_fee: 5000, time_limit_minutes: 360 }], official_url: 'https://example.com', entry_capacity: 100, description_ja: '説明', nearby_spots: [{ type: '観光地', name_ja: 'テスト' }] };
+      const { medium } = getMissingFields(r);
+      assert.ok(!medium.some(f => f.field === 'nearby_spots'));
+    });
+  });
+
   describe('すべて整備済み', () => {
     test('全フィールド揃っている場合は high/medium ともに空配列', () => {
       const r = {
@@ -173,6 +193,7 @@ describe('getMissingFields', () => {
         official_url: 'https://marathon.example.com',
         entry_capacity: 38000,
         description_ja: '世界的に有名な都市型マラソン大会',
+        nearby_spots: [{ type: '観光地', name_ja: 'テスト神社' }],
       };
       const { high, medium } = getMissingFields(r);
       assert.deepEqual(high, []);

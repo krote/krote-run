@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { getUpcomingRaces, getOpenEntryRaces, getSoonOpeningEntryRaces } from '@/lib/data';
+import { Link } from '@/i18n/navigation';
 import HomeSections from '@/components/home/HomeSections';
 import type { Locale } from '@/lib/types';
 
@@ -44,9 +45,15 @@ function HeroSection() {
         <h1 className="font-serif text-[2.2rem] md:text-[2.8rem] font-bold text-white leading-[1.1] tracking-[-0.015em] mb-4">
           {t('titleLine1')}&nbsp;<em className="not-italic" style={{ color: '#f0c4bb' }}>{t('titleEm')}</em>
         </h1>
-        <p className="text-[0.85rem] text-white/45 leading-[1.8] max-w-[440px] mx-auto">
+        <p className="text-[0.85rem] text-white/45 leading-[1.8] max-w-[440px] mx-auto mb-7">
           {t('subtitle')}
         </p>
+        <Link
+          href="/guide"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-[0.8rem] font-semibold border border-white/25 text-white/70 hover:border-white/50 hover:text-white transition-colors"
+        >
+          {t('guideLink')}
+        </Link>
       </div>
     </section>
   );

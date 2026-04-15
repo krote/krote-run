@@ -74,8 +74,10 @@
       "byDistance": "By Distance",
       "bySeason": "By Season",
       "howToEnter": "How to Enter",
+      "guide": "Getting Started",
       "about": "About HASHIRU",
-      "privacy": "Privacy Policy"
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
     },
     "card": {
       "distance": "Distance",

@@ -382,3 +382,12 @@
 - `src/lib/utils.ts`: `getTodayJST()` 関数を追加（`Asia/Tokyo` タイムゾーンで YYYY-MM-DD を返す）
 - `src/app/[locale]/calendar/page.tsx`: `isToday` 判定を `new Date()` の UTC 基準から `getTodayJST()` によるJST基準に変更
 - `src/lib/__tests__/utils.date.test.ts`: `getTodayJST` のユニットテストを追加（UTC/JSTまたがり・年またぎを含む5件）
+
+## 2026-04-15 静的コンテンツページの追加（Issue #22）
+
+- `src/app/[locale]/terms/page.tsx`: 利用規約ページを追加（ja/en対応）
+- `src/app/[locale]/guide/page.tsx`: 初めての方へページを追加（ログインのメリット含む、ja/en対応）
+- `src/components/layout/Footer.tsx`: 「初めての方へ」「利用規約」リンクを追加
+- `src/messages/ja.json`, `src/messages/en.json`: footer に `guide` / `terms` キーを追加
+- `src/app/[locale]/terms/__tests__/page.test.ts`: generateMetadata テスト追加（4件）
+- `src/app/[locale]/guide/__tests__/page.test.ts`: generateMetadata テスト追加（4件）

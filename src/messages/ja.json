@@ -74,8 +74,10 @@
       "byDistance": "距離から探す",
       "bySeason": "季節から探す",
       "howToEnter": "エントリー方法",
+      "guide": "初めての方へ",
       "about": "HASHIRUについて",
-      "privacy": "プライバシーポリシー"
+      "privacy": "プライバシーポリシー",
+      "terms": "利用規約"
     },
     "card": {
       "distance": "距離",

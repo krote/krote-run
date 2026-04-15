@@ -31,6 +31,7 @@
       "titleLine1": "Run through the",
       "titleEm": "heart of Japan.",
       "subtitle": "Marathons and trail runs across Japan — from cherry blossom spring runs to autumn mountain trails.",
+      "guideLink": "New to HASHIRU? Start here →",
       "searchPlaceholder": "Search by city, distance, season…",
       "searchButton": "Search"
     },
@@ -74,8 +75,10 @@
       "byDistance": "By Distance",
       "bySeason": "By Season",
       "howToEnter": "How to Enter",
+      "guide": "Getting Started",
       "about": "About HASHIRU",
-      "privacy": "Privacy Policy"
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
     },
     "card": {
       "distance": "Distance",

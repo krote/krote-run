@@ -406,3 +406,7 @@
 - `src/app/[locale]/cookie-policy/page.tsx`: 新規作成。Cookieポリシー静的ページ（ja/en両対応）
 - `src/app/[locale]/layout.tsx`: consent default（全denied）をGA4より先に設定。CookieConsentBanner を組み込み
 - `src/messages/ja.json` / `src/messages/en.json`: `cookieConsent` / `cookiePolicy` ネームスペースを追加
+
+## 2026-04-17 説明欄の改行表示を修正（Issue #29）
+
+- `src/app/[locale]/races/[id]/page.tsx`: 概要・参加賞・周辺スポットの description に `whitespace-pre-line` を追加し、テキスト中の `\n` を改行として描画

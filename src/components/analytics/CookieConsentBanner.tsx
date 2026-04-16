@@ -12,13 +12,14 @@ declare global {
 
 export default function CookieConsentBanner() {
   const t = useTranslations('cookieConsent');
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return !localStorage.getItem('cookie-consent');
+  });
 
+  // 再訪問時（accepted 済み）に gtag consent を復元する
   useEffect(() => {
-    const stored = localStorage.getItem('cookie-consent');
-    if (!stored) {
-      setVisible(true);
-    } else if (stored === 'accepted') {
+    if (localStorage.getItem('cookie-consent') === 'accepted') {
       window.gtag?.('consent', 'update', {
         analytics_storage: 'granted',
         ad_storage: 'denied',

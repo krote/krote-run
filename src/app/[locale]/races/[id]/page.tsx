@@ -275,7 +275,7 @@ export default async function RaceDetailPage({
           <section>
             <SectionLabel>{locale === 'ja' ? '概要' : 'Overview'}</SectionLabel>
             <SectionTitle>{t('overview')}</SectionTitle>
-            <p className="text-base leading-relaxed" style={{ color: 'var(--color-ink2)' }}>
+            <p className="text-base leading-relaxed whitespace-pre-line" style={{ color: 'var(--color-ink2)' }}>
               {raceDesc}
             </p>
           </section>
@@ -625,7 +625,7 @@ export default async function RaceDetailPage({
                   })}
                 </div>
                 {(locale === 'ja' ? gift.description_ja : gift.description_en) && (
-                  <p className="text-sm leading-relaxed" style={{ color: 'var(--color-ink2)' }}>
+                  <p className="text-sm leading-relaxed whitespace-pre-line" style={{ color: 'var(--color-ink2)' }}>
                     {locale === 'ja' ? gift.description_ja : gift.description_en}
                   </p>
                 )}
@@ -661,7 +661,7 @@ export default async function RaceDetailPage({
                         <p className="text-xs mb-1" style={{ color: 'var(--color-light)' }}>
                           {spot.distance_from_venue}
                         </p>
-                        <p className="text-xs leading-relaxed" style={{ color: 'var(--color-ink2)' }}>
+                        <p className="text-xs leading-relaxed whitespace-pre-line" style={{ color: 'var(--color-ink2)' }}>
                           {locale === 'ja' ? spot.description_ja : spot.description_en}
                         </p>
                         {spot.url && (

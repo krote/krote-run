@@ -14,7 +14,8 @@
     "settings": "設定",
     "mypage": "マイページ",
     "login": "ログイン",
-    "logout": "ログアウト"
+    "logout": "ログアウト",
+    "contact": "お問い合わせ"
   },
   "auth": {
     "loginTitle": "ログイン",
@@ -239,6 +240,30 @@
     "optOutBody": "ブラウザ拡張機能「Google Analytics オプトアウト アドオン」を使用することでも、GAによるデータ収集を無効にできます。",
     "contactTitle": "お問い合わせ",
     "contactBody": "本ポリシーに関するご質問は、公式レース掲載ページよりお問い合わせください。"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "subtitle": "大会情報の誤りや不具合など、お気軽にご連絡ください。",
+    "name": "お名前",
+    "namePlaceholder": "山田 太郎",
+    "email": "メールアドレス",
+    "emailPlaceholder": "example@email.com",
+    "category": "お問い合わせ種別",
+    "categoryPlaceholder": "種別を選択してください",
+    "categories": {
+      "race_error": "大会情報の誤り報告",
+      "race_suggestion": "大会情報の追加・更新提案",
+      "site_bug": "サイトの不具合報告",
+      "other": "その他"
+    },
+    "message": "お問い合わせ内容",
+    "messagePlaceholder": "お問い合わせ内容を入力してください（10文字以上）",
+    "submit": "送信する",
+    "submitting": "送信中...",
+    "successTitle": "送信が完了しました",
+    "successMessage": "お問い合わせありがとうございます。内容を確認後、必要に応じてご連絡いたします。",
+    "backToTop": "トップに戻る",
+    "loginNote": "ログインすると名前・メールアドレスが自動で入力されます。"
   },
   "settings": {
     "title": "設定",

@@ -1,0 +1,73 @@
+{
+  "id": "iwate-morioka-city-marathon-2026",
+  "name_ja": "いわて盛岡シティマラソン",
+  "name_en": "Iwate Morioka City Marathon",
+  "full_name_ja": "いわて盛岡シティマラソン2026",
+  "full_name_en": "Iwate Morioka City Marathon",
+  "edition": null,
+  "date": "2026-10-04",
+  "prefecture": "03",
+  "city_ja": "岩手県盛岡市永井７地割16-2",
+  "city_en": "16-2 Nagai 7-chome, Morioka City, Iwate Prefecture",
+  "description_ja": "特徴1「盛岡」ならではのエイドステーション\nエイドステーションでは、テレビやRUNNET大会レポなどで度々取り上げられている、話題の盛岡銘菓やわんこそばなどを多数提供予定です！ 盛岡の味を堪能しながら、完走を目指しましょう。\n\n特徴2いわて盛岡を満喫できるコース！！\n盛岡城跡公園、赤レンガ館、盛岡八幡宮など盛岡の歴史を感じられます。\nフルマラソン、ペアランのフィニッシュは、きたぎんボールパーク野球場内。\n秋の爽やかな盛岡路を満喫しましょう！\n\n特徴3市民のあたたかい応援\nコースの一部が市街地となっているため、多くの市民が沿道応援をします。\nさらに「さんさ踊り」の太鼓や吹奏楽、地元中学生の応援団がエールを送ります。\n\n特徴4フルマラソン完走賞は、南部鉄器製完走メダルとフィニッシャータオル！！",
+  "description_en": "Feature 1: Aid Stations Unique to Morioka\nAt the aid stations, we plan to offer a wide variety of popular Morioka specialties—such as the famous local sweets and wanko soba—which have frequently been featured on TV and in RUNNET event reports! Enjoy the flavors of Morioka as you strive to finish the race.\n\nFeature 2: A Course That Lets You Fully Enjoy Iwate and Morioka!!\nExperience Morioka’s history at sites such as Morioka Castle Ruins Park, the Red Brick Hall, and Morioka Hachimangu Shrine.\nThe finish line for the full marathon and the pair run is located inside Kitagin Ballpark.\nEnjoy the refreshing autumn roads of Morioka!\n\nFeature 3: Warm Cheers from the Locals\nSince part of the course runs through the city center, many residents will be cheering you on along the route.\nPlus, you’ll be greeted by the drums and brass bands of the “Sansa Odori” dance, as well as cheers from local junior high school cheerleading squads.\n\nFeature 4: Full Marathon Finisher Awards Include a Nanbu Ironware Finisher Medal and a Finisher Towel!!\n\nTranslated with DeepL.com (free version)",
+  "official_url": "https://iwate-morioka-city-marathon.jp/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-04-01",
+  "entry_end_date": "2026-07-20",
+  "reception_type": "pre_day",
+  "reception_note_ja": "前日の2026年10月3日（土）10時から18時まできたぎんボールパーク（盛岡市永井７地割16番地２）で参加者受付を行います。受付時にアスリートビブス、計測チップ及び参加案内等をお渡しします。なお、再発行や大会当日の受付は行いません。\n+600円で事前送付とすることが出来る",
+  "reception_note_en": "Registration will take place on the day before the event, Saturday, October 3, 2026, from 10:00 AM to 6:00 PM at Tagin Ball Park (16-2 Nagai 7-chigari, Morioka City). At registration, you will receive your race bib, timing chip, and participant guide. Please note that we will not issue replacements or accept registrations on the day of the event.\nYou can have these items mailed to you in advance for an additional 600 yen.\n\nTranslated with DeepL.com (free version)",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "",
+    "highlights_en": "",
+    "notes_ja": "",
+    "notes_en": ""
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "entry_fee": 12000,
+      "capacity": 6000,
+      "time_limit_minutes": 360,
+      "start_time": "09:00"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "result": null,
+  "created_at": "2026-04-16T15:23:52.019Z",
+  "updated_at": "2026-04-16T15:23:52.019Z",
+  "entry_periods": [
+    {
+      "start_date": "2026-04-01",
+      "end_date": "2026-07-20",
+      "entry_fee": 12000,
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry"
+    }
+  ],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "medal",
+        "towel"
+      ],
+      "description_ja": "完走賞\tフィニッシャータオル、南部鉄器製完走メダル",
+      "description_en": "",
+      "image": null
+    }
+  ]
+}

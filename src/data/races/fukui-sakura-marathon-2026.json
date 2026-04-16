@@ -12,7 +12,7 @@
   "description_ja": "2024年に始まった福井県のフルマラソン。桜並木と恐竜博物館で知られる福井を走る。制限時間7時間。",
   "description_en": "Fukui Prefecture's marathon started in 2024. Run through Fukui known for cherry blossoms and the Dinosaur Museum. 7-hour time limit.",
   "official_url": "https://www.fukui-sakura-marathon.jp",
-  "entry_fee": 0,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
   "entry_start_date": "2025-09-25",
@@ -43,7 +43,7 @@
       "time_limit_minutes": 420,
       "start_time": "08:30",
       "capacity": 13200,
-      "entry_fee": null
+      "entry_fee": 14000
     },
     {
       "distance_type": "5k",
@@ -93,8 +93,8 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "tshirt",
         "medal",
+        "tshirt",
         "towel"
       ],
       "description_ja": "大会Tシャツ、完走メダル、フィニッシャータオル",
@@ -115,11 +115,11 @@
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
       "start_date": "2025-09-25",
       "end_date": "2025-11-10",
-      "entry_fee": null
+      "entry_fee": null,
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry"
     }
   ]
 }

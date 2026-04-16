@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-04-11T14:49:24.353Z
--- 対象ファイル数: 66 件（既存 2 件はskip）
+-- 生成日時: 2026-04-16T15:33:58.591Z
+-- 対象ファイル数: 67 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -545,7 +545,7 @@ INSERT OR REPLACE INTO races (
   '2024年に始まった福井県のフルマラソン。桜並木と恐竜博物館で知られる福井を走る。制限時間7時間。',
   'Fukui Prefecture''s marathon started in 2024. Run through Fukui known for cherry blossoms and the Dinosaur Museum. 7-hour time limit.',
   'https://www.fukui-sakura-marathon.jp',
-  0,
+  NULL,
   1,
   0,
   '2025-09-25',
@@ -568,7 +568,7 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('fukui-sakura-marathon-2026', 'full', 42.195, 420, '08:30', 13200, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+  ('fukui-sakura-marathon-2026', 'full', 42.195, 420, '08:30', 13200, 14000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
   ('fukui-sakura-marathon-2026', '5k', 5, 0, '09:15', 1300, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
@@ -578,7 +578,7 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fukui-sakura-marathon-2026', 'グルメ', '越前おろしそば', 'Echizen Oroshi Soba', '大根おろしとだしで食べる福井名物のそば。レース後のエネルギー補給に。', 'Fukui''s specialty soba with grated radish and broth. For post-race energy.', '福井市内', NULL, 36.0652, 136.2199);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('fukui-sakura-marathon-2026', '["tshirt","medal","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+  ('fukui-sakura-marathon-2026', '["medal","tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('fukui-sakura-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-09-25', '2025-11-10', NULL, 0);
 
@@ -700,7 +700,11 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
   ('gunma-marathon-2026', '10k', 10, 90, '10:00', 4000, 6500, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
-  ('gunma-marathon-2026', '温泉', '伊香保温泉', 'Ikaho Onsen', '石段街で有名な群馬の温泉地。黄金の湯と白銀の湯の2種。前橋から車約40分。', 'Famous for its stone steps. Two types of springs: Golden and Silver. About 40 min by car from Maebashi.', '前橋市から車約40分', NULL, 36.4886, 138.9311);
+  ('gunma-marathon-2026', '温泉', '伊香保温泉', 'Ikaho Onsen', '石段街で有名な群馬の温泉地。黄金の湯と白銀の湯の2種。前橋から車約40分。', 'Famous for its stone steps. Two types of springs: Golden and Silver. About 40 min by car from Maebashi.', '前橋市から車約40分', 'https://www.ikaho-kankou.com/', 36.4886, 138.9311);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('gunma-marathon-2026', '観光地', '富岡製糸工場', '', '明治5年（1872）に明治政府が設立した官営の器械製糸場です。民営化後も一貫して製糸を行い、製糸技術開発の最先端として国内養蚕・製糸業を世界一の水準に牽引しました。また、田島家、高山社、荒船風穴などと連携して、蚕の優良品種の開発と普及を主導しました。和洋技術を混交した工場建築の代表であり、長さ100ｍを超える木骨煉瓦造の2棟の置繭所や繰糸所など、主要な施設が創業当時のまま、ほぼ完全に残されています。', 'This was a government-run mechanical silk mill established by the Meiji government in 1872. Even after its privatization, it continued to produce silk and, as a leader in silk-reeling technology development, propelled Japan’s sericulture and silk-reeling industries to the world’s highest standards. Furthermore, in collaboration with the Tajima family, the Takayama Society, and the Arafune Wind Cave, it led the development and dissemination of superior silkworm breeds. It is a prime example of factory architecture blending Japanese and Western styles, and major facilities—including two wooden-framed brick cocoon storage buildings and a reeling workshop, each over 100 meters long—remain almost entirely intact as they were at the time of the factory’s founding.
+
+Translated with DeepL.com (free version)', '', 'https://worldheritage.pref.gunma.jp/whc/', 36.2551968, 138.8850047);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('gunma-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -1356,6 +1360,91 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('iwaki-sunshine-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('iwaki-sunshine-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-09-12', '2025-10-15', NULL, 0);
+
+-- ==================
+-- いわて盛岡シティマラソン (iwate-morioka-city-marathon-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'iwate-morioka-city-marathon-2026',
+  'いわて盛岡シティマラソン',
+  'Iwate Morioka City Marathon',
+  '2026-10-04',
+  '03',
+  '岩手県盛岡市永井７地割16-2',
+  '16-2 Nagai 7-chome, Morioka City, Iwate Prefecture',
+  '特徴1「盛岡」ならではのエイドステーション
+エイドステーションでは、テレビやRUNNET大会レポなどで度々取り上げられている、話題の盛岡銘菓やわんこそばなどを多数提供予定です！ 盛岡の味を堪能しながら、完走を目指しましょう。
+
+特徴2いわて盛岡を満喫できるコース！！
+盛岡城跡公園、赤レンガ館、盛岡八幡宮など盛岡の歴史を感じられます。
+フルマラソン、ペアランのフィニッシュは、きたぎんボールパーク野球場内。
+秋の爽やかな盛岡路を満喫しましょう！
+
+特徴3市民のあたたかい応援
+コースの一部が市街地となっているため、多くの市民が沿道応援をします。
+さらに「さんさ踊り」の太鼓や吹奏楽、地元中学生の応援団がエールを送ります。
+
+特徴4フルマラソン完走賞は、南部鉄器製完走メダルとフィニッシャータオル！！',
+  'Feature 1: Aid Stations Unique to Morioka
+At the aid stations, we plan to offer a wide variety of popular Morioka specialties—such as the famous local sweets and wanko soba—which have frequently been featured on TV and in RUNNET event reports! Enjoy the flavors of Morioka as you strive to finish the race.
+
+Feature 2: A Course That Lets You Fully Enjoy Iwate and Morioka!!
+Experience Morioka’s history at sites such as Morioka Castle Ruins Park, the Red Brick Hall, and Morioka Hachimangu Shrine.
+The finish line for the full marathon and the pair run is located inside Kitagin Ballpark.
+Enjoy the refreshing autumn roads of Morioka!
+
+Feature 3: Warm Cheers from the Locals
+Since part of the course runs through the city center, many residents will be cheering you on along the route.
+Plus, you’ll be greeted by the drums and brass bands of the “Sansa Odori” dance, as well as cheers from local junior high school cheerleading squads.
+
+Feature 4: Full Marathon Finisher Awards Include a Nanbu Ironware Finisher Medal and a Finisher Towel!!
+
+Translated with DeepL.com (free version)',
+  'https://iwate-morioka-city-marathon.jp/',
+  NULL,
+  1,
+  0,
+  '2026-04-01',
+  '2026-07-20',
+  'pre_day',
+  '前日の2026年10月3日（土）10時から18時まできたぎんボールパーク（盛岡市永井７地割16番地２）で参加者受付を行います。受付時にアスリートビブス、計測チップ及び参加案内等をお渡しします。なお、再発行や大会当日の受付は行いません。
++600円で事前送付とすることが出来る',
+  'Registration will take place on the day before the event, Saturday, October 3, 2026, from 10:00 AM to 6:00 PM at Tagin Ball Park (16-2 Nagai 7-chigari, Morioka City). At registration, you will receive your race bib, timing chip, and participant guide. Please note that we will not issue replacements or accept registrations on the day of the event.
+You can have these items mailed to you in advance for an additional 600 yen.
+
+Translated with DeepL.com (free version)',
+  '[]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '',
+  '',
+  '',
+  '',
+  '2026-04-16T15:23:52.019Z',
+  '2026-04-16T15:23:52.019Z'
+);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
+  ('iwate-morioka-city-marathon-2026', 'full', 42.195, 360, '09:00', 6000, 12000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('iwate-morioka-city-marathon-2026', '["medal","towel"]', '完走賞	フィニッシャータオル、南部鉄器製完走メダル', '', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('iwate-morioka-city-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-07-20', 12000, 0);
 
 -- ==================
 -- いわて奥州きらめきマラソン (iwate-oshu-kirameki-marathon-2026)

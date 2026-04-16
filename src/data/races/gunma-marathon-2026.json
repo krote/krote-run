@@ -66,9 +66,20 @@
       "description_ja": "石段街で有名な群馬の温泉地。黄金の湯と白銀の湯の2種。前橋から車約40分。",
       "description_en": "Famous for its stone steps. Two types of springs: Golden and Silver. About 40 min by car from Maebashi.",
       "distance_from_venue": "前橋市から車約40分",
-      "url": null,
+      "url": "https://www.ikaho-kankou.com/",
       "latitude": 36.4886,
       "longitude": 138.9311
+    },
+    {
+      "type": "観光地",
+      "name_ja": "富岡製糸工場",
+      "name_en": "",
+      "description_ja": "明治5年（1872）に明治政府が設立した官営の器械製糸場です。民営化後も一貫して製糸を行い、製糸技術開発の最先端として国内養蚕・製糸業を世界一の水準に牽引しました。また、田島家、高山社、荒船風穴などと連携して、蚕の優良品種の開発と普及を主導しました。和洋技術を混交した工場建築の代表であり、長さ100ｍを超える木骨煉瓦造の2棟の置繭所や繰糸所など、主要な施設が創業当時のまま、ほぼ完全に残されています。",
+      "description_en": "This was a government-run mechanical silk mill established by the Meiji government in 1872. Even after its privatization, it continued to produce silk and, as a leader in silk-reeling technology development, propelled Japan’s sericulture and silk-reeling industries to the world’s highest standards. Furthermore, in collaboration with the Tajima family, the Takayama Society, and the Arafune Wind Cave, it led the development and dissemination of superior silkworm breeds. It is a prime example of factory architecture blending Japanese and Western styles, and major facilities—including two wooden-framed brick cocoon storage buildings and a reeling workshop, each over 100 meters long—remain almost entirely intact as they were at the time of the factory’s founding.\n\nTranslated with DeepL.com (free version)",
+      "distance_from_venue": "",
+      "url": "https://worldheritage.pref.gunma.jp/whc/",
+      "latitude": 36.2551968,
+      "longitude": 138.8850047
     }
   ],
   "weather_history": [],

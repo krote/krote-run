@@ -3,7 +3,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import RaceFilter from '../races/RaceFilter';
-import { defaultFilter, emptyFilter } from '../../lib/utils';
+import { defaultFilter } from '../../lib/utils';
 import type { RaceFilter as RaceFilterType } from '../../lib/types';
 
 vi.mock('next-intl', () => ({

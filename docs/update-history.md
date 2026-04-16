@@ -399,3 +399,10 @@
 - `tools/admin/style.css`: `.nearby-spot-row` / `.nearby-spot-fields` スタイルを追加
 - `tools/admin-server.js`: `getMissingFields()` に nearby_spots チェック（0件 → medium）を追加
 - `tools/admin-server.test.js`: nearby_spots の getMissingFields テストを追加（3件）
+
+## 2026-04-16 Cookie同意バナーとCookieポリシーページを追加（Issue #25）
+
+- `src/components/analytics/CookieConsentBanner.tsx`: 新規作成。localStorage + gtag Consent Mode v2 連携バナー（同意/拒否）
+- `src/app/[locale]/cookie-policy/page.tsx`: 新規作成。Cookieポリシー静的ページ（ja/en両対応）
+- `src/app/[locale]/layout.tsx`: consent default（全denied）をGA4より先に設定。CookieConsentBanner を組み込み
+- `src/messages/ja.json` / `src/messages/en.json`: `cookieConsent` / `cookiePolicy` ネームスペースを追加

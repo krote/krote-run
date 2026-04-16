@@ -219,6 +219,27 @@
       "parking": "Parking"
     }
   },
+  "cookieConsent": {
+    "message": "This site uses Google Analytics 4. By accepting cookies, you help us improve the site.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "learnMore": "Cookie settings"
+  },
+  "cookiePolicy": {
+    "eyebrow": "Legal",
+    "title": "Cookie Policy",
+    "lastUpdated": "Last updated: April 2026",
+    "whatTitle": "Cookies we use",
+    "whatBody": "This site (hashiru.run) uses Google Analytics 4 (GA4) for traffic analysis. GA4 uses cookies to collect anonymous usage data such as page views and traffic sources. No personally identifiable information is collected. Data is used solely to improve the site.",
+    "consentTitle": "Managing your consent",
+    "consentBody": "You can accept or decline cookie usage via the banner shown on your first visit. If you decline, Google Analytics will not collect any data.",
+    "changeTitle": "Changing your settings",
+    "changeBody": "Your choice is saved in the browser's localStorage. To change your preference, delete the \"cookie-consent\" key from localStorage and reload the page.",
+    "optOutTitle": "Google Analytics opt-out",
+    "optOutBody": "You can also disable Google Analytics data collection by installing the Google Analytics Opt-out Browser Add-on.",
+    "contactTitle": "Contact",
+    "contactBody": "For questions about this policy, please contact us via the official race listing pages."
+  },
   "settings": {
     "title": "Settings",
     "language": "Language",

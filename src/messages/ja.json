@@ -219,6 +219,27 @@
       "parking": "駐車場"
     }
   },
+  "cookieConsent": {
+    "message": "このサイトはGoogle Analytics 4を使用しています。Cookieの使用に同意いただくことで、より良いサービス提供に役立てます。",
+    "accept": "同意する",
+    "decline": "拒否する",
+    "learnMore": "Cookie設定について"
+  },
+  "cookiePolicy": {
+    "eyebrow": "Legal",
+    "title": "Cookieポリシー",
+    "lastUpdated": "最終更新日：2026年4月",
+    "whatTitle": "使用しているCookieについて",
+    "whatBody": "当サイト（hashiru.run）はアクセス解析のためにGoogle Analytics 4（GA4）を使用しています。GA4はCookieを利用して、ページビューや流入元などの匿名の利用状況データを収集します。収集されたデータは個人を特定するものではなく、サイトの改善目的にのみ使用されます。",
+    "consentTitle": "同意の管理",
+    "consentBody": "初回訪問時に表示されるバナーから、Cookieの使用に同意または拒否することができます。拒否した場合、Google Analyticsによるデータ収集は行われません。",
+    "changeTitle": "設定の変更",
+    "changeBody": "一度行った選択は、ブラウザのlocalStorageに保存されます。設定を変更するには、ブラウザのlocalStorageから「cookie-consent」キーを削除してページを再読み込みしてください。",
+    "optOutTitle": "Google Analyticsのオプトアウト",
+    "optOutBody": "ブラウザ拡張機能「Google Analytics オプトアウト アドオン」を使用することでも、GAによるデータ収集を無効にできます。",
+    "contactTitle": "お問い合わせ",
+    "contactBody": "本ポリシーに関するご質問は、公式レース掲載ページよりお問い合わせください。"
+  },
   "settings": {
     "title": "設定",
     "language": "言語",

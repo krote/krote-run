@@ -7,6 +7,7 @@ import Script from 'next/script';
 import { routing } from '@/i18n/routing';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import CookieConsentBanner from '@/components/analytics/CookieConsentBanner';
 import '../globals.css';
 
 const GA_ID = 'G-9975BX8LXR';
@@ -46,6 +47,16 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)] font-sans antialiased">
+        <Script id="consent-init" strategy="beforeInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('consent', 'default', {
+            analytics_storage: 'denied',
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+          });
+        `}</Script>
         <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
         <Script id="ga4-init" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
@@ -57,6 +68,7 @@ export default async function LocaleLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <CookieConsentBanner />
         </NextIntlClientProvider>
       </body>
     </html>

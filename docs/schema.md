@@ -272,6 +272,27 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 
 ---
 
+## contact_submissions テーブル
+
+お問い合わせ送信データを保存する。
+
+| カラム | 型 | NULL | デフォルト | 備考 |
+|---|---|---|---|---|
+| id | integer | NO | autoincrement | PK |
+| name | text | NO | — | 送信者名 |
+| email | text | NO | — | 送信者メールアドレス |
+| category | text | NO | — | `race_error` / `race_suggestion` / `site_bug` / `other` |
+| message | text | NO | — | 本文（10〜5000文字） |
+| user_id | text | YES | — | FK → user.id（SET NULL）。ログイン済みユーザーのみ |
+| status | text | NO | `"pending"` | `pending` / `in_progress` / `resolved` |
+| created_at | text | NO | — | ISO8601 |
+
+**インデックス**
+- `contact_submissions_status_idx` → status
+- `contact_submissions_created_at_idx` → created_at
+
+---
+
 ## マイグレーション履歴
 
 | ファイル | 内容 |
@@ -283,3 +304,4 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0002_lyrical_korath.sql` | user_races テーブルを追加（Phase 2: 参加予定・受付開始前日リマインド） |
 | `migrations/0003_sloppy_jack_power.sql` | user_races に planning_category_id / entry_reminder_period_ids を追加、entry_reminder / gcal_entry_event_id を削除 |
 | `migrations/0004_complex_justin_hammer.sql` | user_races から gcal_race_event_id / gcal_entry_event_ids を削除 |
+| `migrations/0005_boring_corsair.sql` | contact_submissions テーブルを追加 |

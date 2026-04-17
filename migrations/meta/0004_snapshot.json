@@ -2,7 +2,7 @@
   "version": "6",
   "dialect": "sqlite",
   "id": "dbbf7015-4312-41ea-ab41-3cb9fe6d72e9",
-  "prevId": "a8ee9d1b-efa7-4db2-877c-4462cb4a966f",
+  "prevId": "451e9778-aa9d-493c-b3de-caab536a8304",
   "tables": {
     "access_points": {
       "name": "access_points",

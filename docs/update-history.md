@@ -410,3 +410,17 @@
 ## 2026-04-17 説明欄の改行表示を修正（Issue #29）
 
 - `src/app/[locale]/races/[id]/page.tsx`: 概要・参加賞・周辺スポットの description に `whitespace-pre-line` を追加し、テキスト中の `\n` を改行として描画
+
+## 2026-04-16 お問い合わせフォーム実装（Issue #24）
+
+- `src/lib/db/schema.ts`: `contact_submissions` テーブルを追加（id, name, email, category, message, user_id, status, created_at）
+- `migrations/0005_boring_corsair.sql`: 上記テーブルのDrizzleマイグレーションを生成
+- `migrations/meta/0004_snapshot.json`: スナップショット衝突（prevId重複）を修正
+- `src/lib/contact-actions.ts`: Server Action `submitContact` を新規作成。バリデーション・D1保存・Resend通知（APIキー未設定時はスキップ）
+- `src/components/contact/ContactForm.tsx`: お問い合わせフォームのClient Component（useActionState使用）
+- `src/components/contact/ContactFormWrapper.tsx`: useSession()でログイン情報を取得しContactFormに渡すラッパー
+- `src/app/[locale]/contact/page.tsx`: `/contact` ページを新規作成
+- `src/messages/ja.json` / `src/messages/en.json`: `contact` ネームスペース、`nav.contact` キーを追加
+- `src/components/layout/Footer.tsx`: フッターのInfoセクションにお問い合わせリンクを追加
+- `docs/schema.md`: contact_submissions テーブルの定義・マイグレーション履歴を追記
+- `package.json`: `resend` パッケージを追加（メール通知用）

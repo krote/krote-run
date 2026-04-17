@@ -14,7 +14,8 @@
     "settings": "Settings",
     "mypage": "My Page",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "contact": "Contact"
   },
   "auth": {
     "loginTitle": "Sign In",
@@ -239,6 +240,30 @@
     "optOutBody": "You can also disable Google Analytics data collection by installing the Google Analytics Opt-out Browser Add-on.",
     "contactTitle": "Contact",
     "contactBody": "For questions about this policy, please contact us via the official race listing pages."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Report a race error, suggest an update, or let us know about a bug.",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "example@email.com",
+    "category": "Category",
+    "categoryPlaceholder": "Select a category",
+    "categories": {
+      "race_error": "Report a race error",
+      "race_suggestion": "Suggest race update / addition",
+      "site_bug": "Report a site bug",
+      "other": "Other"
+    },
+    "message": "Message",
+    "messagePlaceholder": "Please describe your enquiry (at least 10 characters)",
+    "submit": "Send",
+    "submitting": "Sending...",
+    "successTitle": "Message sent!",
+    "successMessage": "Thank you for contacting us. We'll review your message and get back to you if needed.",
+    "backToTop": "Back to top",
+    "loginNote": "Log in to pre-fill your name and email."
   },
   "settings": {
     "title": "Settings",

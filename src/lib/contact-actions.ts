@@ -53,9 +53,12 @@ export async function submitContact(
   });
 
   // Resend通知（APIキー未設定の場合はスキップ）
+  // getCloudflareContext().env はCloudflareバインディング用。
+  // ローカルdev では .env.local の process.env をフォールバックとして使用する。
   const { env } = getCloudflareContext();
-  const resendApiKey = (env as unknown as Record<string, string>).RESEND_API_KEY;
-  const notifyEmail = (env as unknown as Record<string, string>).CONTACT_NOTIFY_EMAIL;
+  const cfEnv = env as unknown as Record<string, string>;
+  const resendApiKey = cfEnv.RESEND_API_KEY ?? process.env.RESEND_API_KEY;
+  const notifyEmail = cfEnv.CONTACT_NOTIFY_EMAIL ?? process.env.CONTACT_NOTIFY_EMAIL;
 
   if (resendApiKey && notifyEmail) {
     const resend = new Resend(resendApiKey);

@@ -554,6 +554,36 @@ export default async function RaceDetailPage({
                 )}
               </div>
             )}
+            {(() => {
+              const receptionTypeLabel: Record<string, { ja: string; en: string }> = {
+                pre_day:  { ja: '前日受付', en: 'Pre-event pickup' },
+                race_day: { ja: '当日受付', en: 'Race day pickup' },
+                same_day: { ja: '当日受付', en: 'Race day pickup' },
+                both:     { ja: '前日・当日受付', en: 'Pre-event & race day' },
+                pre_mail: { ja: '事前郵送', en: 'By mail' },
+                mail:     { ja: '事前郵送', en: 'By mail' },
+              };
+              const typeLabel = race.reception_type ? receptionTypeLabel[race.reception_type] : null;
+              const note = locale === 'ja' ? race.reception_note_ja : race.reception_note_en;
+              if (!typeLabel && !note) return null;
+              return (
+                <div className="mt-3 mb-4">
+                  <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
+                    {locale === 'ja' ? '受付' : 'Reception'}
+                  </p>
+                  {typeLabel && (
+                    <p className="font-medium text-sm mb-1">
+                      {locale === 'ja' ? typeLabel.ja : typeLabel.en}
+                    </p>
+                  )}
+                  {note && (
+                    <p className="text-sm whitespace-pre-line" style={{ color: 'var(--color-mid)' }}>
+                      {note}
+                    </p>
+                  )}
+                </div>
+              );
+            })()}
             {race.entry_capacity > 0 && (
               <div className="mt-3 mb-4">
                 <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>

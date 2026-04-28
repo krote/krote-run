@@ -39,7 +39,7 @@ export default function CourseMap({ courseProfile, className = '' }: CourseMapPr
         ? points.reduce((sum, p) => sum + p.lng, 0) / points.length
         : 139.6503;
 
-      const map = L.map(mapRef.current).setView([centerLat, centerLng], 13);
+      const map = L.map(mapRef.current);
       leafletMapRef.current = map;
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -48,9 +48,11 @@ export default function CourseMap({ courseProfile, className = '' }: CourseMapPr
 
       if (points.length > 0) {
         const latlngs = points.map((p) => [p.lat, p.lng] as [number, number]);
-        L.polyline(latlngs, { color: '#2563eb', weight: 3 }).addTo(map);
+        const polyline = L.polyline(latlngs, { color: '#2563eb', weight: 3 }).addTo(map);
+        map.fitBounds(polyline.getBounds(), { padding: [20, 20] });
         L.marker([points[0].lat, points[0].lng]).addTo(map);
       } else {
+        map.setView([centerLat, centerLng], 13);
         L.marker([centerLat, centerLng]).addTo(map);
       }
     });

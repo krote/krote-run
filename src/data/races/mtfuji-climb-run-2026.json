@@ -1,0 +1,72 @@
+{
+  "id": "mtfuji-climb-run-2026",
+  "name_ja": "富士山クライムラン",
+  "name_en": "Mt.FUJI CLIMB RUN",
+  "full_name_ja": "富士山クライムラン",
+  "full_name_en": "Mt.FUJI CLIMB RUN",
+  "edition": 3,
+  "date": "2026-09-13",
+  "prefecture": "19",
+  "city_ja": "富士北麓公園富士山GXスタジアム～吉田口登山道～五合目に至る約12km",
+  "city_en": "Approximately 12 km from Fuji North Foot Park’s Mt. Fuji GX Stadium to the 5th Station via the Yoshida Trail",
+  "description_ja": "コースは人気上昇中の富士吉田登山道\n平安時代から多くの修験者が富士登山に利用した歴史ある登山道。\n江戸時代には多くの茶屋も並び活況を呈したそう。 近年、外国人登山客がこの登山道の魅力を数多く発信しており、日本人の間でも人気が上昇中。\n樹林帯が続くトレイルを進む気持ちよさは格別です。\n\n1時間50分以内の完走で「富士登山競走山頂コース」挑戦資格ゲット！\n※2027年7月大会\n1時間50分以内（ネットタイム）で完走された方は、2027年7月開催の「第80回富士登山競走 山頂コース」への出場資格を獲得することができます。",
+  "description_en": "The course follows the increasingly popular Fujiyoshida Trail.\nThis historic trail has been used by many ascetic practitioners to climb Mount Fuji since the Heian period.\nIt is said to have been bustling with numerous teahouses lining the path during the Edo period. In recent years, foreign hikers have been sharing the trail’s appeal, and its popularity is on the rise among Japanese people as well.\nThe feeling of walking along this trail through continuous woodlands is truly exceptional.\n\nFinish in 1 hour and 50 minutes or less to qualify for the “Fuji Mountain Race Summit Course”!\n*July 2027 Event\nParticipants who finish within 1 hour and 50 minutes (net time) will qualify to compete in the “80th Fuji Mountain Race Summit Course” to be held in July 2027.\n\nTranslated with DeepL.com (free version)",
+  "official_url": "https://mtfujiclimbrun.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-04-24",
+  "entry_end_date": "2026-07-31",
+  "reception_type": "pre_day",
+  "reception_note_ja": "9/12（土）13:00～18:00\n9/13（日） 6:30～各ウェーブのスタート時刻30分前まで",
+  "reception_note_en": "Saturday, September 12, 1:00 PM – 6:00 PM\nSunday, September 13, 6:30 AM – 30 minutes before the start time of each wave",
+  "tags": [],
+  "course_gpx_file": "mtfuji-climb-run-2026.kml",
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "",
+    "highlights_en": "",
+    "notes_ja": "",
+    "notes_en": ""
+  },
+  "categories": [
+    {
+      "distance_type": "other",
+      "distance_km": 12,
+      "entry_fee": 15000,
+      "capacity": 2000,
+      "time_limit_minutes": 180,
+      "start_time": "09:00"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "result": null,
+  "created_at": "2026-04-28T13:53:53.451Z",
+  "updated_at": "2026-04-28T13:53:53.451Z",
+  "entry_periods": [
+    {
+      "start_date": "2026-04-24",
+      "end_date": "2026-07-31",
+      "entry_fee": 15000,
+      "label_ja": "",
+      "label_en": ""
+    }
+  ],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "goods"
+      ],
+      "description_ja": "オリジナルソフトカップ",
+      "description_en": "Original Soft Cup",
+      "image": null
+    }
+  ]
+}

@@ -52,7 +52,7 @@ export default function ElevationChart({ data, className = '' }: ElevationChartP
   return (
     <div className={`w-full ${className}`}>
       <ResponsiveContainer width="100%" height={200}>
-        <AreaChart data={data} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
+        <AreaChart data={data} margin={{ top: 5, right: 30, left: 10, bottom: 5 }}>
           <defs>
             <linearGradient id="elevationGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#2563eb" stopOpacity={0.3} />
@@ -68,10 +68,10 @@ export default function ElevationChart({ data, className = '' }: ElevationChartP
           />
           <YAxis
             domain={[minElev - padding, maxElev + padding]}
-            tickFormatter={(v: number) => `${v}m`}
+            tickFormatter={(v: number) => `${Math.round(v)}m`}
             tick={{ fontSize: 11, fill: '#6b7280' }}
             tickLine={false}
-            width={45}
+            width={55}
           />
           <Tooltip content={<CustomTooltip />} />
           <Area

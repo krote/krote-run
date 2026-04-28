@@ -21,9 +21,6 @@
 		}
 	],
 	// 環境変数（シークレットは Cloudflare Pages ダッシュボードで設定）
-	"vars": {
-		"CONTACT_NOTIFY_EMAIL": "krote0924@gmail.com"
-	},
 	// R2 バケット（GPXファイル・画像用）
 	// wrangler r2 bucket create krote-run-assets で作成してください
 	"r2_buckets": [

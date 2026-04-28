@@ -1,11 +1,11 @@
 {
-  "id": "tokyo-marathon-2026",
+  "id": "tokyo-marathon-2027",
   "name_ja": "東京マラソン",
   "name_en": "Tokyo Marathon",
-  "full_name_ja": "東京マラソン2026",
+  "full_name_ja": "東京マラソン2027",
   "full_name_en": "Tokyo Marathon",
-  "edition": null,
-  "date": "2026-03-01",
+  "edition": 19,
+  "date": "2027-03-07",
   "prefecture": "13",
   "city_ja": "新宿区〜千代田区",
   "city_en": "Shinjuku to Chiyoda",
@@ -15,8 +15,8 @@
   "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 38500,
-  "entry_start_date": "2025-08-15",
-  "entry_end_date": "2025-08-29",
+  "entry_start_date": "2026-08-14",
+  "entry_end_date": "2026-08-28",
   "reception_type": "pre_day",
   "reception_note_ja": "EXPO会場（東京ビッグサイト）にて前日受付。2/26-28。大会当日の受付なし。",
   "reception_note_en": "Pre-race registration at EXPO venue (Tokyo Big Sight). Feb 26-28. No registration on race day.",
@@ -48,9 +48,9 @@
     {
       "distance_type": "full",
       "distance_km": 42.195,
-      "time_limit_minutes": 420,
-      "start_time": "09:10",
-      "capacity": 38500,
+      "time_limit_minutes": 0,
+      "start_time": "",
+      "capacity": 0,
       "entry_fee": null,
       "entry_fee_u25": null,
       "name_ja": null,
@@ -131,8 +131,8 @@
     }
   ],
   "result": null,
-  "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-03-15T00:00:00Z",
+  "created_at": "2026-04-27T13:59:53.295Z",
+  "updated_at": "2026-04-27T13:59:53.295Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -143,8 +143,8 @@
   },
   "entry_periods": [
     {
-      "start_date": "2025-08-15",
-      "end_date": "2025-08-29",
+      "start_date": "2026-08-14",
+      "end_date": "2026-08-28",
       "entry_fee": null,
       "label_ja": "一般エントリー",
       "label_en": "General Entry"

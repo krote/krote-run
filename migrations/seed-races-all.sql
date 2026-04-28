@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-04-16T15:33:58.591Z
--- 対象ファイル数: 67 件（既存 2 件はskip）
+-- 生成日時: 2026-04-28T14:42:11.794Z
+-- 対象ファイル数: 70 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -490,7 +490,7 @@ INSERT OR REPLACE INTO races (
   '河口湖・西湖を走るフルマラソン。紅葉の富士山を望む絶景コース。制限時間6時間。',
   'A full marathon around Lake Kawaguchi and Lake Saiko. Spectacular autumn views of Mt. Fuji. 6-hour time limit.',
   'https://mtfujimarathon.com/',
-  0,
+  NULL,
   1,
   0,
   NULL,
@@ -513,11 +513,11 @@ INSERT OR REPLACE INTO races (
   '2026-03-16T00:00:00Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('fujisan-marathon-2026', 'full', 42.195, 360, '09:00', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+  ('fujisan-marathon-2026', 'full', 42.195, 360, '09:00', 0, 12900, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fujisan-marathon-2026', '温泉', '河口湖温泉', 'Lake Kawaguchi Onsen', '河口湖畔の温泉。富士山を望む露天風呂が魅力。レース後に最適。', 'Hot springs on the shore of Lake Kawaguchi. Open-air baths with Mt. Fuji views.', '会場付近', NULL, 35.51, 138.75);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('fujisan-marathon-2026', '["tshirt","medal","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+  ('fujisan-marathon-2026', '["medal","tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 
 -- ==================
 -- ふくい桜マラソン (fukui-sakura-marathon-2026)
@@ -2291,6 +2291,79 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
   ('mito-komon-manyu-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-16', '2026-06-30', NULL, 0);
 
 -- ==================
+-- 富士山クライムラン (mtfuji-climb-run-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'mtfuji-climb-run-2026',
+  '富士山クライムラン',
+  'Mt.FUJI CLIMB RUN',
+  '2026-09-13',
+  '19',
+  '富士北麓公園富士山GXスタジアム～吉田口登山道～五合目に至る約12km',
+  'Approximately 12 km from Fuji North Foot Park’s Mt. Fuji GX Stadium to the 5th Station via the Yoshida Trail',
+  'コースは人気上昇中の富士吉田登山道
+平安時代から多くの修験者が富士登山に利用した歴史ある登山道。
+江戸時代には多くの茶屋も並び活況を呈したそう。 近年、外国人登山客がこの登山道の魅力を数多く発信しており、日本人の間でも人気が上昇中。
+樹林帯が続くトレイルを進む気持ちよさは格別です。
+
+1時間50分以内の完走で「富士登山競走山頂コース」挑戦資格ゲット！
+※2027年7月大会
+1時間50分以内（ネットタイム）で完走された方は、2027年7月開催の「第80回富士登山競走 山頂コース」への出場資格を獲得することができます。',
+  'The course follows the increasingly popular Fujiyoshida Trail.
+This historic trail has been used by many ascetic practitioners to climb Mount Fuji since the Heian period.
+It is said to have been bustling with numerous teahouses lining the path during the Edo period. In recent years, foreign hikers have been sharing the trail’s appeal, and its popularity is on the rise among Japanese people as well.
+The feeling of walking along this trail through continuous woodlands is truly exceptional.
+
+Finish in 1 hour and 50 minutes or less to qualify for the “Fuji Mountain Race Summit Course”!
+*July 2027 Event
+Participants who finish within 1 hour and 50 minutes (net time) will qualify to compete in the “80th Fuji Mountain Race Summit Course” to be held in July 2027.
+
+Translated with DeepL.com (free version)',
+  'https://mtfujiclimbrun.com/',
+  NULL,
+  1,
+  0,
+  '2026-04-24',
+  '2026-07-31',
+  'pre_day',
+  '9/12（土）13:00～18:00
+9/13（日） 6:30～各ウェーブのスタート時刻30分前まで',
+  'Saturday, September 12, 1:00 PM – 6:00 PM
+Sunday, September 13, 6:30 AM – 30 minutes before the start time of each wave',
+  '[]',
+  'mtfuji-climb-run-2026.kml',
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '',
+  '',
+  '',
+  '',
+  '2026-04-28T13:53:53.451Z',
+  '2026-04-28T13:53:53.451Z'
+);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
+  ('mtfuji-climb-run-2026', 'other', 12, 180, '09:00', 2000, 15000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('mtfuji-climb-run-2026', '["goods"]', 'オリジナルソフトカップ', 'Original Soft Cup', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('mtfuji-climb-run-2026', NULL, '一般エントリー', 'General Entry', '2026-04-24', '2026-07-31', 15000, 0);
+
+-- ==================
 -- 名古屋ウィメンズマラソン (nagoya-womens-marathon-2026)
 -- ==================
 INSERT OR REPLACE INTO races (
@@ -3193,6 +3266,69 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
   ('shiga-kogen100-2026', NULL, '一般エントリー', 'General Entry', '2026-04-05', '2026-07-27', NULL, 0);
 
 -- ==================
+-- しまだ大井川マラソン (shimada-oigawa-marathon-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'shimada-oigawa-marathon-2026',
+  'しまだ大井川マラソン',
+  'SHIMADA OIGAWA MARATHON',
+  '2026-10-25',
+  '22',
+  '',
+  '',
+  '『箱根八里は馬でも越すが、越すに越されぬ…』とうたわれた大河「大井川」。
+その大河に整備された、全国初のマラソン専用コース「リバティ」を舞台に、
+長距離陸上競技の合宿のメッカである静岡県島田市でフルマラソン大会を開催しております。 制限時間は７時間と初心者にも安心の設定。女性ランナーやゆっくりランナーも全員笑顔でフィニッシュ目指しましょう！',
+  'The Oi River, a mighty waterway celebrated in the saying, “Even a horse can cross the eight-ri stretch of Hakone, but this river cannot be crossed…”
+Set against the backdrop of “Liberty”—Japan’s first dedicated marathon course, built along this great river—
+we host a full marathon in Shimada City, Shizuoka Prefecture, a mecca for long-distance track and field training camps. With a 7-hour time limit, the race is designed to be accessible even for beginners. Let’s all aim to cross the finish line with a smile, whether you’re a female runner or someone taking it easy!
+
+Translated with DeepL.com (free version)',
+  'https://www.shimada-marathon.jp/',
+  NULL,
+  1,
+  0,
+  '2026-05-01',
+  '2026-06-30',
+  'mail',
+  '',
+  '',
+  '[]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '',
+  '',
+  '',
+  '',
+  '2026-04-25T04:12:54.667Z',
+  '2026-04-25T04:12:54.667Z'
+);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
+  ('shimada-oigawa-marathon-2026', 'full', 42.195, 420, '09:00', 6000, 10000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
+  ('shimada-oigawa-marathon-2026', '10k', 10, 90, '10:30', 1500, 5000, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('shimada-oigawa-marathon-2026', '["tshirt","local_product"]', '大会オリジナルTシャツ・島田のお茶', '', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('shimada-oigawa-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-05-01', '2026-06-30', NULL, 0);
+
+-- ==================
 -- 信越五岳トレイルランニングレース (shinetsu5mountains-trail-100-2026)
 -- ==================
 INSERT OR REPLACE INTO races (
@@ -3683,15 +3819,15 @@ INSERT OR REPLACE INTO races (
   '日本最大規模の市民マラソン。東京都庁をスタートし、皇居、浅草、銀座など東京の名所を巡り東京駅前でフィニッシュ。ワールドマラソンメジャーズの一つ。',
   'Japan''s largest citizens'' marathon. Starting from Tokyo Metropolitan Government, passing the Imperial Palace, Asakusa, Ginza, finishing at Tokyo Station. One of the World Marathon Majors.',
   'https://www.marathon.tokyo',
-  23300,
-  0,
+  NULL,
+  1,
   38500,
   '2025-08-15',
   '2025-08-29',
   'pre_day',
   'EXPO会場（東京ビッグサイト）にて前日受付。2/26-28。大会当日の受付なし。',
   'Pre-race registration at EXPO venue (Tokyo Big Sight). Feb 26-28. No registration on race day.',
-  '["大規模","初心者おすすめ","フラット","観光","ワールドメジャーズ","日本陸連公認"]',
+  '["フラット","ワールドメジャーズ","初心者おすすめ","大規模","日本陸連公認","観光"]',
   NULL,
   40,
   3,
@@ -3718,9 +3854,74 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('tokyo-marathon-2026', 'グルメ', '東京駅周辺グルメ', 'Tokyo Station Area Dining', 'フィニッシュ地点の東京駅周辺には多数の飲食店。レース後の打ち上げに最適。', 'Numerous restaurants around Tokyo Station at the finish. Perfect for post-race celebrations.', 'フィニッシュ地点周辺', NULL, 35.6812, 139.7671);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('tokyo-marathon-2026', '["tshirt","medal","towel"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
+  ('tokyo-marathon-2026', '["medal","tshirt","towel"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('tokyo-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-15', '2025-08-29', NULL, 0);
+
+-- ==================
+-- 東京マラソン (tokyo-marathon-2027)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'tokyo-marathon-2027',
+  '東京マラソン',
+  'Tokyo Marathon',
+  '2027-03-07',
+  '13',
+  '新宿区〜千代田区',
+  'Shinjuku to Chiyoda',
+  '日本最大規模の市民マラソン。東京都庁をスタートし、皇居、浅草、銀座など東京の名所を巡り東京駅前でフィニッシュ。ワールドマラソンメジャーズの一つ。',
+  'Japan''s largest citizens'' marathon. Starting from Tokyo Metropolitan Government, passing the Imperial Palace, Asakusa, Ginza, finishing at Tokyo Station. One of the World Marathon Majors.',
+  'https://www.marathon.tokyo',
+  NULL,
+  1,
+  38500,
+  '2026-08-14',
+  '2026-08-28',
+  'pre_day',
+  'EXPO会場（東京ビッグサイト）にて前日受付。2/26-28。大会当日の受付なし。',
+  'Pre-race registration at EXPO venue (Tokyo Big Sight). Feb 26-28. No registration on race day.',
+  '["フラット","ワールドメジャーズ","初心者おすすめ","大規模","日本陸連公認","観光"]',
+  NULL,
+  40,
+  3,
+  37,
+  'road',
+  '["JAAF","AIMS","WMM"]',
+  '東京都庁、皇居、浅草雷門、銀座、東京タワー、東京駅丸の内',
+  'Tokyo Metropolitan Government, Imperial Palace, Asakusa Kaminarimon, Ginza, Tokyo Tower, Tokyo Station Marunouchi',
+  NULL,
+  NULL,
+  '2026-04-27T13:59:53.295Z',
+  '2026-04-27T13:59:53.295Z'
+);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
+  ('tokyo-marathon-2027', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
+  ('tokyo-marathon-2027', '新宿駅', 'Shinjuku Station', 'shinjuku', '新宿駅西口から徒歩約10分でスタート会場（東京都庁前）', '10 min walk from Shinjuku Station West Exit to the start (Tokyo Metropolitan Government)', 35.6896, 139.6999, 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
+  ('tokyo-marathon-2027', '都庁前駅', 'Tochomae Station', 'tochomae', '都営大江戸線都庁前駅直結', 'Direct access from Toei Oedo Line Tochomae Station', 35.6915, 139.6917, 1);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('tokyo-marathon-2027', '観光地', '浅草寺・雷門', 'Sensoji Temple & Kaminarimon', 'コース上を通過する東京を代表する観光名所。外国人ランナーにも人気のスポット。', 'An iconic Tokyo landmark on the course. Popular with international runners.', 'コース上（約15km地点）', NULL, 35.7148, 139.7967);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('tokyo-marathon-2027', '観光地', '皇居', 'Imperial Palace', 'コースの中盤で皇居周辺を通過。普段はランナーの聖地として知られるランニングコース。', 'The course passes near the Imperial Palace in the middle section. Known as a holy ground for runners.', 'コース上（約37km地点）', NULL, 35.6852, 139.7528);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('tokyo-marathon-2027', 'グルメ', '東京駅周辺グルメ', 'Tokyo Station Area Dining', 'フィニッシュ地点の東京駅周辺には多数の飲食店。レース後の打ち上げに最適。', 'Numerous restaurants around Tokyo Station at the finish. Perfect for post-race celebrations.', 'フィニッシュ地点周辺', NULL, 35.6812, 139.7671);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('tokyo-marathon-2027', '["medal","tshirt","towel"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('tokyo-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-08-14', '2026-08-28', NULL, 0);
 
 -- ==================
 -- 富里スイカロードレース (tomisato-suikaroad-2026)

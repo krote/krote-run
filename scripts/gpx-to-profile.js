@@ -191,7 +191,7 @@ async function main() {
 
   let gpxFiles;
   if (targetId) {
-    // .gpx → .kml の順で探す
+    // race ID 指定時は強制再処理（.gpx → .kml の順で探す）
     const candidates = ['.gpx', '.kml'].map((ext) => path.join(GPX_DIR, `${targetId}${ext}`));
     const target = candidates.find((f) => fs.existsSync(f));
     if (!target) {
@@ -200,14 +200,25 @@ async function main() {
     }
     gpxFiles = [target];
   } else {
+    // 引数なし: 出力JSONが未生成のファイルのみ処理
     gpxFiles = fs
       .readdirSync(GPX_DIR)
       .filter((f) => f.endsWith('.gpx') || f.endsWith('.kml'))
+      .filter((f) => {
+        const ext = path.extname(f);
+        const id = path.basename(f, ext);
+        const outputPath = path.join(OUTPUT_DIR, `${id}.json`);
+        if (fs.existsSync(outputPath)) {
+          console.log(`スキップ: ${id} (出力済み)`);
+          return false;
+        }
+        return true;
+      })
       .map((f) => path.join(GPX_DIR, f));
   }
 
   if (gpxFiles.length === 0) {
-    console.log('GPX / KML ファイルが見つかりません。');
+    console.log(targetId ? 'GPX / KML ファイルが見つかりません。' : '処理対象の新規ファイルはありません。');
     return;
   }
 

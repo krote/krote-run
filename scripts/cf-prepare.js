@@ -45,6 +45,8 @@ const assetsCheck = `
             const isStaticAsset =
                 _p.startsWith("/_next/static/") ||
                 _p.startsWith("/_next/image/") ||
+                _p.startsWith("/course-profiles/") ||
+                _p.startsWith("/gpx/") ||
                 /\\.(?:ico|png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot|otf|js\\.map|css\\.map)$/.test(_p);
             if (isStaticAsset) {
                 const _assetResp = await env.ASSETS.fetch(request.clone());

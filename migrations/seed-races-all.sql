@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-04-28T14:42:11.794Z
--- 対象ファイル数: 70 件（既存 2 件はskip）
+-- 生成日時: 2026-04-28T16:59:45.710Z
+-- 対象ファイル数: 71 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -463,6 +463,67 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('ehime-marathon-2026', '["tshirt","medal","towel"]', '大会オリジナルTシャツ、完走メダル、今治タオル（完走者）', 'Official race T-shirt, Finisher medal, Imabari towel (finishers)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('ehime-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-01', '2025-08-19', NULL, 0);
+
+-- ==================
+-- 富士登山競走 (fuji-mountain-race-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'fuji-mountain-race-2026',
+  '富士登山競走',
+  'FUJI MOUNTAIN RACE',
+  '2026-07-24',
+  '19',
+  '富士吉田市',
+  'Fujiyoshida City',
+  '富士登山競走は、毎年7月に山梨県富士吉田市で開催される、市街地から富士山頂（または五合目）を目指す日本屈指の過酷な山岳マラソン大会です。標高差約3,000m（山頂コース）、約15kmの登り（五合目コース）を制限時間内に駆け登る、歴史あるトレイルランニングレースとして知られています',
+  'The Mount Fuji Climbing Race is one of Japan’s most grueling mountain marathons, held every July in Fujiyoshida City, Yamanashi Prefecture, where participants race from the city center to the summit of Mount Fuji (or the Fifth Station). It is renowned as a historic trail running race in which participants must climb an elevation gain of approximately 3,000 meters (Summit Course) or an uphill stretch of about 15 kilometers (Fifth Station Course) within the time limit.',
+  'https://fujimountainrace.city.fujiyoshida.yamanashi.jp/',
+  NULL,
+  1,
+  0,
+  '2026-03-28',
+  '2026-04-06',
+  'mail',
+  '受付不要。事前発送とする。
+申込後の住所変更、その他の変更事項については、必ず事務局へ連絡すること。
+大会当日、ナンバーカード、計測用RSタグを忘れると出走できなくなるので、注意すること。
+（やむを得ず、当日再発行の場合は、別途再発行手数料を徴収する）',
+  'No on-site registration is required. All materials will be sent in advance.
+Please be sure to contact the organizing committee regarding any changes to your address or other details after registration.
+Please note that if you forget your race number or timing chip on the day of the event, you will not be able to participate.
+(If reissuance is unavoidably necessary on the day of the event, a separate reissuance fee will be charged.)',
+  '[]',
+  'fuji-mountain-race-2026.kml',
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '',
+  '',
+  '',
+  '',
+  '2026-04-28T16:44:56.479Z',
+  '2026-04-28T16:44:56.479Z'
+);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
+  ('fuji-mountain-race-2026', 'other', 21, 260, '07:00', 1770, 18000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
+  ('fuji-mountain-race-2026', 'other', 15, 210, '08:30', 1521, 14000, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('fuji-mountain-race-2026', NULL, '一般エントリー', 'General Entry', '2026-03-28', '2026-04-06', NULL, 0);
 
 -- ==================
 -- 富士山マラソン (fujisan-marathon-2026)

@@ -1,0 +1,139 @@
+{
+  "id": "fukuchiyama-marathon-2026",
+  "name_ja": "福知山マラソン",
+  "name_en": "Fukuchiyama Marathon",
+  "full_name_ja": "第34回福知山マラソン",
+  "full_name_en": "34th Fukuchiyama Marathon",
+  "edition": 34,
+  "date": "2026-11-22",
+  "prefecture": "26",
+  "city_ja": "福知山市",
+  "city_en": "Fukuchiyama City",
+  "description_ja": "京都府福知山市で開催される歴史あるフルマラソン。由良川沿いの起伏あるコースが特徴で、ランナーの実力が試される大会として知られる。三段池扶桑化学工業アリーナ西側をスタート・ゴールとする。",
+  "description_en": "A historic full marathon held in Fukuchiyama City, Kyoto Prefecture. Known for its challenging course along the Yura River with rolling hills. Starts and finishes at the west side of Sandaike Fusokagaku Arena.",
+  "official_url": "https://fukuchiyama-marathon.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 5400,
+  "entry_start_date": "2026-05-01",
+  "entry_end_date": "2026-08-31",
+  "reception_type": "pre_day",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [
+    "歴史ある大会",
+    "タフコース",
+    "川沿い",
+    "京都"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "由良川沿い、福知山城周辺",
+    "highlights_en": "Along Yura River, near Fukuchiyama Castle",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 360,
+      "start_time": null,
+      "capacity": 5400,
+      "entry_fee": 11000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "福知山城",
+      "name_en": "Fukuchiyama Castle",
+      "description_ja": "明智光秀が築いた城。天守からは福知山市街と由良川を一望できる。",
+      "description_en": "Castle built by Akechi Mitsuhide. The tower offers a panoramic view of Fukuchiyama and the Yura River.",
+      "distance_from_venue": "福知山市中心部",
+      "url": null,
+      "latitude": 35.3014,
+      "longitude": 135.1183
+    },
+    {
+      "type": "温泉",
+      "name_ja": "天の湯",
+      "name_en": "Ame no Yu Hot Spring",
+      "description_ja": "福知山市内の温泉施設。レース後のリカバリーに利用できる。",
+      "description_en": "Hot spring facility in Fukuchiyama. Available for post-race recovery.",
+      "distance_from_venue": "福知山市内",
+      "url": null,
+      "latitude": 35.2950,
+      "longitude": 135.1200
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "medal",
+        "tshirt"
+      ],
+      "description_ja": "完走メダル、大会オリジナルTシャツ（レイト・直前申込を除く）",
+      "description_en": "Finisher medal, Official race T-shirt (excluding late/last-minute entries)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-04-30T00:00:00Z",
+  "updated_at": "2026-04-30T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、気象データ等は未入力",
+      "参加費は2024年実績からの推定。正式発表後に要更新",
+      "レイト（9/1-9/20）・直前（11/1-11/15）申込は参加賞なし"
+    ],
+    "last_verified": "2026-04-30",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "start_date": "2026-05-01",
+      "end_date": "2026-05-17",
+      "entry_fee": 11000,
+      "label_ja": "早割",
+      "label_en": "Early Bird"
+    },
+    {
+      "start_date": "2026-05-18",
+      "end_date": "2026-08-31",
+      "entry_fee": 11000,
+      "label_ja": "一般",
+      "label_en": "General"
+    },
+    {
+      "start_date": "2026-09-01",
+      "end_date": "2026-09-20",
+      "entry_fee": 11000,
+      "label_ja": "レイト（参加賞なし）",
+      "label_en": "Late (no participation gift)"
+    },
+    {
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-15",
+      "entry_fee": 11000,
+      "label_ja": "直前（参加賞なし）",
+      "label_en": "Last-minute (no participation gift)"
+    }
+  ]
+}

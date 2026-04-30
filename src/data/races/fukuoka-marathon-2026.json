@@ -1,0 +1,128 @@
+{
+  "id": "fukuoka-marathon-2026",
+  "name_ja": "福岡マラソン",
+  "name_en": "Fukuoka Marathon",
+  "full_name_ja": "福岡マラソン2026",
+  "full_name_en": "Fukuoka Marathon 2026",
+  "edition": null,
+  "date": "2026-11-08",
+  "prefecture": "40",
+  "city_ja": "福岡市",
+  "city_en": "Fukuoka City",
+  "description_ja": "福岡市の中心部・天神をスタートし、糸島市までを走るフルマラソン。博多湾や玄界灘を望む海沿いのコースが続き、九州の大自然と都市の景観を同時に楽しめる。",
+  "description_en": "A full marathon starting from Tenjin in central Fukuoka and finishing in Itoshima City. The course runs along the coast with views of Hakata Bay and the Genkai Sea.",
+  "official_url": "https://www.f-marathon.jp/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 13000,
+  "entry_start_date": "2026-04-20",
+  "entry_end_date": "2026-05-20",
+  "reception_type": "pre_day",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [
+    "海沿い",
+    "都市型",
+    "絶景",
+    "九州"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "天神スタート、博多湾沿い、玄界灘、糸島フィニッシュ",
+    "highlights_en": "Tenjin start, Hakata Bay coastline, Genkai Sea, Itoshima finish",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 420,
+      "start_time": "08:20",
+      "capacity": 13000,
+      "entry_fee": 16000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "天神・博多エリア",
+      "name_en": "Tenjin & Hakata Area",
+      "description_ja": "スタート地点の天神は福岡最大の繁華街。大会前後のショッピング・グルメに便利。",
+      "description_en": "Tenjin, the start point, is Fukuoka's largest shopping district. Convenient for pre/post-race dining and shopping.",
+      "distance_from_venue": "スタート地点",
+      "url": null,
+      "latitude": 33.5904,
+      "longitude": 130.3990
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "糸島グルメ",
+      "name_en": "Itoshima Gourmet",
+      "description_ja": "フィニッシュ地点の糸島は新鮮な海産物とカフェが人気のエリア。完走後に楽しめる。",
+      "description_en": "Itoshima, the finish area, is popular for fresh seafood and cafes. Enjoy after completing the race.",
+      "distance_from_venue": "フィニッシュ地点周辺",
+      "url": null,
+      "latitude": 33.5563,
+      "longitude": 130.1968
+    },
+    {
+      "type": "温泉",
+      "name_ja": "二丈温泉きららの湯",
+      "name_en": "Nijo Onsen Kirara no Yu",
+      "description_ja": "糸島・二丈エリアの温泉施設。コース沿いでレース後のリカバリーに最適。",
+      "description_en": "Hot spring facility in the Itoshima/Nijo area. Ideal for post-race recovery near the course.",
+      "distance_from_venue": "糸島市内",
+      "url": null,
+      "latitude": 33.5400,
+      "longitude": 130.1600
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "medal",
+        "tshirt"
+      ],
+      "description_ja": "完走メダル、大会オリジナルTシャツ",
+      "description_en": "Finisher medal, Official race T-shirt",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-04-30T00:00:00Z",
+  "updated_at": "2026-04-30T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、気象データ等は未入力",
+      "参加費・定員は公式サイト掲載情報。正式発表後に要確認"
+    ],
+    "last_verified": "2026-04-30",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "start_date": "2026-04-20",
+      "end_date": "2026-05-20",
+      "entry_fee": 16000,
+      "label_ja": "",
+      "label_en": ""
+    }
+  ]
+}

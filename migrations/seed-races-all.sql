@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-04-28T16:59:45.710Z
--- 対象ファイル数: 71 件（既存 2 件はskip）
+-- 生成日時: 2026-04-30T06:19:38.670Z
+-- 対象ファイル数: 75 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -581,6 +581,71 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('fujisan-marathon-2026', '["medal","tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 
 -- ==================
+-- 福知山マラソン (fukuchiyama-marathon-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'fukuchiyama-marathon-2026',
+  '福知山マラソン',
+  'Fukuchiyama Marathon',
+  '2026-11-22',
+  '26',
+  '福知山市',
+  'Fukuchiyama City',
+  '京都府福知山市で開催される歴史あるフルマラソン。由良川沿いの起伏あるコースが特徴で、ランナーの実力が試される大会として知られる。三段池扶桑化学工業アリーナ西側をスタート・ゴールとする。',
+  'A historic full marathon held in Fukuchiyama City, Kyoto Prefecture. Known for its challenging course along the Yura River with rolling hills. Starts and finishes at the west side of Sandaike Fusokagaku Arena.',
+  'https://fukuchiyama-marathon.com/',
+  NULL,
+  1,
+  5400,
+  '2026-05-01',
+  '2026-08-31',
+  'pre_day',
+  '',
+  '',
+  '["歴史ある大会","タフコース","川沿い","京都"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '由良川沿い、福知山城周辺',
+  'Along Yura River, near Fukuchiyama Castle',
+  NULL,
+  NULL,
+  '2026-04-30T00:00:00Z',
+  '2026-04-30T00:00:00Z'
+);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
+  ('fukuchiyama-marathon-2026', 'full', 42.195, 360, '', 5400, 11000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('fukuchiyama-marathon-2026', '観光地', '福知山城', 'Fukuchiyama Castle', '明智光秀が築いた城。天守からは福知山市街と由良川を一望できる。', 'Castle built by Akechi Mitsuhide. The tower offers a panoramic view of Fukuchiyama and the Yura River.', '福知山市中心部', NULL, 35.3014, 135.1183);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('fukuchiyama-marathon-2026', '温泉', '天の湯', 'Ame no Yu Hot Spring', '福知山市内の温泉施設。レース後のリカバリーに利用できる。', 'Hot spring facility in Fukuchiyama. Available for post-race recovery.', '福知山市内', NULL, 35.295, 135.12);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('fukuchiyama-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ（レイト・直前申込を除く）', 'Finisher medal, Official race T-shirt (excluding late/last-minute entries)', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('fukuchiyama-marathon-2026', NULL, '早割', 'Early Bird', '2026-05-01', '2026-05-17', 11000, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('fukuchiyama-marathon-2026', NULL, '一般', 'General', '2026-05-18', '2026-08-31', 11000, 1);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('fukuchiyama-marathon-2026', NULL, 'レイト（参加賞なし）', 'Late (no participation gift)', '2026-09-01', '2026-09-20', 11000, 2);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('fukuchiyama-marathon-2026', NULL, '直前（参加賞なし）', 'Last-minute (no participation gift)', '2026-11-01', '2026-11-15', 11000, 3);
+
+-- ==================
 -- ふくい桜マラソン (fukui-sakura-marathon-2026)
 -- ==================
 INSERT OR REPLACE INTO races (
@@ -697,6 +762,67 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('fukuoka-international-marathon-2026', 'グルメ', '博多ラーメン・もつ鍋', 'Hakata Ramen & Motsunabe', '福岡を代表するグルメ。中洲や天神の屋台街で楽しめる。', 'Fukuoka''s iconic dishes. Enjoy at street stalls in Nakasu and Tenjin.', '天神・中洲エリア', NULL, 33.5917, 130.4017);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('fukuoka-international-marathon-2026', '["tshirt"]', '大会Tシャツ', 'Race T-shirt', NULL, 0);
+
+-- ==================
+-- 福岡マラソン (fukuoka-marathon-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'fukuoka-marathon-2026',
+  '福岡マラソン',
+  'Fukuoka Marathon',
+  '2026-11-08',
+  '40',
+  '福岡市',
+  'Fukuoka City',
+  '福岡市の中心部・天神をスタートし、糸島市までを走るフルマラソン。博多湾や玄界灘を望む海沿いのコースが続き、九州の大自然と都市の景観を同時に楽しめる。',
+  'A full marathon starting from Tenjin in central Fukuoka and finishing in Itoshima City. The course runs along the coast with views of Hakata Bay and the Genkai Sea.',
+  'https://www.f-marathon.jp/',
+  NULL,
+  1,
+  13000,
+  '2026-04-20',
+  '2026-05-20',
+  'pre_day',
+  '',
+  '',
+  '["海沿い","都市型","絶景","九州"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '天神スタート、博多湾沿い、玄界灘、糸島フィニッシュ',
+  'Tenjin start, Hakata Bay coastline, Genkai Sea, Itoshima finish',
+  NULL,
+  NULL,
+  '2026-04-30T00:00:00Z',
+  '2026-04-30T00:00:00Z'
+);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
+  ('fukuoka-marathon-2026', 'full', 42.195, 420, '08:20', 13000, 16000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('fukuoka-marathon-2026', '観光地', '天神・博多エリア', 'Tenjin & Hakata Area', 'スタート地点の天神は福岡最大の繁華街。大会前後のショッピング・グルメに便利。', 'Tenjin, the start point, is Fukuoka''s largest shopping district. Convenient for pre/post-race dining and shopping.', 'スタート地点', NULL, 33.5904, 130.399);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('fukuoka-marathon-2026', 'グルメ', '糸島グルメ', 'Itoshima Gourmet', 'フィニッシュ地点の糸島は新鮮な海産物とカフェが人気のエリア。完走後に楽しめる。', 'Itoshima, the finish area, is popular for fresh seafood and cafes. Enjoy after completing the race.', 'フィニッシュ地点周辺', NULL, 33.5563, 130.1968);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('fukuoka-marathon-2026', '温泉', '二丈温泉きららの湯', 'Nijo Onsen Kirara no Yu', '糸島・二丈エリアの温泉施設。コース沿いでレース後のリカバリーに最適。', 'Hot spring facility in the Itoshima/Nijo area. Ideal for post-race recovery near the course.', '糸島市内', NULL, 33.54, 130.16);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('fukuoka-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('fukuoka-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-20', '2026-05-20', 16000, 0);
 
 -- ==================
 -- ぐんまマラソン (gunma-marathon-2026)
@@ -1681,6 +1807,67 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('kagoshima-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kagoshima-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-08', '2025-11-16', NULL, 0);
+
+-- ==================
+-- 下関海響マラソン (kaikyo-marathon-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'kaikyo-marathon-2026',
+  '下関海響マラソン',
+  'Kaikyo Marathon Shimonoseki',
+  '2026-11-01',
+  '35',
+  '下関市',
+  'Shimonoseki City',
+  '関門海峡を望む下関で開催されるフルマラソン。海峡沿いの爽快なコースを走り、関門大橋や巌流島など絶景スポットを楽しめる。フグの街・下関ならではのエイドも人気。',
+  'A full marathon in Shimonoseki overlooking the Kanmon Strait. Enjoy scenic views of the Kanmon Bridge and Ganryujima Island. The city''s famous fugu (blowfish) appears as a unique aid station treat.',
+  'https://kaikyomarathon.jp/',
+  NULL,
+  1,
+  10000,
+  '2026-05-15',
+  '2026-07-12',
+  'pre_day',
+  '',
+  '',
+  '["海峡","絶景","ご当地エイド充実","観光"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '関門海峡、関門大橋、巌流島',
+  'Kanmon Strait, Kanmon Bridge, Ganryujima Island',
+  NULL,
+  NULL,
+  '2026-04-30T00:00:00Z',
+  '2026-04-30T00:00:00Z'
+);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
+  ('kaikyo-marathon-2026', 'full', 42.195, 360, '', 10000, 12000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('kaikyo-marathon-2026', '観光地', '唐戸市場', 'Karato Market', '新鮮な海産物が揃う市場。ふぐやかまぼこなど下関名物を堪能できる。', 'A market with fresh seafood. Enjoy Shimonoseki specialties like fugu and kamaboko.', '下関市中心部', NULL, 33.9533, 130.9408);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('kaikyo-marathon-2026', '観光地', '関門海峡（巌流島）', 'Ganryujima Island', '宮本武蔵と佐々木小次郎の決闘の地として有名な島。フェリーで渡れる。', 'Famous as the site of the duel between Miyamoto Musashi and Sasaki Kojiro. Accessible by ferry.', '関門海峡内', NULL, 33.9397, 130.9228);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('kaikyo-marathon-2026', 'グルメ', 'ふくの里', 'Fuku no Sato', '下関名物のふぐ料理を堪能できるエリア。レース後のご褒美食事に最適。', 'Area to enjoy Shimonoseki''s famous fugu cuisine. Perfect post-race reward.', '下関市内', NULL, 33.955, 130.945);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('kaikyo-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('kaikyo-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-05-15', '2026-07-12', 12000, 0);
 
 -- ==================
 -- 金沢マラソン (kanazawa-marathon-2026)
@@ -4277,6 +4464,65 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('tsukuba-marathon-2026', '観光地', '筑波山', 'Mt. Tsukuba', '関東平野にそびえる名山。ロープウェイで山頂へ。コースからも望める。', 'A famous mountain rising from the Kanto Plain. Ropeway to the summit. Visible from the course.', 'つくば市から車約30分', NULL, 36.2253, 140.1);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('tsukuba-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+
+-- ==================
+-- 日本最北端わっかない平和マラソン (wakkanai-peace-marathon-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'wakkanai-peace-marathon-2026',
+  '日本最北端わっかない平和マラソン',
+  'Wakkanai Peace Marathon',
+  '2026-09-06',
+  '01',
+  '稚内市',
+  'Wakkanai City',
+  '日本最北端の地・稚内で開催されるフルマラソン。稚内港北防波堤ドームをスタート・ゴールに、日本海と宗谷岬方面を望む雄大なコースを走る。平和の象徴としての歴史も持つ大会。',
+  'A full marathon held in Wakkanai, the northernmost city in Japan. Starting and finishing at the Wakkanai Port Northern Breakwater Dome, runners enjoy sweeping views of the Sea of Japan and Cape Soya.',
+  'https://wakkanai-marathon.jp/',
+  10000,
+  0,
+  1000,
+  '2026-04-01',
+  '2026-06-30',
+  'race_day',
+  '',
+  '',
+  '["日本最北端","絶景","海沿い","平和"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '稚内港北防波堤ドーム、日本海、宗谷岬方面の眺望',
+  'Wakkanai Port Northern Breakwater Dome, Sea of Japan, views toward Cape Soya',
+  NULL,
+  NULL,
+  '2026-04-30T00:00:00Z',
+  '2026-04-30T00:00:00Z'
+);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
+  ('wakkanai-peace-marathon-2026', 'full', 42.195, 390, '', 1000, 10000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('wakkanai-peace-marathon-2026', '観光地', '宗谷岬', 'Cape Soya', '日本最北端の岬。モニュメントや展望台があり、晴れた日はサハリンも見える。', 'The northernmost point of Japan. On clear days, you can see Sakhalin Island.', '稚内市中心部から約30km', NULL, 45.5234, 141.9347);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('wakkanai-peace-marathon-2026', '温泉', '童夢', 'Domu Hot Spring', '稚内市内の温泉施設。レース後のリカバリーに。', 'Hot spring facility in Wakkanai. Great for post-race recovery.', '稚内市内', NULL, 45.4167, 141.6722);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('wakkanai-peace-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('wakkanai-peace-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-06-30', 10000, 0);
 
 -- ==================
 -- 横浜マラソン (yokohama-marathon-2026)

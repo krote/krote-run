@@ -424,3 +424,10 @@
 - `src/components/layout/Footer.tsx`: フッターのInfoセクションにお問い合わせリンクを追加
 - `docs/schema.md`: contact_submissions テーブルの定義・マイグレーション履歴を追記
 - `package.json`: `resend` パッケージを追加（メール通知用）
+
+## 2026-05-01 サイトマップ追加（Issue #23）
+
+- `src/app/sitemap.ts`: `/sitemap.xml` を自動生成（Next.js MetadataRoute API）。静的9ページ × ja/en + 全大会 × ja/en を出力。`force-dynamic` でD1取得に対応
+- `src/app/[locale]/sitemap/page.tsx`: HTMLサイトマップページ新規作成（メインページ・サービス情報・全大会の3セクション）
+- `src/components/layout/Footer.tsx`: サービス情報セクションにサイトマップリンクを追加
+- `src/messages/ja.json` / `en.json`: `sitemap` 翻訳キー、フッター `sitemap` キーを追加

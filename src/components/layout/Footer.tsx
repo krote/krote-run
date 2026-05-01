@@ -44,6 +44,7 @@ export default function Footer() {
                 <li><Link href="/terms" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('terms')}</Link></li>
                 <li><Link href="/settings" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{tNav('settings')}</Link></li>
                 <li><Link href="/contact" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{tNav('contact')}</Link></li>
+                <li><Link href="/sitemap" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('sitemap')}</Link></li>
               </ul>
             </div>
           </div>

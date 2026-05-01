@@ -79,7 +79,8 @@
       "guide": "初めての方へ",
       "about": "HASHIRUについて",
       "privacy": "プライバシーポリシー",
-      "terms": "利用規約"
+      "terms": "利用規約",
+      "sitemap": "サイトマップ"
     },
     "card": {
       "distance": "距離",
@@ -279,5 +280,11 @@
     "themeSystem": "システム設定に従う",
     "save": "保存する",
     "saved": "保存しました"
+  },
+  "sitemap": {
+    "title": "サイトマップ",
+    "sectionMain": "メインページ",
+    "sectionInfo": "サービス情報",
+    "sectionRaces": "大会一覧"
   }
 }

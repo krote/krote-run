@@ -77,6 +77,18 @@ function generateRaceSQL(r) {
   ${esc(r.updated_at)}
 );`);
 
+  // 子テーブルの既存データを削除（INSERT OR REPLACE が id なしでは重複するため）
+  lines.push(`DELETE FROM race_categories WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM aid_stations WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM checkpoints WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM access_points WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM nearby_spots WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM weather_history WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM participation_gifts WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_entry_links WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_entry_periods WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_results WHERE race_id = ${esc(r.id)};`);
+
   // race_categories
   if (r.categories && r.categories.length > 0) {
     r.categories.forEach((cat, idx) => {

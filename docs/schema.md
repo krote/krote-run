@@ -76,6 +76,7 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | description_en | text | YES | — | |
 | eligibility_ja | text | YES | — | 参加資格（例: `"20歳以上の男女"`） |
 | eligibility_en | text | YES | — | |
+| course_gpx_file | text | YES | — | カテゴリ別GPXファイル名（例: `"nagano-marathon-2026-full.gpx"`） |
 | waves | text | NO | `"[]"` | JSON: `Wave[]` |
 | sort_order | integer | NO | `0` | |
 
@@ -324,3 +325,4 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0004_complex_justin_hammer.sql` | user_races から gcal_race_event_id / gcal_entry_event_ids を削除 |
 | `migrations/0005_boring_corsair.sql` | contact_submissions テーブルを追加 |
 | `migrations/0006_entry_info.sql` | races に entry_closed、race_categories に eligibility_ja/en、race_entry_links テーブルを追加（Issue #37） |
+| `migrations/0007_category_gpx.sql` | race_categories に course_gpx_file カラムを追加 |

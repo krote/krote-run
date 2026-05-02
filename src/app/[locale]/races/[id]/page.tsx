@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -310,35 +311,38 @@ export default async function RaceDetailPage({
               <tbody>
                 {race.categories.map((cat, i) => {
                   const eligibility = locale === 'ja' ? cat.eligibility_ja : cat.eligibility_en;
+                  const isLast = i === race.categories.length - 1;
                   return (
-                    <tr
-                      key={i}
-                      style={{ borderBottom: '1px solid var(--color-border)' }}
-                      className="last:border-0"
-                    >
-                      <td className="py-3 font-medium">
-                        {getCategoryLabel(cat, locale)}
-                        {eligibility && (
-                          <p className="text-xs mt-0.5 font-normal" style={{ color: 'var(--color-mid)' }}>
-                            {eligibility}
-                          </p>
-                        )}
-                      </td>
-                      <td className="py-3 text-right">{cat.distance_km}km</td>
-                      <td className="py-3 text-right">
-                        {cat.time_limit_minutes > 0
-                          ? `${Math.floor(cat.time_limit_minutes / 60)}:${String(cat.time_limit_minutes % 60).padStart(2, '0')}`
-                          : '—'}
-                      </td>
-                      <td className="py-3 text-right">{cat.start_time || '—'}</td>
-                      <td className="py-3 text-right">
-                        {cat.entry_fee
-                          ? formatCurrency(cat.entry_fee)
-                          : race.entry_fee
-                            ? formatCurrency(race.entry_fee)
+                    <Fragment key={i}>
+                      <tr
+                        style={!eligibility ? { borderBottom: isLast ? 'none' : '1px solid var(--color-border)' } : undefined}
+                      >
+                        <td className="py-3 font-medium">{getCategoryLabel(cat, locale)}</td>
+                        <td className="py-3 text-right">{cat.distance_km}km</td>
+                        <td className="py-3 text-right">
+                          {cat.time_limit_minutes > 0
+                            ? `${Math.floor(cat.time_limit_minutes / 60)}:${String(cat.time_limit_minutes % 60).padStart(2, '0')}`
                             : '—'}
-                      </td>
-                    </tr>
+                        </td>
+                        <td className="py-3 text-right">{cat.start_time || '—'}</td>
+                        <td className="py-3 text-right">
+                          {cat.entry_fee
+                            ? formatCurrency(cat.entry_fee)
+                            : race.entry_fee
+                              ? formatCurrency(race.entry_fee)
+                              : '—'}
+                        </td>
+                      </tr>
+                      {eligibility && (
+                        <tr
+                          style={{ borderBottom: isLast ? 'none' : '1px solid var(--color-border)' }}
+                        >
+                          <td colSpan={5} className="pb-3 text-xs whitespace-pre-line" style={{ color: 'var(--color-mid)' }}>
+                            {locale === 'ja' ? '参加資格: ' : 'Eligibility: '}{eligibility}
+                          </td>
+                        </tr>
+                      )}
+                    </Fragment>
                   );
                 })}
               </tbody>
@@ -346,11 +350,22 @@ export default async function RaceDetailPage({
           </Card>
 
           {/* コースプロフィール（地図 + 高低差チャート） */}
-          {race.course_gpx_file && (
+          {race.categories.some((c) => c.course_gpx_file) ? (
+            race.categories
+              .filter((c) => c.course_gpx_file)
+              .map((cat, i) => (
+                <div key={i} className="mb-6">
+                  <p className="text-xs font-semibold uppercase tracking-wide mb-2" style={{ color: 'var(--color-mid)' }}>
+                    {getCategoryLabel(cat, locale)}
+                  </p>
+                  <CourseProfileSection profileKey={cat.course_gpx_file!} locale={locale} />
+                </div>
+              ))
+          ) : race.course_gpx_file ? (
             <div className="mb-4">
-              <CourseProfileSection raceId={id} locale={locale} />
+              <CourseProfileSection profileKey={id} locale={locale} />
             </div>
-          )}
+          ) : null}
 
           {/* Course info */}
           {(race.course_info.max_elevation_m > 0 || race.course_info.highlights_ja) && (
@@ -473,6 +488,17 @@ export default async function RaceDetailPage({
           <SectionLabel>{locale === 'ja' ? 'エントリー' : 'Registration'}</SectionLabel>
           <SectionTitle>{t('applicationPeriod')}</SectionTitle>
           <Card>
+            {/* 受付終了メッセージ */}
+            {!isPast && race.entry_closed && (
+              <p
+                className="text-sm mb-4 px-3 py-2.5 rounded-[3px] leading-relaxed"
+                style={{ background: '#fff8f0', border: '1px solid #f0d9c0', color: '#7a4f1a' }}
+              >
+                {locale === 'ja'
+                  ? '定員に達したため受付を終了しました。最新情報は公式サイトをご確認ください。'
+                  : 'Registration has closed as the event has reached capacity. Please check the official site for the latest information.'}
+              </p>
+            )}
             {/* entry_periods がある場合は一覧表示、ない場合は旧フィールドにフォールバック */}
             {race.entry_periods && race.entry_periods.length > 0 ? (
               <div className="mb-4">

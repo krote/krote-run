@@ -381,18 +381,23 @@ function addCategoryRow(cat = {}, index) {
     </div>
     <div class="field full">
       <label>参加資格（日本語・任意）</label>
-      <input type="text" class="cat-eligibility-ja" value="${(cat.eligibility_ja ?? '').replace(/"/g, '&quot;')}" placeholder="例: 20歳以上の男女、高校生以上" />
+      <textarea class="cat-eligibility-ja" rows="3" placeholder="例: 20歳以上の男女、高校生以上">${(cat.eligibility_ja ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</textarea>
     </div>
     <div class="field full">
       <label>参加資格（English・任意）</label>
-      <input type="text" class="cat-eligibility-en" value="${(cat.eligibility_en ?? '').replace(/"/g, '&quot;')}" placeholder="e.g. Open to men and women aged 20+" />
+      <textarea class="cat-eligibility-en" rows="3" placeholder="e.g. Open to men and women aged 20+">${(cat.eligibility_en ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</textarea>
+    </div>
+    <div class="field full">
+      <label>GPXファイル名（任意）</label>
+      <input type="text" class="cat-gpx-file" value="${(cat.course_gpx_file ?? '').replace(/"/g, '&quot;')}" placeholder="例: nagano-marathon-2026-full.gpx" />
+      <p class="field-hint">ファイルは <code>public/gpx/</code> に配置し、保存後に <code>npm run course:generate</code> を実行してください。</p>
     </div>
   `;
   row.querySelector('.btn-remove-cat').addEventListener('click', () => {
     row.remove();
     markDirty();
   });
-  row.querySelectorAll('input, select').forEach(el => el.addEventListener('change', markDirty));
+  row.querySelectorAll('input, select, textarea').forEach(el => el.addEventListener('change', markDirty));
   container.appendChild(row);
 }
 
@@ -753,6 +758,7 @@ function buildRaceData() {
     name_ja: row.querySelector('.cat-name-ja')?.value.trim() || null,
     eligibility_ja: row.querySelector('.cat-eligibility-ja')?.value.trim() || null,
     eligibility_en: row.querySelector('.cat-eligibility-en')?.value.trim() || null,
+    course_gpx_file: row.querySelector('.cat-gpx-file')?.value.trim() || null,
   }));
 
   // タグ収集

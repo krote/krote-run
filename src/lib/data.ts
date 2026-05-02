@@ -45,6 +45,7 @@ function rowToCategory(row: CategoryRow): RaceCategory {
     description_en: row.description_en ?? null,
     eligibility_ja: row.eligibility_ja ?? null,
     eligibility_en: row.eligibility_en ?? null,
+    course_gpx_file: row.course_gpx_file ?? null,
     waves: parseJson<Wave[] | null>(row.waves, null),
   };
 }

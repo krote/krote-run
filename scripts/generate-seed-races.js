@@ -77,11 +77,23 @@ function generateRaceSQL(r) {
   ${esc(r.updated_at)}
 );`);
 
+  // 子テーブルの既存データを削除（INSERT OR REPLACE が id なしでは重複するため）
+  lines.push(`DELETE FROM race_categories WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM aid_stations WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM checkpoints WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM access_points WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM nearby_spots WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM weather_history WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM participation_gifts WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_entry_links WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_entry_periods WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_results WHERE race_id = ${esc(r.id)};`);
+
   // race_categories
   if (r.categories && r.categories.length > 0) {
     r.categories.forEach((cat, idx) => {
-      lines.push(`INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, waves, sort_order) VALUES
-  (${esc(r.id)}, ${esc(cat.distance_type)}, ${esc(cat.distance_km)}, ${esc(cat.time_limit_minutes || 0)}, ${esc(cat.start_time || '')}, ${esc(cat.capacity || 0)}, ${esc(cat.entry_fee ?? null)}, ${esc(cat.entry_fee_u25 ?? null)}, ${esc(cat.name_ja ?? null)}, ${esc(cat.name_en ?? null)}, ${esc(cat.description_ja ?? null)}, ${esc(cat.description_en ?? null)}, ${esc(cat.eligibility_ja ?? null)}, ${esc(cat.eligibility_en ?? null)}, ${escJson(cat.waves || [])}, ${idx});`);
+      lines.push(`INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  (${esc(r.id)}, ${esc(cat.distance_type)}, ${esc(cat.distance_km)}, ${esc(cat.time_limit_minutes || 0)}, ${esc(cat.start_time || '')}, ${esc(cat.capacity || 0)}, ${esc(cat.entry_fee ?? null)}, ${esc(cat.entry_fee_u25 ?? null)}, ${esc(cat.name_ja ?? null)}, ${esc(cat.name_en ?? null)}, ${esc(cat.description_ja ?? null)}, ${esc(cat.description_en ?? null)}, ${esc(cat.eligibility_ja ?? null)}, ${esc(cat.eligibility_en ?? null)}, ${esc(cat.course_gpx_file ?? null)}, ${escJson(cat.waves || [])}, ${idx});`);
     });
   }
 

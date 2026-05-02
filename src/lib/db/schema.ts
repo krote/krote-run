@@ -25,6 +25,7 @@ export const races = sqliteTable("races", {
   entry_capacity:        integer("entry_capacity").notNull().default(0),
   entry_start_date:      text("entry_start_date"),
   entry_end_date:        text("entry_end_date"),
+  entry_closed:          integer("entry_closed", { mode: "boolean" }).notNull().default(false), // 定員到達等で受付終了
   reception_type:        text("reception_type").notNull().default("race_day"),
   reception_note_ja:     text("reception_note_ja").notNull().default(""),
   reception_note_en:     text("reception_note_en").notNull().default(""),
@@ -65,10 +66,26 @@ export const race_categories = sqliteTable("race_categories", {
   name_en:           text("name_en"),
   description_ja:    text("description_ja"),
   description_en:    text("description_en"),
+  eligibility_ja:    text("eligibility_ja"),               // 参加資格（例: "20歳以上"）
+  eligibility_en:    text("eligibility_en"),
   waves:             text("waves").notNull().default("[]"), // JSON: Wave[]
   sort_order:        integer("sort_order").notNull().default(0),
 }, (t) => [
   index("race_categories_race_id_idx").on(t.race_id),
+]);
+
+// ==================
+// race_entry_links
+// ==================
+
+export const race_entry_links = sqliteTable("race_entry_links", {
+  id:         integer("id").primaryKey({ autoIncrement: true }),
+  race_id:    text("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
+  site_name:  text("site_name").notNull(),                // "RUNNET", "SPORT ENTRY" 等
+  url:        text("url").notNull(),
+  sort_order: integer("sort_order").notNull().default(0),
+}, (t) => [
+  index("race_entry_links_race_id_idx").on(t.race_id),
 ]);
 
 // ==================
@@ -365,7 +382,12 @@ export const racesRelations = relations(races, ({ many, one }) => ({
   weather_history:     many(weather_history),
   participation_gifts: many(participation_gifts),
   entry_periods:       many(race_entry_periods),
+  entry_links:         many(race_entry_links),
   result:              one(race_results, { fields: [races.id], references: [race_results.race_id] }),
+}));
+
+export const raceEntryLinksRelations = relations(race_entry_links, ({ one }) => ({
+  race: one(races, { fields: [race_entry_links.race_id], references: [races.id] }),
 }));
 
 export const raceEntryPeriodsRelations = relations(race_entry_periods, ({ one }) => ({

@@ -81,6 +81,43 @@ describe('getRaceStatus - entry_periods を使用した判定', () => {
   });
 });
 
+describe('getRaceStatus - entry_closed フラグ', () => {
+  it('entry_closed=true のとき "entry_closed" を返す（エントリー期間が有効でも）', () => {
+    const race = makeRace({
+      date: '2026-10-01',
+      entry_closed: true,
+      entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30' })],
+    });
+    expect(getRaceStatus(race)).toBe('entry_closed');
+  });
+
+  it('entry_closed=true のとき "entry_closed" を返す（期間が未来でも）', () => {
+    const race = makeRace({
+      date: '2026-10-01',
+      entry_closed: true,
+      entry_periods: [makeEntryPeriod({ start_date: '2026-05-01', end_date: '2026-07-31' })],
+    });
+    expect(getRaceStatus(race)).toBe('entry_closed');
+  });
+
+  it('entry_closed=true でも race.date が過去なら "past" を返す', () => {
+    const race = makeRace({
+      date: '2026-04-01',
+      entry_closed: true,
+    });
+    expect(getRaceStatus(race)).toBe('past');
+  });
+
+  it('entry_closed=false のとき通常通り entry_periods で判定する', () => {
+    const race = makeRace({
+      date: '2026-10-01',
+      entry_closed: false,
+      entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30' })],
+    });
+    expect(getRaceStatus(race)).toBe('open_entry');
+  });
+});
+
 describe('getRaceStatus - 旧フィールド（entry_start_date / entry_end_date）へのフォールバック', () => {
   it('entry_periods が空で旧フィールドが期間内なら "open_entry" を返す', () => {
     const race = makeRace({

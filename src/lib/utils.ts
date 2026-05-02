@@ -112,6 +112,7 @@ export function formatCurrency(amount: number): string {
 export function getRaceStatus(race: Race): RaceStatus {
   const today = new Date().toISOString().split('T')[0];
   if (race.date < today) return 'past';
+  if (race.entry_closed) return 'entry_closed';
   const periods = race.entry_periods ?? [];
   if (periods.some((p) => p.start_date <= today && p.end_date >= today)) return 'open_entry';
   if (periods.some((p) => p.start_date > today)) return 'entry_not_open';

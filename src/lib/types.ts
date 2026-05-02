@@ -31,6 +31,8 @@ export interface Race {
   entry_capacity: number;
   entry_start_date: string | null;
   entry_end_date: string | null;
+  /** true のとき定員到達等で受付終了（日付に関わらず entry_closed 扱い） */
+  entry_closed: boolean;
   reception_type: ReceptionType;
   reception_note_ja: string;
   reception_note_en: string;
@@ -45,6 +47,7 @@ export interface Race {
   weather_history: WeatherHistory[];
   participation_gifts: ParticipationGift[];
   entry_periods: EntryPeriod[];
+  entry_links: EntryLink[];
   result: RaceResult | null;      // 開催実績（未開催の場合は null）
   created_at: string; // ISO datetime string
   updated_at: string; // ISO datetime string
@@ -85,7 +88,21 @@ export interface RaceCategory {
   name_en: string | null;
   description_ja: string | null;
   description_en: string | null;
+  eligibility_ja: string | null;
+  eligibility_en: string | null;
   waves: Wave[] | null;
+}
+
+// ==================
+// EntryLink
+// ==================
+
+export interface EntryLink {
+  id: number;
+  race_id: string;
+  site_name: string;
+  url: string;
+  sort_order: number;
 }
 
 export type DistanceType = 'full' | 'half' | '10k' | '5k' | 'ultra' | 'other';

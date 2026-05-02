@@ -68,6 +68,7 @@ export const race_categories = sqliteTable("race_categories", {
   description_en:    text("description_en"),
   eligibility_ja:    text("eligibility_ja"),               // 参加資格（例: "20歳以上"）
   eligibility_en:    text("eligibility_en"),
+  course_gpx_file:   text("course_gpx_file"),              // カテゴリ別GPXファイル名
   waves:             text("waves").notNull().default("[]"), // JSON: Wave[]
   sort_order:        integer("sort_order").notNull().default(0),
 }, (t) => [

@@ -69,6 +69,7 @@ export function makeCategory(overrides: Partial<RaceCategory> = {}): RaceCategor
     description_en: null,
     eligibility_ja: null,
     eligibility_en: null,
+    course_gpx_file: null,
     waves: null,
     ...overrides,
   };

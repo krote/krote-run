@@ -6,23 +6,29 @@ import CourseMapLoader from './CourseMapLoader';
 import ElevationChartLoader from './ElevationChartLoader';
 
 interface Props {
-  raceId: string;
+  /** GPXファイル名（例: "nagano-marathon-2026-full.gpx"）またはレースID（拡張子なし）を渡す。拡張子は自動除去 */
+  profileKey: string;
   locale: string;
 }
 
-export default function CourseProfileSection({ raceId, locale }: Props) {
+export default function CourseProfileSection({ profileKey, locale }: Props) {
   const [profile, setProfile] = useState<CourseProfile | null>(null);
   const [error, setError] = useState(false);
 
+  // 拡張子を除去してプロフィールJSONのキーを導出
+  const stem = profileKey.replace(/\.[^.]+$/, '');
+
   useEffect(() => {
-    fetch(`/course-profiles/${raceId}.json`)
+    setProfile(null);
+    setError(false);
+    fetch(`/course-profiles/${stem}.json`)
       .then((res) => {
         if (!res.ok) throw new Error('not found');
         return res.json() as Promise<CourseProfile>;
       })
       .then(setProfile)
       .catch(() => setError(true));
-  }, [raceId]);
+  }, [stem]);
 
   if (error) return null;
 

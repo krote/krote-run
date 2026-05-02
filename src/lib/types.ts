@@ -90,6 +90,7 @@ export interface RaceCategory {
   description_en: string | null;
   eligibility_ja: string | null;
   eligibility_en: string | null;
+  course_gpx_file: string | null;
   waves: Wave[] | null;
 }
 

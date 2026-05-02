@@ -12,7 +12,7 @@
   "description_ja": "茨城県水戸市で開催。偕楽園や千波湖など水戸の名所を巡るコース。",
   "description_en": "Held in Mito City, Ibaraki. Course visits Kairakuen Garden, Lake Senba, and other Mito landmarks.",
   "official_url": "https://www.mitokomon-manyu-marathon.com",
-  "entry_fee": 0,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
   "entry_start_date": "2026-04-16",
@@ -49,7 +49,10 @@
       "name_en": null,
       "description_ja": null,
       "description_en": null,
-      "waves": null
+      "waves": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null
     }
   ],
   "aid_stations": [],
@@ -72,8 +75,8 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "tshirt",
-        "medal"
+        "medal",
+        "tshirt"
       ],
       "description_ja": "大会Tシャツ、完走メダル",
       "description_en": "Race T-shirt, Finisher medal",
@@ -94,11 +97,18 @@
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
       "start_date": "2026-04-16",
       "end_date": "2026-06-30",
-      "entry_fee": null
+      "entry_fee": null,
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry"
+    }
+  ],
+  "entry_closed": true,
+  "entry_links": [
+    {
+      "site_name": "RUNNET",
+      "url": "https://runnet.jp/entry/runtes/user/pc/competitionDetailAction.do?raceId=387694&div=1"
     }
   ]
 }

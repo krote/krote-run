@@ -432,6 +432,19 @@
 - `src/components/layout/Footer.tsx`: サービス情報セクションにサイトマップリンクを追加
 - `src/messages/ja.json` / `en.json`: `sitemap` 翻訳キー、フッター `sitemap` キーを追加
 
+## 2026-05-02 カテゴリ別GPXファイル・地図拡大ボタン・参加資格テキストエリア化
+
+- `migrations/0007_category_gpx.sql`: `race_categories.course_gpx_file` カラム追加
+- `src/lib/db/schema.ts`: `race_categories` に `course_gpx_file` 追加
+- `src/lib/types.ts`: `RaceCategory.course_gpx_file` 追加
+- `src/lib/data.ts`: `rowToCategory` に `course_gpx_file` 追加
+- `src/lib/__tests__/fixtures.ts`: `makeCategory` に `course_gpx_file: null` 追加
+- `scripts/generate-seed-races.js`: categories INSERT に `course_gpx_file` 追加
+- `src/components/course/CourseProfileSection.tsx`: prop を `raceId` → `profileKey` に変更（拡張子自動除去）
+- `src/components/course/CourseMap.tsx`: 拡大/縮小トグルボタンを追加（`invalidateSize` 対応）
+- `tools/admin/app.js`: カテゴリ行に GPX ファイル名入力フィールド追加、参加資格フィールドをテキストエリア化
+- `src/app/[locale]/races/[id]/page.tsx`: カテゴリ別マップ表示（カテゴリ名を見出しに）、フォールバックとしてレース単位GPXを維持
+
 ## 2026-05-02 エントリー情報拡張（Issue #37）
 
 - `migrations/0006_entry_info.sql`: DBマイグレーション追加（entry_closed、eligibility、race_entry_links）

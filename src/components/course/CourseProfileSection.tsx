@@ -19,15 +19,17 @@ export default function CourseProfileSection({ profileKey, locale }: Props) {
   const stem = profileKey.replace(/\.[^.]+$/, '');
 
   useEffect(() => {
-    setProfile(null);
-    setError(false);
+    let ignore = false;
+
     fetch(`/course-profiles/${stem}.json`)
       .then((res) => {
         if (!res.ok) throw new Error('not found');
         return res.json() as Promise<CourseProfile>;
       })
-      .then(setProfile)
-      .catch(() => setError(true));
+      .then((data) => { if (!ignore) setProfile(data); })
+      .catch(() => { if (!ignore) setError(true); });
+
+    return () => { ignore = true; };
   }, [stem]);
 
   if (error) return null;

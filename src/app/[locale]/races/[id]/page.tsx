@@ -119,11 +119,12 @@ export default async function RaceDetailPage({
   const today = new Date().toISOString().split('T')[0];
   const isPast = race.date < today;
   const isEntryOpen =
+    !race.entry_closed &&
     race.entry_start_date !== null &&
     race.entry_end_date !== null &&
     today >= race.entry_start_date &&
     today <= race.entry_end_date;
-  const isNotYetOpen = race.entry_start_date !== null && today < race.entry_start_date;
+  const isNotYetOpen = !race.entry_closed && race.entry_start_date !== null && today < race.entry_start_date;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -216,6 +217,14 @@ export default async function RaceDetailPage({
                 {t('notYetOpen')}
               </span>
             )}
+            {!isPast && race.entry_closed && (
+              <span
+                className="text-xs font-semibold px-3 py-1 rounded-[3px]"
+                style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.7)' }}
+              >
+                {t('entryClosed')}
+              </span>
+            )}
             {isPast && (
               <span
                 className="text-xs font-semibold px-3 py-1 rounded-[3px]"
@@ -299,29 +308,39 @@ export default async function RaceDetailPage({
                 </tr>
               </thead>
               <tbody>
-                {race.categories.map((cat, i) => (
-                  <tr
-                    key={i}
-                    style={{ borderBottom: '1px solid var(--color-border)' }}
-                    className="last:border-0"
-                  >
-                    <td className="py-3 font-medium">{getCategoryLabel(cat, locale)}</td>
-                    <td className="py-3 text-right">{cat.distance_km}km</td>
-                    <td className="py-3 text-right">
-                      {cat.time_limit_minutes > 0
-                        ? `${Math.floor(cat.time_limit_minutes / 60)}:${String(cat.time_limit_minutes % 60).padStart(2, '0')}`
-                        : '—'}
-                    </td>
-                    <td className="py-3 text-right">{cat.start_time || '—'}</td>
-                    <td className="py-3 text-right">
-                      {cat.entry_fee
-                        ? formatCurrency(cat.entry_fee)
-                        : race.entry_fee
-                          ? formatCurrency(race.entry_fee)
+                {race.categories.map((cat, i) => {
+                  const eligibility = locale === 'ja' ? cat.eligibility_ja : cat.eligibility_en;
+                  return (
+                    <tr
+                      key={i}
+                      style={{ borderBottom: '1px solid var(--color-border)' }}
+                      className="last:border-0"
+                    >
+                      <td className="py-3 font-medium">
+                        {getCategoryLabel(cat, locale)}
+                        {eligibility && (
+                          <p className="text-xs mt-0.5 font-normal" style={{ color: 'var(--color-mid)' }}>
+                            {eligibility}
+                          </p>
+                        )}
+                      </td>
+                      <td className="py-3 text-right">{cat.distance_km}km</td>
+                      <td className="py-3 text-right">
+                        {cat.time_limit_minutes > 0
+                          ? `${Math.floor(cat.time_limit_minutes / 60)}:${String(cat.time_limit_minutes % 60).padStart(2, '0')}`
                           : '—'}
-                    </td>
-                  </tr>
-                ))}
+                      </td>
+                      <td className="py-3 text-right">{cat.start_time || '—'}</td>
+                      <td className="py-3 text-right">
+                        {cat.entry_fee
+                          ? formatCurrency(cat.entry_fee)
+                          : race.entry_fee
+                            ? formatCurrency(race.entry_fee)
+                            : '—'}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </Card>
@@ -592,13 +611,30 @@ export default async function RaceDetailPage({
                 <p className="font-medium">{race.entry_capacity.toLocaleString()}{locale === 'ja' ? '人' : ' runners'}</p>
               </div>
             )}
+            {/* エントリーリンク */}
+            {race.entry_links.length > 0 && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {race.entry_links.map((link) => (
+                  <a
+                    key={link.id}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-5 py-2 text-sm font-semibold rounded-[3px] transition-colors no-underline"
+                    style={{ background: 'var(--color-primary)', color: 'white' }}
+                  >
+                    {link.site_name} ↗
+                  </a>
+                ))}
+              </div>
+            )}
             {race.official_url && (
               <a
                 href={race.official_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-5 py-2 text-sm font-semibold rounded-[3px] transition-colors no-underline"
-                style={{ background: 'var(--color-primary)', color: 'white' }}
+                className="inline-block mt-4 px-5 py-2 text-sm font-semibold rounded-[3px] transition-colors no-underline"
+                style={{ background: 'var(--color-cream)', color: 'var(--color-ink)', border: '1px solid var(--color-border)' }}
               >
                 {t('website')} ↗
               </a>

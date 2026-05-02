@@ -1,4 +1,4 @@
-import type { Race, RaceCategory, EntryPeriod } from '../types';
+import type { Race, RaceCategory, EntryPeriod, EntryLink } from '../types';
 
 /** テスト用の最小限 Race オブジェクトを生成するファクトリ */
 export function makeRace(overrides: Partial<Race> = {}): Race {
@@ -21,6 +21,7 @@ export function makeRace(overrides: Partial<Race> = {}): Race {
     entry_capacity: 0,
     entry_start_date: null,
     entry_end_date: null,
+    entry_closed: false,
     reception_type: 'pre_day',
     reception_note_ja: '',
     reception_note_en: '',
@@ -45,6 +46,7 @@ export function makeRace(overrides: Partial<Race> = {}): Race {
     weather_history: [],
     participation_gifts: [],
     entry_periods: [],
+    entry_links: [],
     result: null,
     created_at: '2025-01-01T00:00:00Z',
     updated_at: '2025-01-01T00:00:00Z',
@@ -65,7 +67,20 @@ export function makeCategory(overrides: Partial<RaceCategory> = {}): RaceCategor
     name_en: null,
     description_ja: null,
     description_en: null,
+    eligibility_ja: null,
+    eligibility_en: null,
     waves: null,
+    ...overrides,
+  };
+}
+
+export function makeEntryLink(overrides: Partial<EntryLink> = {}): EntryLink {
+  return {
+    id: 1,
+    race_id: 'test-race-2026',
+    site_name: 'RUNNET',
+    url: 'https://runnet.jp/test',
+    sort_order: 0,
     ...overrides,
   };
 }

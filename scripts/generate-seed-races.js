@@ -34,7 +34,7 @@ function generateRaceSQL(r) {
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -58,6 +58,7 @@ function generateRaceSQL(r) {
   ${esc(r.entry_capacity || 0)},
   ${esc(r.entry_start_date)},
   ${esc(r.entry_end_date)},
+  ${r.entry_closed ? '1' : '0'},
   ${esc(r.reception_type || 'race_day')},
   ${esc(r.reception_note_ja || '')},
   ${esc(r.reception_note_en || '')},
@@ -79,8 +80,8 @@ function generateRaceSQL(r) {
   // race_categories
   if (r.categories && r.categories.length > 0) {
     r.categories.forEach((cat, idx) => {
-      lines.push(`INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  (${esc(r.id)}, ${esc(cat.distance_type)}, ${esc(cat.distance_km)}, ${esc(cat.time_limit_minutes || 0)}, ${esc(cat.start_time || '')}, ${esc(cat.capacity || 0)}, ${esc(cat.entry_fee ?? null)}, ${esc(cat.entry_fee_u25 ?? null)}, ${esc(cat.name_ja ?? null)}, ${esc(cat.name_en ?? null)}, ${esc(cat.description_ja ?? null)}, ${esc(cat.description_en ?? null)}, ${escJson(cat.waves || [])}, ${idx});`);
+      lines.push(`INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, waves, sort_order) VALUES
+  (${esc(r.id)}, ${esc(cat.distance_type)}, ${esc(cat.distance_km)}, ${esc(cat.time_limit_minutes || 0)}, ${esc(cat.start_time || '')}, ${esc(cat.capacity || 0)}, ${esc(cat.entry_fee ?? null)}, ${esc(cat.entry_fee_u25 ?? null)}, ${esc(cat.name_ja ?? null)}, ${esc(cat.name_en ?? null)}, ${esc(cat.description_ja ?? null)}, ${esc(cat.description_en ?? null)}, ${esc(cat.eligibility_ja ?? null)}, ${esc(cat.eligibility_en ?? null)}, ${escJson(cat.waves || [])}, ${idx});`);
     });
   }
 
@@ -129,6 +130,14 @@ function generateRaceSQL(r) {
     r.participation_gifts.forEach((pg, idx) => {
       lines.push(`INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   (${esc(r.id)}, ${escJson(pg.gift_categories)}, ${esc(pg.description_ja || '')}, ${esc(pg.description_en || '')}, ${esc(pg.image)}, ${idx});`);
+    });
+  }
+
+  // race_entry_links
+  if (r.entry_links && r.entry_links.length > 0) {
+    r.entry_links.forEach((el, idx) => {
+      lines.push(`INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
+  (${esc(r.id)}, ${esc(el.site_name)}, ${esc(el.url)}, ${idx});`);
     });
   }
 

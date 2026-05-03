@@ -144,6 +144,26 @@
             <h2 class="section-title">エントリー情報</h2>
             <div id="entry-periods-container"></div>
             <button class="btn btn-secondary" id="btn-add-entry-period">＋ エントリー期間を追加</button>
+
+            <!-- 応募終了フラグ -->
+            <div class="form-grid" style="margin-top:12px;">
+              <div class="field full">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="f-entry_closed" />
+                  <span>受付終了（定員到達等）— チェックすると日付に関わらず「受付終了」扱いになります</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- エントリーリンク -->
+            <div style="margin-top:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                <label style="font-size:13px;font-weight:600;color:var(--mid);">エントリーサイトリンク</label>
+                <button class="btn btn-secondary" id="btn-add-entry-link">＋ リンクを追加</button>
+              </div>
+              <div id="entry-links-container"></div>
+            </div>
+
             <div class="form-grid" style="margin-top:12px;">
               <div class="field">
                 <label>受付方法</label>
@@ -216,6 +236,7 @@
             <div class="field full">
               <label>GPXファイル名</label>
               <input type="text" id="f-course_gpx_file" placeholder="例: nagano-marathon-2026.gpx" />
+              <p class="field-hint">GPXファイルは <code>public/gpx/</code> に配置し、保存後に <code>npm run course:generate</code> を実行するとコースマップが表示されます。ファイル名はレースID（例: <code>nagano-marathon-2026.gpx</code>）に合わせてください。</p>
             </div>
           </section>
 

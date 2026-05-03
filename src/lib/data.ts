@@ -5,7 +5,7 @@ import type {
   Race, Prefecture, GiftCategory, RaceCategory, Wave, CourseInfo,
   AidStation, Checkpoint, AccessPoint, NearbySpot, WeatherHistory,
   ParticipationGift, GiftCategoryId, CourseSurface, ReceptionType, NearbySpotType,
-  RaceSeries, RaceResult, EntryPeriod,
+  RaceSeries, RaceResult, EntryPeriod, EntryLink,
 } from "./types";
 
 // ==================
@@ -43,6 +43,9 @@ function rowToCategory(row: CategoryRow): RaceCategory {
     name_en: row.name_en ?? null,
     description_ja: row.description_ja ?? null,
     description_en: row.description_en ?? null,
+    eligibility_ja: row.eligibility_ja ?? null,
+    eligibility_en: row.eligibility_en ?? null,
+    course_gpx_file: row.course_gpx_file ?? null,
     waves: parseJson<Wave[] | null>(row.waves, null),
   };
 }
@@ -111,6 +114,17 @@ function rowToGift(row: GiftRow): ParticipationGift {
 }
 
 type EntryPeriodRow = typeof schema.race_entry_periods.$inferSelect;
+type EntryLinkRow = typeof schema.race_entry_links.$inferSelect;
+
+function rowToEntryLink(row: EntryLinkRow): EntryLink {
+  return {
+    id: row.id,
+    race_id: row.race_id,
+    site_name: row.site_name,
+    url: row.url,
+    sort_order: row.sort_order,
+  };
+}
 
 function rowToEntryPeriod(row: EntryPeriodRow): EntryPeriod {
   return {
@@ -156,6 +170,7 @@ function assembleRace(
   giftRows: GiftRow[],
   resultRows: ResultRow[] = [],
   entryPeriodRows: EntryPeriodRow[] = [],
+  entryLinkRows: EntryLinkRow[] = [],
 ): Race {
   const course_info: CourseInfo = {
     max_elevation_m: row.course_max_elevation_m,
@@ -188,6 +203,7 @@ function assembleRace(
     entry_capacity: row.entry_capacity,
     entry_start_date: row.entry_start_date,
     entry_end_date: row.entry_end_date,
+    entry_closed: row.entry_closed,
     reception_type: row.reception_type as ReceptionType,
     reception_note_ja: row.reception_note_ja,
     reception_note_en: row.reception_note_en,
@@ -202,6 +218,7 @@ function assembleRace(
     weather_history: weatherRows.map(rowToWeather),
     participation_gifts: giftRows.map(rowToGift),
     entry_periods: entryPeriodRows.map(rowToEntryPeriod),
+    entry_links: entryLinkRows.map(rowToEntryLink),
     result: resultRows.length > 0 ? rowToResult(resultRows[0]) : null,
     created_at: row.created_at,
     updated_at: row.updated_at,
@@ -237,7 +254,7 @@ export async function getRaces(): Promise<Race[]> {
 export async function getRaceById(id: string): Promise<Race | null> {
   const db = getDatabase();
 
-  const [raceRows, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows] =
+  const [raceRows, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows] =
     await db.batch([
       db.select().from(schema.races).where(eq(schema.races.id, id)),
       db.select().from(schema.race_categories).where(eq(schema.race_categories.race_id, id)).orderBy(asc(schema.race_categories.sort_order)),
@@ -249,12 +266,13 @@ export async function getRaceById(id: string): Promise<Race | null> {
       db.select().from(schema.participation_gifts).where(eq(schema.participation_gifts.race_id, id)).orderBy(asc(schema.participation_gifts.sort_order)),
       db.select().from(schema.race_results).where(eq(schema.race_results.race_id, id)),
       db.select().from(schema.race_entry_periods).where(eq(schema.race_entry_periods.race_id, id)).orderBy(asc(schema.race_entry_periods.sort_order)),
+      db.select().from(schema.race_entry_links).where(eq(schema.race_entry_links.race_id, id)).orderBy(asc(schema.race_entry_links.sort_order)),
     ]);
 
   const row = raceRows[0];
   if (!row) return null;
 
-  return assembleRace(row, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows);
+  return assembleRace(row, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows);
 }
 
 export async function getRacesByPrefecture(prefecture: string): Promise<Race[]> {

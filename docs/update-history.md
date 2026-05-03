@@ -425,6 +425,41 @@
 - `docs/schema.md`: contact_submissions テーブルの定義・マイグレーション履歴を追記
 - `package.json`: `resend` パッケージを追加（メール通知用）
 
+## 2026-05-01 サイトマップ追加（Issue #23）
+
+- `src/app/sitemap.ts`: `/sitemap.xml` を自動生成（Next.js MetadataRoute API）。静的9ページ × ja/en + 全大会 × ja/en を出力。`force-dynamic` でD1取得に対応
+- `src/app/[locale]/sitemap/page.tsx`: HTMLサイトマップページ新規作成（メインページ・サービス情報・全大会の3セクション）
+- `src/components/layout/Footer.tsx`: サービス情報セクションにサイトマップリンクを追加
+- `src/messages/ja.json` / `en.json`: `sitemap` 翻訳キー、フッター `sitemap` キーを追加
+
+## 2026-05-02 カテゴリ別GPXファイル・地図拡大ボタン・参加資格テキストエリア化
+
+- `migrations/0007_category_gpx.sql`: `race_categories.course_gpx_file` カラム追加
+- `src/lib/db/schema.ts`: `race_categories` に `course_gpx_file` 追加
+- `src/lib/types.ts`: `RaceCategory.course_gpx_file` 追加
+- `src/lib/data.ts`: `rowToCategory` に `course_gpx_file` 追加
+- `src/lib/__tests__/fixtures.ts`: `makeCategory` に `course_gpx_file: null` 追加
+- `scripts/generate-seed-races.js`: categories INSERT に `course_gpx_file` 追加
+- `src/components/course/CourseProfileSection.tsx`: prop を `raceId` → `profileKey` に変更（拡張子自動除去）
+- `src/components/course/CourseMap.tsx`: 拡大/縮小トグルボタンを追加（`invalidateSize` 対応）
+- `tools/admin/app.js`: カテゴリ行に GPX ファイル名入力フィールド追加、参加資格フィールドをテキストエリア化
+- `src/app/[locale]/races/[id]/page.tsx`: カテゴリ別マップ表示（カテゴリ名を見出しに）、フォールバックとしてレース単位GPXを維持
+
+## 2026-05-02 エントリー情報拡張（Issue #37）
+
+- `migrations/0006_entry_info.sql`: DBマイグレーション追加（entry_closed、eligibility、race_entry_links）
+- `src/lib/db/schema.ts`: `races.entry_closed`、`race_categories.eligibility_ja/en`、`race_entry_links` テーブルを追加
+- `src/lib/types.ts`: `Race.entry_closed`、`Race.entry_links`、`RaceCategory.eligibility_ja/en`、`EntryLink` 型を追加
+- `src/lib/data.ts`: `rowToCategory` に eligibility 追加、`rowToEntryLink`/`EntryLinkRow` 追加、`assembleRace` と `getRaceById` を更新
+- `src/lib/utils.ts`: `getRaceStatus` で `entry_closed` フラグを優先判定するよう変更
+- `src/lib/__tests__/fixtures.ts`: `makeRace`/`makeCategory`/`makeEntryLink` に新フィールドを追加
+- `src/lib/__tests__/utils.status.test.ts`: `entry_closed` 判定のテストを追加（4件）
+- `scripts/generate-seed-races.js`: `entry_closed`、`eligibility_ja/en`、`entry_links` をシードSQLに反映
+- `tools/admin/index.html`: エントリー情報セクションに受付終了チェックボックス・エントリーリンク追加、カテゴリに参加資格フィールド追加
+- `tools/admin/app.js`: `renderEntryLinks`/`addEntryLinkRow`/`collectEntryLinks` 追加、`populateForm`・`addCategoryRow`・`collectData` を更新
+- `src/app/[locale]/races/[id]/page.tsx`: entry_closed バッジ表示、エントリーリンクボタン、カテゴリ参加資格表示を追加
+- `docs/schema.md`: race_entry_links テーブル、entry_closed、eligibility を追記
+
 ## 2026-05-03 デザインリフレッシュ Phase 1（藍×生成り）
 
 - `src/app/globals.css`: カラーパレットを藍（#1d4373）×生成り（#f7f2e7）に全面刷新。`--color-primary` を朱→藍に変更し、`--color-shu` / `--color-asagi` を追加

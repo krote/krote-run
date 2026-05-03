@@ -20,6 +20,7 @@
 			"database_id": "f040020b-5f9f-4d38-907e-3f56b3db38ae"
 		}
 	],
+	// 環境変数（シークレットは Cloudflare Pages ダッシュボードで設定）
 	// R2 バケット（GPXファイル・画像用）
 	// wrangler r2 bucket create krote-run-assets で作成してください
 	"r2_buckets": [

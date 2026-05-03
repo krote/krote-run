@@ -79,7 +79,8 @@
       "guide": "Getting Started",
       "about": "About HASHIRU",
       "privacy": "Privacy Policy",
-      "terms": "Terms of Service"
+      "terms": "Terms of Service",
+      "sitemap": "Sitemap"
     },
     "card": {
       "distance": "Distance",
@@ -279,5 +280,11 @@
     "themeSystem": "Follow system",
     "save": "Save",
     "saved": "Saved!"
+  },
+  "sitemap": {
+    "title": "Sitemap",
+    "sectionMain": "Main Pages",
+    "sectionInfo": "Site Information",
+    "sectionRaces": "Races"
   }
 }

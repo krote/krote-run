@@ -52,6 +52,30 @@ function parseGpx(xml) {
   return points;
 }
 
+// --- KML パーサー ---
+// KML の座標は 経度,緯度,標高 の順（GPX と逆）
+// 複数の LineString セグメントを順番に結合する
+function parseKml(xml) {
+  const points = [];
+  const coordsRegex = /<LineString>[\s\S]*?<coordinates>([\s\S]*?)<\/coordinates>/g;
+  let match;
+  while ((match = coordsRegex.exec(xml)) !== null) {
+    const tuples = match[1].trim().split(/\s+/);
+    for (const tuple of tuples) {
+      const parts = tuple.split(',');
+      if (parts.length < 2) continue;
+      const lng = parseFloat(parts[0]);
+      const lat = parseFloat(parts[1]);
+      const ele = parts.length >= 3 ? parseFloat(parts[2]) : null;
+      if (!isNaN(lat) && !isNaN(lng)) {
+        // KML の標高 0 は未設定扱い（国土地理院APIで補完）
+        points.push({ lat, lng, ele: ele && ele !== 0 ? ele : null });
+      }
+    }
+  }
+  return points;
+}
+
 // --- 国土地理院 標高API ---
 function fetchElevation(lat, lng) {
   return new Promise((resolve) => {
@@ -104,13 +128,14 @@ function downsample(points, maxPoints = 300) {
 
 // --- メイン処理 ---
 async function processGpxFile(gpxPath) {
-  const filename = path.basename(gpxPath, '.gpx'); // e.g. "nagano-marathon-2026"
+  const ext = path.extname(gpxPath); // ".gpx" or ".kml"
+  const filename = path.basename(gpxPath, ext); // e.g. "nagano-marathon-2026"
   const outputPath = path.join(OUTPUT_DIR, `${filename}.json`);
 
-  console.log(`\n処理中: ${filename}`);
+  console.log(`\n処理中: ${filename} (${ext})`);
 
   const xml = fs.readFileSync(gpxPath, 'utf-8');
-  let points = parseGpx(xml);
+  let points = ext === '.kml' ? parseKml(xml) : parseGpx(xml);
 
   if (points.length === 0) {
     console.log('  ⚠ トラックポイントが見つかりませんでした。スキップします。');
@@ -166,21 +191,34 @@ async function main() {
 
   let gpxFiles;
   if (targetId) {
-    const target = path.join(GPX_DIR, `${targetId}.gpx`);
-    if (!fs.existsSync(target)) {
-      console.error(`エラー: ${target} が見つかりません`);
+    // race ID 指定時は強制再処理（.gpx → .kml の順で探す）
+    const candidates = ['.gpx', '.kml'].map((ext) => path.join(GPX_DIR, `${targetId}${ext}`));
+    const target = candidates.find((f) => fs.existsSync(f));
+    if (!target) {
+      console.error(`エラー: ${path.join(GPX_DIR, targetId)}.gpx / .kml が見つかりません`);
       process.exit(1);
     }
     gpxFiles = [target];
   } else {
+    // 引数なし: 出力JSONが未生成のファイルのみ処理
     gpxFiles = fs
       .readdirSync(GPX_DIR)
-      .filter((f) => f.endsWith('.gpx'))
+      .filter((f) => f.endsWith('.gpx') || f.endsWith('.kml'))
+      .filter((f) => {
+        const ext = path.extname(f);
+        const id = path.basename(f, ext);
+        const outputPath = path.join(OUTPUT_DIR, `${id}.json`);
+        if (fs.existsSync(outputPath)) {
+          console.log(`スキップ: ${id} (出力済み)`);
+          return false;
+        }
+        return true;
+      })
       .map((f) => path.join(GPX_DIR, f));
   }
 
   if (gpxFiles.length === 0) {
-    console.log('GPXファイルが見つかりません。');
+    console.log(targetId ? 'GPX / KML ファイルが見つかりません。' : '処理対象の新規ファイルはありません。');
     return;
   }
 

@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-04-16T15:33:58.591Z
--- 対象ファイル数: 67 件（既存 2 件はskip）
+-- 生成日時: 2026-05-02T22:22:42.097Z
+-- 対象ファイル数: 75 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -9,7 +9,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -33,6 +33,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-01',
   '2026-07-16',
+  0,
   'mail',
   '',
   '',
@@ -50,8 +51,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-29T11:38:18.538Z',
   '2026-03-29T11:38:18.538Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('abashiri-marathon-2026', 'full', 42.195, 390, '08:45', 2600, 12000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'abashiri-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'abashiri-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'abashiri-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'abashiri-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'abashiri-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'abashiri-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'abashiri-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'abashiri-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'abashiri-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'abashiri-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('abashiri-marathon-2026', 'full', 42.195, 390, '08:45', 2600, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('abashiri-marathon-2026', '["medal","goods"]', 'YAMAtune製オリジナルソックス、ランニンググローブ、おもてなしブース飲食券', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -64,7 +75,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -88,6 +99,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-01',
   '2026-06-30',
+  0,
   'pre_day',
   '',
   '',
@@ -105,12 +117,22 @@ INSERT OR REPLACE INTO races (
   '2026-03-29T00:00:00Z',
   '2026-03-29T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('akita-nairiku-ultra-2026', 'ultra', 100, 780, '05:00', 650, 22000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('akita-nairiku-ultra-2026', 'ultra', 70, 570, '06:00', 150, 19000, NULL, NULL, NULL, NULL, NULL, '[]', 1);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('akita-nairiku-ultra-2026', 'other', 50, 420, '07:00', 250, 18000, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+DELETE FROM race_categories WHERE race_id = 'akita-nairiku-ultra-2026';
+DELETE FROM aid_stations WHERE race_id = 'akita-nairiku-ultra-2026';
+DELETE FROM checkpoints WHERE race_id = 'akita-nairiku-ultra-2026';
+DELETE FROM access_points WHERE race_id = 'akita-nairiku-ultra-2026';
+DELETE FROM nearby_spots WHERE race_id = 'akita-nairiku-ultra-2026';
+DELETE FROM weather_history WHERE race_id = 'akita-nairiku-ultra-2026';
+DELETE FROM participation_gifts WHERE race_id = 'akita-nairiku-ultra-2026';
+DELETE FROM race_entry_links WHERE race_id = 'akita-nairiku-ultra-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'akita-nairiku-ultra-2026';
+DELETE FROM race_results WHERE race_id = 'akita-nairiku-ultra-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('akita-nairiku-ultra-2026', 'ultra', 100, 780, '05:00', 650, 22000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('akita-nairiku-ultra-2026', 'ultra', 70, 570, '06:00', 150, 19000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('akita-nairiku-ultra-2026', 'other', 50, 420, '07:00', 250, 18000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('akita-nairiku-ultra-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-06-30', NULL, 0);
 
@@ -121,7 +143,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -145,6 +167,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-11-01',
   '2026-01-30',
+  0,
   'mail',
   '',
   '',
@@ -162,12 +185,22 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('aomori-sakura-marathon-2026', 'full', 42.195, 330, '08:50', 2400, 7000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('aomori-sakura-marathon-2026', 'half', 21.09, 180, '09:40', 1500, 5000, NULL, NULL, NULL, NULL, NULL, '[]', 1);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('aomori-sakura-marathon-2026', '10k', 10, 80, '09:10', 1600, 3000, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+DELETE FROM race_categories WHERE race_id = 'aomori-sakura-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'aomori-sakura-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'aomori-sakura-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'aomori-sakura-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'aomori-sakura-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'aomori-sakura-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'aomori-sakura-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'aomori-sakura-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'aomori-sakura-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'aomori-sakura-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('aomori-sakura-marathon-2026', 'full', 42.195, 330, '08:50', 2400, 7000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('aomori-sakura-marathon-2026', 'half', 21.09, 180, '09:40', 1500, 5000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('aomori-sakura-marathon-2026', '10k', 10, 80, '09:10', 1600, 3000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('aomori-sakura-marathon-2026', '観光地', '弘前城・弘前公園', 'Hirosaki Castle & Park', '日本屈指の桜の名所。4月下旬は桜まつりの時期と重なる可能性あり。', 'One of Japan''s top cherry blossom spots. Late April may coincide with the cherry blossom festival.', '青森市から車約1時間', NULL, 40.6072, 140.4639);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -182,7 +215,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -206,6 +239,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-01',
   '2026-07-26',
+  0,
   'pre_day',
   '託児サービスあり',
   'Childcare service available',
@@ -223,10 +257,20 @@ INSERT OR REPLACE INTO races (
   '2026-03-29T00:00:00Z',
   '2026-03-29T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('asahikawa-half-marathon-2026', 'half', 21.0975, 180, '08:30', 2500, 6500, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('asahikawa-half-marathon-2026', '10k', 10, 0, '08:50', 1000, 4500, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+DELETE FROM race_categories WHERE race_id = 'asahikawa-half-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'asahikawa-half-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'asahikawa-half-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'asahikawa-half-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'asahikawa-half-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'asahikawa-half-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'asahikawa-half-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'asahikawa-half-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'asahikawa-half-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'asahikawa-half-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('asahikawa-half-marathon-2026', 'half', 21.0975, 180, '08:30', 2500, 6500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('asahikawa-half-marathon-2026', '10k', 10, 0, '08:50', 1000, 4500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('asahikawa-half-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-07-26', NULL, 0);
 
@@ -237,7 +281,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -261,6 +305,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-08-29',
   '2025-09-11',
+  0,
   'pre_day',
   '',
   '',
@@ -278,8 +323,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-16T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('beppu-oita-marathon-2026', 'full', 42.195, 0, '12:00', 4000, 15000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'beppu-oita-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'beppu-oita-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'beppu-oita-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'beppu-oita-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'beppu-oita-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'beppu-oita-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'beppu-oita-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'beppu-oita-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'beppu-oita-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'beppu-oita-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('beppu-oita-marathon-2026', 'full', 42.195, 0, '12:00', 4000, 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('beppu-oita-marathon-2026', '温泉', '別府温泉', 'Beppu Onsen', '日本一の湧出量を誇る温泉地。地獄めぐりが有名。レース後に様々な泉質の温泉を楽しめる。', 'Japan''s top hot spring area by water output. Famous for ''Hell Tours''. Enjoy various hot spring types after the race.', 'スタート地点付近', NULL, 33.2847, 131.5006);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -296,7 +351,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -320,6 +375,7 @@ INSERT OR REPLACE INTO races (
   7000,
   '2025-08-01',
   '2025-10-31',
+  0,
   'mail',
   '',
   '',
@@ -337,8 +393,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('biwako-marathon-2026', 'full', 42.195, 360, '08:20', 7000, 15000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'biwako-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'biwako-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'biwako-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'biwako-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'biwako-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'biwako-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'biwako-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'biwako-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'biwako-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'biwako-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('biwako-marathon-2026', 'full', 42.195, 360, '08:20', 7000, 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('biwako-marathon-2026', '観光地', '琵琶湖', 'Lake Biwa', '日本最大の湖。コース全体で湖畔を走る。水面に映る比叡山の景色が美しい。', 'Japan''s largest lake. The entire course runs along the lakeshore. Beautiful views of Mt. Hiei reflected on the water.', 'コース上', NULL, 35.3506, 136.0689);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -353,7 +419,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -377,6 +443,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-03-22',
   '2026-04-12',
+  0,
   'mail',
   '一般枠：3/22〜4/12。アスリート・学生・女性・海外枠：3/22〜5/7。レイトエントリー枠：5/31〜6/8。システム利用料別途。',
   'General entry: Mar 22 - Apr 12. Athlete/Student/Women/Overseas entries: Mar 22 - May 7. Late entry: May 31 - Jun 8. System fee applies separately.',
@@ -394,10 +461,20 @@ INSERT OR REPLACE INTO races (
   '2026-03-30T00:00:00Z',
   '2026-03-30T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('chiba-aqualine-marathon-2026', 'full', 42.195, 375, '09:45', 12000, 16500, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('chiba-aqualine-marathon-2026', 'half', 21.0975, 205, '09:45', 5000, 13500, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+DELETE FROM race_categories WHERE race_id = 'chiba-aqualine-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'chiba-aqualine-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'chiba-aqualine-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'chiba-aqualine-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'chiba-aqualine-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'chiba-aqualine-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'chiba-aqualine-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'chiba-aqualine-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'chiba-aqualine-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'chiba-aqualine-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('chiba-aqualine-marathon-2026', 'full', 42.195, 375, '09:45', 12000, 16500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('chiba-aqualine-marathon-2026', 'half', 21.0975, 205, '09:45', 5000, 13500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('chiba-aqualine-marathon-2026', '["medal","tshirt"]', '参加賞Tシャツ、完走メダル', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -412,7 +489,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -436,6 +513,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-08-01',
   '2025-08-19',
+  0,
   'pre_day',
   '',
   '',
@@ -453,8 +531,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('ehime-marathon-2026', 'full', 42.195, 360, '10:00', 10000, 12900, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'ehime-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'ehime-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'ehime-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'ehime-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'ehime-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'ehime-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'ehime-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'ehime-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'ehime-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'ehime-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ehime-marathon-2026', 'full', 42.195, 360, '10:00', 10000, 12900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('ehime-marathon-2026', '温泉', '道後温泉', 'Dogo Onsen', '日本最古の温泉の一つ。フィニッシュ地点から近く、レース後のリカバリーに最適。夏目漱石の「坊ちゃん」の舞台としても有名。', 'One of Japan''s oldest hot springs. Close to the finish and perfect for post-race recovery. Famous as the setting of Natsume Soseki''s ''Botchan''.', 'フィニッシュ付近', NULL, 33.8492, 132.7867);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -465,13 +553,87 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
   ('ehime-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-01', '2025-08-19', NULL, 0);
 
 -- ==================
+-- 富士登山競走 (fuji-mountain-race-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'fuji-mountain-race-2026',
+  '富士登山競走',
+  'FUJI MOUNTAIN RACE',
+  '2026-07-24',
+  '19',
+  '富士吉田市',
+  'Fujiyoshida City',
+  'この山の頂には過酷に挑む価値がある',
+  'The summit of this mountain is well worth the challenge',
+  'https://fujimountainrace.city.fujiyoshida.yamanashi.jp/',
+  NULL,
+  1,
+  0,
+  '2026-03-28',
+  '2026-04-06',
+  1,
+  'mail',
+  '受付不要。事前発送とする。
+申込後の住所変更、その他の変更事項については、必ず事務局へ連絡すること。
+大会当日、ナンバーカード、計測用RSタグを忘れると出走できなくなるので、注意すること。
+（やむを得ず、当日再発行の場合は、別途再発行手数料を徴収する）',
+  'No on-site registration is required. All materials will be sent in advance.
+Please be sure to contact the organizing committee regarding any changes to your address or other details after registration.
+Please note that if you forget your race number or timing chip on the day of the event, you will not be able to participate.
+(If reissuance is unavoidably necessary on the day of the event, a separate reissuance fee will be charged.)',
+  '[]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '',
+  '',
+  '',
+  '',
+  '2026-04-28T16:44:56.479Z',
+  '2026-04-28T16:44:56.479Z'
+);
+DELETE FROM race_categories WHERE race_id = 'fuji-mountain-race-2026';
+DELETE FROM aid_stations WHERE race_id = 'fuji-mountain-race-2026';
+DELETE FROM checkpoints WHERE race_id = 'fuji-mountain-race-2026';
+DELETE FROM access_points WHERE race_id = 'fuji-mountain-race-2026';
+DELETE FROM nearby_spots WHERE race_id = 'fuji-mountain-race-2026';
+DELETE FROM weather_history WHERE race_id = 'fuji-mountain-race-2026';
+DELETE FROM participation_gifts WHERE race_id = 'fuji-mountain-race-2026';
+DELETE FROM race_entry_links WHERE race_id = 'fuji-mountain-race-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'fuji-mountain-race-2026';
+DELETE FROM race_results WHERE race_id = 'fuji-mountain-race-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fuji-mountain-race-2026', 'other', 21, 260, '07:00', 1770, 18000, NULL, '山頂コース', NULL, NULL, NULL, '第76回大会、第77回大会、第78回大会のいずれかにおいて五合目関門（五合目ゴール）通過時間が2時間20分以内の実績のある者。又は、第2回富士山クライムランにおいて五合目ゴール時間が2時間以内の実績がある者とする。 過去(第76回、第77回、第78回)の大会の記録についてはこちらからご確認ください。 第2回富士山クライムランの記録についてはこちらからご確認ください。', 'Participants must have completed the 5th Station checkpoint (5th Station finish) in 2 hours and 20 minutes or less in either the 76th, 77th, or 78th edition of the race. Alternatively, participants must have completed the 5th Station finish in 2 hours or less in the 2nd Mount Fuji Climb Run. Please click here to view records from past editions (76th, 77th, and 78th). Please click here to view records from the 2nd Mt. Fuji Climb Run.  Translated with DeepL.com (free version)', 'fuji-mountain-race-2026.gpx', '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fuji-mountain-race-2026', 'other', 15, 210, '08:30', 1521, 14000, NULL, '五合目コース', NULL, NULL, NULL, NULL, NULL, 'fuji-mountain-race-2026-5gome', '[]', 1);
+INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
+  ('fuji-mountain-race-2026', 'RUNNET', 'https://runnet.jp/parts/2026/386774/entry.html', 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('fuji-mountain-race-2026', NULL, '一般エントリー', 'General Entry', '2026-03-28', '2026-04-06', NULL, 0);
+
+-- ==================
 -- 富士山マラソン (fujisan-marathon-2026)
 -- ==================
 INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -490,11 +652,12 @@ INSERT OR REPLACE INTO races (
   '河口湖・西湖を走るフルマラソン。紅葉の富士山を望む絶景コース。制限時間6時間。',
   'A full marathon around Lake Kawaguchi and Lake Saiko. Spectacular autumn views of Mt. Fuji. 6-hour time limit.',
   'https://mtfujimarathon.com/',
-  0,
+  NULL,
   1,
   0,
   NULL,
   NULL,
+  0,
   'pre_day',
   '',
   '',
@@ -512,12 +675,98 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-16T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('fujisan-marathon-2026', 'full', 42.195, 360, '09:00', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'fujisan-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'fujisan-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'fujisan-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'fujisan-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'fujisan-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'fujisan-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'fujisan-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'fujisan-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'fujisan-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'fujisan-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fujisan-marathon-2026', 'full', 42.195, 360, '09:00', 0, 12900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fujisan-marathon-2026', '温泉', '河口湖温泉', 'Lake Kawaguchi Onsen', '河口湖畔の温泉。富士山を望む露天風呂が魅力。レース後に最適。', 'Hot springs on the shore of Lake Kawaguchi. Open-air baths with Mt. Fuji views.', '会場付近', NULL, 35.51, 138.75);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('fujisan-marathon-2026', '["tshirt","medal","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+  ('fujisan-marathon-2026', '["medal","tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+
+-- ==================
+-- 福知山マラソン (fukuchiyama-marathon-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'fukuchiyama-marathon-2026',
+  '福知山マラソン',
+  'Fukuchiyama Marathon',
+  '2026-11-22',
+  '26',
+  '福知山市',
+  'Fukuchiyama City',
+  '京都府福知山市で開催される歴史あるフルマラソン。由良川沿いの起伏あるコースが特徴で、ランナーの実力が試される大会として知られる。三段池扶桑化学工業アリーナ西側をスタート・ゴールとする。',
+  'A historic full marathon held in Fukuchiyama City, Kyoto Prefecture. Known for its challenging course along the Yura River with rolling hills. Starts and finishes at the west side of Sandaike Fusokagaku Arena.',
+  'https://fukuchiyama-marathon.com/',
+  NULL,
+  1,
+  5400,
+  '2026-05-01',
+  '2026-08-31',
+  0,
+  'pre_day',
+  '',
+  '',
+  '["歴史ある大会","タフコース","川沿い","京都"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '由良川沿い、福知山城周辺',
+  'Along Yura River, near Fukuchiyama Castle',
+  NULL,
+  NULL,
+  '2026-04-30T00:00:00Z',
+  '2026-04-30T00:00:00Z'
+);
+DELETE FROM race_categories WHERE race_id = 'fukuchiyama-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'fukuchiyama-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'fukuchiyama-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'fukuchiyama-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'fukuchiyama-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'fukuchiyama-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'fukuchiyama-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'fukuchiyama-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'fukuchiyama-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'fukuchiyama-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fukuchiyama-marathon-2026', 'full', 42.195, 360, '', 5400, 11000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('fukuchiyama-marathon-2026', '観光地', '福知山城', 'Fukuchiyama Castle', '明智光秀が築いた城。天守からは福知山市街と由良川を一望できる。', 'Castle built by Akechi Mitsuhide. The tower offers a panoramic view of Fukuchiyama and the Yura River.', '福知山市中心部', NULL, 35.3014, 135.1183);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('fukuchiyama-marathon-2026', '温泉', '天の湯', 'Ame no Yu Hot Spring', '福知山市内の温泉施設。レース後のリカバリーに利用できる。', 'Hot spring facility in Fukuchiyama. Available for post-race recovery.', '福知山市内', NULL, 35.295, 135.12);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('fukuchiyama-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ（レイト・直前申込を除く）', 'Finisher medal, Official race T-shirt (excluding late/last-minute entries)', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('fukuchiyama-marathon-2026', NULL, '早割', 'Early Bird', '2026-05-01', '2026-05-17', 11000, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('fukuchiyama-marathon-2026', NULL, '一般', 'General', '2026-05-18', '2026-08-31', 11000, 1);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('fukuchiyama-marathon-2026', NULL, 'レイト（参加賞なし）', 'Late (no participation gift)', '2026-09-01', '2026-09-20', 11000, 2);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('fukuchiyama-marathon-2026', NULL, '直前（参加賞なし）', 'Last-minute (no participation gift)', '2026-11-01', '2026-11-15', 11000, 3);
 
 -- ==================
 -- ふくい桜マラソン (fukui-sakura-marathon-2026)
@@ -526,7 +775,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -550,6 +799,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-09-25',
   '2025-11-10',
+  0,
   'pre_day',
   '',
   '',
@@ -567,12 +817,22 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('fukui-sakura-marathon-2026', 'full', 42.195, 420, '08:30', 13200, 14000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('fukui-sakura-marathon-2026', '5k', 5, 0, '09:15', 1300, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('fukui-sakura-marathon-2026', 'other', 1.5, 0, '09:30', 500, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+DELETE FROM race_categories WHERE race_id = 'fukui-sakura-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'fukui-sakura-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'fukui-sakura-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'fukui-sakura-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'fukui-sakura-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'fukui-sakura-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'fukui-sakura-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'fukui-sakura-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'fukui-sakura-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'fukui-sakura-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fukui-sakura-marathon-2026', 'full', 42.195, 420, '08:30', 13200, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fukui-sakura-marathon-2026', '5k', 5, 0, '09:15', 1300, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fukui-sakura-marathon-2026', 'other', 1.5, 0, '09:30', 500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fukui-sakura-marathon-2026', '観光地', '永平寺', 'Eiheiji Temple', '曹洞宗の大本山。荘厳な修行道場。福井市から車約30分。', 'The head temple of Soto Zen. A solemn training monastery. About 30 min by car from Fukui city.', '福井市から車約30分', NULL, 36.0833, 136.35);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -589,7 +849,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -613,6 +873,7 @@ INSERT OR REPLACE INTO races (
   0,
   NULL,
   NULL,
+  0,
   'pre_day',
   '',
   '',
@@ -630,12 +891,94 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-16T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('fukuoka-international-marathon-2026', 'full', 42.195, 155, '12:10', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'fukuoka-international-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'fukuoka-international-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'fukuoka-international-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'fukuoka-international-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'fukuoka-international-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'fukuoka-international-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'fukuoka-international-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'fukuoka-international-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'fukuoka-international-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'fukuoka-international-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fukuoka-international-marathon-2026', 'full', 42.195, 155, '12:10', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fukuoka-international-marathon-2026', 'グルメ', '博多ラーメン・もつ鍋', 'Hakata Ramen & Motsunabe', '福岡を代表するグルメ。中洲や天神の屋台街で楽しめる。', 'Fukuoka''s iconic dishes. Enjoy at street stalls in Nakasu and Tenjin.', '天神・中洲エリア', NULL, 33.5917, 130.4017);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('fukuoka-international-marathon-2026', '["tshirt"]', '大会Tシャツ', 'Race T-shirt', NULL, 0);
+
+-- ==================
+-- 福岡マラソン (fukuoka-marathon-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'fukuoka-marathon-2026',
+  '福岡マラソン',
+  'Fukuoka Marathon',
+  '2026-11-08',
+  '40',
+  '福岡市',
+  'Fukuoka City',
+  '福岡市の中心部・天神をスタートし、糸島市までを走るフルマラソン。博多湾や玄界灘を望む海沿いのコースが続き、九州の大自然と都市の景観を同時に楽しめる。',
+  'A full marathon starting from Tenjin in central Fukuoka and finishing in Itoshima City. The course runs along the coast with views of Hakata Bay and the Genkai Sea.',
+  'https://www.f-marathon.jp/',
+  NULL,
+  1,
+  13000,
+  '2026-04-20',
+  '2026-05-20',
+  0,
+  'pre_day',
+  '',
+  '',
+  '["海沿い","都市型","絶景","九州"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '天神スタート、博多湾沿い、玄界灘、糸島フィニッシュ',
+  'Tenjin start, Hakata Bay coastline, Genkai Sea, Itoshima finish',
+  NULL,
+  NULL,
+  '2026-04-30T00:00:00Z',
+  '2026-04-30T00:00:00Z'
+);
+DELETE FROM race_categories WHERE race_id = 'fukuoka-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'fukuoka-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'fukuoka-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'fukuoka-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'fukuoka-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'fukuoka-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'fukuoka-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'fukuoka-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'fukuoka-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'fukuoka-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fukuoka-marathon-2026', 'full', 42.195, 420, '08:20', 13000, 16000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('fukuoka-marathon-2026', '観光地', '天神・博多エリア', 'Tenjin & Hakata Area', 'スタート地点の天神は福岡最大の繁華街。大会前後のショッピング・グルメに便利。', 'Tenjin, the start point, is Fukuoka''s largest shopping district. Convenient for pre/post-race dining and shopping.', 'スタート地点', NULL, 33.5904, 130.399);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('fukuoka-marathon-2026', 'グルメ', '糸島グルメ', 'Itoshima Gourmet', 'フィニッシュ地点の糸島は新鮮な海産物とカフェが人気のエリア。完走後に楽しめる。', 'Itoshima, the finish area, is popular for fresh seafood and cafes. Enjoy after completing the race.', 'フィニッシュ地点周辺', NULL, 33.5563, 130.1968);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('fukuoka-marathon-2026', '温泉', '二丈温泉きららの湯', 'Nijo Onsen Kirara no Yu', '糸島・二丈エリアの温泉施設。コース沿いでレース後のリカバリーに最適。', 'Hot spring facility in the Itoshima/Nijo area. Ideal for post-race recovery near the course.', '糸島市内', NULL, 33.54, 130.16);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('fukuoka-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('fukuoka-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-20', '2026-05-20', 16000, 0);
 
 -- ==================
 -- ぐんまマラソン (gunma-marathon-2026)
@@ -644,7 +987,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -668,6 +1011,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-09',
   '2026-08-17',
+  0,
   'mail',
   '参加者には、アスリートビブス、計測チップ、参加マニュアル等を申込時の住所に事前に発送します（10月下旬発送予定）。大会前日・当日の受付は行いません。
 
@@ -695,10 +1039,20 @@ If you are unable to participate after registering, you do not need to contact u
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('gunma-marathon-2026', 'full', 42.195, 360, '08:55', 5500, 13500, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('gunma-marathon-2026', '10k', 10, 90, '10:00', 4000, 6500, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+DELETE FROM race_categories WHERE race_id = 'gunma-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'gunma-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'gunma-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'gunma-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'gunma-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'gunma-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'gunma-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'gunma-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'gunma-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'gunma-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('gunma-marathon-2026', 'full', 42.195, 360, '08:55', 5500, 13500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('gunma-marathon-2026', '10k', 10, 90, '10:00', 4000, 6500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('gunma-marathon-2026', '温泉', '伊香保温泉', 'Ikaho Onsen', '石段街で有名な群馬の温泉地。黄金の湯と白銀の湯の2種。前橋から車約40分。', 'Famous for its stone steps. Two types of springs: Golden and Silver. About 40 min by car from Maebashi.', '前橋市から車約40分', 'https://www.ikaho-kankou.com/', 36.4886, 138.9311);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -717,7 +1071,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -741,6 +1095,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-02-01',
   '2026-03-31',
+  0,
   'pre_day',
   'エントリー期間：2026年2月1日〜3月31日。',
   'Entry period: Feb 1 – Mar 31, 2026.',
@@ -758,12 +1113,22 @@ INSERT OR REPLACE INTO races (
   '2026-03-30T00:00:00Z',
   '2026-03-30T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('higashine-sakuranbo-marathon-2026', 'half', 21.0975, 170, '08:40', 5500, 6000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('higashine-sakuranbo-marathon-2026', '10k', 10, 95, '09:15', 2000, 6000, NULL, NULL, NULL, NULL, NULL, '[]', 1);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('higashine-sakuranbo-marathon-2026', 'other', 5, 50, '08:05', 1500, 5500, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+DELETE FROM race_categories WHERE race_id = 'higashine-sakuranbo-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'higashine-sakuranbo-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'higashine-sakuranbo-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'higashine-sakuranbo-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'higashine-sakuranbo-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'higashine-sakuranbo-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'higashine-sakuranbo-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'higashine-sakuranbo-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'higashine-sakuranbo-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'higashine-sakuranbo-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('higashine-sakuranbo-marathon-2026', 'half', 21.0975, 170, '08:40', 5500, 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('higashine-sakuranbo-marathon-2026', '10k', 10, 95, '09:15', 2000, 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('higashine-sakuranbo-marathon-2026', 'other', 5, 50, '08:05', 1500, 5500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('higashine-sakuranbo-marathon-2026', '["tshirt","local_product","food"]', 'さくらんぼ「佐藤錦」、山形県産米おにぎり、大会記念Ｔシャツ、冷凍フルーツ（予定）', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -776,7 +1141,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -800,6 +1165,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-01',
   '2026-08-17',
+  0,
   'pre_day',
   '',
   '',
@@ -817,10 +1183,20 @@ INSERT OR REPLACE INTO races (
   '2026-03-29T00:00:00Z',
   '2026-03-29T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('higashinipon-half-marathon-2026', 'half', 21.0975, 180, '09:00', 4000, 5500, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('higashinipon-half-marathon-2026', 'other', 8, 70, '09:30', 1000, 3500, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+DELETE FROM race_categories WHERE race_id = 'higashinipon-half-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'higashinipon-half-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'higashinipon-half-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'higashinipon-half-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'higashinipon-half-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'higashinipon-half-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'higashinipon-half-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'higashinipon-half-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'higashinipon-half-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'higashinipon-half-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('higashinipon-half-marathon-2026', 'half', 21.0975, 180, '09:00', 4000, 5500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('higashinipon-half-marathon-2026', 'other', 8, 70, '09:30', 1000, 3500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('higashinipon-half-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-08-17', NULL, 0);
 
@@ -831,7 +1207,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -855,6 +1231,7 @@ INSERT OR REPLACE INTO races (
   9000,
   '2025-08-04',
   '2025-10-31',
+  0,
   'pre_day',
   '',
   '',
@@ -872,8 +1249,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('himeji-castle-marathon-2026', 'full', 42.195, 360, '', 9000, 0, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'himeji-castle-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'himeji-castle-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'himeji-castle-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'himeji-castle-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'himeji-castle-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'himeji-castle-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'himeji-castle-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'himeji-castle-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'himeji-castle-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'himeji-castle-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('himeji-castle-marathon-2026', 'full', 42.195, 360, '', 9000, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('himeji-castle-marathon-2026', '観光地', '姫路城', 'Himeji Castle', '世界遺産・国宝の白鷺城。日本で最も美しい城の一つ。コース上から望める。', 'A World Heritage and National Treasure. One of Japan''s most beautiful castles. Visible from the course.', 'コース上', NULL, 34.8394, 134.6939);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -888,7 +1275,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -916,6 +1303,7 @@ With the scenery and the sea breeze pushing you forward, you can fully savor the
   0,
   '2026-04-13',
   '2026-08-31',
+  0,
   'mail',
   '大会当日の受付はありません。10月末（予定）にアスリートビブス・ランナーズチップ等を郵送いたしますので、忘れずにお持ちください',
   'There will be no on-site registration on the day of the event. We will mail your race bibs, timing chips, and other items by the end of October (tentative), so please be sure to bring them with you.',
@@ -933,8 +1321,18 @@ With the scenery and the sea breeze pushing you forward, you can fully savor the
   '2026-04-11T14:28:19.021Z',
   '2026-04-11T14:28:19.021Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('hitachi-seaside-marathon-2026', 'full', 42.195, 360, '10:00', 6000, 10000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'hitachi-seaside-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'hitachi-seaside-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'hitachi-seaside-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'hitachi-seaside-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'hitachi-seaside-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'hitachi-seaside-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'hitachi-seaside-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'hitachi-seaside-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'hitachi-seaside-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'hitachi-seaside-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('hitachi-seaside-marathon-2026', 'full', 42.195, 360, '10:00', 6000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('hitachi-seaside-marathon-2026', '["medal","towel"]', '出走特典
 （タオル）
@@ -951,7 +1349,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -975,6 +1373,7 @@ INSERT OR REPLACE INTO races (
   0,
   NULL,
   NULL,
+  0,
   'pre_day',
   '',
   '',
@@ -992,8 +1391,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-16T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('hofu-yomiuri-marathon-2026', 'full', 42.195, 240, '12:03', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'hofu-yomiuri-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'hofu-yomiuri-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'hofu-yomiuri-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'hofu-yomiuri-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'hofu-yomiuri-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'hofu-yomiuri-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'hofu-yomiuri-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'hofu-yomiuri-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'hofu-yomiuri-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'hofu-yomiuri-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('hofu-yomiuri-marathon-2026', 'full', 42.195, 240, '12:03', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('hofu-yomiuri-marathon-2026', '観光地', '防府天満宮', 'Hofu Tenmangu', '日本三大天神の一つ。学問の神様・菅原道真を祀る。コース付近。', 'One of Japan''s three great Tenmangu shrines. Enshrines Sugawara no Michizane, deity of learning.', 'コース付近', NULL, 34.0478, 131.5711);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -1006,7 +1415,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1030,6 +1439,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-03-29',
   '2026-04-24',
+  0,
   'pre_day',
   '',
   '',
@@ -1047,8 +1457,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('hokkaido-marathon-2026', 'full', 42.195, 360, '08:30', 20000, 16500, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'hokkaido-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'hokkaido-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'hokkaido-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'hokkaido-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'hokkaido-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'hokkaido-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'hokkaido-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'hokkaido-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'hokkaido-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'hokkaido-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('hokkaido-marathon-2026', 'full', 42.195, 360, '08:30', 20000, 16500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('hokkaido-marathon-2026', '観光地', '大通公園', 'Odori Park', 'スタート・フィニッシュ地点。札幌を代表する都市公園。大会当日は大きな声援で包まれる。', 'Start/Finish area. Sapporo''s iconic urban park. Filled with cheers on race day.', 'スタート・フィニッシュ地点', NULL, 43.0589, 141.3476);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -1067,7 +1487,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1091,6 +1511,7 @@ INSERT OR REPLACE INTO races (
   0,
   NULL,
   '2025-10-19',
+  0,
   'race_day',
   'アスリートビブスは事前郵送。記念品引換は前日・当日に総合体育館にて。',
   'Bibs mailed in advance. Gift exchange at gymnasium the day before and on race day.',
@@ -1108,8 +1529,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-16T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('ibusuki-nanohana-2026', 'full', 42.195, 480, '09:00', 10000, 10000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'ibusuki-nanohana-2026';
+DELETE FROM aid_stations WHERE race_id = 'ibusuki-nanohana-2026';
+DELETE FROM checkpoints WHERE race_id = 'ibusuki-nanohana-2026';
+DELETE FROM access_points WHERE race_id = 'ibusuki-nanohana-2026';
+DELETE FROM nearby_spots WHERE race_id = 'ibusuki-nanohana-2026';
+DELETE FROM weather_history WHERE race_id = 'ibusuki-nanohana-2026';
+DELETE FROM participation_gifts WHERE race_id = 'ibusuki-nanohana-2026';
+DELETE FROM race_entry_links WHERE race_id = 'ibusuki-nanohana-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'ibusuki-nanohana-2026';
+DELETE FROM race_results WHERE race_id = 'ibusuki-nanohana-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ibusuki-nanohana-2026', 'full', 42.195, 480, '09:00', 10000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
   ('ibusuki-nanohana-2026', 7, '水、スポーツドリンク、さつまいも', 'Water, sports drink, sweet potato', 1);
 INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
@@ -1134,7 +1565,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1158,6 +1589,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-01',
   '2026-06-30',
+  0,
   'pre_day',
   '',
   '',
@@ -1175,10 +1607,20 @@ INSERT OR REPLACE INTO races (
   '2026-03-29T00:00:00Z',
   '2026-03-29T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('ichinoseki-half-marathon-2026', 'half', 21.0975, 170, '09:00', 2000, 6000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('ichinoseki-half-marathon-2026', '10k', 10, 85, '09:00', 500, 6000, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+DELETE FROM race_categories WHERE race_id = 'ichinoseki-half-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'ichinoseki-half-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'ichinoseki-half-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'ichinoseki-half-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'ichinoseki-half-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'ichinoseki-half-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'ichinoseki-half-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'ichinoseki-half-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'ichinoseki-half-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'ichinoseki-half-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ichinoseki-half-marathon-2026', 'half', 21.0975, 170, '09:00', 2000, 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ichinoseki-half-marathon-2026', '10k', 10, 85, '09:00', 500, 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('ichinoseki-half-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-06-30', NULL, 0);
 
@@ -1189,7 +1631,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1213,6 +1655,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-10',
   '2026-07-17',
+  0,
   'mail',
   'ゼッケン・計測タグ・参加賞等を事前発送します。前日受付は行いません',
   'Race bibs, timing tags, and participation prizes will be sent out in advance. There will be no registration the day before the event.',
@@ -1230,10 +1673,20 @@ INSERT OR REPLACE INTO races (
   '2026-04-05T08:19:26.353Z',
   '2026-04-05T08:19:26.353Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('iki-ultra-marathon-2026', 'ultra', 100, 840, '05:00', 1000, 20000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('iki-ultra-marathon-2026', 'ultra', 50, 480, '10:30', 1000, 15000, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+DELETE FROM race_categories WHERE race_id = 'iki-ultra-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'iki-ultra-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'iki-ultra-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'iki-ultra-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'iki-ultra-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'iki-ultra-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'iki-ultra-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'iki-ultra-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'iki-ultra-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'iki-ultra-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('iki-ultra-marathon-2026', 'ultra', 100, 840, '05:00', 1000, 20000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('iki-ultra-marathon-2026', 'ultra', 50, 480, '10:30', 1000, 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('iki-ultra-marathon-2026', '["tshirt"]', 'オリジナルTシャツ', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -1246,7 +1699,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1270,6 +1723,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-08-01',
   '2025-11-24',
+  0,
   'pre_day',
   '',
   '',
@@ -1287,10 +1741,20 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('itabashi-city-marathon-2026', 'full', 42.195, 420, '09:00', 10000, 11550, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('itabashi-city-marathon-2026', '5k', 5, 60, '', 1000, 3000, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+DELETE FROM race_categories WHERE race_id = 'itabashi-city-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'itabashi-city-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'itabashi-city-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'itabashi-city-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'itabashi-city-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'itabashi-city-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'itabashi-city-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'itabashi-city-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'itabashi-city-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'itabashi-city-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('itabashi-city-marathon-2026', 'full', 42.195, 420, '09:00', 10000, 11550, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('itabashi-city-marathon-2026', '5k', 5, 60, '', 1000, 3000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('itabashi-city-marathon-2026', '観光地', '荒川河川敷', 'Arakawa Riverbank', 'フラットな河川敷コース。記録を狙うランナーに人気の定番コース。', 'A flat riverbank course. A classic course popular with runners aiming for personal records.', 'コース上', NULL, 35.7917, 139.675);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -1305,7 +1769,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1329,6 +1793,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-09-12',
   '2025-10-15',
+  0,
   'pre_day',
   '',
   '',
@@ -1346,14 +1811,24 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('iwaki-sunshine-marathon-2026', 'full', 42.195, 360, '', 5000, 9000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('iwaki-sunshine-marathon-2026', '10k', 10, 0, '', 900, 4500, NULL, NULL, NULL, NULL, NULL, '[]', 1);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('iwaki-sunshine-marathon-2026', '5k', 5, 0, '', 500, 4500, NULL, NULL, NULL, NULL, NULL, '[]', 2);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('iwaki-sunshine-marathon-2026', 'other', 2, 0, '', 400, 1500, NULL, NULL, NULL, NULL, NULL, '[]', 3);
+DELETE FROM race_categories WHERE race_id = 'iwaki-sunshine-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'iwaki-sunshine-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'iwaki-sunshine-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'iwaki-sunshine-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'iwaki-sunshine-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'iwaki-sunshine-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'iwaki-sunshine-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'iwaki-sunshine-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'iwaki-sunshine-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'iwaki-sunshine-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('iwaki-sunshine-marathon-2026', 'full', 42.195, 360, '', 5000, 9000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('iwaki-sunshine-marathon-2026', '10k', 10, 0, '', 900, 4500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('iwaki-sunshine-marathon-2026', '5k', 5, 0, '', 500, 4500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('iwaki-sunshine-marathon-2026', 'other', 2, 0, '', 400, 1500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 3);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('iwaki-sunshine-marathon-2026', '温泉', 'いわき湯本温泉', 'Iwaki Yumoto Onsen', 'いわき市の歴史ある温泉地。レース後のリカバリーに。', 'A historic hot spring in Iwaki. For post-race recovery.', 'いわき市内', NULL, 36.9744, 140.8456);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -1368,7 +1843,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1418,6 +1893,7 @@ Translated with DeepL.com (free version)',
   0,
   '2026-04-01',
   '2026-07-20',
+  0,
   'pre_day',
   '前日の2026年10月3日（土）10時から18時まできたぎんボールパーク（盛岡市永井７地割16番地２）で参加者受付を行います。受付時にアスリートビブス、計測チップ及び参加案内等をお渡しします。なお、再発行や大会当日の受付は行いません。
 +600円で事前送付とすることが出来る',
@@ -1439,8 +1915,18 @@ Translated with DeepL.com (free version)',
   '2026-04-16T15:23:52.019Z',
   '2026-04-16T15:23:52.019Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('iwate-morioka-city-marathon-2026', 'full', 42.195, 360, '09:00', 6000, 12000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'iwate-morioka-city-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'iwate-morioka-city-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'iwate-morioka-city-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'iwate-morioka-city-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'iwate-morioka-city-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'iwate-morioka-city-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'iwate-morioka-city-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'iwate-morioka-city-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'iwate-morioka-city-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'iwate-morioka-city-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('iwate-morioka-city-marathon-2026', 'full', 42.195, 360, '09:00', 6000, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('iwate-morioka-city-marathon-2026', '["medal","towel"]', '完走賞	フィニッシャータオル、南部鉄器製完走メダル', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -1453,7 +1939,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1477,6 +1963,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-11-28',
   '2026-02-15',
+  0,
   'pre_day',
   '',
   '',
@@ -1494,10 +1981,20 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('iwate-oshu-kirameki-marathon-2026', 'full', 42.195, 360, '08:30', 3000, 10000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('iwate-oshu-kirameki-marathon-2026', '10k', 10, 90, '08:45', 1000, 3000, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+DELETE FROM race_categories WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('iwate-oshu-kirameki-marathon-2026', 'full', 42.195, 360, '08:30', 3000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('iwate-oshu-kirameki-marathon-2026', '10k', 10, 90, '08:45', 1000, 3000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('iwate-oshu-kirameki-marathon-2026', '観光地', '中尊寺金色堂', 'Chusonji Konjikido', '世界遺産・平泉。奥州藤原氏の栄華を伝える。奥州市から車約30分。', 'World Heritage Hiraizumi. Tells of the glory of the Oshu Fujiwara clan. About 30 min by car from Oshu.', '奥州市から車約30分', NULL, 39, 141.1);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -1512,7 +2009,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1536,6 +2033,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-10-06',
   '2025-11-24',
+  0,
   'pre_day',
   '',
   '',
@@ -1553,8 +2051,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('kagawa-marathon-2026', 'full', 42.195, 360, '10:00', 10000, 14000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'kagawa-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'kagawa-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'kagawa-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'kagawa-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'kagawa-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'kagawa-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'kagawa-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'kagawa-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'kagawa-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'kagawa-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kagawa-marathon-2026', 'full', 42.195, 360, '10:00', 10000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kagawa-marathon-2026', 'グルメ', '讃岐うどん', 'Sanuki Udon', '香川を代表するご当地グルメ。コシの強い麺とシンプルなだしが特徴。市内に多数の名店。', 'Kagawa''s signature dish. Characterized by chewy noodles and simple broth. Many famous shops in the city.', '高松市内各所', NULL, 34.3403, 134.0472);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -1569,7 +2077,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1593,6 +2101,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-08-08',
   '2025-11-16',
+  0,
   'pre_day',
   '',
   '',
@@ -1610,8 +2119,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('kagoshima-marathon-2026', 'full', 42.195, 420, '08:30', 10000, 14000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'kagoshima-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'kagoshima-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'kagoshima-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'kagoshima-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'kagoshima-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'kagoshima-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'kagoshima-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'kagoshima-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'kagoshima-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'kagoshima-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kagoshima-marathon-2026', 'full', 42.195, 420, '08:30', 10000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kagoshima-marathon-2026', '観光地', '桜島', 'Sakurajima', 'コース上から望める活火山。フェリーで15分。溶岩原や展望台からの眺望が圧巻。', 'An active volcano visible from the course. 15 min by ferry. Lava fields and observation decks.', '鹿児島港からフェリー15分', NULL, 31.5856, 130.6569);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -1622,13 +2141,85 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
   ('kagoshima-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-08', '2025-11-16', NULL, 0);
 
 -- ==================
+-- 下関海響マラソン (kaikyo-marathon-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'kaikyo-marathon-2026',
+  '下関海響マラソン',
+  'Kaikyo Marathon Shimonoseki',
+  '2026-11-01',
+  '35',
+  '下関市',
+  'Shimonoseki City',
+  '関門海峡を望む下関で開催されるフルマラソン。海峡沿いの爽快なコースを走り、関門大橋や巌流島など絶景スポットを楽しめる。フグの街・下関ならではのエイドも人気。',
+  'A full marathon in Shimonoseki overlooking the Kanmon Strait. Enjoy scenic views of the Kanmon Bridge and Ganryujima Island. The city''s famous fugu (blowfish) appears as a unique aid station treat.',
+  'https://kaikyomarathon.jp/',
+  NULL,
+  1,
+  10000,
+  '2026-05-15',
+  '2026-07-12',
+  0,
+  'pre_day',
+  '',
+  '',
+  '["海峡","絶景","ご当地エイド充実","観光"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '関門海峡、関門大橋、巌流島',
+  'Kanmon Strait, Kanmon Bridge, Ganryujima Island',
+  NULL,
+  NULL,
+  '2026-04-30T00:00:00Z',
+  '2026-04-30T00:00:00Z'
+);
+DELETE FROM race_categories WHERE race_id = 'kaikyo-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'kaikyo-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'kaikyo-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'kaikyo-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'kaikyo-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'kaikyo-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'kaikyo-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'kaikyo-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'kaikyo-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'kaikyo-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kaikyo-marathon-2026', 'full', 42.195, 360, '', 10000, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('kaikyo-marathon-2026', '観光地', '唐戸市場', 'Karato Market', '新鮮な海産物が揃う市場。ふぐやかまぼこなど下関名物を堪能できる。', 'A market with fresh seafood. Enjoy Shimonoseki specialties like fugu and kamaboko.', '下関市中心部', NULL, 33.9533, 130.9408);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('kaikyo-marathon-2026', '観光地', '関門海峡（巌流島）', 'Ganryujima Island', '宮本武蔵と佐々木小次郎の決闘の地として有名な島。フェリーで渡れる。', 'Famous as the site of the duel between Miyamoto Musashi and Sasaki Kojiro. Accessible by ferry.', '関門海峡内', NULL, 33.9397, 130.9228);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('kaikyo-marathon-2026', 'グルメ', 'ふくの里', 'Fuku no Sato', '下関名物のふぐ料理を堪能できるエリア。レース後のご褒美食事に最適。', 'Area to enjoy Shimonoseki''s famous fugu cuisine. Perfect post-race reward.', '下関市内', NULL, 33.955, 130.945);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('kaikyo-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('kaikyo-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-05-15', '2026-07-12', 12000, 0);
+
+-- ==================
 -- 金沢マラソン (kanazawa-marathon-2026)
 -- ==================
 INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1652,6 +2243,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-10',
   '2026-05-20',
+  0,
   'pre_day',
   '',
   '',
@@ -1669,8 +2261,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('kanazawa-marathon-2026', 'full', 42.195, 420, '08:30', 15000, 14000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'kanazawa-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'kanazawa-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'kanazawa-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'kanazawa-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'kanazawa-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'kanazawa-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'kanazawa-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'kanazawa-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'kanazawa-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'kanazawa-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kanazawa-marathon-2026', 'full', 42.195, 420, '08:30', 15000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kanazawa-marathon-2026', '観光地', '兼六園', 'Kenroku-en Garden', '日本三名園の一つ。コース上から望める。秋の紅葉が美しい。', 'One of Japan''s three most beautiful gardens. Visible from the course. Beautiful autumn foliage.', 'コース付近', NULL, 36.5625, 136.6625);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -1689,7 +2291,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1713,6 +2315,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-12-01',
   '2026-01-25',
+  0,
   'pre_day',
   '',
   '',
@@ -1730,12 +2333,22 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('kasumigaura-marathon-2026', 'full', 42.195, 360, '09:45', 14000, 12000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('kasumigaura-marathon-2026', 'other', 16, 0, '09:20', 5000, 9000, NULL, NULL, NULL, NULL, NULL, '[]', 1);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('kasumigaura-marathon-2026', '5k', 5, 0, '10:30', 1000, 6000, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+DELETE FROM race_categories WHERE race_id = 'kasumigaura-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'kasumigaura-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'kasumigaura-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'kasumigaura-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'kasumigaura-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'kasumigaura-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'kasumigaura-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'kasumigaura-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'kasumigaura-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'kasumigaura-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kasumigaura-marathon-2026', 'full', 42.195, 360, '09:45', 14000, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kasumigaura-marathon-2026', 'other', 16, 0, '09:20', 5000, 9000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kasumigaura-marathon-2026', '5k', 5, 0, '10:30', 1000, 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kasumigaura-marathon-2026', '観光地', '霞ヶ浦', 'Lake Kasumigaura', '日本第2位の面積を持つ湖。コースで湖畔を走る。広大な水面は壮観。', 'Japan''s second largest lake. Run along the lakeshore. The vast water surface is spectacular.', 'コース上', NULL, 36.0333, 140.3333);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -1750,7 +2363,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1774,6 +2387,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-09-26',
   '2025-10-31',
+  0,
   'none',
   '事前郵送。大会当日の受付なし。',
   'Pre-mailed. No on-site registration on race day.',
@@ -1791,10 +2405,20 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-16T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('katsuta-marathon-2026', 'full', 42.195, 360, '10:30', 0, 8000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('katsuta-marathon-2026', '10k', 10, 0, '', 0, 5000, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+DELETE FROM race_categories WHERE race_id = 'katsuta-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'katsuta-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'katsuta-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'katsuta-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'katsuta-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'katsuta-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'katsuta-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'katsuta-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'katsuta-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'katsuta-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('katsuta-marathon-2026', 'full', 42.195, 360, '10:30', 0, 8000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('katsuta-marathon-2026', '10k', 10, 0, '', 0, 5000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
   ('katsuta-marathon-2026', '勝田駅', 'Katsuta Station', 'katsuta', 'JR勝田駅東口から徒歩約10分。無料シャトルバスあり。', 'About 10 min walk from JR Katsuta Station East Exit. Free shuttle bus available.', 36.3933, 140.4756, 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -1811,7 +2435,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1835,6 +2459,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-08-08',
   '2025-09-25',
+  0,
   'pre_day',
   '',
   '',
@@ -1852,10 +2477,20 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('kitakyushu-marathon-2026', 'full', 42.195, 360, '09:00', 10800, 14500, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('kitakyushu-marathon-2026', 'half', 20.7, 180, '09:00', 250, 13500, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+DELETE FROM race_categories WHERE race_id = 'kitakyushu-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'kitakyushu-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'kitakyushu-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'kitakyushu-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'kitakyushu-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'kitakyushu-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'kitakyushu-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'kitakyushu-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'kitakyushu-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'kitakyushu-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kitakyushu-marathon-2026', 'full', 42.195, 360, '09:00', 10800, 14500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kitakyushu-marathon-2026', 'half', 20.7, 180, '09:00', 250, 13500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kitakyushu-marathon-2026', '観光地', '門司港レトロ', 'Mojiko Retro', '大正ロマンの雰囲気が残る港町。焼きカレーが名物。', 'A port town with Taisho-era atmosphere. Famous for baked curry.', '小倉から電車約15分', NULL, 33.95, 130.9611);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -1870,7 +2505,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1894,6 +2529,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-10-10',
   '2025-11-30',
+  0,
   'pre_day',
   '',
   '',
@@ -1911,10 +2547,20 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('kix-senshu-marathon-2026', 'full', 42.195, 420, '10:30', 700, 5000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('kix-senshu-marathon-2026', 'half', 21.0975, 180, '', 300, 4000, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+DELETE FROM race_categories WHERE race_id = 'kix-senshu-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'kix-senshu-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'kix-senshu-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'kix-senshu-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'kix-senshu-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'kix-senshu-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'kix-senshu-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'kix-senshu-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'kix-senshu-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'kix-senshu-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kix-senshu-marathon-2026', 'full', 42.195, 420, '10:30', 700, 5000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kix-senshu-marathon-2026', 'half', 21.0975, 180, '', 300, 4000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kix-senshu-marathon-2026', '観光地', '岸和田城', 'Kishiwada Castle', 'だんじり祭りで有名な岸和田の城。コース付近。', 'The castle in Kishiwada, famous for the Danjiri Festival. Near the course.', 'コース付近', NULL, 34.4608, 135.3706);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -1927,7 +2573,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -1951,6 +2597,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-17',
   '2026-06-01',
+  0,
   'pre_day',
   '日時
 2026年11月13日（金曜）　13：00～20：00（最終入場）
@@ -1986,8 +2633,18 @@ For relay runs, both runners must register together. Registration by one person,
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('kobe-marathon-2026', 'full', 42.195, 420, '09:00', 20000, 18000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'kobe-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'kobe-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'kobe-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'kobe-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'kobe-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'kobe-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'kobe-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'kobe-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'kobe-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'kobe-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kobe-marathon-2026', 'full', 42.195, 420, '09:00', 20000, 18000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kobe-marathon-2026', '観光地', '明石海峡大橋', 'Akashi Kaikyo Bridge', 'コースの折り返し地点付近。世界最長の吊り橋を間近に見ながら走れる。', 'Near the turnaround point. Run with views of the world''s longest suspension bridge.', 'コース上', NULL, 34.6167, 135.0222);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -2006,7 +2663,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2030,6 +2687,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-08-01',
   '2025-10-31',
+  0,
   'pre_day',
   '',
   '',
@@ -2047,8 +2705,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('kochi-ryoma-marathon-2026', 'full', 42.195, 420, '09:00', 10000, 13000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'kochi-ryoma-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'kochi-ryoma-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'kochi-ryoma-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'kochi-ryoma-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'kochi-ryoma-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'kochi-ryoma-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'kochi-ryoma-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'kochi-ryoma-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'kochi-ryoma-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'kochi-ryoma-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kochi-ryoma-marathon-2026', 'full', 42.195, 420, '09:00', 10000, 13000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kochi-ryoma-marathon-2026', '観光地', '桂浜', 'Katsurahama Beach', '坂本龍馬像がある高知を代表する景勝地。太平洋の荒波が美しい。', 'A scenic spot representing Kochi with a statue of Sakamoto Ryoma. Beautiful Pacific waves.', '高知市から車約30分', NULL, 33.4997, 133.575);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -2065,7 +2733,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2089,6 +2757,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-07-29',
   '2025-09-24',
+  0,
   'pre_day',
   '',
   '',
@@ -2106,8 +2775,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-16T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('kumamoto-castle-marathon-2026', 'full', 42.195, 420, '09:00', 13000, 13750, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'kumamoto-castle-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'kumamoto-castle-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'kumamoto-castle-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'kumamoto-castle-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'kumamoto-castle-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'kumamoto-castle-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'kumamoto-castle-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'kumamoto-castle-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'kumamoto-castle-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'kumamoto-castle-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kumamoto-castle-marathon-2026', 'full', 42.195, 420, '09:00', 13000, 13750, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kumamoto-castle-marathon-2026', '観光地', '熊本城', 'Kumamoto Castle', '日本三名城の一つ。震災復興のシンボル。ゴール地点から近い。', 'One of Japan''s three famous castles. Symbol of earthquake recovery. Close to the finish.', 'ゴール付近', NULL, 32.806, 130.7058);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -2124,7 +2803,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2148,6 +2827,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-07-17',
   '2025-09-22',
+  0,
   'pre_day',
   '',
   '',
@@ -2165,8 +2845,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('kyoto-marathon-2026', 'full', 42.195, 360, '08:55', 16000, 18500, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'kyoto-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'kyoto-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'kyoto-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'kyoto-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'kyoto-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'kyoto-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'kyoto-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'kyoto-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'kyoto-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'kyoto-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kyoto-marathon-2026', 'full', 42.195, 360, '08:55', 16000, 18500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kyoto-marathon-2026', '観光地', '金閣寺', 'Kinkaku-ji', 'コース付近を通過する世界遺産。金色に輝く舎利殿が有名。', 'A World Heritage site near the course. Famous for its golden pavilion.', 'コース付近', NULL, 35.0394, 135.7292);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -2185,7 +2875,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2209,6 +2899,7 @@ INSERT OR REPLACE INTO races (
   0,
   NULL,
   NULL,
+  0,
   'pre_day',
   '',
   '',
@@ -2226,8 +2917,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('mie-matsusaka-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'mie-matsusaka-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'mie-matsusaka-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'mie-matsusaka-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'mie-matsusaka-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'mie-matsusaka-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'mie-matsusaka-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'mie-matsusaka-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'mie-matsusaka-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'mie-matsusaka-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'mie-matsusaka-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('mie-matsusaka-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('mie-matsusaka-marathon-2026', 'グルメ', '松阪牛', 'Matsusaka Beef', '日本三大和牛の一つ。レース後のご褒美に。', 'One of Japan''s three premium wagyu. A reward after the race.', '松阪市内', NULL, 34.5778, 136.5312);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -2240,7 +2941,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2259,11 +2960,12 @@ INSERT OR REPLACE INTO races (
   '茨城県水戸市で開催。偕楽園や千波湖など水戸の名所を巡るコース。',
   'Held in Mito City, Ibaraki. Course visits Kairakuen Garden, Lake Senba, and other Mito landmarks.',
   'https://www.mitokomon-manyu-marathon.com',
-  0,
+  NULL,
   1,
   0,
   '2026-04-16',
   '2026-06-30',
+  1,
   'mail',
   '',
   '',
@@ -2281,14 +2983,110 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('mito-komon-manyu-marathon-2026', 'full', 42.195, 360, '', 10000, 10000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'mito-komon-manyu-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'mito-komon-manyu-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'mito-komon-manyu-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'mito-komon-manyu-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'mito-komon-manyu-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'mito-komon-manyu-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'mito-komon-manyu-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'mito-komon-manyu-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'mito-komon-manyu-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'mito-komon-manyu-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('mito-komon-manyu-marathon-2026', 'full', 42.195, 360, '', 10000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('mito-komon-manyu-marathon-2026', '観光地', '偕楽園', 'Kairakuen Garden', '日本三名園の一つ。2〜3月は梅まつりで有名。コース上から望める。', 'One of Japan''s three most beautiful gardens. Famous for plum blossom festival in Feb-Mar.', 'コース付近', NULL, 36.3811, 140.4511);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('mito-komon-manyu-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('mito-komon-manyu-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
+  ('mito-komon-manyu-marathon-2026', 'RUNNET', 'https://runnet.jp/entry/runtes/user/pc/competitionDetailAction.do?raceId=387694&div=1', 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('mito-komon-manyu-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-16', '2026-06-30', NULL, 0);
+
+-- ==================
+-- 富士山クライムラン (mtfuji-climb-run-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'mtfuji-climb-run-2026',
+  '富士山クライムラン',
+  'Mt.FUJI CLIMB RUN',
+  '2026-09-13',
+  '19',
+  '富士北麓公園富士山GXスタジアム～吉田口登山道～五合目に至る約12km',
+  'Approximately 12 km from Fuji North Foot Park’s Mt. Fuji GX Stadium to the 5th Station via the Yoshida Trail',
+  'コースは人気上昇中の富士吉田登山道
+平安時代から多くの修験者が富士登山に利用した歴史ある登山道。
+江戸時代には多くの茶屋も並び活況を呈したそう。 近年、外国人登山客がこの登山道の魅力を数多く発信しており、日本人の間でも人気が上昇中。
+樹林帯が続くトレイルを進む気持ちよさは格別です。
+
+1時間50分以内の完走で「富士登山競走山頂コース」挑戦資格ゲット！
+※2027年7月大会
+1時間50分以内（ネットタイム）で完走された方は、2027年7月開催の「第80回富士登山競走 山頂コース」への出場資格を獲得することができます。',
+  'The course follows the increasingly popular Fujiyoshida Trail.
+This historic trail has been used by many ascetic practitioners to climb Mount Fuji since the Heian period.
+It is said to have been bustling with numerous teahouses lining the path during the Edo period. In recent years, foreign hikers have been sharing the trail’s appeal, and its popularity is on the rise among Japanese people as well.
+The feeling of walking along this trail through continuous woodlands is truly exceptional.
+
+Finish in 1 hour and 50 minutes or less to qualify for the “Fuji Mountain Race Summit Course”!
+*July 2027 Event
+Participants who finish within 1 hour and 50 minutes (net time) will qualify to compete in the “80th Fuji Mountain Race Summit Course” to be held in July 2027.
+
+Translated with DeepL.com (free version)',
+  'https://mtfujiclimbrun.com/',
+  NULL,
+  1,
+  0,
+  '2026-04-24',
+  '2026-07-31',
+  0,
+  'pre_day',
+  '9/12（土）13:00～18:00
+9/13（日） 6:30～各ウェーブのスタート時刻30分前まで',
+  'Saturday, September 12, 1:00 PM – 6:00 PM
+Sunday, September 13, 6:30 AM – 30 minutes before the start time of each wave',
+  '[]',
+  'mtfuji-climb-run-2026.kml',
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '',
+  '',
+  '',
+  '',
+  '2026-04-28T13:53:53.451Z',
+  '2026-04-28T13:53:53.451Z'
+);
+DELETE FROM race_categories WHERE race_id = 'mtfuji-climb-run-2026';
+DELETE FROM aid_stations WHERE race_id = 'mtfuji-climb-run-2026';
+DELETE FROM checkpoints WHERE race_id = 'mtfuji-climb-run-2026';
+DELETE FROM access_points WHERE race_id = 'mtfuji-climb-run-2026';
+DELETE FROM nearby_spots WHERE race_id = 'mtfuji-climb-run-2026';
+DELETE FROM weather_history WHERE race_id = 'mtfuji-climb-run-2026';
+DELETE FROM participation_gifts WHERE race_id = 'mtfuji-climb-run-2026';
+DELETE FROM race_entry_links WHERE race_id = 'mtfuji-climb-run-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'mtfuji-climb-run-2026';
+DELETE FROM race_results WHERE race_id = 'mtfuji-climb-run-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('mtfuji-climb-run-2026', 'other', 12, 180, '09:00', 2000, 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('mtfuji-climb-run-2026', '["goods"]', 'オリジナルソフトカップ', 'Original Soft Cup', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('mtfuji-climb-run-2026', NULL, '一般エントリー', 'General Entry', '2026-04-24', '2026-07-31', 15000, 0);
 
 -- ==================
 -- 名古屋ウィメンズマラソン (nagoya-womens-marathon-2026)
@@ -2297,7 +3095,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2321,6 +3119,7 @@ INSERT OR REPLACE INTO races (
   20000,
   NULL,
   NULL,
+  0,
   'pre_day',
   '',
   '',
@@ -2338,8 +3137,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('nagoya-womens-marathon-2026', 'full', 42.195, 420, '09:10', 20000, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'nagoya-womens-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'nagoya-womens-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'nagoya-womens-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'nagoya-womens-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'nagoya-womens-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'nagoya-womens-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'nagoya-womens-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'nagoya-womens-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'nagoya-womens-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'nagoya-womens-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('nagoya-womens-marathon-2026', 'full', 42.195, 420, '09:10', 20000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('nagoya-womens-marathon-2026', '観光地', '名古屋城', 'Nagoya Castle', '金のシャチホコで有名な名古屋のシンボル。コース上から望める。', 'Nagoya''s symbol, famous for its golden shachihoko (dolphin-like ornaments). Visible from the course.', 'コース付近', NULL, 35.1856, 136.8992);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -2354,7 +3163,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2378,6 +3187,7 @@ INSERT OR REPLACE INTO races (
   0,
   NULL,
   NULL,
+  0,
   'race_day',
   '',
   '',
@@ -2395,8 +3205,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('naha-marathon-2026', 'full', 42.195, 375, '09:00', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'naha-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'naha-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'naha-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'naha-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'naha-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'naha-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'naha-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'naha-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'naha-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'naha-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('naha-marathon-2026', 'full', 42.195, 375, '09:00', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('naha-marathon-2026', '観光地', '首里城', 'Shuri Castle', '琉球王国の歴史を伝える世界遺産。復元工事が進む。コースからも比較的近い。', 'A World Heritage site conveying the history of the Ryukyu Kingdom. Restoration work in progress.', '那覇市街から車で約15分', NULL, 26.217, 127.7195);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -2411,7 +3231,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2435,6 +3255,7 @@ INSERT OR REPLACE INTO races (
   0,
   NULL,
   NULL,
+  0,
   'race_day',
   '',
   '',
@@ -2452,8 +3273,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('nara-marathon-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'nara-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'nara-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'nara-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'nara-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'nara-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'nara-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'nara-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'nara-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'nara-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'nara-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('nara-marathon-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('nara-marathon-2026', '観光地', '東大寺（大仏殿）', 'Todai-ji (Great Buddha Hall)', '世界最大級の木造建築物。コース上で大仏殿を望みながら走れる。鹿がコースを横切ることも。', 'One of the world''s largest wooden structures. Run with views of the Great Buddha Hall. Deer may cross the course.', 'コース上', NULL, 34.689, 135.8398);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -2468,7 +3299,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2492,6 +3323,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-08',
   '2026-06-30',
+  0,
   'pre_day',
   '',
   '',
@@ -2509,8 +3341,18 @@ INSERT OR REPLACE INTO races (
   '2026-04-05T07:57:29.198Z',
   '2026-04-05T07:57:29.198Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('niigata-city-marathon-2026', 'full', 42.195, 420, '08:30', 9000, 12500, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'niigata-city-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'niigata-city-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'niigata-city-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'niigata-city-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'niigata-city-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'niigata-city-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'niigata-city-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'niigata-city-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'niigata-city-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'niigata-city-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('niigata-city-marathon-2026', 'full', 42.195, 420, '08:30', 9000, 12500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('niigata-city-marathon-2026', '["tshirt","towel"]', 'オリジナルサコッシュ・ランニングキャップ・シリコンボトルの3種類から1つお選びいただけます
 完走賞
@@ -2525,7 +3367,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2549,6 +3391,7 @@ INSERT OR REPLACE INTO races (
   0,
   NULL,
   NULL,
+  0,
   'pre_day',
   '',
   '',
@@ -2566,8 +3409,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('nishio-marathon-2026', 'full', 42.195, 390, '09:00', 6000, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'nishio-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'nishio-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'nishio-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'nishio-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'nishio-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'nishio-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'nishio-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'nishio-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'nishio-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'nishio-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('nishio-marathon-2026', 'full', 42.195, 390, '09:00', 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('nishio-marathon-2026', 'グルメ', '西尾の抹茶スイーツ', 'Nishio Matcha Sweets', '日本有数の抹茶産地・西尾ならではの抹茶グルメが充実。', 'Nishio, one of Japan''s top matcha producing areas, offers rich matcha cuisine.', '西尾市内', NULL, 34.8667, 137.0667);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -2580,7 +3433,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2604,6 +3457,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-16',
   '2026-05-18',
+  0,
   'pre_day',
   'LAWSON DO! SPORTS(ウェブ)
 Loppi端末(ローソン・ミニストップ店頭)',
@@ -2622,8 +3476,18 @@ Loppi端末(ローソン・ミニストップ店頭)',
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('okayama-marathon-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'okayama-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'okayama-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'okayama-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'okayama-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'okayama-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'okayama-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'okayama-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'okayama-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'okayama-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'okayama-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('okayama-marathon-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('okayama-marathon-2026', '観光地', '後楽園', 'Korakuen Garden', '日本三名園の一つ。岡山城とセットで訪れたい。', 'One of Japan''s three most beautiful gardens. Visit together with Okayama Castle.', 'コース付近', NULL, 34.6694, 133.9356);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -2638,7 +3502,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2662,6 +3526,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-12-14',
   '2026-05-10',
+  0,
   'pre_day',
   '100km・50km：2025年12月14日〜2026年2月28日。25km・8km：2025年12月14日〜2026年5月10日。学割あり。',
   '100km/50km: Dec 14, 2025 – Feb 28, 2026. 25km/8km: Dec 14, 2025 – May 10, 2026. Student discounts available.',
@@ -2679,14 +3544,24 @@ INSERT OR REPLACE INTO races (
   '2026-03-30T00:00:00Z',
   '2026-03-30T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('okushinano100-2026', 'ultra', 100, 1260, '05:00', 700, 31000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('okushinano100-2026', 'other', 50, 630, '11:30', 400, 15500, NULL, NULL, NULL, NULL, NULL, '[]', 1);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('okushinano100-2026', 'other', 25, 420, '07:00', 300, 9900, NULL, NULL, NULL, NULL, NULL, '[]', 2);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('okushinano100-2026', 'other', 8, 120, '07:30', 300, 5000, NULL, NULL, NULL, NULL, NULL, '[]', 3);
+DELETE FROM race_categories WHERE race_id = 'okushinano100-2026';
+DELETE FROM aid_stations WHERE race_id = 'okushinano100-2026';
+DELETE FROM checkpoints WHERE race_id = 'okushinano100-2026';
+DELETE FROM access_points WHERE race_id = 'okushinano100-2026';
+DELETE FROM nearby_spots WHERE race_id = 'okushinano100-2026';
+DELETE FROM weather_history WHERE race_id = 'okushinano100-2026';
+DELETE FROM participation_gifts WHERE race_id = 'okushinano100-2026';
+DELETE FROM race_entry_links WHERE race_id = 'okushinano100-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'okushinano100-2026';
+DELETE FROM race_results WHERE race_id = 'okushinano100-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('okushinano100-2026', 'ultra', 100, 1260, '05:00', 700, 31000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('okushinano100-2026', 'other', 50, 630, '11:30', 400, 15500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('okushinano100-2026', 'other', 25, 420, '07:00', 300, 9900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('okushinano100-2026', 'other', 8, 120, '07:30', 300, 5000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 3);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('okushinano100-2026', NULL, '一般エントリー', 'General Entry', '2025-12-14', '2026-05-10', NULL, 0);
 
@@ -2697,7 +3572,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2721,6 +3596,7 @@ INSERT OR REPLACE INTO races (
   31970,
   NULL,
   NULL,
+  0,
   'pre_day',
   'EXPO会場にて前日受付',
   'Pre-race registration at EXPO venue',
@@ -2738,8 +3614,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('osaka-marathon-2026', 'full', 42.195, 420, '09:15', 31970, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'osaka-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'osaka-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'osaka-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'osaka-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'osaka-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'osaka-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'osaka-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'osaka-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'osaka-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'osaka-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('osaka-marathon-2026', 'full', 42.195, 420, '09:15', 31970, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('osaka-marathon-2026', '観光地', '大阪城', 'Osaka Castle', 'コース上を通過する大阪のシンボル。天守閣からの眺望は壮観。', 'The symbol of Osaka on the course. The view from the castle tower is magnificent.', 'コース上（約8km地点）', NULL, 35.6586, 135.5261);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -2756,7 +3642,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2788,6 +3674,7 @@ Based on themes such as “people,” “environment,” and “the Yodogawa Riv
   0,
   '2026-04-17',
   '2026-09-27',
+  0,
   'mail',
   '',
   '',
@@ -2805,12 +3692,22 @@ Based on themes such as “people,” “environment,” and “the Yodogawa Riv
   '2026-04-11T14:42:59.225Z',
   '2026-04-11T14:42:59.225Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('osaka-yodo-river-citizens-marathon-2026', 'full', 42.195, 480, '09:00', 4000, 9800, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('osaka-yodo-river-citizens-marathon-2026', 'half', 21, 240, '08:30', 4000, 8300, NULL, NULL, NULL, NULL, NULL, '[]', 1);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('osaka-yodo-river-citizens-marathon-2026', '10k', 10, 120, '13:00', 2000, 4900, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+DELETE FROM race_categories WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('osaka-yodo-river-citizens-marathon-2026', 'full', 42.195, 480, '09:00', 4000, 9800, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('osaka-yodo-river-citizens-marathon-2026', 'half', 21, 240, '08:30', 4000, 8300, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('osaka-yodo-river-citizens-marathon-2026', '10k', 10, 120, '13:00', 2000, 4900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('osaka-yodo-river-citizens-marathon-2026', '["tshirt","towel"]', '【フル・ハーフ】
 参加賞：Ｔシャツ（フリーサイズ）
@@ -2827,7 +3724,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2851,6 +3748,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-02-01',
   '2026-06-14',
+  0,
   'pre_day',
   '一般エントリー：2025年11月14日〜12月12日（終了）。追加エントリー：2026年2月1日〜6月14日（空きがある場合）。',
   'General entry: Nov 14 – Dec 12, 2025 (closed). Additional entry: Feb 1 – Jun 14, 2026 (if spots available).',
@@ -2868,10 +3766,20 @@ INSERT OR REPLACE INTO races (
   '2026-03-30T00:00:00Z',
   '2026-03-30T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('osj-ontake100-2026', 'ultra', 163, 1440, '20:00', 200, 21000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('osj-ontake100-2026', 'ultra', 109, 1200, '00:00', 1200, 19000, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+DELETE FROM race_categories WHERE race_id = 'osj-ontake100-2026';
+DELETE FROM aid_stations WHERE race_id = 'osj-ontake100-2026';
+DELETE FROM checkpoints WHERE race_id = 'osj-ontake100-2026';
+DELETE FROM access_points WHERE race_id = 'osj-ontake100-2026';
+DELETE FROM nearby_spots WHERE race_id = 'osj-ontake100-2026';
+DELETE FROM weather_history WHERE race_id = 'osj-ontake100-2026';
+DELETE FROM participation_gifts WHERE race_id = 'osj-ontake100-2026';
+DELETE FROM race_entry_links WHERE race_id = 'osj-ontake100-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'osj-ontake100-2026';
+DELETE FROM race_results WHERE race_id = 'osj-ontake100-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('osj-ontake100-2026', 'ultra', 163, 1440, '20:00', 200, 21000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('osj-ontake100-2026', 'ultra', 109, 1200, '00:00', 1200, 19000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('osj-ontake100-2026', NULL, '一般エントリー', 'General Entry', '2026-02-01', '2026-06-14', NULL, 0);
 
@@ -2882,7 +3790,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2906,6 +3814,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-12-01',
   '2026-03-22',
+  0,
   'mail',
   '',
   '',
@@ -2923,8 +3832,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('sado-toki-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'sado-toki-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'sado-toki-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'sado-toki-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'sado-toki-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'sado-toki-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'sado-toki-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'sado-toki-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'sado-toki-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'sado-toki-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'sado-toki-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('sado-toki-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('sado-toki-marathon-2026', '観光地', '佐渡金山', 'Sado Kinzan Gold Mine', '世界遺産登録された佐渡金山。江戸時代の金採掘の歴史を学べる。', 'The World Heritage Sado Gold Mine. Learn about Edo-period gold mining history.', '佐渡島内', NULL, 38.0667, 138.2333);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -2941,7 +3860,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -2965,6 +3884,7 @@ INSERT OR REPLACE INTO races (
   0,
   NULL,
   NULL,
+  0,
   'race_day',
   '',
   '',
@@ -2982,8 +3902,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('saga-sakura-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'saga-sakura-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'saga-sakura-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'saga-sakura-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'saga-sakura-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'saga-sakura-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'saga-sakura-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'saga-sakura-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'saga-sakura-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'saga-sakura-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'saga-sakura-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('saga-sakura-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('saga-sakura-marathon-2026', '観光地', '吉野ヶ里遺跡', 'Yoshinogari Ruins', '弥生時代の大規模環濠集落遺跡。国の特別史跡。佐賀市から近い。', 'A large-scale Yayoi period moated settlement. National Special Historic Site. Close to Saga city.', '佐賀市から車約20分', NULL, 33.3167, 130.3833);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -2996,7 +3926,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3020,6 +3950,7 @@ INSERT OR REPLACE INTO races (
   0,
   NULL,
   NULL,
+  0,
   'pre_day',
   '',
   '',
@@ -3037,8 +3968,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('saitama-marathon-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'saitama-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'saitama-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'saitama-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'saitama-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'saitama-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'saitama-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'saitama-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'saitama-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'saitama-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'saitama-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('saitama-marathon-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('saitama-marathon-2026', '観光地', '氷川神社', 'Hikawa Shrine', '武蔵国一宮。2km以上の参道は日本一の長さ。大宮の象徴。', 'The first shrine of Musashi Province. Its 2km+ approach is the longest in Japan.', '大宮エリア', NULL, 35.9069, 139.6286);
 
@@ -3049,7 +3990,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3078,6 +4019,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-05',
   '2026-07-27',
+  0,
   'pre_day',
   '
 ABOUT
@@ -3181,16 +4123,100 @@ EQUIPMENT
   '2026-04-05T06:01:54.559Z',
   '2026-04-05T06:01:54.559Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('shiga-kogen100-2026', 'ultra', 100, 1560, '04:30', 700, 28000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('shiga-kogen100-2026', 'other', 40, 630, '06:30', 400, 9900, NULL, NULL, NULL, NULL, NULL, '[]', 1);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('shiga-kogen100-2026', 'other', 18, 390, '10:00', 200, 7500, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+DELETE FROM race_categories WHERE race_id = 'shiga-kogen100-2026';
+DELETE FROM aid_stations WHERE race_id = 'shiga-kogen100-2026';
+DELETE FROM checkpoints WHERE race_id = 'shiga-kogen100-2026';
+DELETE FROM access_points WHERE race_id = 'shiga-kogen100-2026';
+DELETE FROM nearby_spots WHERE race_id = 'shiga-kogen100-2026';
+DELETE FROM weather_history WHERE race_id = 'shiga-kogen100-2026';
+DELETE FROM participation_gifts WHERE race_id = 'shiga-kogen100-2026';
+DELETE FROM race_entry_links WHERE race_id = 'shiga-kogen100-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'shiga-kogen100-2026';
+DELETE FROM race_results WHERE race_id = 'shiga-kogen100-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('shiga-kogen100-2026', 'ultra', 100, 1560, '04:30', 700, 28000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('shiga-kogen100-2026', 'other', 40, 630, '06:30', 400, 9900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('shiga-kogen100-2026', 'other', 18, 390, '10:00', 200, 7500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('shiga-kogen100-2026', '["tshirt"]', '大会オリジナルTシャツ', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('shiga-kogen100-2026', NULL, '一般エントリー', 'General Entry', '2026-04-05', '2026-07-27', NULL, 0);
+
+-- ==================
+-- しまだ大井川マラソン (shimada-oigawa-marathon-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'shimada-oigawa-marathon-2026',
+  'しまだ大井川マラソン',
+  'SHIMADA OIGAWA MARATHON',
+  '2026-10-25',
+  '22',
+  '',
+  '',
+  '『箱根八里は馬でも越すが、越すに越されぬ…』とうたわれた大河「大井川」。
+その大河に整備された、全国初のマラソン専用コース「リバティ」を舞台に、
+長距離陸上競技の合宿のメッカである静岡県島田市でフルマラソン大会を開催しております。 制限時間は７時間と初心者にも安心の設定。女性ランナーやゆっくりランナーも全員笑顔でフィニッシュ目指しましょう！',
+  'The Oi River, a mighty waterway celebrated in the saying, “Even a horse can cross the eight-ri stretch of Hakone, but this river cannot be crossed…”
+Set against the backdrop of “Liberty”—Japan’s first dedicated marathon course, built along this great river—
+we host a full marathon in Shimada City, Shizuoka Prefecture, a mecca for long-distance track and field training camps. With a 7-hour time limit, the race is designed to be accessible even for beginners. Let’s all aim to cross the finish line with a smile, whether you’re a female runner or someone taking it easy!
+
+Translated with DeepL.com (free version)',
+  'https://www.shimada-marathon.jp/',
+  NULL,
+  1,
+  0,
+  '2026-05-01',
+  '2026-06-30',
+  0,
+  'mail',
+  '',
+  '',
+  '[]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '',
+  '',
+  '',
+  '',
+  '2026-04-25T04:12:54.667Z',
+  '2026-04-25T04:12:54.667Z'
+);
+DELETE FROM race_categories WHERE race_id = 'shimada-oigawa-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'shimada-oigawa-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'shimada-oigawa-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'shimada-oigawa-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'shimada-oigawa-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'shimada-oigawa-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'shimada-oigawa-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'shimada-oigawa-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'shimada-oigawa-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'shimada-oigawa-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('shimada-oigawa-marathon-2026', 'full', 42.195, 420, '09:00', 6000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('shimada-oigawa-marathon-2026', '10k', 10, 90, '10:30', 1500, 5000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('shimada-oigawa-marathon-2026', '["tshirt","local_product"]', '大会オリジナルTシャツ・島田のお茶', '', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('shimada-oigawa-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-05-01', '2026-06-30', NULL, 0);
 
 -- ==================
 -- 信越五岳トレイルランニングレース (shinetsu5mountains-trail-100-2026)
@@ -3199,7 +4225,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3224,6 +4250,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-08',
   '2026-04-15',
+  0,
   'pre_day',
   '',
   '',
@@ -3241,10 +4268,20 @@ INSERT OR REPLACE INTO races (
   '2026-04-05T07:49:25.657Z',
   '2026-04-05T07:49:25.657Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('shinetsu5mountains-trail-100-2026', 'ultra', 163, 1980, '18:30', 600, 47000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('shinetsu5mountains-trail-100-2026', 'ultra', 112, 1320, '05:30', 700, 35000, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+DELETE FROM race_categories WHERE race_id = 'shinetsu5mountains-trail-100-2026';
+DELETE FROM aid_stations WHERE race_id = 'shinetsu5mountains-trail-100-2026';
+DELETE FROM checkpoints WHERE race_id = 'shinetsu5mountains-trail-100-2026';
+DELETE FROM access_points WHERE race_id = 'shinetsu5mountains-trail-100-2026';
+DELETE FROM nearby_spots WHERE race_id = 'shinetsu5mountains-trail-100-2026';
+DELETE FROM weather_history WHERE race_id = 'shinetsu5mountains-trail-100-2026';
+DELETE FROM participation_gifts WHERE race_id = 'shinetsu5mountains-trail-100-2026';
+DELETE FROM race_entry_links WHERE race_id = 'shinetsu5mountains-trail-100-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'shinetsu5mountains-trail-100-2026';
+DELETE FROM race_results WHERE race_id = 'shinetsu5mountains-trail-100-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('shinetsu5mountains-trail-100-2026', 'ultra', 163, 1980, '18:30', 600, 47000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('shinetsu5mountains-trail-100-2026', 'ultra', 112, 1320, '05:30', 700, 35000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('shinetsu5mountains-trail-100-2026', '["tshirt","food","goods"]', 'パタゴニア製大会記念Tシャツ （キャプリーン･クール･デイリー・シャツ）
 あおばずんだ本舗 ずんだだんご
@@ -3265,7 +4302,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3289,6 +4326,7 @@ INSERT OR REPLACE INTO races (
   0,
   NULL,
   NULL,
+  0,
   'race_day',
   '',
   '',
@@ -3306,8 +4344,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('shizuoka-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'shizuoka-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'shizuoka-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'shizuoka-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'shizuoka-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'shizuoka-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'shizuoka-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'shizuoka-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'shizuoka-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'shizuoka-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'shizuoka-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('shizuoka-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('shizuoka-marathon-2026', '観光地', '三保松原', 'Miho no Matsubara', '世界遺産「富士山」の構成資産。松林越しの富士山の眺望が美しい。', 'Part of the World Heritage ''Mt. Fuji''. Beautiful views of Mt. Fuji through pine groves.', '静岡市内から車約30分', NULL, 35.0136, 138.5167);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -3320,7 +4368,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3344,6 +4392,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-04',
   '2026-09-09',
+  0,
   'mail',
   '計測タグは、ナンバーカードとともに事前に参加者へ発送します（事前のランナー受付はありません）。',
   'Timing tags will be sent to participants in advance along with their race numbers (there is no pre-race runner registration).',
@@ -3361,10 +4410,20 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-16T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('shonan-international-marathon-2026', 'full', 42.195, 345, '', 19500, 16000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('shonan-international-marathon-2026', '10k', 10, 0, '', 4800, 8500, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+DELETE FROM race_categories WHERE race_id = 'shonan-international-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'shonan-international-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'shonan-international-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'shonan-international-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'shonan-international-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'shonan-international-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'shonan-international-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'shonan-international-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'shonan-international-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'shonan-international-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('shonan-international-marathon-2026', 'full', 42.195, 345, '', 19500, 16000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('shonan-international-marathon-2026', '10k', 10, 0, '', 4800, 8500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('shonan-international-marathon-2026', '観光地', '江の島', 'Enoshima', 'コースの折り返し地点付近。湘南のシンボル。しらす丼やサザエが名物。', 'Near the turnaround point. Symbol of Shonan. Famous for shirasu bowl and turban shell.', 'コース折り返し付近', NULL, 35.2994, 139.4806);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -3379,7 +4438,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3403,6 +4462,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-10-01',
   '2026-01-03',
+  0,
   'mail',
   'すべての種目でナンバーカードを事前に発送させていただきます。
 そのため受付はございません。',
@@ -3423,8 +4483,18 @@ Therefore, there is no registration required.',
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('soja-kibiji-marathon-2026', 'full', 42.195, 360, '09:20', 2000, 9100, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'soja-kibiji-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'soja-kibiji-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'soja-kibiji-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'soja-kibiji-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'soja-kibiji-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'soja-kibiji-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'soja-kibiji-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'soja-kibiji-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'soja-kibiji-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'soja-kibiji-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('soja-kibiji-marathon-2026', 'full', 42.195, 360, '09:20', 2000, 9100, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('soja-kibiji-marathon-2026', '観光地', '備中国分寺五重塔', 'Bitchu Kokubunji Five-Story Pagoda', '吉備路のシンボル。コース上から望める。田園風景の中に立つ姿が美しい。', 'Symbol of Kibiji. Visible from the course. Beautiful standing among rice paddies.', 'コース上', NULL, 34.65, 133.7833);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -3439,7 +4509,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3463,6 +4533,7 @@ INSERT OR REPLACE INTO races (
   0,
   NULL,
   NULL,
+  0,
   'race_day',
   '',
   '',
@@ -3480,8 +4551,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('tamba-sasayama-abc-marathon-2026', 'full', 42.195, 330, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tamba-sasayama-abc-marathon-2026', 'full', 42.195, 330, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('tamba-sasayama-abc-marathon-2026', 'グルメ', '丹波篠山の黒豆・ぼたん鍋', 'Tamba-Sasayama Black Beans & Botan Nabe', '丹波の黒豆と猪肉のぼたん鍋が名物。秋〜冬が旬。', 'Famous for Tamba black beans and boar meat hot pot. Best in autumn-winter.', '篠山市内', NULL, 35.0764, 135.2203);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -3494,7 +4575,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3518,6 +4599,7 @@ INSERT OR REPLACE INTO races (
   0,
   NULL,
   NULL,
+  0,
   'race_day',
   '',
   '',
@@ -3535,8 +4617,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-16T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('tateyama-wakashio-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'tateyama-wakashio-2026';
+DELETE FROM aid_stations WHERE race_id = 'tateyama-wakashio-2026';
+DELETE FROM checkpoints WHERE race_id = 'tateyama-wakashio-2026';
+DELETE FROM access_points WHERE race_id = 'tateyama-wakashio-2026';
+DELETE FROM nearby_spots WHERE race_id = 'tateyama-wakashio-2026';
+DELETE FROM weather_history WHERE race_id = 'tateyama-wakashio-2026';
+DELETE FROM participation_gifts WHERE race_id = 'tateyama-wakashio-2026';
+DELETE FROM race_entry_links WHERE race_id = 'tateyama-wakashio-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'tateyama-wakashio-2026';
+DELETE FROM race_results WHERE race_id = 'tateyama-wakashio-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tateyama-wakashio-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('tateyama-wakashio-2026', '観光地', '館山城', 'Tateyama Castle', '城山公園内の城。館山市街と東京湾を一望できる。', 'A castle in Shiroyama Park with views of Tateyama city and Tokyo Bay.', '会場付近', NULL, 34.9956, 139.8622);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -3551,7 +4643,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3576,6 +4668,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-01',
   '2026-05-27',
+  0,
   'mail',
   '',
   '',
@@ -3593,12 +4686,22 @@ INSERT OR REPLACE INTO races (
   '2026-03-29T11:30:29.091Z',
   '2026-03-29T11:30:29.091Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('tazawako-marathon-2026', 'full', 42.195, 360, '08:30', 1600, 10000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('tazawako-marathon-2026', 'other', 20, 180, '09:00', 2000, 8000, NULL, NULL, NULL, NULL, NULL, '[]', 1);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('tazawako-marathon-2026', '10k', 10, 120, '09:00', 1600, 6000, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+DELETE FROM race_categories WHERE race_id = 'tazawako-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'tazawako-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'tazawako-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'tazawako-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'tazawako-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'tazawako-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'tazawako-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'tazawako-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'tazawako-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'tazawako-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tazawako-marathon-2026', 'full', 42.195, 360, '08:30', 1600, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tazawako-marathon-2026', 'other', 20, 180, '09:00', 2000, 8000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tazawako-marathon-2026', '10k', 10, 120, '09:00', 1600, 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('tazawako-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-05-27', NULL, 0);
 
@@ -3609,7 +4712,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3633,6 +4736,7 @@ INSERT OR REPLACE INTO races (
   0,
   NULL,
   NULL,
+  0,
   'race_day',
   '',
   '',
@@ -3650,8 +4754,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('tokushima-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'tokushima-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'tokushima-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'tokushima-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'tokushima-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'tokushima-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'tokushima-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'tokushima-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'tokushima-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'tokushima-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'tokushima-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tokushima-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('tokushima-marathon-2026', '観光地', '鳴門の渦潮', 'Naruto Whirlpools', '世界三大潮流の一つ。大鳴門橋の遊歩道から渦潮を観察できる。', 'One of the world''s three great tidal currents. Observe whirlpools from the Onaruto Bridge walkway.', '徳島市から車約1時間', NULL, 34.2333, 134.6333);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -3664,7 +4778,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3683,15 +4797,16 @@ INSERT OR REPLACE INTO races (
   '日本最大規模の市民マラソン。東京都庁をスタートし、皇居、浅草、銀座など東京の名所を巡り東京駅前でフィニッシュ。ワールドマラソンメジャーズの一つ。',
   'Japan''s largest citizens'' marathon. Starting from Tokyo Metropolitan Government, passing the Imperial Palace, Asakusa, Ginza, finishing at Tokyo Station. One of the World Marathon Majors.',
   'https://www.marathon.tokyo',
-  23300,
-  0,
+  NULL,
+  1,
   38500,
   '2025-08-15',
   '2025-08-29',
+  0,
   'pre_day',
   'EXPO会場（東京ビッグサイト）にて前日受付。2/26-28。大会当日の受付なし。',
   'Pre-race registration at EXPO venue (Tokyo Big Sight). Feb 26-28. No registration on race day.',
-  '["大規模","初心者おすすめ","フラット","観光","ワールドメジャーズ","日本陸連公認"]',
+  '["フラット","ワールドメジャーズ","初心者おすすめ","大規模","日本陸連公認","観光"]',
   NULL,
   40,
   3,
@@ -3705,8 +4820,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('tokyo-marathon-2026', 'full', 42.195, 420, '09:10', 38500, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'tokyo-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'tokyo-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'tokyo-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'tokyo-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'tokyo-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'tokyo-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'tokyo-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'tokyo-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'tokyo-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'tokyo-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tokyo-marathon-2026', 'full', 42.195, 420, '09:10', 38500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
   ('tokyo-marathon-2026', '新宿駅', 'Shinjuku Station', 'shinjuku', '新宿駅西口から徒歩約10分でスタート会場（東京都庁前）', '10 min walk from Shinjuku Station West Exit to the start (Tokyo Metropolitan Government)', 35.6896, 139.6999, 0);
 INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
@@ -3718,9 +4843,85 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('tokyo-marathon-2026', 'グルメ', '東京駅周辺グルメ', 'Tokyo Station Area Dining', 'フィニッシュ地点の東京駅周辺には多数の飲食店。レース後の打ち上げに最適。', 'Numerous restaurants around Tokyo Station at the finish. Perfect for post-race celebrations.', 'フィニッシュ地点周辺', NULL, 35.6812, 139.7671);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('tokyo-marathon-2026', '["tshirt","medal","towel"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
+  ('tokyo-marathon-2026', '["medal","tshirt","towel"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('tokyo-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-15', '2025-08-29', NULL, 0);
+
+-- ==================
+-- 東京マラソン (tokyo-marathon-2027)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'tokyo-marathon-2027',
+  '東京マラソン',
+  'Tokyo Marathon',
+  '2027-03-07',
+  '13',
+  '新宿区〜千代田区',
+  'Shinjuku to Chiyoda',
+  '日本最大規模の市民マラソン。東京都庁をスタートし、皇居、浅草、銀座など東京の名所を巡り東京駅前でフィニッシュ。ワールドマラソンメジャーズの一つ。',
+  'Japan''s largest citizens'' marathon. Starting from Tokyo Metropolitan Government, passing the Imperial Palace, Asakusa, Ginza, finishing at Tokyo Station. One of the World Marathon Majors.',
+  'https://www.marathon.tokyo',
+  NULL,
+  1,
+  38500,
+  '2026-08-14',
+  '2026-08-28',
+  0,
+  'pre_day',
+  'EXPO会場（東京ビッグサイト）にて前日受付。2/26-28。大会当日の受付なし。',
+  'Pre-race registration at EXPO venue (Tokyo Big Sight). Feb 26-28. No registration on race day.',
+  '["フラット","ワールドメジャーズ","初心者おすすめ","大規模","日本陸連公認","観光"]',
+  NULL,
+  40,
+  3,
+  37,
+  'road',
+  '["JAAF","AIMS","WMM"]',
+  '東京都庁、皇居、浅草雷門、銀座、東京タワー、東京駅丸の内',
+  'Tokyo Metropolitan Government, Imperial Palace, Asakusa Kaminarimon, Ginza, Tokyo Tower, Tokyo Station Marunouchi',
+  NULL,
+  NULL,
+  '2026-04-27T13:59:53.295Z',
+  '2026-04-27T13:59:53.295Z'
+);
+DELETE FROM race_categories WHERE race_id = 'tokyo-marathon-2027';
+DELETE FROM aid_stations WHERE race_id = 'tokyo-marathon-2027';
+DELETE FROM checkpoints WHERE race_id = 'tokyo-marathon-2027';
+DELETE FROM access_points WHERE race_id = 'tokyo-marathon-2027';
+DELETE FROM nearby_spots WHERE race_id = 'tokyo-marathon-2027';
+DELETE FROM weather_history WHERE race_id = 'tokyo-marathon-2027';
+DELETE FROM participation_gifts WHERE race_id = 'tokyo-marathon-2027';
+DELETE FROM race_entry_links WHERE race_id = 'tokyo-marathon-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'tokyo-marathon-2027';
+DELETE FROM race_results WHERE race_id = 'tokyo-marathon-2027';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tokyo-marathon-2027', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
+  ('tokyo-marathon-2027', '新宿駅', 'Shinjuku Station', 'shinjuku', '新宿駅西口から徒歩約10分でスタート会場（東京都庁前）', '10 min walk from Shinjuku Station West Exit to the start (Tokyo Metropolitan Government)', 35.6896, 139.6999, 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
+  ('tokyo-marathon-2027', '都庁前駅', 'Tochomae Station', 'tochomae', '都営大江戸線都庁前駅直結', 'Direct access from Toei Oedo Line Tochomae Station', 35.6915, 139.6917, 1);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('tokyo-marathon-2027', '観光地', '浅草寺・雷門', 'Sensoji Temple & Kaminarimon', 'コース上を通過する東京を代表する観光名所。外国人ランナーにも人気のスポット。', 'An iconic Tokyo landmark on the course. Popular with international runners.', 'コース上（約15km地点）', NULL, 35.7148, 139.7967);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('tokyo-marathon-2027', '観光地', '皇居', 'Imperial Palace', 'コースの中盤で皇居周辺を通過。普段はランナーの聖地として知られるランニングコース。', 'The course passes near the Imperial Palace in the middle section. Known as a holy ground for runners.', 'コース上（約37km地点）', NULL, 35.6852, 139.7528);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('tokyo-marathon-2027', 'グルメ', '東京駅周辺グルメ', 'Tokyo Station Area Dining', 'フィニッシュ地点の東京駅周辺には多数の飲食店。レース後の打ち上げに最適。', 'Numerous restaurants around Tokyo Station at the finish. Perfect for post-race celebrations.', 'フィニッシュ地点周辺', NULL, 35.6812, 139.7671);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('tokyo-marathon-2027', '["medal","tshirt","towel"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('tokyo-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-08-14', '2026-08-28', NULL, 0);
 
 -- ==================
 -- 富里スイカロードレース (tomisato-suikaroad-2026)
@@ -3729,7 +4930,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3753,6 +4954,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-02-22',
   '2026-04-04',
+  0,
   'same_day',
   '雨天決行。スポーツエントリー（インターネット）で申込。先着順。',
   'Held rain or shine. Entry via Sports Entry (online). First-come, first-served.',
@@ -3770,10 +4972,20 @@ INSERT OR REPLACE INTO races (
   '2026-03-30T00:00:00Z',
   '2026-03-30T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('tomisato-suikaroad-2026', '10k', 10, 70, '09:15', 1500, 6500, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('tomisato-suikaroad-2026', 'other', 7, 90, '10:00', 5100, 6500, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+DELETE FROM race_categories WHERE race_id = 'tomisato-suikaroad-2026';
+DELETE FROM aid_stations WHERE race_id = 'tomisato-suikaroad-2026';
+DELETE FROM checkpoints WHERE race_id = 'tomisato-suikaroad-2026';
+DELETE FROM access_points WHERE race_id = 'tomisato-suikaroad-2026';
+DELETE FROM nearby_spots WHERE race_id = 'tomisato-suikaroad-2026';
+DELETE FROM weather_history WHERE race_id = 'tomisato-suikaroad-2026';
+DELETE FROM participation_gifts WHERE race_id = 'tomisato-suikaroad-2026';
+DELETE FROM race_entry_links WHERE race_id = 'tomisato-suikaroad-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'tomisato-suikaroad-2026';
+DELETE FROM race_results WHERE race_id = 'tomisato-suikaroad-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tomisato-suikaroad-2026', '10k', 10, 70, '09:15', 1500, 6500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tomisato-suikaroad-2026', 'other', 7, 90, '10:00', 5100, 6500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('tomisato-suikaroad-2026', '["tshirt"]', 'Tシャツ（大会当日、「Tシャツ引換所」で引き換え）', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -3786,7 +4998,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3810,6 +5022,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2025-10-15',
   '2025-12-12',
+  0,
   'pre_day',
   '',
   '',
@@ -3827,8 +5040,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('tottori-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'tottori-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'tottori-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'tottori-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'tottori-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'tottori-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'tottori-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'tottori-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'tottori-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'tottori-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'tottori-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tottori-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('tottori-marathon-2026', '観光地', '鳥取砂丘', 'Tottori Sand Dunes', '日本最大級の砂丘。起伏のある広大な砂の風景は圧巻。パラグライダーやラクダ乗りも。', 'Japan''s largest sand dunes. Vast sandy landscape. Paragliding and camel rides available.', '会場から車約15分', NULL, 35.5411, 134.2289);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -3850,7 +5073,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3874,6 +5097,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-02-01',
   '2026-03-08',
+  0,
   'pre_day',
   '',
   '',
@@ -3891,8 +5115,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('toyako-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'toyako-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'toyako-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'toyako-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'toyako-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'toyako-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'toyako-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'toyako-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'toyako-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'toyako-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'toyako-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('toyako-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('toyako-marathon-2026', '温泉', '洞爺湖温泉', 'Lake Toya Onsen', '洞爺湖畔の温泉街。湖と羊蹄山を望む露天風呂が魅力。レース後のリカバリーに最適。', 'Hot spring town on the shore of Lake Toya. Open-air baths with views of the lake and Mt. Yotei. Perfect for post-race recovery.', '会場付近', NULL, 42.55, 140.85);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -3909,7 +5143,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3933,6 +5167,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-11',
   '2026-06-30',
+  0,
   'pre_day',
   '',
   '',
@@ -3950,8 +5185,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-16T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('toyama-marathon-2026', 'full', 42.195, 420, '09:30', 13000, 14000, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'toyama-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'toyama-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'toyama-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'toyama-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'toyama-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'toyama-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'toyama-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'toyama-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'toyama-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'toyama-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('toyama-marathon-2026', 'full', 42.195, 420, '09:30', 13000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('toyama-marathon-2026', '観光地', '立山黒部アルペンルート', 'Tateyama Kurobe Alpine Route', '世界有数の山岳観光ルート。レース翌日の観光に。11月上旬は紅葉シーズン。', 'One of the world''s premier mountain sightseeing routes. For sightseeing the day after. Early November is autumn foliage season.', '富山駅から電鉄富山駅経由', NULL, 36.5778, 137.6028);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -3968,7 +5213,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -3992,6 +5237,7 @@ INSERT OR REPLACE INTO races (
   0,
   NULL,
   NULL,
+  0,
   'pre_day',
   '',
   '',
@@ -4009,12 +5255,92 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-16T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('tsukuba-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'tsukuba-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'tsukuba-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'tsukuba-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'tsukuba-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'tsukuba-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'tsukuba-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'tsukuba-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'tsukuba-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'tsukuba-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'tsukuba-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tsukuba-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('tsukuba-marathon-2026', '観光地', '筑波山', 'Mt. Tsukuba', '関東平野にそびえる名山。ロープウェイで山頂へ。コースからも望める。', 'A famous mountain rising from the Kanto Plain. Ropeway to the summit. Visible from the course.', 'つくば市から車約30分', NULL, 36.2253, 140.1);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('tsukuba-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+
+-- ==================
+-- 日本最北端わっかない平和マラソン (wakkanai-peace-marathon-2026)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  created_at, updated_at
+) VALUES (
+  'wakkanai-peace-marathon-2026',
+  '日本最北端わっかない平和マラソン',
+  'Wakkanai Peace Marathon',
+  '2026-09-06',
+  '01',
+  '稚内市',
+  'Wakkanai City',
+  '日本最北端の地・稚内で開催されるフルマラソン。稚内港北防波堤ドームをスタート・ゴールに、日本海と宗谷岬方面を望む雄大なコースを走る。平和の象徴としての歴史も持つ大会。',
+  'A full marathon held in Wakkanai, the northernmost city in Japan. Starting and finishing at the Wakkanai Port Northern Breakwater Dome, runners enjoy sweeping views of the Sea of Japan and Cape Soya.',
+  'https://wakkanai-marathon.jp/',
+  10000,
+  0,
+  1000,
+  '2026-04-01',
+  '2026-06-30',
+  0,
+  'race_day',
+  '',
+  '',
+  '["日本最北端","絶景","海沿い","平和"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '稚内港北防波堤ドーム、日本海、宗谷岬方面の眺望',
+  'Wakkanai Port Northern Breakwater Dome, Sea of Japan, views toward Cape Soya',
+  NULL,
+  NULL,
+  '2026-04-30T00:00:00Z',
+  '2026-04-30T00:00:00Z'
+);
+DELETE FROM race_categories WHERE race_id = 'wakkanai-peace-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'wakkanai-peace-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'wakkanai-peace-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'wakkanai-peace-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'wakkanai-peace-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'wakkanai-peace-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'wakkanai-peace-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'wakkanai-peace-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'wakkanai-peace-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'wakkanai-peace-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('wakkanai-peace-marathon-2026', 'full', 42.195, 390, '', 1000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('wakkanai-peace-marathon-2026', '観光地', '宗谷岬', 'Cape Soya', '日本最北端の岬。モニュメントや展望台があり、晴れた日はサハリンも見える。', 'The northernmost point of Japan. On clear days, you can see Sakhalin Island.', '稚内市中心部から約30km', NULL, 45.5234, 141.9347);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('wakkanai-peace-marathon-2026', '温泉', '童夢', 'Domu Hot Spring', '稚内市内の温泉施設。レース後のリカバリーに。', 'Hot spring facility in Wakkanai. Great for post-race recovery.', '稚内市内', NULL, 45.4167, 141.6722);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('wakkanai-peace-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('wakkanai-peace-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-06-30', 10000, 0);
 
 -- ==================
 -- 横浜マラソン (yokohama-marathon-2026)
@@ -4023,7 +5349,7 @@ INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date,
+  entry_start_date, entry_end_date, entry_closed,
   reception_type, reception_note_ja, reception_note_en,
   tags, course_gpx_file,
   course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
@@ -4047,6 +5373,7 @@ INSERT OR REPLACE INTO races (
   0,
   '2026-04-08',
   '2026-05-08',
+  0,
   'pre_day',
   'ローソンWEB',
   '',
@@ -4064,8 +5391,18 @@ INSERT OR REPLACE INTO races (
   '2026-03-15T00:00:00Z',
   '2026-03-16T00:00:00Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, waves, sort_order) VALUES
-  ('yokohama-marathon-2026', 'full', 42.195, 390, '08:30', 0, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+DELETE FROM race_categories WHERE race_id = 'yokohama-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'yokohama-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'yokohama-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'yokohama-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'yokohama-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'yokohama-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'yokohama-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'yokohama-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'yokohama-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'yokohama-marathon-2026';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('yokohama-marathon-2026', 'full', 42.195, 390, '08:30', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('yokohama-marathon-2026', '観光地', 'みなとみらい・赤レンガ倉庫', 'Minato Mirai & Red Brick Warehouse', 'スタート・フィニッシュエリア周辺。横浜を代表する観光スポット。ショッピングやグルメも充実。', 'Around the start/finish area. Yokohama''s iconic landmark. Shopping and dining.', 'スタート・フィニッシュ付近', NULL, 35.4537, 139.6429);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES

@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -119,11 +120,12 @@ export default async function RaceDetailPage({
   const today = new Date().toISOString().split('T')[0];
   const isPast = race.date < today;
   const isEntryOpen =
+    !race.entry_closed &&
     race.entry_start_date !== null &&
     race.entry_end_date !== null &&
     today >= race.entry_start_date &&
     today <= race.entry_end_date;
-  const isNotYetOpen = race.entry_start_date !== null && today < race.entry_start_date;
+  const isNotYetOpen = !race.entry_closed && race.entry_start_date !== null && today < race.entry_start_date;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -216,6 +218,14 @@ export default async function RaceDetailPage({
                 {t('notYetOpen')}
               </span>
             )}
+            {!isPast && race.entry_closed && (
+              <span
+                className="text-xs font-semibold px-3 py-1 rounded-[3px]"
+                style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.7)' }}
+              >
+                {t('entryClosed')}
+              </span>
+            )}
             {isPast && (
               <span
                 className="text-xs font-semibold px-3 py-1 rounded-[3px]"
@@ -299,39 +309,63 @@ export default async function RaceDetailPage({
                 </tr>
               </thead>
               <tbody>
-                {race.categories.map((cat, i) => (
-                  <tr
-                    key={i}
-                    style={{ borderBottom: '1px solid var(--color-border)' }}
-                    className="last:border-0"
-                  >
-                    <td className="py-3 font-medium">{getCategoryLabel(cat, locale)}</td>
-                    <td className="py-3 text-right">{cat.distance_km}km</td>
-                    <td className="py-3 text-right">
-                      {cat.time_limit_minutes > 0
-                        ? `${Math.floor(cat.time_limit_minutes / 60)}:${String(cat.time_limit_minutes % 60).padStart(2, '0')}`
-                        : '—'}
-                    </td>
-                    <td className="py-3 text-right">{cat.start_time || '—'}</td>
-                    <td className="py-3 text-right">
-                      {cat.entry_fee
-                        ? formatCurrency(cat.entry_fee)
-                        : race.entry_fee
-                          ? formatCurrency(race.entry_fee)
-                          : '—'}
-                    </td>
-                  </tr>
-                ))}
+                {race.categories.map((cat, i) => {
+                  const eligibility = locale === 'ja' ? cat.eligibility_ja : cat.eligibility_en;
+                  const isLast = i === race.categories.length - 1;
+                  return (
+                    <Fragment key={i}>
+                      <tr
+                        style={!eligibility ? { borderBottom: isLast ? 'none' : '1px solid var(--color-border)' } : undefined}
+                      >
+                        <td className="py-3 font-medium">{getCategoryLabel(cat, locale)}</td>
+                        <td className="py-3 text-right">{cat.distance_km}km</td>
+                        <td className="py-3 text-right">
+                          {cat.time_limit_minutes > 0
+                            ? `${Math.floor(cat.time_limit_minutes / 60)}:${String(cat.time_limit_minutes % 60).padStart(2, '0')}`
+                            : '—'}
+                        </td>
+                        <td className="py-3 text-right">{cat.start_time || '—'}</td>
+                        <td className="py-3 text-right">
+                          {cat.entry_fee
+                            ? formatCurrency(cat.entry_fee)
+                            : race.entry_fee
+                              ? formatCurrency(race.entry_fee)
+                              : '—'}
+                        </td>
+                      </tr>
+                      {eligibility && (
+                        <tr
+                          style={{ borderBottom: isLast ? 'none' : '1px solid var(--color-border)' }}
+                        >
+                          <td colSpan={5} className="pb-3 text-xs whitespace-pre-line" style={{ color: 'var(--color-mid)' }}>
+                            {locale === 'ja' ? '参加資格: ' : 'Eligibility: '}{eligibility}
+                          </td>
+                        </tr>
+                      )}
+                    </Fragment>
+                  );
+                })}
               </tbody>
             </table>
           </Card>
 
           {/* コースプロフィール（地図 + 高低差チャート） */}
-          {race.course_gpx_file && (
+          {race.categories.some((c) => c.course_gpx_file) ? (
+            race.categories
+              .filter((c) => c.course_gpx_file)
+              .map((cat, i) => (
+                <div key={i} className="mb-6">
+                  <p className="text-xs font-semibold uppercase tracking-wide mb-2" style={{ color: 'var(--color-mid)' }}>
+                    {getCategoryLabel(cat, locale)}
+                  </p>
+                  <CourseProfileSection profileKey={cat.course_gpx_file!} locale={locale} />
+                </div>
+              ))
+          ) : race.course_gpx_file ? (
             <div className="mb-4">
-              <CourseProfileSection raceId={id} locale={locale} />
+              <CourseProfileSection profileKey={id} locale={locale} />
             </div>
-          )}
+          ) : null}
 
           {/* Course info */}
           {(race.course_info.max_elevation_m > 0 || race.course_info.highlights_ja) && (
@@ -454,6 +488,17 @@ export default async function RaceDetailPage({
           <SectionLabel>{locale === 'ja' ? 'エントリー' : 'Registration'}</SectionLabel>
           <SectionTitle>{t('applicationPeriod')}</SectionTitle>
           <Card>
+            {/* 受付終了メッセージ */}
+            {!isPast && race.entry_closed && (
+              <p
+                className="text-sm mb-4 px-3 py-2.5 rounded-[3px] leading-relaxed"
+                style={{ background: '#fff8f0', border: '1px solid #f0d9c0', color: '#7a4f1a' }}
+              >
+                {locale === 'ja'
+                  ? '定員に達したため受付を終了しました。最新情報は公式サイトをご確認ください。'
+                  : 'Registration has closed as the event has reached capacity. Please check the official site for the latest information.'}
+              </p>
+            )}
             {/* entry_periods がある場合は一覧表示、ない場合は旧フィールドにフォールバック */}
             {race.entry_periods && race.entry_periods.length > 0 ? (
               <div className="mb-4">
@@ -554,6 +599,36 @@ export default async function RaceDetailPage({
                 )}
               </div>
             )}
+            {(() => {
+              const receptionTypeLabel: Record<string, { ja: string; en: string }> = {
+                pre_day:  { ja: '前日受付', en: 'Pre-event pickup' },
+                race_day: { ja: '当日受付', en: 'Race day pickup' },
+                same_day: { ja: '当日受付', en: 'Race day pickup' },
+                both:     { ja: '前日・当日受付', en: 'Pre-event & race day' },
+                pre_mail: { ja: '事前郵送', en: 'By mail' },
+                mail:     { ja: '事前郵送', en: 'By mail' },
+              };
+              const typeLabel = race.reception_type ? receptionTypeLabel[race.reception_type] : null;
+              const note = locale === 'ja' ? race.reception_note_ja : race.reception_note_en;
+              if (!typeLabel && !note) return null;
+              return (
+                <div className="mt-3 mb-4">
+                  <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
+                    {locale === 'ja' ? '受付' : 'Reception'}
+                  </p>
+                  {typeLabel && (
+                    <p className="font-medium text-sm mb-1">
+                      {locale === 'ja' ? typeLabel.ja : typeLabel.en}
+                    </p>
+                  )}
+                  {note && (
+                    <p className="text-sm whitespace-pre-line" style={{ color: 'var(--color-mid)' }}>
+                      {note}
+                    </p>
+                  )}
+                </div>
+              );
+            })()}
             {race.entry_capacity > 0 && (
               <div className="mt-3 mb-4">
                 <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
@@ -562,13 +637,30 @@ export default async function RaceDetailPage({
                 <p className="font-medium">{race.entry_capacity.toLocaleString()}{locale === 'ja' ? '人' : ' runners'}</p>
               </div>
             )}
+            {/* エントリーリンク */}
+            {race.entry_links.length > 0 && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {race.entry_links.map((link) => (
+                  <a
+                    key={link.id}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-5 py-2 text-sm font-semibold rounded-[3px] transition-colors no-underline"
+                    style={{ background: 'var(--color-primary)', color: 'white' }}
+                  >
+                    {link.site_name} ↗
+                  </a>
+                ))}
+              </div>
+            )}
             {race.official_url && (
               <a
                 href={race.official_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-5 py-2 text-sm font-semibold rounded-[3px] transition-colors no-underline"
-                style={{ background: 'var(--color-primary)', color: 'white' }}
+                className="inline-block mt-4 px-5 py-2 text-sm font-semibold rounded-[3px] transition-colors no-underline"
+                style={{ background: 'var(--color-cream)', color: 'var(--color-ink)', border: '1px solid var(--color-border)' }}
               >
                 {t('website')} ↗
               </a>

@@ -37,6 +37,7 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | entry_capacity | integer | NO | `0` | |
 | entry_start_date | text | YES | — | `YYYY-MM-DD` |
 | entry_end_date | text | YES | — | `YYYY-MM-DD` |
+| entry_closed | integer(bool) | NO | `false` | 定員到達等で受付終了フラグ。`true` のとき日付に関わらず `entry_closed` 扱い |
 | reception_type | text | NO | `"race_day"` | `race_day` / `none` / `pre_only` 等 |
 | reception_note_ja | text | NO | `""` | |
 | reception_note_en | text | NO | `""` | |
@@ -73,6 +74,9 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | name_en | text | YES | — | |
 | description_ja | text | YES | — | |
 | description_en | text | YES | — | |
+| eligibility_ja | text | YES | — | 参加資格（例: `"20歳以上の男女"`） |
+| eligibility_en | text | YES | — | |
+| course_gpx_file | text | YES | — | カテゴリ別GPXファイル名（例: `"nagano-marathon-2026-full.gpx"`） |
 | waves | text | NO | `"[]"` | JSON: `Wave[]` |
 | sort_order | integer | NO | `0` | |
 
@@ -228,6 +232,20 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 
 ---
 
+---
+
+### race_entry_links
+
+| カラム | 型 | NULL | デフォルト | 備考 |
+|---|---|---|---|---|
+| id | integer | NO | autoincrement | PK |
+| race_id | text | NO | — | FK → races.id（CASCADE） |
+| site_name | text | NO | — | "RUNNET", "SPORT ENTRY" 等 |
+| url | text | NO | — | |
+| sort_order | integer | NO | `0` | |
+
+---
+
 ## インデックス一覧
 
 | テーブル | インデックス名 | カラム |
@@ -235,6 +253,7 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | races | races_date_idx | date |
 | races | races_prefecture_idx | prefecture |
 | race_categories | race_categories_race_id_idx | race_id |
+| race_entry_links | race_entry_links_race_id_idx | race_id |
 | aid_stations | aid_stations_race_id_idx | race_id |
 | checkpoints | checkpoints_race_id_idx | race_id |
 | access_points | access_points_race_id_idx | race_id |
@@ -305,3 +324,5 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0003_sloppy_jack_power.sql` | user_races に planning_category_id / entry_reminder_period_ids を追加、entry_reminder / gcal_entry_event_id を削除 |
 | `migrations/0004_complex_justin_hammer.sql` | user_races から gcal_race_event_id / gcal_entry_event_ids を削除 |
 | `migrations/0005_boring_corsair.sql` | contact_submissions テーブルを追加 |
+| `migrations/0006_entry_info.sql` | races に entry_closed、race_categories に eligibility_ja/en、race_entry_links テーブルを追加（Issue #37） |
+| `migrations/0007_category_gpx.sql` | race_categories に course_gpx_file カラムを追加 |

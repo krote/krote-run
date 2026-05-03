@@ -12,7 +12,7 @@
   "description_ja": "河口湖・西湖を走るフルマラソン。紅葉の富士山を望む絶景コース。制限時間6時間。",
   "description_en": "A full marathon around Lake Kawaguchi and Lake Saiko. Spectacular autumn views of Mt. Fuji. 6-hour time limit.",
   "official_url": "https://mtfujimarathon.com/",
-  "entry_fee": 0,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
   "entry_start_date": null,
@@ -45,7 +45,7 @@
       "time_limit_minutes": 360,
       "start_time": "09:00",
       "capacity": 0,
-      "entry_fee": null,
+      "entry_fee": 12900,
       "entry_fee_u25": null,
       "name_ja": null,
       "name_en": null,
@@ -74,8 +74,8 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "tshirt",
         "medal",
+        "tshirt",
         "towel"
       ],
       "description_ja": "大会Tシャツ、完走メダル、フィニッシャータオル",

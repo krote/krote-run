@@ -1,5 +1,6 @@
 import type { Race, Locale } from '@/lib/types';
 import { formatDate, getRaceName } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import prefecturesData from '@/data/prefectures.json';
 
@@ -68,6 +69,7 @@ function getSeason(dateStr: string): { en: string; ja: string } {
 }
 
 export default function RaceCard({ race, locale, from }: RaceCardProps) {
+  const t = useTranslations('races.detail');
   const today = new Date().toISOString().split('T')[0];
   const isPast = race.date < today;
 
@@ -90,6 +92,23 @@ export default function RaceCard({ race, locale, from }: RaceCardProps) {
     new Date(activePeriod.end_date).getTime() - new Date(today).getTime() <= 14 * 24 * 60 * 60 * 1000;
   const isEntrySoon = !isEntryOpen && !isPast && !!futurePeriod;
   const isEntryClosed = !isEntryOpen && !isPast && !futurePeriod && latestEndDate !== null && today > latestEndDate;
+
+  const entryPeriod = (() => {
+    const fmt = (d: string) => formatDate(d, locale);
+    if (periods.length > 0) {
+      const first = periods[0];
+      const base = `${fmt(first.start_date)} 〜 ${fmt(first.end_date)}`;
+      return periods.length > 1
+        ? `${base} ${locale === 'ja' ? `他${periods.length - 1}件` : `+${periods.length - 1} more`}`
+        : base;
+    }
+    if (!race.entry_start_date && !race.entry_end_date) return isPast ? null : t('unpublished');
+    if (race.entry_start_date && race.entry_end_date)
+      return `${fmt(race.entry_start_date)} 〜 ${fmt(race.entry_end_date)}`;
+    if (race.entry_end_date)
+      return locale === 'ja' ? `〜 ${fmt(race.entry_end_date)}` : `Until ${fmt(race.entry_end_date)}`;
+    return null;
+  })();
 
   const distances = [...race.categories]
     .sort((a, b) => b.distance_km - a.distance_km)
@@ -277,6 +296,36 @@ export default function RaceCard({ race, locale, from }: RaceCardProps) {
             >
               {race.name_en}
             </p>
+          )}
+
+          {/* Entry period row */}
+          {entryPeriod && (
+            <div className="flex items-baseline gap-2 pt-1.5" style={{ borderTop: '1px solid var(--color-border-soft)' }}>
+              <span
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.52rem',
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-light)',
+                  flexShrink: 0,
+                  width: 52,
+                }}
+              >
+                {locale === 'ja' ? 'Entry' : 'Entry'}
+              </span>
+              <span
+                className="font-serif tabular-nums"
+                style={{
+                  fontSize: '0.72rem',
+                  color: (entryPeriod === '未発表' || entryPeriod === 'TBA')
+                    ? 'var(--color-light)'
+                    : 'var(--color-mid)',
+                }}
+              >
+                {entryPeriod}
+              </span>
+            </div>
           )}
 
           {/* Tags */}

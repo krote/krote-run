@@ -117,7 +117,7 @@ describe('RaceCard - ステータスバッジ', () => {
 });
 
 describe('RaceCard - エントリー期間表示', () => {
-  it('エントリー期間が未設定かつ開催前はバッジが表示されない（新デザインでは未発表を非表示）', () => {
+  it('エントリー期間が未設定かつ開催前は「未発表」が表示される', () => {
     const race = makeRace({
       date: '2026-10-01',
       entry_periods: [],
@@ -125,8 +125,7 @@ describe('RaceCard - エントリー期間表示', () => {
       entry_end_date: null,
     });
     render(<RaceCard race={race} locale="ja" />);
-    expect(screen.queryByText('未発表')).not.toBeInTheDocument();
-    expect(screen.queryByText('受付終了')).not.toBeInTheDocument();
+    expect(screen.getByText('未発表')).toBeInTheDocument();
   });
 
   it('エントリー期間が未設定かつ開催済みは何も表示されない', () => {
@@ -140,7 +139,7 @@ describe('RaceCard - エントリー期間表示', () => {
     expect(screen.queryByText('未発表')).not.toBeInTheDocument();
   });
 
-  it('複数エントリー期間がある場合も Distance フッターが表示される（新デザインでは「他N件」を非表示）', () => {
+  it('複数エントリー期間がある場合「他N件」が表示される', () => {
     const race = makeRace({
       date: '2026-10-01',
       entry_periods: [
@@ -150,7 +149,6 @@ describe('RaceCard - エントリー期間表示', () => {
       ],
     });
     render(<RaceCard race={race} locale="ja" />);
-    expect(screen.queryByText(/他2件/)).not.toBeInTheDocument();
-    expect(screen.getByText('Distance')).toBeInTheDocument();
+    expect(screen.getByText(/他2件/)).toBeInTheDocument();
   });
 });

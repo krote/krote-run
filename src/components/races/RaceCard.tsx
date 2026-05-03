@@ -83,6 +83,11 @@ export default function RaceCard({ race, locale, from }: RaceCardProps) {
     : race.entry_end_date ?? null;
 
   const isEntryOpen = !!activePeriod;
+  const isClosingSoon =
+    isEntryOpen &&
+    activePeriod !== null &&
+    'end_date' in activePeriod &&
+    new Date(activePeriod.end_date).getTime() - new Date(today).getTime() <= 14 * 24 * 60 * 60 * 1000;
   const isEntrySoon = !isEntryOpen && !isPast && !!futurePeriod;
   const isEntryClosed = !isEntryOpen && !isPast && !futurePeriod && latestEndDate !== null && today > latestEndDate;
 
@@ -112,8 +117,13 @@ export default function RaceCard({ race, locale, from }: RaceCardProps) {
     badgeBg = 'rgba(22,36,58,0.4)';
     badgeColor = 'rgba(255,255,255,0.65)';
     badgeBorder = 'none';
+  } else if (isClosingSoon) {
+    badgeText = locale === 'ja' ? 'もうすぐ締切' : 'Closing Soon';
+    badgeBg = '#d97706';
+    badgeColor = '#fff';
+    badgeBorder = 'none';
   } else if (isEntryOpen) {
-    badgeText = locale === 'ja' ? '受付中' : 'Entry Open';
+    badgeText = locale === 'ja' ? 'エントリー受付中' : 'Entry Open';
     badgeBg = 'var(--color-primary)';
     badgeColor = '#fff';
     badgeBorder = 'none';

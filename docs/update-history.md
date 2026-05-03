@@ -424,3 +424,14 @@
 - `src/components/layout/Footer.tsx`: フッターのInfoセクションにお問い合わせリンクを追加
 - `docs/schema.md`: contact_submissions テーブルの定義・マイグレーション履歴を追記
 - `package.json`: `resend` パッケージを追加（メール通知用）
+
+## 2026-05-03 デザインリフレッシュ Phase 1（藍×生成り）
+
+- `src/app/globals.css`: カラーパレットを藍（#1d4373）×生成り（#f7f2e7）に全面刷新。`--color-primary` を朱→藍に変更し、`--color-shu` / `--color-asagi` を追加
+- `src/app/[locale]/layout.tsx`: `Playfair_Display` を `Noto_Serif_JP` に置換（`--font-noto-serif-jp` として注入）
+- `src/components/layout/Header.tsx`: 走 HASHIRU ロゴ（セリフ+藍）、アクティブリンク下線、モノスペースJA/ENスイッチャー、ダークインクログインボタンに刷新
+- `src/app/[locale]/page.tsx`: Hero を3カラムグリッド（英文h1＋CTA / 走カナロゴ / 統計）に再設計。WhySectionを濃墨背景＋漢字2×2グリッドに刷新
+- `src/components/home/HomeSections.tsx`: OpenSection（受付中カード）・SoonSection（OPENS日リスト）・VisitorBand・UpcomingSection の4セクション構成に全面再設計
+- `src/components/races/RaceCard.tsx`: 藍ストライプ背景＋季節タブ（春夏秋冬）＋ステータスバッジ＋Noto Serif タイトル＋Distance/Entry フッターのカードデザインに刷新
+- `src/components/races/RaceCardExp.tsx`: 新パレット（藍）に合わせてカラートークンを更新
+- `src/app/[locale]/races/page.tsx`: ページヘッダーをダーク背景から生成りの編集スタイルに変更

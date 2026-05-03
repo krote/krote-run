@@ -4,12 +4,11 @@ import { useTranslations, useLocale } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
 import { useState } from 'react';
 import { useSession, signIn, signOut } from '@/lib/auth-client';
-// パスキーは better-auth の将来バージョンで有効化予定
 
 const NAV_LINKS = [
-  { href: '/races',    labelKey: 'races'    },
-  { href: '/calendar', labelKey: 'calendar' },
-  { href: '/mypage',   labelKey: 'mypage'   },
+  { href: '/races',    labelKey: 'races',    en: 'Races'    },
+  { href: '/calendar', labelKey: 'calendar', en: 'Calendar' },
+  { href: '/mypage',   labelKey: 'mypage',   en: 'My Page'  },
 ] as const;
 
 function AuthButton() {
@@ -19,7 +18,7 @@ function AuthButton() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   if (isPending) {
-    return <div className="w-8 h-8 rounded-full bg-gray-100 animate-pulse" />;
+    return <div className="w-8 h-8 rounded-full bg-[var(--color-border-soft)] animate-pulse" />;
   }
 
   if (session) {
@@ -35,11 +34,15 @@ function AuthButton() {
             <img
               src={session.user.image}
               alt={session.user.name ?? ''}
-              className="w-8 h-8 rounded-full border border-[var(--color-border)]"
+              className="w-8 h-8 rounded-full"
+              style={{ border: '1px solid var(--color-border)' }}
               referrerPolicy="no-referrer"
             />
           ) : (
-            <div className="w-8 h-8 rounded-full bg-[var(--color-ink)] text-white text-xs font-bold flex items-center justify-center">
+            <div
+              className="w-8 h-8 rounded-full text-white text-xs font-bold flex items-center justify-center"
+              style={{ background: 'var(--color-primary)' }}
+            >
               {(session.user.name ?? session.user.email ?? '?')[0].toUpperCase()}
             </div>
           )}
@@ -47,19 +50,18 @@ function AuthButton() {
 
         {menuOpen && (
           <>
-            {/* backdrop */}
             <div className="fixed inset-0 z-40" onClick={() => setMenuOpen(false)} />
             <div
-              className="absolute right-0 top-10 z-50 w-44 bg-white rounded-[4px] py-1"
-              style={{ border: '1px solid var(--color-border)', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }}
+              className="absolute right-0 top-10 z-50 w-44 bg-white py-1 rounded-[2px]"
+              style={{ border: '1px solid var(--color-border)', boxShadow: '0 4px 16px rgba(22,36,58,0.10)' }}
             >
-              <p className="px-4 py-2 text-xs truncate" style={{ color: 'var(--color-mid)' }}>
+              <p className="px-4 py-2 text-xs truncate" style={{ color: 'var(--color-mid)', fontFamily: 'var(--font-mono)' }}>
                 {session.user.email}
               </p>
-              <hr style={{ borderColor: 'var(--color-border)' }} />
+              <hr style={{ borderColor: 'var(--color-border-soft)' }} />
               <Link
                 href="/mypage"
-                className="block px-4 py-2 text-sm no-underline hover:bg-[var(--color-cream)] transition-colors"
+                className="block px-4 py-2 text-sm no-underline transition-colors"
                 style={{ color: 'var(--color-ink)' }}
                 onClick={() => setMenuOpen(false)}
               >
@@ -67,7 +69,7 @@ function AuthButton() {
               </Link>
               <button
                 onClick={() => { signOut(); setMenuOpen(false); }}
-                className="w-full text-left px-4 py-2 text-sm hover:bg-[var(--color-cream)] transition-colors"
+                className="w-full text-left px-4 py-2 text-sm transition-colors"
                 style={{ color: 'var(--color-ink)' }}
               >
                 {t('logout')}
@@ -83,8 +85,8 @@ function AuthButton() {
     <div className="relative">
       <button
         onClick={() => setMenuOpen(!menuOpen)}
-        className="text-[0.8rem] font-semibold px-3 py-1.5 rounded-[3px] transition-colors"
-        style={{ border: '1px solid var(--color-border)', color: 'var(--color-ink2)' }}
+        className="text-[0.75rem] font-semibold px-3 py-1.5 rounded-[2px] transition-colors"
+        style={{ background: 'var(--color-ink)', color: '#fff', border: 'none' }}
       >
         {t('login')}
       </button>
@@ -93,16 +95,16 @@ function AuthButton() {
         <>
           <div className="fixed inset-0 z-40" onClick={() => setMenuOpen(false)} />
           <div
-            className="absolute right-0 top-10 z-50 w-56 bg-white rounded-[4px] p-3 space-y-2"
-            style={{ border: '1px solid var(--color-border)', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }}
+            className="absolute right-0 top-10 z-50 w-60 bg-white rounded-[2px] p-3 space-y-2"
+            style={{ border: '1px solid var(--color-border)', boxShadow: '0 4px 16px rgba(22,36,58,0.10)' }}
           >
             <p className="text-[0.72rem] mb-2" style={{ color: 'var(--color-mid)' }}>
               {tAuth('loginOptional')}
             </p>
             <button
               onClick={() => { signIn.social({ provider: 'google' }); setMenuOpen(false); }}
-              className="w-full flex items-center gap-2 px-3 py-2 rounded-[3px] text-sm font-medium transition-colors hover:bg-[var(--color-cream)]"
-              style={{ border: '1px solid var(--color-border)', color: 'var(--color-ink)' }}
+              className="w-full flex items-center gap-2 px-3 py-2 rounded-[2px] text-sm font-medium transition-colors"
+              style={{ border: '1px solid var(--color-border)', color: 'var(--color-ink)', background: 'white' }}
             >
               <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -126,71 +128,84 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-[var(--color-border)]">
-      <div className="max-w-[1120px] mx-auto px-9 h-[60px] flex items-center justify-between">
+    <header
+      className="sticky top-0 z-50 bg-white"
+      style={{ borderBottom: '1px solid var(--color-border-soft)' }}
+    >
+      <div className="max-w-[1120px] mx-auto px-10 h-[56px] flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" className="flex flex-col leading-none text-decoration-none no-underline">
-          <span className="font-serif text-[1.25rem] font-bold tracking-[0.02em] text-[var(--color-ink)]">
+        <Link href="/" className="flex items-baseline gap-2 no-underline">
+          <span
+            className="font-serif font-bold leading-none"
+            style={{ fontSize: '1.6rem', color: 'var(--color-primary)', letterSpacing: '0.04em' }}
+          >
+            走
+          </span>
+          <span
+            className="font-serif font-semibold leading-none"
+            style={{ fontSize: '1.1rem', color: 'var(--color-ink)', letterSpacing: '0.18em' }}
+          >
             HASHIRU
-            <sup className="font-sans text-[0.52em] tracking-[0.18em] text-[var(--color-primary)] align-super ml-1 font-semibold">
-              JAPAN
-            </sup>
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex gap-8">
-          {NAV_LINKS.map(({ href, labelKey }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`text-[0.83rem] font-medium tracking-[0.03em] transition-colors no-underline ${
-                pathname === href
-                  ? 'text-[var(--color-ink)]'
-                  : 'text-[var(--color-ink2)] hover:text-[var(--color-ink)]'
-              }`}
-            >
-              {t(labelKey)}
-            </Link>
-          ))}
+        <nav className="hidden md:flex gap-6">
+          {NAV_LINKS.map(({ href, labelKey, en }) => {
+            const isActive = pathname === href;
+            return (
+              <Link
+                key={href}
+                href={href}
+                className="flex flex-col items-center no-underline pb-[2px] transition-colors"
+                style={{
+                  borderBottom: isActive ? '2px solid var(--color-primary)' : '2px solid transparent',
+                  color: isActive ? 'var(--color-ink)' : 'var(--color-mid)',
+                }}
+              >
+                <span style={{ fontFamily: 'var(--font-serif)', fontSize: '0.82rem', fontWeight: 600 }}>
+                  {t(labelKey)}
+                </span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', letterSpacing: '0.18em', opacity: 0.6 }}>
+                  {en}
+                </span>
+              </Link>
+            );
+          })}
         </nav>
 
-        {/* Right side: language switcher + auth */}
-        <div className="hidden md:flex items-center gap-3">
-          {/* Language switcher */}
-          <div className="flex border border-[var(--color-border)] rounded-[3px] overflow-hidden">
+        {/* Right: language + auth */}
+        <div className="hidden md:flex items-center gap-4">
+          <div
+            className="flex items-center gap-1"
+            style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}
+          >
             <Link
               href={pathname}
               locale="ja"
-              className={`text-[0.72rem] font-semibold tracking-[0.08em] px-3 py-1.5 border-r border-[var(--color-border)] transition-all no-underline ${
-                locale === 'ja'
-                  ? 'bg-[var(--color-ink)] text-white'
-                  : 'bg-white text-[var(--color-ink2)] hover:text-[var(--color-ink)]'
-              }`}
+              className="no-underline transition-colors"
+              style={{ color: locale === 'ja' ? 'var(--color-ink)' : 'var(--color-light)', fontWeight: locale === 'ja' ? 700 : 400 }}
             >
               JA
             </Link>
+            <span style={{ color: 'var(--color-border)', padding: '0 2px' }}>/</span>
             <Link
               href={pathname}
               locale="en"
-              className={`text-[0.72rem] font-semibold tracking-[0.08em] px-3 py-1.5 transition-all no-underline ${
-                locale === 'en'
-                  ? 'bg-[var(--color-ink)] text-white'
-                  : 'bg-white text-[var(--color-ink2)] hover:text-[var(--color-ink)]'
-              }`}
+              className="no-underline transition-colors"
+              style={{ color: locale === 'en' ? 'var(--color-ink)' : 'var(--color-light)', fontWeight: locale === 'en' ? 700 : 400 }}
             >
               EN
             </Link>
           </div>
-
-          {/* Auth */}
           <AuthButton />
         </div>
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden p-2 rounded text-[var(--color-ink2)] hover:bg-[var(--color-cream)]"
+          className="md:hidden p-2 rounded"
+          style={{ color: 'var(--color-ink)' }}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -205,22 +220,29 @@ export default function Header() {
 
       {/* Mobile nav */}
       {menuOpen && (
-        <div className="md:hidden border-t border-[var(--color-border)] bg-white py-3 px-9">
+        <div className="md:hidden bg-white py-3 px-10" style={{ borderTop: '1px solid var(--color-border-soft)' }}>
           {NAV_LINKS.map(({ href, labelKey }) => (
             <Link
               key={href}
               href={href}
-              className={`block py-2.5 text-sm font-medium no-underline ${
-                pathname === href ? 'text-[var(--color-ink)]' : 'text-[var(--color-ink2)]'
-              }`}
+              className="block py-2.5 text-sm font-medium no-underline"
+              style={{ color: pathname === href ? 'var(--color-primary)' : 'var(--color-ink)' }}
               onClick={() => setMenuOpen(false)}
             >
               {t(labelKey)}
             </Link>
           ))}
-          <div className="flex gap-3 pt-3 mt-2 border-t border-[var(--color-border)]">
-            <Link href={pathname} locale="ja" className={`text-sm font-semibold no-underline ${locale === 'ja' ? 'text-[var(--color-ink)]' : 'text-[var(--color-ink2)]'}`} onClick={() => setMenuOpen(false)}>JA</Link>
-            <Link href={pathname} locale="en" className={`text-sm font-semibold no-underline ${locale === 'en' ? 'text-[var(--color-ink)]' : 'text-[var(--color-ink2)]'}`} onClick={() => setMenuOpen(false)}>EN</Link>
+          <div className="flex gap-3 pt-3 mt-2" style={{ borderTop: '1px solid var(--color-border-soft)' }}>
+            <Link href={pathname} locale="ja"
+              className="no-underline"
+              style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', letterSpacing: '0.2em', color: locale === 'ja' ? 'var(--color-ink)' : 'var(--color-light)', fontWeight: locale === 'ja' ? 700 : 400 }}
+              onClick={() => setMenuOpen(false)}
+            >JA</Link>
+            <Link href={pathname} locale="en"
+              className="no-underline"
+              style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', letterSpacing: '0.2em', color: locale === 'en' ? 'var(--color-ink)' : 'var(--color-light)', fontWeight: locale === 'en' ? 700 : 400 }}
+              onClick={() => setMenuOpen(false)}
+            >EN</Link>
           </div>
         </div>
       )}

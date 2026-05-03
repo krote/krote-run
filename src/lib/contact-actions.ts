@@ -54,8 +54,8 @@ export async function submitContact(
 
   // Resend通知（APIキー未設定の場合はスキップ）
   const { env } = getCloudflareContext();
-  const resendApiKey = (env as Record<string, string>).RESEND_API_KEY;
-  const notifyEmail = (env as Record<string, string>).CONTACT_NOTIFY_EMAIL;
+  const resendApiKey = (env as unknown as Record<string, string>).RESEND_API_KEY;
+  const notifyEmail = (env as unknown as Record<string, string>).CONTACT_NOTIFY_EMAIL;
 
   if (resendApiKey && notifyEmail) {
     const resend = new Resend(resendApiKey);

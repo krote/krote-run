@@ -114,6 +114,29 @@ describe('RaceCard - ステータスバッジ', () => {
     expect(screen.queryByText('受付終了')).not.toBeInTheDocument();
     expect(screen.queryByText('開催済み')).not.toBeInTheDocument();
   });
+
+  it('entry_closed=true のとき受付終了バッジが表示される（アクティブな期間があっても）', () => {
+    const race = makeRace({
+      date: '2026-10-01',
+      entry_closed: true,
+      entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30' })],
+    });
+    render(<RaceCard race={race} locale="ja" />);
+    expect(screen.getByText('受付終了')).toBeInTheDocument();
+    expect(screen.queryByText('エントリー受付中')).not.toBeInTheDocument();
+  });
+
+  it('entry_closed=true のとき「もうすぐ締切」ではなく受付終了が表示される', () => {
+    // アクティブかつ14日以内でも entry_closed が優先される
+    const race = makeRace({
+      date: '2026-10-01',
+      entry_closed: true,
+      entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-04-10' })],
+    });
+    render(<RaceCard race={race} locale="ja" />);
+    expect(screen.getByText('受付終了')).toBeInTheDocument();
+    expect(screen.queryByText('もうすぐ締切')).not.toBeInTheDocument();
+  });
 });
 
 describe('RaceCard - エントリー期間表示', () => {

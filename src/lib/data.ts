@@ -156,6 +156,7 @@ function rowToResult(row: ResultRow): RaceResult {
     humidity_pct:         row.humidity_pct ?? null,
     notes_ja:             row.notes_ja ?? null,
     notes_en:             row.notes_en ?? null,
+    avg_time:             row.avg_time ?? null,
   };
 }
 
@@ -220,6 +221,14 @@ function assembleRace(
     entry_periods: entryPeriodRows.map(rowToEntryPeriod),
     entry_links: entryLinkRows.map(rowToEntryLink),
     result: resultRows.length > 0 ? rowToResult(resultRows[0]) : null,
+    motif:           row.motif ?? null,
+    motif_color:     row.motif_color ?? null,
+    motif_romaji:    row.motif_romaji ?? null,
+    tagline_ja:      row.tagline_ja ?? null,
+    tagline_en:      row.tagline_en ?? null,
+    hero_image_url:  row.hero_image_url ?? null,
+    hero_caption_ja: row.hero_caption_ja ?? null,
+    hero_caption_en: row.hero_caption_en ?? null,
     created_at: row.created_at,
     updated_at: row.updated_at,
   };

@@ -41,6 +41,15 @@ export const races = sqliteTable("races", {
   course_highlights_en:    text("course_highlights_en").notNull().default(""),
   course_notes_ja:         text("course_notes_ja"),
   course_notes_en:         text("course_notes_en"),
+  // Phase 2: ビジュアル拡張フィールド
+  motif:                 text("motif"),                    // 漢字モチーフ（例: 都、霊峰）
+  motif_color:           text("motif_color"),              // モチーフカラー（例: #1d4373）
+  motif_romaji:          text("motif_romaji"),             // ローマ字表記（例: MIYAKO）
+  tagline_ja:            text("tagline_ja"),               // キャッチコピー日本語
+  tagline_en:            text("tagline_en"),               // キャッチコピー英語
+  hero_image_url:        text("hero_image_url"),           // ヒーロー画像URL
+  hero_caption_ja:       text("hero_caption_ja"),          // 画像キャプション日本語
+  hero_caption_en:       text("hero_caption_en"),          // 画像キャプション英語
   created_at:            text("created_at").notNull(),
   updated_at:            text("updated_at").notNull(),
 }, (t) => [
@@ -221,6 +230,7 @@ export const race_results = sqliteTable("race_results", {
   humidity_pct:         real("humidity_pct"),
   notes_ja:             text("notes_ja"),
   notes_en:             text("notes_en"),
+  avg_time:             text("avg_time"),                  // 平均フィニッシュタイム（例: "4:42:18"）
 }, (t) => [
   index("race_results_race_id_idx").on(t.race_id),
 ]);

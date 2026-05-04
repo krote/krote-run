@@ -100,5 +100,13 @@
       "label_ja": "",
       "label_en": ""
     }
-  ]
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null
 }

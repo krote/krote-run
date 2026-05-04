@@ -41,6 +41,9 @@ function generateRaceSQL(r) {
   course_surface, course_certification,
   course_highlights_ja, course_highlights_en,
   course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
   created_at, updated_at
 ) VALUES (
   ${esc(r.id)},
@@ -73,6 +76,14 @@ function generateRaceSQL(r) {
   ${esc(ci.highlights_en || '')},
   ${esc(ci.notes_ja)},
   ${esc(ci.notes_en)},
+  ${esc(r.motif)},
+  ${esc(r.motif_color)},
+  ${esc(r.motif_romaji)},
+  ${esc(r.tagline_ja)},
+  ${esc(r.tagline_en)},
+  ${esc(r.hero_image_url)},
+  ${esc(r.hero_caption_ja)},
+  ${esc(r.hero_caption_en)},
   ${esc(r.created_at)},
   ${esc(r.updated_at)}
 );`);
@@ -164,8 +175,8 @@ function generateRaceSQL(r) {
   // race_results
   if (r.result) {
     const res = r.result;
-    lines.push(`INSERT OR REPLACE INTO race_results (race_id, participants_count, finishers_count, finisher_rate_pct, weather_condition_ja, weather_condition_en, temperature_c, max_temp_c, min_temp_c, wind_speed_ms, humidity_pct, notes_ja, notes_en) VALUES
-  (${esc(r.id)}, ${esc(res.participants_count ?? null)}, ${esc(res.finishers_count ?? null)}, ${esc(res.finisher_rate_pct ?? null)}, ${esc(res.weather_condition_ja || '')}, ${esc(res.weather_condition_en || '')}, ${esc(res.temperature_c ?? null)}, ${esc(res.max_temp_c ?? null)}, ${esc(res.min_temp_c ?? null)}, ${esc(res.wind_speed_ms ?? null)}, ${esc(res.humidity_pct ?? null)}, ${esc(res.notes_ja ?? null)}, ${esc(res.notes_en ?? null)});`);
+    lines.push(`INSERT OR REPLACE INTO race_results (race_id, participants_count, finishers_count, finisher_rate_pct, weather_condition_ja, weather_condition_en, temperature_c, max_temp_c, min_temp_c, wind_speed_ms, humidity_pct, notes_ja, notes_en, avg_time) VALUES
+  (${esc(r.id)}, ${esc(res.participants_count ?? null)}, ${esc(res.finishers_count ?? null)}, ${esc(res.finisher_rate_pct ?? null)}, ${esc(res.weather_condition_ja || '')}, ${esc(res.weather_condition_en || '')}, ${esc(res.temperature_c ?? null)}, ${esc(res.max_temp_c ?? null)}, ${esc(res.min_temp_c ?? null)}, ${esc(res.wind_speed_ms ?? null)}, ${esc(res.humidity_pct ?? null)}, ${esc(res.notes_ja ?? null)}, ${esc(res.notes_en ?? null)}, ${esc(res.avg_time ?? null)});`);
   }
 
   return lines.join('\n');

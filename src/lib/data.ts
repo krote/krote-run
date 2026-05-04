@@ -6,6 +6,7 @@ import type {
   AidStation, Checkpoint, AccessPoint, NearbySpot, WeatherHistory,
   ParticipationGift, GiftCategoryId, CourseSurface, ReceptionType, NearbySpotType,
   RaceSeries, RaceResult, EntryPeriod, EntryLink,
+  RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight,
 } from "./types";
 
 // ==================
@@ -160,6 +161,55 @@ function rowToResult(row: ResultRow): RaceResult {
   };
 }
 
+type GalleryRow = typeof schema.race_gallery.$inferSelect;
+type VoiceRow = typeof schema.race_voices.$inferSelect;
+type TimeBucketRow = typeof schema.race_time_buckets.$inferSelect;
+type CourseHighlightRow = typeof schema.race_course_highlights.$inferSelect;
+
+function rowToGallery(row: GalleryRow): RaceGallery {
+  return {
+    id: row.id,
+    race_id: row.race_id,
+    src: row.src,
+    caption_ja: row.caption_ja ?? null,
+    caption_en: row.caption_en ?? null,
+    sort_order: row.sort_order,
+  };
+}
+
+function rowToVoice(row: VoiceRow): RaceVoice {
+  return {
+    id: row.id,
+    race_id: row.race_id,
+    quote_ja: row.quote_ja,
+    author: row.author ?? null,
+    sort_order: row.sort_order,
+  };
+}
+
+function rowToTimeBucket(row: TimeBucketRow): RaceTimeBucket {
+  return {
+    id: row.id,
+    race_id: row.race_id,
+    bucket: row.bucket,
+    pct: row.pct,
+    sort_order: row.sort_order,
+  };
+}
+
+function rowToCourseHighlight(row: CourseHighlightRow): RaceCourseHighlight {
+  return {
+    id: row.id,
+    race_id: row.race_id,
+    km: row.km,
+    name_ja: row.name_ja,
+    name_en: row.name_en ?? null,
+    note_ja: row.note_ja ?? null,
+    note_en: row.note_en ?? null,
+    sort_order: row.sort_order,
+  };
+}
+
 function assembleRace(
   row: RaceRow,
   categories: CategoryRow[],
@@ -172,6 +222,10 @@ function assembleRace(
   resultRows: ResultRow[] = [],
   entryPeriodRows: EntryPeriodRow[] = [],
   entryLinkRows: EntryLinkRow[] = [],
+  galleryRows: GalleryRow[] = [],
+  voiceRows: VoiceRow[] = [],
+  timeBucketRows: TimeBucketRow[] = [],
+  courseHighlightRows: CourseHighlightRow[] = [],
 ): Race {
   const course_info: CourseInfo = {
     max_elevation_m: row.course_max_elevation_m,
@@ -221,6 +275,10 @@ function assembleRace(
     entry_periods: entryPeriodRows.map(rowToEntryPeriod),
     entry_links: entryLinkRows.map(rowToEntryLink),
     result: resultRows.length > 0 ? rowToResult(resultRows[0]) : null,
+    gallery:           galleryRows.map(rowToGallery),
+    voices:            voiceRows.map(rowToVoice),
+    time_buckets:      timeBucketRows.map(rowToTimeBucket),
+    course_highlights: courseHighlightRows.map(rowToCourseHighlight),
     motif:           row.motif ?? null,
     motif_color:     row.motif_color ?? null,
     motif_romaji:    row.motif_romaji ?? null,
@@ -263,7 +321,7 @@ export async function getRaces(): Promise<Race[]> {
 export async function getRaceById(id: string): Promise<Race | null> {
   const db = getDatabase();
 
-  const [raceRows, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows] =
+  const [raceRows, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows, galleryRows, voiceRows, timeBucketRows, courseHighlightRows] =
     await db.batch([
       db.select().from(schema.races).where(eq(schema.races.id, id)),
       db.select().from(schema.race_categories).where(eq(schema.race_categories.race_id, id)).orderBy(asc(schema.race_categories.sort_order)),
@@ -276,12 +334,16 @@ export async function getRaceById(id: string): Promise<Race | null> {
       db.select().from(schema.race_results).where(eq(schema.race_results.race_id, id)),
       db.select().from(schema.race_entry_periods).where(eq(schema.race_entry_periods.race_id, id)).orderBy(asc(schema.race_entry_periods.sort_order)),
       db.select().from(schema.race_entry_links).where(eq(schema.race_entry_links.race_id, id)).orderBy(asc(schema.race_entry_links.sort_order)),
+      db.select().from(schema.race_gallery).where(eq(schema.race_gallery.race_id, id)).orderBy(asc(schema.race_gallery.sort_order)),
+      db.select().from(schema.race_voices).where(eq(schema.race_voices.race_id, id)).orderBy(asc(schema.race_voices.sort_order)),
+      db.select().from(schema.race_time_buckets).where(eq(schema.race_time_buckets.race_id, id)).orderBy(asc(schema.race_time_buckets.sort_order)),
+      db.select().from(schema.race_course_highlights).where(eq(schema.race_course_highlights.race_id, id)).orderBy(asc(schema.race_course_highlights.sort_order)),
     ]);
 
   const row = raceRows[0];
   if (!row) return null;
 
-  return assembleRace(row, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows);
+  return assembleRace(row, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows, galleryRows, voiceRows, timeBucketRows, courseHighlightRows);
 }
 
 export async function getRacesByPrefecture(prefecture: string): Promise<Race[]> {

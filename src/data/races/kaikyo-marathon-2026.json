@@ -88,8 +88,8 @@
       "description_en": "Area to enjoy Shimonoseki's famous fugu cuisine. Perfect post-race reward.",
       "distance_from_venue": "下関市内",
       "url": null,
-      "latitude": 33.9550,
-      "longitude": 130.9450
+      "latitude": 33.955,
+      "longitude": 130.945
     }
   ],
   "weather_history": [],
@@ -124,5 +124,13 @@
       "label_ja": "",
       "label_en": ""
     }
-  ]
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null
 }

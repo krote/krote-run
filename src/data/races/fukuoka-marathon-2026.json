@@ -67,7 +67,7 @@
       "distance_from_venue": "スタート地点",
       "url": null,
       "latitude": 33.5904,
-      "longitude": 130.3990
+      "longitude": 130.399
     },
     {
       "type": "グルメ",
@@ -88,8 +88,8 @@
       "description_en": "Hot spring facility in the Itoshima/Nijo area. Ideal for post-race recovery near the course.",
       "distance_from_venue": "糸島市内",
       "url": null,
-      "latitude": 33.5400,
-      "longitude": 130.1600
+      "latitude": 33.54,
+      "longitude": 130.16
     }
   ],
   "weather_history": [],
@@ -124,5 +124,13 @@
       "label_ja": "",
       "label_en": ""
     }
-  ]
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null
 }

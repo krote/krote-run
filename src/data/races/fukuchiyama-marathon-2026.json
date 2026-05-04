@@ -77,8 +77,8 @@
       "description_en": "Hot spring facility in Fukuchiyama. Available for post-race recovery.",
       "distance_from_venue": "福知山市内",
       "url": null,
-      "latitude": 35.2950,
-      "longitude": 135.1200
+      "latitude": 35.295,
+      "longitude": 135.12
     }
   ],
   "weather_history": [],
@@ -135,5 +135,13 @@
       "label_ja": "直前（参加賞なし）",
       "label_en": "Last-minute (no participation gift)"
     }
-  ]
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null
 }

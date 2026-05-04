@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server';
-import { type Locale } from '@/lib/types';
+import type { Locale } from '@/lib/types';
 import ContactFormWrapper from '@/components/contact/ContactFormWrapper';
 
 type Props = {

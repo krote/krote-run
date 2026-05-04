@@ -84,14 +84,17 @@ export default function RaceCard({ race, locale, from }: RaceCardProps) {
     ? periods.reduce((max, p) => p.end_date > max ? p.end_date : max, '')
     : race.entry_end_date ?? null;
 
-  const isEntryOpen = !!activePeriod;
+  const isEntryOpen = !!activePeriod && !race.entry_closed;
   const isClosingSoon =
     isEntryOpen &&
     activePeriod !== null &&
     'end_date' in activePeriod &&
     new Date(activePeriod.end_date).getTime() - new Date(today).getTime() <= 14 * 24 * 60 * 60 * 1000;
   const isEntrySoon = !isEntryOpen && !isPast && !!futurePeriod;
-  const isEntryClosed = !isEntryOpen && !isPast && !futurePeriod && latestEndDate !== null && today > latestEndDate;
+  const isEntryClosed =
+    !isPast &&
+    (race.entry_closed ||
+      (!isEntryOpen && !futurePeriod && latestEndDate !== null && today > latestEndDate));
 
   const entryPeriod = (() => {
     const fmt = (d: string) => formatDate(d, locale);

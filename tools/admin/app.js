@@ -201,6 +201,16 @@ function populateForm(r) {
   // コース
   setVal('f-course_gpx_file', r.course_gpx_file ?? '');
 
+  // ビジュアル (Phase 2)
+  setVal('f-motif', r.motif ?? '');
+  setVal('f-motif_romaji', r.motif_romaji ?? '');
+  setVal('f-motif_color', r.motif_color ?? '');
+  setVal('f-tagline_ja', r.tagline_ja ?? '');
+  setVal('f-tagline_en', r.tagline_en ?? '');
+  setVal('f-hero_image_url', r.hero_image_url ?? '');
+  setVal('f-hero_caption_ja', r.hero_caption_ja ?? '');
+  setVal('f-hero_caption_en', r.hero_caption_en ?? '');
+
   // 画像
   loadImagePreview(r.id);
 }
@@ -798,6 +808,15 @@ function buildRaceData() {
     course_gpx_file: getVal('f-course_gpx_file') || null,
     participation_gifts: collectGifts(),
     nearby_spots: collectNearbySpots(),
+    // Phase 2: ビジュアル拡張フィールド
+    motif: getVal('f-motif') || null,
+    motif_romaji: getVal('f-motif_romaji') || null,
+    motif_color: getVal('f-motif_color') || null,
+    tagline_ja: getVal('f-tagline_ja') || null,
+    tagline_en: getVal('f-tagline_en') || null,
+    hero_image_url: getVal('f-hero_image_url') || null,
+    hero_caption_ja: getVal('f-hero_caption_ja') || null,
+    hero_caption_en: getVal('f-hero_caption_en') || null,
   };
 }
 

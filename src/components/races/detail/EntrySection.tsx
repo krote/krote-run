@@ -8,6 +8,8 @@ interface EntrySectionProps {
 }
 
 export default function EntrySection({ race, locale, today }: EntrySectionProps) {
+  const isPast = race.date < today;
+
   return (
     <section id="entry">
       {/* 受付終了メッセージ */}
@@ -95,7 +97,9 @@ export default function EntrySection({ race, locale, today }: EntrySectionProps)
             <p className="font-medium">
               {race.entry_start_date
                 ? `${formatDate(race.entry_start_date, locale)} — ${race.entry_end_date ? formatDate(race.entry_end_date, locale) : '—'}`
-                : '—'}
+                : (!isPast
+                  ? (locale === 'ja' ? '未発表' : 'TBA')
+                  : '—')}
             </p>
           </div>
           {!race.entry_fee_by_category && race.entry_fee && (

@@ -99,6 +99,10 @@ function generateRaceSQL(r) {
   lines.push(`DELETE FROM race_entry_links WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_entry_periods WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_results WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_gallery WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_voices WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_time_buckets WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_course_highlights WHERE race_id = ${esc(r.id)};`);
 
   // race_categories
   if (r.categories && r.categories.length > 0) {
@@ -169,6 +173,38 @@ function generateRaceSQL(r) {
     r.entry_periods.forEach((ep, idx) => {
       lines.push(`INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   (${esc(r.id)}, ${esc(ep.category_id ?? null)}, ${esc(ep.label_ja || '一般エントリー')}, ${esc(ep.label_en || 'General Entry')}, ${esc(ep.start_date)}, ${esc(ep.end_date)}, ${esc(ep.entry_fee ?? null)}, ${idx});`);
+    });
+  }
+
+  // race_gallery
+  if (r.gallery && r.gallery.length > 0) {
+    r.gallery.forEach((g, idx) => {
+      lines.push(`INSERT OR REPLACE INTO race_gallery (race_id, src, caption_ja, caption_en, sort_order) VALUES
+  (${esc(r.id)}, ${esc(g.src)}, ${esc(g.caption_ja ?? null)}, ${esc(g.caption_en ?? null)}, ${idx});`);
+    });
+  }
+
+  // race_voices
+  if (r.voices && r.voices.length > 0) {
+    r.voices.forEach((v, idx) => {
+      lines.push(`INSERT OR REPLACE INTO race_voices (race_id, quote_ja, author, sort_order) VALUES
+  (${esc(r.id)}, ${esc(v.quote_ja)}, ${esc(v.author ?? null)}, ${idx});`);
+    });
+  }
+
+  // race_time_buckets
+  if (r.time_buckets && r.time_buckets.length > 0) {
+    r.time_buckets.forEach((tb, idx) => {
+      lines.push(`INSERT OR REPLACE INTO race_time_buckets (race_id, bucket, pct, sort_order) VALUES
+  (${esc(r.id)}, ${esc(tb.bucket)}, ${esc(tb.pct)}, ${idx});`);
+    });
+  }
+
+  // race_course_highlights
+  if (r.course_highlights && r.course_highlights.length > 0) {
+    r.course_highlights.forEach((ch, idx) => {
+      lines.push(`INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  (${esc(r.id)}, ${esc(ch.km)}, ${esc(ch.name_ja)}, ${esc(ch.name_en ?? null)}, ${esc(ch.note_ja ?? null)}, ${esc(ch.note_en ?? null)}, ${idx});`);
     });
   }
 

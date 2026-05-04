@@ -211,9 +211,123 @@ function populateForm(r) {
   setVal('f-hero_caption_ja', r.hero_caption_ja ?? '');
   setVal('f-hero_caption_en', r.hero_caption_en ?? '');
 
+  // Phase 3: ギャラリー / 声 / タイム分布 / コース見どころ
+  renderGallery(r.gallery ?? []);
+  renderVoices(r.voices ?? []);
+  renderTimeBuckets(r.time_buckets ?? []);
+  renderCourseHighlights(r.course_highlights ?? []);
+
   // 画像
   loadImagePreview(r.id);
 }
+
+// ── ギャラリー ────────────────────────────────────────────────────
+function renderGallery(items) {
+  const c = document.getElementById('gallery-container');
+  c.innerHTML = '';
+  items.forEach(g => addGalleryRow(g));
+}
+function addGalleryRow(g = {}) {
+  const c = document.getElementById('gallery-container');
+  const row = document.createElement('div');
+  row.className = 'dynamic-row';
+  row.innerHTML = `
+    <input type="text" class="g-src" placeholder="画像パス / URL" value="${(g.src ?? '').replace(/"/g, '&quot;')}" />
+    <input type="text" class="g-caption-ja" placeholder="キャプション（日本語）" value="${(g.caption_ja ?? '').replace(/"/g, '&quot;')}" />
+    <input type="text" class="g-caption-en" placeholder="Caption (English)" value="${(g.caption_en ?? '').replace(/"/g, '&quot;')}" />
+    <button type="button" class="btn-remove" title="削除">×</button>`;
+  row.querySelector('.btn-remove').addEventListener('click', () => row.remove());
+  c.appendChild(row);
+}
+function collectGallery() {
+  return [...document.querySelectorAll('#gallery-container .dynamic-row')].map(row => ({
+    src: row.querySelector('.g-src').value.trim(),
+    caption_ja: row.querySelector('.g-caption-ja').value.trim() || null,
+    caption_en: row.querySelector('.g-caption-en').value.trim() || null,
+  })).filter(g => g.src);
+}
+document.getElementById('btn-add-gallery').addEventListener('click', () => addGalleryRow());
+
+// ── 参加者の声 ───────────────────────────────────────────────────
+function renderVoices(items) {
+  const c = document.getElementById('voices-container');
+  c.innerHTML = '';
+  items.forEach(v => addVoiceRow(v));
+}
+function addVoiceRow(v = {}) {
+  const c = document.getElementById('voices-container');
+  const row = document.createElement('div');
+  row.className = 'dynamic-row';
+  row.innerHTML = `
+    <textarea class="v-quote-ja" placeholder="コメント（日本語）" rows="2">${v.quote_ja ?? ''}</textarea>
+    <input type="text" class="v-author" placeholder="発言者（例: 40代男性）" value="${(v.author ?? '').replace(/"/g, '&quot;')}" />
+    <button type="button" class="btn-remove" title="削除">×</button>`;
+  row.querySelector('.btn-remove').addEventListener('click', () => row.remove());
+  c.appendChild(row);
+}
+function collectVoices() {
+  return [...document.querySelectorAll('#voices-container .dynamic-row')].map(row => ({
+    quote_ja: row.querySelector('.v-quote-ja').value.trim(),
+    author: row.querySelector('.v-author').value.trim() || null,
+  })).filter(v => v.quote_ja);
+}
+document.getElementById('btn-add-voice').addEventListener('click', () => addVoiceRow());
+
+// ── タイム分布 ───────────────────────────────────────────────────
+function renderTimeBuckets(items) {
+  const c = document.getElementById('time-buckets-container');
+  c.innerHTML = '';
+  items.forEach(tb => addTimeBucketRow(tb));
+}
+function addTimeBucketRow(tb = {}) {
+  const c = document.getElementById('time-buckets-container');
+  const row = document.createElement('div');
+  row.className = 'dynamic-row';
+  row.innerHTML = `
+    <input type="text" class="tb-bucket" placeholder='例: "3:30–4:00"' value="${(tb.bucket ?? '').replace(/"/g, '&quot;')}" />
+    <input type="number" class="tb-pct" placeholder="割合(%)" step="0.1" min="0" max="100" value="${tb.pct ?? ''}" />
+    <button type="button" class="btn-remove" title="削除">×</button>`;
+  row.querySelector('.btn-remove').addEventListener('click', () => row.remove());
+  c.appendChild(row);
+}
+function collectTimeBuckets() {
+  return [...document.querySelectorAll('#time-buckets-container .dynamic-row')].map(row => ({
+    bucket: row.querySelector('.tb-bucket').value.trim(),
+    pct: parseFloat(row.querySelector('.tb-pct').value) || 0,
+  })).filter(tb => tb.bucket);
+}
+document.getElementById('btn-add-time-bucket').addEventListener('click', () => addTimeBucketRow());
+
+// ── コース見どころ ───────────────────────────────────────────────
+function renderCourseHighlights(items) {
+  const c = document.getElementById('course-highlights-container');
+  c.innerHTML = '';
+  items.forEach(ch => addCourseHighlightRow(ch));
+}
+function addCourseHighlightRow(ch = {}) {
+  const c = document.getElementById('course-highlights-container');
+  const row = document.createElement('div');
+  row.className = 'dynamic-row';
+  row.innerHTML = `
+    <input type="number" class="ch-km" placeholder="地点(km)" step="0.1" min="0" value="${ch.km ?? ''}" />
+    <input type="text" class="ch-name-ja" placeholder="スポット名（日本語）" value="${(ch.name_ja ?? '').replace(/"/g, '&quot;')}" />
+    <input type="text" class="ch-name-en" placeholder="Spot name (English)" value="${(ch.name_en ?? '').replace(/"/g, '&quot;')}" />
+    <input type="text" class="ch-note-ja" placeholder="説明（日本語）" value="${(ch.note_ja ?? '').replace(/"/g, '&quot;')}" />
+    <input type="text" class="ch-note-en" placeholder="Note (English)" value="${(ch.note_en ?? '').replace(/"/g, '&quot;')}" />
+    <button type="button" class="btn-remove" title="削除">×</button>`;
+  row.querySelector('.btn-remove').addEventListener('click', () => row.remove());
+  c.appendChild(row);
+}
+function collectCourseHighlights() {
+  return [...document.querySelectorAll('#course-highlights-container .dynamic-row')].map(row => ({
+    km: parseFloat(row.querySelector('.ch-km').value) || 0,
+    name_ja: row.querySelector('.ch-name-ja').value.trim(),
+    name_en: row.querySelector('.ch-name-en').value.trim() || null,
+    note_ja: row.querySelector('.ch-note-ja').value.trim() || null,
+    note_en: row.querySelector('.ch-note-en').value.trim() || null,
+  })).filter(ch => ch.name_ja);
+}
+document.getElementById('btn-add-course-highlight').addEventListener('click', () => addCourseHighlightRow());
 
 function setVal(id, val) {
   const el = document.getElementById(id);
@@ -817,6 +931,11 @@ function buildRaceData() {
     hero_image_url: getVal('f-hero_image_url') || null,
     hero_caption_ja: getVal('f-hero_caption_ja') || null,
     hero_caption_en: getVal('f-hero_caption_en') || null,
+    // Phase 3
+    gallery: collectGallery(),
+    voices: collectVoices(),
+    time_buckets: collectTimeBuckets(),
+    course_highlights: collectCourseHighlights(),
   };
 }
 

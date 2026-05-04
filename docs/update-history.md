@@ -470,3 +470,17 @@
 - `src/components/races/RaceCard.tsx`: 藍ストライプ背景＋季節タブ（春夏秋冬）＋ステータスバッジ＋Noto Serif タイトル＋Distance/Entry フッターのカードデザインに刷新
 - `src/components/races/RaceCardExp.tsx`: 新パレット（藍）に合わせてカラートークンを更新
 - `src/app/[locale]/races/page.tsx`: ページヘッダーをダーク背景から生成りの編集スタイルに変更
+
+## 2026-05-04 デザインリフレッシュPhase2 スキーマ拡張（Issue #42）
+
+- `src/lib/db/schema.ts`: `races` テーブルに `motif`/`motif_color`/`motif_romaji`/`tagline_ja`/`tagline_en`/`hero_image_url`/`hero_caption_ja`/`hero_caption_en` を追加、`race_results` テーブルに `avg_time` を追加
+- `migrations/0008_phase2_motif_hero.sql`: Phase 2 スキーマ変更用マイグレーションを手動作成
+- `src/lib/types.ts`: `Race` インターフェースに Phase 2 フィールドを追加、`RaceResult` に `avg_time` を追加
+- `src/lib/data.ts`: `rowToResult` / `assembleRace` に Phase 2 フィールドのマッピングを追加
+- `src/data/races/*.json`（78件）: Phase 2 フィールド（null）を全ファイルに追加
+- `scripts/generate-seed-races.js`: `races` / `race_results` の INSERT 文に Phase 2 カラムを追加
+- `migrations/seed-races-all.sql`: シードスクリプトを再生成
+- `src/lib/__tests__/fixtures.ts`: `makeRace()` に Phase 2 フィールドを追加
+- `tools/admin/index.html`: ビジュアルセクション（motif/tagline/hero_image 入力フォーム）を追加
+- `tools/admin/app.js`: `populateForm()` / `buildJson()` に Phase 2 フィールドの読み書きを追加
+- `docs/schema.md`: Phase 2 カラム定義とマイグレーション履歴を更新

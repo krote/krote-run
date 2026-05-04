@@ -49,6 +49,15 @@ export interface Race {
   entry_periods: EntryPeriod[];
   entry_links: EntryLink[];
   result: RaceResult | null;      // 開催実績（未開催の場合は null）
+  // Phase 2: ビジュアル拡張フィールド
+  motif: string | null;
+  motif_color: string | null;
+  motif_romaji: string | null;
+  tagline_ja: string | null;
+  tagline_en: string | null;
+  hero_image_url: string | null;
+  hero_caption_ja: string | null;
+  hero_caption_en: string | null;
   created_at: string; // ISO datetime string
   updated_at: string; // ISO datetime string
 }
@@ -257,6 +266,7 @@ export interface RaceResult {
   humidity_pct: number | null;
   notes_ja: string | null;
   notes_en: string | null;
+  avg_time: string | null;        // 平均フィニッシュタイム（例: "4:42:18"）
 }
 
 // ==================

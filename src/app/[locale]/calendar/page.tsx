@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { getRaces } from '@/lib/data';
+import { getRaces, getPrefectures } from '@/lib/data';
 import { getTodayJST } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
-import type { Race, EntryPeriod } from '@/lib/types';
+import type { Locale } from '@/lib/types';
+import CalendarView from '@/components/calendar/CalendarView';
 
 export async function generateMetadata({
   params,
@@ -15,22 +16,6 @@ export async function generateMetadata({
   return { title: t('title') };
 }
 
-function getDaysInMonth(year: number, month: number): number {
-  return new Date(year, month + 1, 0).getDate();
-}
-
-function getFirstDayOfMonth(year: number, month: number): number {
-  return new Date(year, month, 1).getDay();
-}
-
-type EntryBand = {
-  race: Race;
-  period: EntryPeriod;
-  isStart: boolean;    // actual period start_date
-  isEnd: boolean;      // actual period end_date
-  isRowStart: boolean; // Sunday continuation (not actual start)
-};
-
 export default async function CalendarPage({
   params,
   searchParams,
@@ -38,264 +23,85 @@ export default async function CalendarPage({
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ year?: string; month?: string }>;
 }) {
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  const locale = rawLocale as Locale;
   const sp = await searchParams;
-  const todayJST = getTodayJST(); // 例: '2026-04-14'
+  const todayJST = getTodayJST();
   const [todayYear, todayMonth0] = todayJST.split('-').map(Number);
   const year = parseInt(sp.year ?? String(todayYear));
   const month = parseInt(sp.month ?? String(todayMonth0 - 1)); // 0-indexed
 
   const t = await getTranslations({ locale, namespace: 'calendar' });
   const tNav = await getTranslations({ locale, namespace: 'nav' });
-  const races = await getRaces();
+  const isJa = locale === 'ja';
 
-  // Race day events
-  const raceDaysByDate = new Map<string, Race[]>();
-  races.forEach((race) => {
-    const key = race.date.split('T')[0];
-    if (!raceDaysByDate.has(key)) raceDaysByDate.set(key, []);
-    raceDaysByDate.get(key)!.push(race);
-  });
+  const [races, prefectures] = await Promise.all([getRaces(), getPrefectures()]);
 
-  // Entry period bands: expand each entry period into per-day entries
-  const entryBandsByDate = new Map<string, EntryBand[]>();
-  const monthStart = new Date(year, month, 1);
-  const monthEnd = new Date(year, month + 1, 0);
-
-  // ── Lane assignment ─────────────────────────────────────────────────────────
-  // 各エントリー期間に固定レーン番号を割り当て、複数日にまたがる帯が
-  // 毎日同じ行に表示されるようにする（Googleカレンダー方式）
-  interface PeriodEntry {
-    race: Race;
-    period: EntryPeriod;
-    effectiveStart: string;
-    effectiveEnd: string;
-    key: string;
-  }
-  const allPeriods: PeriodEntry[] = [];
-
-  races.forEach((race) => {
-    const periods = race.entry_periods ?? [];
-    // Fallback to old fields if no entry_periods
-    const effectivePeriods = periods.length > 0
-      ? periods
-      : (race.entry_start_date && race.entry_end_date
-          ? [{ id: 0, race_id: race.id, category_id: null, label_ja: '一般エントリー', label_en: 'General Entry', start_date: race.entry_start_date.split('T')[0], end_date: race.entry_end_date.split('T')[0], entry_fee: null, sort_order: 0 }]
-          : []);
-
-    effectivePeriods.forEach((period) => {
-      const periodStart = new Date(period.start_date + 'T00:00:00');
-      const periodEnd = new Date(period.end_date + 'T00:00:00');
-
-      // Skip if no overlap with current month
-      if (periodStart > monthEnd || periodEnd < monthStart) return;
-
-      const effectiveStart = periodStart < monthStart ? monthStart : periodStart;
-      const effectiveEnd = periodEnd > monthEnd ? monthEnd : periodEnd;
-      const effStartStr = `${year}-${String(effectiveStart.getMonth() + 1).padStart(2, '0')}-${String(effectiveStart.getDate()).padStart(2, '0')}`;
-      const effEndStr = `${year}-${String(effectiveEnd.getMonth() + 1).padStart(2, '0')}-${String(effectiveEnd.getDate()).padStart(2, '0')}`;
-
-      allPeriods.push({
-        race,
-        period,
-        effectiveStart: effStartStr,
-        effectiveEnd: effEndStr,
-        key: `${race.id}__${period.id ?? period.start_date}`,
-      });
-
-      let cur = new Date(effectiveStart.getTime());
-      while (cur <= effectiveEnd) {
-        const d = cur.getDate();
-        const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-        const dow = cur.getDay();
-        if (!entryBandsByDate.has(dateStr)) entryBandsByDate.set(dateStr, []);
-        entryBandsByDate.get(dateStr)!.push({
-          race,
-          period,
-          isStart: dateStr === period.start_date,
-          isEnd: dateStr === period.end_date,
-          isRowStart: (dow === 0 || d === 1) && dateStr !== period.start_date,
-        });
-        cur = new Date(cur.getTime() + 86400000);
-      }
-    });
-  });
-
-  // 開始日順にソートしてから貪欲法でレーン割り当て
-  allPeriods.sort((a, b) =>
-    a.effectiveStart !== b.effectiveStart
-      ? a.effectiveStart.localeCompare(b.effectiveStart)
-      : a.race.name_ja.localeCompare(b.race.name_ja),
+  // prefecture コード → 地方名のマップ
+  const prefToRegion = Object.fromEntries(
+    prefectures.map((p) => [p.code, isJa ? p.region : p.regionEn])
   );
-  const laneMap = new Map<string, number>();
-  const laneLastEnd: string[] = [];
-  for (const pe of allPeriods) {
-    let lane = laneLastEnd.findIndex((end) => end < pe.effectiveStart);
-    if (lane === -1) lane = laneLastEnd.length;
-    laneLastEnd[lane] = pe.effectiveEnd;
-    laneMap.set(pe.key, lane);
-  }
-  const totalLanes = laneLastEnd.length;
 
-  const daysInMonth = getDaysInMonth(year, month);
-  const firstDay = getFirstDayOfMonth(year, month);
+  // 地方名一覧（重複排除・順序保持）
+  const regions = [...new Set(prefectures.map((p) => isJa ? p.region : p.regionEn))];
 
   const prevMonth = month === 0 ? { year: year - 1, month: 11 } : { year, month: month - 1 };
   const nextMonth = month === 11 ? { year: year + 1, month: 0 } : { year, month: month + 1 };
 
   const monthNames = t.raw('months') as string[];
-  const weekdayNames = t.raw('weekdays') as string[];
-  const monthLabel = `${year}年${monthNames[month]}`;
-
-  const raceName = (race: Race) =>
-    locale === 'en' ? (race.name_en ?? race.name_ja) : race.name_ja;
+  const monthLabel = isJa ? `${year}年${monthNames[month]}` : `${monthNames[month]} ${year}`;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="max-w-5xl mx-auto px-4 py-8" style={{ color: 'var(--color-ink)' }}>
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-1.5 text-xs mb-4 text-gray-400" aria-label="breadcrumb">
-        <Link href="/" className="hover:text-gray-700 transition-colors">{tNav('home')}</Link>
+      <nav className="flex items-center gap-1.5 text-xs mb-4" style={{ color: 'var(--color-mid)' }} aria-label="breadcrumb">
+        <Link href="/" className="hover:underline">{tNav('home')}</Link>
         <span aria-hidden="true">›</span>
-        <span className="text-gray-700">{tNav('calendar')}</span>
+        <span style={{ color: 'var(--color-ink)' }}>{tNav('calendar')}</span>
       </nav>
 
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">{t('title')}</h1>
+      <h1 className="font-serif text-3xl font-bold mb-6" style={{ color: 'var(--color-ink)' }}>
+        {t('title')}
+      </h1>
 
       {/* Month navigation */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-4">
         <Link
           href={`?year=${prevMonth.year}&month=${prevMonth.month}`}
-          className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary border border-gray-200 rounded-lg hover:border-primary transition-colors"
+          className="px-4 py-1.5 text-sm font-medium rounded-[3px] transition-colors no-underline"
+          style={{ background: 'var(--color-cream)', color: 'var(--color-ink)', border: '1px solid var(--color-border)' }}
         >
           ← {t('prev')}
         </Link>
-        <h2 className="text-xl font-bold text-gray-900">{monthLabel}</h2>
+        <h2 className="text-lg font-bold">{monthLabel}</h2>
         <Link
           href={`?year=${nextMonth.year}&month=${nextMonth.month}`}
-          className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary border border-gray-200 rounded-lg hover:border-primary transition-colors"
+          className="px-4 py-1.5 text-sm font-medium rounded-[3px] transition-colors no-underline"
+          style={{ background: 'var(--color-cream)', color: 'var(--color-ink)', border: '1px solid var(--color-border)' }}
         >
           {t('next')} →
         </Link>
       </div>
 
-      {/* Calendar grid */}
-      <div className="border border-gray-200 rounded-xl overflow-hidden">
-        {/* Weekday headers */}
-        <div className="grid grid-cols-7 bg-gray-50 border-b border-gray-200">
-          {weekdayNames.map((day, i) => (
-            <div
-              key={day}
-              className={`p-3 text-center text-sm font-semibold ${
-                i === 0 ? 'text-accent' : i === 6 ? 'text-primary' : 'text-gray-600'
-              }`}
-            >
-              {day}
-            </div>
-          ))}
-        </div>
-
-        {/* Calendar days — cells have no horizontal padding; bands handle their own margins */}
-        <div className="grid grid-cols-7">
-          {/* Empty cells before first day */}
-          {Array.from({ length: firstDay }).map((_, i) => (
-            <div key={`empty-${i}`} className="min-h-28 border-b border-r border-gray-100 bg-gray-50" />
-          ))}
-
-          {/* Day cells */}
-          {Array.from({ length: daysInMonth }).map((_, i) => {
-            const day = i + 1;
-            const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-            const dayRaces = raceDaysByDate.get(dateStr) ?? [];
-            const entryBands = entryBandsByDate.get(dateStr) ?? [];
-            const isToday = dateStr === todayJST;
-            const dayOfWeek = (firstDay + i) % 7;
-
-
-            return (
-              <div
-                key={day}
-                className={`min-h-28 border-b border-r border-gray-100 ${isToday ? 'bg-blue-50' : 'hover:bg-gray-50'}`}
-              >
-                {/* Date number */}
-                <div className="px-2 pt-2 pb-1">
-                  <span
-                    className={`inline-flex items-center justify-center w-7 h-7 rounded-full text-sm font-medium ${
-                      isToday
-                        ? 'bg-primary text-white'
-                        : dayOfWeek === 0
-                        ? 'text-accent'
-                        : dayOfWeek === 6
-                        ? 'text-primary'
-                        : 'text-gray-700'
-                    }`}
-                  >
-                    {day}
-                  </span>
-                </div>
-
-                {/* Entry period bands — レーン番号順に描画し位置を固定 */}
-                <div className="space-y-px">
-                  {Array.from({ length: totalLanes }, (_, lane) => {
-                    const band = entryBands.find(
-                      (b) => laneMap.get(`${b.race.id}__${b.period.id ?? b.period.start_date}`) === lane,
-                    );
-                    // 該当レーンに帯がない日はプレースホルダーで高さを確保
-                    if (!band) return <div key={lane} className="h-5" />;
-
-                    const name = raceName(band.race);
-                    const periodLabel = locale === 'en' ? band.period.label_en : band.period.label_ja;
-                    let label = '';
-                    if (band.isStart) label = `${t('entryStart')} ${name}${periodLabel !== '一般エントリー' && periodLabel !== 'General Entry' ? ` (${periodLabel})` : ''}`;
-                    else if (band.isEnd) label = `${t('entryEnd')} ${name}`;
-                    else if (band.isRowStart) label = name;
-
-                    // ラベルがある開始セルはテキストをセル外へ食み出させる（overflow-visible + whitespace-nowrap）
-                    const hasLabel = label !== '';
-                    let cx =
-                      `flex items-center h-5 text-xs text-green-900 bg-green-100 transition-colors hover:bg-green-200 ${hasLabel ? 'overflow-visible relative z-10' : 'overflow-hidden'} `;
-                    if (band.isStart && band.isEnd) {
-                      cx += 'mx-2 rounded-full px-2';
-                    } else if (band.isStart) {
-                      cx += 'ml-2 rounded-l-full pl-2 pr-1';
-                    } else if (band.isEnd) {
-                      cx += 'mr-2 rounded-r-full pl-1 pr-2';
-                    }
-
-                    return (
-                      <Link key={lane} href={`/races/${band.race.id}?from=calendar`} className={cx}>
-                        {label && <span className="whitespace-nowrap">{label}</span>}
-                      </Link>
-                    );
-                  })}
-                </div>
-
-                {/* Race day badges */}
-                <div className="px-2 mt-1 space-y-1">
-                  {dayRaces.map((race) => (
-                    <Link
-                      key={race.id}
-                      href={`/races/${race.id}?from=calendar`}
-                      className="block text-xs bg-primary text-white rounded px-1.5 py-0.5 truncate hover:bg-primary/80 transition-colors"
-                    >
-                      {raceName(race)}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      <CalendarView
+        races={races}
+        year={year}
+        month={month}
+        locale={locale}
+        today={todayJST}
+        regions={regions}
+        prefToRegion={prefToRegion}
+      />
 
       {/* Legend */}
-      <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-gray-600">
+      <div className="mt-4 flex flex-wrap items-center gap-4 text-xs" style={{ color: 'var(--color-mid)' }}>
         <span className="font-medium">{t('legend')}:</span>
         <span className="flex items-center gap-1.5">
-          <span className="inline-block w-3 h-3 rounded-sm bg-primary" />
+          <span className="inline-block w-3 h-3 rounded-sm" style={{ background: 'var(--color-primary)' }} />
           {t('raceDay')}
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="inline-block w-8 h-3 bg-green-100 rounded-full" />
+          <span className="inline-block w-8 h-3 rounded-full" style={{ background: '#d1fae5' }} />
           {t('entryPeriod')}
         </span>
       </div>

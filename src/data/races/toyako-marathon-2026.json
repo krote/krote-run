@@ -112,12 +112,29 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "洞爺湖",
+  "motif_color": "#0369a1",
+  "motif_romaji": "Toyako",
+  "tagline_ja": "洞爺湖の湖畔を巡る、北海道の爽快42km",
+  "tagline_en": "Circle the shores of Lake Toya in refreshing Hokkaido",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "洞爺湖",
+      "name_en": "Lake Toya",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "羊蹄山",
+      "name_en": "Mt. Yotei",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

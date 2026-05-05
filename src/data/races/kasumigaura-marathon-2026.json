@@ -119,12 +119,23 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "霞ヶ浦",
+  "motif_color": "#7dd3fc",
+  "motif_romaji": "Kasumigaura",
+  "tagline_ja": "日本第2位の湖・霞ヶ浦のほとりを走る",
+  "tagline_en": "Run along the shores of Lake Kasumigaura, Japan's 2nd largest lake",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "霞ヶ浦湖畔",
+      "name_en": "Lake Kasumigaura shore",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

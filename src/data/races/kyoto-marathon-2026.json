@@ -125,12 +125,47 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "大文字山",
+  "motif_color": "#7f1d1d",
+  "motif_romaji": "Daimonji-yama",
+  "tagline_ja": "千年の古都・京都の世界遺産をめぐる",
+  "tagline_en": "Run through Kyoto's thousand years of world heritage",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "嵐山",
+      "name_en": "Arashiyama",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "金閣寺付近",
+      "name_en": "near Kinkaku-ji",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "今出川通",
+      "name_en": "Imadegawa-dori",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "銀閣寺付近",
+      "name_en": "near Ginkaku-ji",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "平安神宮",
+      "name_en": "Heian Shrine",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

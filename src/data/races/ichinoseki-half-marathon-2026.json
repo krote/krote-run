@@ -83,12 +83,23 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "厳美渓",
+  "motif_color": "#065f46",
+  "motif_romaji": "Genbikei",
+  "tagline_ja": "厳美渓の渓谷美を感じながら走る一関ハーフ",
+  "tagline_en": "Run through the scenic Genbikei gorge in Ichinoseki",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "最大高低差15mのフラットコース",
+      "name_en": "Flat course with only 15m elevation difference",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

@@ -101,12 +101,35 @@
       "label_en": "Late Entry"
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "海",
+  "motif_color": "#0ea5e9",
+  "motif_romaji": "Umi",
+  "tagline_ja": "東京湾アクアラインを渡る、世界唯一のコース",
+  "tagline_en": "The world-unique course crossing Tokyo Bay Aqua-Line",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "東京湾アクアライン",
+      "name_en": "Tokyo Bay Aqualine",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "海ほたる",
+      "name_en": "Umihotaru PA",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "袖ケ浦の田園地帯",
+      "name_en": "Sodegaura farmlands",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

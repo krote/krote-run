@@ -122,12 +122,29 @@
       "label_en": "General Entry"
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "桜",
+  "motif_color": "#f9c1cc",
+  "motif_romaji": "Sakura",
+  "tagline_ja": "福井の桜回廊を巡る、春の42km",
+  "tagline_en": "A spring 42km through Fukui's cherry blossom corridors",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "桜並木",
+      "name_en": "Cherry blossom trees",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "足羽川",
+      "name_en": "Asuwa River",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

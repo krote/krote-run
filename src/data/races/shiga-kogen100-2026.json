@@ -89,12 +89,16 @@
       "image": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "高原",
+  "motif_color": "#166534",
+  "motif_romaji": "Kogen",
+  "tagline_ja": "志賀高原の雄大な自然の中を走る100kmトレイル",
+  "tagline_en": "100km trail through the majestic nature of Shiga Kogen",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": []
 }

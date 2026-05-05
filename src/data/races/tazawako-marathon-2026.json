@@ -75,12 +75,16 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "田沢湖",
+  "motif_color": "#1e40af",
+  "motif_romaji": "Tazawako",
+  "tagline_ja": "日本最深の湖・田沢湖を一望しながら走る",
+  "tagline_en": "Run overlooking Lake Tazawa, Japan's deepest lake",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": []
 }

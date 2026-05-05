@@ -91,12 +91,23 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "スイカ",
+  "motif_color": "#16a34a",
+  "motif_romaji": "Suika",
+  "tagline_ja": "日本一のスイカの産地・富里を走る、夏の風物詩",
+  "tagline_en": "Run Japan's watermelon capital — a midsummer tradition",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "スイカ畑の田園風景",
+      "name_en": "Scenic watermelon fields",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

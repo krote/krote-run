@@ -307,12 +307,53 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "善光寺",
+  "motif_color": "#78350f",
+  "motif_romaji": "Zenko-ji",
+  "tagline_ja": "長野オリンピックの遺産を巡る、信濃の春",
+  "tagline_en": "Run through Nagano's Olympic legacy in spring Shinano",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "善光寺表参道",
+      "name_en": "Zenkoji approach road",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "エムウェーブ（2026年は工事のためコース変更あり）",
+      "name_en": "M-Wave (course change in 2026 due to construction)",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "ビッグハット",
+      "name_en": "Big Hat",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "五輪大橋",
+      "name_en": "Olympic Bridge",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "ホワイトリング",
+      "name_en": "White Ring",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "長野オリンピックスタジアム（フィニッシュ）",
+      "name_en": "Nagano Olympic Stadium (finish)",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

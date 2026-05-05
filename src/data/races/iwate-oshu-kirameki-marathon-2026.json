@@ -106,12 +106,16 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "平泉",
+  "motif_color": "#854d0e",
+  "motif_romaji": "Hiraizumi",
+  "tagline_ja": "世界遺産・平泉の黄金文化を感じながら走る",
+  "tagline_en": "Run through Hiraizumi, the Golden City of World Heritage",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": []
 }

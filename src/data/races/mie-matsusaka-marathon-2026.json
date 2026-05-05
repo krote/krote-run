@@ -93,12 +93,23 @@
     "detail_level": "medium"
   },
   "entry_periods": [],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "松阪牛",
+  "motif_color": "#7f1d1d",
+  "motif_romaji": "Matsusaka-gyu",
+  "tagline_ja": "松阪牛の里・松阪を走る、美食ランナーの聖地",
+  "tagline_en": "Run through Matsusaka, home of Japan's finest beef",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "松阪の城下町",
+      "name_en": "Matsusaka castle town",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

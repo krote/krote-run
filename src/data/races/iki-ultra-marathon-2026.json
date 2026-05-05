@@ -79,12 +79,16 @@
       "image": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "壱岐の海",
+  "motif_color": "#0891b2",
+  "motif_romaji": "Iki-no-Umi",
+  "tagline_ja": "玄界灘に浮かぶ神秘の島・壱岐を一周する",
+  "tagline_en": "Circle the mystical island of Iki in the Genkai Sea",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": []
 }

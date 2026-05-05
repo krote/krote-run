@@ -89,12 +89,23 @@
     "detail_level": "medium"
   },
   "entry_periods": [],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "阿波おどり",
+  "motif_color": "#ea580c",
+  "motif_romaji": "Awa-Odori",
+  "tagline_ja": "踊る阿呆に走る阿呆！阿波の国を駆け抜ける",
+  "tagline_en": "Run the land of Awa dance — the spirit of Tokushima",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "吉野川",
+      "name_en": "Yoshino River",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

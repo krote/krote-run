@@ -101,12 +101,35 @@
       "label_en": ""
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "吉備路",
+  "motif_color": "#854d0e",
+  "motif_romaji": "Kibiji",
+  "tagline_ja": "吉備路の古代ロマンを感じながら走る42km",
+  "tagline_en": "Run the ancient Kibiji road through Soja's historic landscape",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "備中国分寺五重塔",
+      "name_en": "Bitchu Kokubunji five-story pagoda",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "古墳群",
+      "name_en": "burial mounds",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "吉備路",
+      "name_en": "Kibiji",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

@@ -70,12 +70,16 @@
       "image": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "信濃川",
+  "motif_color": "#0369a1",
+  "motif_romaji": "Shinano-gawa",
+  "tagline_ja": "日本一の大河・信濃川が流れる、米どころを走る",
+  "tagline_en": "Run along the Shinano River, Japan's longest",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": []
 }

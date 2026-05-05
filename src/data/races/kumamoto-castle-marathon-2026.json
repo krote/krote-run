@@ -113,12 +113,23 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "熊本城",
+  "motif_color": "#1c1917",
+  "motif_romaji": "Kumamoto-jo",
+  "tagline_ja": "不落の名城・熊本城をめぐる感動の42km",
+  "tagline_en": "42km around the legendary Kumamoto Castle",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "熊本城",
+      "name_en": "Kumamoto Castle",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

@@ -94,12 +94,29 @@
     "detail_level": "medium"
   },
   "entry_periods": [],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "城下町",
+  "motif_color": "#1c1917",
+  "motif_romaji": "Jokamachi",
+  "tagline_ja": "丹波篠山・城下町の風情漂う黒豆の里を走る",
+  "tagline_en": "Run through the castle town of Tamba Sasayama, home of black soybeans",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "篠山城跡",
+      "name_en": "Sasayama Castle ruins",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "田園風景",
+      "name_en": "rural landscape",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

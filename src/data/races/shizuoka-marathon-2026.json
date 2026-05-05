@@ -93,12 +93,29 @@
     "detail_level": "medium"
   },
   "entry_periods": [],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "富士山",
+  "motif_color": "#2a4fa3",
+  "motif_romaji": "Fujisan",
+  "tagline_ja": "富士山を正面に望む、海岸線の42km",
+  "tagline_en": "Run the coastline with Mt. Fuji straight ahead",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "駿河湾",
+      "name_en": "Suruga Bay",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "富士山",
+      "name_en": "Mt. Fuji",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

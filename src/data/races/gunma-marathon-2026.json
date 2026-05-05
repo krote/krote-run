@@ -115,12 +115,41 @@
       "label_en": ""
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "赤城山",
+  "motif_color": "#166534",
+  "motif_romaji": "Akagi-san",
+  "tagline_ja": "赤城を仰ぎ、前橋の大地を駆ける",
+  "tagline_en": "Run across Maebashi plain with Mt. Akagi in view",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "赤城山",
+      "name_en": "Mt. Akagi",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "榛名山",
+      "name_en": "Mt. Haruna",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "利根川",
+      "name_en": "Tone River",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "正田醤油スタジアム群馬",
+      "name_en": "Shoda Shoyu Stadium Gunma",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

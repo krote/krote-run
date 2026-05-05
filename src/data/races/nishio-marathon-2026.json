@@ -89,12 +89,16 @@
     "detail_level": "medium"
   },
   "entry_periods": [],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "抹茶",
+  "motif_color": "#4d7c0f",
+  "motif_romaji": "Matcha",
+  "tagline_ja": "日本有数の抹茶の産地・西尾を巡る42km",
+  "tagline_en": "Run through Nishio, one of Japan's top matcha-producing cities",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": []
 }

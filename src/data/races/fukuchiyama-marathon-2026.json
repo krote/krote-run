@@ -136,12 +136,29 @@
       "label_en": "Last-minute (no participation gift)"
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "福知山城",
+  "motif_color": "#78350f",
+  "motif_romaji": "Fukuchiyama-jo",
+  "tagline_ja": "城下町・福知山の歴史街道を駆け抜ける",
+  "tagline_en": "Run through the historic castle town of Fukuchiyama",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "由良川沿い",
+      "name_en": "Along Yura River",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "福知山城周辺",
+      "name_en": "near Fukuchiyama Castle",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

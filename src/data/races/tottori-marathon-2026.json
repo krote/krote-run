@@ -101,12 +101,29 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "砂丘",
+  "motif_color": "#d4a853",
+  "motif_romaji": "Sakyu",
+  "tagline_ja": "日本最大の砂丘を望む、山陰の大地を走る",
+  "tagline_en": "Run the San-in coast with Japan's great sand dunes in view",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "鳥取砂丘付近",
+      "name_en": "Near Tottori Sand Dunes",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "日本海",
+      "name_en": "Sea of Japan",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

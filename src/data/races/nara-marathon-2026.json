@@ -107,12 +107,41 @@
     "detail_level": "medium"
   },
   "entry_periods": [],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "奈良の鹿",
+  "motif_color": "#92400e",
+  "motif_romaji": "Nara-no-Shika",
+  "tagline_ja": "奈良の鹿と世界遺産が待つ、古都の42km",
+  "tagline_en": "Run through the ancient capital of Nara alongside sacred deer",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "東大寺",
+      "name_en": "Todai-ji",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "春日大社",
+      "name_en": "Kasuga Shrine",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "平城宮跡",
+      "name_en": "Heijo Palace ruins",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "奈良公園",
+      "name_en": "Nara Park",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

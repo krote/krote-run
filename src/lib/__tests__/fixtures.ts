@@ -1,4 +1,4 @@
-import type { Race, RaceCategory, EntryPeriod, EntryLink } from '../types';
+import type { Race, RaceCategory, EntryPeriod, EntryLink, RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight } from '../types';
 
 /** テスト用の最小限 Race オブジェクトを生成するファクトリ */
 export function makeRace(overrides: Partial<Race> = {}): Race {
@@ -48,6 +48,10 @@ export function makeRace(overrides: Partial<Race> = {}): Race {
     entry_periods: [],
     entry_links: [],
     result: null,
+    gallery: [],
+    voices: [],
+    time_buckets: [],
+    course_highlights: [],
     motif: null,
     motif_color: null,
     motif_romaji: null,
@@ -104,6 +108,54 @@ export function makeEntryPeriod(overrides: Partial<EntryPeriod> = {}): EntryPeri
     start_date: '2026-04-01',
     end_date: '2026-06-30',
     entry_fee: null,
+    sort_order: 0,
+    ...overrides,
+  };
+}
+
+export function makeGallery(overrides: Partial<RaceGallery> = {}): RaceGallery {
+  return {
+    id: 1,
+    race_id: 'test-race-2026',
+    src: '/images/races/test-race-2026-1.jpg',
+    caption_ja: 'テストキャプション',
+    caption_en: 'Test caption',
+    sort_order: 0,
+    ...overrides,
+  };
+}
+
+export function makeVoice(overrides: Partial<RaceVoice> = {}): RaceVoice {
+  return {
+    id: 1,
+    race_id: 'test-race-2026',
+    quote_ja: 'とても楽しいレースでした。',
+    author: '40代男性',
+    sort_order: 0,
+    ...overrides,
+  };
+}
+
+export function makeTimeBucket(overrides: Partial<RaceTimeBucket> = {}): RaceTimeBucket {
+  return {
+    id: 1,
+    race_id: 'test-race-2026',
+    bucket: '4:00–4:30',
+    pct: 25.0,
+    sort_order: 0,
+    ...overrides,
+  };
+}
+
+export function makeCourseHighlight(overrides: Partial<RaceCourseHighlight> = {}): RaceCourseHighlight {
+  return {
+    id: 1,
+    race_id: 'test-race-2026',
+    km: 21.0,
+    name_ja: '折り返し地点',
+    name_en: 'Turnaround Point',
+    note_ja: '眺望が素晴らしい',
+    note_en: 'Great views',
     sort_order: 0,
     ...overrides,
   };

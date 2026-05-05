@@ -49,6 +49,10 @@ export interface Race {
   entry_periods: EntryPeriod[];
   entry_links: EntryLink[];
   result: RaceResult | null;      // 開催実績（未開催の場合は null）
+  gallery: RaceGallery[];
+  voices: RaceVoice[];
+  time_buckets: RaceTimeBucket[];
+  course_highlights: RaceCourseHighlight[];
   // Phase 2: ビジュアル拡張フィールド
   motif: string | null;
   motif_color: string | null;
@@ -247,6 +251,58 @@ export interface RaceSeries {
   name_en: string;        // "Nagano Marathon"
   first_held_year: number | null;
   website_url: string | null;
+}
+
+// ==================
+// RaceGallery
+// ==================
+
+export interface RaceGallery {
+  id: number;
+  race_id: string;
+  src: string;
+  caption_ja: string | null;
+  caption_en: string | null;
+  sort_order: number;
+}
+
+// ==================
+// RaceVoice
+// ==================
+
+export interface RaceVoice {
+  id: number;
+  race_id: string;
+  quote_ja: string;
+  author: string | null;
+  sort_order: number;
+}
+
+// ==================
+// RaceTimeBucket
+// ==================
+
+export interface RaceTimeBucket {
+  id: number;
+  race_id: string;
+  bucket: string;
+  pct: number;
+  sort_order: number;
+}
+
+// ==================
+// RaceCourseHighlight
+// ==================
+
+export interface RaceCourseHighlight {
+  id: number;
+  race_id: string;
+  km: number;
+  name_ja: string;
+  name_en: string | null;
+  note_ja: string | null;
+  note_en: string | null;
+  sort_order: number;
 }
 
 // ==================

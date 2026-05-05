@@ -484,3 +484,20 @@
 - `tools/admin/index.html`: ビジュアルセクション（motif/tagline/hero_image 入力フォーム）を追加
 - `tools/admin/app.js`: `populateForm()` / `buildJson()` に Phase 2 フィールドの読み書きを追加
 - `docs/schema.md`: Phase 2 カラム定義とマイグレーション履歴を更新
+
+## 2026-05-04 詳細ページPhase3 ギャラリー・参加者の声対応（Issue #43）
+
+- `src/lib/db/schema.ts`: `race_gallery` / `race_voices` / `race_time_buckets` / `race_course_highlights` テーブルを追加、リレーション定義
+- `migrations/0009_phase3_gallery_voices.sql`: Phase 3 テーブル追加用マイグレーションを手動作成
+- `src/lib/types.ts`: `RaceGallery` / `RaceVoice` / `RaceTimeBucket` / `RaceCourseHighlight` インターフェースを追加、`Race` に配列フィールドを追加
+- `src/lib/data.ts`: `getRaceById()` に4テーブルのクエリ・マッピングを追加、`assembleRace()` に引数追加
+- `src/lib/__tests__/fixtures.ts`: `makeRace()` に4配列フィールドを追加、`makeGallery()` / `makeVoice()` / `makeTimeBucket()` / `makeCourseHighlight()` ファクトリを追加
+- `scripts/generate-seed-races.js`: 4テーブルの DELETE/INSERT 処理を追加
+- `tools/admin/index.html` / `tools/admin/app.js`: ギャラリー・参加者の声・タイム分布・コース見どころセクションを追加
+- `src/components/races/detail/DetailHeader.tsx`: ヒーロービジュアル（motif カラー背景・ヒーロー画像・タグライン）コンポーネント（TDD）
+- `src/components/races/detail/AnchorBar.tsx`: sticky セクションナビバーコンポーネント（TDD）
+- `src/components/races/detail/OverviewSection.tsx`: 概要・タグ表示コンポーネント（TDD）
+- `src/components/races/detail/EntrySection.tsx`: エントリー情報コンポーネント（TDD）
+- `src/components/races/detail/LastEditionSection.tsx`: 前回大会実績コンポーネント（TDD）
+- `src/components/races/detail/GallerySection.tsx`: ギャラリー・参加者の声コンポーネント（TDD）
+- `src/app/[locale]/races/[id]/page.tsx`: 新コンポーネントで詳細ページを再構成

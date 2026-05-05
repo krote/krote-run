@@ -501,3 +501,12 @@
 - `src/components/races/detail/LastEditionSection.tsx`: 前回大会実績コンポーネント（TDD）
 - `src/components/races/detail/GallerySection.tsx`: ギャラリー・参加者の声コンポーネント（TDD）
 - `src/app/[locale]/races/[id]/page.tsx`: 新コンポーネントで詳細ページを再構成
+
+## 2026-05-05 カレンダーページPhase4 強化（Issue #44）
+
+- `src/components/calendar/ControlBar.tsx`: STATUS/REGION フィルター UI（TDD）
+- `src/components/calendar/HoverCard.tsx`: ホバー時ミニカード（TDD）
+- `src/components/calendar/MonthGrid.tsx`: 月送りグリッド Client Component（TDD）
+- `src/components/calendar/YearTimeline.tsx`: SVG ベース年間タイムライン（TDD）
+- `src/components/calendar/CalendarView.tsx`: ビュー切替・フィルター統合ラッパー（TDD）
+- `src/app/[locale]/calendar/page.tsx`: CalendarView で再構成、デザイントークン統一

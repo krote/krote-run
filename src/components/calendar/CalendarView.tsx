@@ -6,8 +6,6 @@ import ControlBar, { type StatusFilter } from './ControlBar';
 import MonthGrid from './MonthGrid';
 import YearTimeline from './YearTimeline';
 import HoverCard from './HoverCard';
-import { getTodayJST } from '@/lib/utils';
-
 type ViewMode = 'month' | 'timeline';
 
 interface CalendarViewProps {

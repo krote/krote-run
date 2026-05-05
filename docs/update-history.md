@@ -510,3 +510,15 @@
 - `src/components/calendar/YearTimeline.tsx`: SVG ベース年間タイムライン（TDD）
 - `src/components/calendar/CalendarView.tsx`: ビュー切替・フィルター統合ラッパー（TDD）
 - `src/app/[locale]/calendar/page.tsx`: CalendarView で再構成、デザイントークン統一
+
+## 2026-05-05 Phase 2/3 フィールドのデータ充填（Issue #49）
+
+- `src/data/races/*.json`（77件）: Phase 2/3 フィールドを一括設定
+  - `gallery` / `voices` / `time_buckets` / `course_highlights` を空配列としてフィールド追加
+  - `motif` / `motif_color` / `motif_romaji` を各大会の特徴・地域から設定（全77件）
+  - `tagline_ja` / `tagline_en` を各大会のキャッチコピーとして設定（全77件）
+  - `course_highlights` を既存の `course_info.highlights_ja/en` から構造化（61件）
+- `scripts/add-phase3-fields.js`: Phase 3 空配列フィールドを一括追加するスクリプト
+- `scripts/set-motif-data.js`: motif/tagline データを全件に適用するスクリプト
+- `scripts/build-course-highlights.js`: course_info から course_highlights を構造化するスクリプト
+- `migrations/seed-races-all.sql`: シードSQL再生成（新フィールド反映）

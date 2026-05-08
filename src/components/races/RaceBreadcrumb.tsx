@@ -32,23 +32,23 @@ export default function RaceBreadcrumb({ raceName, from, labels }: RaceBreadcrum
     <nav
       className="flex items-center gap-1.5 text-xs mb-6"
       aria-label="breadcrumb"
-      style={{ color: 'var(--color-light)' }}
+      style={{ color: 'var(--color-mid)' }}
     >
-      <Link href="/" className="hover:text-white transition-colors">
+      <Link href="/" className="transition-colors hover:underline" style={{ color: 'var(--color-mid)' }}>
         {labels.home}
       </Link>
 
       {middle && (
         <>
           <span aria-hidden="true">›</span>
-          <Link href={middle.href} onClick={handleBack} className="hover:text-white transition-colors">
+          <Link href={middle.href} onClick={handleBack} className="transition-colors hover:underline" style={{ color: 'var(--color-mid)' }}>
             {middle.label}
           </Link>
         </>
       )}
 
       <span aria-hidden="true">›</span>
-      <span className="text-white truncate max-w-[200px] sm:max-w-xs">{raceName}</span>
+      <span className="truncate max-w-[200px] sm:max-w-xs" style={{ color: 'var(--color-ink)' }}>{raceName}</span>
     </nav>
   );
 }

@@ -17,7 +17,7 @@
   "entry_capacity": 0,
   "entry_start_date": "2026-04-10",
   "entry_end_date": "2026-07-17",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "ゼッケン・計測タグ・参加賞等を事前発送します。前日受付は行いません",
   "reception_note_en": "Race bibs, timing tags, and participation prizes will be sent out in advance. There will be no registration the day before the event.",
   "tags": [

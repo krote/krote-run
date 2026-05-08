@@ -14,7 +14,8 @@ describe('DetailHeader - 基本レンダリング', () => {
   it('en ロケールで英語大会名が表示される', () => {
     const race = makeRace({ name_en: 'Nagano Marathon 2026', date: '2026-04-19' });
     render(<DetailHeader race={race} locale="en" raceName="Nagano Marathon 2026" />);
-    expect(screen.getByText('Nagano Marathon 2026')).toBeInTheDocument();
+    // h1 とサブタイトル両方に表示されるため getAllByText を使用
+    expect(screen.getAllByText('Nagano Marathon 2026').length).toBeGreaterThanOrEqual(1);
   });
 
   it('tagline_ja が表示される', () => {
@@ -26,7 +27,7 @@ describe('DetailHeader - 基本レンダリング', () => {
   it('tagline_en が en ロケールで表示される', () => {
     const race = makeRace({ tagline_en: 'Chase the Cherry Blossoms.', date: '2026-04-19' });
     render(<DetailHeader race={race} locale="en" raceName="Nagano Marathon 2026" />);
-    expect(screen.getByText('Chase the Cherry Blossoms.')).toBeInTheDocument();
+    expect(screen.getByText(/Chase the Cherry Blossoms\./)).toBeInTheDocument();
   });
 
   it('tagline が null のとき何も表示されない', () => {
@@ -53,17 +54,25 @@ describe('DetailHeader - 基本レンダリング', () => {
     expect(screen.getByText('SAKURA')).toBeInTheDocument();
   });
 
-  it('hero_image_url がある場合 img タグが描画される', () => {
-    const race = makeRace({ hero_image_url: '/images/hero.jpg', date: '2026-04-19' });
-    const { container } = render(<DetailHeader race={race} locale="ja" raceName="テスト大会" />);
-    const img = container.querySelector('img');
-    expect(img).not.toBeNull();
-    expect(img?.getAttribute('src')).toBe('/images/hero.jpg');
+  it('開催日がメタ行に表示される', () => {
+    const race = makeRace({ date: '2026-04-19' });
+    render(<DetailHeader race={race} locale="ja" raceName="テスト大会" />);
+    expect(screen.getByText('2026年4月19日')).toBeInTheDocument();
   });
 
-  it('hero_image_url が null のとき img タグが描画されない', () => {
-    const race = makeRace({ hero_image_url: null, date: '2026-04-19' });
-    const { container } = render(<DetailHeader race={race} locale="ja" raceName="テスト大会" />);
-    expect(container.querySelector('img')).toBeNull();
+  it('ordinalSuffix が 1st/2nd/3rd/4th で正しく表示される', () => {
+    const race1 = makeRace({ edition: 1, date: '2026-04-19' });
+    const { unmount: u1 } = render(<DetailHeader race={race1} locale="ja" raceName="テスト大会" />);
+    expect(screen.getByText(/1ST/)).toBeInTheDocument();
+    u1();
+
+    const race2 = makeRace({ edition: 2, date: '2026-04-19' });
+    const { unmount: u2 } = render(<DetailHeader race={race2} locale="ja" raceName="テスト大会" />);
+    expect(screen.getByText(/2ND/)).toBeInTheDocument();
+    u2();
+
+    const race11 = makeRace({ edition: 11, date: '2026-04-19' });
+    render(<DetailHeader race={race11} locale="ja" raceName="テスト大会" />);
+    expect(screen.getByText(/11TH/)).toBeInTheDocument();
   });
 });

@@ -9,15 +9,15 @@
   "prefecture": "19",
   "city_ja": "富士吉田市",
   "city_en": "Fujiyoshida City",
-  "description_ja": "この山の頂には過酷に挑む価値がある",
-  "description_en": "The summit of this mountain is well worth the challenge",
+  "description_ja": "",
+  "description_en": "",
   "official_url": "https://fujimountainrace.city.fujiyoshida.yamanashi.jp/",
   "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
   "entry_start_date": "2026-03-28",
   "entry_end_date": "2026-04-06",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "受付不要。事前発送とする。\n申込後の住所変更、その他の変更事項については、必ず事務局へ連絡すること。\n大会当日、ナンバーカード、計測用RSタグを忘れると出走できなくなるので、注意すること。\n（やむを得ず、当日再発行の場合は、別途再発行手数料を徴収する）",
   "reception_note_en": "No on-site registration is required. All materials will be sent in advance.\nPlease be sure to contact the organizing committee regarding any changes to your address or other details after registration.\nPlease note that if you forget your race number or timing chip on the day of the event, you will not be able to participate.\n(If reissuance is unavoidably necessary on the day of the event, a separate reissuance fee will be charged.)",
   "tags": [],
@@ -44,7 +44,8 @@
       "name_ja": "山頂コース",
       "eligibility_ja": "第76回大会、第77回大会、第78回大会のいずれかにおいて五合目関門（五合目ゴール）通過時間が2時間20分以内の実績のある者。又は、第2回富士山クライムランにおいて五合目ゴール時間が2時間以内の実績がある者とする。 過去(第76回、第77回、第78回)の大会の記録についてはこちらからご確認ください。 第2回富士山クライムランの記録についてはこちらからご確認ください。",
       "eligibility_en": "Participants must have completed the 5th Station checkpoint (5th Station finish) in 2 hours and 20 minutes or less in either the 76th, 77th, or 78th edition of the race. Alternatively, participants must have completed the 5th Station finish in 2 hours or less in the 2nd Mount Fuji Climb Run. Please click here to view records from past editions (76th, 77th, and 78th). Please click here to view records from the 2nd Mt. Fuji Climb Run.  Translated with DeepL.com (free version)",
-      "course_gpx_file": "fuji-mountain-race-2026.gpx"
+      "course_gpx_file": "fuji-mountain-race-2026.gpx",
+      "course_highlights": []
     },
     {
       "distance_type": "other",
@@ -56,7 +57,8 @@
       "name_ja": "五合目コース",
       "eligibility_ja": null,
       "eligibility_en": null,
-      "course_gpx_file": "fuji-mountain-race-2026-5gome"
+      "course_gpx_file": "fuji-mountain-race-2026-5gome",
+      "course_highlights": []
     }
   ],
   "aid_stations": [],
@@ -83,16 +85,15 @@
       "url": "https://runnet.jp/parts/2026/386774/entry.html"
     }
   ],
-  "motif": "富士山",
+  "motif": "霊峰",
   "motif_color": "#4b5563",
-  "motif_romaji": "Fujisan",
-  "tagline_ja": "山頂を目指す、日本の頂への挑戦",
-  "tagline_en": "Challenge to the summit — the ultimate mountain race",
+  "motif_romaji": "Reiho",
+  "tagline_ja": "この山の頂には過酷に挑む価値がある",
+  "tagline_en": "The summit of this mountain is well worth the challenge",
   "hero_image_url": null,
   "hero_caption_ja": null,
   "hero_caption_en": null,
   "gallery": [],
   "voices": [],
-  "time_buckets": [],
-  "course_highlights": []
+  "time_buckets": []
 }

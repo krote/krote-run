@@ -17,7 +17,7 @@
   "entry_capacity": 0,
   "entry_start_date": "2026-05-01",
   "entry_end_date": "2026-06-30",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [],

@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-05-05T13:08:50.110Z
+-- 生成日時: 2026-05-08T14:21:54.324Z
 -- 対象ファイル数: 75 件（既存 2 件はskip）
 
 -- ==================
@@ -37,7 +37,7 @@ INSERT OR REPLACE INTO races (
   '2026-04-01',
   '2026-07-16',
   0,
-  'mail',
+  'pre_mail',
   '',
   '',
   '[]',
@@ -165,12 +165,12 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('akita-nairiku-ultra-2026', 'other', 50, 420, '07:00', 250, 18000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('akita-nairiku-ultra-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-06-30', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('akita-nairiku-ultra-2026', NULL, '秋田内陸縦貫鉄道沿い', 'Along Akita Nairiku Railway', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('akita-nairiku-ultra-2026', NULL, '田沢湖高原', 'Tazawako Highland', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('akita-nairiku-ultra-2026', NULL, '最大高低差531m', '531m elevation difference', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('akita-nairiku-ultra-2026', NULL, NULL, '秋田内陸縦貫鉄道沿い', 'Along Akita Nairiku Railway', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('akita-nairiku-ultra-2026', NULL, NULL, '田沢湖高原', 'Tazawako Highland', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('akita-nairiku-ultra-2026', NULL, NULL, '最大高低差531m', '531m elevation difference', NULL, NULL, 2);
 
 -- ==================
 -- あおもり桜マラソン (aomori-sakura-marathon-2026)
@@ -207,7 +207,7 @@ INSERT OR REPLACE INTO races (
   '2025-11-01',
   '2026-01-30',
   0,
-  'mail',
+  'pre_mail',
   '',
   '',
   '["景色が良い","桜"]',
@@ -258,12 +258,12 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('aomori-sakura-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('aomori-sakura-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-11-01', '2026-01-30', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('aomori-sakura-marathon-2026', NULL, '八甲田山', 'Mt. Hakkoda', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('aomori-sakura-marathon-2026', NULL, '陸奥湾', 'Mutsu Bay', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('aomori-sakura-marathon-2026', NULL, '桜並木', 'cherry blossom trees', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('aomori-sakura-marathon-2026', NULL, NULL, '八甲田山', 'Mt. Hakkoda', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('aomori-sakura-marathon-2026', NULL, NULL, '陸奥湾', 'Mutsu Bay', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('aomori-sakura-marathon-2026', NULL, NULL, '桜並木', 'cherry blossom trees', NULL, NULL, 2);
 
 -- ==================
 -- 旭川ハーフマラソン (asahikawa-half-marathon-2026)
@@ -345,8 +345,8 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('asahikawa-half-marathon-2026', '10k', 10, 0, '08:50', 1000, 4500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('asahikawa-half-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-07-26', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('asahikawa-half-marathon-2026', NULL, '忠別川沿い', 'Along Chubetsu River', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('asahikawa-half-marathon-2026', NULL, NULL, '忠別川沿い', 'Along Chubetsu River', NULL, NULL, 0);
 
 -- ==================
 -- 別府大分毎日マラソン (beppu-oita-marathon-2026)
@@ -432,10 +432,10 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('beppu-oita-marathon-2026', '["tshirt"]', '大会Tシャツ', 'Race T-shirt', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('beppu-oita-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-29', '2025-09-11', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('beppu-oita-marathon-2026', NULL, '別府温泉街', 'Beppu hot spring town', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('beppu-oita-marathon-2026', NULL, '別大国道の海岸線', 'Betsudai coastal road', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('beppu-oita-marathon-2026', NULL, NULL, '別府温泉街', 'Beppu hot spring town', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('beppu-oita-marathon-2026', NULL, NULL, '別大国道の海岸線', 'Betsudai coastal road', NULL, NULL, 1);
 
 -- ==================
 -- びわ湖マラソン (biwako-marathon-2026)
@@ -472,7 +472,7 @@ INSERT OR REPLACE INTO races (
   '2025-08-01',
   '2025-10-31',
   0,
-  'mail',
+  'pre_mail',
   '',
   '',
   '["フラット","景色が良い","湖畔"]',
@@ -519,10 +519,10 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('biwako-marathon-2026', '温泉', 'おごと温泉', 'Ogoto Onsen', '琵琶湖西岸の温泉地。コース付近。レース後のリカバリーに便利。', 'Hot spring town on the west shore of Lake Biwa. Near the course. Convenient for post-race recovery.', 'コース付近', NULL, 35.1167, 135.8833);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('biwako-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-01', '2025-10-31', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('biwako-marathon-2026', NULL, '琵琶湖畔', 'Lake Biwa shore', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('biwako-marathon-2026', NULL, '比叡山', 'Mt. Hiei', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('biwako-marathon-2026', NULL, NULL, '琵琶湖畔', 'Lake Biwa shore', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('biwako-marathon-2026', NULL, NULL, '比叡山', 'Mt. Hiei', NULL, NULL, 1);
 
 -- ==================
 -- ちばアクアラインマラソン (chiba-aqualine-marathon-2026)
@@ -559,7 +559,7 @@ INSERT OR REPLACE INTO races (
   '2026-03-22',
   '2026-04-12',
   0,
-  'mail',
+  'pre_mail',
   '一般枠：3/22〜4/12。アスリート・学生・女性・海外枠：3/22〜5/7。レイトエントリー枠：5/31〜6/8。システム利用料別途。',
   'General entry: Mar 22 - Apr 12. Athlete/Student/Women/Overseas entries: Mar 22 - May 7. Late entry: May 31 - Jun 8. System fee applies separately.',
   '["大規模","日本陸連公認","景色が良い","橋","海沿い"]',
@@ -608,12 +608,12 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
   ('chiba-aqualine-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-03-22', '2026-04-12', 16500, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('chiba-aqualine-marathon-2026', NULL, 'レイトエントリー', 'Late Entry', '2026-05-31', '2026-06-08', 16500, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('chiba-aqualine-marathon-2026', NULL, '東京湾アクアライン', 'Tokyo Bay Aqualine', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('chiba-aqualine-marathon-2026', NULL, '海ほたる', 'Umihotaru PA', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('chiba-aqualine-marathon-2026', NULL, '袖ケ浦の田園地帯', 'Sodegaura farmlands', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('chiba-aqualine-marathon-2026', NULL, NULL, '東京湾アクアライン', 'Tokyo Bay Aqualine', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('chiba-aqualine-marathon-2026', NULL, NULL, '海ほたる', 'Umihotaru PA', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('chiba-aqualine-marathon-2026', NULL, NULL, '袖ケ浦の田園地帯', 'Sodegaura farmlands', NULL, NULL, 2);
 
 -- ==================
 -- 愛媛マラソン (ehime-marathon-2026)
@@ -699,10 +699,10 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('ehime-marathon-2026', '["tshirt","medal","towel"]', '大会オリジナルTシャツ、完走メダル、今治タオル（完走者）', 'Official race T-shirt, Finisher medal, Imabari towel (finishers)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('ehime-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-01', '2025-08-19', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('ehime-marathon-2026', NULL, '松山城', 'Matsuyama Castle', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('ehime-marathon-2026', NULL, '道後温泉', 'Dogo Onsen', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('ehime-marathon-2026', NULL, NULL, '松山城', 'Matsuyama Castle', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('ehime-marathon-2026', NULL, NULL, '道後温泉', 'Dogo Onsen', NULL, NULL, 1);
 
 -- ==================
 -- 富士登山競走 (fuji-mountain-race-2026)
@@ -730,8 +730,8 @@ INSERT OR REPLACE INTO races (
   '19',
   '富士吉田市',
   'Fujiyoshida City',
-  'この山の頂には過酷に挑む価値がある',
-  'The summit of this mountain is well worth the challenge',
+  '',
+  '',
   'https://fujimountainrace.city.fujiyoshida.yamanashi.jp/',
   NULL,
   1,
@@ -739,7 +739,7 @@ INSERT OR REPLACE INTO races (
   '2026-03-28',
   '2026-04-06',
   1,
-  'mail',
+  'pre_mail',
   '受付不要。事前発送とする。
 申込後の住所変更、その他の変更事項については、必ず事務局へ連絡すること。
 大会当日、ナンバーカード、計測用RSタグを忘れると出走できなくなるので、注意すること。
@@ -759,11 +759,11 @@ Please note that if you forget your race number or timing chip on the day of the
   '',
   '',
   '',
-  '富士山',
+  '霊峰',
   '#4b5563',
-  'Fujisan',
-  '山頂を目指す、日本の頂への挑戦',
-  'Challenge to the summit — the ultimate mountain race',
+  'Reiho',
+  'この山の頂には過酷に挑む価値がある',
+  'The summit of this mountain is well worth the challenge',
   NULL,
   NULL,
   NULL,
@@ -873,12 +873,12 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('fujisan-marathon-2026', '温泉', '河口湖温泉', 'Lake Kawaguchi Onsen', '河口湖畔の温泉。富士山を望む露天風呂が魅力。レース後に最適。', 'Hot springs on the shore of Lake Kawaguchi. Open-air baths with Mt. Fuji views.', '会場付近', NULL, 35.51, 138.75);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('fujisan-marathon-2026', '["medal","tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fujisan-marathon-2026', NULL, '河口湖', 'Lake Kawaguchi', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fujisan-marathon-2026', NULL, '西湖', 'Lake Saiko', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fujisan-marathon-2026', NULL, '紅葉の富士山', 'Mt. Fuji with autumn foliage', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fujisan-marathon-2026', NULL, NULL, '河口湖', 'Lake Kawaguchi', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fujisan-marathon-2026', NULL, NULL, '西湖', 'Lake Saiko', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fujisan-marathon-2026', NULL, NULL, '紅葉の富士山', 'Mt. Fuji with autumn foliage', NULL, NULL, 2);
 
 -- ==================
 -- 福知山マラソン (fukuchiyama-marathon-2026)
@@ -913,12 +913,12 @@ INSERT OR REPLACE INTO races (
   1,
   5400,
   '2026-05-01',
-  '2026-08-31',
+  '2026-05-17',
   0,
   'pre_day',
   '',
   '',
-  '["歴史ある大会","タフコース","川沿い","京都"]',
+  '["歴史ある大会"]',
   NULL,
   0,
   0,
@@ -963,17 +963,11 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('fukuchiyama-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ（レイト・直前申込を除く）', 'Finisher medal, Official race T-shirt (excluding late/last-minute entries)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('fukuchiyama-marathon-2026', NULL, '早割', 'Early Bird', '2026-05-01', '2026-05-17', 11000, 0);
+  ('fukuchiyama-marathon-2026', NULL, '早割', 'Early Bird', '2026-05-01', '2026-05-17', 10000, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('fukuchiyama-marathon-2026', NULL, '一般', 'General', '2026-05-18', '2026-08-31', 11000, 1);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('fukuchiyama-marathon-2026', NULL, 'レイト（参加賞なし）', 'Late (no participation gift)', '2026-09-01', '2026-09-20', 11000, 2);
-INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('fukuchiyama-marathon-2026', NULL, '直前（参加賞なし）', 'Last-minute (no participation gift)', '2026-11-01', '2026-11-15', 11000, 3);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fukuchiyama-marathon-2026', NULL, '由良川沿い', 'Along Yura River', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fukuchiyama-marathon-2026', NULL, '福知山城周辺', 'near Fukuchiyama Castle', NULL, NULL, 1);
+  ('fukuchiyama-marathon-2026', NULL, '直前（参加賞なし）', 'Last-minute (no participation gift)', '2026-11-01', '2026-11-15', 11000, 2);
 
 -- ==================
 -- ふくい桜マラソン (fukui-sakura-marathon-2026)
@@ -1063,10 +1057,10 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('fukui-sakura-marathon-2026', '["medal","tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('fukui-sakura-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-09-25', '2025-11-10', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fukui-sakura-marathon-2026', NULL, '桜並木', 'Cherry blossom trees', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fukui-sakura-marathon-2026', NULL, '足羽川', 'Asuwa River', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukui-sakura-marathon-2026', NULL, NULL, '桜並木', 'Cherry blossom trees', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukui-sakura-marathon-2026', NULL, NULL, '足羽川', 'Asuwa River', NULL, NULL, 1);
 
 -- ==================
 -- 福岡国際マラソン (fukuoka-international-marathon-2026)
@@ -1148,12 +1142,12 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('fukuoka-international-marathon-2026', 'グルメ', '博多ラーメン・もつ鍋', 'Hakata Ramen & Motsunabe', '福岡を代表するグルメ。中洲や天神の屋台街で楽しめる。', 'Fukuoka''s iconic dishes. Enjoy at street stalls in Nakasu and Tenjin.', '天神・中洲エリア', NULL, 33.5917, 130.4017);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('fukuoka-international-marathon-2026', '["tshirt"]', '大会Tシャツ', 'Race T-shirt', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fukuoka-international-marathon-2026', NULL, '平和台陸上競技場', 'Heiwadai Athletics Stadium', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fukuoka-international-marathon-2026', NULL, '大濠公園', 'Ohori Park', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fukuoka-international-marathon-2026', NULL, '海の中道方面', 'Uminonakamichi area', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukuoka-international-marathon-2026', NULL, NULL, '平和台陸上競技場', 'Heiwadai Athletics Stadium', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukuoka-international-marathon-2026', NULL, NULL, '大濠公園', 'Ohori Park', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukuoka-international-marathon-2026', NULL, NULL, '海の中道方面', 'Uminonakamichi area', NULL, NULL, 2);
 
 -- ==================
 -- 福岡マラソン (fukuoka-marathon-2026)
@@ -1241,14 +1235,14 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('fukuoka-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('fukuoka-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-20', '2026-05-20', 16000, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fukuoka-marathon-2026', NULL, '天神スタート', 'Tenjin start', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fukuoka-marathon-2026', NULL, '博多湾沿い', 'Hakata Bay coastline', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fukuoka-marathon-2026', NULL, '玄界灘', 'Genkai Sea', NULL, NULL, 2);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fukuoka-marathon-2026', NULL, '糸島フィニッシュ', 'Itoshima finish', NULL, NULL, 3);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukuoka-marathon-2026', NULL, NULL, '天神スタート', 'Tenjin start', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukuoka-marathon-2026', NULL, NULL, '博多湾沿い', 'Hakata Bay coastline', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukuoka-marathon-2026', NULL, NULL, '玄界灘', 'Genkai Sea', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukuoka-marathon-2026', NULL, NULL, '糸島フィニッシュ', 'Itoshima finish', NULL, NULL, 3);
 
 -- ==================
 -- ぐんまマラソン (gunma-marathon-2026)
@@ -1285,7 +1279,7 @@ INSERT OR REPLACE INTO races (
   '2026-04-09',
   '2026-08-17',
   0,
-  'mail',
+  'pre_mail',
   '参加者には、アスリートビブス、計測チップ、参加マニュアル等を申込時の住所に事前に発送します（10月下旬発送予定）。大会前日・当日の受付は行いません。
 
 エントリー締切後の住所変更は、郵便局にて転送手続きをお願いします。
@@ -1348,14 +1342,14 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('gunma-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('gunma-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-09', '2026-08-17', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('gunma-marathon-2026', NULL, '赤城山', 'Mt. Akagi', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('gunma-marathon-2026', NULL, '榛名山', 'Mt. Haruna', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('gunma-marathon-2026', NULL, '利根川', 'Tone River', NULL, NULL, 2);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('gunma-marathon-2026', NULL, '正田醤油スタジアム群馬', 'Shoda Shoyu Stadium Gunma', NULL, NULL, 3);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('gunma-marathon-2026', NULL, NULL, '赤城山', 'Mt. Akagi', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('gunma-marathon-2026', NULL, NULL, '榛名山', 'Mt. Haruna', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('gunma-marathon-2026', NULL, NULL, '利根川', 'Tone River', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('gunma-marathon-2026', NULL, NULL, '正田醤油スタジアム群馬', 'Shoda Shoyu Stadium Gunma', NULL, NULL, 3);
 
 -- ==================
 -- さくらんぼマラソン大会 (higashine-sakuranbo-marathon-2026)
@@ -1441,10 +1435,10 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('higashine-sakuranbo-marathon-2026', '["tshirt","local_product","food"]', 'さくらんぼ「佐藤錦」、山形県産米おにぎり、大会記念Ｔシャツ、冷凍フルーツ（予定）', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('higashine-sakuranbo-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-02-01', '2026-03-31', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('higashine-sakuranbo-marathon-2026', NULL, 'フルーツライン', 'Fruit Line road', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('higashine-sakuranbo-marathon-2026', NULL, '神町駐屯地周辺', 'Kanomachi Garrison area', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('higashine-sakuranbo-marathon-2026', NULL, NULL, 'フルーツライン', 'Fruit Line road', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('higashine-sakuranbo-marathon-2026', NULL, NULL, '神町駐屯地周辺', 'Kanomachi Garrison area', NULL, NULL, 1);
 
 -- ==================
 -- 東日本ハーフマラソン (higashinipon-half-marathon-2026)
@@ -1526,10 +1520,10 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('higashinipon-half-marathon-2026', 'other', 8, 70, '09:30', 1000, 3500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('higashinipon-half-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-08-17', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('higashinipon-half-marathon-2026', NULL, '在日米陸軍相模総合補給廠内', 'Inside US Army Sagami General Depot', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('higashinipon-half-marathon-2026', NULL, 'フラット周回コース', 'flat lap course', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('higashinipon-half-marathon-2026', NULL, NULL, '在日米陸軍相模総合補給廠内', 'Inside US Army Sagami General Depot', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('higashinipon-half-marathon-2026', NULL, NULL, 'フラット周回コース', 'flat lap course', NULL, NULL, 1);
 
 -- ==================
 -- 世界遺産姫路城マラソン (himeji-castle-marathon-2026)
@@ -1613,8 +1607,8 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('himeji-castle-marathon-2026', '["tshirt","medal","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('himeji-castle-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-04', '2025-10-31', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('himeji-castle-marathon-2026', NULL, '姫路城', 'Himeji Castle', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('himeji-castle-marathon-2026', NULL, NULL, '姫路城', 'Himeji Castle', NULL, NULL, 0);
 
 -- ==================
 -- ひたちシーサイドマラソン (hitachi-seaside-marathon-2026)
@@ -1655,7 +1649,7 @@ With the scenery and the sea breeze pushing you forward, you can fully savor the
   '2026-04-13',
   '2026-08-31',
   0,
-  'mail',
+  'pre_mail',
   '大会当日の受付はありません。10月末（予定）にアスリートビブス・ランナーズチップ等を郵送いたしますので、忘れずにお持ちください',
   'There will be no on-site registration on the day of the event. We will mail your race bibs, timing chips, and other items by the end of October (tentative), so please be sure to bring them with you.',
   '[]',
@@ -1785,8 +1779,8 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('hofu-yomiuri-marathon-2026', '観光地', '防府天満宮', 'Hofu Tenmangu', '日本三大天神の一つ。学問の神様・菅原道真を祀る。コース付近。', 'One of Japan''s three great Tenmangu shrines. Enshrines Sugawara no Michizane, deity of learning.', 'コース付近', NULL, 34.0478, 131.5711);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('hofu-yomiuri-marathon-2026', '["medal"]', '完走メダル', 'Finisher medal', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('hofu-yomiuri-marathon-2026', NULL, '防府天満宮付近', 'Near Hofu Tenmangu Shrine', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('hofu-yomiuri-marathon-2026', NULL, NULL, '防府天満宮付近', 'Near Hofu Tenmangu Shrine', NULL, NULL, 0);
 
 -- ==================
 -- 北海道マラソン (hokkaido-marathon-2026)
@@ -1874,12 +1868,12 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('hokkaido-marathon-2026', '["tshirt","medal"]', '大会オリジナルTシャツ、完走メダル', 'Official race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('hokkaido-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-03-29', '2026-04-24', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('hokkaido-marathon-2026', NULL, '大通公園', 'Odori Park', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('hokkaido-marathon-2026', NULL, '北海道大学', 'Hokkaido University', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('hokkaido-marathon-2026', NULL, '豊平川', 'Toyohira River', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('hokkaido-marathon-2026', NULL, NULL, '大通公園', 'Odori Park', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('hokkaido-marathon-2026', NULL, NULL, '北海道大学', 'Hokkaido University', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('hokkaido-marathon-2026', NULL, NULL, '豊平川', 'Toyohira River', NULL, NULL, 2);
 
 -- ==================
 -- いぶすき菜の花マラソン (ibusuki-nanohana-2026)
@@ -1973,12 +1967,12 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('ibusuki-nanohana-2026', '温泉', '砂むし温泉', 'Sand Steam Bath (Sunamushi Onsen)', '指宿名物の砂蒸し温泉。海岸の天然砂の中に埋まって温まる独特の体験。レース後のリカバリーに最適。', 'Ibusuki''s famous sand steam bath. A unique experience of being buried in naturally heated sand on the beach. Perfect for post-race recovery.', '指宿市内', NULL, 31.2283, 130.6367);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('ibusuki-nanohana-2026', '["tshirt"]', '大会記念品（参加者全員）', 'Commemorative gift (all participants)', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('ibusuki-nanohana-2026', NULL, '開聞岳', 'Mt. Kaimon', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('ibusuki-nanohana-2026', NULL, '錦江湾', 'Kinko Bay', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('ibusuki-nanohana-2026', NULL, '菜の花ロード', 'canola flower road', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('ibusuki-nanohana-2026', NULL, NULL, '開聞岳', 'Mt. Kaimon', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('ibusuki-nanohana-2026', NULL, NULL, '錦江湾', 'Kinko Bay', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('ibusuki-nanohana-2026', NULL, NULL, '菜の花ロード', 'canola flower road', NULL, NULL, 2);
 
 -- ==================
 -- 一関国際ハーフマラソン (ichinoseki-half-marathon-2026)
@@ -2060,8 +2054,8 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('ichinoseki-half-marathon-2026', '10k', 10, 85, '09:00', 500, 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('ichinoseki-half-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-06-30', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('ichinoseki-half-marathon-2026', NULL, '最大高低差15mのフラットコース', 'Flat course with only 15m elevation difference', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('ichinoseki-half-marathon-2026', NULL, NULL, '最大高低差15mのフラットコース', 'Flat course with only 15m elevation difference', NULL, NULL, 0);
 
 -- ==================
 -- 神々の島 壱岐ウルトラマラソン (iki-ultra-marathon-2026)
@@ -2098,7 +2092,7 @@ INSERT OR REPLACE INTO races (
   '2026-04-10',
   '2026-07-17',
   0,
-  'mail',
+  'pre_mail',
   'ゼッケン・計測タグ・参加賞等を事前発送します。前日受付は行いません',
   'Race bibs, timing tags, and participation prizes will be sent out in advance. There will be no registration the day before the event.',
   '["ウルトラマラソン"]',
@@ -2230,8 +2224,8 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('itabashi-city-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('itabashi-city-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-01', '2025-11-24', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('itabashi-city-marathon-2026', NULL, '荒川河川敷', 'Arakawa Riverbank', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('itabashi-city-marathon-2026', NULL, NULL, '荒川河川敷', 'Arakawa Riverbank', NULL, NULL, 0);
 
 -- ==================
 -- いわきサンシャインマラソン (iwaki-sunshine-marathon-2026)
@@ -2321,8 +2315,8 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('iwaki-sunshine-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('iwaki-sunshine-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-09-12', '2025-10-15', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('iwaki-sunshine-marathon-2026', NULL, '太平洋沿岸', 'Pacific coastline', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('iwaki-sunshine-marathon-2026', NULL, NULL, '太平洋沿岸', 'Pacific coastline', NULL, NULL, 0);
 
 -- ==================
 -- いわて盛岡シティマラソン (iwate-morioka-city-marathon-2026)
@@ -2602,8 +2596,8 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('kagawa-marathon-2026', '観光地', '栗林公園', 'Ritsurin Garden', '国の特別名勝。日本を代表する回遊式大名庭園。', 'A Special Place of Scenic Beauty. One of Japan''s finest strolling gardens.', '高松市内', NULL, 34.3289, 134.0467);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kagawa-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-10-06', '2025-11-24', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kagawa-marathon-2026', NULL, '瀬戸内海', 'Seto Inland Sea', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kagawa-marathon-2026', NULL, NULL, '瀬戸内海', 'Seto Inland Sea', NULL, NULL, 0);
 
 -- ==================
 -- 鹿児島マラソン (kagoshima-marathon-2026)
@@ -2689,10 +2683,10 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('kagoshima-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kagoshima-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-08', '2025-11-16', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kagoshima-marathon-2026', NULL, '桜島', 'Sakurajima', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kagoshima-marathon-2026', NULL, '錦江湾', 'Kinko Bay', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kagoshima-marathon-2026', NULL, NULL, '桜島', 'Sakurajima', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kagoshima-marathon-2026', NULL, NULL, '錦江湾', 'Kinko Bay', NULL, NULL, 1);
 
 -- ==================
 -- 下関海響マラソン (kaikyo-marathon-2026)
@@ -2780,12 +2774,12 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('kaikyo-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kaikyo-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-05-15', '2026-07-12', 12000, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kaikyo-marathon-2026', NULL, '関門海峡', 'Kanmon Strait', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kaikyo-marathon-2026', NULL, '関門大橋', 'Kanmon Bridge', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kaikyo-marathon-2026', NULL, '巌流島', 'Ganryujima Island', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kaikyo-marathon-2026', NULL, NULL, '関門海峡', 'Kanmon Strait', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kaikyo-marathon-2026', NULL, NULL, '関門大橋', 'Kanmon Bridge', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kaikyo-marathon-2026', NULL, NULL, '巌流島', 'Ganryujima Island', NULL, NULL, 2);
 
 -- ==================
 -- 金沢マラソン (kanazawa-marathon-2026)
@@ -2873,12 +2867,12 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('kanazawa-marathon-2026', '["medal","tshirt","local_product"]', '大会オリジナルTシャツ、完走メダル、地元特産品', 'Official race T-shirt, Finisher medal, Local specialty products', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kanazawa-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-10', '2026-05-20', 14000, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kanazawa-marathon-2026', NULL, '兼六園', 'Kenroku-en Garden', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kanazawa-marathon-2026', NULL, '金沢城', 'Kanazawa Castle', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kanazawa-marathon-2026', NULL, 'ひがし茶屋街付近', 'Higashi Chaya District area', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kanazawa-marathon-2026', NULL, NULL, '兼六園', 'Kenroku-en Garden', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kanazawa-marathon-2026', NULL, NULL, '金沢城', 'Kanazawa Castle', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kanazawa-marathon-2026', NULL, NULL, 'ひがし茶屋街付近', 'Higashi Chaya District area', NULL, NULL, 2);
 
 -- ==================
 -- かすみがうらマラソン (kasumigaura-marathon-2026)
@@ -2966,8 +2960,8 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('kasumigaura-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kasumigaura-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-12-01', '2026-01-25', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kasumigaura-marathon-2026', NULL, '霞ヶ浦湖畔', 'Lake Kasumigaura shore', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kasumigaura-marathon-2026', NULL, NULL, '霞ヶ浦湖畔', 'Lake Kasumigaura shore', NULL, NULL, 0);
 
 -- ==================
 -- 勝田全国マラソン (katsuta-marathon-2026)
@@ -3140,10 +3134,10 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('kitakyushu-marathon-2026', '["tshirt","medal","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kitakyushu-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-08', '2025-09-25', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kitakyushu-marathon-2026', NULL, '小倉市街地', 'Kokura city center', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kitakyushu-marathon-2026', NULL, '関門海峡', 'Kanmon Strait', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kitakyushu-marathon-2026', NULL, NULL, '小倉市街地', 'Kokura city center', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kitakyushu-marathon-2026', NULL, NULL, '関門海峡', 'Kanmon Strait', NULL, NULL, 1);
 
 -- ==================
 -- KIX泉州国際マラソン (kix-senshu-marathon-2026)
@@ -3227,8 +3221,8 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('kix-senshu-marathon-2026', '観光地', '岸和田城', 'Kishiwada Castle', 'だんじり祭りで有名な岸和田の城。コース付近。', 'The castle in Kishiwada, famous for the Danjiri Festival. Near the course.', 'コース付近', NULL, 34.4608, 135.3706);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kix-senshu-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-10-10', '2025-11-30', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kix-senshu-marathon-2026', NULL, '泉州の海岸沿い', 'Senshu coastline', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kix-senshu-marathon-2026', NULL, NULL, '泉州の海岸沿い', 'Senshu coastline', NULL, NULL, 0);
 
 -- ==================
 -- 神戸マラソン (kobe-marathon-2026)
@@ -3334,12 +3328,12 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('kobe-marathon-2026', '["medal","tshirt","towel"]', '大会オリジナルTシャツ、完走メダル、フィニッシャータオル', 'Official race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kobe-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-17', '2026-06-01', 18000, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kobe-marathon-2026', NULL, '明石海峡大橋', 'Akashi Kaikyo Bridge', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kobe-marathon-2026', NULL, 'ポートアイランド', 'Port Island', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kobe-marathon-2026', NULL, 'ハーバーランド', 'Harborland', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kobe-marathon-2026', NULL, NULL, '明石海峡大橋', 'Akashi Kaikyo Bridge', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kobe-marathon-2026', NULL, NULL, 'ポートアイランド', 'Port Island', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kobe-marathon-2026', NULL, NULL, 'ハーバーランド', 'Harborland', NULL, NULL, 2);
 
 -- ==================
 -- 高知龍馬マラソン (kochi-ryoma-marathon-2026)
@@ -3425,12 +3419,12 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('kochi-ryoma-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kochi-ryoma-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-01', '2025-10-31', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kochi-ryoma-marathon-2026', NULL, '太平洋', 'Pacific Ocean', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kochi-ryoma-marathon-2026', NULL, '浦戸大橋', 'Urado Bridge', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kochi-ryoma-marathon-2026', NULL, '桂浜方面', 'Katsurahama area', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kochi-ryoma-marathon-2026', NULL, NULL, '太平洋', 'Pacific Ocean', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kochi-ryoma-marathon-2026', NULL, NULL, '浦戸大橋', 'Urado Bridge', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kochi-ryoma-marathon-2026', NULL, NULL, '桂浜方面', 'Katsurahama area', NULL, NULL, 2);
 
 -- ==================
 -- 熊本城マラソン (kumamoto-castle-marathon-2026)
@@ -3516,8 +3510,8 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('kumamoto-castle-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kumamoto-castle-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-07-29', '2025-09-24', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kumamoto-castle-marathon-2026', NULL, '熊本城', 'Kumamoto Castle', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kumamoto-castle-marathon-2026', NULL, NULL, '熊本城', 'Kumamoto Castle', NULL, NULL, 0);
 
 -- ==================
 -- 京都マラソン (kyoto-marathon-2026)
@@ -3605,16 +3599,16 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('kyoto-marathon-2026', '["tshirt","medal"]', '大会オリジナルTシャツ、完走メダル', 'Official race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kyoto-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-07-17', '2025-09-22', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kyoto-marathon-2026', NULL, '嵐山', 'Arashiyama', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kyoto-marathon-2026', NULL, '金閣寺付近', 'near Kinkaku-ji', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kyoto-marathon-2026', NULL, '今出川通', 'Imadegawa-dori', NULL, NULL, 2);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kyoto-marathon-2026', NULL, '銀閣寺付近', 'near Ginkaku-ji', NULL, NULL, 3);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kyoto-marathon-2026', NULL, '平安神宮', 'Heian Shrine', NULL, NULL, 4);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kyoto-marathon-2026', NULL, NULL, '嵐山', 'Arashiyama', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kyoto-marathon-2026', NULL, NULL, '金閣寺付近', 'near Kinkaku-ji', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kyoto-marathon-2026', NULL, NULL, '今出川通', 'Imadegawa-dori', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kyoto-marathon-2026', NULL, NULL, '銀閣寺付近', 'near Ginkaku-ji', NULL, NULL, 3);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kyoto-marathon-2026', NULL, NULL, '平安神宮', 'Heian Shrine', NULL, NULL, 4);
 
 -- ==================
 -- みえ松阪マラソン (mie-matsusaka-marathon-2026)
@@ -3696,8 +3690,8 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('mie-matsusaka-marathon-2026', 'グルメ', '松阪牛', 'Matsusaka Beef', '日本三大和牛の一つ。レース後のご褒美に。', 'One of Japan''s three premium wagyu. A reward after the race.', '松阪市内', NULL, 34.5778, 136.5312);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('mie-matsusaka-marathon-2026', '["tshirt","medal","local_product"]', '大会Tシャツ、完走メダル、松阪の特産品', 'Race T-shirt, Finisher medal, Matsusaka local products', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('mie-matsusaka-marathon-2026', NULL, '松阪の城下町', 'Matsusaka castle town', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('mie-matsusaka-marathon-2026', NULL, NULL, '松阪の城下町', 'Matsusaka castle town', NULL, NULL, 0);
 
 -- ==================
 -- 水戸黄門漫遊マラソン (mito-komon-manyu-marathon-2026)
@@ -3734,7 +3728,7 @@ INSERT OR REPLACE INTO races (
   '2026-04-16',
   '2026-06-30',
   1,
-  'mail',
+  'pre_mail',
   '',
   '',
   '["景色が良い","観光"]',
@@ -3783,10 +3777,10 @@ INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VA
   ('mito-komon-manyu-marathon-2026', 'RUNNET', 'https://runnet.jp/entry/runtes/user/pc/competitionDetailAction.do?raceId=387694&div=1', 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('mito-komon-manyu-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-16', '2026-06-30', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('mito-komon-manyu-marathon-2026', NULL, '偕楽園', 'Kairakuen Garden', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('mito-komon-manyu-marathon-2026', NULL, '千波湖', 'Lake Senba', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('mito-komon-manyu-marathon-2026', NULL, NULL, '偕楽園', 'Kairakuen Garden', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('mito-komon-manyu-marathon-2026', NULL, NULL, '千波湖', 'Lake Senba', NULL, NULL, 1);
 
 -- ==================
 -- 富士山クライムラン (mtfuji-climb-run-2026)
@@ -3969,10 +3963,10 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('nagoya-womens-marathon-2026', 'グルメ', '名古屋めし', 'Nagoya Meshi', '味噌カツ、ひつまぶし、手羽先など名古屋名物が充実。レース後のご褒美に。', 'Miso katsu, hitsumabushi, chicken wings and more Nagoya specialties. A reward after the race.', '名古屋市内', NULL, 35.1709, 136.8815);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('nagoya-womens-marathon-2026', '["medal","goods"]', 'ティファニー オリジナルペンダント（完走者全員）', 'Tiffany original pendant (all finishers)', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('nagoya-womens-marathon-2026', NULL, '名古屋ドーム（バンテリンドーム ナゴヤ）', 'Nagoya Dome (Vantelin Dome Nagoya)', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('nagoya-womens-marathon-2026', NULL, '名古屋城付近', 'near Nagoya Castle', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('nagoya-womens-marathon-2026', NULL, NULL, '名古屋ドーム（バンテリンドーム ナゴヤ）', 'Nagoya Dome (Vantelin Dome Nagoya)', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('nagoya-womens-marathon-2026', NULL, NULL, '名古屋城付近', 'near Nagoya Castle', NULL, NULL, 1);
 
 -- ==================
 -- NAHAマラソン (naha-marathon-2026)
@@ -4056,12 +4050,12 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('naha-marathon-2026', 'グルメ', '沖縄そば', 'Okinawa Soba', '沖縄を代表するご当地グルメ。あっさりとしたスープと太麺が特徴。レース後のエネルギー補給に。', 'Okinawa''s signature local dish. Characterized by light broth and thick noodles. Perfect for post-race energy.', '那覇市内各所', NULL, 26.3344, 127.7679);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('naha-marathon-2026', '["tshirt","medal"]', '大会オリジナルTシャツ、完走メダル', 'Official race T-shirt, Finisher medal', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('naha-marathon-2026', NULL, '国際通り', 'Kokusai Street', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('naha-marathon-2026', NULL, '那覇市街', 'Naha city', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('naha-marathon-2026', NULL, '沖縄の風景', 'Okinawan scenery', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('naha-marathon-2026', NULL, NULL, '国際通り', 'Kokusai Street', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('naha-marathon-2026', NULL, NULL, '那覇市街', 'Naha city', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('naha-marathon-2026', NULL, NULL, '沖縄の風景', 'Okinawan scenery', NULL, NULL, 2);
 
 -- ==================
 -- 奈良マラソン (nara-marathon-2026)
@@ -4145,14 +4139,14 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('nara-marathon-2026', '温泉', 'ゆららの湯 奈良店', 'Yurara no Yu Nara', '奈良市内の日帰り温泉施設。レース後のリカバリーに便利。', 'A day-trip hot spring facility in Nara city. Convenient for post-race recovery.', '奈良市内', NULL, 34.6851, 135.8048);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('nara-marathon-2026', '["tshirt","medal","towel"]', '大会オリジナルTシャツ、完走メダル、フィニッシャータオル', 'Official race T-shirt, Finisher medal, Finisher towel', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('nara-marathon-2026', NULL, '東大寺', 'Todai-ji', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('nara-marathon-2026', NULL, '春日大社', 'Kasuga Shrine', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('nara-marathon-2026', NULL, '平城宮跡', 'Heijo Palace ruins', NULL, NULL, 2);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('nara-marathon-2026', NULL, '奈良公園', 'Nara Park', NULL, NULL, 3);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('nara-marathon-2026', NULL, NULL, '東大寺', 'Todai-ji', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('nara-marathon-2026', NULL, NULL, '春日大社', 'Kasuga Shrine', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('nara-marathon-2026', NULL, NULL, '平城宮跡', 'Heijo Palace ruins', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('nara-marathon-2026', NULL, NULL, '奈良公園', 'Nara Park', NULL, NULL, 3);
 
 -- ==================
 -- 新潟シティマラソン (niigata-city-marathon-2026)
@@ -4401,10 +4395,10 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('okayama-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('okayama-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-16', '2026-05-18', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('okayama-marathon-2026', NULL, '岡山城', 'Okayama Castle', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('okayama-marathon-2026', NULL, '後楽園', 'Korakuen Garden', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('okayama-marathon-2026', NULL, NULL, '岡山城', 'Okayama Castle', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('okayama-marathon-2026', NULL, NULL, '後楽園', 'Korakuen Garden', NULL, NULL, 1);
 
 -- ==================
 -- 奥信濃100トレイルランニングレース (okushinano100-2026)
@@ -4490,10 +4484,10 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('okushinano100-2026', 'other', 8, 120, '07:30', 300, 5000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 3);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('okushinano100-2026', NULL, '一般エントリー', 'General Entry', '2025-12-14', '2026-05-10', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('okushinano100-2026', NULL, '奥信濃の山岳トレイル', 'Mountain trails of Okushinano', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('okushinano100-2026', NULL, '木島平村〜飯山市周辺', 'Kijimadaira to Iiyama area', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('okushinano100-2026', NULL, NULL, '奥信濃の山岳トレイル', 'Mountain trails of Okushinano', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('okushinano100-2026', NULL, NULL, '木島平村〜飯山市周辺', 'Kijimadaira to Iiyama area', NULL, NULL, 1);
 
 -- ==================
 -- 大阪マラソン (osaka-marathon-2026)
@@ -4579,14 +4573,14 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('osaka-marathon-2026', '温泉', 'スパワールド世界の大温泉', 'Spa World', '通天閣近くの大型温泉施設。レース後のリカバリーに。コースの近くにあり便利。', 'A large hot spring facility near Tsutenkaku. Convenient for post-race recovery, located near the course.', '通天閣付近', NULL, 34.6522, 135.5064);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('osaka-marathon-2026', '["tshirt","medal","towel"]', '参加記念Tシャツ、完走メダル、フィニッシャータオル', 'Commemorative T-shirt, Finisher medal, Finisher towel', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('osaka-marathon-2026', NULL, '大阪城', 'Osaka Castle', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('osaka-marathon-2026', NULL, '御堂筋', 'Midosuji', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('osaka-marathon-2026', NULL, '通天閣', 'Tsutenkaku', NULL, NULL, 2);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('osaka-marathon-2026', NULL, '中之島', 'Nakanoshima', NULL, NULL, 3);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('osaka-marathon-2026', NULL, NULL, '大阪城', 'Osaka Castle', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('osaka-marathon-2026', NULL, NULL, '御堂筋', 'Midosuji', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('osaka-marathon-2026', NULL, NULL, '通天閣', 'Tsutenkaku', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('osaka-marathon-2026', NULL, NULL, '中之島', 'Nakanoshima', NULL, NULL, 3);
 
 -- ==================
 -- 大阪・淀川市民マラソン (osaka-yodo-river-citizens-marathon-2026)
@@ -4631,7 +4625,7 @@ Based on themes such as “people,” “environment,” and “the Yodogawa Riv
   '2026-04-17',
   '2026-09-27',
   0,
-  'mail',
+  'pre_mail',
   '',
   '',
   '[]',
@@ -4765,10 +4759,10 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('osj-ontake100-2026', 'ultra', 109, 1200, '00:00', 1200, 19000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('osj-ontake100-2026', NULL, '一般エントリー', 'General Entry', '2026-02-01', '2026-06-14', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('osj-ontake100-2026', NULL, '御嶽山麓国有林', 'National forest at Mt. Ontake base', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('osj-ontake100-2026', NULL, '特別開放区域', 'specially opened restricted area', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('osj-ontake100-2026', NULL, NULL, '御嶽山麓国有林', 'National forest at Mt. Ontake base', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('osj-ontake100-2026', NULL, NULL, '特別開放区域', 'specially opened restricted area', NULL, NULL, 1);
 
 -- ==================
 -- 佐渡トキマラソン (sado-toki-marathon-2026)
@@ -4805,7 +4799,7 @@ INSERT OR REPLACE INTO races (
   '2025-12-01',
   '2026-03-22',
   0,
-  'mail',
+  'pre_mail',
   '',
   '',
   '["景色が良い","離島"]',
@@ -4854,8 +4848,8 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('sado-toki-marathon-2026', '["medal","tshirt","local_product"]', '大会Tシャツ、完走メダル、佐渡の特産品', 'Race T-shirt, Finisher medal, Sado Island local products', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('sado-toki-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-12-01', '2026-03-22', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('sado-toki-marathon-2026', NULL, '佐渡島の自然', 'Nature of Sado Island', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('sado-toki-marathon-2026', NULL, NULL, '佐渡島の自然', 'Nature of Sado Island', NULL, NULL, 0);
 
 -- ==================
 -- さが桜マラソン (saga-sakura-marathon-2026)
@@ -4937,10 +4931,10 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('saga-sakura-marathon-2026', '観光地', '吉野ヶ里遺跡', 'Yoshinogari Ruins', '弥生時代の大規模環濠集落遺跡。国の特別史跡。佐賀市から近い。', 'A large-scale Yayoi period moated settlement. National Special Historic Site. Close to Saga city.', '佐賀市から車約20分', NULL, 33.3167, 130.3833);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('saga-sakura-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('saga-sakura-marathon-2026', NULL, '桜並木', 'Cherry blossom trees', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('saga-sakura-marathon-2026', NULL, '佐賀平野', 'Saga Plain', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('saga-sakura-marathon-2026', NULL, NULL, '桜並木', 'Cherry blossom trees', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('saga-sakura-marathon-2026', NULL, NULL, '佐賀平野', 'Saga Plain', NULL, NULL, 1);
 
 -- ==================
 -- さいたまマラソン (saitama-marathon-2026)
@@ -5238,7 +5232,7 @@ Translated with DeepL.com (free version)',
   '2026-05-01',
   '2026-06-30',
   0,
-  'mail',
+  'pre_mail',
   '',
   '',
   '[]',
@@ -5458,10 +5452,10 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('shizuoka-marathon-2026', '観光地', '三保松原', 'Miho no Matsubara', '世界遺産「富士山」の構成資産。松林越しの富士山の眺望が美しい。', 'Part of the World Heritage ''Mt. Fuji''. Beautiful views of Mt. Fuji through pine groves.', '静岡市内から車約30分', NULL, 35.0136, 138.5167);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('shizuoka-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('shizuoka-marathon-2026', NULL, '駿河湾', 'Suruga Bay', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('shizuoka-marathon-2026', NULL, '富士山', 'Mt. Fuji', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('shizuoka-marathon-2026', NULL, NULL, '駿河湾', 'Suruga Bay', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('shizuoka-marathon-2026', NULL, NULL, '富士山', 'Mt. Fuji', NULL, NULL, 1);
 
 -- ==================
 -- 湘南国際マラソン (shonan-international-marathon-2026)
@@ -5498,7 +5492,7 @@ INSERT OR REPLACE INTO races (
   '2026-04-04',
   '2026-09-09',
   0,
-  'mail',
+  'pre_mail',
   '計測タグは、ナンバーカードとともに事前に参加者へ発送します（事前のランナー受付はありません）。',
   'Timing tags will be sent to participants in advance along with their race numbers (there is no pre-race runner registration).',
   '["富士山","景色が良い","海沿い"]',
@@ -5547,12 +5541,12 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('shonan-international-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('shonan-international-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-04', '2026-09-09', 16000, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('shonan-international-marathon-2026', NULL, '湘南海岸', 'Shonan coast', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('shonan-international-marathon-2026', NULL, '江の島', 'Enoshima', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('shonan-international-marathon-2026', NULL, '富士山', 'Mt. Fuji', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('shonan-international-marathon-2026', NULL, NULL, '湘南海岸', 'Shonan coast', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('shonan-international-marathon-2026', NULL, NULL, '江の島', 'Enoshima', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('shonan-international-marathon-2026', NULL, NULL, '富士山', 'Mt. Fuji', NULL, NULL, 2);
 
 -- ==================
 -- そうじゃ吉備路マラソン (soja-kibiji-marathon-2026)
@@ -5589,7 +5583,7 @@ INSERT OR REPLACE INTO races (
   '2025-10-01',
   '2026-01-03',
   0,
-  'mail',
+  'pre_mail',
   'すべての種目でナンバーカードを事前に発送させていただきます。
 そのため受付はございません。',
   'Number cards for all events will be sent out in advance.
@@ -5639,12 +5633,12 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('soja-kibiji-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('soja-kibiji-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-10-01', '2026-01-03', 9100, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('soja-kibiji-marathon-2026', NULL, '備中国分寺五重塔', 'Bitchu Kokubunji five-story pagoda', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('soja-kibiji-marathon-2026', NULL, '古墳群', 'burial mounds', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('soja-kibiji-marathon-2026', NULL, '吉備路', 'Kibiji', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('soja-kibiji-marathon-2026', NULL, NULL, '備中国分寺五重塔', 'Bitchu Kokubunji five-story pagoda', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('soja-kibiji-marathon-2026', NULL, NULL, '古墳群', 'burial mounds', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('soja-kibiji-marathon-2026', NULL, NULL, '吉備路', 'Kibiji', NULL, NULL, 2);
 
 -- ==================
 -- 丹波篠山ABCマラソン (tamba-sasayama-abc-marathon-2026)
@@ -5726,10 +5720,10 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('tamba-sasayama-abc-marathon-2026', 'グルメ', '丹波篠山の黒豆・ぼたん鍋', 'Tamba-Sasayama Black Beans & Botan Nabe', '丹波の黒豆と猪肉のぼたん鍋が名物。秋〜冬が旬。', 'Famous for Tamba black beans and boar meat hot pot. Best in autumn-winter.', '篠山市内', NULL, 35.0764, 135.2203);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('tamba-sasayama-abc-marathon-2026', '["tshirt","local_product"]', '大会Tシャツ、丹波の特産品', 'Race T-shirt, Tamba local products', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tamba-sasayama-abc-marathon-2026', NULL, '篠山城跡', 'Sasayama Castle ruins', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tamba-sasayama-abc-marathon-2026', NULL, '田園風景', 'rural landscape', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tamba-sasayama-abc-marathon-2026', NULL, NULL, '篠山城跡', 'Sasayama Castle ruins', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tamba-sasayama-abc-marathon-2026', NULL, NULL, '田園風景', 'rural landscape', NULL, NULL, 1);
 
 -- ==================
 -- 館山若潮マラソン (tateyama-wakashio-2026)
@@ -5813,8 +5807,8 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('tateyama-wakashio-2026', 'グルメ', '房総の海鮮', 'Boso Seafood', '新鮮な海鮮が楽しめる。特に寿司や刺身がおすすめ。', 'Fresh seafood. Sushi and sashimi are especially recommended.', '館山市内', NULL, 34.9997, 139.8697);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('tateyama-wakashio-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tateyama-wakashio-2026', NULL, '房総の海岸線', 'Boso coastline', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tateyama-wakashio-2026', NULL, NULL, '房総の海岸線', 'Boso coastline', NULL, NULL, 0);
 
 -- ==================
 -- 田沢湖マラソン (tazawako-marathon-2026)
@@ -5852,7 +5846,7 @@ INSERT OR REPLACE INTO races (
   '2026-04-01',
   '2026-05-27',
   0,
-  'mail',
+  'pre_mail',
   '',
   '',
   '[]',
@@ -5980,8 +5974,8 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('tokushima-marathon-2026', '観光地', '鳴門の渦潮', 'Naruto Whirlpools', '世界三大潮流の一つ。大鳴門橋の遊歩道から渦潮を観察できる。', 'One of the world''s three great tidal currents. Observe whirlpools from the Onaruto Bridge walkway.', '徳島市から車約1時間', NULL, 34.2333, 134.6333);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('tokushima-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokushima-marathon-2026', NULL, '吉野川', 'Yoshino River', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokushima-marathon-2026', NULL, NULL, '吉野川', 'Yoshino River', NULL, NULL, 0);
 
 -- ==================
 -- 東京マラソン (tokyo-marathon-2026)
@@ -6073,18 +6067,18 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('tokyo-marathon-2026', '["medal","tshirt","towel"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('tokyo-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-15', '2025-08-29', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2026', NULL, '東京都庁', 'Tokyo Metropolitan Government', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2026', NULL, '皇居', 'Imperial Palace', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2026', NULL, '浅草雷門', 'Asakusa Kaminarimon', NULL, NULL, 2);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2026', NULL, '銀座', 'Ginza', NULL, NULL, 3);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2026', NULL, '東京タワー', 'Tokyo Tower', NULL, NULL, 4);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2026', NULL, '東京駅丸の内', 'Tokyo Station Marunouchi', NULL, NULL, 5);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2026', NULL, NULL, '東京都庁', 'Tokyo Metropolitan Government', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2026', NULL, NULL, '皇居', 'Imperial Palace', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2026', NULL, NULL, '浅草雷門', 'Asakusa Kaminarimon', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2026', NULL, NULL, '銀座', 'Ginza', NULL, NULL, 3);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2026', NULL, NULL, '東京タワー', 'Tokyo Tower', NULL, NULL, 4);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2026', NULL, NULL, '東京駅丸の内', 'Tokyo Station Marunouchi', NULL, NULL, 5);
 
 -- ==================
 -- 東京マラソン (tokyo-marathon-2027)
@@ -6176,18 +6170,18 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('tokyo-marathon-2027', '["medal","tshirt","towel"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('tokyo-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-08-14', '2026-08-28', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2027', NULL, '東京都庁', 'Tokyo Metropolitan Government', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2027', NULL, '皇居', 'Imperial Palace', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2027', NULL, '浅草雷門', 'Asakusa Kaminarimon', NULL, NULL, 2);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2027', NULL, '銀座', 'Ginza', NULL, NULL, 3);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2027', NULL, '東京タワー', 'Tokyo Tower', NULL, NULL, 4);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2027', NULL, '東京駅丸の内', 'Tokyo Station Marunouchi', NULL, NULL, 5);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2027', NULL, NULL, '東京都庁', 'Tokyo Metropolitan Government', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2027', NULL, NULL, '皇居', 'Imperial Palace', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2027', NULL, NULL, '浅草雷門', 'Asakusa Kaminarimon', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2027', NULL, NULL, '銀座', 'Ginza', NULL, NULL, 3);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2027', NULL, NULL, '東京タワー', 'Tokyo Tower', NULL, NULL, 4);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2027', NULL, NULL, '東京駅丸の内', 'Tokyo Station Marunouchi', NULL, NULL, 5);
 
 -- ==================
 -- 富里スイカロードレース (tomisato-suikaroad-2026)
@@ -6218,13 +6212,13 @@ INSERT OR REPLACE INTO races (
   'スイカの一大産地・千葉県富里市で毎年6月に開催される人気大会。エイドステーションでスイカを食べながら走れる名物大会。コース沿いのスイカ畑が広がる田園風景の中、7kmと10kmで競う。マイカップ給水対応。',
   'A popular race held every June in Tomisato City, Chiba, the top watermelon-producing area in Japan. Famous for eating watermelon at aid stations while running. Race through scenic watermelon fields in 7km and 10km distances. Supports personal cup hydration.',
   'https://tomisato-suikaroad.jp/',
-  0,
+  NULL,
   1,
   0,
   '2026-02-22',
   '2026-04-04',
   0,
-  'same_day',
+  'race_day',
   '雨天決行。スポーツエントリー（インターネット）で申込。先着順。',
   'Held rain or shine. Entry via Sports Entry (online). First-come, first-served.',
   '["ご当地エイド","ご当地グルメ","コスパが良い","初心者おすすめ","夏マラソン"]',
@@ -6238,9 +6232,9 @@ INSERT OR REPLACE INTO races (
   'Scenic watermelon fields',
   'エイドでスイカ配布。マイカップ給水対応。',
   'Watermelon served at aid stations. Personal cup hydration supported.',
-  'スイカ',
+  '給スイカ所',
   '#16a34a',
-  'Suika',
+  'KyuSuika',
   '日本一のスイカの産地・富里を走る、夏の風物詩',
   'Run Japan''s watermelon capital — a midsummer tradition',
   NULL,
@@ -6269,10 +6263,10 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('tomisato-suikaroad-2026', 'other', 7, 90, '10:00', 5100, 6500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('tomisato-suikaroad-2026', '["tshirt"]', 'Tシャツ（大会当日、「Tシャツ引換所」で引き換え）', '', NULL, 0);
+INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
+  ('tomisato-suikaroad-2026', 'SPORT ENTRY', 'https://www.sportsentry.ne.jp/event/t/104032', 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('tomisato-suikaroad-2026', NULL, '一般エントリー', 'General Entry', '2026-02-22', '2026-04-04', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tomisato-suikaroad-2026', NULL, 'スイカ畑の田園風景', 'Scenic watermelon fields', NULL, NULL, 0);
 
 -- ==================
 -- 鳥取マラソン (tottori-marathon-2026)
@@ -6363,10 +6357,10 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
 ', 'Race T-shirt', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('tottori-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-10-15', '2025-12-12', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tottori-marathon-2026', NULL, '鳥取砂丘付近', 'Near Tottori Sand Dunes', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tottori-marathon-2026', NULL, '日本海', 'Sea of Japan', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tottori-marathon-2026', NULL, NULL, '鳥取砂丘付近', 'Near Tottori Sand Dunes', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tottori-marathon-2026', NULL, NULL, '日本海', 'Sea of Japan', NULL, NULL, 1);
 
 -- ==================
 -- 洞爺湖マラソン (toyako-marathon-2026)
@@ -6452,10 +6446,10 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('toyako-marathon-2026', '["medal","tshirt"]', '大会Tシャツとトートバッグ及びフェイスタオル、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('toyako-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-02-01', '2026-03-08', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('toyako-marathon-2026', NULL, '洞爺湖', 'Lake Toya', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('toyako-marathon-2026', NULL, '羊蹄山', 'Mt. Yotei', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('toyako-marathon-2026', NULL, NULL, '洞爺湖', 'Lake Toya', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('toyako-marathon-2026', NULL, NULL, '羊蹄山', 'Mt. Yotei', NULL, NULL, 1);
 
 -- ==================
 -- 富山マラソン (toyama-marathon-2026)
@@ -6541,12 +6535,12 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('toyama-marathon-2026', '["medal","tshirt","towel"]', '大会Tシャツ、完走メダル・フィニッシャータオル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('toyama-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-11', '2026-06-30', 14000, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('toyama-marathon-2026', NULL, '立山連峰', 'Tateyama Mountains', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('toyama-marathon-2026', NULL, '新湊大橋', 'Shinminato Bridge', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('toyama-marathon-2026', NULL, '富山湾', 'Toyama Bay', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('toyama-marathon-2026', NULL, NULL, '立山連峰', 'Tateyama Mountains', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('toyama-marathon-2026', NULL, NULL, '新湊大橋', 'Shinminato Bridge', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('toyama-marathon-2026', NULL, NULL, '富山湾', 'Toyama Bay', NULL, NULL, 2);
 
 -- ==================
 -- つくばマラソン (tsukuba-marathon-2026)
@@ -6628,8 +6622,8 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('tsukuba-marathon-2026', '観光地', '筑波山', 'Mt. Tsukuba', '関東平野にそびえる名山。ロープウェイで山頂へ。コースからも望める。', 'A famous mountain rising from the Kanto Plain. Ropeway to the summit. Visible from the course.', 'つくば市から車約30分', NULL, 36.2253, 140.1);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('tsukuba-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tsukuba-marathon-2026', NULL, '筑波研究学園都市', 'Tsukuba Science City', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tsukuba-marathon-2026', NULL, NULL, '筑波研究学園都市', 'Tsukuba Science City', NULL, NULL, 0);
 
 -- ==================
 -- 日本最北端わっかない平和マラソン (wakkanai-peace-marathon-2026)
@@ -6715,12 +6709,12 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('wakkanai-peace-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('wakkanai-peace-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-06-30', 10000, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('wakkanai-peace-marathon-2026', NULL, '稚内港北防波堤ドーム', 'Wakkanai Port Northern Breakwater Dome', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('wakkanai-peace-marathon-2026', NULL, '日本海', 'Sea of Japan', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('wakkanai-peace-marathon-2026', NULL, '宗谷岬方面の眺望', 'views toward Cape Soya', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('wakkanai-peace-marathon-2026', NULL, NULL, '稚内港北防波堤ドーム', 'Wakkanai Port Northern Breakwater Dome', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('wakkanai-peace-marathon-2026', NULL, NULL, '日本海', 'Sea of Japan', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('wakkanai-peace-marathon-2026', NULL, NULL, '宗谷岬方面の眺望', 'views toward Cape Soya', NULL, NULL, 2);
 
 -- ==================
 -- 横浜マラソン (yokohama-marathon-2026)
@@ -6806,12 +6800,12 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('yokohama-marathon-2026', '["medal","tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('yokohama-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-08', '2026-05-08', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('yokohama-marathon-2026', NULL, 'みなとみらい', 'Minato Mirai', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('yokohama-marathon-2026', NULL, '赤レンガ倉庫', 'Red Brick Warehouse', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('yokohama-marathon-2026', NULL, '首都高速湾岸線', 'Bayshore Expressway', NULL, NULL, 2);
-INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('yokohama-marathon-2026', NULL, '山下公園', 'Yamashita Park', NULL, NULL, 3);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('yokohama-marathon-2026', NULL, NULL, 'みなとみらい', 'Minato Mirai', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('yokohama-marathon-2026', NULL, NULL, '赤レンガ倉庫', 'Red Brick Warehouse', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('yokohama-marathon-2026', NULL, NULL, '首都高速湾岸線', 'Bayshore Expressway', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('yokohama-marathon-2026', NULL, NULL, '山下公園', 'Yamashita Park', NULL, NULL, 3);
 

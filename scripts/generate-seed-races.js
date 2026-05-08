@@ -104,11 +104,18 @@ function generateRaceSQL(r) {
   lines.push(`DELETE FROM race_time_buckets WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_course_highlights WHERE race_id = ${esc(r.id)};`);
 
-  // race_categories
+  // race_categories（+ カテゴリに付随する course_highlights）
   if (r.categories && r.categories.length > 0) {
     r.categories.forEach((cat, idx) => {
       lines.push(`INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   (${esc(r.id)}, ${esc(cat.distance_type)}, ${esc(cat.distance_km)}, ${esc(cat.time_limit_minutes || 0)}, ${esc(cat.start_time || '')}, ${esc(cat.capacity || 0)}, ${esc(cat.entry_fee ?? null)}, ${esc(cat.entry_fee_u25 ?? null)}, ${esc(cat.name_ja ?? null)}, ${esc(cat.name_en ?? null)}, ${esc(cat.description_ja ?? null)}, ${esc(cat.description_en ?? null)}, ${esc(cat.eligibility_ja ?? null)}, ${esc(cat.eligibility_en ?? null)}, ${esc(cat.course_gpx_file ?? null)}, ${escJson(cat.waves || [])}, ${idx});`);
+      // カテゴリ直下の course_highlights: last_insert_rowid() で category_id を取得
+      if (cat.course_highlights && cat.course_highlights.length > 0) {
+        cat.course_highlights.forEach((ch, cidx) => {
+          lines.push(`INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  (${esc(r.id)}, last_insert_rowid(), ${esc(ch.km)}, ${esc(ch.name_ja)}, ${esc(ch.name_en ?? null)}, ${esc(ch.note_ja ?? null)}, ${esc(ch.note_en ?? null)}, ${cidx});`);
+        });
+      }
     });
   }
 
@@ -200,11 +207,11 @@ function generateRaceSQL(r) {
     });
   }
 
-  // race_course_highlights
+  // race_course_highlights（レースレベル: category_id = NULL → メインカテゴリに振り分け）
   if (r.course_highlights && r.course_highlights.length > 0) {
     r.course_highlights.forEach((ch, idx) => {
-      lines.push(`INSERT OR REPLACE INTO race_course_highlights (race_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  (${esc(r.id)}, ${esc(ch.km)}, ${esc(ch.name_ja)}, ${esc(ch.name_en ?? null)}, ${esc(ch.note_ja ?? null)}, ${esc(ch.note_en ?? null)}, ${idx});`);
+      lines.push(`INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  (${esc(r.id)}, NULL, ${esc(ch.km)}, ${esc(ch.name_ja)}, ${esc(ch.name_en ?? null)}, ${esc(ch.note_ja ?? null)}, ${esc(ch.note_en ?? null)}, ${idx});`);
     });
   }
 

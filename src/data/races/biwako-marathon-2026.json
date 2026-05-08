@@ -17,7 +17,7 @@
   "entry_capacity": 7000,
   "entry_start_date": "2025-08-01",
   "entry_end_date": "2025-10-31",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [

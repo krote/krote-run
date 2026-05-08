@@ -73,7 +73,18 @@ export default async function CalendarPage({
         >
           ← {t('prev')}
         </Link>
-        <h2 className="text-lg font-bold">{monthLabel}</h2>
+        <div className="flex items-center gap-3">
+          <h2 className="text-lg font-bold">{monthLabel}</h2>
+          {(year !== todayYear || month !== todayMonth0 - 1) && (
+            <Link
+              href={`?year=${todayYear}&month=${todayMonth0 - 1}`}
+              className="px-3 py-1 text-xs font-medium rounded-[3px] transition-colors no-underline"
+              style={{ background: 'var(--color-primary)', color: 'white' }}
+            >
+              {isJa ? '今月' : 'Today'}
+            </Link>
+          )}
+        </div>
         <Link
           href={`?year=${nextMonth.year}&month=${nextMonth.month}`}
           className="px-4 py-1.5 text-sm font-medium rounded-[3px] transition-colors no-underline"

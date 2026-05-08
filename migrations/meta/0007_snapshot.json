@@ -1,8 +1,8 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "be139410-d719-4b0d-9c96-c66aadda0a7c",
-  "prevId": "dbbf7015-4312-41ea-ab41-3cb9fe6d72e9",
+  "id": "294f48f5-745a-42f0-a18f-17cd4033dd48",
+  "prevId": "6c64b234-f9ad-4485-a9fa-8a54e1e52356",
   "tables": {
     "access_points": {
       "name": "access_points",
@@ -949,6 +949,27 @@
           "notNull": false,
           "autoincrement": false
         },
+        "eligibility_ja": {
+          "name": "eligibility_ja",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "eligibility_en": {
+          "name": "eligibility_en",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "course_gpx_file": {
+          "name": "course_gpx_file",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
         "waves": {
           "name": "waves",
           "type": "text",
@@ -979,6 +1000,183 @@
         "race_categories_race_id_races_id_fk": {
           "name": "race_categories_race_id_races_id_fk",
           "tableFrom": "race_categories",
+          "tableTo": "races",
+          "columnsFrom": [
+            "race_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "race_course_highlights": {
+      "name": "race_course_highlights",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "race_id": {
+          "name": "race_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "category_id": {
+          "name": "category_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "km": {
+          "name": "km",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "name_ja": {
+          "name": "name_ja",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name_en": {
+          "name": "name_en",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "note_ja": {
+          "name": "note_ja",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "note_en": {
+          "name": "note_en",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "sort_order": {
+          "name": "sort_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 0
+        }
+      },
+      "indexes": {
+        "race_course_highlights_race_id_idx": {
+          "name": "race_course_highlights_race_id_idx",
+          "columns": [
+            "race_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "race_course_highlights_race_id_races_id_fk": {
+          "name": "race_course_highlights_race_id_races_id_fk",
+          "tableFrom": "race_course_highlights",
+          "tableTo": "races",
+          "columnsFrom": [
+            "race_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "race_course_highlights_category_id_race_categories_id_fk": {
+          "name": "race_course_highlights_category_id_race_categories_id_fk",
+          "tableFrom": "race_course_highlights",
+          "tableTo": "race_categories",
+          "columnsFrom": [
+            "category_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "race_entry_links": {
+      "name": "race_entry_links",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "race_id": {
+          "name": "race_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "site_name": {
+          "name": "site_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "url": {
+          "name": "url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "sort_order": {
+          "name": "sort_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 0
+        }
+      },
+      "indexes": {
+        "race_entry_links_race_id_idx": {
+          "name": "race_entry_links_race_id_idx",
+          "columns": [
+            "race_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "race_entry_links_race_id_races_id_fk": {
+          "name": "race_entry_links_race_id_races_id_fk",
+          "tableFrom": "race_entry_links",
           "tableTo": "races",
           "columnsFrom": [
             "race_id"
@@ -1105,6 +1303,81 @@
       "uniqueConstraints": {},
       "checkConstraints": {}
     },
+    "race_gallery": {
+      "name": "race_gallery",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "race_id": {
+          "name": "race_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "src": {
+          "name": "src",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "caption_ja": {
+          "name": "caption_ja",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "caption_en": {
+          "name": "caption_en",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "sort_order": {
+          "name": "sort_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 0
+        }
+      },
+      "indexes": {
+        "race_gallery_race_id_idx": {
+          "name": "race_gallery_race_id_idx",
+          "columns": [
+            "race_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "race_gallery_race_id_races_id_fk": {
+          "name": "race_gallery_race_id_races_id_fk",
+          "tableFrom": "race_gallery",
+          "tableTo": "races",
+          "columnsFrom": [
+            "race_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
     "race_results": {
       "name": "race_results",
       "columns": {
@@ -1207,6 +1480,13 @@
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
+        },
+        "avg_time": {
+          "name": "avg_time",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
         }
       },
       "indexes": {
@@ -1278,6 +1558,142 @@
       },
       "indexes": {},
       "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "race_time_buckets": {
+      "name": "race_time_buckets",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "race_id": {
+          "name": "race_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "bucket": {
+          "name": "bucket",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "pct": {
+          "name": "pct",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "sort_order": {
+          "name": "sort_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 0
+        }
+      },
+      "indexes": {
+        "race_time_buckets_race_id_idx": {
+          "name": "race_time_buckets_race_id_idx",
+          "columns": [
+            "race_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "race_time_buckets_race_id_races_id_fk": {
+          "name": "race_time_buckets_race_id_races_id_fk",
+          "tableFrom": "race_time_buckets",
+          "tableTo": "races",
+          "columnsFrom": [
+            "race_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "race_voices": {
+      "name": "race_voices",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "race_id": {
+          "name": "race_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "quote_ja": {
+          "name": "quote_ja",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "author": {
+          "name": "author",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "sort_order": {
+          "name": "sort_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 0
+        }
+      },
+      "indexes": {
+        "race_voices_race_id_idx": {
+          "name": "race_voices_race_id_idx",
+          "columns": [
+            "race_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "race_voices_race_id_races_id_fk": {
+          "name": "race_voices_race_id_races_id_fk",
+          "tableFrom": "race_voices",
+          "tableTo": "races",
+          "columnsFrom": [
+            "race_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "checkConstraints": {}
@@ -1423,6 +1839,14 @@
           "notNull": false,
           "autoincrement": false
         },
+        "entry_closed": {
+          "name": "entry_closed",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": false
+        },
         "reception_type": {
           "name": "reception_type",
           "type": "text",
@@ -1527,6 +1951,62 @@
         },
         "course_notes_en": {
           "name": "course_notes_en",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "motif": {
+          "name": "motif",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "motif_color": {
+          "name": "motif_color",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "motif_romaji": {
+          "name": "motif_romaji",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "tagline_ja": {
+          "name": "tagline_ja",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "tagline_en": {
+          "name": "tagline_en",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "hero_image_url": {
+          "name": "hero_image_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "hero_caption_ja": {
+          "name": "hero_caption_ja",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "hero_caption_en": {
+          "name": "hero_caption_en",
           "type": "text",
           "primaryKey": false,
           "notNull": false,

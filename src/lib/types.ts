@@ -52,7 +52,6 @@ export interface Race {
   gallery: RaceGallery[];
   voices: RaceVoice[];
   time_buckets: RaceTimeBucket[];
-  course_highlights: RaceCourseHighlight[];
   // Phase 2: ビジュアル拡張フィールド
   motif: string | null;
   motif_color: string | null;
@@ -105,6 +104,7 @@ export interface RaceCategory {
   eligibility_en: string | null;
   course_gpx_file: string | null;
   waves: Wave[] | null;
+  course_highlights: RaceCourseHighlight[];
 }
 
 // ==================
@@ -297,7 +297,8 @@ export interface RaceTimeBucket {
 export interface RaceCourseHighlight {
   id: number;
   race_id: string;
-  km: number;
+  category_id: number | null;
+  km: number | null;
   name_ja: string;
   name_en: string | null;
   note_ja: string | null;

@@ -30,7 +30,7 @@ type NearbySpotRow = typeof schema.nearby_spots.$inferSelect;
 type WeatherRow = typeof schema.weather_history.$inferSelect;
 type GiftRow = typeof schema.participation_gifts.$inferSelect;
 
-function rowToCategory(row: CategoryRow): RaceCategory {
+function rowToCategory(row: CategoryRow, highlights: CourseHighlightRow[] = []): RaceCategory {
   return {
     id: row.id,
     distance_type: row.distance_type as RaceCategory["distance_type"],
@@ -48,6 +48,7 @@ function rowToCategory(row: CategoryRow): RaceCategory {
     eligibility_en: row.eligibility_en ?? null,
     course_gpx_file: row.course_gpx_file ?? null,
     waves: parseJson<Wave[] | null>(row.waves, null),
+    course_highlights: highlights.map(rowToCourseHighlight),
   };
 }
 
@@ -201,6 +202,7 @@ function rowToCourseHighlight(row: CourseHighlightRow): RaceCourseHighlight {
   return {
     id: row.id,
     race_id: row.race_id,
+    category_id: row.category_id ?? null,
     km: row.km,
     name_ja: row.name_ja,
     name_en: row.name_en ?? null,
@@ -265,7 +267,18 @@ function assembleRace(
     tags: parseJson<string[]>(row.tags, []),
     course_gpx_file: row.course_gpx_file ?? null,
     course_info,
-    categories: categories.map(rowToCategory),
+    categories: (() => {
+      // category_id 指定あり → そのカテゴリへ、null → メインカテゴリ（先頭）へ振り分け
+      const mainCatId = categories.length > 0 ? categories[0].id : null;
+      const byCat = new Map<number, CourseHighlightRow[]>();
+      for (const h of courseHighlightRows) {
+        const targetId = h.category_id ?? mainCatId;
+        if (targetId == null) continue;
+        if (!byCat.has(targetId)) byCat.set(targetId, []);
+        byCat.get(targetId)!.push(h);
+      }
+      return categories.map(row => rowToCategory(row, byCat.get(row.id) ?? []));
+    })(),
     aid_stations: aidStations.map(rowToAidStation),
     checkpoints: checkpointRows.map(rowToCheckpoint),
     access_points: accessPointRows.map(rowToAccessPoint),
@@ -278,7 +291,6 @@ function assembleRace(
     gallery:           galleryRows.map(rowToGallery),
     voices:            voiceRows.map(rowToVoice),
     time_buckets:      timeBucketRows.map(rowToTimeBucket),
-    course_highlights: courseHighlightRows.map(rowToCourseHighlight),
     motif:           row.motif ?? null,
     motif_color:     row.motif_color ?? null,
     motif_romaji:    row.motif_romaji ?? null,
@@ -555,6 +567,28 @@ export async function getAdminRaces(): Promise<{ id: string; name_ja: string; da
     .from(schema.races)
     .orderBy(asc(schema.races.date));
   return rows;
+}
+
+/** 全登録大会数 */
+export async function getTotalRaceCount(): Promise<number> {
+  const db = getDatabase();
+  const rows = await db.select({ count: sql<number>`count(*)` }).from(schema.races);
+  return rows[0]?.count ?? 0;
+}
+
+/** 現在エントリー受付中の大会数 */
+export async function getOpenEntryCount(): Promise<number> {
+  const db = getDatabase();
+  const today = new Date().toISOString().split("T")[0];
+  const rows = await db.select({ count: sql<number>`count(*)` }).from(schema.races).where(
+    sql`EXISTS (
+      SELECT 1 FROM race_entry_periods rep
+      WHERE rep.race_id = ${schema.races.id}
+        AND rep.start_date <= ${today}
+        AND rep.end_date >= ${today}
+    )`
+  );
+  return rows[0]?.count ?? 0;
 }
 
 export async function getGiftCategoryById(id: string): Promise<GiftCategory | null> {

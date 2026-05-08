@@ -17,7 +17,7 @@
   "entry_capacity": null,
   "entry_start_date": "2025-10-01",
   "entry_end_date": "2026-01-03",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "すべての種目でナンバーカードを事前に発送させていただきます。\nそのため受付はございません。",
   "reception_note_en": "Number cards for all events will be sent out in advance.\n\nTherefore, there is no registration required.",
   "tags": [

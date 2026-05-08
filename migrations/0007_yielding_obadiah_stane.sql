@@ -1,0 +1,1 @@
+ALTER TABLE `race_course_highlights` ADD `category_id` integer REFERENCES race_categories(id);

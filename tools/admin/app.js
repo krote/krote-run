@@ -211,11 +211,10 @@ function populateForm(r) {
   setVal('f-hero_caption_ja', r.hero_caption_ja ?? '');
   setVal('f-hero_caption_en', r.hero_caption_en ?? '');
 
-  // Phase 3: ギャラリー / 声 / タイム分布 / コース見どころ
+  // Phase 3: ギャラリー / 声 / タイム分布
   renderGallery(r.gallery ?? []);
   renderVoices(r.voices ?? []);
   renderTimeBuckets(r.time_buckets ?? []);
-  renderCourseHighlights(r.course_highlights ?? []);
 
   // 画像
   loadImagePreview(r.id);
@@ -298,16 +297,10 @@ function collectTimeBuckets() {
 }
 document.getElementById('btn-add-time-bucket').addEventListener('click', () => addTimeBucketRow());
 
-// ── コース見どころ ───────────────────────────────────────────────
-function renderCourseHighlights(items) {
-  const c = document.getElementById('course-highlights-container');
-  c.innerHTML = '';
-  items.forEach(ch => addCourseHighlightRow(ch));
-}
-function addCourseHighlightRow(ch = {}) {
-  const c = document.getElementById('course-highlights-container');
+// ── カテゴリ内コース見どころ ─────────────────────────────────────
+function addHighlightRowToContainer(container, ch = {}) {
   const row = document.createElement('div');
-  row.className = 'dynamic-row';
+  row.className = 'dynamic-row ch-row';
   row.innerHTML = `
     <input type="number" class="ch-km" placeholder="地点(km)" step="0.1" min="0" value="${ch.km ?? ''}" />
     <input type="text" class="ch-name-ja" placeholder="スポット名（日本語）" value="${(ch.name_ja ?? '').replace(/"/g, '&quot;')}" />
@@ -316,18 +309,17 @@ function addCourseHighlightRow(ch = {}) {
     <input type="text" class="ch-note-en" placeholder="Note (English)" value="${(ch.note_en ?? '').replace(/"/g, '&quot;')}" />
     <button type="button" class="btn-remove" title="削除">×</button>`;
   row.querySelector('.btn-remove').addEventListener('click', () => row.remove());
-  c.appendChild(row);
+  container.appendChild(row);
 }
-function collectCourseHighlights() {
-  return [...document.querySelectorAll('#course-highlights-container .dynamic-row')].map(row => ({
-    km: parseFloat(row.querySelector('.ch-km').value) || 0,
+function collectCategoryHighlights(catRow) {
+  return [...catRow.querySelectorAll('.cat-highlights-container .ch-row')].map(row => ({
+    km: parseFloat(row.querySelector('.ch-km').value) || null,
     name_ja: row.querySelector('.ch-name-ja').value.trim(),
     name_en: row.querySelector('.ch-name-en').value.trim() || null,
     note_ja: row.querySelector('.ch-note-ja').value.trim() || null,
     note_en: row.querySelector('.ch-note-en').value.trim() || null,
   })).filter(ch => ch.name_ja);
 }
-document.getElementById('btn-add-course-highlight').addEventListener('click', () => addCourseHighlightRow());
 
 function setVal(id, val) {
   const el = document.getElementById(id);
@@ -516,12 +508,23 @@ function addCategoryRow(cat = {}, index) {
       <input type="text" class="cat-gpx-file" value="${(cat.course_gpx_file ?? '').replace(/"/g, '&quot;')}" placeholder="例: nagano-marathon-2026-full.gpx" />
       <p class="field-hint">ファイルは <code>public/gpx/</code> に配置し、保存後に <code>npm run course:generate</code> を実行してください。</p>
     </div>
+    <div class="field full">
+      <label>コース見どころ</label>
+      <div class="cat-highlights-container"></div>
+      <button type="button" class="btn btn-secondary btn-add-highlight">+ 見どころを追加</button>
+    </div>
   `;
   row.querySelector('.btn-remove-cat').addEventListener('click', () => {
     row.remove();
     markDirty();
   });
   row.querySelectorAll('input, select, textarea').forEach(el => el.addEventListener('change', markDirty));
+  const highlightsContainer = row.querySelector('.cat-highlights-container');
+  (cat.course_highlights ?? []).forEach(ch => addHighlightRowToContainer(highlightsContainer, ch));
+  row.querySelector('.btn-add-highlight').addEventListener('click', () => {
+    addHighlightRowToContainer(highlightsContainer);
+    markDirty();
+  });
   container.appendChild(row);
 }
 
@@ -883,6 +886,7 @@ function buildRaceData() {
     eligibility_ja: row.querySelector('.cat-eligibility-ja')?.value.trim() || null,
     eligibility_en: row.querySelector('.cat-eligibility-en')?.value.trim() || null,
     course_gpx_file: row.querySelector('.cat-gpx-file')?.value.trim() || null,
+    course_highlights: collectCategoryHighlights(row),
   }));
 
   // タグ収集
@@ -892,8 +896,10 @@ function buildRaceData() {
   const entryPeriods = collectEntryPeriods();
   const firstPeriod = entryPeriods[0] ?? null;
 
+  // eslint-disable-next-line no-unused-vars
+  const { course_highlights: _raceHighlights, ...restCurrentRace } = currentRace ?? {};
   return {
-    ...currentRace,
+    ...restCurrentRace,
     entry_fee: null,
     entry_fee_by_category: true,
     name_ja: getVal('f-name_ja'),
@@ -935,7 +941,6 @@ function buildRaceData() {
     gallery: collectGallery(),
     voices: collectVoices(),
     time_buckets: collectTimeBuckets(),
-    course_highlights: collectCourseHighlights(),
   };
 }
 

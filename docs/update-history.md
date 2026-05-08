@@ -522,3 +522,19 @@
 - `scripts/set-motif-data.js`: motif/tagline データを全件に適用するスクリプト
 - `scripts/build-course-highlights.js`: course_info から course_highlights を構造化するスクリプト
 - `migrations/seed-races-all.sql`: シードSQL再生成（新フィールド反映）
+
+## 2026-05-07 course_highlights をカテゴリ付随に変更・詳細ページデザイン刷新
+
+- `src/lib/db/schema.ts`: `race_course_highlights.km` を nullable 化、`category_id` FK (nullable) 追加
+- `src/lib/types.ts`: `RaceCourseHighlight` に `category_id` 追加・`km` nullable 化、`RaceCategory` に `course_highlights` 追加、`Race` から `course_highlights` 削除
+- `src/lib/data.ts`: highlights をカテゴリ別に振り分けるロジックを追加
+- `migrations/0006_high_mole_man.sql`: km nullable 化のテーブル再構築マイグレーション（手動修正）
+- `migrations/0007_yielding_obadiah_stane.sql`: category_id カラム追加
+- `scripts/generate-seed-races.js`: カテゴリレベルの course_highlights INSERT 追加、レースレベルも category_id=NULL で対応
+- `migrations/seed-races-all.sql`: シードSQL再生成
+- `src/components/races/detail/DetailHeader.tsx`: 詳細ページヘッダー全面刷新（モチーフバッジ・版次表示・メタ行）
+- `src/app/[locale]/races/[id]/page.tsx`: セクション番号化（01–10）、コース地図とハイライト横並びレイアウト
+- `src/components/course/CourseProfileSection.tsx`: sidebarContent prop 追加
+- `src/components/races/RaceBreadcrumb.tsx`: 背景変更後の文字色修正
+- `src/components/races/RaceRegistrationButtons.tsx`: クリーム背景向け色修正
+- `src/lib/__tests__/fixtures.ts`: makeRace・makeCategory・makeCourseHighlight を新スキーマに合わせて更新

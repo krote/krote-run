@@ -17,7 +17,7 @@
   "entry_capacity": 0,
   "entry_start_date": "2026-03-22",
   "entry_end_date": "2026-04-12",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "一般枠：3/22〜4/12。アスリート・学生・女性・海外枠：3/22〜5/7。レイトエントリー枠：5/31〜6/8。システム利用料別途。",
   "reception_note_en": "General entry: Mar 22 - Apr 12. Athlete/Student/Women/Overseas entries: Mar 22 - May 7. Late entry: May 31 - Jun 8. System fee applies separately.",
   "tags": [

@@ -16,15 +16,12 @@
   "entry_fee_by_category": true,
   "entry_capacity": 5400,
   "entry_start_date": "2026-05-01",
-  "entry_end_date": "2026-08-31",
+  "entry_end_date": "2026-05-17",
   "reception_type": "pre_day",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [
-    "歴史ある大会",
-    "タフコース",
-    "川沿い",
-    "京都"
+    "歴史ある大会"
   ],
   "course_gpx_file": null,
   "course_info": {
@@ -43,7 +40,7 @@
       "distance_type": "full",
       "distance_km": 42.195,
       "time_limit_minutes": 360,
-      "start_time": null,
+      "start_time": "",
       "capacity": 5400,
       "entry_fee": 11000,
       "entry_fee_u25": null,
@@ -51,7 +48,11 @@
       "name_en": null,
       "description_ja": null,
       "description_en": null,
-      "waves": null
+      "waves": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": []
     }
   ],
   "aid_stations": [],
@@ -110,7 +111,7 @@
     {
       "start_date": "2026-05-01",
       "end_date": "2026-05-17",
-      "entry_fee": 11000,
+      "entry_fee": 10000,
       "label_ja": "早割",
       "label_en": "Early Bird"
     },
@@ -120,13 +121,6 @@
       "entry_fee": 11000,
       "label_ja": "一般",
       "label_en": "General"
-    },
-    {
-      "start_date": "2026-09-01",
-      "end_date": "2026-09-20",
-      "entry_fee": 11000,
-      "label_ja": "レイト（参加賞なし）",
-      "label_en": "Late (no participation gift)"
     },
     {
       "start_date": "2026-11-01",
@@ -147,18 +141,6 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": [
-    {
-      "name_ja": "由良川沿い",
-      "name_en": "Along Yura River",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "福知山城周辺",
-      "name_en": "near Fukuchiyama Castle",
-      "description_ja": null,
-      "description_en": null
-    }
-  ]
+  "entry_closed": false,
+  "entry_links": []
 }

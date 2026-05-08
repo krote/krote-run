@@ -115,7 +115,16 @@ function OpenSection({ races, locale }: { races: Race[]; locale: Locale }) {
                         : '—'}
                     </span>
                     <span className="font-serif" style={{ fontSize: '0.82rem', color: 'var(--color-mid)' }}>
-                      {race.entry_fee != null ? `¥${race.entry_fee.toLocaleString()}` : '—'}
+                      {(() => {
+                        if (race.entry_fee_by_category) {
+                          const fees = race.categories.map((c) => c.entry_fee).filter((f): f is number => f != null);
+                          if (fees.length === 0) return '—';
+                          const min = Math.min(...fees);
+                          const max = Math.max(...fees);
+                          return min === max ? `¥${min.toLocaleString()}` : `¥${min.toLocaleString()}〜`;
+                        }
+                        return race.entry_fee != null ? `¥${race.entry_fee.toLocaleString()}` : '—';
+                      })()}
                     </span>
                   </div>
                 </article>

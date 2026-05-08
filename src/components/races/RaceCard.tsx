@@ -118,6 +118,17 @@ export default function RaceCard({ race, locale, from }: RaceCardProps) {
     .map((c) => `${c.distance_km}km`);
   const distanceLabel = distances.join('、');
 
+  const entryFeeLabel = (() => {
+    if (race.entry_fee_by_category) {
+      const fees = race.categories.map((c) => c.entry_fee).filter((f): f is number => f != null);
+      if (fees.length === 0) return '—';
+      const min = Math.min(...fees);
+      const max = Math.max(...fees);
+      return min === max ? `¥${min.toLocaleString()}` : `¥${min.toLocaleString()}〜`;
+    }
+    return race.entry_fee != null ? `¥${race.entry_fee.toLocaleString()}` : '—';
+  })();
+
   const pref = PREF_MAP.get(race.prefecture);
   const prefLabel = locale === 'ja' ? pref?.ja ?? '' : pref?.en ?? '';
 
@@ -396,7 +407,7 @@ export default function RaceCard({ race, locale, from }: RaceCardProps) {
                 className="font-serif"
                 style={{ fontSize: '0.875rem', color: 'var(--color-mid)', fontVariantNumeric: 'tabular-nums' }}
               >
-                {race.entry_fee != null ? `¥${race.entry_fee.toLocaleString()}` : '—'}
+                {entryFeeLabel}
               </div>
             </div>
           </div>

@@ -14,6 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 // ─── キャプションバー ────────────────────────────────
 function CaptionBar({ raceCount }: { raceCount: number }) {
+  const t = useTranslations('home.hero');
   return (
     <div
       className="flex justify-between items-center px-10 py-3"
@@ -27,7 +28,7 @@ function CaptionBar({ raceCount }: { raceCount: number }) {
       }}
     >
       <span>HASHIRU &nbsp;/&nbsp; 走</span>
-      <span>2026 Season &nbsp;·&nbsp; 全国 {raceCount.toLocaleString()} 大会</span>
+      <span>2026 Season &nbsp;·&nbsp; {t('captionRaces', { count: raceCount.toLocaleString() })}</span>
     </div>
   );
 }
@@ -35,11 +36,12 @@ function CaptionBar({ raceCount }: { raceCount: number }) {
 // ─── Hero ────────────────────────────────────────────
 function HeroSection({ raceCount, openEntryCount }: { raceCount: number; openEntryCount: number }) {
   const t = useTranslations('home.hero');
+  const tMeta = useTranslations('home.meta');
 
   const stats = [
-    { num: raceCount.toLocaleString(), label: '掲載大会', sub: 'races' },
-    { num: openEntryCount.toLocaleString(), label: '受付中', sub: 'open entry' },
-    { num: '47',  label: '都道府県', sub: 'pref.' },
+    { num: raceCount.toLocaleString(), label: tMeta('racesLabel'), sub: 'races' },
+    { num: openEntryCount.toLocaleString(), label: tMeta('entryOpenLabel'), sub: 'open entry' },
+    { num: '47',  label: tMeta('prefLabel'), sub: 'pref.' },
   ];
 
   return (
@@ -91,7 +93,7 @@ function HeroSection({ raceCount, openEntryCount }: { raceCount: number; openEnt
               className="no-underline inline-block px-5 py-3 text-sm font-semibold rounded-[2px] transition-colors"
               style={{ background: 'var(--color-ink)', color: '#fff', letterSpacing: '0.06em' }}
             >
-              大会を探す　→
+              {t('findRaces')}
             </Link>
             <Link
               href="/guide"
@@ -134,7 +136,7 @@ function HeroSection({ raceCount, openEntryCount }: { raceCount: number; openEnt
               className="font-serif"
               style={{ fontSize: '0.82rem', letterSpacing: '0.25em', color: 'var(--color-primary)' }}
             >
-              日本の、走る、すべて。
+              {t('tagline')}
             </span>
           </div>
 
@@ -215,8 +217,7 @@ function WhySection() {
             <em style={{ fontStyle: 'italic', fontWeight: 500, color: '#f0c4bb' }}>{t('titleEm')}</em>
           </h2>
           <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.85 }}>
-            走ることが、その土地の文化に触れる入り口になる。<br />
-            それが日本のマラソン。
+            {t('body')}
           </p>
         </div>
 

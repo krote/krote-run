@@ -183,13 +183,15 @@ export default function RaceCard({ race, locale, from }: RaceCardProps) {
           />
 
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`/images/races/${race.id}.jpg`}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300"
-            onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = '1'; }}
-            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-          />
+          {race.hero_image_url && (
+            <img
+              src={race.hero_image_url}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300"
+              onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = '1'; }}
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            />
+          )}
 
           {/* Bottom gradient overlay */}
           <div

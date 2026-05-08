@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-05-08T14:21:54.324Z
+-- 生成日時: 2026-05-08T14:50:43.241Z
 -- 対象ファイル数: 75 件（既存 2 件はskip）
 
 -- ==================
@@ -825,8 +825,8 @@ INSERT OR REPLACE INTO races (
   NULL,
   1,
   0,
-  NULL,
-  NULL,
+  '2026-05-07',
+  '2026-08-31',
   0,
   'pre_day',
   '',
@@ -868,17 +868,15 @@ DELETE FROM race_voices WHERE race_id = 'fujisan-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'fujisan-marathon-2026';
 DELETE FROM race_course_highlights WHERE race_id = 'fujisan-marathon-2026';
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('fujisan-marathon-2026', 'full', 42.195, 360, '09:00', 0, 12900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+  ('fujisan-marathon-2026', 'full', 42.195, 360, '09:00', 0, 12900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'fujisan-marathon-2026.kml', '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fujisan-marathon-2026', '温泉', '河口湖温泉', 'Lake Kawaguchi Onsen', '河口湖畔の温泉。富士山を望む露天風呂が魅力。レース後に最適。', 'Hot springs on the shore of Lake Kawaguchi. Open-air baths with Mt. Fuji views.', '会場付近', NULL, 35.51, 138.75);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('fujisan-marathon-2026', '["medal","tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fujisan-marathon-2026', NULL, NULL, '河口湖', 'Lake Kawaguchi', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fujisan-marathon-2026', NULL, NULL, '西湖', 'Lake Saiko', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fujisan-marathon-2026', NULL, NULL, '紅葉の富士山', 'Mt. Fuji with autumn foliage', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
+  ('fujisan-marathon-2026', 'RUNNET', 'https://runnet.jp/parts/2026/392477/entry2.html', 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('fujisan-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-05-07', '2026-08-31', 12900, 0);
 
 -- ==================
 -- 福知山マラソン (fukuchiyama-marathon-2026)

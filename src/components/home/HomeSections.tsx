@@ -45,8 +45,8 @@ function OpenSection({ races, locale }: { races: Race[]; locale: Locale }) {
               Now Open · 受付中
             </p>
             <h2 className="font-serif font-semibold" style={{ fontSize: '1.875rem', color: 'var(--color-ink)', margin: 0 }}>
-              いま、走れる
-              <em style={{ color: 'var(--color-primary)', fontStyle: 'italic', fontWeight: 500 }}>大会。</em>
+              {t('openHeading')}
+              <em style={{ color: 'var(--color-primary)', fontStyle: 'italic', fontWeight: 500 }}>{t('openHeadingEm')}</em>
             </h2>
           </div>
           <Link
@@ -86,11 +86,11 @@ function OpenSection({ races, locale }: { races: Race[]; locale: Locale }) {
                         letterSpacing: '0.08em',
                       }}
                     >
-                      受付中
+                      {t('entryOpen')}
                     </span>
                     {deadline && (
                       <span className="font-serif" style={{ fontSize: '0.82rem', color: 'var(--color-mid)' }}>
-                        締切：<strong style={{ color: 'var(--color-primary)', fontVariantNumeric: 'tabular-nums' }}>
+                        {t('deadline')} <strong style={{ color: 'var(--color-primary)', fontVariantNumeric: 'tabular-nums' }}>
                           {formatDate(deadline, locale)}
                         </strong>
                       </span>
@@ -159,7 +159,7 @@ function SoonSection({ races, locale }: { races: Race[]; locale: Locale }) {
             Opens Soon · まもなく受付開始
           </p>
           <h2 className="font-serif font-semibold" style={{ fontSize: '1.875rem', margin: 0, color: 'var(--color-ink)' }}>
-            次の<em style={{ color: 'var(--color-primary)', fontStyle: 'italic', fontWeight: 500 }}>合図</em>を待つ大会。
+            {t('soonHeading')}<em style={{ color: 'var(--color-primary)', fontStyle: 'italic', fontWeight: 500 }}>{t('soonHeadingEm')}</em>{t('soonHeadingSuffix')}
           </h2>
         </div>
 
@@ -255,6 +255,7 @@ function SoonSection({ races, locale }: { races: Race[]; locale: Locale }) {
 
 // ─── 訪日ランナー向けバンド ────────────────────────
 function VisitorBand() {
+  const t = useTranslations('home.sections');
   return (
     <section
       style={{
@@ -292,12 +293,12 @@ function VisitorBand() {
               For Overseas Runners
             </p>
             <p className="font-serif font-semibold" style={{ fontSize: '1.05rem', color: 'var(--color-ink)' }}>
-              海外から日本の大会を探す方へ — エントリー方法・前日受付・宿の手配まで。
+              {t('visitorBody')}
             </p>
           </div>
         </div>
         <Link
-          href="/guide"
+          href="/visitor"
           className="no-underline font-sans font-semibold"
           style={{
             border: '1px solid var(--color-ink)',
@@ -308,7 +309,7 @@ function VisitorBand() {
             borderRadius: 2,
           }}
         >
-          {`Visitor's Guide →`}
+          {t('visitorCTA')}
         </Link>
       </div>
     </section>

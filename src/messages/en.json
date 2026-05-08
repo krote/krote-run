@@ -33,6 +33,9 @@
       "titleEm": "heart of Japan.",
       "subtitle": "Marathons and trail runs across Japan — from cherry blossom spring runs to autumn mountain trails.",
       "guideLink": "New to HASHIRU? Start here →",
+      "findRaces": "Find Races →",
+      "tagline": "All of Japan. Running.",
+      "captionRaces": "{count} races across Japan",
       "searchPlaceholder": "Search by city, distance, season…",
       "searchButton": "Search"
     },
@@ -40,6 +43,7 @@
       "racesLabel": "Races Listed",
       "prefLabel": "Prefectures",
       "entryLabel": "Entry Open Now",
+      "entryOpenLabel": "Entry Open",
       "seasonRange": "Spring — Winter",
       "seasonLabel": "Year-Round"
     },
@@ -52,12 +56,22 @@
       "soonOpeningSub": "Entry opens within 30 days",
       "viewAll": "View All →",
       "toggleMag": "Magazine",
-      "toggleExp": "Experience"
+      "toggleExp": "Experience",
+      "openHeading": "Races you can",
+      "openHeadingEm": "enter now.",
+      "entryOpen": "Entry Open",
+      "deadline": "Closes:",
+      "soonHeading": "Waiting for the",
+      "soonHeadingEm": "signal.",
+      "soonHeadingSuffix": "",
+      "visitorBody": "Running Japan's races from overseas — from registration to day-before check-in and accommodation.",
+      "visitorCTA": "Visitor's Guide →"
     },
     "why": {
       "eyebrow": "Why run in Japan?",
       "title": "More than a race.",
       "titleEm": "It's an experience.",
+      "body": "Running becomes a doorway into local culture. That's what makes Japanese marathons unique.",
       "item1Title": "Iconic Scenery",
       "item1Desc": "Temples, castles, cherry blossoms, and Mt. Fuji — every course is a sightseeing tour.",
       "item2Title": "Legendary Aid Stations",

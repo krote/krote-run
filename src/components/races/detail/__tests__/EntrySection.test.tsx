@@ -5,10 +5,11 @@ import EntrySection from '../EntrySection';
 import { makeRace } from '../../../../lib/__tests__/fixtures';
 
 describe('EntrySection', () => {
-  it('セクションに id="entry" が付く', () => {
+  it('コンテンツが描画される', () => {
+    // id="entry" は page.tsx 側の <section> に付与されるため、EntrySection 自体は持たない
     const race = makeRace({ date: '2026-04-19' });
     const { container } = render(<EntrySection race={race} locale="ja" today="2026-01-01" />);
-    expect(container.querySelector('#entry')).not.toBeNull();
+    expect(container.firstChild).not.toBeNull();
   });
 
   it('entry_closed=true のとき受付終了メッセージが表示される', () => {

@@ -538,3 +538,13 @@
 - `src/components/races/RaceBreadcrumb.tsx`: 背景変更後の文字色修正
 - `src/components/races/RaceRegistrationButtons.tsx`: クリーム背景向け色修正
 - `src/lib/__tests__/fixtures.ts`: makeRace・makeCategory・makeCourseHighlight を新スキーマに合わせて更新
+
+## 2026-05-09 i18n対応・VisitorBand・訪日ランナーガイドページ追加
+
+- `src/messages/ja.json`: `home.hero`（findRaces・tagline・captionRaces）、`home.meta`（entryOpenLabel）、`home.sections`（openHeading・openHeadingEm・entryOpen・deadline・soonHeading・soonHeadingEm・soonHeadingSuffix・visitorBody・visitorCTA）、`home.why.body` を追加
+- `src/messages/en.json`: 上記キーの英語訳を追加
+- `src/app/[locale]/page.tsx`: CaptionBar・HeroSection統計・CTAボタン・タグライン・WhySectionの本文をすべて翻訳キー化
+- `src/components/home/HomeSections.tsx`: OpenSection見出し・バッジ・締切ラベル、SoonSection見出し、VisitorBand本文・CTAをすべて翻訳キー化；VisitorBandリンク先を `/guide` → `/visitor` に変更
+- `src/app/[locale]/visitor/page.tsx`: 訪日ランナー向けガイドページを新規作成（日英両対応）。5セクション構成（エントリー・前日受付・アクセス宿泊・当日の流れ・キーワード集）、注意書きを各所に配置
+- `src/components/calendar/__tests__/YearTimeline.test.tsx`: `month` プロップ追加・ウィンドウロジックのテストを拡充
+- `src/components/races/detail/__tests__/EntrySection.test.tsx`: `id="entry"` 移動に伴うテスト修正

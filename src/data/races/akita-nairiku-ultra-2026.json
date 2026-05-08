@@ -91,12 +91,35 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "紅葉",
+  "motif_color": "#d4631a",
+  "motif_romaji": "Koyo",
+  "tagline_ja": "秋田内陸の紅葉の回廊を走る100km",
+  "tagline_en": "A 100km journey through autumn foliage corridors",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "秋田内陸縦貫鉄道沿い",
+      "name_en": "Along Akita Nairiku Railway",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "田沢湖高原",
+      "name_en": "Tazawako Highland",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "最大高低差531m",
+      "name_en": "531m elevation difference",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

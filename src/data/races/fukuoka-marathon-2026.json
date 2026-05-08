@@ -125,12 +125,41 @@
       "label_en": ""
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "博多湾",
+  "motif_color": "#0284c7",
+  "motif_romaji": "Hakata-wan",
+  "tagline_ja": "博多の海沿いを走る、秋の風物詩",
+  "tagline_en": "Run along Hakata Bay in autumn",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "天神スタート",
+      "name_en": "Tenjin start",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "博多湾沿い",
+      "name_en": "Hakata Bay coastline",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "玄界灘",
+      "name_en": "Genkai Sea",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "糸島フィニッシュ",
+      "name_en": "Itoshima finish",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

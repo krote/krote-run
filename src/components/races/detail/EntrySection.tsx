@@ -10,8 +10,19 @@ interface EntrySectionProps {
 export default function EntrySection({ race, locale, today }: EntrySectionProps) {
   const isPast = race.date < today;
 
+  const receptionLabel = (type: typeof race.reception_type) => {
+    const map: Record<typeof type, { ja: string; en: string }> = {
+      pre_day:  { ja: '前日受付', en: 'Day-before' },
+      race_day: { ja: '当日受付', en: 'Race day' },
+      both:     { ja: '前日・当日受付', en: 'Day-before & Race day' },
+      pre_mail: { ja: '郵送受付', en: 'Mail-in' },
+      none:     { ja: 'なし', en: 'None' },
+    };
+    return map[type] ?? { ja: type, en: type };
+  };
+
   return (
-    <section id="entry">
+    <div>
       {/* 受付終了メッセージ */}
       {race.entry_closed && (
         <p
@@ -126,6 +137,23 @@ export default function EntrySection({ race, locale, today }: EntrySectionProps)
         </div>
       )}
 
+      {/* 受付方法 */}
+      {race.reception_type !== 'none' && (
+        <div className="mb-4">
+          <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
+            {locale === 'ja' ? '受付方法' : 'Check-in'}
+          </p>
+          <p className="font-medium">
+            {locale === 'ja' ? receptionLabel(race.reception_type).ja : receptionLabel(race.reception_type).en}
+          </p>
+          {(locale === 'ja' ? race.reception_note_ja : race.reception_note_en) && (
+            <p className="text-sm mt-1" style={{ color: 'var(--color-ink2)' }}>
+              {locale === 'ja' ? race.reception_note_ja : race.reception_note_en}
+            </p>
+          )}
+        </div>
+      )}
+
       {/* エントリーリンク */}
       {race.entry_links.length > 0 && (
         <div className="mt-4 flex flex-wrap gap-2">
@@ -156,6 +184,6 @@ export default function EntrySection({ race, locale, today }: EntrySectionProps)
           {locale === 'ja' ? '公式サイト' : 'Official Site'} ↗
         </a>
       )}
-    </section>
+    </div>
   );
 }

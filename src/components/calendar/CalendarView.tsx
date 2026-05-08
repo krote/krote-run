@@ -125,6 +125,7 @@ export default function CalendarView({
         <YearTimeline
           races={filteredRaces}
           year={year}
+          month={month}
           locale={locale}
           today={today}
         />

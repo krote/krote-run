@@ -115,12 +115,29 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "みかん",
+  "motif_color": "#f97316",
+  "motif_romaji": "Mikan",
+  "tagline_ja": "蜜柑の香り漂う、瀬戸内の道を走る",
+  "tagline_en": "Run through the Seto Inland citrus country",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "松山城",
+      "name_en": "Matsuyama Castle",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "道後温泉",
+      "name_en": "Dogo Onsen",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

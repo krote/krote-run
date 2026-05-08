@@ -81,12 +81,16 @@
       "image": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "信越五岳",
+  "motif_color": "#065f46",
+  "motif_romaji": "Shin-etsu-Gogaku",
+  "tagline_ja": "信越の五つの山を巡る、100マイルの挑戦",
+  "tagline_en": "A 100-mile challenge through five peaks of the Shin-Etsu mountains",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": []
 }

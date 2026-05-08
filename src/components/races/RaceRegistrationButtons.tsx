@@ -164,14 +164,14 @@ export default function RaceRegistrationButtons({
   const plannedCat = categories.find((c) => c.id === plannedCatId);
   const hasReminders = reminderPeriodIds.length > 0;
 
-  // ボタン共通スタイル（ダーク背景対応）
+  // ボタン共通スタイル（ライト背景対応）
   const baseBtn = `flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-[3px] transition-colors disabled:opacity-40`;
   const inactiveStyle = {
-    border: '1.5px solid rgba(255,255,255,0.4)',
-    color: 'rgba(255,255,255,0.85)',
-    background: 'rgba(255,255,255,0.06)',
+    border: '1.5px solid var(--color-border)',
+    color: 'var(--color-ink2)',
+    background: 'white',
   };
-  const planActiveStyle = { border: '1.5px solid white', color: 'var(--color-ink)', background: 'white' };
+  const planActiveStyle = { border: '1.5px solid var(--color-ink)', color: 'white', background: 'var(--color-ink)' };
   const reminderActiveStyle = { border: '1.5px solid var(--color-primary)', color: 'white', background: 'var(--color-primary)' };
 
   return (
@@ -331,7 +331,7 @@ export default function RaceRegistrationButtons({
 
       {/* 解除時の案内 */}
       {(isPlanning || hasReminders) && (
-        <p className="mt-2 text-xs" style={{ color: 'rgba(255,255,255,0.45)' }}>
+        <p className="mt-2 text-xs" style={{ color: 'var(--color-light)' }}>
           Googleカレンダーへの追加はご自身で保存してください。解除してもカレンダーからは自動削除されません。
         </p>
       )}

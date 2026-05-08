@@ -17,7 +17,7 @@
   "entry_capacity": 0,
   "entry_start_date": "2026-04-01",
   "entry_end_date": "2026-07-16",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [],
@@ -70,12 +70,16 @@
       "label_en": "General Entry"
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "流氷",
+  "motif_color": "#bfdbfe",
+  "motif_romaji": "Ryuhyo",
+  "tagline_ja": "流氷の大地を駆け抜ける春の42km",
+  "tagline_en": "Run through the land of drift ice in spring",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": []
 }

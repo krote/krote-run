@@ -303,12 +303,53 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "富士五湖",
+  "motif_color": "#2563eb",
+  "motif_romaji": "Fuji-Goko",
+  "tagline_ja": "富士五湖を巡る、究極のチャレンジ",
+  "tagline_en": "The ultimate challenge around the five Fuji lakes",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "河口湖畔の桜並木",
+      "name_en": "Cherry blossom-lined Lake Kawaguchi shore",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "西湖からの富士山眺望",
+      "name_en": "Mt. Fuji views from Lake Saiko",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "精進湖",
+      "name_en": "Lake Shoji",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "本栖湖（120kmのみ）",
+      "name_en": "Lake Motosu (120km only)",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "山中湖（100km・120kmのみ）",
+      "name_en": "Lake Yamanaka (100km & 120km only)",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "富士北麓公園（スタート・フィニッシュ）",
+      "name_en": "Fuji Hokuroku Park (start/finish)",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

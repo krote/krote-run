@@ -126,12 +126,35 @@
       "label_en": ""
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "兼六園",
+  "motif_color": "#14532d",
+  "motif_romaji": "Kenroku-en",
+  "tagline_ja": "加賀百万石の城下町・金沢を駆ける",
+  "tagline_en": "Run through Kanazawa, the castle town of one million koku",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "兼六園",
+      "name_en": "Kenroku-en Garden",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "金沢城",
+      "name_en": "Kanazawa Castle",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "ひがし茶屋街付近",
+      "name_en": "Higashi Chaya District area",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

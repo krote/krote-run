@@ -12,12 +12,12 @@
   "description_ja": "スイカの一大産地・千葉県富里市で毎年6月に開催される人気大会。エイドステーションでスイカを食べながら走れる名物大会。コース沿いのスイカ畑が広がる田園風景の中、7kmと10kmで競う。マイカップ給水対応。",
   "description_en": "A popular race held every June in Tomisato City, Chiba, the top watermelon-producing area in Japan. Famous for eating watermelon at aid stations while running. Race through scenic watermelon fields in 7km and 10km distances. Supports personal cup hydration.",
   "official_url": "https://tomisato-suikaroad.jp/",
-  "entry_fee": 0,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
   "entry_start_date": "2026-02-22",
   "entry_end_date": "2026-04-04",
-  "reception_type": "same_day",
+  "reception_type": "race_day",
   "reception_note_ja": "雨天決行。スポーツエントリー（インターネット）で申込。先着順。",
   "reception_note_en": "Held rain or shine. Entry via Sports Entry (online). First-come, first-served.",
   "tags": [
@@ -46,7 +46,12 @@
       "entry_fee": 6500,
       "capacity": 1500,
       "time_limit_minutes": 70,
-      "start_time": "09:15"
+      "start_time": "09:15",
+      "name_ja": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": []
     },
     {
       "distance_type": "other",
@@ -54,7 +59,12 @@
       "entry_fee": 6500,
       "capacity": 5100,
       "time_limit_minutes": 90,
-      "start_time": "10:00"
+      "start_time": "10:00",
+      "name_ja": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": []
     }
   ],
   "aid_stations": [],
@@ -84,19 +94,29 @@
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
       "start_date": "2026-02-22",
       "end_date": "2026-04-04",
-      "entry_fee": null
+      "entry_fee": null,
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry"
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "給スイカ所",
+  "motif_color": "#16a34a",
+  "motif_romaji": "KyuSuika",
+  "tagline_ja": "日本一のスイカの産地・富里を走る、夏の風物詩",
+  "tagline_en": "Run Japan's watermelon capital — a midsummer tradition",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "entry_closed": false,
+  "entry_links": [
+    {
+      "site_name": "SPORT ENTRY",
+      "url": "https://www.sportsentry.ne.jp/event/t/104032"
+    }
+  ]
 }

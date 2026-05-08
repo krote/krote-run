@@ -111,12 +111,29 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "桜島",
+  "motif_color": "#991b1b",
+  "motif_romaji": "Sakura-jima",
+  "tagline_ja": "活火山・桜島を望む、薩摩の海岸を走る",
+  "tagline_en": "Run along Kagoshima Bay with the volcanic Sakurajima in view",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "桜島",
+      "name_en": "Sakurajima",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "錦江湾",
+      "name_en": "Kinko Bay",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

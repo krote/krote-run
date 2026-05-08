@@ -407,14 +407,15 @@ export const race_time_buckets = sqliteTable("race_time_buckets", {
 // ==================
 
 export const race_course_highlights = sqliteTable("race_course_highlights", {
-  id:         integer("id").primaryKey({ autoIncrement: true }),
-  race_id:    text("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
-  km:         real("km").notNull(),
-  name_ja:    text("name_ja").notNull(),
-  name_en:    text("name_en"),
-  note_ja:    text("note_ja"),
-  note_en:    text("note_en"),
-  sort_order: integer("sort_order").notNull().default(0),
+  id:          integer("id").primaryKey({ autoIncrement: true }),
+  race_id:     text("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
+  category_id: integer("category_id").references(() => race_categories.id, { onDelete: "cascade" }),
+  km:          real("km"),
+  name_ja:     text("name_ja").notNull(),
+  name_en:     text("name_en"),
+  note_ja:     text("note_ja"),
+  note_en:     text("note_en"),
+  sort_order:  integer("sort_order").notNull().default(0),
 }, (t) => [
   index("race_course_highlights_race_id_idx").on(t.race_id),
 ]);

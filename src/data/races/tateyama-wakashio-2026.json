@@ -104,12 +104,23 @@
     "detail_level": "medium"
   },
   "entry_periods": [],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "若潮",
+  "motif_color": "#0369a1",
+  "motif_romaji": "Wakashio",
+  "tagline_ja": "太平洋に面した館山の若潮を感じながら走る",
+  "tagline_en": "Run Tateyama's Pacific coast on the fresh tides of spring",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "房総の海岸線",
+      "name_en": "Boso coastline",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

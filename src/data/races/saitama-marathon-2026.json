@@ -81,12 +81,16 @@
     "detail_level": "medium"
   },
   "entry_periods": [],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "荒川",
+  "motif_color": "#0369a1",
+  "motif_romaji": "Arakawa",
+  "tagline_ja": "荒川の雄大な流れとともに走る、さいたまの42km",
+  "tagline_en": "Run along the vast Arakawa River through Saitama",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": []
 }

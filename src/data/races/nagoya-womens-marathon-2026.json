@@ -106,12 +106,29 @@
     "detail_level": "medium"
   },
   "entry_periods": [],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "名古屋城",
+  "motif_color": "#c2410c",
+  "motif_romaji": "Nagoya-jo",
+  "tagline_ja": "女性ランナーの憧れ、名古屋の街を駆ける42km",
+  "tagline_en": "The women's marathon destination — run through Nagoya",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "名古屋ドーム（バンテリンドーム ナゴヤ）",
+      "name_en": "Nagoya Dome (Vantelin Dome Nagoya)",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "名古屋城付近",
+      "name_en": "near Nagoya Castle",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

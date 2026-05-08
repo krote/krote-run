@@ -109,12 +109,23 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "荒川",
+  "motif_color": "#6b7280",
+  "motif_romaji": "Arakawa",
+  "tagline_ja": "荒川河川敷を駆ける、春の板橋シティマラソン",
+  "tagline_en": "Run the Arakawa riverside in spring",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "荒川河川敷",
+      "name_en": "Arakawa Riverbank",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

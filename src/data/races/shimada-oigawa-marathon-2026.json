@@ -17,7 +17,7 @@
   "entry_capacity": 0,
   "entry_start_date": "2026-05-01",
   "entry_end_date": "2026-06-30",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [],
@@ -78,12 +78,16 @@
       "image": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "大井川",
+  "motif_color": "#15803d",
+  "motif_romaji": "Oi-gawa",
+  "tagline_ja": "南アルプスから流れる大井川沿いを走る42km",
+  "tagline_en": "Run along the Oi River flowing down from the Southern Alps",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": []
 }

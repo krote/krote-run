@@ -17,7 +17,7 @@
   "entry_capacity": 0,
   "entry_start_date": "2025-12-01",
   "entry_end_date": "2026-03-22",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [
@@ -112,12 +112,23 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "朱鷺",
+  "motif_color": "#fb7185",
+  "motif_romaji": "Toki",
+  "tagline_ja": "朱鷺舞う離島・佐渡で走る、自然豊かな42km",
+  "tagline_en": "Run the island of Sado where the endangered crested ibis soars",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "佐渡島の自然",
+      "name_en": "Nature of Sado Island",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

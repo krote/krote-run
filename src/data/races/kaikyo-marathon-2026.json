@@ -125,12 +125,35 @@
       "label_en": ""
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "関門海峡",
+  "motif_color": "#1e40af",
+  "motif_romaji": "Kanmon-Kaikyo",
+  "tagline_ja": "本州と九州をつなぐ、関門海峡を渡る",
+  "tagline_en": "Cross the Kanmon Strait connecting Honshu and Kyushu",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "関門海峡",
+      "name_en": "Kanmon Strait",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "関門大橋",
+      "name_en": "Kanmon Bridge",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "巌流島",
+      "name_en": "Ganryujima Island",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

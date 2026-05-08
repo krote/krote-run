@@ -17,7 +17,7 @@
   "entry_capacity": 7000,
   "entry_start_date": "2025-08-01",
   "entry_end_date": "2025-10-31",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [
@@ -98,12 +98,29 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "琵琶湖",
+  "motif_color": "#93c5fd",
+  "motif_romaji": "Biwako",
+  "tagline_ja": "日本最大の湖を舞台に、水の都を走る",
+  "tagline_en": "Run along Japan's largest lake",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "琵琶湖畔",
+      "name_en": "Lake Biwa shore",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "比叡山",
+      "name_en": "Mt. Hiei",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

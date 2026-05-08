@@ -126,12 +126,35 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "ライラック",
+  "motif_color": "#8b5cf6",
+  "motif_romaji": "Rairakku",
+  "tagline_ja": "ライラック香る大通公園から、北の大地を走る",
+  "tagline_en": "From the lilac-scented Odori Park across Hokkaido",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "大通公園",
+      "name_en": "Odori Park",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "北海道大学",
+      "name_en": "Hokkaido University",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "豊平川",
+      "name_en": "Toyohira River",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

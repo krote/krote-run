@@ -121,12 +121,16 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "百里",
+  "motif_color": "#4b5563",
+  "motif_romaji": "Hyakuri",
+  "tagline_ja": "常陸の大地を駆け抜ける、勝田全国マラソン",
+  "tagline_en": "Run across the Hitachi plains at Katsuta",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": []
 }

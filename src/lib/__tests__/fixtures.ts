@@ -51,7 +51,6 @@ export function makeRace(overrides: Partial<Race> = {}): Race {
     gallery: [],
     voices: [],
     time_buckets: [],
-    course_highlights: [],
     motif: null,
     motif_color: null,
     motif_romaji: null,
@@ -68,6 +67,7 @@ export function makeRace(overrides: Partial<Race> = {}): Race {
 
 export function makeCategory(overrides: Partial<RaceCategory> = {}): RaceCategory {
   return {
+    id: 1,
     distance_type: 'full',
     distance_km: 42.195,
     time_limit_minutes: 360,
@@ -83,6 +83,7 @@ export function makeCategory(overrides: Partial<RaceCategory> = {}): RaceCategor
     eligibility_en: null,
     course_gpx_file: null,
     waves: null,
+    course_highlights: [],
     ...overrides,
   };
 }
@@ -151,6 +152,7 @@ export function makeCourseHighlight(overrides: Partial<RaceCourseHighlight> = {}
   return {
     id: 1,
     race_id: 'test-race-2026',
+    category_id: null,
     km: 21.0,
     name_ja: '折り返し地点',
     name_en: 'Turnaround Point',

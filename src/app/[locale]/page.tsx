@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
-import { getUpcomingRaces, getOpenEntryRaces, getSoonOpeningEntryRaces } from '@/lib/data';
+import { getUpcomingRaces, getOpenEntryRaces, getSoonOpeningEntryRaces, getTotalRaceCount, getOpenEntryCount } from '@/lib/data';
 import HomeSections from '@/components/home/HomeSections';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/lib/types';
@@ -33,11 +33,12 @@ function CaptionBar({ raceCount }: { raceCount: number }) {
 }
 
 // ─── Hero ────────────────────────────────────────────
-function HeroSection({ raceCount }: { raceCount: number }) {
+function HeroSection({ raceCount, openEntryCount }: { raceCount: number; openEntryCount: number }) {
   const t = useTranslations('home.hero');
 
   const stats = [
     { num: raceCount.toLocaleString(), label: '掲載大会', sub: 'races' },
+    { num: openEntryCount.toLocaleString(), label: '受付中', sub: 'open entry' },
     { num: '47',  label: '都道府県', sub: 'pref.' },
   ];
 
@@ -287,11 +288,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     getSoonOpeningEntryRaces(6),
   ]);
 
-  const totalRaces = upcomingRaces.length + openEntryRaces.length + soonOpeningRaces.length;
+  const [totalRaces, openEntryCount] = await Promise.all([
+    getTotalRaceCount(),
+    getOpenEntryCount(),
+  ]);
 
   return (
     <>
-      <HeroSection raceCount={totalRaces || 1247} />
+      <HeroSection raceCount={totalRaces} openEntryCount={openEntryCount} />
       <HomeSections
         upcoming={upcomingRaces}
         openEntry={openEntryRaces}

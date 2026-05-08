@@ -114,12 +114,35 @@
       "entry_fee": null
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
-  "tagline_ja": null,
-  "tagline_en": null,
+  "motif": "坂本龍馬",
+  "motif_color": "#1a3a1a",
+  "motif_romaji": "Ryoma",
+  "tagline_ja": "龍馬の志を胸に、土佐の大地を駆け抜ける",
+  "tagline_en": "Run the Tosa plains with the spirit of Ryoma",
   "hero_image_url": null,
   "hero_caption_ja": null,
-  "hero_caption_en": null
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "太平洋",
+      "name_en": "Pacific Ocean",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "浦戸大橋",
+      "name_en": "Urado Bridge",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "桂浜方面",
+      "name_en": "Katsurahama area",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

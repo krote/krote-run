@@ -548,3 +548,25 @@
 - `src/app/[locale]/visitor/page.tsx`: 訪日ランナー向けガイドページを新規作成（日英両対応）。5セクション構成（エントリー・前日受付・アクセス宿泊・当日の流れ・キーワード集）、注意書きを各所に配置
 - `src/components/calendar/__tests__/YearTimeline.test.tsx`: `month` プロップ追加・ウィンドウロジックのテストを拡充
 - `src/components/races/detail/__tests__/EntrySection.test.tsx`: `id="entry"` 移動に伴うテスト修正
+
+## 2026-05-10 レースデータ追加・詳細ページにリザルトセクション追加
+
+- `src/data/races/kasama-togeinosato-half-2025-2025.json`: かさま陶芸の里ハーフマラソン2025 新規追加（time_buckets・参加賞・近隣スポット含む）
+- `src/data/races/mito-komon-manyu-marathon-2026.json`: course_highlights をカテゴリ付随に整理、course_gpx_file 追加
+- `src/data/races/okushinano100-2026.json`: 4種目のカテゴリ詳細（資格・GPX・name_ja）・エントリーリンク・entry_fee null 修正
+- `public/gpx/kasama-togeinosato-half-2025-2025.gpx` 他6件: GPXファイル追加
+- `public/course-profiles/kasama-togeinosato-half-2025-2025.json` 他5件: コースプロファイルJSON追加
+- `src/app/[locale]/races/[id]/page.tsx`: ナビゲーションに access/gifts/nearby/result タブを条件付きで追加；タイム分布バーチャート（time_buckets）セクションを追加
+- `migrations/seed-races-all.sql`: 上記データを反映して再生成
+
+## 2026-05-10 大会詳細ページ英語対応（未翻訳セクション修正）
+
+- `src/lib/db/schema.ts`: `race_voices` に `quote_en` カラム追加
+- `src/lib/types.ts`: `RaceVoice` に `quote_en: string | null` を追加
+- `src/lib/data.ts`: `rowToVoice` に `quote_en` を追加
+- `src/components/races/detail/GallerySection.tsx`: voices の引用文を locale 対応（`quote_en ?? quote_ja`）
+- `src/components/races/RaceRegistrationButtons.tsx`: `locale` prop 追加、全 UI テキスト（参加予定・受付開始リマインド・登録解除・Googleカレンダー注記・ period ラベル）を英語対応
+- `src/app/[locale]/races/[id]/page.tsx`: `RaceRegistrationButtons` に `locale` prop を渡すよう修正
+- `src/lib/__tests__/fixtures.ts`: `makeVoice` に `quote_en: null` を追加
+- `migrations/0008_stormy_reavers.sql`: `race_voices.quote_en` 追加マイグレーション（ローカル適用済み）
+- `docs/schema.md`: `race_voices` テーブルに `quote_en` 行とマイグレーション履歴を追記

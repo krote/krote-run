@@ -25,6 +25,7 @@ interface Props {
   categories: CategoryInfo[];
   entryPeriods: EntryPeriodInfo[];
   today: string;          // "YYYY-MM-DD"
+  locale?: string;
 }
 
 interface UserRaceState {
@@ -72,7 +73,9 @@ export default function RaceRegistrationButtons({
   raceDate,
   categories,
   entryPeriods,
+  locale = 'ja',
 }: Props) {
+  const isJa = locale === 'ja';
   const { data: session, isPending } = useSession();
   const [reg, setReg] = useState<UserRaceState | null>(null);
   const [loading, setLoading] = useState(false);
@@ -129,7 +132,13 @@ export default function RaceRegistrationButtons({
     // 登録時のみGoogleカレンダーを開く（設定がONの場合）
     if (isPlanning && isGcalAutoOpen()) {
       window.open(
-        buildGCalUrl(`🏃 ${raceName}`, raceDate, 'HASHIRUから登録した参加予定\n\n※ カレンダー上で「通知を追加」から前日リマインダーの設定をおすすめします'),
+        buildGCalUrl(
+          `🏃 ${raceName}`,
+          raceDate,
+          isJa
+            ? 'HASHIRUから登録した参加予定\n\n※ カレンダー上で「通知を追加」から前日リマインダーの設定をおすすめします'
+            : 'Race registered via HASHIRU\n\nTip: Add a reminder in Google Calendar for the day before the race.',
+        ),
         '_blank',
         'noopener,noreferrer',
       );
@@ -148,9 +157,13 @@ export default function RaceRegistrationButtons({
       if (period) {
         window.open(
           buildGCalUrl(
-            `📋 ${raceName} エントリー開始（${period.label_ja}）`,
+            isJa
+              ? `📋 ${raceName} エントリー開始（${period.label_ja}）`
+              : `📋 ${raceName} — Entry Opens (${period.label_en})`,
             period.start_date,
-            'HASHIRUから登録したエントリーリマインダー\n\n※ カレンダー上で「通知を追加」から前日リマインダーの設定をおすすめします',
+            isJa
+              ? 'HASHIRUから登録したエントリーリマインダー\n\n※ カレンダー上で「通知を追加」から前日リマインダーの設定をおすすめします'
+              : 'Entry reminder registered via HASHIRU\n\nTip: Add a reminder in Google Calendar for the day before entry opens.',
           ),
           '_blank',
           'noopener,noreferrer',
@@ -188,7 +201,7 @@ export default function RaceRegistrationButtons({
               style={isPlanning ? planActiveStyle : inactiveStyle}
             >
               <span>{isPlanning ? '✓' : '+'}</span>
-              <span>参加予定</span>
+              <span>{isJa ? '参加予定' : 'Planning to Run'}</span>
             </button>
           ) : (
             <>
@@ -201,18 +214,18 @@ export default function RaceRegistrationButtons({
                 {isPlanning ? (
                   <>
                     <span>✓</span>
-                    <span>{plannedCat ? getCatLabel(plannedCat) : '参加予定'}</span>
+                    <span>{plannedCat ? getCatLabel(plannedCat) : (isJa ? '参加予定' : 'Planning to Run')}</span>
                     <span
                       className="ml-1 text-xs opacity-60 hover:opacity-100"
                       onClick={(e) => { e.stopPropagation(); setCatOpen((v) => !v); }}
                       role="button"
-                      aria-label="カテゴリ変更"
+                      aria-label={isJa ? 'カテゴリ変更' : 'Change category'}
                     >▾</span>
                   </>
                 ) : (
                   <>
                     <span>+</span>
-                    <span>参加予定</span>
+                    <span>{isJa ? '参加予定' : 'Planning to Run'}</span>
                     <span className="ml-1 text-xs opacity-70">▾</span>
                   </>
                 )}
@@ -247,7 +260,7 @@ export default function RaceRegistrationButtons({
                         className="w-full text-left px-4 py-2.5 text-sm transition-colors hover:bg-[var(--color-cream)]"
                         style={{ color: 'var(--color-mid)' }}
                       >
-                        登録を解除
+                        {isJa ? '登録を解除' : 'Remove'}
                       </button>
                     </>
                   )}
@@ -268,7 +281,7 @@ export default function RaceRegistrationButtons({
                 style={hasReminders ? reminderActiveStyle : inactiveStyle}
               >
                 <span>🔔</span>
-                <span>受付開始リマインド{hasReminders ? '済' : ''}</span>
+                <span>{isJa ? `受付開始リマインド${hasReminders ? '済' : ''}` : (hasReminders ? 'Reminder Set' : 'Entry Reminder')}</span>
               </button>
             ) : (
               <>
@@ -279,7 +292,7 @@ export default function RaceRegistrationButtons({
                   style={hasReminders ? reminderActiveStyle : inactiveStyle}
                 >
                   <span>🔔</span>
-                  <span>受付開始リマインド</span>
+                  <span>{isJa ? '受付開始リマインド' : 'Entry Reminder'}</span>
                   {hasReminders && (
                     <span
                       className="ml-0.5 text-xs font-bold px-1.5 py-0.5 rounded-full"
@@ -314,7 +327,7 @@ export default function RaceRegistrationButtons({
                           >
                             {active && '✓'}
                           </span>
-                          <span>{period.label_ja}</span>
+                          <span>{isJa ? period.label_ja : period.label_en}</span>
                           <span className="ml-auto text-xs shrink-0" style={{ color: 'var(--color-mid)' }}>
                             {period.start_date.slice(5).replace('-', '/')}〜
                           </span>
@@ -332,7 +345,9 @@ export default function RaceRegistrationButtons({
       {/* 解除時の案内 */}
       {(isPlanning || hasReminders) && (
         <p className="mt-2 text-xs" style={{ color: 'var(--color-light)' }}>
-          Googleカレンダーへの追加はご自身で保存してください。解除してもカレンダーからは自動削除されません。
+          {isJa
+            ? 'Googleカレンダーへの追加はご自身で保存してください。解除してもカレンダーからは自動削除されません。'
+            : 'Please save the event in Google Calendar. Removing your registration here will not delete the calendar event.'}
         </p>
       )}
     </div>

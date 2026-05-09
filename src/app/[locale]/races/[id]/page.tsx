@@ -202,6 +202,7 @@ export default async function RaceDetailPage({
             raceId={race.id}
             raceName={raceName}
             raceDate={race.date}
+            locale={locale}
             categories={race.categories.map((c) => ({
               id: c.id,
               name_ja: c.name_ja,
@@ -462,7 +463,7 @@ export default async function RaceDetailPage({
         {/* Checkpoints */}
         {race.checkpoints.length > 0 && (
           <section>
-            <SectionHeading num="02-a" title={locale === 'ja' ? '関門' : 'Cutoffs'} />
+            <SectionHeading num="02-a" title={locale === 'ja' ? '関門' : 'Cutoffs'} subtitle={locale === 'ja' ? 'Cutoffs' : '関門'} />
             <Card className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -495,7 +496,7 @@ export default async function RaceDetailPage({
         {/* Aid Stations */}
         {race.aid_stations.length > 0 && (
           <section>
-            <SectionHeading num="02-b" title={locale === 'ja' ? 'エイドステーション' : 'Aid Stations'} />
+            <SectionHeading num="02-b" title={locale === 'ja' ? 'エイドステーション' : 'Aid Stations'} subtitle={locale === 'ja' ? 'Aid Stations' : 'エイドステーション'} />
             <div className="space-y-2">
               {race.aid_stations.map((aid, i) => (
                 <Card key={i}>
@@ -560,8 +561,10 @@ export default async function RaceDetailPage({
 
         {/* Participation Gift */}
         {race.participation_gifts.length > 0 && (
-          <section>
-            <SectionHeading num="05" title={locale === 'ja' ? '参加賞' : 'Finisher Gift'} />
+          <section id="gifts" style={{ scrollMarginTop: '3.5rem' }}>
+            <SectionHeading num="05" title={locale === 'ja' ? '参加賞' : 'Participation / Finisher Gift'}
+              subtitle={locale === 'ja' ? 'Participation / Finisher Gift' : '参加賞'}
+            />
             {race.participation_gifts.map((gift, i) => (
               <Card key={i}>
                 <div className="flex flex-wrap gap-2 mb-3">
@@ -592,8 +595,8 @@ export default async function RaceDetailPage({
 
         {/* Nearby Spots */}
         {race.nearby_spots.length > 0 && (
-          <section>
-            <SectionHeading num="06" title={locale === 'ja' ? '近隣スポット' : 'Nearby'} />
+          <section id="nearby" style={{ scrollMarginTop: '3.5rem' }}>
+            <SectionHeading num="06" title={locale === 'ja' ? '近隣スポット' : 'Nearby Spots'} subtitle={locale === 'ja' ? 'Nearby Spots' : '近隣スポット'} />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {race.nearby_spots.map((spot, i) => {
                 const typeInfo = NEARBY_TYPE[spot.type];

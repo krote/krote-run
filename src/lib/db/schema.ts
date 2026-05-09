@@ -382,6 +382,7 @@ export const race_voices = sqliteTable("race_voices", {
   id:         integer("id").primaryKey({ autoIncrement: true }),
   race_id:    text("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
   quote_ja:   text("quote_ja").notNull(),
+  quote_en:   text("quote_en"),
   author:     text("author"),
   sort_order: integer("sort_order").notNull().default(0),
 }, (t) => [

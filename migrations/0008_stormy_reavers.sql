@@ -1,0 +1,1 @@
+ALTER TABLE `race_voices` ADD `quote_en` text;

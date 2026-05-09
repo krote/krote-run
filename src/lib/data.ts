@@ -183,6 +183,7 @@ function rowToVoice(row: VoiceRow): RaceVoice {
     id: row.id,
     race_id: row.race_id,
     quote_ja: row.quote_ja,
+    quote_en: row.quote_en ?? null,
     author: row.author ?? null,
     sort_order: row.sort_order,
   };

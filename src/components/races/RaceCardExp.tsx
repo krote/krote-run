@@ -22,23 +22,19 @@ export default function RaceCardExp({ race, locale, from }: RaceCardExpProps) {
        today >= race.entry_start_date &&
        today <= race.entry_end_date);
 
-  // Build experience highlights from available data
   const highlights: string[] = [];
   const ci = race.course_info;
 
-  // First highlight: course highlights (first segment)
   const hlRaw = locale === 'en' ? ci.highlights_en : ci.highlights_ja;
   if (hlRaw) {
     const firstHl = hlRaw.split(/[、,]/)[0].trim();
     if (firstHl) highlights.push(firstHl);
   }
 
-  // Second highlight: certification
   if (ci.certification.length > 0) {
     highlights.push(ci.certification.join(' & ') + (locale === 'en' ? ' certified' : ' 公認'));
   }
 
-  // Third highlight: capacity or entry status
   if (isEntryOpen && !isPast) {
     highlights.push(locale === 'en' ? 'Entry open now' : 'エントリー受付中');
   } else if (!isPast && periods.length === 0 && !race.entry_start_date && !race.entry_end_date) {
@@ -51,25 +47,47 @@ export default function RaceCardExp({ race, locale, from }: RaceCardExpProps) {
     );
   }
 
-  // Fallback: use first tag
   if (highlights.length < 2 && race.tags.length > 0) {
     highlights.push(race.tags[0]);
   }
 
-  const cityLabel = locale === 'en'
-    ? `📍 ${getRaceCity(race, locale)}`
-    : `📍 ${getRaceCity(race, locale)}`;
+  const cityLabel = getRaceCity(race, locale);
 
-  // Short description for image overlay
   const desc = getRaceDescription(race, locale);
   const overlayText = desc.length > 72 ? desc.slice(0, 72).trimEnd() + '…' : desc;
 
   return (
-    <article className="bg-white border border-[var(--color-border)] rounded-[10px] overflow-hidden hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:-translate-y-0.5 transition-all">
-      {/* Image area with experience overlay */}
-      <div className="h-[140px] flex items-center justify-center text-5xl relative overflow-hidden bg-gradient-to-br from-[#1a3a2a] to-[#2d6a4f]">
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 25%, rgba(0,0,0,0.6) 100%)' }} />
-        <p className="absolute bottom-2.5 left-3 right-3 text-[0.71rem] font-medium text-white/92 leading-[1.45] z-10">
+    <article
+      className="overflow-hidden hover:-translate-y-0.5 transition-all duration-200"
+      style={{
+        background: '#fff',
+        border: '1px solid var(--color-border-soft)',
+        borderRadius: 2,
+        boxShadow: '0 1px 4px rgba(22,36,58,0.04)',
+      }}
+    >
+      {/* Image area */}
+      <div
+        className="relative overflow-hidden"
+        style={{
+          height: 140,
+          background: 'var(--color-primary)',
+          backgroundImage: 'repeating-linear-gradient(-45deg, transparent 0, transparent 10px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 20px)',
+        }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to bottom, transparent 25%, rgba(22,36,58,0.65) 100%)' }}
+        />
+        <p
+          className="absolute bottom-3 left-3 right-3 z-10"
+          style={{
+            fontFamily: 'var(--font-serif)',
+            fontSize: '0.71rem',
+            color: 'rgba(255,255,255,0.88)',
+            lineHeight: 1.5,
+          }}
+        >
           {overlayText}
         </p>
       </div>
@@ -77,36 +95,89 @@ export default function RaceCardExp({ race, locale, from }: RaceCardExpProps) {
       {/* Body */}
       <div className="px-4 pt-3.5 pb-4">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-[0.72rem] text-[var(--color-light)]">{formatDate(race.date, locale)}</span>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.6rem',
+              letterSpacing: '0.14em',
+              color: 'var(--color-primary)',
+              textTransform: 'uppercase',
+            }}
+          >
+            {formatDate(race.date, locale)}
+          </span>
           {mainCategory && (
-            <span className="text-[0.68rem] font-semibold px-2.5 py-0.5 rounded-full bg-[var(--color-cream)] text-[var(--color-mid)] border border-[var(--color-border)] tracking-[0.03em]">
+            <span
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.6rem',
+                fontWeight: 600,
+                padding: '2px 8px',
+                background: 'var(--color-paper-warm)',
+                color: 'var(--color-primary)',
+                border: '1px solid var(--color-border-soft)',
+                letterSpacing: '0.08em',
+              }}
+            >
               {mainCategory.distance_km} km
             </span>
           )}
         </div>
 
-        <h3 className="text-[0.97rem] font-bold text-[var(--color-ink)] leading-[1.3] mb-1.5">
+        <h3
+          className="font-serif font-bold"
+          style={{ fontSize: '0.97rem', color: 'var(--color-ink)', lineHeight: 1.3, marginBottom: 4 }}
+        >
           {getRaceName(race, locale)}
         </h3>
-        <p className="text-[0.75rem] text-[var(--color-mid)] mb-3">{cityLabel}</p>
+        <p
+          style={{
+            fontSize: '0.72rem',
+            color: 'var(--color-mid)',
+            marginBottom: 12,
+            fontStyle: 'italic',
+            fontFamily: 'var(--font-serif)',
+          }}
+        >
+          {cityLabel}
+        </p>
 
-        {/* Highlights */}
         {highlights.length > 0 && (
           <ul className="space-y-[5px] mb-3.5">
             {highlights.slice(0, 3).map((hl, i) => (
-              <li key={i} className="text-[0.76rem] text-[var(--color-ink2)] flex items-baseline gap-[7px]">
-                <span className="text-[var(--color-primary)] font-bold text-[0.7rem] shrink-0">✓</span>
+              <li
+                key={i}
+                className="flex items-baseline gap-[7px]"
+                style={{ fontSize: '0.76rem', color: 'var(--color-ink)' }}
+              >
+                <span
+                  style={{
+                    color: 'var(--color-primary)',
+                    fontWeight: 700,
+                    fontSize: '0.7rem',
+                    flexShrink: 0,
+                  }}
+                >
+                  ✓
+                </span>
                 {hl}
               </li>
             ))}
           </ul>
         )}
 
-        {/* Actions */}
         <div className="flex gap-2">
           <Link
             href={from ? `/races/${race.id}?from=${from}` : `/races/${race.id}`}
-            className="flex-1 text-center py-2 rounded-[6px] text-[0.78rem] font-semibold text-[var(--color-ink2)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors no-underline"
+            className="flex-1 text-center no-underline transition-colors"
+            style={{
+              padding: '8px 0',
+              borderRadius: 2,
+              fontSize: '0.78rem',
+              fontWeight: 600,
+              color: 'var(--color-ink)',
+              border: '1px solid var(--color-border)',
+            }}
           >
             {t('viewRace')}
           </Link>
@@ -115,7 +186,15 @@ export default function RaceCardExp({ race, locale, from }: RaceCardExpProps) {
               href={race.official_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-2 rounded-[6px] text-[0.78rem] font-semibold bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-colors no-underline"
+              className="no-underline transition-colors"
+              style={{
+                padding: '8px 14px',
+                borderRadius: 2,
+                fontSize: '0.78rem',
+                fontWeight: 600,
+                background: 'var(--color-primary)',
+                color: '#fff',
+              }}
             >
               {t('enter')}
             </a>

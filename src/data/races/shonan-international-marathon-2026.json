@@ -17,7 +17,7 @@
   "entry_capacity": null,
   "entry_start_date": "2026-04-04",
   "entry_end_date": "2026-09-09",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "計測タグは、ナンバーカードとともに事前に参加者へ発送します（事前のランナー受付はありません）。",
   "reception_note_en": "Timing tags will be sent to participants in advance along with their race numbers (there is no pre-race runner registration).",
   "tags": [
@@ -108,6 +108,37 @@
       "entry_fee": 16000,
       "label_ja": "",
       "label_en": ""
+    }
+  ],
+  "motif": "湘南の海",
+  "motif_color": "#0ea5e9",
+  "motif_romaji": "Shonan-no-Umi",
+  "tagline_ja": "湘南の海風を感じながら走る、江ノ島から湘南へ",
+  "tagline_en": "Run the Shonan coast from Enoshima with ocean breezes",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "湘南海岸",
+      "name_en": "Shonan coast",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "江の島",
+      "name_en": "Enoshima",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "富士山",
+      "name_en": "Mt. Fuji",
+      "description_ja": null,
+      "description_en": null
     }
   ]
 }

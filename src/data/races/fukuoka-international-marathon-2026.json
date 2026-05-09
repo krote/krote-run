@@ -88,5 +88,36 @@
     "last_verified": "2026-03-16",
     "detail_level": "medium"
   },
-  "entry_periods": []
+  "entry_periods": [],
+  "motif": "博多",
+  "motif_color": "#1e3a5f",
+  "motif_romaji": "Hakata",
+  "tagline_ja": "国際都市・福岡が誇る、世界へ続く道",
+  "tagline_en": "A world-class course in the international city of Fukuoka",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "平和台陸上競技場",
+      "name_en": "Heiwadai Athletics Stadium",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "大濠公園",
+      "name_en": "Ohori Park",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "海の中道方面",
+      "name_en": "Uminonakamichi area",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

@@ -137,5 +137,36 @@
     "last_verified": "2026-03-16",
     "detail_level": "full"
   },
-  "entry_periods": []
+  "entry_periods": [],
+  "motif": "菜の花",
+  "motif_color": "#eab308",
+  "motif_romaji": "Nanohana",
+  "tagline_ja": "黄金色の菜の花畑と薩摩の海を巡る42km",
+  "tagline_en": "Run through golden rapeseed fields along the Satsuma sea",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "開聞岳",
+      "name_en": "Mt. Kaimon",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "錦江湾",
+      "name_en": "Kinko Bay",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "菜の花ロード",
+      "name_en": "canola flower road",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

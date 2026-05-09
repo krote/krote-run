@@ -80,5 +80,24 @@
       "end_date": "2026-07-26",
       "entry_fee": null
     }
+  ],
+  "motif": "大雪山",
+  "motif_color": "#dbeafe",
+  "motif_romaji": "Taisetsuzan",
+  "tagline_ja": "大雪山を仰ぎながら旭川の街を駆ける",
+  "tagline_en": "Run through Asahikawa with Mt. Taisetsu in view",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "忠別川沿い",
+      "name_en": "Along Chubetsu River",
+      "description_ja": null,
+      "description_en": null
+    }
   ]
 }

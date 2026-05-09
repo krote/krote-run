@@ -41,6 +41,9 @@ function generateRaceSQL(r) {
   course_surface, course_certification,
   course_highlights_ja, course_highlights_en,
   course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
   created_at, updated_at
 ) VALUES (
   ${esc(r.id)},
@@ -73,6 +76,14 @@ function generateRaceSQL(r) {
   ${esc(ci.highlights_en || '')},
   ${esc(ci.notes_ja)},
   ${esc(ci.notes_en)},
+  ${esc(r.motif)},
+  ${esc(r.motif_color)},
+  ${esc(r.motif_romaji)},
+  ${esc(r.tagline_ja)},
+  ${esc(r.tagline_en)},
+  ${esc(r.hero_image_url)},
+  ${esc(r.hero_caption_ja)},
+  ${esc(r.hero_caption_en)},
   ${esc(r.created_at)},
   ${esc(r.updated_at)}
 );`);
@@ -88,12 +99,23 @@ function generateRaceSQL(r) {
   lines.push(`DELETE FROM race_entry_links WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_entry_periods WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_results WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_gallery WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_voices WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_time_buckets WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_course_highlights WHERE race_id = ${esc(r.id)};`);
 
-  // race_categories
+  // race_categories（+ カテゴリに付随する course_highlights）
   if (r.categories && r.categories.length > 0) {
     r.categories.forEach((cat, idx) => {
       lines.push(`INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   (${esc(r.id)}, ${esc(cat.distance_type)}, ${esc(cat.distance_km)}, ${esc(cat.time_limit_minutes || 0)}, ${esc(cat.start_time || '')}, ${esc(cat.capacity || 0)}, ${esc(cat.entry_fee ?? null)}, ${esc(cat.entry_fee_u25 ?? null)}, ${esc(cat.name_ja ?? null)}, ${esc(cat.name_en ?? null)}, ${esc(cat.description_ja ?? null)}, ${esc(cat.description_en ?? null)}, ${esc(cat.eligibility_ja ?? null)}, ${esc(cat.eligibility_en ?? null)}, ${esc(cat.course_gpx_file ?? null)}, ${escJson(cat.waves || [])}, ${idx});`);
+      // カテゴリ直下の course_highlights: last_insert_rowid() で category_id を取得
+      if (cat.course_highlights && cat.course_highlights.length > 0) {
+        cat.course_highlights.forEach((ch, cidx) => {
+          lines.push(`INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  (${esc(r.id)}, last_insert_rowid(), ${esc(ch.km)}, ${esc(ch.name_ja)}, ${esc(ch.name_en ?? null)}, ${esc(ch.note_ja ?? null)}, ${esc(ch.note_en ?? null)}, ${cidx});`);
+        });
+      }
     });
   }
 
@@ -161,11 +183,43 @@ function generateRaceSQL(r) {
     });
   }
 
+  // race_gallery
+  if (r.gallery && r.gallery.length > 0) {
+    r.gallery.forEach((g, idx) => {
+      lines.push(`INSERT OR REPLACE INTO race_gallery (race_id, src, caption_ja, caption_en, sort_order) VALUES
+  (${esc(r.id)}, ${esc(g.src)}, ${esc(g.caption_ja ?? null)}, ${esc(g.caption_en ?? null)}, ${idx});`);
+    });
+  }
+
+  // race_voices
+  if (r.voices && r.voices.length > 0) {
+    r.voices.forEach((v, idx) => {
+      lines.push(`INSERT OR REPLACE INTO race_voices (race_id, quote_ja, author, sort_order) VALUES
+  (${esc(r.id)}, ${esc(v.quote_ja)}, ${esc(v.author ?? null)}, ${idx});`);
+    });
+  }
+
+  // race_time_buckets
+  if (r.time_buckets && r.time_buckets.length > 0) {
+    r.time_buckets.forEach((tb, idx) => {
+      lines.push(`INSERT OR REPLACE INTO race_time_buckets (race_id, bucket, pct, sort_order) VALUES
+  (${esc(r.id)}, ${esc(tb.bucket)}, ${esc(tb.pct)}, ${idx});`);
+    });
+  }
+
+  // race_course_highlights（レースレベル: category_id = NULL → メインカテゴリに振り分け）
+  if (r.course_highlights && r.course_highlights.length > 0) {
+    r.course_highlights.forEach((ch, idx) => {
+      lines.push(`INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  (${esc(r.id)}, NULL, ${esc(ch.km)}, ${esc(ch.name_ja)}, ${esc(ch.name_en ?? null)}, ${esc(ch.note_ja ?? null)}, ${esc(ch.note_en ?? null)}, ${idx});`);
+    });
+  }
+
   // race_results
   if (r.result) {
     const res = r.result;
-    lines.push(`INSERT OR REPLACE INTO race_results (race_id, participants_count, finishers_count, finisher_rate_pct, weather_condition_ja, weather_condition_en, temperature_c, max_temp_c, min_temp_c, wind_speed_ms, humidity_pct, notes_ja, notes_en) VALUES
-  (${esc(r.id)}, ${esc(res.participants_count ?? null)}, ${esc(res.finishers_count ?? null)}, ${esc(res.finisher_rate_pct ?? null)}, ${esc(res.weather_condition_ja || '')}, ${esc(res.weather_condition_en || '')}, ${esc(res.temperature_c ?? null)}, ${esc(res.max_temp_c ?? null)}, ${esc(res.min_temp_c ?? null)}, ${esc(res.wind_speed_ms ?? null)}, ${esc(res.humidity_pct ?? null)}, ${esc(res.notes_ja ?? null)}, ${esc(res.notes_en ?? null)});`);
+    lines.push(`INSERT OR REPLACE INTO race_results (race_id, participants_count, finishers_count, finisher_rate_pct, weather_condition_ja, weather_condition_en, temperature_c, max_temp_c, min_temp_c, wind_speed_ms, humidity_pct, notes_ja, notes_en, avg_time) VALUES
+  (${esc(r.id)}, ${esc(res.participants_count ?? null)}, ${esc(res.finishers_count ?? null)}, ${esc(res.finisher_rate_pct ?? null)}, ${esc(res.weather_condition_ja || '')}, ${esc(res.weather_condition_en || '')}, ${esc(res.temperature_c ?? null)}, ${esc(res.max_temp_c ?? null)}, ${esc(res.min_temp_c ?? null)}, ${esc(res.wind_speed_ms ?? null)}, ${esc(res.humidity_pct ?? null)}, ${esc(res.notes_ja ?? null)}, ${esc(res.notes_en ?? null)}, ${esc(res.avg_time ?? null)});`);
   }
 
   return lines.join('\n');

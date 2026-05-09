@@ -17,7 +17,7 @@
   "entry_capacity": 0,
   "entry_start_date": "2026-04-10",
   "entry_end_date": "2026-07-17",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "ゼッケン・計測タグ・参加賞等を事前発送します。前日受付は行いません",
   "reception_note_en": "Race bibs, timing tags, and participation prizes will be sent out in advance. There will be no registration the day before the event.",
   "tags": [
@@ -78,5 +78,17 @@
       "description_en": "",
       "image": null
     }
-  ]
+  ],
+  "motif": "壱岐の海",
+  "motif_color": "#0891b2",
+  "motif_romaji": "Iki-no-Umi",
+  "tagline_ja": "玄界灘に浮かぶ神秘の島・壱岐を一周する",
+  "tagline_en": "Circle the mystical island of Iki in the Genkai Sea",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": []
 }

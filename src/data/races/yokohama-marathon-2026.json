@@ -113,5 +113,42 @@
       "end_date": "2026-05-08",
       "entry_fee": null
     }
+  ],
+  "motif": "港",
+  "motif_color": "#0e4f8a",
+  "motif_romaji": "Minato",
+  "tagline_ja": "開港の街・横浜の海と丘を駆け抜ける",
+  "tagline_en": "Run through Yokohama's historic port city of sea and hills",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "みなとみらい",
+      "name_en": "Minato Mirai",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "赤レンガ倉庫",
+      "name_en": "Red Brick Warehouse",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "首都高速湾岸線",
+      "name_en": "Bayshore Expressway",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "山下公園",
+      "name_en": "Yamashita Park",
+      "description_ja": null,
+      "description_en": null
+    }
   ]
 }

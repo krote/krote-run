@@ -17,7 +17,7 @@
   "entry_capacity": 0,
   "entry_start_date": "2025-11-01",
   "entry_end_date": "2026-01-30",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [
@@ -108,6 +108,37 @@
       "start_date": "2025-11-01",
       "end_date": "2026-01-30",
       "entry_fee": null
+    }
+  ],
+  "motif": "桜",
+  "motif_color": "#f9c1cc",
+  "motif_romaji": "Sakura",
+  "tagline_ja": "桜前線に乗って、青森を走る",
+  "tagline_en": "Run through Aomori on the cherry blossom front",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "八甲田山",
+      "name_en": "Mt. Hakkoda",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "陸奥湾",
+      "name_en": "Mutsu Bay",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "桜並木",
+      "name_en": "cherry blossom trees",
+      "description_ja": null,
+      "description_en": null
     }
   ]
 }

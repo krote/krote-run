@@ -68,5 +68,17 @@
       "description_en": "Original Soft Cup",
       "image": null
     }
-  ]
+  ],
+  "motif": "富士山頂",
+  "motif_color": "#1e3a8a",
+  "motif_romaji": "Fujisan-cho",
+  "tagline_ja": "霊峰富士の頂へ、山岳レースの最高峰",
+  "tagline_en": "Climb to the summit of Mt. Fuji — the ultimate trail race",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": []
 }

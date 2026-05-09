@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { Inter, Noto_Sans_JP, Playfair_Display, DM_Sans, Montserrat } from 'next/font/google';
+import { Inter, Noto_Sans_JP, Noto_Serif_JP, DM_Sans, Montserrat } from 'next/font/google';
 import Script from 'next/script';
 import { routing } from '@/i18n/routing';
 import Header from '@/components/layout/Header';
@@ -14,7 +14,7 @@ const GA_ID = 'G-9975BX8LXR';
 
 const inter = Inter({ variable: '--font-inter', subsets: ['latin'], display: 'swap' });
 const notoSansJP = Noto_Sans_JP({ variable: '--font-noto-sans-jp', subsets: ['latin'], display: 'swap', preload: false });
-const playfair = Playfair_Display({ variable: '--font-playfair', subsets: ['latin'], display: 'swap' });
+const notoSerifJP = Noto_Serif_JP({ variable: '--font-noto-serif-jp', subsets: ['latin'], display: 'swap', preload: false });
 const dmSans = DM_Sans({ variable: '--font-dm-sans', subsets: ['latin'], display: 'swap' });
 const montserrat = Montserrat({ variable: '--font-montserrat', subsets: ['latin'], display: 'swap' });
 
@@ -43,7 +43,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${inter.variable} ${notoSansJP.variable} ${playfair.variable} ${dmSans.variable} ${montserrat.variable}`}
+      className={`${inter.variable} ${notoSansJP.variable} ${notoSerifJP.variable} ${dmSans.variable} ${montserrat.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)] font-sans antialiased">

@@ -113,5 +113,36 @@
       "label_ja": "",
       "label_en": ""
     }
+  ],
+  "motif": "宗谷岬",
+  "motif_color": "#0c4a6e",
+  "motif_romaji": "Soya-Misaki",
+  "tagline_ja": "日本最北端・宗谷岬を目指す平和の42km",
+  "tagline_en": "Run toward Cape Soya, Japan's northernmost point",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "稚内港北防波堤ドーム",
+      "name_en": "Wakkanai Port Northern Breakwater Dome",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "日本海",
+      "name_en": "Sea of Japan",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "宗谷岬方面の眺望",
+      "name_en": "views toward Cape Soya",
+      "description_ja": null,
+      "description_en": null
+    }
   ]
 }

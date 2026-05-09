@@ -149,5 +149,54 @@
       "label_ja": "一般エントリー",
       "label_en": "General Entry"
     }
+  ],
+  "motif": "東京の街",
+  "motif_color": "#1e293b",
+  "motif_romaji": "Tokyo-no-Machi",
+  "tagline_ja": "世界6大メジャーの一つ、東京の街を駆け抜ける",
+  "tagline_en": "Race through Tokyo — one of the six World Marathon Majors",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "東京都庁",
+      "name_en": "Tokyo Metropolitan Government",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "皇居",
+      "name_en": "Imperial Palace",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "浅草雷門",
+      "name_en": "Asakusa Kaminarimon",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "銀座",
+      "name_en": "Ginza",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "東京タワー",
+      "name_en": "Tokyo Tower",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "東京駅丸の内",
+      "name_en": "Tokyo Station Marunouchi",
+      "description_ja": null,
+      "description_en": null
+    }
   ]
 }

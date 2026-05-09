@@ -9,9 +9,11 @@ interface Props {
   /** GPXファイル名（例: "nagano-marathon-2026-full.gpx"）またはレースID（拡張子なし）を渡す。拡張子は自動除去 */
   profileKey: string;
   locale: string;
+  /** 指定するとマップの右横に表示するサイドバーコンテンツ */
+  sidebarContent?: React.ReactNode;
 }
 
-export default function CourseProfileSection({ profileKey, locale }: Props) {
+export default function CourseProfileSection({ profileKey, locale, sidebarContent }: Props) {
   const [profile, setProfile] = useState<CourseProfile | null>(null);
   const [error, setError] = useState(false);
 
@@ -45,8 +47,19 @@ export default function CourseProfileSection({ profileKey, locale }: Props) {
 
   return (
     <div className="space-y-3">
-      {/* 地図 */}
-      <CourseMapLoader courseProfile={profile} />
+      {/* 地図（+ オプショナルサイドバー） */}
+      {sidebarContent ? (
+        <div className="flex gap-4 items-start">
+          <div className="flex-1 min-w-0">
+            <CourseMapLoader courseProfile={profile} />
+          </div>
+          <div className="w-52 shrink-0">
+            {sidebarContent}
+          </div>
+        </div>
+      ) : (
+        <CourseMapLoader courseProfile={profile} />
+      )}
 
       {/* 高低差チャート */}
       <ElevationChartLoader data={profile.points} />

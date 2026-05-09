@@ -90,5 +90,30 @@
     "last_verified": "2026-03-15",
     "detail_level": "medium"
   },
-  "entry_periods": []
+  "entry_periods": [],
+  "motif": "桜",
+  "motif_color": "#f9c1cc",
+  "motif_romaji": "Sakura",
+  "tagline_ja": "佐賀城址の桜を愛でながら走る、春の42km",
+  "tagline_en": "Run beneath cherry blossoms at Saga Castle in spring",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "桜並木",
+      "name_en": "Cherry blossom trees",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "佐賀平野",
+      "name_en": "Saga Plain",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

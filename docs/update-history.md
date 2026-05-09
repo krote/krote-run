@@ -459,3 +459,92 @@
 - `tools/admin/app.js`: `renderEntryLinks`/`addEntryLinkRow`/`collectEntryLinks` 追加、`populateForm`・`addCategoryRow`・`collectData` を更新
 - `src/app/[locale]/races/[id]/page.tsx`: entry_closed バッジ表示、エントリーリンクボタン、カテゴリ参加資格表示を追加
 - `docs/schema.md`: race_entry_links テーブル、entry_closed、eligibility を追記
+
+## 2026-05-03 デザインリフレッシュ Phase 1（藍×生成り）
+
+- `src/app/globals.css`: カラーパレットを藍（#1d4373）×生成り（#f7f2e7）に全面刷新。`--color-primary` を朱→藍に変更し、`--color-shu` / `--color-asagi` を追加
+- `src/app/[locale]/layout.tsx`: `Playfair_Display` を `Noto_Serif_JP` に置換（`--font-noto-serif-jp` として注入）
+- `src/components/layout/Header.tsx`: 走 HASHIRU ロゴ（セリフ+藍）、アクティブリンク下線、モノスペースJA/ENスイッチャー、ダークインクログインボタンに刷新
+- `src/app/[locale]/page.tsx`: Hero を3カラムグリッド（英文h1＋CTA / 走カナロゴ / 統計）に再設計。WhySectionを濃墨背景＋漢字2×2グリッドに刷新
+- `src/components/home/HomeSections.tsx`: OpenSection（受付中カード）・SoonSection（OPENS日リスト）・VisitorBand・UpcomingSection の4セクション構成に全面再設計
+- `src/components/races/RaceCard.tsx`: 藍ストライプ背景＋季節タブ（春夏秋冬）＋ステータスバッジ＋Noto Serif タイトル＋Distance/Entry フッターのカードデザインに刷新
+- `src/components/races/RaceCardExp.tsx`: 新パレット（藍）に合わせてカラートークンを更新
+- `src/app/[locale]/races/page.tsx`: ページヘッダーをダーク背景から生成りの編集スタイルに変更
+
+## 2026-05-04 デザインリフレッシュPhase2 スキーマ拡張（Issue #42）
+
+- `src/lib/db/schema.ts`: `races` テーブルに `motif`/`motif_color`/`motif_romaji`/`tagline_ja`/`tagline_en`/`hero_image_url`/`hero_caption_ja`/`hero_caption_en` を追加、`race_results` テーブルに `avg_time` を追加
+- `migrations/0008_phase2_motif_hero.sql`: Phase 2 スキーマ変更用マイグレーションを手動作成
+- `src/lib/types.ts`: `Race` インターフェースに Phase 2 フィールドを追加、`RaceResult` に `avg_time` を追加
+- `src/lib/data.ts`: `rowToResult` / `assembleRace` に Phase 2 フィールドのマッピングを追加
+- `src/data/races/*.json`（78件）: Phase 2 フィールド（null）を全ファイルに追加
+- `scripts/generate-seed-races.js`: `races` / `race_results` の INSERT 文に Phase 2 カラムを追加
+- `migrations/seed-races-all.sql`: シードスクリプトを再生成
+- `src/lib/__tests__/fixtures.ts`: `makeRace()` に Phase 2 フィールドを追加
+- `tools/admin/index.html`: ビジュアルセクション（motif/tagline/hero_image 入力フォーム）を追加
+- `tools/admin/app.js`: `populateForm()` / `buildJson()` に Phase 2 フィールドの読み書きを追加
+- `docs/schema.md`: Phase 2 カラム定義とマイグレーション履歴を更新
+
+## 2026-05-04 詳細ページPhase3 ギャラリー・参加者の声対応（Issue #43）
+
+- `src/lib/db/schema.ts`: `race_gallery` / `race_voices` / `race_time_buckets` / `race_course_highlights` テーブルを追加、リレーション定義
+- `migrations/0009_phase3_gallery_voices.sql`: Phase 3 テーブル追加用マイグレーションを手動作成
+- `src/lib/types.ts`: `RaceGallery` / `RaceVoice` / `RaceTimeBucket` / `RaceCourseHighlight` インターフェースを追加、`Race` に配列フィールドを追加
+- `src/lib/data.ts`: `getRaceById()` に4テーブルのクエリ・マッピングを追加、`assembleRace()` に引数追加
+- `src/lib/__tests__/fixtures.ts`: `makeRace()` に4配列フィールドを追加、`makeGallery()` / `makeVoice()` / `makeTimeBucket()` / `makeCourseHighlight()` ファクトリを追加
+- `scripts/generate-seed-races.js`: 4テーブルの DELETE/INSERT 処理を追加
+- `tools/admin/index.html` / `tools/admin/app.js`: ギャラリー・参加者の声・タイム分布・コース見どころセクションを追加
+- `src/components/races/detail/DetailHeader.tsx`: ヒーロービジュアル（motif カラー背景・ヒーロー画像・タグライン）コンポーネント（TDD）
+- `src/components/races/detail/AnchorBar.tsx`: sticky セクションナビバーコンポーネント（TDD）
+- `src/components/races/detail/OverviewSection.tsx`: 概要・タグ表示コンポーネント（TDD）
+- `src/components/races/detail/EntrySection.tsx`: エントリー情報コンポーネント（TDD）
+- `src/components/races/detail/LastEditionSection.tsx`: 前回大会実績コンポーネント（TDD）
+- `src/components/races/detail/GallerySection.tsx`: ギャラリー・参加者の声コンポーネント（TDD）
+- `src/app/[locale]/races/[id]/page.tsx`: 新コンポーネントで詳細ページを再構成
+
+## 2026-05-05 カレンダーページPhase4 強化（Issue #44）
+
+- `src/components/calendar/ControlBar.tsx`: STATUS/REGION フィルター UI（TDD）
+- `src/components/calendar/HoverCard.tsx`: ホバー時ミニカード（TDD）
+- `src/components/calendar/MonthGrid.tsx`: 月送りグリッド Client Component（TDD）
+- `src/components/calendar/YearTimeline.tsx`: SVG ベース年間タイムライン（TDD）
+- `src/components/calendar/CalendarView.tsx`: ビュー切替・フィルター統合ラッパー（TDD）
+- `src/app/[locale]/calendar/page.tsx`: CalendarView で再構成、デザイントークン統一
+
+## 2026-05-05 Phase 2/3 フィールドのデータ充填（Issue #49）
+
+- `src/data/races/*.json`（77件）: Phase 2/3 フィールドを一括設定
+  - `gallery` / `voices` / `time_buckets` / `course_highlights` を空配列としてフィールド追加
+  - `motif` / `motif_color` / `motif_romaji` を各大会の特徴・地域から設定（全77件）
+  - `tagline_ja` / `tagline_en` を各大会のキャッチコピーとして設定（全77件）
+  - `course_highlights` を既存の `course_info.highlights_ja/en` から構造化（61件）
+- `scripts/add-phase3-fields.js`: Phase 3 空配列フィールドを一括追加するスクリプト
+- `scripts/set-motif-data.js`: motif/tagline データを全件に適用するスクリプト
+- `scripts/build-course-highlights.js`: course_info から course_highlights を構造化するスクリプト
+- `migrations/seed-races-all.sql`: シードSQL再生成（新フィールド反映）
+
+## 2026-05-07 course_highlights をカテゴリ付随に変更・詳細ページデザイン刷新
+
+- `src/lib/db/schema.ts`: `race_course_highlights.km` を nullable 化、`category_id` FK (nullable) 追加
+- `src/lib/types.ts`: `RaceCourseHighlight` に `category_id` 追加・`km` nullable 化、`RaceCategory` に `course_highlights` 追加、`Race` から `course_highlights` 削除
+- `src/lib/data.ts`: highlights をカテゴリ別に振り分けるロジックを追加
+- `migrations/0006_high_mole_man.sql`: km nullable 化のテーブル再構築マイグレーション（手動修正）
+- `migrations/0007_yielding_obadiah_stane.sql`: category_id カラム追加
+- `scripts/generate-seed-races.js`: カテゴリレベルの course_highlights INSERT 追加、レースレベルも category_id=NULL で対応
+- `migrations/seed-races-all.sql`: シードSQL再生成
+- `src/components/races/detail/DetailHeader.tsx`: 詳細ページヘッダー全面刷新（モチーフバッジ・版次表示・メタ行）
+- `src/app/[locale]/races/[id]/page.tsx`: セクション番号化（01–10）、コース地図とハイライト横並びレイアウト
+- `src/components/course/CourseProfileSection.tsx`: sidebarContent prop 追加
+- `src/components/races/RaceBreadcrumb.tsx`: 背景変更後の文字色修正
+- `src/components/races/RaceRegistrationButtons.tsx`: クリーム背景向け色修正
+- `src/lib/__tests__/fixtures.ts`: makeRace・makeCategory・makeCourseHighlight を新スキーマに合わせて更新
+
+## 2026-05-09 i18n対応・VisitorBand・訪日ランナーガイドページ追加
+
+- `src/messages/ja.json`: `home.hero`（findRaces・tagline・captionRaces）、`home.meta`（entryOpenLabel）、`home.sections`（openHeading・openHeadingEm・entryOpen・deadline・soonHeading・soonHeadingEm・soonHeadingSuffix・visitorBody・visitorCTA）、`home.why.body` を追加
+- `src/messages/en.json`: 上記キーの英語訳を追加
+- `src/app/[locale]/page.tsx`: CaptionBar・HeroSection統計・CTAボタン・タグライン・WhySectionの本文をすべて翻訳キー化
+- `src/components/home/HomeSections.tsx`: OpenSection見出し・バッジ・締切ラベル、SoonSection見出し、VisitorBand本文・CTAをすべて翻訳キー化；VisitorBandリンク先を `/guide` → `/visitor` に変更
+- `src/app/[locale]/visitor/page.tsx`: 訪日ランナー向けガイドページを新規作成（日英両対応）。5セクション構成（エントリー・前日受付・アクセス宿泊・当日の流れ・キーワード集）、注意書きを各所に配置
+- `src/components/calendar/__tests__/YearTimeline.test.tsx`: `month` プロップ追加・ウィンドウロジックのテストを拡充
+- `src/components/races/detail/__tests__/EntrySection.test.tsx`: `id="entry"` 移動に伴うテスト修正

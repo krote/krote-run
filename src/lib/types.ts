@@ -49,6 +49,18 @@ export interface Race {
   entry_periods: EntryPeriod[];
   entry_links: EntryLink[];
   result: RaceResult | null;      // 開催実績（未開催の場合は null）
+  gallery: RaceGallery[];
+  voices: RaceVoice[];
+  time_buckets: RaceTimeBucket[];
+  // Phase 2: ビジュアル拡張フィールド
+  motif: string | null;
+  motif_color: string | null;
+  motif_romaji: string | null;
+  tagline_ja: string | null;
+  tagline_en: string | null;
+  hero_image_url: string | null;
+  hero_caption_ja: string | null;
+  hero_caption_en: string | null;
   created_at: string; // ISO datetime string
   updated_at: string; // ISO datetime string
 }
@@ -92,6 +104,7 @@ export interface RaceCategory {
   eligibility_en: string | null;
   course_gpx_file: string | null;
   waves: Wave[] | null;
+  course_highlights: RaceCourseHighlight[];
 }
 
 // ==================
@@ -241,6 +254,59 @@ export interface RaceSeries {
 }
 
 // ==================
+// RaceGallery
+// ==================
+
+export interface RaceGallery {
+  id: number;
+  race_id: string;
+  src: string;
+  caption_ja: string | null;
+  caption_en: string | null;
+  sort_order: number;
+}
+
+// ==================
+// RaceVoice
+// ==================
+
+export interface RaceVoice {
+  id: number;
+  race_id: string;
+  quote_ja: string;
+  author: string | null;
+  sort_order: number;
+}
+
+// ==================
+// RaceTimeBucket
+// ==================
+
+export interface RaceTimeBucket {
+  id: number;
+  race_id: string;
+  bucket: string;
+  pct: number;
+  sort_order: number;
+}
+
+// ==================
+// RaceCourseHighlight
+// ==================
+
+export interface RaceCourseHighlight {
+  id: number;
+  race_id: string;
+  category_id: number | null;
+  km: number | null;
+  name_ja: string;
+  name_en: string | null;
+  note_ja: string | null;
+  note_en: string | null;
+  sort_order: number;
+}
+
+// ==================
 // RaceResult（各年の大会実績）
 // ==================
 
@@ -257,6 +323,7 @@ export interface RaceResult {
   humidity_pct: number | null;
   notes_ja: string | null;
   notes_en: string | null;
+  avg_time: string | null;        // 平均フィニッシュタイム（例: "4:42:18"）
 }
 
 // ==================

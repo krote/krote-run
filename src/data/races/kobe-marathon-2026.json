@@ -127,5 +127,36 @@
       "label_ja": "",
       "label_en": ""
     }
+  ],
+  "motif": "異人館",
+  "motif_color": "#b91c1c",
+  "motif_romaji": "Ijin-kan",
+  "tagline_ja": "港町・神戸の異国情緒あふれる街を走る",
+  "tagline_en": "Run through the exotic port city of Kobe",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "明石海峡大橋",
+      "name_en": "Akashi Kaikyo Bridge",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "ポートアイランド",
+      "name_en": "Port Island",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "ハーバーランド",
+      "name_en": "Harborland",
+      "description_ja": null,
+      "description_en": null
+    }
   ]
 }

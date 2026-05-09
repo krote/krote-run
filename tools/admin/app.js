@@ -201,8 +201,124 @@ function populateForm(r) {
   // コース
   setVal('f-course_gpx_file', r.course_gpx_file ?? '');
 
+  // ビジュアル (Phase 2)
+  setVal('f-motif', r.motif ?? '');
+  setVal('f-motif_romaji', r.motif_romaji ?? '');
+  setVal('f-motif_color', r.motif_color ?? '');
+  setVal('f-tagline_ja', r.tagline_ja ?? '');
+  setVal('f-tagline_en', r.tagline_en ?? '');
+  setVal('f-hero_image_url', r.hero_image_url ?? '');
+  setVal('f-hero_caption_ja', r.hero_caption_ja ?? '');
+  setVal('f-hero_caption_en', r.hero_caption_en ?? '');
+
+  // Phase 3: ギャラリー / 声 / タイム分布
+  renderGallery(r.gallery ?? []);
+  renderVoices(r.voices ?? []);
+  renderTimeBuckets(r.time_buckets ?? []);
+
   // 画像
   loadImagePreview(r.id);
+}
+
+// ── ギャラリー ────────────────────────────────────────────────────
+function renderGallery(items) {
+  const c = document.getElementById('gallery-container');
+  c.innerHTML = '';
+  items.forEach(g => addGalleryRow(g));
+}
+function addGalleryRow(g = {}) {
+  const c = document.getElementById('gallery-container');
+  const row = document.createElement('div');
+  row.className = 'dynamic-row';
+  row.innerHTML = `
+    <input type="text" class="g-src" placeholder="画像パス / URL" value="${(g.src ?? '').replace(/"/g, '&quot;')}" />
+    <input type="text" class="g-caption-ja" placeholder="キャプション（日本語）" value="${(g.caption_ja ?? '').replace(/"/g, '&quot;')}" />
+    <input type="text" class="g-caption-en" placeholder="Caption (English)" value="${(g.caption_en ?? '').replace(/"/g, '&quot;')}" />
+    <button type="button" class="btn-remove" title="削除">×</button>`;
+  row.querySelector('.btn-remove').addEventListener('click', () => row.remove());
+  c.appendChild(row);
+}
+function collectGallery() {
+  return [...document.querySelectorAll('#gallery-container .dynamic-row')].map(row => ({
+    src: row.querySelector('.g-src').value.trim(),
+    caption_ja: row.querySelector('.g-caption-ja').value.trim() || null,
+    caption_en: row.querySelector('.g-caption-en').value.trim() || null,
+  })).filter(g => g.src);
+}
+document.getElementById('btn-add-gallery').addEventListener('click', () => addGalleryRow());
+
+// ── 参加者の声 ───────────────────────────────────────────────────
+function renderVoices(items) {
+  const c = document.getElementById('voices-container');
+  c.innerHTML = '';
+  items.forEach(v => addVoiceRow(v));
+}
+function addVoiceRow(v = {}) {
+  const c = document.getElementById('voices-container');
+  const row = document.createElement('div');
+  row.className = 'dynamic-row';
+  row.innerHTML = `
+    <textarea class="v-quote-ja" placeholder="コメント（日本語）" rows="2">${v.quote_ja ?? ''}</textarea>
+    <input type="text" class="v-author" placeholder="発言者（例: 40代男性）" value="${(v.author ?? '').replace(/"/g, '&quot;')}" />
+    <button type="button" class="btn-remove" title="削除">×</button>`;
+  row.querySelector('.btn-remove').addEventListener('click', () => row.remove());
+  c.appendChild(row);
+}
+function collectVoices() {
+  return [...document.querySelectorAll('#voices-container .dynamic-row')].map(row => ({
+    quote_ja: row.querySelector('.v-quote-ja').value.trim(),
+    author: row.querySelector('.v-author').value.trim() || null,
+  })).filter(v => v.quote_ja);
+}
+document.getElementById('btn-add-voice').addEventListener('click', () => addVoiceRow());
+
+// ── タイム分布 ───────────────────────────────────────────────────
+function renderTimeBuckets(items) {
+  const c = document.getElementById('time-buckets-container');
+  c.innerHTML = '';
+  items.forEach(tb => addTimeBucketRow(tb));
+}
+function addTimeBucketRow(tb = {}) {
+  const c = document.getElementById('time-buckets-container');
+  const row = document.createElement('div');
+  row.className = 'dynamic-row';
+  row.innerHTML = `
+    <input type="text" class="tb-bucket" placeholder='例: "3:30–4:00"' value="${(tb.bucket ?? '').replace(/"/g, '&quot;')}" />
+    <input type="number" class="tb-pct" placeholder="割合(%)" step="0.1" min="0" max="100" value="${tb.pct ?? ''}" />
+    <button type="button" class="btn-remove" title="削除">×</button>`;
+  row.querySelector('.btn-remove').addEventListener('click', () => row.remove());
+  c.appendChild(row);
+}
+function collectTimeBuckets() {
+  return [...document.querySelectorAll('#time-buckets-container .dynamic-row')].map(row => ({
+    bucket: row.querySelector('.tb-bucket').value.trim(),
+    pct: parseFloat(row.querySelector('.tb-pct').value) || 0,
+  })).filter(tb => tb.bucket);
+}
+document.getElementById('btn-add-time-bucket').addEventListener('click', () => addTimeBucketRow());
+
+// ── カテゴリ内コース見どころ ─────────────────────────────────────
+function addHighlightRowToContainer(container, ch = {}) {
+  const row = document.createElement('div');
+  row.className = 'dynamic-row ch-row';
+  row.innerHTML = `
+    <input type="number" class="ch-km" placeholder="地点(km)" step="0.1" min="0" value="${ch.km ?? ''}" />
+    <input type="text" class="ch-name-ja" placeholder="スポット名（日本語）" value="${(ch.name_ja ?? '').replace(/"/g, '&quot;')}" />
+    <input type="text" class="ch-name-en" placeholder="Spot name (English)" value="${(ch.name_en ?? '').replace(/"/g, '&quot;')}" />
+    <input type="text" class="ch-note-ja" placeholder="説明（日本語）" value="${(ch.note_ja ?? '').replace(/"/g, '&quot;')}" />
+    <input type="text" class="ch-note-en" placeholder="Note (English)" value="${(ch.note_en ?? '').replace(/"/g, '&quot;')}" />
+    <button type="button" class="btn-remove" title="削除">×</button>`;
+  row.querySelector('.btn-remove').addEventListener('click', () => row.remove());
+  container.appendChild(row);
+}
+function collectCategoryHighlights(catRow) {
+  return [...catRow.querySelectorAll('.cat-highlights-container .ch-row')].map(row => ({
+    km: parseFloat(row.querySelector('.ch-km').value) || null,
+    name_ja: row.querySelector('.ch-name-ja').value.trim(),
+    name_en: row.querySelector('.ch-name-en').value.trim() || null,
+    note_ja: row.querySelector('.ch-note-ja').value.trim() || null,
+    note_en: row.querySelector('.ch-note-en').value.trim() || null,
+  })).filter(ch => ch.name_ja);
 }
 
 function setVal(id, val) {
@@ -392,12 +508,23 @@ function addCategoryRow(cat = {}, index) {
       <input type="text" class="cat-gpx-file" value="${(cat.course_gpx_file ?? '').replace(/"/g, '&quot;')}" placeholder="例: nagano-marathon-2026-full.gpx" />
       <p class="field-hint">ファイルは <code>public/gpx/</code> に配置し、保存後に <code>npm run course:generate</code> を実行してください。</p>
     </div>
+    <div class="field full">
+      <label>コース見どころ</label>
+      <div class="cat-highlights-container"></div>
+      <button type="button" class="btn btn-secondary btn-add-highlight">+ 見どころを追加</button>
+    </div>
   `;
   row.querySelector('.btn-remove-cat').addEventListener('click', () => {
     row.remove();
     markDirty();
   });
   row.querySelectorAll('input, select, textarea').forEach(el => el.addEventListener('change', markDirty));
+  const highlightsContainer = row.querySelector('.cat-highlights-container');
+  (cat.course_highlights ?? []).forEach(ch => addHighlightRowToContainer(highlightsContainer, ch));
+  row.querySelector('.btn-add-highlight').addEventListener('click', () => {
+    addHighlightRowToContainer(highlightsContainer);
+    markDirty();
+  });
   container.appendChild(row);
 }
 
@@ -759,6 +886,7 @@ function buildRaceData() {
     eligibility_ja: row.querySelector('.cat-eligibility-ja')?.value.trim() || null,
     eligibility_en: row.querySelector('.cat-eligibility-en')?.value.trim() || null,
     course_gpx_file: row.querySelector('.cat-gpx-file')?.value.trim() || null,
+    course_highlights: collectCategoryHighlights(row),
   }));
 
   // タグ収集
@@ -768,8 +896,10 @@ function buildRaceData() {
   const entryPeriods = collectEntryPeriods();
   const firstPeriod = entryPeriods[0] ?? null;
 
+  // eslint-disable-next-line no-unused-vars
+  const { course_highlights: _raceHighlights, ...restCurrentRace } = currentRace ?? {};
   return {
-    ...currentRace,
+    ...restCurrentRace,
     entry_fee: null,
     entry_fee_by_category: true,
     name_ja: getVal('f-name_ja'),
@@ -798,6 +928,19 @@ function buildRaceData() {
     course_gpx_file: getVal('f-course_gpx_file') || null,
     participation_gifts: collectGifts(),
     nearby_spots: collectNearbySpots(),
+    // Phase 2: ビジュアル拡張フィールド
+    motif: getVal('f-motif') || null,
+    motif_romaji: getVal('f-motif_romaji') || null,
+    motif_color: getVal('f-motif_color') || null,
+    tagline_ja: getVal('f-tagline_ja') || null,
+    tagline_en: getVal('f-tagline_en') || null,
+    hero_image_url: getVal('f-hero_image_url') || null,
+    hero_caption_ja: getVal('f-hero_caption_ja') || null,
+    hero_caption_en: getVal('f-hero_caption_en') || null,
+    // Phase 3
+    gallery: collectGallery(),
+    voices: collectVoices(),
+    time_buckets: collectTimeBuckets(),
   };
 }
 

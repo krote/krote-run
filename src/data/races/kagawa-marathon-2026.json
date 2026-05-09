@@ -101,5 +101,24 @@
       "end_date": "2025-11-24",
       "entry_fee": null
     }
+  ],
+  "motif": "瀬戸内海",
+  "motif_color": "#0284c7",
+  "motif_romaji": "Setonaikai",
+  "tagline_ja": "瀬戸内の穏やかな海を見渡しながら走る42km",
+  "tagline_en": "Run along the serene shores of the Seto Inland Sea",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "瀬戸内海",
+      "name_en": "Seto Inland Sea",
+      "description_ja": null,
+      "description_en": null
+    }
   ]
 }

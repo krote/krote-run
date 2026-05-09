@@ -81,5 +81,30 @@
       "end_date": "2026-06-14",
       "entry_fee": null
     }
+  ],
+  "motif": "御嶽山",
+  "motif_color": "#1c1917",
+  "motif_romaji": "Ontake-san",
+  "tagline_ja": "霊峰・御嶽山の麓を巡る、100kmの山岳路",
+  "tagline_en": "100km through the sacred slopes of Mt. Ontake",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "御嶽山麓国有林",
+      "name_en": "National forest at Mt. Ontake base",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "特別開放区域",
+      "name_en": "specially opened restricted area",
+      "description_ja": null,
+      "description_en": null
+    }
   ]
 }

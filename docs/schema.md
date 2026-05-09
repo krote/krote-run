@@ -52,6 +52,14 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | course_highlights_en | text | NO | `""` | |
 | course_notes_ja | text | YES | — | |
 | course_notes_en | text | YES | — | |
+| motif | text | YES | — | デザインモチーフ語（英字）。例: `"SAKURA"` |
+| motif_color | text | YES | — | モチーフカラー（CSS値）。例: `"#c0392b"` |
+| motif_romaji | text | YES | — | モチーフのローマ字表記。例: `"Sakura"` |
+| tagline_ja | text | YES | — | カードに表示する短いキャッチフレーズ（日本語） |
+| tagline_en | text | YES | — | カードに表示する短いキャッチフレーズ（英語） |
+| hero_image_url | text | YES | — | ヒーロー画像パス。例: `/images/races/nagano-marathon-2026-hero.jpg` |
+| hero_caption_ja | text | YES | — | ヒーロー画像キャプション（日本語） |
+| hero_caption_en | text | YES | — | ヒーロー画像キャプション（英語） |
 | created_at | text | NO | — | ISO 8601 |
 | updated_at | text | NO | — | ISO 8601 |
 
@@ -204,6 +212,7 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | humidity_pct | real | YES | — | % |
 | notes_ja | text | YES | — | |
 | notes_en | text | YES | — | |
+| avg_time | text | YES | — | 平均フィニッシュタイム。例: `"4:42:18"` |
 
 ---
 
@@ -312,6 +321,66 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 
 ---
 
+## race_gallery テーブル
+
+大会の見どころ画像ギャラリー。
+
+| カラム | 型 | NULL | デフォルト | 備考 |
+|---|---|---|---|---|
+| id | integer | NO | autoincrement | PK |
+| race_id | text | NO | — | FK → races.id（CASCADE） |
+| src | text | NO | — | 画像パス or URL |
+| caption_ja | text | YES | — | |
+| caption_en | text | YES | — | |
+| sort_order | integer | NO | `0` | |
+
+---
+
+## race_voices テーブル
+
+参加者の声（前回の様子セクション）。
+
+| カラム | 型 | NULL | デフォルト | 備考 |
+|---|---|---|---|---|
+| id | integer | NO | autoincrement | PK |
+| race_id | text | NO | — | FK → races.id（CASCADE） |
+| quote_ja | text | NO | — | 引用テキスト（日本語） |
+| author | text | YES | — | 発言者名（例: `"40代男性"`） |
+| sort_order | integer | NO | `0` | |
+
+---
+
+## race_time_buckets テーブル
+
+フィニッシャーのタイム分布（棒グラフ表示用）。
+
+| カラム | 型 | NULL | デフォルト | 備考 |
+|---|---|---|---|---|
+| id | integer | NO | autoincrement | PK |
+| race_id | text | NO | — | FK → races.id（CASCADE） |
+| bucket | text | NO | — | タイム帯ラベル（例: `"3:30–4:00"`） |
+| pct | real | NO | — | 割合 (0–100) |
+| sort_order | integer | NO | `0` | |
+
+---
+
+## race_course_highlights テーブル
+
+コース上の見どころポイント。
+
+| カラム | 型 | NULL | デフォルト | 備考 |
+|---|---|---|---|---|
+| id | integer | NO | autoincrement | PK |
+| race_id | text | NO | — | FK → races.id（CASCADE） |
+| km | real | NO | — | 地点（km） |
+| name_ja | text | NO | — | スポット名（日本語） |
+| name_en | text | YES | — | スポット名（英語） |
+| note_ja | text | YES | — | 説明（日本語） |
+| note_en | text | YES | — | 説明（英語） |
+| sort_order | integer | NO | `0` | |
+
+---
+
 ## マイグレーション履歴
 
 | ファイル | 内容 |
@@ -326,3 +395,5 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0005_boring_corsair.sql` | contact_submissions テーブルを追加 |
 | `migrations/0006_entry_info.sql` | races に entry_closed、race_categories に eligibility_ja/en、race_entry_links テーブルを追加（Issue #37） |
 | `migrations/0007_category_gpx.sql` | race_categories に course_gpx_file カラムを追加 |
+| `migrations/0008_phase2_motif_hero.sql` | races に motif/motif_color/motif_romaji/tagline_ja/tagline_en/hero_image_url/hero_caption_ja/hero_caption_en を追加、race_results に avg_time を追加（Issue #42 Design Phase 2） |
+| `migrations/0009_phase3_gallery_voices.sql` | race_gallery / race_voices / race_time_buckets / race_course_highlights テーブルを追加（Issue #43 Design Phase 3） |

@@ -100,5 +100,30 @@
       "end_date": "2026-05-18",
       "entry_fee": null
     }
+  ],
+  "motif": "桃",
+  "motif_color": "#f9a8d4",
+  "motif_romaji": "Momo",
+  "tagline_ja": "桃太郎の里・岡山を、晴れの国で走る",
+  "tagline_en": "Run through Okayama, the sunny land of Momotaro",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "岡山城",
+      "name_en": "Okayama Castle",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "後楽園",
+      "name_en": "Korakuen Garden",
+      "description_ja": null,
+      "description_en": null
+    }
   ]
 }

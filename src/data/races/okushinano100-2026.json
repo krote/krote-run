@@ -97,5 +97,30 @@
       "end_date": "2026-05-10",
       "entry_fee": null
     }
+  ],
+  "motif": "北アルプス",
+  "motif_color": "#1e40af",
+  "motif_romaji": "Kita-Arupusu",
+  "tagline_ja": "北アルプスの麓・奥信濃を走る100km",
+  "tagline_en": "100km through the foothills of the Northern Alps",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "奥信濃の山岳トレイル",
+      "name_en": "Mountain trails of Okushinano",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "木島平村〜飯山市周辺",
+      "name_en": "Kijimadaira to Iiyama area",
+      "description_ja": null,
+      "description_en": null
+    }
   ]
 }

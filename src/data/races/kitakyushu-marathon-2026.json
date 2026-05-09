@@ -107,5 +107,30 @@
       "end_date": "2025-09-25",
       "entry_fee": null
     }
+  ],
+  "motif": "洞海湾",
+  "motif_color": "#1d4ed8",
+  "motif_romaji": "Dokai-wan",
+  "tagline_ja": "北九州の海と工場夜景の街を走る",
+  "tagline_en": "Run through Kitakyushu's industrial waterfront",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "小倉市街地",
+      "name_en": "Kokura city center",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "関門海峡",
+      "name_en": "Kanmon Strait",
+      "description_ja": null,
+      "description_en": null
+    }
   ]
 }

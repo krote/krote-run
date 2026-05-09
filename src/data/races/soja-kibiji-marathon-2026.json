@@ -17,7 +17,7 @@
   "entry_capacity": null,
   "entry_start_date": "2025-10-01",
   "entry_end_date": "2026-01-03",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "すべての種目でナンバーカードを事前に発送させていただきます。\nそのため受付はございません。",
   "reception_note_en": "Number cards for all events will be sent out in advance.\n\nTherefore, there is no registration required.",
   "tags": [
@@ -99,6 +99,37 @@
       "entry_fee": 9100,
       "label_ja": "",
       "label_en": ""
+    }
+  ],
+  "motif": "吉備路",
+  "motif_color": "#854d0e",
+  "motif_romaji": "Kibiji",
+  "tagline_ja": "吉備路の古代ロマンを感じながら走る42km",
+  "tagline_en": "Run the ancient Kibiji road through Soja's historic landscape",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "備中国分寺五重塔",
+      "name_en": "Bitchu Kokubunji five-story pagoda",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "古墳群",
+      "name_en": "burial mounds",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "吉備路",
+      "name_en": "Kibiji",
+      "description_ja": null,
+      "description_en": null
     }
   ]
 }

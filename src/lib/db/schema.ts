@@ -41,6 +41,15 @@ export const races = sqliteTable("races", {
   course_highlights_en:    text("course_highlights_en").notNull().default(""),
   course_notes_ja:         text("course_notes_ja"),
   course_notes_en:         text("course_notes_en"),
+  // Phase 2: ビジュアル拡張フィールド
+  motif:                 text("motif"),                    // 漢字モチーフ（例: 都、霊峰）
+  motif_color:           text("motif_color"),              // モチーフカラー（例: #1d4373）
+  motif_romaji:          text("motif_romaji"),             // ローマ字表記（例: MIYAKO）
+  tagline_ja:            text("tagline_ja"),               // キャッチコピー日本語
+  tagline_en:            text("tagline_en"),               // キャッチコピー英語
+  hero_image_url:        text("hero_image_url"),           // ヒーロー画像URL
+  hero_caption_ja:       text("hero_caption_ja"),          // 画像キャプション日本語
+  hero_caption_en:       text("hero_caption_en"),          // 画像キャプション英語
   created_at:            text("created_at").notNull(),
   updated_at:            text("updated_at").notNull(),
 }, (t) => [
@@ -221,6 +230,7 @@ export const race_results = sqliteTable("race_results", {
   humidity_pct:         real("humidity_pct"),
   notes_ja:             text("notes_ja"),
   notes_en:             text("notes_en"),
+  avg_time:             text("avg_time"),                  // 平均フィニッシュタイム（例: "4:42:18"）
 }, (t) => [
   index("race_results_race_id_idx").on(t.race_id),
 ]);
@@ -350,6 +360,67 @@ export const contact_submissions = sqliteTable("contact_submissions", {
 ]);
 
 // ==================
+// race_gallery (大会画像ギャラリー)
+// ==================
+
+export const race_gallery = sqliteTable("race_gallery", {
+  id:         integer("id").primaryKey({ autoIncrement: true }),
+  race_id:    text("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
+  src:        text("src").notNull(),
+  caption_ja: text("caption_ja"),
+  caption_en: text("caption_en"),
+  sort_order: integer("sort_order").notNull().default(0),
+}, (t) => [
+  index("race_gallery_race_id_idx").on(t.race_id),
+]);
+
+// ==================
+// race_voices (参加者の声)
+// ==================
+
+export const race_voices = sqliteTable("race_voices", {
+  id:         integer("id").primaryKey({ autoIncrement: true }),
+  race_id:    text("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
+  quote_ja:   text("quote_ja").notNull(),
+  author:     text("author"),
+  sort_order: integer("sort_order").notNull().default(0),
+}, (t) => [
+  index("race_voices_race_id_idx").on(t.race_id),
+]);
+
+// ==================
+// race_time_buckets (タイム分布)
+// ==================
+
+export const race_time_buckets = sqliteTable("race_time_buckets", {
+  id:         integer("id").primaryKey({ autoIncrement: true }),
+  race_id:    text("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
+  bucket:     text("bucket").notNull(),  // e.g. "3:30–4:00"
+  pct:        real("pct").notNull(),     // 割合 (0–100)
+  sort_order: integer("sort_order").notNull().default(0),
+}, (t) => [
+  index("race_time_buckets_race_id_idx").on(t.race_id),
+]);
+
+// ==================
+// race_course_highlights (コース見どころ)
+// ==================
+
+export const race_course_highlights = sqliteTable("race_course_highlights", {
+  id:          integer("id").primaryKey({ autoIncrement: true }),
+  race_id:     text("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
+  category_id: integer("category_id").references(() => race_categories.id, { onDelete: "cascade" }),
+  km:          real("km"),
+  name_ja:     text("name_ja").notNull(),
+  name_en:     text("name_en"),
+  note_ja:     text("note_ja"),
+  note_en:     text("note_en"),
+  sort_order:  integer("sort_order").notNull().default(0),
+}, (t) => [
+  index("race_course_highlights_race_id_idx").on(t.race_id),
+]);
+
+// ==================
 // user_races (ユーザー大会登録)
 // ==================
 
@@ -385,6 +456,26 @@ export const racesRelations = relations(races, ({ many, one }) => ({
   entry_periods:       many(race_entry_periods),
   entry_links:         many(race_entry_links),
   result:              one(race_results, { fields: [races.id], references: [race_results.race_id] }),
+  gallery:             many(race_gallery),
+  voices:              many(race_voices),
+  time_buckets:        many(race_time_buckets),
+  course_highlights:   many(race_course_highlights),
+}));
+
+export const raceGalleryRelations = relations(race_gallery, ({ one }) => ({
+  race: one(races, { fields: [race_gallery.race_id], references: [races.id] }),
+}));
+
+export const raceVoicesRelations = relations(race_voices, ({ one }) => ({
+  race: one(races, { fields: [race_voices.race_id], references: [races.id] }),
+}));
+
+export const raceTimeBucketsRelations = relations(race_time_buckets, ({ one }) => ({
+  race: one(races, { fields: [race_time_buckets.race_id], references: [races.id] }),
+}));
+
+export const raceCourseHighlightsRelations = relations(race_course_highlights, ({ one }) => ({
+  race: one(races, { fields: [race_course_highlights.race_id], references: [races.id] }),
 }));
 
 export const raceEntryLinksRelations = relations(race_entry_links, ({ one }) => ({

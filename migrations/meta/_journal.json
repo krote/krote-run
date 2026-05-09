@@ -43,6 +43,20 @@
       "when": 1776381028337,
       "tag": "0005_boring_corsair",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1778077962379,
+      "tag": "0006_high_mole_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1778112199465,
+      "tag": "0007_yielding_obadiah_stane",
+      "breakpoints": true
     }
   ]
 }

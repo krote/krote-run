@@ -122,5 +122,24 @@
       "end_date": "2025-10-15",
       "entry_fee": null
     }
+  ],
+  "motif": "太平洋",
+  "motif_color": "#0369a1",
+  "motif_romaji": "Taiheiyo",
+  "tagline_ja": "太平洋の輝きとともに、いわきの海岸を走る",
+  "tagline_en": "Run along Iwaki's Pacific coast in sunshine",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "太平洋沿岸",
+      "name_en": "Pacific coastline",
+      "description_ja": null,
+      "description_en": null
+    }
   ]
 }

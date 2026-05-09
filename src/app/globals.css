@@ -1,24 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary:      #c0392b;
-  --color-primary-dark: #9a2d20;
-  --color-ink:          #1a1714;
-  --color-ink2:         #3d3830;
-  --color-mid:          #7a7060;
-  --color-light:        #b0a898;
-  --color-cream:        #faf8f4;
-  --color-border:       #e4dfd8;
+  --color-primary:      #1d4373;
+  --color-primary-dark: #16324f;
+  --color-ink:          #16243a;
+  --color-ink2:         #2a3a50;
+  --color-mid:          #5a5547;
+  --color-light:        #8a8472;
+  --color-cream:        #f7f2e7;
+  --color-paper-warm:   #fbf6ec;
+  --color-border:       #d9d0bd;
+  --color-border-soft:  #e8dfca;
+  --color-asagi:        #5b8aa6;
+  --color-shu:          #c8442a;
+  --color-shu-deep:     #a13420;
 
-  --font-sans:   var(--font-dm-sans,      'DM Sans'),   var(--font-noto-sans-jp, 'Noto Sans JP'), ui-sans-serif, system-ui, sans-serif;
-  --font-serif:  var(--font-playfair,    'Playfair Display'), ui-serif, Georgia, serif;
-  --font-mono:   ui-monospace, monospace;
-  --font-number: var(--font-montserrat,  'Montserrat'), var(--font-dm-sans, 'DM Sans'), ui-sans-serif;
+  --font-sans:   var(--font-noto-sans-jp, 'Noto Sans JP'), var(--font-inter, 'Inter'), ui-sans-serif, system-ui, sans-serif;
+  --font-serif:  var(--font-noto-serif-jp, 'Noto Serif JP'), Georgia, serif;
+  --font-mono:   ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-number: var(--font-montserrat, 'Montserrat'), var(--font-noto-sans-jp, 'Noto Sans JP'), ui-sans-serif;
 }
 
 :root {
-  --background: #faf8f4;
-  --foreground: #1a1714;
+  --background: #f7f2e7;
+  --foreground: #16243a;
 }
 
 body {

@@ -6,6 +6,7 @@ import type {
   AidStation, Checkpoint, AccessPoint, NearbySpot, WeatherHistory,
   ParticipationGift, GiftCategoryId, CourseSurface, ReceptionType, NearbySpotType,
   RaceSeries, RaceResult, EntryPeriod, EntryLink,
+  RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight,
 } from "./types";
 
 // ==================
@@ -29,7 +30,7 @@ type NearbySpotRow = typeof schema.nearby_spots.$inferSelect;
 type WeatherRow = typeof schema.weather_history.$inferSelect;
 type GiftRow = typeof schema.participation_gifts.$inferSelect;
 
-function rowToCategory(row: CategoryRow): RaceCategory {
+function rowToCategory(row: CategoryRow, highlights: CourseHighlightRow[] = []): RaceCategory {
   return {
     id: row.id,
     distance_type: row.distance_type as RaceCategory["distance_type"],
@@ -47,6 +48,7 @@ function rowToCategory(row: CategoryRow): RaceCategory {
     eligibility_en: row.eligibility_en ?? null,
     course_gpx_file: row.course_gpx_file ?? null,
     waves: parseJson<Wave[] | null>(row.waves, null),
+    course_highlights: highlights.map(rowToCourseHighlight),
   };
 }
 
@@ -156,6 +158,57 @@ function rowToResult(row: ResultRow): RaceResult {
     humidity_pct:         row.humidity_pct ?? null,
     notes_ja:             row.notes_ja ?? null,
     notes_en:             row.notes_en ?? null,
+    avg_time:             row.avg_time ?? null,
+  };
+}
+
+type GalleryRow = typeof schema.race_gallery.$inferSelect;
+type VoiceRow = typeof schema.race_voices.$inferSelect;
+type TimeBucketRow = typeof schema.race_time_buckets.$inferSelect;
+type CourseHighlightRow = typeof schema.race_course_highlights.$inferSelect;
+
+function rowToGallery(row: GalleryRow): RaceGallery {
+  return {
+    id: row.id,
+    race_id: row.race_id,
+    src: row.src,
+    caption_ja: row.caption_ja ?? null,
+    caption_en: row.caption_en ?? null,
+    sort_order: row.sort_order,
+  };
+}
+
+function rowToVoice(row: VoiceRow): RaceVoice {
+  return {
+    id: row.id,
+    race_id: row.race_id,
+    quote_ja: row.quote_ja,
+    author: row.author ?? null,
+    sort_order: row.sort_order,
+  };
+}
+
+function rowToTimeBucket(row: TimeBucketRow): RaceTimeBucket {
+  return {
+    id: row.id,
+    race_id: row.race_id,
+    bucket: row.bucket,
+    pct: row.pct,
+    sort_order: row.sort_order,
+  };
+}
+
+function rowToCourseHighlight(row: CourseHighlightRow): RaceCourseHighlight {
+  return {
+    id: row.id,
+    race_id: row.race_id,
+    category_id: row.category_id ?? null,
+    km: row.km,
+    name_ja: row.name_ja,
+    name_en: row.name_en ?? null,
+    note_ja: row.note_ja ?? null,
+    note_en: row.note_en ?? null,
+    sort_order: row.sort_order,
   };
 }
 
@@ -171,6 +224,10 @@ function assembleRace(
   resultRows: ResultRow[] = [],
   entryPeriodRows: EntryPeriodRow[] = [],
   entryLinkRows: EntryLinkRow[] = [],
+  galleryRows: GalleryRow[] = [],
+  voiceRows: VoiceRow[] = [],
+  timeBucketRows: TimeBucketRow[] = [],
+  courseHighlightRows: CourseHighlightRow[] = [],
 ): Race {
   const course_info: CourseInfo = {
     max_elevation_m: row.course_max_elevation_m,
@@ -210,7 +267,18 @@ function assembleRace(
     tags: parseJson<string[]>(row.tags, []),
     course_gpx_file: row.course_gpx_file ?? null,
     course_info,
-    categories: categories.map(rowToCategory),
+    categories: (() => {
+      // category_id 指定あり → そのカテゴリへ、null → メインカテゴリ（先頭）へ振り分け
+      const mainCatId = categories.length > 0 ? categories[0].id : null;
+      const byCat = new Map<number, CourseHighlightRow[]>();
+      for (const h of courseHighlightRows) {
+        const targetId = h.category_id ?? mainCatId;
+        if (targetId == null) continue;
+        if (!byCat.has(targetId)) byCat.set(targetId, []);
+        byCat.get(targetId)!.push(h);
+      }
+      return categories.map(row => rowToCategory(row, byCat.get(row.id) ?? []));
+    })(),
     aid_stations: aidStations.map(rowToAidStation),
     checkpoints: checkpointRows.map(rowToCheckpoint),
     access_points: accessPointRows.map(rowToAccessPoint),
@@ -220,6 +288,17 @@ function assembleRace(
     entry_periods: entryPeriodRows.map(rowToEntryPeriod),
     entry_links: entryLinkRows.map(rowToEntryLink),
     result: resultRows.length > 0 ? rowToResult(resultRows[0]) : null,
+    gallery:           galleryRows.map(rowToGallery),
+    voices:            voiceRows.map(rowToVoice),
+    time_buckets:      timeBucketRows.map(rowToTimeBucket),
+    motif:           row.motif ?? null,
+    motif_color:     row.motif_color ?? null,
+    motif_romaji:    row.motif_romaji ?? null,
+    tagline_ja:      row.tagline_ja ?? null,
+    tagline_en:      row.tagline_en ?? null,
+    hero_image_url:  row.hero_image_url ?? null,
+    hero_caption_ja: row.hero_caption_ja ?? null,
+    hero_caption_en: row.hero_caption_en ?? null,
     created_at: row.created_at,
     updated_at: row.updated_at,
   };
@@ -254,7 +333,7 @@ export async function getRaces(): Promise<Race[]> {
 export async function getRaceById(id: string): Promise<Race | null> {
   const db = getDatabase();
 
-  const [raceRows, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows] =
+  const [raceRows, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows, galleryRows, voiceRows, timeBucketRows, courseHighlightRows] =
     await db.batch([
       db.select().from(schema.races).where(eq(schema.races.id, id)),
       db.select().from(schema.race_categories).where(eq(schema.race_categories.race_id, id)).orderBy(asc(schema.race_categories.sort_order)),
@@ -267,12 +346,16 @@ export async function getRaceById(id: string): Promise<Race | null> {
       db.select().from(schema.race_results).where(eq(schema.race_results.race_id, id)),
       db.select().from(schema.race_entry_periods).where(eq(schema.race_entry_periods.race_id, id)).orderBy(asc(schema.race_entry_periods.sort_order)),
       db.select().from(schema.race_entry_links).where(eq(schema.race_entry_links.race_id, id)).orderBy(asc(schema.race_entry_links.sort_order)),
+      db.select().from(schema.race_gallery).where(eq(schema.race_gallery.race_id, id)).orderBy(asc(schema.race_gallery.sort_order)),
+      db.select().from(schema.race_voices).where(eq(schema.race_voices.race_id, id)).orderBy(asc(schema.race_voices.sort_order)),
+      db.select().from(schema.race_time_buckets).where(eq(schema.race_time_buckets.race_id, id)).orderBy(asc(schema.race_time_buckets.sort_order)),
+      db.select().from(schema.race_course_highlights).where(eq(schema.race_course_highlights.race_id, id)).orderBy(asc(schema.race_course_highlights.sort_order)),
     ]);
 
   const row = raceRows[0];
   if (!row) return null;
 
-  return assembleRace(row, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows);
+  return assembleRace(row, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows, galleryRows, voiceRows, timeBucketRows, courseHighlightRows);
 }
 
 export async function getRacesByPrefecture(prefecture: string): Promise<Race[]> {
@@ -484,6 +567,28 @@ export async function getAdminRaces(): Promise<{ id: string; name_ja: string; da
     .from(schema.races)
     .orderBy(asc(schema.races.date));
   return rows;
+}
+
+/** 全登録大会数 */
+export async function getTotalRaceCount(): Promise<number> {
+  const db = getDatabase();
+  const rows = await db.select({ count: sql<number>`count(*)` }).from(schema.races);
+  return rows[0]?.count ?? 0;
+}
+
+/** 現在エントリー受付中の大会数 */
+export async function getOpenEntryCount(): Promise<number> {
+  const db = getDatabase();
+  const today = new Date().toISOString().split("T")[0];
+  const rows = await db.select({ count: sql<number>`count(*)` }).from(schema.races).where(
+    sql`EXISTS (
+      SELECT 1 FROM race_entry_periods rep
+      WHERE rep.race_id = ${schema.races.id}
+        AND rep.start_date <= ${today}
+        AND rep.end_date >= ${today}
+    )`
+  );
+  return rows[0]?.count ?? 0;
 }
 
 export async function getGiftCategoryById(id: string): Promise<GiftCategory | null> {

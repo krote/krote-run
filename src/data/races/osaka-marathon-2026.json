@@ -118,5 +118,42 @@
     "last_verified": "2026-03-15",
     "detail_level": "medium"
   },
-  "entry_periods": []
+  "entry_periods": [],
+  "motif": "大阪城",
+  "motif_color": "#92400e",
+  "motif_romaji": "Osaka-jo",
+  "tagline_ja": "笑いと活気溢れる、天下の台所・大阪を走る",
+  "tagline_en": "Run through Osaka, the nation's kitchen of energy",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "大阪城",
+      "name_en": "Osaka Castle",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "御堂筋",
+      "name_en": "Midosuji",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "通天閣",
+      "name_en": "Tsutenkaku",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "中之島",
+      "name_en": "Nakanoshima",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

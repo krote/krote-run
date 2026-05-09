@@ -17,7 +17,7 @@
   "entry_capacity": 0,
   "entry_start_date": "2026-04-13",
   "entry_end_date": "2026-08-31",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "大会当日の受付はありません。10月末（予定）にアスリートビブス・ランナーズチップ等を郵送いたしますので、忘れずにお持ちください",
   "reception_note_en": "There will be no on-site registration on the day of the event. We will mail your race bibs, timing chips, and other items by the end of October (tentative), so please be sure to bring them with you.",
   "tags": [],
@@ -69,5 +69,17 @@
       "description_en": "",
       "image": null
     }
-  ]
+  ],
+  "motif": "コキア",
+  "motif_color": "#dc2626",
+  "motif_romaji": "Kochiya",
+  "tagline_ja": "海浜公園のコキアが彩る、ひたちの秋",
+  "tagline_en": "Run through Hitachi Seaside Park's autumn kochia fields",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": []
 }

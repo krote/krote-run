@@ -104,5 +104,36 @@
     "last_verified": "2026-03-15",
     "detail_level": "medium"
   },
-  "entry_periods": []
+  "entry_periods": [],
+  "motif": "ハイビスカス",
+  "motif_color": "#dc2626",
+  "motif_romaji": "Haibisukasu",
+  "tagline_ja": "南国の陽光と笑顔溢れる、那覇の42km",
+  "tagline_en": "Run through tropical Naha with sunshine and smiles",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "国際通り",
+      "name_en": "Kokusai Street",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "那覇市街",
+      "name_en": "Naha city",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "沖縄の風景",
+      "name_en": "Okinawan scenery",
+      "description_ja": null,
+      "description_en": null
+    }
+  ]
 }

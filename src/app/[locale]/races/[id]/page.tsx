@@ -10,6 +10,12 @@ import type { Locale, NearbySpotType } from '@/lib/types';
 import CourseProfileSection from '@/components/course/CourseProfileSection';
 import RaceBreadcrumb from '@/components/races/RaceBreadcrumb';
 import RaceRegistrationButtons from '@/components/races/RaceRegistrationButtons';
+import DetailHeader from '@/components/races/detail/DetailHeader';
+import AnchorBar from '@/components/races/detail/AnchorBar';
+import OverviewSection from '@/components/races/detail/OverviewSection';
+import EntrySection from '@/components/races/detail/EntrySection';
+import LastEditionSection from '@/components/races/detail/LastEditionSection';
+import GallerySection from '@/components/races/detail/GallerySection';
 
 export async function generateMetadata({
   params,
@@ -57,25 +63,24 @@ const NEARBY_TYPE: Record<NearbySpotType, { en: string; icon: string }> = {
   '宿泊': { en: 'Stay', icon: '🏨' },
 };
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
+function SectionHeading({ num, title, subtitle }: { num: string; title: string; subtitle?: string }) {
   return (
-    <p
-      className="text-[0.68rem] font-bold tracking-[0.16em] uppercase mb-1"
-      style={{ color: 'var(--color-primary)' }}
-    >
-      {children}
-    </p>
-  );
-}
-
-function SectionTitle({ children }: { children: React.ReactNode }) {
-  return (
-    <h2
-      className="font-serif text-2xl font-bold mb-5"
-      style={{ color: 'var(--color-ink)' }}
-    >
-      {children}
-    </h2>
+    <div className="flex items-baseline gap-3 mb-6">
+      <span
+        className="text-[0.65rem] font-mono tracking-wider shrink-0"
+        style={{ color: 'var(--color-primary)' }}
+      >
+        {num}
+      </span>
+      <h2 className="text-xl font-bold" style={{ color: 'var(--color-ink)' }}>
+        {title}
+      </h2>
+      {subtitle && (
+        <span className="text-sm italic hidden sm:inline" style={{ color: 'var(--color-mid)' }}>
+          — {subtitle}
+        </span>
+      )}
+    </div>
   );
 }
 
@@ -127,6 +132,15 @@ export default async function RaceDetailPage({
     today <= race.entry_end_date;
   const isNotYetOpen = !race.entry_closed && race.entry_start_date !== null && today < race.entry_start_date;
 
+  // AnchorBar に表示するセクション
+  const anchorItems = [
+    ...(raceDesc || race.tags.length > 0 ? [{ id: 'overview', label: locale === 'ja' ? '概要' : 'Overview' }] : []),
+    { id: 'course', label: locale === 'ja' ? 'コース' : 'Course' },
+    { id: 'entry', label: locale === 'ja' ? 'エントリー' : 'Registration' },
+    ...(race.result ? [{ id: 'last-edition', label: locale === 'ja' ? '前回大会' : 'Last Edition' }] : []),
+    ...(race.gallery.length > 0 || race.voices.length > 0 ? [{ id: 'gallery', label: locale === 'ja' ? 'ギャラリー' : 'Gallery' }] : []),
+  ];
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'SportsEvent',
@@ -153,126 +167,60 @@ export default async function RaceDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      {/* ── Hero ── */}
-      <div style={{ background: 'var(--color-ink)' }} className="text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-6 pb-10">
-          {/* Breadcrumb */}
-          <RaceBreadcrumb
-            raceName={raceName}
-            from={from}
-            labels={{
-              home: t('breadcrumb.home'),
-              races: t('breadcrumb.races'),
-              calendar: t('breadcrumb.calendar'),
-            }}
-          />
 
-          {/* Tags */}
-          {race.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-4">
-              {race.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[0.68rem] font-semibold px-2.5 py-0.5 rounded-[3px]"
-                  style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.8)' }}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-
-          {/* Race name */}
-          <h1 className="font-serif text-3xl md:text-4xl font-bold leading-tight mb-2">
-            {raceName}
-          </h1>
-          {/* シリーズ名（正式名称と異なる場合のみ表示） */}
-          {raceName !== raceSeriesName && (
-            <p className="text-sm mb-4" style={{ color: 'var(--color-light)' }}>
-              {raceSeriesName}
-            </p>
-          )}
-
-          {/* Meta row */}
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm mb-5" style={{ color: 'var(--color-light)' }}>
-            <span>📅 {formatDate(race.date, locale)}</span>
-            <span>📍 {getRaceCity(race, locale)}</span>
-            {mainCategory && <span>🏃 {mainCategory.distance_km}km</span>}
-          </div>
-
-          {/* Entry status + official site */}
-          <div className="flex flex-wrap items-center gap-3">
-            {!isPast && isEntryOpen && (
-              <span
-                className="text-xs font-bold px-3 py-1 rounded-[3px] tracking-[0.06em] uppercase"
-                style={{ background: 'var(--color-primary)', color: 'white' }}
-              >
-                {t('entryOpen')}
-              </span>
-            )}
-            {!isPast && isNotYetOpen && (
-              <span
-                className="text-xs font-semibold px-3 py-1 rounded-[3px]"
-                style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.7)' }}
-              >
-                {t('notYetOpen')}
-              </span>
-            )}
-            {!isPast && race.entry_closed && (
-              <span
-                className="text-xs font-semibold px-3 py-1 rounded-[3px]"
-                style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.7)' }}
-              >
-                {t('entryClosed')}
-              </span>
-            )}
-            {isPast && (
-              <span
-                className="text-xs font-semibold px-3 py-1 rounded-[3px]"
-                style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.5)' }}
-              >
-                {t('entryClosed')}
-              </span>
-            )}
-            {race.official_url && (
-              <a
-                href={race.official_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-semibold px-4 py-1.5 rounded-[3px] transition-colors no-underline"
-                style={{ background: 'white', color: 'var(--color-ink)' }}
-              >
-                {t('website')} ↗
-              </a>
-            )}
-          </div>
-
-          {/* 登録ボタン（ログイン済みのみ表示） */}
-          {!isPast && (
-            <RaceRegistrationButtons
-              raceId={race.id}
-              raceName={raceName}
-              raceDate={race.date}
-              categories={race.categories.map((c) => ({
-                id: c.id,
-                name_ja: c.name_ja,
-                name_en: c.name_en,
-                distance_km: c.distance_km,
-                distance_type: c.distance_type,
-              }))}
-              entryPeriods={race.entry_periods
-                .filter((p) => p.start_date >= today)
-                .map((p) => ({
-                  id: p.id,
-                  label_ja: p.label_ja,
-                  label_en: p.label_en,
-                  start_date: p.start_date,
-                }))}
-              today={today}
-            />
-          )}
-        </div>
+      {/* ── ブレッドクラム ── */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-4">
+        <RaceBreadcrumb
+          raceName={raceName}
+          from={from}
+          labels={{
+            home: t('breadcrumb.home'),
+            races: t('breadcrumb.races'),
+            calendar: t('breadcrumb.calendar'),
+          }}
+        />
       </div>
+
+      {/* ── Hero ── */}
+      <DetailHeader
+        race={race}
+        locale={locale}
+        raceName={raceName}
+        isEntryOpen={isEntryOpen}
+        isNotYetOpen={isNotYetOpen}
+        isPast={isPast}
+        t={t}
+      />
+
+      {/* ── AnchorBar ── */}
+      <AnchorBar items={anchorItems} />
+
+      {/* ── 登録ボタン ── */}
+      {!isPast && (
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-4">
+          <RaceRegistrationButtons
+            raceId={race.id}
+            raceName={raceName}
+            raceDate={race.date}
+            categories={race.categories.map((c) => ({
+              id: c.id,
+              name_ja: c.name_ja,
+              name_en: c.name_en,
+              distance_km: c.distance_km,
+              distance_type: c.distance_type,
+            }))}
+            entryPeriods={race.entry_periods
+              .filter((p) => p.start_date >= today)
+              .map((p) => ({
+                id: p.id,
+                label_ja: p.label_ja,
+                label_en: p.label_en,
+                start_date: p.start_date,
+              }))}
+            today={today}
+          />
+        </div>
+      )}
 
       {/* ── Content ── */}
       <div
@@ -280,110 +228,212 @@ export default async function RaceDetailPage({
         style={{ color: 'var(--color-ink)' }}
       >
 
-        {/* Overview */}
-        {raceDesc && (
-          <section>
-            <SectionLabel>{locale === 'ja' ? '概要' : 'Overview'}</SectionLabel>
-            <SectionTitle>{t('overview')}</SectionTitle>
-            <p className="text-base leading-relaxed whitespace-pre-line" style={{ color: 'var(--color-ink2)' }}>
-              {raceDesc}
-            </p>
-          </section>
-        )}
+        {/* ── Section 01: 概要・基本要項 ── */}
+        <section id="overview" style={{ scrollMarginTop: '3.5rem' }}>
+          <SectionHeading
+            num="01"
+            title={locale === 'ja' ? '概要・基本要項' : 'Overview'}
+            subtitle={locale === 'ja' ? 'Overview' : '概要・基本要項'}
+          />
 
-        {/* Categories & Course */}
-        <section>
-          <SectionLabel>{locale === 'ja' ? 'コース' : 'Course'}</SectionLabel>
-          <SectionTitle>{t('course')}</SectionTitle>
+          {/* スタットグリッド */}
+          {mainCategory && (
+            <Card className="mb-5">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-6">
+                {/* 距離 */}
+                <div>
+                  <p className="text-[0.58rem] tracking-[0.18em] uppercase font-semibold mb-1.5" style={{ color: 'var(--color-mid)' }}>
+                    {locale === 'ja' ? 'Distance' : 'Distance'}
+                  </p>
+                  <p className="font-bold leading-none" style={{ fontSize: '1.9rem', color: 'var(--color-ink)' }}>
+                    {mainCategory.distance_km}
+                    <span className="text-sm font-medium ml-1" style={{ color: 'var(--color-ink2)' }}>km</span>
+                  </p>
+                </div>
 
-          {/* Categories table */}
-          <Card className="mb-4 overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr style={{ borderBottom: '2px solid var(--color-border)' }}>
-                  <th className="text-left pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>{t('category')}</th>
-                  <th className="text-right pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>{t('distance')}</th>
-                  <th className="text-right pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>{t('cutoffTime')}</th>
-                  <th className="text-right pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>{t('startTime')}</th>
-                  <th className="text-right pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>{t('fee')}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {race.categories.map((cat, i) => {
-                  const eligibility = locale === 'ja' ? cat.eligibility_ja : cat.eligibility_en;
-                  const isLast = i === race.categories.length - 1;
-                  return (
-                    <Fragment key={i}>
-                      <tr
-                        style={!eligibility ? { borderBottom: isLast ? 'none' : '1px solid var(--color-border)' } : undefined}
-                      >
-                        <td className="py-3 font-medium">{getCategoryLabel(cat, locale)}</td>
-                        <td className="py-3 text-right">{cat.distance_km}km</td>
-                        <td className="py-3 text-right">
-                          {cat.time_limit_minutes > 0
-                            ? `${Math.floor(cat.time_limit_minutes / 60)}:${String(cat.time_limit_minutes % 60).padStart(2, '0')}`
-                            : '—'}
-                        </td>
-                        <td className="py-3 text-right">{cat.start_time || '—'}</td>
-                        <td className="py-3 text-right">
-                          {cat.entry_fee
-                            ? formatCurrency(cat.entry_fee)
-                            : race.entry_fee
-                              ? formatCurrency(race.entry_fee)
-                              : '—'}
-                        </td>
-                      </tr>
-                      {eligibility && (
+                {/* 制限時間 */}
+                {mainCategory.time_limit_minutes > 0 && (
+                  <div>
+                    <p className="text-[0.58rem] tracking-[0.18em] uppercase font-semibold mb-1.5" style={{ color: 'var(--color-mid)' }}>
+                      Time Limit
+                    </p>
+                    <p className="font-bold leading-none" style={{ fontSize: '1.9rem', color: 'var(--color-ink)' }}>
+                      {Math.floor(mainCategory.time_limit_minutes / 60)}
+                      {mainCategory.time_limit_minutes % 60 > 0 && `:${String(mainCategory.time_limit_minutes % 60).padStart(2, '0')}`}
+                      <span className="text-sm font-medium ml-1" style={{ color: 'var(--color-ink2)' }}>
+                        {mainCategory.time_limit_minutes % 60 === 0 ? (locale === 'ja' ? '時間' : 'hrs') : ''}
+                      </span>
+                    </p>
+                  </div>
+                )}
+
+                {/* 定員 */}
+                {(mainCategory.capacity > 0 || race.entry_capacity > 0) && (
+                  <div>
+                    <p className="text-[0.58rem] tracking-[0.18em] uppercase font-semibold mb-1.5" style={{ color: 'var(--color-mid)' }}>
+                      Capacity
+                    </p>
+                    <p className="font-bold leading-none" style={{ fontSize: '1.9rem', color: 'var(--color-ink)' }}>
+                      {(mainCategory.capacity > 0 ? mainCategory.capacity : race.entry_capacity).toLocaleString()}
+                      <span className="text-sm font-medium ml-1" style={{ color: 'var(--color-ink2)' }}>
+                        {locale === 'ja' ? '人' : ''}
+                      </span>
+                    </p>
+                  </div>
+                )}
+
+                {/* 参加費 */}
+                {(race.entry_fee || mainCategory.entry_fee) && (
+                  <div>
+                    <p className="text-[0.58rem] tracking-[0.18em] uppercase font-semibold mb-1.5" style={{ color: 'var(--color-mid)' }}>
+                      Entry Fee
+                    </p>
+                    <p className="font-bold leading-none" style={{ fontSize: '1.9rem', color: 'var(--color-ink)' }}>
+                      {formatCurrency(mainCategory.entry_fee ?? race.entry_fee!)}
+                    </p>
+                  </div>
+                )}
+
+                {/* 高低差 */}
+                {race.course_info.elevation_diff_m > 0 && (
+                  <div>
+                    <p className="text-[0.58rem] tracking-[0.18em] uppercase font-semibold mb-1.5" style={{ color: 'var(--color-mid)' }}>
+                      Elevation
+                    </p>
+                    <p className="font-bold leading-none" style={{ fontSize: '1.9rem', color: 'var(--color-ink)' }}>
+                      +{race.course_info.elevation_diff_m}
+                      <span className="text-sm font-medium ml-1" style={{ color: 'var(--color-ink2)' }}>m</span>
+                    </p>
+                  </div>
+                )}
+
+              </div>
+            </Card>
+          )}
+
+          <OverviewSection race={race} locale={locale} />
+        </section>
+
+        {/* ── Section 02: コース紹介 ── */}
+        <section id="course" style={{ scrollMarginTop: '3.5rem' }}>
+          <SectionHeading
+            num="02"
+            title={locale === 'ja' ? 'コース紹介' : 'Course'}
+            subtitle={locale === 'ja' ? 'Course Map & Elevation' : 'コース紹介'}
+          />
+
+          {/* カテゴリテーブル（複数カテゴリの場合のみ） */}
+          {race.categories.length > 1 && (
+            <Card className="mb-5 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr style={{ borderBottom: '2px solid var(--color-border)' }}>
+                    <th className="text-left pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>{t('category')}</th>
+                    <th className="text-right pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>{t('distance')}</th>
+                    <th className="text-right pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>{t('cutoffTime')}</th>
+                    <th className="text-right pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>{t('startTime')}</th>
+                    <th className="text-right pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>{t('fee')}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {race.categories.map((cat, i) => {
+                    const eligibility = locale === 'ja' ? cat.eligibility_ja : cat.eligibility_en;
+                    const isLast = i === race.categories.length - 1;
+                    return (
+                      <Fragment key={i}>
                         <tr
-                          style={{ borderBottom: isLast ? 'none' : '1px solid var(--color-border)' }}
+                          style={!eligibility ? { borderBottom: isLast ? 'none' : '1px solid var(--color-border)' } : undefined}
                         >
-                          <td colSpan={5} className="pb-3 text-xs whitespace-pre-line" style={{ color: 'var(--color-mid)' }}>
-                            {locale === 'ja' ? '参加資格: ' : 'Eligibility: '}{eligibility}
+                          <td className="py-3 font-medium">{getCategoryLabel(cat, locale)}</td>
+                          <td className="py-3 text-right">{cat.distance_km}km</td>
+                          <td className="py-3 text-right">
+                            {cat.time_limit_minutes > 0
+                              ? `${Math.floor(cat.time_limit_minutes / 60)}:${String(cat.time_limit_minutes % 60).padStart(2, '0')}`
+                              : '—'}
+                          </td>
+                          <td className="py-3 text-right">{cat.start_time || '—'}</td>
+                          <td className="py-3 text-right">
+                            {cat.entry_fee
+                              ? formatCurrency(cat.entry_fee)
+                              : race.entry_fee
+                                ? formatCurrency(race.entry_fee)
+                                : '—'}
                           </td>
                         </tr>
+                        {eligibility && (
+                          <tr style={{ borderBottom: isLast ? 'none' : '1px solid var(--color-border)' }}>
+                            <td colSpan={5} className="pb-3 text-xs whitespace-pre-line" style={{ color: 'var(--color-mid)' }}>
+                              {locale === 'ja' ? '参加資格: ' : 'Eligibility: '}{eligibility}
+                            </td>
+                          </tr>
+                        )}
+                      </Fragment>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </Card>
+          )}
+
+          {/* コースプロフィール（地図+ハイライト横並び → 高低差チャート） */}
+          {(() => {
+            const highlightsSidebar = (cat: typeof race.categories[0] | null) => cat && cat.course_highlights.length > 0 ? (
+              <div>
+                <p className="text-[0.58rem] tracking-[0.18em] uppercase font-semibold mb-3" style={{ color: 'var(--color-mid)' }}>
+                  Highlights
+                </p>
+                <ol className="space-y-3.5">
+                  {cat.course_highlights.map((h) => (
+                    <li key={h.id} className="flex gap-2.5">
+                      {h.km != null && (
+                        <span
+                          className="font-mono text-[0.65rem] font-bold shrink-0 mt-0.5 w-10 text-right"
+                          style={{ color: 'var(--color-primary)' }}
+                        >
+                          {h.km}km
+                        </span>
                       )}
-                    </Fragment>
-                  );
-                })}
-              </tbody>
-            </table>
-          </Card>
-
-          {/* コースプロフィール（地図 + 高低差チャート） */}
-          {race.categories.some((c) => c.course_gpx_file) ? (
-            race.categories
-              .filter((c) => c.course_gpx_file)
-              .map((cat, i) => (
-                <div key={i} className="mb-6">
-                  <p className="text-xs font-semibold uppercase tracking-wide mb-2" style={{ color: 'var(--color-mid)' }}>
-                    {getCategoryLabel(cat, locale)}
-                  </p>
-                  <CourseProfileSection profileKey={cat.course_gpx_file!} locale={locale} />
-                </div>
-              ))
-          ) : race.course_gpx_file ? (
-            <div className="mb-4">
-              <CourseProfileSection profileKey={id} locale={locale} />
-            </div>
-          ) : null}
-
-          {/* Course info */}
-          {(race.course_info.max_elevation_m > 0 || race.course_info.highlights_ja) && (
-            <Card>
-              <div className="grid grid-cols-3 gap-4 mb-4">
-                <div className="text-center">
-                  <p className="text-xl font-bold">{race.course_info.max_elevation_m}m</p>
-                  <p className="text-xs mt-0.5" style={{ color: 'var(--color-mid)' }}>{t('maxElev')}</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-xl font-bold">{race.course_info.min_elevation_m}m</p>
-                  <p className="text-xs mt-0.5" style={{ color: 'var(--color-mid)' }}>{t('minElev')}</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-xl font-bold">{race.course_info.elevation_diff_m}m</p>
-                  <p className="text-xs mt-0.5" style={{ color: 'var(--color-mid)' }}>{t('diff')}</p>
-                </div>
+                      <div>
+                        <p className="text-sm font-medium leading-snug" style={{ color: 'var(--color-ink)' }}>
+                          {locale === 'ja' ? h.name_ja : (h.name_en ?? h.name_ja)}
+                        </p>
+                        {(locale === 'ja' ? h.note_ja : h.note_en) && (
+                          <p className="text-xs mt-0.5 leading-snug" style={{ color: 'var(--color-mid)' }}>
+                            {locale === 'ja' ? h.note_ja : h.note_en}
+                          </p>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ol>
               </div>
+            ) : undefined;
+
+            if (race.categories.some((c) => c.course_gpx_file)) {
+              return race.categories.filter((c) => c.course_gpx_file).map((cat, i) => (
+                <div key={i} className="mb-6">
+                  {race.categories.filter((c) => c.course_gpx_file).length > 1 && (
+                    <p className="text-xs font-semibold uppercase tracking-wide mb-2" style={{ color: 'var(--color-mid)' }}>
+                      {getCategoryLabel(cat, locale)}
+                    </p>
+                  )}
+                  <CourseProfileSection profileKey={cat.course_gpx_file!} locale={locale} sidebarContent={highlightsSidebar(cat)} />
+                </div>
+              ));
+            }
+            if (race.course_gpx_file) {
+              return (
+                <div className="mb-5">
+                  <CourseProfileSection profileKey={id} locale={locale} sidebarContent={highlightsSidebar(race.categories[0] ?? null)} />
+                </div>
+              );
+            }
+            return null;
+          })()}
+
+          {/* コース情報（認定・メモ） */}
+          {(race.course_info.certification.length > 0 || race.course_info.notes_ja) && (
+            <Card>
               {race.course_info.certification.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-3">
                   {race.course_info.certification.map((cert) => (
@@ -397,14 +447,9 @@ export default async function RaceDetailPage({
                   ))}
                 </div>
               )}
-              {(locale === 'ja' ? race.course_info.highlights_ja : race.course_info.highlights_en) && (
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--color-ink2)' }}>
-                  {locale === 'ja' ? race.course_info.highlights_ja : race.course_info.highlights_en}
-                </p>
-              )}
               {(locale === 'ja' ? race.course_info.notes_ja : race.course_info.notes_en) && (
                 <p
-                  className="text-xs mt-3 p-3 rounded-[3px] leading-relaxed"
+                  className="text-xs p-3 rounded-[3px] leading-relaxed"
                   style={{ background: '#fff8f0', border: '1px solid #f0d9c0', color: '#7a4f1a' }}
                 >
                   ⚠️ {locale === 'ja' ? race.course_info.notes_ja : race.course_info.notes_en}
@@ -417,8 +462,7 @@ export default async function RaceDetailPage({
         {/* Checkpoints */}
         {race.checkpoints.length > 0 && (
           <section>
-            <SectionLabel>{locale === 'ja' ? '関門' : 'Cutoffs'}</SectionLabel>
-            <SectionTitle>{t('checkpoints')}</SectionTitle>
+            <SectionHeading num="02-a" title={locale === 'ja' ? '関門' : 'Cutoffs'} />
             <Card className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -451,8 +495,7 @@ export default async function RaceDetailPage({
         {/* Aid Stations */}
         {race.aid_stations.length > 0 && (
           <section>
-            <SectionLabel>{locale === 'ja' ? 'エイド' : 'Aid'}</SectionLabel>
-            <SectionTitle>{t('aidStations')}</SectionTitle>
+            <SectionHeading num="02-b" title={locale === 'ja' ? 'エイドステーション' : 'Aid Stations'} />
             <div className="space-y-2">
               {race.aid_stations.map((aid, i) => (
                 <Card key={i}>
@@ -484,195 +527,17 @@ export default async function RaceDetailPage({
         )}
 
         {/* Entry / Registration */}
-        <section>
-          <SectionLabel>{locale === 'ja' ? 'エントリー' : 'Registration'}</SectionLabel>
-          <SectionTitle>{t('applicationPeriod')}</SectionTitle>
+        <section id="entry" style={{ scrollMarginTop: '3.5rem' }}>
+          <SectionHeading num="03" title={locale === 'ja' ? 'エントリー情報' : 'Registration'} subtitle={locale === 'ja' ? 'Entry' : 'エントリー'} />
           <Card>
-            {/* 受付終了メッセージ */}
-            {!isPast && race.entry_closed && (
-              <p
-                className="text-sm mb-4 px-3 py-2.5 rounded-[3px] leading-relaxed"
-                style={{ background: '#fff8f0', border: '1px solid #f0d9c0', color: '#7a4f1a' }}
-              >
-                {locale === 'ja'
-                  ? '定員に達したため受付を終了しました。最新情報は公式サイトをご確認ください。'
-                  : 'Registration has closed as the event has reached capacity. Please check the official site for the latest information.'}
-              </p>
-            )}
-            {/* entry_periods がある場合は一覧表示、ない場合は旧フィールドにフォールバック */}
-            {race.entry_periods && race.entry_periods.length > 0 ? (
-              <div className="mb-4">
-                {race.entry_periods.length === 1 ? (
-                  // 1件のみの場合はシンプル表示
-                  <div className="flex flex-wrap gap-6">
-                    <div>
-                      <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
-                        {locale === 'ja' ? '受付期間' : 'Period'}
-                      </p>
-                      <p className="font-medium">
-                        {formatDate(race.entry_periods[0].start_date, locale)}
-                        {' — '}
-                        {formatDate(race.entry_periods[0].end_date, locale)}
-                      </p>
-                    </div>
-                    {race.entry_periods[0].entry_fee && (
-                      <div>
-                        <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
-                          {t('fee')}
-                        </p>
-                        <p className="font-medium">{formatCurrency(race.entry_periods[0].entry_fee)}</p>
-                      </div>
-                    )}
-                    {!race.entry_periods[0].entry_fee && !race.entry_fee_by_category && race.entry_fee && (
-                      <div>
-                        <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
-                          {t('fee')}
-                        </p>
-                        <p className="font-medium">{formatCurrency(race.entry_fee)}</p>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  // 複数エントリー期間の場合はテーブル表示
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
-                      <thead>
-                        <tr style={{ borderBottom: '2px solid var(--color-border)' }}>
-                          <th className="text-left pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>
-                            {locale === 'ja' ? '種別' : 'Type'}
-                          </th>
-                          <th className="text-left pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>
-                            {locale === 'ja' ? '受付期間' : 'Period'}
-                          </th>
-                          <th className="text-right pb-2.5 font-semibold" style={{ color: 'var(--color-mid)' }}>
-                            {t('fee')}
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {race.entry_periods.map((ep) => (
-                          <tr key={ep.id} style={{ borderBottom: '1px solid var(--color-border)' }} className="last:border-0">
-                            <td className="py-2.5 font-medium">
-                              {locale === 'ja' ? ep.label_ja : ep.label_en}
-                            </td>
-                            <td className="py-2.5">
-                              {formatDate(ep.start_date, locale)} — {formatDate(ep.end_date, locale)}
-                            </td>
-                            <td className="py-2.5 text-right">
-                              {ep.entry_fee
-                                ? formatCurrency(ep.entry_fee)
-                                : (!race.entry_fee_by_category && race.entry_fee)
-                                  ? formatCurrency(race.entry_fee)
-                                  : '—'}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )}
-              </div>
-            ) : (
-              // フォールバック: 旧フィールド
-              <div className="flex flex-wrap gap-6 mb-4">
-                <div>
-                  <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
-                    {locale === 'ja' ? '受付期間' : 'Period'}
-                  </p>
-                  <p className="font-medium">
-                    {race.entry_start_date
-                      ? formatDate(race.entry_start_date, locale)
-                      : (!isPast ? <span style={{ color: 'var(--color-light)' }}>{t('unpublished')}</span> : '—')}
-                    {' — '}
-                    {race.entry_end_date
-                      ? formatDate(race.entry_end_date, locale)
-                      : (!isPast ? <span style={{ color: 'var(--color-light)' }}>{t('unpublished')}</span> : '—')}
-                  </p>
-                </div>
-                {!race.entry_fee_by_category && race.entry_fee && (
-                  <div>
-                    <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
-                      {t('fee')}
-                    </p>
-                    <p className="font-medium">{formatCurrency(race.entry_fee)}</p>
-                  </div>
-                )}
-              </div>
-            )}
-            {(() => {
-              const receptionTypeLabel: Record<string, { ja: string; en: string }> = {
-                pre_day:  { ja: '前日受付', en: 'Pre-event pickup' },
-                race_day: { ja: '当日受付', en: 'Race day pickup' },
-                same_day: { ja: '当日受付', en: 'Race day pickup' },
-                both:     { ja: '前日・当日受付', en: 'Pre-event & race day' },
-                pre_mail: { ja: '事前郵送', en: 'By mail' },
-                mail:     { ja: '事前郵送', en: 'By mail' },
-              };
-              const typeLabel = race.reception_type ? receptionTypeLabel[race.reception_type] : null;
-              const note = locale === 'ja' ? race.reception_note_ja : race.reception_note_en;
-              if (!typeLabel && !note) return null;
-              return (
-                <div className="mt-3 mb-4">
-                  <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
-                    {locale === 'ja' ? '受付' : 'Reception'}
-                  </p>
-                  {typeLabel && (
-                    <p className="font-medium text-sm mb-1">
-                      {locale === 'ja' ? typeLabel.ja : typeLabel.en}
-                    </p>
-                  )}
-                  {note && (
-                    <p className="text-sm whitespace-pre-line" style={{ color: 'var(--color-mid)' }}>
-                      {note}
-                    </p>
-                  )}
-                </div>
-              );
-            })()}
-            {race.entry_capacity > 0 && (
-              <div className="mt-3 mb-4">
-                <p className="text-xs mb-1" style={{ color: 'var(--color-mid)' }}>
-                  {t('capacity')}
-                </p>
-                <p className="font-medium">{race.entry_capacity.toLocaleString()}{locale === 'ja' ? '人' : ' runners'}</p>
-              </div>
-            )}
-            {/* エントリーリンク */}
-            {race.entry_links.length > 0 && (
-              <div className="mt-4 flex flex-wrap gap-2">
-                {race.entry_links.map((link) => (
-                  <a
-                    key={link.id}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block px-5 py-2 text-sm font-semibold rounded-[3px] transition-colors no-underline"
-                    style={{ background: 'var(--color-primary)', color: 'white' }}
-                  >
-                    {link.site_name} ↗
-                  </a>
-                ))}
-              </div>
-            )}
-            {race.official_url && (
-              <a
-                href={race.official_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-4 px-5 py-2 text-sm font-semibold rounded-[3px] transition-colors no-underline"
-                style={{ background: 'var(--color-cream)', color: 'var(--color-ink)', border: '1px solid var(--color-border)' }}
-              >
-                {t('website')} ↗
-              </a>
-            )}
+            <EntrySection race={race} locale={locale} today={today} />
           </Card>
         </section>
 
         {/* Access */}
         {race.access_points.length > 0 && (
           <section>
-            <SectionLabel>{locale === 'ja' ? '交通' : 'Transport'}</SectionLabel>
-            <SectionTitle>{t('access')}</SectionTitle>
+            <SectionHeading num="04" title={locale === 'ja' ? 'アクセス・宿泊' : 'Access & Stay'} subtitle={locale === 'ja' ? 'Access & Stay' : 'アクセス・宿泊'} />
             <div className="space-y-2">
               {race.access_points.map((ap, i) => (
                 <Card key={i}>
@@ -696,8 +561,7 @@ export default async function RaceDetailPage({
         {/* Participation Gift */}
         {race.participation_gifts.length > 0 && (
           <section>
-            <SectionLabel>{locale === 'ja' ? '参加賞' : 'Finisher'}</SectionLabel>
-            <SectionTitle>{t('gift')}</SectionTitle>
+            <SectionHeading num="05" title={locale === 'ja' ? '参加賞' : 'Finisher Gift'} />
             {race.participation_gifts.map((gift, i) => (
               <Card key={i}>
                 <div className="flex flex-wrap gap-2 mb-3">
@@ -729,8 +593,7 @@ export default async function RaceDetailPage({
         {/* Nearby Spots */}
         {race.nearby_spots.length > 0 && (
           <section>
-            <SectionLabel>{locale === 'ja' ? '周辺' : 'Area'}</SectionLabel>
-            <SectionTitle>{t('nearby')}</SectionTitle>
+            <SectionHeading num="06" title={locale === 'ja' ? '近隣スポット' : 'Nearby'} />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {race.nearby_spots.map((spot, i) => {
                 const typeInfo = NEARBY_TYPE[spot.type];
@@ -776,109 +639,30 @@ export default async function RaceDetailPage({
           </section>
         )}
 
-        {/* Race Result */}
+        {/* Last Edition Result */}
         {race.result && (
-          <section>
-            <SectionLabel>{locale === 'ja' ? '開催実績' : 'Results'}</SectionLabel>
-            <SectionTitle>{locale === 'ja' ? 'レース実績' : 'Race Results'}</SectionTitle>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
-              {race.result.participants_count !== null && (
-                <Card className="text-center">
-                  <p className="text-2xl font-bold" style={{ color: 'var(--color-ink)' }}>
-                    {race.result.participants_count.toLocaleString()}
-                  </p>
-                  <p className="text-xs mt-0.5" style={{ color: 'var(--color-mid)' }}>
-                    {locale === 'ja' ? '参加者数' : 'Participants'}
-                  </p>
-                </Card>
-              )}
-              {race.result.finishers_count !== null && (
-                <Card className="text-center">
-                  <p className="text-2xl font-bold" style={{ color: 'var(--color-ink)' }}>
-                    {race.result.finishers_count.toLocaleString()}
-                  </p>
-                  <p className="text-xs mt-0.5" style={{ color: 'var(--color-mid)' }}>
-                    {locale === 'ja' ? '完走者数' : 'Finishers'}
-                  </p>
-                </Card>
-              )}
-              {race.result.finisher_rate_pct !== null && (
-                <Card className="text-center">
-                  <p className="text-2xl font-bold" style={{ color: 'var(--color-ink)' }}>
-                    {race.result.finisher_rate_pct.toFixed(1)}%
-                  </p>
-                  <p className="text-xs mt-0.5" style={{ color: 'var(--color-mid)' }}>
-                    {locale === 'ja' ? '完走率' : 'Finish Rate'}
-                  </p>
-                </Card>
-              )}
-              {race.result.temperature_c !== null && (
-                <Card className="text-center">
-                  <p className="text-2xl font-bold" style={{ color: 'var(--color-ink)' }}>
-                    {race.result.temperature_c}°C
-                  </p>
-                  <p className="text-xs mt-0.5" style={{ color: 'var(--color-mid)' }}>
-                    {locale === 'ja' ? '当日気温' : 'Temperature'}
-                  </p>
-                </Card>
-              )}
-            </div>
-            {/* Weather details */}
-            {race.result.weather_condition_ja && (
-              <Card>
-                <div className="flex flex-wrap gap-5 text-sm">
-                  <div>
-                    <p className="text-xs mb-0.5" style={{ color: 'var(--color-mid)' }}>
-                      {locale === 'ja' ? '天気' : 'Weather'}
-                    </p>
-                    <p className="font-medium">
-                      {locale === 'ja' ? race.result.weather_condition_ja : race.result.weather_condition_en}
-                    </p>
-                  </div>
-                  {race.result.max_temp_c !== null && (
-                    <div>
-                      <p className="text-xs mb-0.5" style={{ color: 'var(--color-mid)' }}>{locale === 'ja' ? '最高気温' : 'Max'}</p>
-                      <p className="font-medium" style={{ color: '#c0392b' }}>{race.result.max_temp_c}°C</p>
-                    </div>
-                  )}
-                  {race.result.min_temp_c !== null && (
-                    <div>
-                      <p className="text-xs mb-0.5" style={{ color: 'var(--color-mid)' }}>{locale === 'ja' ? '最低気温' : 'Min'}</p>
-                      <p className="font-medium" style={{ color: '#2980b9' }}>{race.result.min_temp_c}°C</p>
-                    </div>
-                  )}
-                  {race.result.wind_speed_ms !== null && (
-                    <div>
-                      <p className="text-xs mb-0.5" style={{ color: 'var(--color-mid)' }}>{locale === 'ja' ? '風速' : 'Wind'}</p>
-                      <p className="font-medium">{race.result.wind_speed_ms} m/s</p>
-                    </div>
-                  )}
-                  {race.result.humidity_pct !== null && (
-                    <div>
-                      <p className="text-xs mb-0.5" style={{ color: 'var(--color-mid)' }}>{locale === 'ja' ? '湿度' : 'Humidity'}</p>
-                      <p className="font-medium">{race.result.humidity_pct}%</p>
-                    </div>
-                  )}
-                </div>
-                {race.result.notes_ja && (
-                  <p className="text-sm mt-3 pt-3 leading-relaxed" style={{ borderTop: '1px solid var(--color-border)', color: 'var(--color-ink2)' }}>
-                    {locale === 'ja' ? race.result.notes_ja : race.result.notes_en}
-                  </p>
-                )}
-              </Card>
-            )}
+          <section id="last-edition" style={{ scrollMarginTop: '3.5rem' }}>
+            <SectionHeading num="07" title={locale === 'ja' ? '前回の様子' : 'Last Edition'} subtitle={locale === 'ja' ? 'Last Edition' : '前回の様子'} />
+            <LastEditionSection race={race} locale={locale} />
+          </section>
+        )}
+
+        {/* Gallery & Voices */}
+        {(race.gallery.length > 0 || race.voices.length > 0) && (
+          <section id="gallery" style={{ scrollMarginTop: '3.5rem' }}>
+            <SectionHeading num="08" title={locale === 'ja' ? '写真・参加者の声' : 'Photos & Voices'} subtitle={locale === 'ja' ? 'Gallery' : 'ギャラリー'} />
+            <GallerySection race={race} locale={locale} />
           </section>
         )}
 
         {/* Past Editions */}
         {(seriesRaces.length > 0 || series) && (
           <section>
-            <SectionLabel>{locale === 'ja' ? 'シリーズ' : 'Series'}</SectionLabel>
-            <SectionTitle>
-              {series
-                ? (locale === 'ja' ? series.name_ja : series.name_en)
-                : (locale === 'ja' ? '過去の大会' : 'Past Editions')}
-            </SectionTitle>
+            <SectionHeading
+              num="09"
+              title={series ? (locale === 'ja' ? series.name_ja : series.name_en) ?? (locale === 'ja' ? '過去の大会' : 'Past Editions') : (locale === 'ja' ? '過去の大会' : 'Past Editions')}
+              subtitle={locale === 'ja' ? 'Series' : 'シリーズ'}
+            />
             {seriesRaces.length === 0 ? (
               <Card>
                 <p className="text-sm" style={{ color: 'var(--color-mid)' }}>
@@ -919,7 +703,6 @@ export default async function RaceDetailPage({
                             </div>
                           </div>
                           <div className="flex items-center gap-3 shrink-0">
-                            {/* Result stats if available */}
                             {r.result?.participants_count !== null && r.result?.participants_count !== undefined && (
                               <div className="text-right hidden sm:block">
                                 <p className="text-sm font-semibold" style={{ color: 'var(--color-ink)' }}>
@@ -959,8 +742,7 @@ export default async function RaceDetailPage({
         {/* Weather History */}
         {race.weather_history.length > 0 && (
           <section>
-            <SectionLabel>{locale === 'ja' ? '気象' : 'Weather'}</SectionLabel>
-            <SectionTitle>{t('weather')}</SectionTitle>
+            <SectionHeading num="10" title={locale === 'ja' ? '気象履歴' : 'Weather History'} subtitle={locale === 'ja' ? 'Weather' : '気象'} />
             <Card className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>

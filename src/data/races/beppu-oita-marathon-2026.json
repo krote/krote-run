@@ -108,5 +108,30 @@
       "end_date": "2025-09-11",
       "entry_fee": null
     }
+  ],
+  "motif": "温泉",
+  "motif_color": "#fed7aa",
+  "motif_romaji": "Onsen",
+  "tagline_ja": "湯けむりの街から、大分へ。歴史ある42.195km",
+  "tagline_en": "From the city of hot springs to Oita — a storied 42.195km",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "別府温泉街",
+      "name_en": "Beppu hot spring town",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "別大国道の海岸線",
+      "name_en": "Betsudai coastal road",
+      "description_ja": null,
+      "description_en": null
+    }
   ]
 }

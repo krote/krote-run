@@ -100,5 +100,24 @@
       "end_date": "2025-11-30",
       "entry_fee": null
     }
+  ],
+  "motif": "大阪湾",
+  "motif_color": "#0ea5e9",
+  "motif_romaji": "Osaka-wan",
+  "tagline_ja": "関西国際空港を望む、泉州の海岸を駆ける",
+  "tagline_en": "Run the Senshu coast with Kansai International Airport in view",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "泉州の海岸沿い",
+      "name_en": "Senshu coastline",
+      "description_ja": null,
+      "description_en": null
+    }
   ]
 }

@@ -17,7 +17,7 @@
   "entry_capacity": 0,
   "entry_start_date": "2026-03-22",
   "entry_end_date": "2026-04-12",
-  "reception_type": "mail",
+  "reception_type": "pre_mail",
   "reception_note_ja": "一般枠：3/22〜4/12。アスリート・学生・女性・海外枠：3/22〜5/7。レイトエントリー枠：5/31〜6/8。システム利用料別途。",
   "reception_note_en": "General entry: Mar 22 - Apr 12. Athlete/Student/Women/Overseas entries: Mar 22 - May 7. Late entry: May 31 - Jun 8. System fee applies separately.",
   "tags": [
@@ -99,6 +99,37 @@
       "entry_fee": 16500,
       "label_ja": "レイトエントリー",
       "label_en": "Late Entry"
+    }
+  ],
+  "motif": "海",
+  "motif_color": "#0ea5e9",
+  "motif_romaji": "Umi",
+  "tagline_ja": "東京湾アクアラインを渡る、世界唯一のコース",
+  "tagline_en": "The world-unique course crossing Tokyo Bay Aqua-Line",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "東京湾アクアライン",
+      "name_en": "Tokyo Bay Aqualine",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "海ほたる",
+      "name_en": "Umihotaru PA",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "袖ケ浦の田園地帯",
+      "name_en": "Sodegaura farmlands",
+      "description_ja": null,
+      "description_en": null
     }
   ]
 }

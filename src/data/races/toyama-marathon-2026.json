@@ -112,5 +112,36 @@
       "label_ja": "一般エントリー",
       "label_en": "General Entry"
     }
+  ],
+  "motif": "立山連峰",
+  "motif_color": "#1e3a8a",
+  "motif_romaji": "Tateyama-Rempo",
+  "tagline_ja": "立山連峰と富山湾を望む、360度の絶景コース",
+  "tagline_en": "Run with panoramic views of the Tateyama Range and Toyama Bay",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "立山連峰",
+      "name_en": "Tateyama Mountains",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "新湊大橋",
+      "name_en": "Shinminato Bridge",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "富山湾",
+      "name_en": "Toyama Bay",
+      "description_ja": null,
+      "description_en": null
+    }
   ]
 }

@@ -95,5 +95,24 @@
       "end_date": "2025-10-31",
       "entry_fee": null
     }
+  ],
+  "motif": "姫路城",
+  "motif_color": "#f8fafc",
+  "motif_romaji": "Himeji-jo",
+  "tagline_ja": "世界遺産・白鷺城を眺めながら走る42.195km",
+  "tagline_en": "Run beneath the White Heron Castle, a World Heritage Site",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "姫路城",
+      "name_en": "Himeji Castle",
+      "description_ja": null,
+      "description_en": null
+    }
   ]
 }

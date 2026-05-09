@@ -60,19 +60,43 @@ export default async function RacesPage({
 
   return (
     <>
-      {/* Editorial header */}
-      <div style={{ background: 'var(--color-ink)' }} className="text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-14">
+      {/* Page header */}
+      <div
+        style={{
+          background: 'var(--color-cream)',
+          borderBottom: '1px solid var(--color-border-soft)',
+          padding: '48px 40px 36px',
+        }}
+      >
+        <div className="max-w-[1120px] mx-auto">
           <p
-            className="text-xs font-semibold tracking-[0.2em] uppercase mb-3"
-            style={{ color: 'var(--color-primary)' }}
+            className="flex items-center gap-2 mb-3"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.65rem',
+              letterSpacing: '0.28em',
+              textTransform: 'uppercase',
+              color: 'var(--color-primary)',
+            }}
           >
+            <span style={{ display: 'inline-block', width: 18, height: 1, background: 'var(--color-primary)' }} />
             {t('eyebrow')}
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold mb-3 leading-tight">
+          <h1
+            className="font-serif font-semibold"
+            style={{ fontSize: 'clamp(1.875rem, 3vw, 2.5rem)', color: 'var(--color-ink)', margin: 0, lineHeight: 1.15 }}
+          >
             {t('title')}
           </h1>
-          <p style={{ color: 'var(--color-light)' }} className="text-sm">
+          <p
+            className="mt-2"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.68rem',
+              letterSpacing: '0.14em',
+              color: 'var(--color-mid)',
+            }}
+          >
             {locale === 'ja'
               ? `${races.length}${t('subtitle')}`
               : `${races.length} ${t('subtitle')}`}
@@ -80,7 +104,7 @@ export default async function RacesPage({
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+      <div className="max-w-[1120px] mx-auto px-10 py-8">
         <RaceList
           races={races}
           prefectures={prefectures}

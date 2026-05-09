@@ -1,0 +1,137 @@
+{
+  "id": "kasama-togeinosato-half-2025-2025",
+  "name_ja": "かさま陶芸の里ハーフマラソン",
+  "name_en": "Kasama Pottery Village Half Marathon",
+  "full_name_ja": "かさま陶芸の里ハーフマラソン",
+  "full_name_en": "Kasama Pottery Village Half Marathon",
+  "edition": 20,
+  "date": "2025-12-21",
+  "prefecture": "08",
+  "city_ja": "笠間市笠間2345番地",
+  "city_en": "2345 Kasama, Kasama City, Ibaraki Prefecture",
+  "description_ja": "",
+  "description_en": "",
+  "official_url": "https://www.kasa-mara.jp/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2025-08-11",
+  "entry_end_date": "2025-10-24",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "",
+    "highlights_en": "",
+    "notes_ja": "",
+    "notes_en": ""
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "entry_fee": 5000,
+      "capacity": 2000,
+      "time_limit_minutes": 150,
+      "start_time": "10:00",
+      "name_ja": null,
+      "eligibility_ja": "18歳以上（高校生を除く）で健康に異常がなく２時間30分以内で完走できる方。なお、安全管理運営上、車いすやベビーカーを使用しての参加はできません。\n\n視覚障害の方への伴走者は、同種目に選手として参加することはできません。また、伴走者は、伴走と表示したゼッケンを持参してください。\n\n年齢起算は、大会日現在とします。",
+      "eligibility_en": null,
+      "course_gpx_file": "kasama-togeinosato-half-2025-2025",
+      "course_highlights": []
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "笠間稲荷神社",
+      "name_en": "Kasama Inari Shrine",
+      "description_ja": "651年創建と伝わる1360年以上の歴史を持つ日本三大稲荷のひとつです。宇迦之御魂神（うかのみたまのかみ）を祀り、五穀豊穣、商売繁盛、殖産興業の守護神として全国から参拝者が訪れます",
+      "description_en": "Founded in 651, it is one of Japan’s Three Great Inari Shrines, boasting a history of over 1,360 years. Dedicated to the deity Ukanomitama-no-kami, it attracts visitors from across the country as a guardian deity of bountiful harvests, prosperous business, and industrial development.",
+      "distance_from_venue": "",
+      "url": "https://www.ibarakiguide.jp/spot.php?mode=detail&code=738",
+      "latitude": null,
+      "longitude": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-05-09T14:16:13.893Z",
+  "updated_at": "2026-05-09T14:16:13.893Z",
+  "entry_periods": [
+    {
+      "start_date": "2025-08-11",
+      "end_date": "2025-10-24",
+      "entry_fee": null,
+      "label_ja": "",
+      "label_en": ""
+    }
+  ],
+  "entry_closed": false,
+  "entry_links": [
+    {
+      "site_name": "RUNNET",
+      "url": "https://runnet.jp/parts/2025/377734/entry.html"
+    }
+  ],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "local_product",
+        "food"
+      ],
+      "description_ja": "毎年好評をいただいている「笠間焼」と古くから名物として親しまれている「いなり寿司」を今年もご用意します",
+      "description_en": "",
+      "image": null
+    }
+  ],
+  "motif": "笠間焼",
+  "motif_romaji": "KASAMA-YAKI",
+  "motif_color": "#7b7878",
+  "tagline_ja": "アップダウンが自慢の大会となります。日本全国の「ガチランナー」の皆さん、エントリーお待ちしております",
+  "tagline_en": "This race is known for its challenging terrain. We look forward to your entries, serious runners from all over Japan!",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [
+    {
+      "bucket": "1:00-1:15",
+      "pct": 1.6
+    },
+    {
+      "bucket": "1:15-1:30",
+      "pct": 10.5
+    },
+    {
+      "bucket": "1:30-1:45",
+      "pct": 22.3
+    },
+    {
+      "bucket": "1:45-2:00",
+      "pct": 27
+    },
+    {
+      "bucket": "2:00-2:15",
+      "pct": 22.3
+    },
+    {
+      "bucket": "2:15-2:30",
+      "pct": 13.9
+    },
+    {
+      "bucket": "2:30-2:45",
+      "pct": 2.4
+    }
+  ]
+}

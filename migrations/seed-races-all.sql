@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-05-08T14:50:43.241Z
--- 対象ファイル数: 75 件（既存 2 件はskip）
+-- 生成日時: 2026-05-09T14:33:09.933Z
+-- 対象ファイル数: 76 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -2873,6 +2873,109 @@ INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja
   ('kanazawa-marathon-2026', NULL, NULL, 'ひがし茶屋街付近', 'Higashi Chaya District area', NULL, NULL, 2);
 
 -- ==================
+-- かさま陶芸の里ハーフマラソン (kasama-togeinosato-half-2025-2025)
+-- ==================
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  created_at, updated_at
+) VALUES (
+  'kasama-togeinosato-half-2025-2025',
+  'かさま陶芸の里ハーフマラソン',
+  'Kasama Pottery Village Half Marathon',
+  '2025-12-21',
+  '08',
+  '笠間市笠間2345番地',
+  '2345 Kasama, Kasama City, Ibaraki Prefecture',
+  '',
+  '',
+  'https://www.kasa-mara.jp/',
+  NULL,
+  1,
+  0,
+  '2025-08-11',
+  '2025-10-24',
+  0,
+  'pre_mail',
+  '',
+  '',
+  '[]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '',
+  '',
+  '',
+  '',
+  '笠間焼',
+  '#7b7878',
+  'KASAMA-YAKI',
+  'アップダウンが自慢の大会となります。日本全国の「ガチランナー」の皆さん、エントリーお待ちしております',
+  'This race is known for its challenging terrain. We look forward to your entries, serious runners from all over Japan!',
+  NULL,
+  NULL,
+  NULL,
+  '2026-05-09T14:16:13.893Z',
+  '2026-05-09T14:16:13.893Z'
+);
+DELETE FROM race_categories WHERE race_id = 'kasama-togeinosato-half-2025-2025';
+DELETE FROM aid_stations WHERE race_id = 'kasama-togeinosato-half-2025-2025';
+DELETE FROM checkpoints WHERE race_id = 'kasama-togeinosato-half-2025-2025';
+DELETE FROM access_points WHERE race_id = 'kasama-togeinosato-half-2025-2025';
+DELETE FROM nearby_spots WHERE race_id = 'kasama-togeinosato-half-2025-2025';
+DELETE FROM weather_history WHERE race_id = 'kasama-togeinosato-half-2025-2025';
+DELETE FROM participation_gifts WHERE race_id = 'kasama-togeinosato-half-2025-2025';
+DELETE FROM race_entry_links WHERE race_id = 'kasama-togeinosato-half-2025-2025';
+DELETE FROM race_entry_periods WHERE race_id = 'kasama-togeinosato-half-2025-2025';
+DELETE FROM race_results WHERE race_id = 'kasama-togeinosato-half-2025-2025';
+DELETE FROM race_gallery WHERE race_id = 'kasama-togeinosato-half-2025-2025';
+DELETE FROM race_voices WHERE race_id = 'kasama-togeinosato-half-2025-2025';
+DELETE FROM race_time_buckets WHERE race_id = 'kasama-togeinosato-half-2025-2025';
+DELETE FROM race_course_highlights WHERE race_id = 'kasama-togeinosato-half-2025-2025';
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kasama-togeinosato-half-2025-2025', 'half', 21.0975, 150, '10:00', 2000, 5000, NULL, NULL, NULL, NULL, NULL, '18歳以上（高校生を除く）で健康に異常がなく２時間30分以内で完走できる方。なお、安全管理運営上、車いすやベビーカーを使用しての参加はできません。
+
+視覚障害の方への伴走者は、同種目に選手として参加することはできません。また、伴走者は、伴走と表示したゼッケンを持参してください。
+
+年齢起算は、大会日現在とします。', NULL, 'kasama-togeinosato-half-2025-2025', '[]', 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('kasama-togeinosato-half-2025-2025', '観光地', '笠間稲荷神社', 'Kasama Inari Shrine', '651年創建と伝わる1360年以上の歴史を持つ日本三大稲荷のひとつです。宇迦之御魂神（うかのみたまのかみ）を祀り、五穀豊穣、商売繁盛、殖産興業の守護神として全国から参拝者が訪れます', 'Founded in 651, it is one of Japan’s Three Great Inari Shrines, boasting a history of over 1,360 years. Dedicated to the deity Ukanomitama-no-kami, it attracts visitors from across the country as a guardian deity of bountiful harvests, prosperous business, and industrial development.', '', 'https://www.ibarakiguide.jp/spot.php?mode=detail&code=738', 0, 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('kasama-togeinosato-half-2025-2025', '["local_product","food"]', '毎年好評をいただいている「笠間焼」と古くから名物として親しまれている「いなり寿司」を今年もご用意します', '', NULL, 0);
+INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
+  ('kasama-togeinosato-half-2025-2025', 'RUNNET', 'https://runnet.jp/parts/2025/377734/entry.html', 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('kasama-togeinosato-half-2025-2025', NULL, '一般エントリー', 'General Entry', '2025-08-11', '2025-10-24', NULL, 0);
+INSERT OR REPLACE INTO race_time_buckets (race_id, bucket, pct, sort_order) VALUES
+  ('kasama-togeinosato-half-2025-2025', '1:00-1:15', 1.6, 0);
+INSERT OR REPLACE INTO race_time_buckets (race_id, bucket, pct, sort_order) VALUES
+  ('kasama-togeinosato-half-2025-2025', '1:15-1:30', 10.5, 1);
+INSERT OR REPLACE INTO race_time_buckets (race_id, bucket, pct, sort_order) VALUES
+  ('kasama-togeinosato-half-2025-2025', '1:30-1:45', 22.3, 2);
+INSERT OR REPLACE INTO race_time_buckets (race_id, bucket, pct, sort_order) VALUES
+  ('kasama-togeinosato-half-2025-2025', '1:45-2:00', 27, 3);
+INSERT OR REPLACE INTO race_time_buckets (race_id, bucket, pct, sort_order) VALUES
+  ('kasama-togeinosato-half-2025-2025', '2:00-2:15', 22.3, 4);
+INSERT OR REPLACE INTO race_time_buckets (race_id, bucket, pct, sort_order) VALUES
+  ('kasama-togeinosato-half-2025-2025', '2:15-2:30', 13.9, 5);
+INSERT OR REPLACE INTO race_time_buckets (race_id, bucket, pct, sort_order) VALUES
+  ('kasama-togeinosato-half-2025-2025', '2:30-2:45', 2.4, 6);
+
+-- ==================
 -- かすみがうらマラソン (kasumigaura-marathon-2026)
 -- ==================
 INSERT OR REPLACE INTO races (
@@ -3766,7 +3869,7 @@ DELETE FROM race_voices WHERE race_id = 'mito-komon-manyu-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'mito-komon-manyu-marathon-2026';
 DELETE FROM race_course_highlights WHERE race_id = 'mito-komon-manyu-marathon-2026';
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('mito-komon-manyu-marathon-2026', 'full', 42.195, 360, '', 10000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+  ('mito-komon-manyu-marathon-2026', 'full', 42.195, 360, '', 10000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'mito-komon-manyu-marathon-2026', '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('mito-komon-manyu-marathon-2026', '観光地', '偕楽園', 'Kairakuen Garden', '日本三名園の一つ。2〜3月は梅まつりで有名。コース上から望める。', 'One of Japan''s three most beautiful gardens. Famous for plum blossom festival in Feb-Mar.', 'コース付近', NULL, 36.3811, 140.4511);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -3775,10 +3878,6 @@ INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VA
   ('mito-komon-manyu-marathon-2026', 'RUNNET', 'https://runnet.jp/entry/runtes/user/pc/competitionDetailAction.do?raceId=387694&div=1', 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('mito-komon-manyu-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-16', '2026-06-30', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('mito-komon-manyu-marathon-2026', NULL, NULL, '偕楽園', 'Kairakuen Garden', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('mito-komon-manyu-marathon-2026', NULL, NULL, '千波湖', 'Lake Senba', NULL, NULL, 1);
 
 -- ==================
 -- 富士山クライムラン (mtfuji-climb-run-2026)
@@ -4427,7 +4526,7 @@ INSERT OR REPLACE INTO races (
   '長野県奥信濃の豊かな自然の中を走るトレイルランニングレース。「たくさんの方に奥信濃の幸せなトレイルランニングを楽しんでほしい。トレイルランニングと奥信濃が100年続くように」という願いを込めた大会。100km・50km・25km・8kmの4種目。スタートはSBCホテル前（旧木島平スキー場）。',
   'A trail running race through the lush natural landscape of Okushinano in Nagano Prefecture. Four distances: 100km, 50km, 25km, and 8km. Start at the former Kijimadaira Ski Resort (SBC Hotel).',
   'https://okushinano100.com/',
-  0,
+  NULL,
   1,
   0,
   '2025-12-14',
@@ -4436,7 +4535,7 @@ INSERT OR REPLACE INTO races (
   'pre_day',
   '100km・50km：2025年12月14日〜2026年2月28日。25km・8km：2025年12月14日〜2026年5月10日。学割あり。',
   '100km/50km: Dec 14, 2025 – Feb 28, 2026. 25km/8km: Dec 14, 2025 – May 10, 2026. Student discounts available.',
-  '["ウルトラマラソン","アップダウン多い","アルプス","景色が良い","初ウルトラおすすめ"]',
+  '["アップダウン多い","アルプス","ウルトラマラソン","初ウルトラおすすめ","景色が良い"]',
   NULL,
   0,
   0,
@@ -4473,19 +4572,32 @@ DELETE FROM race_voices WHERE race_id = 'okushinano100-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'okushinano100-2026';
 DELETE FROM race_course_highlights WHERE race_id = 'okushinano100-2026';
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('okushinano100-2026', 'ultra', 100, 1260, '05:00', 700, 31000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+  ('okushinano100-2026', 'ultra', 100, 1260, '05:00', 700, 31000, NULL, NULL, NULL, NULL, NULL, '・各種目の規定年齢に達している方（100km／50km…18歳以上、25km…高校生以上、8km…中学生以上）※未成年者は保護者の承認が必要
+・コースを迷うことなく制限時間内に完走できる自信がある方
+　100km　21時間（※7箇所関門時間あり）
+　50km　10時間30分（※3箇所関門時間あり）
+　25km　5時間30分（※1箇所関門時間あり）
+　8km　2時間（※関門時間なし）
+・山のルール・マナーを遵守できる方', '・Participants must meet the age requirements for each event (100km/50km: 18 years or older; 25km: high school students or older; 8km: middle school students or older). *Minors must have parental consent.
+・Participants who are confident they can complete the course without getting lost and within the time limit
+　100km: 21 hours (*7 checkpoints with time limits)
+　50km: 10 hours 30 minutes (*3 checkpoints with time limits)
+　25km: 5 hours 30 minutes (*1 checkpoint with a time limit)
+　8km: 2 hours (*No checkpoints with time limits)
+・Participants who can adhere to mountain rules and etiquette
+
+
+Translated with DeepL.com (free version)', 'okushinano100-2026', '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('okushinano100-2026', 'other', 50, 630, '11:30', 400, 15500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+  ('okushinano100-2026', 'other', 50, 630, '11:30', 400, 15500, NULL, '50km', NULL, NULL, NULL, NULL, NULL, 'okushinano50-2026.gpx', '[]', 1);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('okushinano100-2026', 'other', 25, 420, '07:00', 300, 9900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+  ('okushinano100-2026', 'other', 25, 420, '07:00', 300, 9900, NULL, '25km', NULL, NULL, NULL, NULL, NULL, 'okushinano25-2026.gpx', '[]', 2);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('okushinano100-2026', 'other', 8, 120, '07:30', 300, 5000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 3);
+  ('okushinano100-2026', 'other', 8, 120, '07:30', 300, 5000, NULL, '8km', NULL, NULL, NULL, NULL, NULL, 'okushinano8-2026.gpx', '[]', 3);
+INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
+  ('okushinano100-2026', 'SPORT ENTRY', 'https://www.sportsentry.ne.jp/event/t/103253', 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('okushinano100-2026', NULL, '一般エントリー', 'General Entry', '2025-12-14', '2026-05-10', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('okushinano100-2026', NULL, NULL, '奥信濃の山岳トレイル', 'Mountain trails of Okushinano', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('okushinano100-2026', NULL, NULL, '木島平村〜飯山市周辺', 'Kijimadaira to Iiyama area', NULL, NULL, 1);
 
 -- ==================
 -- 大阪マラソン (osaka-marathon-2026)

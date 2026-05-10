@@ -570,3 +570,8 @@
 - `src/lib/__tests__/fixtures.ts`: `makeVoice` に `quote_en: null` を追加
 - `migrations/0008_stormy_reavers.sql`: `race_voices.quote_en` 追加マイグレーション（ローカル適用済み）
 - `docs/schema.md`: `race_voices` テーブルに `quote_en` 行とマイグレーション履歴を追記
+
+## 2026-05-10 カレンダーページに距離カテゴリフィルターを追加
+
+- `src/components/calendar/ControlBar.tsx`: `DistanceFilter` 型・距離オプション定義・距離フィルターボタン行を追加
+- `src/components/calendar/CalendarView.tsx`: `distance` state・距離によるフィルタリングロジック・ControlBar への props 追加

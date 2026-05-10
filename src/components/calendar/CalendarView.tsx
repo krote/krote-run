@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import type { Race, Locale } from '@/lib/types';
-import ControlBar, { type StatusFilter } from './ControlBar';
+import ControlBar, { type StatusFilter, type DistanceFilter } from './ControlBar';
 import MonthGrid from './MonthGrid';
 import YearTimeline from './YearTimeline';
 import HoverCard from './HoverCard';
@@ -50,6 +50,7 @@ export default function CalendarView({
   const [view, setView] = useState<ViewMode>('month');
   const [status, setStatus] = useState<StatusFilter>('all');
   const [region, setRegion] = useState<string>('all');
+  const [distance, setDistance] = useState<DistanceFilter>('all');
   const [hoverRace, setHoverRace] = useState<Race | null>(null);
   const [hoverPos, setHoverPos] = useState({ x: 0, y: 0 });
 
@@ -66,6 +67,9 @@ export default function CalendarView({
       if (status === 'open' && rStatus !== 'open') return false;
       if (status === 'soon' && rStatus !== 'soon') return false;
       if (status === 'closed' && rStatus !== 'closed' && rStatus !== 'past') return false;
+    }
+    if (distance !== 'all') {
+      if (!race.categories.some((c) => c.distance_type === distance)) return false;
     }
     return true;
   });
@@ -106,8 +110,10 @@ export default function CalendarView({
       <ControlBar
         status={status}
         region={region}
+        distance={distance}
         onStatusChange={setStatus}
         onRegionChange={setRegion}
+        onDistanceChange={setDistance}
         regions={regions}
         locale={locale}
       />

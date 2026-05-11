@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-05-09T14:33:09.933Z
+-- 生成日時: 2026-05-11T15:21:43.925Z
 -- 対象ファイル数: 76 件（既存 2 件はskip）
 
 -- ==================
@@ -1185,7 +1185,7 @@ INSERT OR REPLACE INTO races (
   'pre_day',
   '',
   '',
-  '["海沿い","都市型","絶景","九州"]',
+  '["海沿い"]',
   NULL,
   0,
   0,
@@ -1223,6 +1223,16 @@ DELETE FROM race_time_buckets WHERE race_id = 'fukuoka-marathon-2026';
 DELETE FROM race_course_highlights WHERE race_id = 'fukuoka-marathon-2026';
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fukuoka-marathon-2026', 'full', 42.195, 420, '08:20', 13000, 16000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukuoka-marathon-2026', last_insert_rowid(), 5, 'シーサイドももち', NULL, '福岡タワーやみずほPayPayドーム福岡など、福岡を代表する観光スポットが並ぶシーサイドももち地区では、近代的できれいな街並みが楽しめます。かつての百道（ももち）の海岸が漫画『サザエさん』発案の地であることから、地元市民の声を受けて、2012年5月に「サザエさん通り」が誕生しました。', NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukuoka-marathon-2026', last_insert_rowid(), 11, '生の松原・長垂海岸', NULL, '白砂青松百選の生の松原は、元寇防塁があることでも有名です。美しい松林を抜けるとコース右手に博多湾が広がり、四季折々の花が咲く能古島が一望できます。', NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukuoka-marathon-2026', last_insert_rowid(), 20, '九州大学伊都キャンパス', NULL, '2018年に移転が完了した九州大学伊都キャンパスは、みずほPayPayドーム福岡約40個分の広さを誇り、その雄大さは圧巻です。キャンパスの入口に向かう緩やかな坂道は、コース前半の山場になるでしょう。ここは、沿道の声援を力にして乗り切りましょう！', NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukuoka-marathon-2026', last_insert_rowid(), 29, '海づり公園', NULL, '福岡市西区の今津・北崎エリアは、海づり公園のほかにカフェやお食事処、牡蠣小屋があり、週末には多くの人が訪れます。博多湾に目を向けると、遠くには福岡タワーや金印で有名な志賀島が望めます', NULL, 3);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukuoka-marathon-2026', last_insert_rowid(), 35, '二見ヶ浦', NULL, 'コース後半の高低差25mの山場を過ぎると、玄界灘の美しい海岸線が見えてきます。渚百選・夕陽百選の一つである二見ヶ浦は、福岡市と糸島市の境にある観光スポットで、付近はおしゃれな飲食店が並び、親子連れやカップル、また多くの観光客で賑わいます。', NULL, 4);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fukuoka-marathon-2026', '観光地', '天神・博多エリア', 'Tenjin & Hakata Area', 'スタート地点の天神は福岡最大の繁華街。大会前後のショッピング・グルメに便利。', 'Tenjin, the start point, is Fukuoka''s largest shopping district. Convenient for pre/post-race dining and shopping.', 'スタート地点', NULL, 33.5904, 130.399);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -1233,14 +1243,6 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('fukuoka-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('fukuoka-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-20', '2026-05-20', 16000, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fukuoka-marathon-2026', NULL, NULL, '天神スタート', 'Tenjin start', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fukuoka-marathon-2026', NULL, NULL, '博多湾沿い', 'Hakata Bay coastline', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fukuoka-marathon-2026', NULL, NULL, '玄界灘', 'Genkai Sea', NULL, NULL, 2);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('fukuoka-marathon-2026', NULL, NULL, '糸島フィニッシュ', 'Itoshima finish', NULL, NULL, 3);
 
 -- ==================
 -- ぐんまマラソン (gunma-marathon-2026)

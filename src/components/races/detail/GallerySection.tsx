@@ -54,7 +54,7 @@ export default function GallerySection({ race, locale }: GallerySectionProps) {
                 className="text-sm leading-relaxed mb-2"
                 style={{ color: 'var(--color-ink2)' }}
               >
-                &ldquo;{voice.quote_ja}&rdquo;
+                &ldquo;{isJa ? voice.quote_ja : (voice.quote_en ?? voice.quote_ja)}&rdquo;
               </p>
               {voice.author && (
                 <p className="text-xs font-medium" style={{ color: 'var(--color-mid)' }}>

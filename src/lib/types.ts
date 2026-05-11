@@ -274,6 +274,7 @@ export interface RaceVoice {
   id: number;
   race_id: string;
   quote_ja: string;
+  quote_en: string | null;
   author: string | null;
   sort_order: number;
 }

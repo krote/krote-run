@@ -52,7 +52,8 @@
       "waves": null,
       "eligibility_ja": null,
       "eligibility_en": null,
-      "course_gpx_file": null
+      "course_gpx_file": "mito-komon-manyu-marathon-2026",
+      "course_highlights": []
     }
   ],
   "aid_stations": [],
@@ -121,19 +122,5 @@
   "hero_caption_en": null,
   "gallery": [],
   "voices": [],
-  "time_buckets": [],
-  "course_highlights": [
-    {
-      "name_ja": "偕楽園",
-      "name_en": "Kairakuen Garden",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "千波湖",
-      "name_en": "Lake Senba",
-      "description_ja": null,
-      "description_en": null
-    }
-  ]
+  "time_buckets": []
 }

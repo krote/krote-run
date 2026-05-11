@@ -12,7 +12,7 @@
   "description_ja": "長野県奥信濃の豊かな自然の中を走るトレイルランニングレース。「たくさんの方に奥信濃の幸せなトレイルランニングを楽しんでほしい。トレイルランニングと奥信濃が100年続くように」という願いを込めた大会。100km・50km・25km・8kmの4種目。スタートはSBCホテル前（旧木島平スキー場）。",
   "description_en": "A trail running race through the lush natural landscape of Okushinano in Nagano Prefecture. Four distances: 100km, 50km, 25km, and 8km. Start at the former Kijimadaira Ski Resort (SBC Hotel).",
   "official_url": "https://okushinano100.com/",
-  "entry_fee": 0,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
   "entry_start_date": "2025-12-14",
@@ -21,11 +21,11 @@
   "reception_note_ja": "100km・50km：2025年12月14日〜2026年2月28日。25km・8km：2025年12月14日〜2026年5月10日。学割あり。",
   "reception_note_en": "100km/50km: Dec 14, 2025 – Feb 28, 2026. 25km/8km: Dec 14, 2025 – May 10, 2026. Student discounts available.",
   "tags": [
-    "ウルトラマラソン",
     "アップダウン多い",
     "アルプス",
-    "景色が良い",
-    "初ウルトラおすすめ"
+    "ウルトラマラソン",
+    "初ウルトラおすすめ",
+    "景色が良い"
   ],
   "course_gpx_file": null,
   "course_info": {
@@ -46,7 +46,12 @@
       "entry_fee": 31000,
       "capacity": 700,
       "time_limit_minutes": 1260,
-      "start_time": "05:00"
+      "start_time": "05:00",
+      "name_ja": null,
+      "eligibility_ja": "・各種目の規定年齢に達している方（100km／50km…18歳以上、25km…高校生以上、8km…中学生以上）※未成年者は保護者の承認が必要\n・コースを迷うことなく制限時間内に完走できる自信がある方\n　100km　21時間（※7箇所関門時間あり）\n　50km　10時間30分（※3箇所関門時間あり）\n　25km　5時間30分（※1箇所関門時間あり）\n　8km　2時間（※関門時間なし）\n・山のルール・マナーを遵守できる方",
+      "eligibility_en": "・Participants must meet the age requirements for each event (100km/50km: 18 years or older; 25km: high school students or older; 8km: middle school students or older). *Minors must have parental consent.\n・Participants who are confident they can complete the course without getting lost and within the time limit\n　100km: 21 hours (*7 checkpoints with time limits)\n　50km: 10 hours 30 minutes (*3 checkpoints with time limits)\n　25km: 5 hours 30 minutes (*1 checkpoint with a time limit)\n　8km: 2 hours (*No checkpoints with time limits)\n・Participants who can adhere to mountain rules and etiquette\n\n\nTranslated with DeepL.com (free version)",
+      "course_gpx_file": "okushinano100-2026",
+      "course_highlights": []
     },
     {
       "distance_type": "other",
@@ -54,7 +59,12 @@
       "entry_fee": 15500,
       "capacity": 400,
       "time_limit_minutes": 630,
-      "start_time": "11:30"
+      "start_time": "11:30",
+      "name_ja": "50km",
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": "okushinano50-2026.gpx",
+      "course_highlights": []
     },
     {
       "distance_type": "other",
@@ -62,7 +72,12 @@
       "entry_fee": 9900,
       "capacity": 300,
       "time_limit_minutes": 420,
-      "start_time": "07:00"
+      "start_time": "07:00",
+      "name_ja": "25km",
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": "okushinano25-2026.gpx",
+      "course_highlights": []
     },
     {
       "distance_type": "other",
@@ -70,7 +85,12 @@
       "entry_fee": 5000,
       "capacity": 300,
       "time_limit_minutes": 120,
-      "start_time": "07:30"
+      "start_time": "07:30",
+      "name_ja": "8km",
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": "okushinano8-2026.gpx",
+      "course_highlights": []
     }
   ],
   "aid_stations": [],
@@ -91,11 +111,11 @@
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
       "start_date": "2025-12-14",
       "end_date": "2026-05-10",
-      "entry_fee": null
+      "entry_fee": null,
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry"
     }
   ],
   "motif": "北アルプス",
@@ -109,18 +129,11 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": [
+  "entry_closed": false,
+  "entry_links": [
     {
-      "name_ja": "奥信濃の山岳トレイル",
-      "name_en": "Mountain trails of Okushinano",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "木島平村〜飯山市周辺",
-      "name_en": "Kijimadaira to Iiyama area",
-      "description_ja": null,
-      "description_en": null
+      "site_name": "SPORT ENTRY",
+      "url": "https://www.sportsentry.ne.jp/event/t/103253"
     }
   ]
 }

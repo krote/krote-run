@@ -137,6 +137,10 @@ export default async function RaceDetailPage({
     ...(raceDesc || race.tags.length > 0 ? [{ id: 'overview', label: locale === 'ja' ? '概要' : 'Overview' }] : []),
     { id: 'course', label: locale === 'ja' ? 'コース' : 'Course' },
     { id: 'entry', label: locale === 'ja' ? 'エントリー' : 'Registration' },
+    ...(race.access_points.length > 0 ? [{ id: 'access', label: locale === 'ja' ? 'アクセス' : 'Access' }] : []),
+    ...(race.participation_gifts.length > 0 ? [{ id: 'gifts', label: locale === 'ja' ? '参加賞' : 'Gifts' }] : []),
+    ...(race.nearby_spots.length > 0 ? [{ id: 'nearby', label: locale === 'ja' ? '近隣' : 'Nearby' }] : []),
+    ...(race.time_buckets.length > 0 ? [{ id: 'result', label: locale === 'ja' ? 'リザルト' : 'Result' }] : []),
     ...(race.result ? [{ id: 'last-edition', label: locale === 'ja' ? '前回大会' : 'Last Edition' }] : []),
     ...(race.gallery.length > 0 || race.voices.length > 0 ? [{ id: 'gallery', label: locale === 'ja' ? 'ギャラリー' : 'Gallery' }] : []),
   ];
@@ -202,6 +206,7 @@ export default async function RaceDetailPage({
             raceId={race.id}
             raceName={raceName}
             raceDate={race.date}
+            locale={locale}
             categories={race.categories.map((c) => ({
               id: c.id,
               name_ja: c.name_ja,
@@ -462,7 +467,7 @@ export default async function RaceDetailPage({
         {/* Checkpoints */}
         {race.checkpoints.length > 0 && (
           <section>
-            <SectionHeading num="02-a" title={locale === 'ja' ? '関門' : 'Cutoffs'} />
+            <SectionHeading num="02-a" title={locale === 'ja' ? '関門' : 'Cutoffs'} subtitle={locale === 'ja' ? 'Cutoffs' : '関門'} />
             <Card className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -495,7 +500,7 @@ export default async function RaceDetailPage({
         {/* Aid Stations */}
         {race.aid_stations.length > 0 && (
           <section>
-            <SectionHeading num="02-b" title={locale === 'ja' ? 'エイドステーション' : 'Aid Stations'} />
+            <SectionHeading num="02-b" title={locale === 'ja' ? 'エイドステーション' : 'Aid Stations'} subtitle={locale === 'ja' ? 'Aid Stations' : 'エイドステーション'} />
             <div className="space-y-2">
               {race.aid_stations.map((aid, i) => (
                 <Card key={i}>
@@ -536,7 +541,7 @@ export default async function RaceDetailPage({
 
         {/* Access */}
         {race.access_points.length > 0 && (
-          <section>
+          <section id="access" style={{ scrollMarginTop: '3.5rem' }}>
             <SectionHeading num="04" title={locale === 'ja' ? 'アクセス・宿泊' : 'Access & Stay'} subtitle={locale === 'ja' ? 'Access & Stay' : 'アクセス・宿泊'} />
             <div className="space-y-2">
               {race.access_points.map((ap, i) => (
@@ -560,8 +565,10 @@ export default async function RaceDetailPage({
 
         {/* Participation Gift */}
         {race.participation_gifts.length > 0 && (
-          <section>
-            <SectionHeading num="05" title={locale === 'ja' ? '参加賞' : 'Finisher Gift'} />
+          <section id="gifts" style={{ scrollMarginTop: '3.5rem' }}>
+            <SectionHeading num="05" title={locale === 'ja' ? '参加賞' : 'Participation / Finisher Gift'}
+              subtitle={locale === 'ja' ? 'Participation / Finisher Gift' : '参加賞'}
+            />
             {race.participation_gifts.map((gift, i) => (
               <Card key={i}>
                 <div className="flex flex-wrap gap-2 mb-3">
@@ -592,8 +599,8 @@ export default async function RaceDetailPage({
 
         {/* Nearby Spots */}
         {race.nearby_spots.length > 0 && (
-          <section>
-            <SectionHeading num="06" title={locale === 'ja' ? '近隣スポット' : 'Nearby'} />
+          <section id="nearby" style={{ scrollMarginTop: '3.5rem' }}>
+            <SectionHeading num="06" title={locale === 'ja' ? '近隣スポット' : 'Nearby Spots'} subtitle={locale === 'ja' ? 'Nearby Spots' : '近隣スポット'} />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {race.nearby_spots.map((spot, i) => {
                 const typeInfo = NEARBY_TYPE[spot.type];
@@ -644,6 +651,55 @@ export default async function RaceDetailPage({
           <section id="last-edition" style={{ scrollMarginTop: '3.5rem' }}>
             <SectionHeading num="07" title={locale === 'ja' ? '前回の様子' : 'Last Edition'} subtitle={locale === 'ja' ? 'Last Edition' : '前回の様子'} />
             <LastEditionSection race={race} locale={locale} />
+          </section>
+        )}
+
+        {/* Result */}
+        {race.time_buckets.length > 0 && (
+          <section id="result" style={{ scrollMarginTop: '3.5rem' }}>
+            <SectionHeading
+              num="07"
+              title={locale === 'ja' ? 'リザルト' : 'Result'}
+              subtitle={locale === 'ja' ? 'Finish Time Distribution' : 'タイム分布'}
+            />
+            <Card>
+              {(() => {
+                const maxPct = Math.max(...race.time_buckets.map((b) => b.pct));
+                return (
+                  <div className="space-y-3">
+                    {race.time_buckets.map((tb, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <span
+                          className="text-xs font-mono w-20 shrink-0 text-right"
+                          style={{ color: 'var(--color-mid)' }}
+                        >
+                          {tb.bucket}
+                        </span>
+                        <div
+                          className="flex-1 h-5 rounded-[2px] overflow-hidden"
+                          style={{ background: 'var(--color-cream)' }}
+                        >
+                          <div
+                            className="h-full rounded-[2px] transition-all"
+                            style={{
+                              width: `${(tb.pct / maxPct) * 100}%`,
+                              background: 'var(--color-primary)',
+                              opacity: 0.75,
+                            }}
+                          />
+                        </div>
+                        <span
+                          className="text-xs font-semibold w-10 shrink-0 text-right"
+                          style={{ color: 'var(--color-ink2)' }}
+                        >
+                          {tb.pct}%
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                );
+              })()}
+            </Card>
           </section>
         )}
 

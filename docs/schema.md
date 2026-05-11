@@ -345,6 +345,7 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | id | integer | NO | autoincrement | PK |
 | race_id | text | NO | — | FK → races.id（CASCADE） |
 | quote_ja | text | NO | — | 引用テキスト（日本語） |
+| quote_en | text | YES | — | 引用テキスト（英語）。未設定時は quote_ja にフォールバック |
 | author | text | YES | — | 発言者名（例: `"40代男性"`） |
 | sort_order | integer | NO | `0` | |
 
@@ -397,3 +398,4 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0007_category_gpx.sql` | race_categories に course_gpx_file カラムを追加 |
 | `migrations/0008_phase2_motif_hero.sql` | races に motif/motif_color/motif_romaji/tagline_ja/tagline_en/hero_image_url/hero_caption_ja/hero_caption_en を追加、race_results に avg_time を追加（Issue #42 Design Phase 2） |
 | `migrations/0009_phase3_gallery_voices.sql` | race_gallery / race_voices / race_time_buckets / race_course_highlights テーブルを追加（Issue #43 Design Phase 3） |
+| `migrations/0008_stormy_reavers.sql` | race_voices に quote_en カラムを追加（英語対応） |

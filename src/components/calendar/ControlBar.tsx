@@ -1,12 +1,17 @@
 'use client';
 
+import type { DistanceType } from '@/lib/types';
+
 export type StatusFilter = 'all' | 'open' | 'soon' | 'closed';
+export type DistanceFilter = DistanceType | 'all';
 
 interface ControlBarProps {
   status: StatusFilter;
   region: string;
+  distance: DistanceFilter;
   onStatusChange: (status: StatusFilter) => void;
   onRegionChange: (region: string) => void;
+  onDistanceChange: (distance: DistanceFilter) => void;
   regions: string[];
   locale: string;
 }
@@ -18,11 +23,22 @@ const STATUS_OPTIONS: { value: StatusFilter; ja: string; en: string }[] = [
   { value: 'closed', ja: '終了', en: 'Closed' },
 ];
 
+const DISTANCE_OPTIONS: { value: DistanceType; ja: string; en: string }[] = [
+  { value: 'full',  ja: 'フル',   en: 'Full' },
+  { value: 'half',  ja: 'ハーフ', en: 'Half' },
+  { value: '10k',   ja: '10km',   en: '10km' },
+  { value: '5k',    ja: '5km',    en: '5km' },
+  { value: 'ultra', ja: 'ウルトラ', en: 'Ultra' },
+  { value: 'other', ja: 'その他', en: 'Other' },
+];
+
 export default function ControlBar({
   status,
   region,
+  distance,
   onStatusChange,
   onRegionChange,
+  onDistanceChange,
   regions,
   locale,
 }: ControlBarProps) {
@@ -81,6 +97,40 @@ export default function ControlBar({
               }}
             >
               {r}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Distance filter */}
+      <div className="flex flex-wrap gap-1.5">
+        <button
+          data-active={distance === 'all' ? 'true' : undefined}
+          onClick={() => onDistanceChange('all')}
+          className="px-3 py-1 text-xs font-semibold rounded-[3px] transition-colors"
+          style={{
+            background: distance === 'all' ? 'var(--color-ink)' : 'var(--color-cream)',
+            color: distance === 'all' ? 'white' : 'var(--color-ink)',
+            border: `1px solid ${distance === 'all' ? 'var(--color-ink)' : 'var(--color-border)'}`,
+          }}
+        >
+          {isJa ? 'すべて' : 'All'}
+        </button>
+        {DISTANCE_OPTIONS.map((opt) => {
+          const isActive = distance === opt.value;
+          return (
+            <button
+              key={opt.value}
+              data-active={isActive ? 'true' : undefined}
+              onClick={() => onDistanceChange(opt.value)}
+              className="px-3 py-1 text-xs font-semibold rounded-[3px] transition-colors"
+              style={{
+                background: isActive ? 'var(--color-ink)' : 'var(--color-cream)',
+                color: isActive ? 'white' : 'var(--color-ink)',
+                border: `1px solid ${isActive ? 'var(--color-ink)' : 'var(--color-border)'}`,
+              }}
+            >
+              {isJa ? opt.ja : opt.en}
             </button>
           );
         })}

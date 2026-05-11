@@ -131,6 +131,7 @@ export function makeVoice(overrides: Partial<RaceVoice> = {}): RaceVoice {
     id: 1,
     race_id: 'test-race-2026',
     quote_ja: 'とても楽しいレースでした。',
+    quote_en: null,
     author: '40代男性',
     sort_order: 0,
     ...overrides,

@@ -21,10 +21,7 @@
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [
-    "海沿い",
-    "都市型",
-    "絶景",
-    "九州"
+    "海沿い"
   ],
   "course_gpx_file": null,
   "course_info": {
@@ -51,7 +48,47 @@
       "name_en": null,
       "description_ja": null,
       "description_en": null,
-      "waves": null
+      "waves": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": [
+        {
+          "km": 5,
+          "name_ja": "シーサイドももち",
+          "name_en": null,
+          "note_ja": "福岡タワーやみずほPayPayドーム福岡など、福岡を代表する観光スポットが並ぶシーサイドももち地区では、近代的できれいな街並みが楽しめます。かつての百道（ももち）の海岸が漫画『サザエさん』発案の地であることから、地元市民の声を受けて、2012年5月に「サザエさん通り」が誕生しました。",
+          "note_en": null
+        },
+        {
+          "km": 11,
+          "name_ja": "生の松原・長垂海岸",
+          "name_en": null,
+          "note_ja": "白砂青松百選の生の松原は、元寇防塁があることでも有名です。美しい松林を抜けるとコース右手に博多湾が広がり、四季折々の花が咲く能古島が一望できます。",
+          "note_en": null
+        },
+        {
+          "km": 20,
+          "name_ja": "九州大学伊都キャンパス",
+          "name_en": null,
+          "note_ja": "2018年に移転が完了した九州大学伊都キャンパスは、みずほPayPayドーム福岡約40個分の広さを誇り、その雄大さは圧巻です。キャンパスの入口に向かう緩やかな坂道は、コース前半の山場になるでしょう。ここは、沿道の声援を力にして乗り切りましょう！",
+          "note_en": null
+        },
+        {
+          "km": 29,
+          "name_ja": "海づり公園",
+          "name_en": null,
+          "note_ja": "福岡市西区の今津・北崎エリアは、海づり公園のほかにカフェやお食事処、牡蠣小屋があり、週末には多くの人が訪れます。博多湾に目を向けると、遠くには福岡タワーや金印で有名な志賀島が望めます",
+          "note_en": null
+        },
+        {
+          "km": 35,
+          "name_ja": "二見ヶ浦",
+          "name_en": null,
+          "note_ja": "コース後半の高低差25mの山場を過ぎると、玄界灘の美しい海岸線が見えてきます。渚百選・夕陽百選の一つである二見ヶ浦は、福岡市と糸島市の境にある観光スポットで、付近はおしゃれな飲食店が並び、親子連れやカップル、また多くの観光客で賑わいます。",
+          "note_en": null
+        }
+      ]
     }
   ],
   "aid_stations": [],
@@ -136,30 +173,6 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": [
-    {
-      "name_ja": "天神スタート",
-      "name_en": "Tenjin start",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "博多湾沿い",
-      "name_en": "Hakata Bay coastline",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "玄界灘",
-      "name_en": "Genkai Sea",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "糸島フィニッシュ",
-      "name_en": "Itoshima finish",
-      "description_ja": null,
-      "description_en": null
-    }
-  ]
+  "entry_closed": false,
+  "entry_links": []
 }

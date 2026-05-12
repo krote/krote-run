@@ -12,11 +12,11 @@
   "description_ja": "筑波研究学園都市を走るフルマラソン。フラットなコースで記録を狙いやすい。2025年にコースを大幅変更。",
   "description_en": "A full marathon through Tsukuba Science City. The flat course is ideal for personal records. Course significantly changed in 2025.",
   "official_url": "https://www.tsukuba-marathon.com",
-  "entry_fee": 0,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
-  "entry_start_date": null,
-  "entry_end_date": null,
+  "entry_start_date": "2026-07-05",
+  "entry_end_date": "2026-07-27",
   "reception_type": "pre_day",
   "reception_note_ja": "",
   "reception_note_en": "",
@@ -51,7 +51,11 @@
       "name_en": null,
       "description_ja": null,
       "description_en": null,
-      "waves": null
+      "waves": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": []
     }
   ],
   "aid_stations": [],
@@ -94,7 +98,15 @@
     "last_verified": "2026-03-16",
     "detail_level": "medium"
   },
-  "entry_periods": [],
+  "entry_periods": [
+    {
+      "start_date": "2026-07-05",
+      "end_date": "2026-07-27",
+      "entry_fee": null,
+      "label_ja": "",
+      "label_en": ""
+    }
+  ],
   "motif": "筑波山",
   "motif_color": "#374151",
   "motif_romaji": "Tsukuba-san",
@@ -106,12 +118,6 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": [
-    {
-      "name_ja": "筑波研究学園都市",
-      "name_en": "Tsukuba Science City",
-      "description_ja": null,
-      "description_en": null
-    }
-  ]
+  "entry_closed": false,
+  "entry_links": []
 }

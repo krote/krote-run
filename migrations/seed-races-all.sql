@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-05-11T15:21:43.925Z
+-- 生成日時: 2026-05-12T14:03:23.337Z
 -- 対象ファイル数: 76 件（既存 2 件はskip）
 
 -- ==================
@@ -6683,11 +6683,11 @@ INSERT OR REPLACE INTO races (
   '筑波研究学園都市を走るフルマラソン。フラットなコースで記録を狙いやすい。2025年にコースを大幅変更。',
   'A full marathon through Tsukuba Science City. The flat course is ideal for personal records. Course significantly changed in 2025.',
   'https://www.tsukuba-marathon.com',
-  0,
+  NULL,
   1,
   0,
-  NULL,
-  NULL,
+  '2026-07-05',
+  '2026-07-27',
   0,
   'pre_day',
   '',
@@ -6734,8 +6734,8 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('tsukuba-marathon-2026', '観光地', '筑波山', 'Mt. Tsukuba', '関東平野にそびえる名山。ロープウェイで山頂へ。コースからも望める。', 'A famous mountain rising from the Kanto Plain. Ropeway to the summit. Visible from the course.', 'つくば市から車約30分', NULL, 36.2253, 140.1);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('tsukuba-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tsukuba-marathon-2026', NULL, NULL, '筑波研究学園都市', 'Tsukuba Science City', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('tsukuba-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-07-05', '2026-07-27', NULL, 0);
 
 -- ==================
 -- 日本最北端わっかない平和マラソン (wakkanai-peace-marathon-2026)

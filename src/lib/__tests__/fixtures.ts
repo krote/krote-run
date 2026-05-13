@@ -1,4 +1,4 @@
-import type { Race, RaceCategory, EntryPeriod, EntryLink, RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight } from '../types';
+import type { Race, RaceCategory, EntryPeriod, EntryLink, RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight, ParticipationGift } from '../types';
 
 /** テスト用の最小限 Race オブジェクトを生成するファクトリ */
 export function makeRace(overrides: Partial<Race> = {}): Race {
@@ -160,6 +160,16 @@ export function makeCourseHighlight(overrides: Partial<RaceCourseHighlight> = {}
     note_ja: '眺望が素晴らしい',
     note_en: 'Great views',
     sort_order: 0,
+    ...overrides,
+  };
+}
+
+export function makeParticipationGift(overrides: Partial<ParticipationGift> = {}): ParticipationGift {
+  return {
+    gift_categories: ['medal'],
+    description_ja: 'テスト参加賞',
+    description_en: 'Test participation gift',
+    image: null,
     ...overrides,
   };
 }

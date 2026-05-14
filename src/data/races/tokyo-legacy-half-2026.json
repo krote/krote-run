@@ -1,0 +1,98 @@
+{
+  "id": "tokyo-legacy-half-2026",
+  "name_ja": "東京レガシーハーフマラソン",
+  "name_en": "Tokyo Legacy Half ",
+  "full_name_ja": "東京レガシーハーフマラソン2026",
+  "full_name_en": "Tokyo Legacy Half 2026",
+  "edition": null,
+  "date": "2026-10-18",
+  "prefecture": "13",
+  "city_ja": "新宿区霞ヶ丘町",
+  "city_en": "Kasumigaoka-cho, Shinjuku Ward",
+  "description_ja": "",
+  "description_en": "",
+  "official_url": "https://legacyhalf.tokyo/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-05-18",
+  "entry_end_date": "2026-05-25",
+  "reception_type": "pre_day",
+  "reception_note_ja": "期間\n2026年10月16日(金)　11時00分～20時30分\n2026年10月17日(土)　10時00分～19時30分\n※ 上記受付期間内に、必ずランナー本人が受付を行ってください。\n※ 大会当日【10月18日(日)】は、ランナー受付を行いません。\n会場\nMUFGスタジアム(国立競技場)：東京都新宿区霞ヶ丘町10-1",
+  "reception_note_en": "Dates and Times\nFriday, October 16, 2026: 11:00 AM – 8:30 PM\nSaturday, October 17, 2026: 10:00 AM – 7:30 PM\n* Runners must check in in person during the above registration period.\n* There will be no runner registration on the day of the event [Sunday, October 18].\nVenue\nMUFG Stadium (National Stadium): 10-1 Kasumigaoka-cho, Shinjuku-ku, Tokyo",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "",
+    "highlights_en": "",
+    "notes_ja": "",
+    "notes_en": ""
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "entry_fee": 13200,
+      "capacity": 18000,
+      "time_limit_minutes": 180,
+      "start_time": "08:05",
+      "name_ja": null,
+      "eligibility_ja": "大会当日満18歳以上で以下の条件にあてはまる者で、主催者が出場を認めた者。\n※主催者が実施するイベント等による出走権付与者を含みます。\n一般の部：2時間40分以内に完走できる男子・女子・ノンバイナリー。\n障がい者の部：2時間40分以内に完走できる男子・女子・ノンバイナリー。\n※ 障がいのある方で単独走行が困難な方はガイドランナーを1名つけることができます。(盲導犬等の伴走は不可とします。)\n障がい者(車いす)の部：レース仕様車でハーフマラソンを1時間40分以内に完走できる男子・女子・ノンバイナリー。\n学生チームの部：2時間40分以内に完走できる学生(国内のみ)。\n※ 1チーム7名～10名とします。\n※ ランナー受付時に学生証の提示が必須となります。\n※ 障がいのある方で単独走行が困難な方はガイドランナーを1名つけることができます。(盲導犬等の伴走は不可とします。)\n準エリートの部\n国内\n2026年度日本陸上競技連盟登録競技者である男子・女子。\n2024年5月1日から2026年4月30日までの公認記録またはワールドアスレティックスラベルロードレース公式記録で下記参加基準に達する男子・女子。\n　　男子：ハーフマラソン1時間14分00秒以内\n　　女子：ハーフマラソン1時間40分00秒以内\n海外\n2024年5月1日から2026年4月30日までのワールドアスレティックスラベルロードレース公式記録で下記参加基準に達する男子・女子。\n　　男子：ハーフマラソン1時間14分00秒以内\n　　女子：ハーフマラソン1時間40分00秒以内\n※ 障がいのある方で単独走行が困難な方はガイドランナーを1名つけることができます。(盲導犬等の伴走は不可とします。)\nエリートの部\n2026年度日本陸上競技連盟登録競技者で、別途定める参加基準に達する男子・女子。\n招待選手(主催者または日本陸上競技連盟が推薦する国内・海外の男子・女子)。\nパラアスリートの部\n2026年度日本パラスポーツ協会に加盟するパラ陸上競技団体登録競技者で、大会当日までに有効な競技クラスを有し、別途定める参加基準に達する男子・女子。\n招待選手(主催者または日本パラスポーツ協会に加盟するパラ陸上競技団体が推薦する国内・海外の男子・女子)。\n実施クラス：\n①視覚障がいT11/T12、上肢障がいT45/T46、車いすT53/T54\n②上記以外でIPC(国際パラリンピック委員会)のカテゴリーにあるすべてのクラス",
+      "eligibility_en": "Participants must be at least 18 years of age on the day of the event, meet the following criteria, and have been approved by the organizers.\n*This includes individuals who have been granted entry through events organized by the organizers.\nGeneral Division: Men, women, and non-binary individuals capable of completing the race within 2 hours and 40 minutes.\nDisabled Division: Men, women, and non-binary individuals capable of completing the race within 2 hours and 40 minutes.\n* Participants with disabilities who have difficulty running independently may be accompanied by one guide runner. (Assistance from guide dogs or similar animals is not permitted.)\nDisabled (Wheelchair) Division: Men, women, and non-binary individuals who can complete the half marathon in a race-spec wheelchair within 1 hour and 40 minutes.\nStudent Team Division: Students (domestic only) who can complete the race within 2 hours and 40 minutes.\n* Teams must consist of 7 to 10 members.\n* A student ID must be presented at runner registration.\n* Participants with disabilities who have difficulty running independently may be accompanied by one guide runner. (Guide dogs and other assistance animals are not permitted.)\nSemi-Elite Division* Participants with disabilities who have difficulty running independently may be accompanied by one guide runner. (Guide dogs and other assistance animals are not permitted.)\nDomestic\nMen and women registered with the Japan Association of Athletics Federations for the 2026 season.\nMen and women who meet the following participation criteria based on certified records or official World Athletics Label Road Race records from May 1, 2024, to April 30, 2026.\n　　Men: Half marathon in 1 hour 14 minutes 00 seconds or less\n　　Women: Half marathon in 1 hour 40 minutes 00 seconds or less\nInternational\nMen and women who meet the following participation standards based on official World Athletics Label Road Race records from May 1, 2024, to April 30, 2026.\n　　Men: Half marathon in 1 hour 14 minutes 00 seconds or faster\n　　Women: Half marathon in 1 hour 40 minutes 00 seconds or faster\nElite Division\nMen and women who are registered athletes with the Japan Association of Athletics Federations for the 2026 season and meet the separately specified participation criteria.\nInvited Athletes (men and women from Japan and overseas recommended by the organizer or the Japan Association of Athletics Federations).\nPara-Athletes Division\nMen and women who are registered athletes with a para-athletics organization affiliated with the Japan Para Sports Association for the 2026 season, hold a valid competition class by the day of the event, and meet the separately specified participation criteria.\nInvited Athletes (men and women from Japan and overseas recommended by the organizer or a para-athletics organization affiliated with the Japan Para Sports Association).\nCompetition Classes:\n① Visual Impairment T11/T12, Upper Limb Impairment T45/T46, Wheelchair T53/T54\n② All classes falling under the IPC (International Paralympic Committee) categories other than those listed above\n\nTranslated with DeepL.com (free version)",
+      "course_gpx_file": null,
+      "course_highlights": []
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "result": null,
+  "created_at": "2026-05-14T14:47:07.523Z",
+  "updated_at": "2026-05-14T14:47:07.523Z",
+  "entry_periods": [
+    {
+      "start_date": "2026-05-18",
+      "end_date": "2026-05-25",
+      "entry_fee": null,
+      "label_ja": "ジャパンプレミアハーフ優先エントリー",
+      "label_en": ""
+    },
+    {
+      "start_date": "2026-05-26",
+      "end_date": "2026-06-09",
+      "entry_fee": null,
+      "label_ja": "一般エントリー",
+      "label_en": ""
+    }
+  ],
+  "entry_closed": false,
+  "entry_links": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "medal",
+        "goods"
+      ],
+      "description_ja": "",
+      "description_en": "",
+      "image": null
+    }
+  ],
+  "motif": "遺産",
+  "motif_romaji": "Legacy",
+  "motif_color": "#F8F8FF",
+  "tagline_ja": "感動や文化を次世代へ引き継ぐ",
+  "tagline_en": "Passing on inspiration and culture to the next generation",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": []
+}

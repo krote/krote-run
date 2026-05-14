@@ -15,6 +15,7 @@ import {
   filterToSearchParams,
   searchParamsToFilter,
   emptyFilter,
+  getContrastColor,
 } from '../utils';
 import { makeRace, makeCategory } from './fixtures';
 
@@ -294,5 +295,35 @@ describe('searchParamsToFilter', () => {
     const filter = searchParamsToFilter({ month: '4', pref: '01' });
     expect(filter.month).toBe(4);
     expect(filter.prefecture).toBe('01');
+  });
+});
+
+describe('getContrastColor', () => {
+  it('明るい背景（#F8F8FF）は暗色テキストを返す', () => {
+    expect(getContrastColor('#F8F8FF')).toBe('#1a1a1a');
+  });
+
+  it('暗い背景（#1a1a1a）は白テキストを返す', () => {
+    expect(getContrastColor('#1a1a1a')).toBe('#ffffff');
+  });
+
+  it('黒（#000000）は白テキストを返す', () => {
+    expect(getContrastColor('#000000')).toBe('#ffffff');
+  });
+
+  it('白（#ffffff）は暗色テキストを返す', () => {
+    expect(getContrastColor('#ffffff')).toBe('#1a1a1a');
+  });
+
+  it('中間色（#808080）は暗色テキストを返す', () => {
+    expect(getContrastColor('#808080')).toBe('#1a1a1a');
+  });
+
+  it('3桁表記（#FFF）も正しく処理される', () => {
+    expect(getContrastColor('#FFF')).toBe('#1a1a1a');
+  });
+
+  it('不正な値は白テキストにフォールバックする', () => {
+    expect(getContrastColor('#ZZZZZZ')).toBe('#ffffff');
   });
 });

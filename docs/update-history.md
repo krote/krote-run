@@ -575,3 +575,22 @@
 
 - `src/components/calendar/ControlBar.tsx`: `DistanceFilter` 型・距離オプション定義・距離フィルターボタン行を追加
 - `src/components/calendar/CalendarView.tsx`: `distance` state・距離によるフィルタリングロジック・ControlBar への props 追加
+
+## 2026-05-13 本番サイトのアンカーバー欠落を修正（cf:deploy漏れ対応）
+
+- **原因調査**: 本番サイト（hashiru.run）で参加賞・近隣情報のアンカーバーが表示されない問題を調査
+- `scripts/generate-seed-races.js`: `last_insert_rowid()` を subquery に変更（FK constraint エラー修正）
+- `migrations/seed-races-all.sql`: 上記修正後に再生成
+- **根本原因**: Production deploy が commit `f462f2b` で止まっており、`c968458`（アンカーバー追加コミット）より前のコードが本番に配置されていた
+- `npm run cf:deploy` を実行し commit `3b534af` を本番にデプロイ（deployment: `b820855f`）
+
+
+## 2026-05-14 テスト追加: Issue #57〜#61
+
+- `src/lib/__tests__/fixtures.ts`: `makeParticipationGift` ファクトリを追加
+- `src/lib/__tests__/utils.filter.test.ts`: `filterRaces` の `giftCategories` フィルター（OR条件・複数gifts・除外）テストを追加（closes #57）
+- `src/lib/__tests__/utils.format.test.ts`: `getCategoryLabel` / `getRaceName` / `getRaceCity` / `getRaceDescription` / `filterToSearchParams` / `searchParamsToFilter` のテストを追加（closes #58）
+- `src/app/api/user/races/__tests__/route.test.ts`: `GET /api/user/races` の認証チェック・一覧取得テストを追加（closes #59）
+- `src/app/api/user/races/[raceId]/__tests__/route.test.ts`: `GET/PATCH/DELETE /api/user/races/[raceId]` の upsert ロジック・parseIds・DELETE テストを追加（closes #59）
+- `src/components/mypage/__tests__/UserRaceList.test.tsx`: セッション状態・データ表示・getCatLabel・raceMap フォールバックのテストを追加（closes #60）
+- `src/components/races/__tests__/RaceBreadcrumb.test.tsx`: from props のバリアント・aria-label・router.back() のテストを追加（closes #61）

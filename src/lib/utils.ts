@@ -369,3 +369,37 @@ export function searchParamsToFilter(params: URLSearchParams | Record<string, st
 export function cn(...classes: (string | undefined | false | null)[]): string {
   return classes.filter(Boolean).join(' ');
 }
+
+// ==================
+// Color contrast
+// ==================
+
+/**
+ * 16進数カラーコードに対して読みやすいテキスト色（白 or 暗色）を返す。
+ * WCAG 2.1 相対輝度を使って判定する。
+ * @param hex - "#RRGGBB" または "#RGB" 形式
+ * @returns 背景が暗い → "#ffffff"、背景が明るい → "#1a1a1a"
+ */
+export function getContrastColor(hex: string): string {
+  const clean = hex.replace('#', '');
+  const full = clean.length === 3
+    ? clean.split('').map((c) => c + c).join('')
+    : clean;
+
+  const r = parseInt(full.slice(0, 2), 16);
+  const g = parseInt(full.slice(2, 4), 16);
+  const b = parseInt(full.slice(4, 6), 16);
+
+  if (isNaN(r) || isNaN(g) || isNaN(b)) return '#ffffff';
+
+  // sRGB → 線形輝度（WCAG 2.1）
+  const toLinear = (v: number) => {
+    const s = v / 255;
+    return s <= 0.04045 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
+  };
+
+  const L = 0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b);
+
+  // 輝度 0.179 を閾値に（白との対比比率 ~4.5:1 相当）
+  return L > 0.179 ? '#1a1a1a' : '#ffffff';
+}

@@ -1,5 +1,5 @@
 import type { Race, Locale } from '@/lib/types';
-import { getMainCategory, getRaceCity, formatDate } from '@/lib/utils';
+import { getMainCategory, getRaceCity, formatDate, getContrastColor } from '@/lib/utils';
 
 interface DetailHeaderProps {
   race: Race;
@@ -26,6 +26,7 @@ export default function DetailHeader({ race, locale, raceName, isEntryOpen, isNo
   const taglineJa = race.tagline_ja;
   const taglineEn = race.tagline_en;
   const motifBg = race.motif_color ?? 'var(--color-ink)';
+  const motifTextColor = race.motif_color ? getContrastColor(race.motif_color) : '#ffffff';
   const mainCat = getMainCategory(race.categories);
   const startTime = mainCat?.start_time;
   const city = getRaceCity(race, locale);
@@ -99,19 +100,21 @@ export default function DetailHeader({ race, locale, raceName, isEntryOpen, isNo
               }}
             >
               <p
-                className="font-serif text-white text-center"
+                className="font-serif text-center"
                 style={{
                   fontSize: '2.1rem',
                   letterSpacing: '0.15em',
                   fontFamily: 'var(--font-noto-serif-jp)',
                   writingMode: 'vertical-rl',
                   textOrientation: 'upright',
+                  color: motifTextColor,
                 }}
               >
                 {race.motif}
               </p>
               <p
-                className="text-[0.42rem] tracking-[0.22em] uppercase text-white/50 text-center"
+                className="text-[0.42rem] tracking-[0.22em] uppercase text-center"
+                style={{ color: motifTextColor, opacity: 0.5 }}
               >
                 {race.motif_romaji ?? ''}
               </p>

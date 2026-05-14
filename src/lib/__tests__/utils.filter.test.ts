@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { vi } from 'vitest';
 import { filterRaces, sortRacesByDate, sortRaces, emptyFilter } from '../utils';
-import { makeRace, makeCategory, makeEntryPeriod } from './fixtures';
+import { makeRace, makeCategory, makeEntryPeriod, makeParticipationGift } from './fixtures';
 import type { Race } from '../types';
 
 const TODAY = '2026-04-02';
@@ -175,6 +175,73 @@ describe('filterRaces - テキスト検索', () => {
     const races = makeRaces();
     const result = filterRaces(races, { ...emptyFilter(), searchText: '存在しない大会' });
     expect(result).toHaveLength(0);
+  });
+});
+
+describe('filterRaces - giftCategories フィルタ', () => {
+  it('giftCategories が空配列なら全件返す', () => {
+    const races = [
+      makeRace({ id: 'with-medal', participation_gifts: [makeParticipationGift({ gift_categories: ['medal'] })] }),
+      makeRace({ id: 'no-gift', participation_gifts: [] }),
+    ];
+    const result = filterRaces(races, { ...emptyFilter(), giftCategories: [] });
+    expect(result).toHaveLength(2);
+  });
+
+  it('単一カテゴリを指定すると該当大会のみ返す', () => {
+    const races = [
+      makeRace({ id: 'with-medal', participation_gifts: [makeParticipationGift({ gift_categories: ['medal'] })] }),
+      makeRace({ id: 'with-tshirt', participation_gifts: [makeParticipationGift({ gift_categories: ['tshirt'] })] }),
+      makeRace({ id: 'no-gift', participation_gifts: [] }),
+    ];
+    const result = filterRaces(races, { ...emptyFilter(), giftCategories: ['medal'] });
+    expect(result).toHaveLength(1);
+    expect(result[0].id).toBe('with-medal');
+  });
+
+  it('複数カテゴリはOR条件で返す（medal OR tshirt）', () => {
+    const races = [
+      makeRace({ id: 'with-medal', participation_gifts: [makeParticipationGift({ gift_categories: ['medal'] })] }),
+      makeRace({ id: 'with-tshirt', participation_gifts: [makeParticipationGift({ gift_categories: ['tshirt'] })] }),
+      makeRace({ id: 'no-gift', participation_gifts: [] }),
+    ];
+    const result = filterRaces(races, { ...emptyFilter(), giftCategories: ['medal', 'tshirt'] });
+    expect(result).toHaveLength(2);
+    expect(result.map(r => r.id)).toContain('with-medal');
+    expect(result.map(r => r.id)).toContain('with-tshirt');
+  });
+
+  it('大会が複数 giftCategory を持つ場合に正しくマッチする', () => {
+    const races = [
+      makeRace({ id: 'multi-gift', participation_gifts: [makeParticipationGift({ gift_categories: ['medal', 'tshirt'] })] }),
+      makeRace({ id: 'no-gift', participation_gifts: [] }),
+    ];
+    // medal で検索 → マッチ
+    expect(filterRaces(races, { ...emptyFilter(), giftCategories: ['medal'] })).toHaveLength(1);
+    // tshirt で検索 → マッチ
+    expect(filterRaces(races, { ...emptyFilter(), giftCategories: ['tshirt'] })).toHaveLength(1);
+  });
+
+  it('指定した giftCategory を持たない大会は除外される', () => {
+    const races = [
+      makeRace({ id: 'with-towel', participation_gifts: [makeParticipationGift({ gift_categories: ['towel'] })] }),
+    ];
+    const result = filterRaces(races, { ...emptyFilter(), giftCategories: ['medal'] });
+    expect(result).toHaveLength(0);
+  });
+
+  it('複数の参加賞オブジェクトを持つ場合、いずれかがマッチすれば返す', () => {
+    const races = [
+      makeRace({
+        id: 'multi-gift-obj',
+        participation_gifts: [
+          makeParticipationGift({ gift_categories: ['towel'] }),
+          makeParticipationGift({ gift_categories: ['medal'] }),
+        ],
+      }),
+    ];
+    const result = filterRaces(races, { ...emptyFilter(), giftCategories: ['medal'] });
+    expect(result).toHaveLength(1);
   });
 });
 

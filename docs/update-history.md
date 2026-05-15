@@ -594,3 +594,20 @@
 - `src/app/api/user/races/[raceId]/__tests__/route.test.ts`: `GET/PATCH/DELETE /api/user/races/[raceId]` の upsert ロジック・parseIds・DELETE テストを追加（closes #59）
 - `src/components/mypage/__tests__/UserRaceList.test.tsx`: セッション状態・データ表示・getCatLabel・raceMap フォールバックのテストを追加（closes #60）
 - `src/components/races/__tests__/RaceBreadcrumb.test.tsx`: from props のバリアント・aria-label・router.back() のテストを追加（closes #61）
+
+## 2026-05-16 FK修正・シード修正・新レース追加
+
+### FK制約修正
+- `migrations/0010_fix_course_highlights_fk.sql`: `race_course_highlights.category_id → race_categories.id` の FK を ON DELETE CASCADE に修正（`0007_yielding_obadiah_stane.sql` で ON DELETE 句が欠落していた schema.ts との不整合を解消）
+
+### シード生成スクリプト修正 (`scripts/generate-seed-races.js`)
+- 子テーブルの DELETE を `INSERT OR REPLACE INTO races` より**先に**実行するよう順序変更（race_course_highlights の NO ACTION FK によるカスケード削除エラーを回避）
+- カテゴリレベルの `race_course_highlights` INSERT で `last_insert_rowid()` → サブクエリ `(SELECT id FROM race_categories WHERE race_id=... AND distance_type=... ORDER BY id DESC LIMIT 1)` に変更（複数ハイライト挿入時に `last_insert_rowid()` が上書きされ FK 違反になる問題を修正）
+
+### 新レース追加
+- `src/data/races/sapporo-marathon-2026.json`: 札幌マラソン 2026 を追加
+- `src/data/races/tokyo-legacy-half-2026.json`: 東京レガシーハーフマラソン 2026 を追加（既存ファイル）
+- `migrations/seed-races-all.sql`: 上記2件を含む 78 件分を再生成
+
+### ドキュメント更新
+- `docs/schema.md`: `race_course_highlights` テーブルに `category_id` カラムを追記、マイグレーション履歴に `0010` を追加

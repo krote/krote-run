@@ -373,7 +373,8 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 |---|---|---|---|---|
 | id | integer | NO | autoincrement | PK |
 | race_id | text | NO | — | FK → races.id（CASCADE） |
-| km | real | NO | — | 地点（km） |
+| category_id | integer | YES | — | FK → race_categories.id（CASCADE） |
+| km | real | YES | — | 地点（km） |
 | name_ja | text | NO | — | スポット名（日本語） |
 | name_en | text | YES | — | スポット名（英語） |
 | note_ja | text | YES | — | 説明（日本語） |
@@ -399,3 +400,5 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0008_phase2_motif_hero.sql` | races に motif/motif_color/motif_romaji/tagline_ja/tagline_en/hero_image_url/hero_caption_ja/hero_caption_en を追加、race_results に avg_time を追加（Issue #42 Design Phase 2） |
 | `migrations/0009_phase3_gallery_voices.sql` | race_gallery / race_voices / race_time_buckets / race_course_highlights テーブルを追加（Issue #43 Design Phase 3） |
 | `migrations/0008_stormy_reavers.sql` | race_voices に quote_en カラムを追加（英語対応） |
+| `migrations/0007_yielding_obadiah_stane.sql` | race_course_highlights に category_id カラムを追加（FK ON DELETE 句なし ← 0010 で修正） |
+| `migrations/0010_fix_course_highlights_fk.sql` | race_course_highlights.category_id FK を ON DELETE CASCADE に修正（schema.ts との整合） |

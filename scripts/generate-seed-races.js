@@ -29,7 +29,25 @@ function generateRaceSQL(r) {
   const ci = r.course_info || {};
   const lines = [];
 
-  // races テーブル
+  // 子テーブルの既存データを先に削除する
+  // race_course_highlights.category_id → race_categories.id は NO ACTION FK のため、
+  // INSERT OR REPLACE INTO races のカスケード削除より前に手動削除が必要
+  lines.push(`DELETE FROM race_course_highlights WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_categories WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM aid_stations WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM checkpoints WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM access_points WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM nearby_spots WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM weather_history WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM participation_gifts WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_entry_links WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_entry_periods WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_results WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_gallery WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_voices WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_time_buckets WHERE race_id = ${esc(r.id)};`);
+
+  // races テーブル（子テーブルのDELETE後に実行することでカスケード削除のFK競合を回避）
   lines.push(`INSERT OR REPLACE INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
@@ -88,32 +106,17 @@ function generateRaceSQL(r) {
   ${esc(r.updated_at)}
 );`);
 
-  // 子テーブルの既存データを削除（INSERT OR REPLACE が id なしでは重複するため）
-  lines.push(`DELETE FROM race_categories WHERE race_id = ${esc(r.id)};`);
-  lines.push(`DELETE FROM aid_stations WHERE race_id = ${esc(r.id)};`);
-  lines.push(`DELETE FROM checkpoints WHERE race_id = ${esc(r.id)};`);
-  lines.push(`DELETE FROM access_points WHERE race_id = ${esc(r.id)};`);
-  lines.push(`DELETE FROM nearby_spots WHERE race_id = ${esc(r.id)};`);
-  lines.push(`DELETE FROM weather_history WHERE race_id = ${esc(r.id)};`);
-  lines.push(`DELETE FROM participation_gifts WHERE race_id = ${esc(r.id)};`);
-  lines.push(`DELETE FROM race_entry_links WHERE race_id = ${esc(r.id)};`);
-  lines.push(`DELETE FROM race_entry_periods WHERE race_id = ${esc(r.id)};`);
-  lines.push(`DELETE FROM race_results WHERE race_id = ${esc(r.id)};`);
-  lines.push(`DELETE FROM race_gallery WHERE race_id = ${esc(r.id)};`);
-  lines.push(`DELETE FROM race_voices WHERE race_id = ${esc(r.id)};`);
-  lines.push(`DELETE FROM race_time_buckets WHERE race_id = ${esc(r.id)};`);
-  lines.push(`DELETE FROM race_course_highlights WHERE race_id = ${esc(r.id)};`);
-
   // race_categories（+ カテゴリに付随する course_highlights）
   if (r.categories && r.categories.length > 0) {
     r.categories.forEach((cat, idx) => {
       lines.push(`INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   (${esc(r.id)}, ${esc(cat.distance_type)}, ${esc(cat.distance_km)}, ${esc(cat.time_limit_minutes || 0)}, ${esc(cat.start_time || '')}, ${esc(cat.capacity || 0)}, ${esc(cat.entry_fee ?? null)}, ${esc(cat.entry_fee_u25 ?? null)}, ${esc(cat.name_ja ?? null)}, ${esc(cat.name_en ?? null)}, ${esc(cat.description_ja ?? null)}, ${esc(cat.description_en ?? null)}, ${esc(cat.eligibility_ja ?? null)}, ${esc(cat.eligibility_en ?? null)}, ${esc(cat.course_gpx_file ?? null)}, ${escJson(cat.waves || [])}, ${idx});`);
-      // カテゴリ直下の course_highlights: last_insert_rowid() で category_id を取得
+      // カテゴリ直下の course_highlights: サブクエリで category_id を取得
+      // （last_insert_rowid() は race_course_highlights INSERT後に更新されるため使用不可）
       if (cat.course_highlights && cat.course_highlights.length > 0) {
         cat.course_highlights.forEach((ch, cidx) => {
           lines.push(`INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  (${esc(r.id)}, last_insert_rowid(), ${esc(ch.km)}, ${esc(ch.name_ja)}, ${esc(ch.name_en ?? null)}, ${esc(ch.note_ja ?? null)}, ${esc(ch.note_en ?? null)}, ${cidx});`);
+  (${esc(r.id)}, (SELECT id FROM race_categories WHERE race_id = ${esc(r.id)} AND distance_type = ${esc(cat.distance_type)} ORDER BY id DESC LIMIT 1), ${esc(ch.km)}, ${esc(ch.name_ja)}, ${esc(ch.name_en ?? null)}, ${esc(ch.note_ja ?? null)}, ${esc(ch.note_en ?? null)}, ${cidx});`);
         });
       }
     });

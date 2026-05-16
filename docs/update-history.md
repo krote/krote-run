@@ -612,3 +612,12 @@
 ### ドキュメント更新
 - `docs/schema.md`: `race_course_highlights` テーブルに `category_id` カラムを追記、マイグレーション履歴に `0010` を追加
 - `docs/er-diagram.drawio`: 全テーブル・全カラム・全FK関係を反映して全面再作成（旧版は多数のテーブル・カラムが欠落していた）
+
+## 2026-05-16 パッケージマネージャーを npm → pnpm に移行
+
+- `package-lock.json` を削除し `pnpm-lock.yaml` を生成（pnpm v11.1.2 / corepack 経由）
+- `package.json`: `packageManager` フィールドに `pnpm@11.1.2` を追加
+- `package.json`: `pnpm.onlyBuiltDependencies` で native addon のビルドスクリプトを許可（@parcel/watcher, @swc/core, better-sqlite3, esbuild, sharp, unrs-resolver, workerd）
+- `package.json`: `db:series:local/remote` / `cf:build/preview/deploy` の `npm run` を `pnpm run` に変更
+- `.npmrc` を新規作成（`shamefully-hoist=false`, `strict-peer-dependencies=false`）
+- `CLAUDE.md`: 全コマンド例を `npm run` → `pnpm run` に更新

@@ -48,18 +48,7 @@
     "wrangler": "^4.65.0"
   },
   "packageManager": "pnpm@11.1.2",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "@swc/core",
-      "better-sqlite3",
-      "esbuild",
-      "sharp",
-      "unrs-resolver",
-      "workerd"
-    ]
-  },
-  "devDependencies": {
+"devDependencies": {
     "@cloudflare/workers-types": "^4.20240208.0",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.9.1",

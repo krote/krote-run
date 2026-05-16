@@ -611,3 +611,4 @@
 
 ### ドキュメント更新
 - `docs/schema.md`: `race_course_highlights` テーブルに `category_id` カラムを追記、マイグレーション履歴に `0010` を追加
+- `docs/er-diagram.drawio`: 全テーブル・全カラム・全FK関係を反映して全面再作成（旧版は多数のテーブル・カラムが欠落していた）

@@ -19,34 +19,34 @@
 
 ```bash
 # 開発（Cloudflare ランタイム経由でローカルD1に接続）
-npm run dev                      # localhost:3000 で Next.js 開発サーバーを起動
+pnpm run dev                     # localhost:3000 で Next.js 開発サーバーを起動
 
 # ビルド
-npm run build                    # next build --webpack（TurbopackはCloudflare Workers非対応のため使用不可）
-npm run cf:build                 # OpenNext Cloudflare ビルド（デプロイ用）
+pnpm run build                   # next build --webpack（TurbopackはCloudflare Workers非対応のため使用不可）
+pnpm run cf:build                # OpenNext Cloudflare ビルド（デプロイ用）
 
 # Lint
-npm run lint
+pnpm run lint
 
 # データベース
-npm run db:generate              # スキーマ変更後にDrizzleマイグレーションを生成
-npm run db:migrate:local         # ローカルD1にマイグレーションを適用
-npm run db:migrate:remote        # リモートのCloudflare D1にマイグレーションを適用
-npm run db:seed:local            # マスターデータ（prefectures, gift_categories）をシード
-npm run db:seed-races:local      # レースデータ（seed-races-all.sql）をシード
-npm run course:generate          # public/gpx/*.gpx → public/course-profiles/*.json を生成（引数でrace-id指定可）
-npm run db:studio                # Drizzle Studio GUI を起動
+pnpm run db:generate             # スキーマ変更後にDrizzleマイグレーションを生成
+pnpm run db:migrate:local        # ローカルD1にマイグレーションを適用
+pnpm run db:migrate:remote       # リモートのCloudflare D1にマイグレーションを適用
+pnpm run db:seed:local           # マスターデータ（prefectures, gift_categories）をシード
+pnpm run db:seed-races:local     # レースデータ（seed-races-all.sql）をシード
+pnpm run course:generate         # public/gpx/*.gpx → public/course-profiles/*.json を生成（引数でrace-id指定可）
+pnpm run db:studio               # Drizzle Studio GUI を起動
 
 # Cloudflare プレビュー / デプロイ
-npm run cf:preview               # ビルド + wrangler pages dev（localhost:8788）
-npm run cf:deploy                # ビルド + wrangler pages deploy
+pnpm run cf:preview              # ビルド + wrangler pages dev（localhost:8788）
+pnpm run cf:deploy               # ビルド + wrangler pages deploy
 ```
 
-> **Windowsの注意**: Node.js コマンドはPowerShell経由で実行する必要があります。bashから呼び出す場合は `powershell -Command "Set-Location 'C:\Dev\krote-run'; npm run build"` を使用してください。
+> **Windowsの注意**: Node.js コマンドはPowerShell経由で実行する必要があります。bashから呼び出す場合は `powershell -Command "Set-Location 'C:\Dev\krote-run'; pnpm run build"` を使用してください。
 
-> **wrangler コマンドの注意**: `wrangler d1 execute` を直接実行する場合、`%USERPROFILE%` などの Windows 環境変数は bash から渡すと展開されません。**必ず `npm run` スクリプト経由で実行してください**（package.json のスクリプトは cmd.exe で解釈されるため環境変数が正しく展開されます）。直接 wrangler コマンドを使う場合はパスをハードコードしてください（例: `C:\Users\krote\.wrangler\states\krote-run`）。
+> **wrangler コマンドの注意**: `wrangler d1 execute` を直接実行する場合、`%USERPROFILE%` などの Windows 環境変数は bash から渡すと展開されません。**必ず `pnpm run` スクリプト経由で実行してください**（package.json のスクリプトは cmd.exe で解釈されるため環境変数が正しく展開されます）。直接 wrangler コマンドを使う場合はパスをハードコードしてください（例: `C:\Users\krote\.wrangler\states\krote-run`）。
 
-> `npm run dev` は `next.config.ts` の `initOpenNextCloudflareForDev()` を通じてローカルD1に接続します。ローカルDBは `.wrangler/state/` に保存されます。
+> `pnpm run dev` は `next.config.ts` の `initOpenNextCloudflareForDev()` を通じてローカルD1に接続します。ローカルDBは `.wrangler/state/` に保存されます。
 
 ## アーキテクチャ
 
@@ -115,15 +115,15 @@ Cloudflare D1 (SQLite)
 
 1. **`docs/schema.md` を更新** — 変更したテーブルのカラム定義・備考・インデックス一覧、およびマイグレーション履歴テーブルに新しいエントリを追記する
 2. **`docs/er-diagram.drawio` を更新** — 新規テーブルや外部キーの追加・削除を draw.io ファイルに反映する（ASCII図ではなく drawio が正）
-3. **マイグレーションファイルを生成** — `npm run db:generate` でDrizzleマイグレーションSQLを生成する
+3. **マイグレーションファイルを生成** — `pnpm run db:generate` でDrizzleマイグレーションSQLを生成する
 4. **生成されたSQLを確認** — 新テーブル追加のはずなのに既存テーブルの `CREATE TABLE` が含まれている場合は Drizzle のスナップショット（`migrations/meta/`）がズレているサイン。その場合は生成ファイルを手動で差分のみに修正する
-5. **ローカルDBに適用** — `npm run db:migrate:local` でローカルD1に反映して動作確認する
-6. **動作確認** — `npm run dev` でエラーが出ないことを確認してからPRを出す
+5. **ローカルDBに適用** — `pnpm run db:migrate:local` でローカルD1に反映して動作確認する
+6. **動作確認** — `pnpm run dev` でエラーが出ないことを確認してからPRを出す
 
 ### マイグレーション適用時の注意
 
 - **一時SQLファイルは `migrations/` に置かない** — wrangler が自動認識して管理対象になってしまう。回避用の一時SQLは `scripts/` 以下に置くこと
-- **リモート適用は `npm run db:migrate:remote`** — 累積マイグレーション等でエラーになる場合は `wrangler d1 execute --remote --file=...` で直接実行し、`d1_migrations` テーブルに手動でレコードを INSERT して適用済みとしてマークする
+- **リモート適用は `pnpm run db:migrate:remote`** — 累積マイグレーション等でエラーになる場合は `wrangler d1 execute --remote --file=...` で直接実行し、`d1_migrations` テーブルに手動でレコードを INSERT して適用済みとしてマークする
 
 ### seed-races の更新フロー
 
@@ -131,5 +131,5 @@ Cloudflare D1 (SQLite)
 
 ```bash
 node scripts/generate-seed-races.js   # seed-races-all.sql を再生成
-npm run db:seed-races:local           # ローカルに反映（seed-races-all.sql を使用）
+pnpm run db:seed-races:local          # ローカルに反映（seed-races-all.sql を使用）
 ```

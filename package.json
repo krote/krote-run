@@ -30,6 +30,7 @@
     "db:series:local": "pnpm run db:series:generate && npx wrangler d1 execute krote-run-db --local --file=./migrations/seed-series.sql --persist-to %USERPROFILE%/.wrangler/states/krote-run",
     "db:series:remote": "pnpm run db:series:generate && npx wrangler d1 execute krote-run-db --remote --file=./migrations/seed-series.sql"
   },
+  "packageManager": "pnpm@11.1.2",
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "^3.0.0",
     "@opennextjs/cloudflare": "^1.7.0",
@@ -47,8 +48,7 @@
     "resend": "^6.12.0",
     "wrangler": "^4.65.0"
   },
-  "packageManager": "pnpm@11.1.2",
-"devDependencies": {
+  "devDependencies": {
     "@cloudflare/workers-types": "^4.20240208.0",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.9.1",

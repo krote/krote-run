@@ -353,6 +353,8 @@ function addInfoUrlRow(item = {}) {
         <option value="大会要項">
         <option value="エントリー">
         <option value="開催概要">
+        <option value="大会の特色">
+        <option value="コース情報">
         <option value="FAQ">
         <option value="アクセス">
       </datalist>

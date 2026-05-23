@@ -120,6 +120,14 @@
                 <label>公式サイトURL</label>
                 <input type="url" id="f-official_url" />
               </div>
+              <div class="field full">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                  <label style="font-size:13px;font-weight:600;color:var(--mid);">情報取得URL（更新チェック用・最大5件）</label>
+                  <button class="btn btn-secondary" id="btn-add-info-url">＋ 追加</button>
+                </div>
+                <p class="field-hint" style="margin-bottom:8px;">大会要項・エントリーページなど、更新チェック時に参照するURLを登録してください。</p>
+                <div id="info-urls-container"></div>
+              </div>
             </div>
           </section>
 

@@ -15,6 +15,12 @@
 - 実装はブランチを作成して行い、PRをユーザに提出。レビュー後にマージする
 - 実装時はTDDスキルに基づき実装を進めるものとする
 
+## TDD
+- 実装前に必ずテストを書き、Red を確認してから実装を始める
+- `src/` のテスト: `vitest`（`src/**/__tests__/` または同階層の `*.test.ts`）
+- `tools/` のテスト: `tools/admin-server.test.js`（Node.js built-in test runner）
+- テストなしで実装ファイルを作成・編集しない
+
 ## コマンド
 
 ```bash

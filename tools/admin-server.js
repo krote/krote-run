@@ -177,8 +177,19 @@ function extractOverviewLinks(html, baseUrl) {
   return links;
 }
 
+/**
+ * 取得対象URLリストを決定する純粋関数。
+ * info_urls が登録済みならそれを優先（最大5件）、なければ discoveredLinks を使用（最大2件）。
+ */
+function selectInfoSources(infoUrls, discoveredLinks) {
+  if (infoUrls && infoUrls.length > 0) {
+    return infoUrls.slice(0, 5).map(u => u.url);
+  }
+  return discoveredLinks.slice(0, 2).map(l => l.href);
+}
+
 /** 公式URLをフェッチして概要ページ候補も含めてテキストを収集 */
-async function fetchOfficialContent(officialUrl) {
+async function fetchOfficialContent(officialUrl, infoUrls = []) {
   const FETCH_OPTS = {
     headers: {
       'User-Agent': 'Mozilla/5.0 (compatible; HASHIRUBot/1.0)',
@@ -194,14 +205,16 @@ async function fetchOfficialContent(officialUrl) {
 
   const pages = [{ url: officialUrl, text: cleanHtml(mainHtml) }];
 
-  // 開催概要系リンクを最大2件追加取得
-  const overviewLinks = extractOverviewLinks(mainHtml, officialUrl).slice(0, 2);
-  for (const link of overviewLinks) {
+  // info_urls 登録済みならそれを優先、なければ自動探索にフォールバック
+  const discoveredLinks = extractOverviewLinks(mainHtml, officialUrl);
+  const subUrls = selectInfoSources(infoUrls, discoveredLinks);
+
+  for (const url of subUrls) {
     try {
-      const res = await fetch(link.href, FETCH_OPTS);
+      const res = await fetch(url, FETCH_OPTS);
       if (res.ok) {
         const html = await res.text();
-        pages.push({ url: link.href, text: cleanHtml(html) });
+        pages.push({ url, text: cleanHtml(html) });
       }
     } catch { /* 取得失敗は無視 */ }
   }
@@ -614,19 +627,21 @@ const server = http.createServer(async (req, res) => {
         return jsonRes(res, { error: '公式URLが設定されていません' }, 400);
       }
 
-      // 公式サイトをフェッチ
+      // 公式サイトをフェッチ（info_urls が登録済みならそれを優先）
+      const currentData = JSON.parse(
+        fs.readFileSync(path.join(RACES_DIR, `${latestRace.id}.json`), 'utf-8')
+      );
+      const infoUrls = currentData.info_urls ?? [];
       console.log(`[チェック] ${seriesId}: ${latestRace.official_url}`);
-      const pages = await fetchOfficialContent(latestRace.official_url);
+      if (infoUrls.length > 0) {
+        console.log(`[チェック] info_urls 使用: ${infoUrls.map(u => u.url).join(', ')}`);
+      }
+      const pages = await fetchOfficialContent(latestRace.official_url, infoUrls);
       console.log(`[チェック] ${pages.length}ページ取得: ${pages.map(p => p.url).join(', ')}`);
 
       // Bedrockで情報抽出
       const extracted = await extractRaceInfo(pages);
       console.log(`[チェック] 抽出結果:`, extracted);
-
-      // 現在のデータを取得
-      const currentData = JSON.parse(
-        fs.readFileSync(path.join(RACES_DIR, `${latestRace.id}.json`), 'utf-8')
-      );
 
       // 差分を計算
       const diff = buildDiff(currentData, extracted);
@@ -737,5 +752,5 @@ if (require.main === module) {
   });
 } else {
   // テスト用エクスポート
-  module.exports = { getMissingFields, syncLocalDb, syncRemoteDb };
+  module.exports = { getMissingFields, syncLocalDb, syncRemoteDb, selectInfoSources };
 }

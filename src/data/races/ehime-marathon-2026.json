@@ -139,5 +139,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://ehimemarathon.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://ehimemarathon.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://ehimemarathon.jp/about-volunteer/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://ehimemarathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://ehimemarathon.jp/access/",
+      "label": "アクセス"
+    }
   ]
 }

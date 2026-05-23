@@ -143,5 +143,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.toyamamarathon.com/about/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.toyamamarathon.com/about/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.toyamamarathon.com/runner/stayplan/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.toyamamarathon.com/traffic/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://www.toyamamarathon.com/faq/",
+      "label": "FAQ"
+    }
   ]
 }

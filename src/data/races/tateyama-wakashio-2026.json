@@ -122,5 +122,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://tateyama-wakasio.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://tateyama-wakasio.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://tateyama-wakasio.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://tateyama-wakasio.jp/faq/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://tateyama-wakasio.jp/feed/",
+      "label": "開催概要"
+    }
   ]
 }

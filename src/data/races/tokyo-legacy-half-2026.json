@@ -94,5 +94,19 @@
   "hero_caption_en": null,
   "gallery": [],
   "voices": [],
-  "time_buckets": []
+  "time_buckets": [],
+  "info_urls": [
+    {
+      "url": "https://legacyhalf.tokyo/volunteer/index.html/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://legacyhalf.tokyo/about/main-visual/index.html/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://legacyhalf.tokyo/news/detail/news_0248.html/",
+      "label": "エントリー"
+    }
+  ]
 }

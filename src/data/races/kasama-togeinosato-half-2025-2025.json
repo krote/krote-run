@@ -133,5 +133,23 @@
       "bucket": "2:30-2:45",
       "pct": 2.4
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.kasa-mara.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.kasa-mara.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.kasa-mara.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.kasa-mara.jp/feed/",
+      "label": "開催概要"
+    }
   ]
 }

@@ -100,5 +100,11 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": []
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://nishio-marathon.jp/feed/",
+      "label": "開催概要"
+    }
+  ]
 }

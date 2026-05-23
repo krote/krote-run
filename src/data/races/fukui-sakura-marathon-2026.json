@@ -146,5 +146,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.fukui-sakura-marathon.jp/about/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.fukui-sakura-marathon.jp/about/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.fukui-sakura-marathon.jp/about/concept/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.fukui-sakura-marathon.jp/runner/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.fukui-sakura-marathon.jp/stay/",
+      "label": "アクセス"
+    }
   ]
 }

@@ -81,5 +81,27 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": []
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://iwate-morioka-city-marathon.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://iwate-morioka-city-marathon.jp/concept/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://iwate-morioka-city-marathon.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://iwate-morioka-city-marathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://iwate-morioka-city-marathon.jp/faq_reception/",
+      "label": "FAQ"
+    }
+  ]
 }

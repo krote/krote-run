@@ -114,5 +114,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.himeji-marathon.jp/outline/index.html/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.himeji-marathon.jp/course/index.html/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.himeji-marathon.jp/access/index.html/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://www.himeji-marathon.jp/application/index.html/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.himeji-marathon.jp/participation/index.html/",
+      "label": "エントリー"
+    }
   ]
 }

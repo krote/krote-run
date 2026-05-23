@@ -97,5 +97,27 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": []
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.osaka42195.com/category/info/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://www.osaka42195.com/category/traffic/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://www.osaka42195.com/event/about/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.osaka42195.com/event/couse/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.osaka42195.com/runner/entry/",
+      "label": "エントリー"
+    }
+  ]
 }

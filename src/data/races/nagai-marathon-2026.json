@@ -105,5 +105,23 @@
   "hero_caption_en": null,
   "gallery": [],
   "voices": [],
-  "time_buckets": []
+  "time_buckets": [],
+  "info_urls": [
+    {
+      "url": "https://nagai-marathon.jp/news-cat/infomartion/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://nagai-marathon.jp/news/2026/402/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://nagai-marathon.jp/wp/wp-content/themes/source_tcd045-child/pdf/nagaimararhon2026_yoko.pdf/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://nagai-marathon.jp/%3C/",
+      "label": "コース情報"
+    }
+  ]
 }

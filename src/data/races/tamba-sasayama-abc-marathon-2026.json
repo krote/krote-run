@@ -118,5 +118,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://tambasasayama-abc-marathon.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://tambasasayama-abc-marathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://tambasasayama-abc-marathon.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://tambasasayama-abc-marathon.jp/faq/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://tambasasayama-abc-marathon.jp/feed/",
+      "label": "開催概要"
+    }
   ]
 }

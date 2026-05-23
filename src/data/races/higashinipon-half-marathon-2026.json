@@ -105,5 +105,15 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.runningkanagawa.com/faq/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://www.runningkanagawa.com/legal/",
+      "label": "開催概要"
+    }
   ]
 }

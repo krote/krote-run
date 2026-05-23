@@ -167,5 +167,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://kyoto-marathon.com/info/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://kyoto-marathon.com/info/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://kyoto-marathon.com/info/concept/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://kyoto-marathon.com/traffic/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://kyoto-marathon.com/faq/",
+      "label": "FAQ"
+    }
   ]
 }

@@ -90,5 +90,27 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": []
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://iki-ultra.jp/about/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://iki-ultra.jp/qa/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://iki-ultra.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://iki-ultra.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://iki-ultra.jp/access/",
+      "label": "アクセス"
+    }
+  ]
 }

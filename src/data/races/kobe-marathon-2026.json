@@ -158,5 +158,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.kobe-marathon.net/2026/faq/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://www.kobe-marathon.net/2026/race/essentials/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.kobe-marathon.net/2026/runner/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.kobe-marathon.net/2026/runner/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.kobe-marathon.net/2026/support/expo/expoinfo/",
+      "label": "開催概要"
+    }
   ]
 }

@@ -156,5 +156,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://hokkaido-marathon.com/overview/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://hokkaido-marathon.com/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://hokkaido-marathon.com/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://hokkaido-marathon.com/faq/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://hokkaido-marathon.com/info/12731/",
+      "label": "開催概要"
+    }
   ]
 }

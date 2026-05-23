@@ -142,5 +142,27 @@
   "voices": [],
   "time_buckets": [],
   "entry_closed": false,
-  "entry_links": []
+  "entry_links": [],
+  "info_urls": [
+    {
+      "url": "https://fukuchiyama-marathon.com/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://fukuchiyama-marathon.com/course-map/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://fukuchiyama-marathon.com/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://fukuchiyama-marathon.com/2026/info/support-runners/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://fukuchiyama-marathon.com/access/",
+      "label": "アクセス"
+    }
+  ]
 }

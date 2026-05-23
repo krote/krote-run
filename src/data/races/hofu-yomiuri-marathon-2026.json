@@ -107,5 +107,23 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://hofu-yomiuri.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://hofu-yomiuri.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://hofu-yomiuri.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://hofu-yomiuri.jp/feed/",
+      "label": "開催概要"
+    }
   ]
 }

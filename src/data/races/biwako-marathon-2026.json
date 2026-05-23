@@ -122,5 +122,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://biwako-marathon.com/outline-marathon/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://biwako-marathon.com/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://biwako-marathon.com/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://biwako-marathon.com/traffic_regulation/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://biwako-marathon.com/feed/",
+      "label": "開催概要"
+    }
   ]
 }

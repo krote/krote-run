@@ -174,5 +174,27 @@
   "voices": [],
   "time_buckets": [],
   "entry_closed": false,
-  "entry_links": []
+  "entry_links": [],
+  "info_urls": [
+    {
+      "url": "https://www.f-marathon.jp/about/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.f-marathon.jp/about/course.php/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.f-marathon.jp/about/logo.php/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.f-marathon.jp/runner/apply.php/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.f-marathon.jp/traffic/",
+      "label": "アクセス"
+    }
+  ]
 }

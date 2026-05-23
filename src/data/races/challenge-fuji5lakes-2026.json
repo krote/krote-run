@@ -351,5 +351,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.r-wellness.com/fuji5/participant-info/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://www.r-wellness.com/fuji5/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.r-wellness.com/fuji5/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://www.r-wellness.com/fuji5/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.r-wellness.com/fuji5/faq/",
+      "label": "FAQ"
+    }
   ]
 }

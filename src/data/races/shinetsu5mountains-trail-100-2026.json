@@ -92,5 +92,27 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": []
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://sfmt100.com/about-shinetsu/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://sfmt100.com/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://sfmt100.com/about/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://sfmt100.com/about/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://sfmt100.com/map/",
+      "label": "コース情報"
+    }
+  ]
 }

@@ -131,5 +131,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://soja-kibijimarathon.jp/wp/event-details/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://soja-kibijimarathon.jp/wp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://soja-kibijimarathon.jp/wp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://soja-kibijimarathon.jp/wp/qa/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://soja-kibijimarathon.jp/wp/access/",
+      "label": "アクセス"
+    }
   ]
 }

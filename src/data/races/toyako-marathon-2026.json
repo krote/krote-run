@@ -136,5 +136,23 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.toyako-marathon.jp/outline/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.toyako-marathon.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.toyako-marathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.toyako-marathon.jp/feed/",
+      "label": "開催概要"
+    }
   ]
 }

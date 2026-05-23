@@ -127,5 +127,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://i-c-m.jp/guideline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://i-c-m.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://i-c-m.jp/access/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://i-c-m.jp/faq/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://i-c-m.jp/feed/",
+      "label": "開催概要"
+    }
   ]
 }

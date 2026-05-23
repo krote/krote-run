@@ -135,5 +135,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.kagoshima-marathon.jp/about/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.kagoshima-marathon.jp/about/course/course-guidelines.html/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.kagoshima-marathon.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.kagoshima-marathon.jp/traffic/index-mk.html/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://www.kagoshima-marathon.jp/faq/",
+      "label": "FAQ"
+    }
   ]
 }

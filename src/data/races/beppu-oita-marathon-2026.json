@@ -133,5 +133,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.betsudai.com/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.betsudai.com/outline/flow/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://www.betsudai.com/outline/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.betsudai.com/question/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://www.betsudai.com/wp-content/themes/betsudai/pdf/74/kou.pdf/",
+      "label": "アクセス"
+    }
   ]
 }

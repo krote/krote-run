@@ -144,5 +144,23 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://wakkanai-marathon.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://wakkanai-marathon.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://wakkanai-marathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://wakkanai-marathon.jp/feed/",
+      "label": "開催概要"
+    }
   ]
 }

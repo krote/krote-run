@@ -117,5 +117,23 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": []
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://oshukirameki.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://oshukirameki.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://oshukirameki.jp/info/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://oshukirameki.jp/course/",
+      "label": "コース情報"
+    }
+  ]
 }

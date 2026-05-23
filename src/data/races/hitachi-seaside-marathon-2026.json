@@ -81,5 +81,27 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": []
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://hitachi-marathon.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://hitachi-marathon.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://hitachi-marathon.jp/2026/feature/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://hitachi-marathon.jp/feed/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://hitachi-marathon.jp/2025/wp-content/uploads/2025/08/roadclosure2025.pdf/",
+      "label": "アクセス"
+    }
+  ]
 }

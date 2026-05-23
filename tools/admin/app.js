@@ -339,7 +339,7 @@ function addInfoUrlRow(item = {}) {
   const container = document.getElementById('info-urls-container');
   if (container.children.length >= 5) return;
   const row = document.createElement('div');
-  row.className = 'entry-link-row';
+  row.className = 'info-url-row';
   row.style.cssText = 'display:grid;grid-template-columns:2fr 1fr auto;gap:8px;align-items:end;margin-bottom:8px;';
   row.innerHTML = `
     <div class="field" style="margin:0">
@@ -368,7 +368,7 @@ function addInfoUrlRow(item = {}) {
 }
 
 function collectInfoUrls() {
-  return [...document.querySelectorAll('#info-urls-container .entry-link-row')]
+  return [...document.querySelectorAll('#info-urls-container .info-url-row')]
     .map(row => ({
       url: row.querySelector('.iu-url').value.trim(),
       label: row.querySelector('.iu-label').value.trim() || null,

@@ -2,8 +2,8 @@
   "id": "naha-marathon-2026",
   "name_ja": "NAHAマラソン",
   "name_en": "NAHA Marathon",
-  "full_name_ja": null,
-  "full_name_en": null,
+  "full_name_ja": "NAHAマラソン",
+  "full_name_en": "NAHA Marathon",
   "edition": null,
   "date": "2026-12-06",
   "prefecture": "47",
@@ -13,17 +13,17 @@
   "description_en": "Japan's southernmost large-scale full marathon in Naha, Okinawa. A popular December race in the subtropical climate. 6 hour 15 min time limit.",
   "official_url": "https://www.naha-marathon.jp",
   "entry_fee": null,
-  "entry_fee_by_category": false,
+  "entry_fee_by_category": true,
   "entry_capacity": null,
   "entry_start_date": null,
   "entry_end_date": null,
-  "reception_type": null,
+  "reception_type": "pre_day",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [
     "大規模",
-    "温暖",
-    "沖縄"
+    "沖縄",
+    "温暖"
   ],
   "course_gpx_file": null,
   "course_info": {
@@ -43,14 +43,18 @@
       "distance_km": 42.195,
       "time_limit_minutes": 375,
       "start_time": "09:00",
-      "capacity": null,
+      "capacity": 0,
       "entry_fee": null,
       "entry_fee_u25": null,
       "name_ja": null,
       "name_en": null,
       "description_ja": null,
       "description_en": null,
-      "waves": null
+      "waves": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": []
     }
   ],
   "aid_stations": [],
@@ -84,8 +88,8 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "tshirt",
-        "medal"
+        "medal",
+        "tshirt"
       ],
       "description_ja": "大会オリジナルTシャツ、完走メダル",
       "description_en": "Official race T-shirt, Finisher medal",
@@ -116,24 +120,24 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": [
+  "info_urls": [
     {
-      "name_ja": "国際通り",
-      "name_en": "Kokusai Street",
-      "description_ja": null,
-      "description_en": null
+      "url": "https://naha-marathon.jp/info/#link01",
+      "label": "大会要項"
     },
     {
-      "name_ja": "那覇市街",
-      "name_en": "Naha city",
-      "description_ja": null,
-      "description_en": null
+      "url": "https://naha-marathon.jp/entry/#link01",
+      "label": "エントリー"
     },
     {
-      "name_ja": "沖縄の風景",
-      "name_en": "Okinawan scenery",
-      "description_ja": null,
-      "description_en": null
+      "url": "https://naha-marathon.jp/course/#link01",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://naha-marathon.jp/contact/#link01",
+      "label": "FAQ"
     }
-  ]
+  ],
+  "entry_closed": false,
+  "entry_links": []
 }

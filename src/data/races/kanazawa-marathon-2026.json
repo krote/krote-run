@@ -51,7 +51,11 @@
       "name_en": null,
       "description_ja": null,
       "description_en": null,
-      "waves": null
+      "waves": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": []
     }
   ],
   "aid_stations": [],
@@ -137,24 +141,28 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": [
+  "info_urls": [
     {
-      "name_ja": "兼六園",
-      "name_en": "Kenroku-en Garden",
-      "description_ja": null,
-      "description_en": null
+      "url": "https://www.kanazawa-marathon.jp/outline/index.html?",
+      "label": "大会要項"
     },
     {
-      "name_ja": "金沢城",
-      "name_en": "Kanazawa Castle",
-      "description_ja": null,
-      "description_en": null
+      "url": "https://www.kanazawa-marathon.jp/course/index.html?",
+      "label": "コース情報"
     },
     {
-      "name_ja": "ひがし茶屋街付近",
-      "name_en": "Higashi Chaya District area",
-      "description_ja": null,
-      "description_en": null
+      "url": "https://www.kanazawa-marathon.jp/point/index.html?",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.kanazawa-marathon.jp/entry/index.html?",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.kanazawa-marathon.jp/qanda/index.html?",
+      "label": "FAQ"
     }
-  ]
+  ],
+  "entry_closed": false,
+  "entry_links": []
 }

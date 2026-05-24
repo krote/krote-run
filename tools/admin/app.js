@@ -349,15 +349,6 @@ function addInfoUrlRow(item = {}) {
     <div class="field" style="margin:0">
       <label>ラベル（任意）</label>
       <input type="text" class="iu-label" value="${(item.label ?? '').replace(/"/g, '&quot;')}" placeholder="例: 大会要項" list="info-url-label-suggestions" />
-      <datalist id="info-url-label-suggestions">
-        <option value="大会要項">
-        <option value="エントリー">
-        <option value="開催概要">
-        <option value="大会の特色">
-        <option value="コース情報">
-        <option value="FAQ">
-        <option value="アクセス">
-      </datalist>
     </div>
     <button class="btn btn-danger btn-remove-info-url" style="margin-bottom:0;">削除</button>
   `;

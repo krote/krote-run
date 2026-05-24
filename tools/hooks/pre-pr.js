@@ -6,7 +6,7 @@
  */
 
 const { execSync } = require('child_process');
-const ROOT = 'C:/Dev/krote-run';
+const ROOT = process.cwd();
 
 const chunks = [];
 process.stdin.on('data', (c) => chunks.push(c));
@@ -33,7 +33,8 @@ process.stdin.on('end', () => {
   // src/ のテスト (vitest)
   try {
     console.log('[pre-PR] src/ テスト (vitest)...');
-    execSync('powershell -Command "pnpm vitest run"', { cwd: ROOT, stdio: 'inherit' });
+    const vitestCmd = process.platform === 'win32' ? 'powershell -Command "pnpm vitest run"' : 'pnpm vitest run';
+    execSync(vitestCmd, { cwd: ROOT, stdio: 'inherit' });
     console.log('[pre-PR] src/ テスト: OK\n');
   } catch {
     console.error('[pre-PR] src/ テスト: FAILED\n');

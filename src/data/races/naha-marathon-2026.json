@@ -122,19 +122,19 @@
   "time_buckets": [],
   "info_urls": [
     {
-      "url": "https://naha-marathon.jp/info/#link01",
+      "url": "https://naha-marathon.jp/info/",
       "label": "大会要項"
     },
     {
-      "url": "https://naha-marathon.jp/entry/#link01",
+      "url": "https://naha-marathon.jp/entry/",
       "label": "エントリー"
     },
     {
-      "url": "https://naha-marathon.jp/course/#link01",
+      "url": "https://naha-marathon.jp/course/",
       "label": "コース情報"
     },
     {
-      "url": "https://naha-marathon.jp/contact/#link01",
+      "url": "https://naha-marathon.jp/contact/",
       "label": "FAQ"
     }
   ],

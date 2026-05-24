@@ -95,7 +95,7 @@ function extractLabeledLinks(html, baseUrl) {
       if (seen.has(cleanUrl)) continue;
       seen.add(cleanUrl);
 
-      const label = assignLabel(fullUrl.pathname + fullUrl.href, rawText);
+      const label = assignLabel(fullUrl.pathname, rawText);
       if (label) {
         results.push({ url: cleanUrl, label, text: rawText });
       }

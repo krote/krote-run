@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node C:/Dev/krote-run/tools/hooks/pre-pr.js"
+            "command": "node tools/hooks/pre-pr.js"
           }
         ]
       }

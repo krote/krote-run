@@ -183,7 +183,11 @@ function extractOverviewLinks(html, baseUrl) {
  */
 function selectInfoSources(infoUrls, discoveredLinks) {
   if (infoUrls && infoUrls.length > 0) {
-    return infoUrls.slice(0, 5).map(u => u.url);
+    const valid = infoUrls
+      .filter(u => u && typeof u.url === 'string' && /^https?:\/\//.test(u.url))
+      .slice(0, 5)
+      .map(u => u.url);
+    if (valid.length > 0) return valid;
   }
   return discoveredLinks.slice(0, 2).map(l => l.href);
 }

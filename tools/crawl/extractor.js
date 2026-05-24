@@ -137,12 +137,14 @@ async function extractFromPages(race, pageTexts) {
  * @param {object} race
  * @param {object} extracted
  */
+const ALLOWED_KEYS = new Set(DIFF_FIELDS.map(f => f.key));
+
 function applyAndSave(race, extracted) {
   const filePath = path.join(RACES_DIR, `${race.id}.json`);
   const updated = {
     ...race,
     ...Object.fromEntries(
-      Object.entries(extracted).filter(([, v]) => v != null)
+      Object.entries(extracted).filter(([k, v]) => v != null && ALLOWED_KEYS.has(k))
     ),
     updated_at: new Date().toISOString(),
     _metadata: {

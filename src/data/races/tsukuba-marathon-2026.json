@@ -122,23 +122,23 @@
   "entry_links": [],
   "info_urls": [
     {
-      "url": "https://www.tsukuba-marathon.com/page/dir000007.html/",
+      "url": "https://www.tsukuba-marathon.com/page/dir000007.html",
       "label": "アクセス"
     },
     {
-      "url": "https://www.tsukuba-marathon.com/faq.php/",
+      "url": "https://www.tsukuba-marathon.com/faq.php",
       "label": "FAQ"
     },
     {
-      "url": "https://www.tsukuba-marathon.com/page/page000280.html/",
+      "url": "https://www.tsukuba-marathon.com/page/page000280.html",
       "label": "大会要項"
     },
     {
-      "url": "https://www.tsukuba-marathon.com/page/page000276.html/",
+      "url": "https://www.tsukuba-marathon.com/page/page000276.html",
       "label": "エントリー"
     },
     {
-      "url": "https://www.tsukuba-marathon.com/sitemap.php/",
+      "url": "https://www.tsukuba-marathon.com/sitemap.php",
       "label": "コース情報"
     }
   ]

@@ -80,5 +80,27 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": []
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://mtfujiclimbrun.com/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://mtfujiclimbrun.com/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://mtfujiclimbrun.com/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://mtfujiclimbrun.com/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://mtfujiclimbrun.com/qa/",
+      "label": "FAQ"
+    }
+  ]
 }

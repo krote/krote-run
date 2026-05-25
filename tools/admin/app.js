@@ -161,6 +161,7 @@ function populateForm(r) {
   setVal('f-city_ja', r.city_ja);
   setVal('f-city_en', r.city_en);
   setVal('f-official_url', r.official_url);
+  renderInfoUrls(r.info_urls ?? []);
 
   // 説明文
   setVal('f-description_ja', r.description_ja);
@@ -326,6 +327,52 @@ function setVal(id, val) {
   if (!el) return;
   el.value = val ?? '';
 }
+
+// ── 情報取得URL ───────────────────────────────────────────────────
+function renderInfoUrls(items) {
+  const container = document.getElementById('info-urls-container');
+  container.innerHTML = '';
+  (items ?? []).forEach(item => addInfoUrlRow(item));
+}
+
+function addInfoUrlRow(item = {}) {
+  const container = document.getElementById('info-urls-container');
+  if (container.children.length >= 5) return;
+  const row = document.createElement('div');
+  row.className = 'info-url-row';
+  row.style.cssText = 'display:grid;grid-template-columns:2fr 1fr auto;gap:8px;align-items:end;margin-bottom:8px;';
+  row.innerHTML = `
+    <div class="field" style="margin:0">
+      <label>URL</label>
+      <input type="url" class="iu-url" value="${(item.url ?? '').replace(/"/g, '&quot;')}" placeholder="https://example.com/requirements/" />
+    </div>
+    <div class="field" style="margin:0">
+      <label>ラベル（任意）</label>
+      <input type="text" class="iu-label" value="${(item.label ?? '').replace(/"/g, '&quot;')}" placeholder="例: 大会要項" list="info-url-label-suggestions" />
+    </div>
+    <button class="btn btn-danger btn-remove-info-url" style="margin-bottom:0;">削除</button>
+  `;
+  row.querySelector('.btn-remove-info-url').addEventListener('click', () => {
+    row.remove();
+    markDirty();
+  });
+  row.querySelectorAll('input').forEach(el => el.addEventListener('input', markDirty));
+  container.appendChild(row);
+}
+
+function collectInfoUrls() {
+  return [...document.querySelectorAll('#info-urls-container .info-url-row')]
+    .map(row => ({
+      url: row.querySelector('.iu-url').value.trim(),
+      label: row.querySelector('.iu-label').value.trim() || null,
+    }))
+    .filter(item => item.url);
+}
+
+document.getElementById('btn-add-info-url').addEventListener('click', () => {
+  addInfoUrlRow();
+  markDirty();
+});
 
 // ── エントリー期間 ─────────────────────────────────────────────────
 function renderEntryPeriods(periods) {
@@ -914,6 +961,7 @@ function buildRaceData() {
     description_ja: getVal('f-description_ja'),
     description_en: getVal('f-description_en'),
     official_url: getVal('f-official_url'),
+    info_urls: collectInfoUrls(),
     entry_periods: entryPeriods,
     entry_closed: document.getElementById('f-entry_closed')?.checked ?? false,
     entry_links: collectEntryLinks(),

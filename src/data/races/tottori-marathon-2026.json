@@ -125,5 +125,23 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://tottori-marathon.jp/about/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://tottori-marathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://tottori-marathon.jp/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://tottori-marathon.jp/faq/",
+      "label": "FAQ"
+    }
   ]
 }

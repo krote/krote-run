@@ -155,5 +155,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.osaka-marathon.com/2026/info/gist/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.osaka-marathon.com/2026/info/sponsor/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://www.osaka-marathon.com/2026/info/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.osaka-marathon.com/2026/runner/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.osaka-marathon.com/2026/expo/outline/",
+      "label": "大会の特色"
+    }
   ]
 }

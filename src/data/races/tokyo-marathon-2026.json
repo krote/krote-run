@@ -198,5 +198,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.marathon.tokyo/volunteer/about/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.marathon.tokyo/faq/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://www.marathon.tokyo/about/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.marathon.tokyo/about/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.marathon.tokyo/participants/",
+      "label": "エントリー"
+    }
   ]
 }

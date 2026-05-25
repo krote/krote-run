@@ -140,5 +140,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://aomori-sakuramarathon.com/category/infomation/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://aomori-sakuramarathon.com/guide/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://aomori-sakuramarathon.com/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://aomori-sakuramarathon.com/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://aomori-sakuramarathon.com/qa/",
+      "label": "FAQ"
+    }
   ]
 }

@@ -81,5 +81,15 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": []
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://runfes-niigata.com/requirements/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://runfes-niigata.com/2026/05/19/%e3%80%8c%e3%83%95%e3%82%a1%e3%83%b3%e3%83%a9%e3%83%b3%e3%80%8d%e3%82%a8%e3%83%b3%e3%83%88%e3%83%aa%e3%83%bc%e7%b7%a0%e3%82%81%e5%88%87%e3%82%8a%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b/",
+      "label": "エントリー"
+    }
+  ]
 }

@@ -115,7 +115,15 @@ scripts/
 tools/
 ├── admin-server.js                 # 管理ツールサーバー（port 4000）
 ├── admin-server.test.js            # 管理ツールテスト（node:test）
-└── admin/                          # 管理ツールUI（HTML/CSS/JS）
+├── admin/                          # 管理ツールUI（HTML/CSS/JS）
+├── crawl/
+│   ├── index.js                    # 更新チェッククローラー
+│   ├── index.test.js               # クローラーテスト
+│   ├── extractor.js                # claude -p による情報抽出
+│   ├── extractor.test.js           # 抽出テスト
+│   └── checksums.json              # チェックサム保存（自動生成）
+└── hooks/
+    └── pre-pr.js                   # PR作成前テスト実行フック
 .github/workflows/test.yml          # CI: push/PR 時にテスト + lint を自動実行
 ```
 
@@ -211,11 +219,27 @@ pnpm run admin
 | タブ | 機能 |
 |---|---|
 | 大会一覧 | JSONファイルの編集・保存・削除。未整備フィールドのバッジ表示 |
-| 更新チェック | Claude で公式サイトから情報を自動抽出し、登録済みデータとの差分を確認・適用 |
+| 更新チェック | 公式サイトから情報を自動抽出し、登録済みデータとの差分を確認・適用 |
 | データチェック | 全大会のフィールド整備状況をテーブルで一覧表示 |
 
+大会ごとに「情報取得URL」（大会要項・エントリーページなど最大5件）を登録すると、クローラーがそのページを優先的に参照する。
+
+### 自動更新クローラー
+
 ```bash
-pnpm run test:admin  # 管理ツールのテストを実行
+pnpm run crawl:dry   # 変更検知のみ（ファイル更新なし）
+pnpm run crawl       # 変更検知 + claude -p で情報抽出 + race JSON 自動更新
+```
+
+動作フロー:
+1. 各レースの `info_urls`（未設定時は `official_url`）をフェッチ
+2. `tools/crawl/checksums.json` と比較して変更を検知
+3. 変更があったページを `claude -p` に渡して構造化抽出
+4. 差分があるフィールドのみ race JSON を更新
+
+```bash
+pnpm run test:admin   # 管理ツールのテストを実行
+pnpm run test:tools   # tools/ 配下の全テストを実行（admin + crawl）
 ```
 
 ## テスト

@@ -355,5 +355,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.naganomarathon.gr.jp/information/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.naganomarathon.gr.jp/information/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.naganomarathon.gr.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.naganomarathon.gr.jp/entrant/requirements/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.naganomarathon.gr.jp/stay/",
+      "label": "アクセス"
+    }
   ]
 }

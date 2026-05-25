@@ -131,5 +131,23 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://chiba-aqualine-marathon.com/tournament/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://chiba-aqualine-marathon.com/tournament/course.html/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://chiba-aqualine-marathon.com/runner/entry.html/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://chiba-aqualine-marathon.com/runner/guidelines.html/",
+      "label": "大会要項"
+    }
   ]
 }

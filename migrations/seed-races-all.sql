@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-05-20T14:10:50.157Z
+-- 生成日時: 2026-05-23T23:01:59.648Z
 -- 対象ファイル数: 79 件（既存 2 件はskip）
 
 -- ==================
@@ -1918,11 +1918,11 @@ INSERT OR REPLACE INTO races (
   '南国の指宿を舞台に、菜の花が咲き誇る温暖な1月に開催されるフルマラソン。開聞岳や錦江湾の絶景を楽しみながら走れる。レース後は砂むし温泉が楽しめる。',
   'A full marathon held in warm January in Ibusuki, surrounded by blooming canola flowers. Enjoy views of Mt. Kaimon and Kinko Bay. Sand steam baths available after the race.',
   'https://ibusuki-nanohana.com',
-  0,
+  NULL,
   1,
   0,
   NULL,
-  '2025-10-19',
+  NULL,
   0,
   'race_day',
   'アスリートビブスは事前郵送。記念品引換は前日・当日に総合体育館にて。',
@@ -1967,12 +1967,6 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('ibusuki-nanohana-2026', '温泉', '砂むし温泉', 'Sand Steam Bath (Sunamushi Onsen)', '指宿名物の砂蒸し温泉。海岸の天然砂の中に埋まって温まる独特の体験。レース後のリカバリーに最適。', 'Ibusuki''s famous sand steam bath. A unique experience of being buried in naturally heated sand on the beach. Perfect for post-race recovery.', '指宿市内', NULL, 31.2283, 130.6367);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('ibusuki-nanohana-2026', '["tshirt"]', '大会記念品（参加者全員）', 'Commemorative gift (all participants)', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('ibusuki-nanohana-2026', NULL, NULL, '開聞岳', 'Mt. Kaimon', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('ibusuki-nanohana-2026', NULL, NULL, '錦江湾', 'Kinko Bay', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('ibusuki-nanohana-2026', NULL, NULL, '菜の花ロード', 'canola flower road', NULL, NULL, 2);
 
 -- ==================
 -- 一関国際ハーフマラソン (ichinoseki-half-marathon-2026)
@@ -2867,12 +2861,6 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('kanazawa-marathon-2026', '["medal","tshirt","local_product"]', '大会オリジナルTシャツ、完走メダル、地元特産品', 'Official race T-shirt, Finisher medal, Local specialty products', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kanazawa-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-10', '2026-05-20', 14000, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kanazawa-marathon-2026', NULL, NULL, '兼六園', 'Kenroku-en Garden', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kanazawa-marathon-2026', NULL, NULL, '金沢城', 'Kanazawa Castle', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kanazawa-marathon-2026', NULL, NULL, 'ひがし茶屋街付近', 'Higashi Chaya District area', NULL, NULL, 2);
 
 -- ==================
 -- かさま陶芸の里ハーフマラソン (kasama-togeinosato-half-2025-2025)
@@ -4200,15 +4188,15 @@ INSERT OR REPLACE INTO races (
   'Japan''s southernmost large-scale full marathon in Naha, Okinawa. A popular December race in the subtropical climate. 6 hour 15 min time limit.',
   'https://www.naha-marathon.jp',
   NULL,
-  0,
+  1,
   0,
   NULL,
   NULL,
   0,
-  'race_day',
+  'pre_day',
   '',
   '',
-  '["大規模","温暖","沖縄"]',
+  '["大規模","沖縄","温暖"]',
   NULL,
   0,
   0,
@@ -4237,13 +4225,7 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('naha-marathon-2026', 'グルメ', '沖縄そば', 'Okinawa Soba', '沖縄を代表するご当地グルメ。あっさりとしたスープと太麺が特徴。レース後のエネルギー補給に。', 'Okinawa''s signature local dish. Characterized by light broth and thick noodles. Perfect for post-race energy.', '那覇市内各所', NULL, 26.3344, 127.7679);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('naha-marathon-2026', '["tshirt","medal"]', '大会オリジナルTシャツ、完走メダル', 'Official race T-shirt, Finisher medal', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('naha-marathon-2026', NULL, NULL, '国際通り', 'Kokusai Street', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('naha-marathon-2026', NULL, NULL, '那覇市街', 'Naha city', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('naha-marathon-2026', NULL, NULL, '沖縄の風景', 'Okinawan scenery', NULL, NULL, 2);
+  ('naha-marathon-2026', '["medal","tshirt"]', '大会オリジナルTシャツ、完走メダル', 'Official race T-shirt, Finisher medal', NULL, 0);
 
 -- ==================
 -- 奈良マラソン (nara-marathon-2026)
@@ -5008,7 +4990,7 @@ INSERT OR REPLACE INTO races (
   '佐渡島で開催されるフルマラソン。自然豊かな離島を走る。トキをモチーフにした大会。',
   'A full marathon on Sado Island. Run through the nature-rich island. The race features the crested ibis (toki) as its motif.',
   'https://www.scsf.jp/marathon/index.html',
-  0,
+  NULL,
   1,
   0,
   '2025-12-01',
@@ -5049,8 +5031,6 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('sado-toki-marathon-2026', '["medal","tshirt","local_product"]', '大会Tシャツ、完走メダル、佐渡の特産品', 'Race T-shirt, Finisher medal, Sado Island local products', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('sado-toki-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-12-01', '2026-03-22', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('sado-toki-marathon-2026', NULL, NULL, '佐渡島の自然', 'Nature of Sado Island', NULL, NULL, 0);
 
 -- ==================
 -- さが桜マラソン (saga-sakura-marathon-2026)
@@ -5705,15 +5685,15 @@ INSERT OR REPLACE INTO races (
   'A full marathon along Suruga Bay. Enjoy views of Mt. Fuji and Suruga Bay.',
   'https://www.shizuoka-marathon.com',
   NULL,
-  0,
+  1,
   0,
   NULL,
   NULL,
   0,
-  'race_day',
+  'pre_day',
   '',
   '',
-  '["景色が良い","富士山","海沿い"]',
+  '["富士山","景色が良い","海沿い"]',
   NULL,
   0,
   0,
@@ -5740,11 +5720,7 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('shizuoka-marathon-2026', '観光地', '三保松原', 'Miho no Matsubara', '世界遺産「富士山」の構成資産。松林越しの富士山の眺望が美しい。', 'Part of the World Heritage ''Mt. Fuji''. Beautiful views of Mt. Fuji through pine groves.', '静岡市内から車約30分', NULL, 35.0136, 138.5167);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('shizuoka-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('shizuoka-marathon-2026', NULL, NULL, '駿河湾', 'Suruga Bay', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('shizuoka-marathon-2026', NULL, NULL, '富士山', 'Mt. Fuji', NULL, NULL, 1);
+  ('shizuoka-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 
 -- ==================
 -- 湘南国際マラソン (shonan-international-marathon-2026)

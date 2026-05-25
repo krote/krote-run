@@ -101,5 +101,19 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://ichinoseki-half.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://ichinoseki-half.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://ichinoseki-half.jp/course/",
+      "label": "コース情報"
+    }
   ]
 }

@@ -95,5 +95,27 @@
   "hero_caption_en": null,
   "gallery": [],
   "voices": [],
-  "time_buckets": []
+  "time_buckets": [],
+  "info_urls": [
+    {
+      "url": "https://fujimountainrace.city.fujiyoshida.yamanashi.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://fujimountainrace.city.fujiyoshida.yamanashi.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://fujimountainrace.city.fujiyoshida.yamanashi.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://fujimountainrace.city.fujiyoshida.yamanashi.jp/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://fujimountainrace.city.fujiyoshida.yamanashi.jp/2026/wp-content/uploads/2026/04/info-sponsors.pdf",
+      "label": "開催概要"
+    }
+  ]
 }

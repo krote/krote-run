@@ -119,5 +119,23 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "http://www.senshu-marathon.jp/guidance/",
+      "label": "大会要項"
+    },
+    {
+      "url": "http://www.senshu-marathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "http://www.senshu-marathon.jp/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "http://www.senshu-marathon.jp/entry/",
+      "label": "エントリー"
+    }
   ]
 }

@@ -135,5 +135,27 @@
       "site_name": "SPORT ENTRY",
       "url": "https://www.sportsentry.ne.jp/event/t/103253"
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://okushinano100.com/concept/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://okushinano100.com/coursemap/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://okushinano100.com/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://okushinano100.com/faq/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://okushinano100.com/entry/",
+      "label": "エントリー"
+    }
   ]
 }

@@ -108,5 +108,27 @@
   "hero_caption_en": null,
   "gallery": [],
   "voices": [],
-  "time_buckets": []
+  "time_buckets": [],
+  "info_urls": [
+    {
+      "url": "https://satumara.sapporo-sport.jp/outline.html/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://satumara.sapporo-sport.jp/entry.html/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://satumara.sapporo-sport.jp/course.html/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://satumara.sapporo-sport.jp/access.html/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://satumara.sapporo-sport.jp/faq.html/",
+      "label": "FAQ"
+    }
+  ]
 }

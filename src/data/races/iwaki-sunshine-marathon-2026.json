@@ -141,5 +141,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://iwaki-marathon.jp/outline/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://iwaki-marathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://iwaki-marathon.jp/outline/schedule/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://iwaki-marathon.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://iwaki-marathon.jp/access/",
+      "label": "アクセス"
+    }
   ]
 }

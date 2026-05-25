@@ -122,5 +122,27 @@
   "hero_caption_en": null,
   "gallery": [],
   "voices": [],
-  "time_buckets": []
+  "time_buckets": [],
+  "info_urls": [
+    {
+      "url": "https://www.mitokomon-manyu-marathon.com/about/index.html/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.mitokomon-manyu-marathon.com/entry/index.html/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.mitokomon-manyu-marathon.com/venue/index.html/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.mitokomon-manyu-marathon.com/venue/supply.html/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://www.mitokomon-manyu-marathon.com/qa/index.html/",
+      "label": "FAQ"
+    }
+  ]
 }

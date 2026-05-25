@@ -150,5 +150,19 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://yokohamamarathon.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://yokohamamarathon.jp/entrystart/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://yokohamamarathon.jp/volunteerqa/",
+      "label": "FAQ"
+    }
   ]
 }

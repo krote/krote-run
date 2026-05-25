@@ -81,5 +81,27 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": []
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.abashiri-marathon.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.abashiri-marathon.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.abashiri-marathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.abashiri-marathon.jp/contact/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://www.abashiri-marathon.jp/feed/",
+      "label": "開催概要"
+    }
+  ]
 }

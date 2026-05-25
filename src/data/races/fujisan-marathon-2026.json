@@ -125,5 +125,27 @@
       "site_name": "RUNNET",
       "url": "https://runnet.jp/parts/2026/392477/entry2.html"
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://mtfujimarathon.com/info/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://mtfujimarathon.com/entry-front/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://mtfujimarathon.com/outline/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://mtfujimarathon.com/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://mtfujimarathon.com/access/",
+      "label": "アクセス"
+    }
   ]
 }

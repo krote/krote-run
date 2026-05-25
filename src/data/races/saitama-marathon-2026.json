@@ -92,5 +92,23 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": []
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://saitama-marathon.jp/about/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://saitama-marathon.jp/about/guest/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://saitama-marathon.jp/about/map/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://saitama-marathon.jp/entry/",
+      "label": "エントリー"
+    }
+  ]
 }

@@ -130,5 +130,27 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://womens-marathon.nagoya/en/outline/chinese1/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://womens-marathon.nagoya/outline/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://womens-marathon.nagoya/faq/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://womens-marathon.nagoya/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://womens-marathon.nagoya/course/",
+      "label": "コース情報"
+    }
   ]
 }

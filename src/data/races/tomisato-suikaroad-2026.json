@@ -118,5 +118,27 @@
       "site_name": "SPORT ENTRY",
       "url": "https://www.sportsentry.ne.jp/event/t/104032"
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://tomisato-suikaroad.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://tomisato-suikaroad.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://tomisato-suikaroad.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://tomisato-suikaroad.jp/mycapinfo/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://tomisato-suikaroad.jp/archives/770/",
+      "label": "アクセス"
+    }
   ]
 }

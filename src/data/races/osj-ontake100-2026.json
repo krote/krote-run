@@ -106,5 +106,23 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.outdoorsportsjapan.com/trail/ontake100/race-ontake100/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.outdoorsportsjapan.com/trail/ontake100/course-ontake100/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.outdoorsportsjapan.com/trail/ontake100/access-ontake100/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://www.outdoorsportsjapan.com/trail/ontake100/entry-list-ontake100/",
+      "label": "エントリー"
+    }
   ]
 }

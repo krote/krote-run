@@ -621,3 +621,28 @@
 - `package.json`: `db:series:local/remote` / `cf:build/preview/deploy` の `npm run` を `pnpm run` に変更
 - `.npmrc` を新規作成（`shamefully-hoist=false`, `strict-peer-dependencies=false`）
 - `CLAUDE.md`: 全コマンド例を `npm run` → `pnpm run` に更新
+
+## 2026-05-24 大会情報の自動更新チェック機能を追加
+
+### 管理ツール拡張
+- `tools/admin/index.html`: 基本情報セクションに「情報取得URL」フィールドを追加（最大5件、ラベル付き）
+- `tools/admin/app.js`: `renderInfoUrls` / `addInfoUrlRow` / `collectInfoUrls` を追加。`populateForm` と `buildRaceData` に統合
+- `tools/admin-server.js`: `selectInfoSources()` を追加（`info_urls` 登録済みの場合は自動リンク探索より優先）。`fetchOfficialContent` に `infoUrls` 引数を追加し `/api/series-check` で読み込み
+
+### 自動更新クローラー（新規）
+- `tools/crawl/index.js`: チェックサムによる変更検知クローラー。`info_urls` 優先・`official_url` フォールバック。`--dry-run` オプション対応
+- `tools/crawl/extractor.js`: `claude -p` を使って変更ページから大会情報を構造化抽出し race JSON を自動更新
+
+### テスト
+- `tools/admin-server.test.js`: `selectInfoSources` のユニットテスト5件を追加
+- `tools/crawl/index.test.js`: `computeHash` / `hasChanged` / `buildUrlsToCheck` のユニットテスト13件
+- `tools/crawl/extractor.test.js`: `buildExtractionPrompt` / `parseClaudeResponse` / `buildDiff` のユニットテスト17件
+
+### CI・開発環境
+- `.claude/settings.json`: PR作成前テスト自動実行フック（`PreToolUse` on Bash）を追加
+- `tools/hooks/pre-pr.js`: `gh pr` コマンド検知 → vitest + node --test を実行してブロック
+- `package.json`: `crawl` / `crawl:dry` / `test:tools` コマンドを追加
+- `CLAUDE.md`: TDDルール（Red→Green順序・テストファイル置き場）を補強
+
+### ドキュメント
+- `README.md`: `tools/` ディレクトリ構成・クローラー使い方を更新

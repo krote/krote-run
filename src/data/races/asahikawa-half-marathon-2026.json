@@ -99,5 +99,19 @@
       "description_ja": null,
       "description_en": null
     }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.asahikawa-half-marathon.jp/outline/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.asahikawa-half-marathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.asahikawa-half-marathon.jp/entry/",
+      "label": "エントリー"
+    }
   ]
 }

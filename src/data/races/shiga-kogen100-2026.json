@@ -100,5 +100,19 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": []
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.nature-scene.net/shiga100/concept/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.nature-scene.net/shiga100/coursemap/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.nature-scene.net/shiga100/entry/",
+      "label": "エントリー"
+    }
+  ]
 }

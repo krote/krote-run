@@ -8,7 +8,7 @@ const { test, describe } = require('node:test');
 const assert = require('node:assert/strict');
 const http = require('node:http');
 
-const { getMissingFields, syncLocalDb, syncRemoteDb } = require('./admin-server');
+const { getMissingFields, syncLocalDb, syncRemoteDb, selectInfoSources } = require('./admin-server');
 
 // ── ヘルパー: HTTPリクエスト ──────────────────────────────────────────
 function httpGet(port, path) {
@@ -20,6 +20,46 @@ function httpGet(port, path) {
     }).on('error', reject);
   });
 }
+
+// ── selectInfoSources ユニットテスト ──────────────────────────────────
+
+describe('selectInfoSources', () => {
+  test('info_urls が登録済みの場合はそのURLを返す', () => {
+    const infoUrls = [
+      { url: 'https://example.com/req/', label: '大会要項' },
+      { url: 'https://example.com/entry/', label: 'エントリー' },
+    ];
+    const result = selectInfoSources(infoUrls, []);
+    assert.deepEqual(result, ['https://example.com/req/', 'https://example.com/entry/']);
+  });
+
+  test('info_urls が空配列の場合は discoveredLinks から href を返す', () => {
+    const discovered = [
+      { href: 'https://example.com/overview/' },
+      { href: 'https://example.com/info/' },
+    ];
+    const result = selectInfoSources([], discovered);
+    assert.deepEqual(result, ['https://example.com/overview/', 'https://example.com/info/']);
+  });
+
+  test('info_urls が null の場合は discoveredLinks を返す', () => {
+    const discovered = [{ href: 'https://example.com/overview/' }];
+    const result = selectInfoSources(null, discovered);
+    assert.deepEqual(result, ['https://example.com/overview/']);
+  });
+
+  test('info_urls は最大5件まで', () => {
+    const infoUrls = Array.from({ length: 7 }, (_, i) => ({ url: `https://example.com/page${i}/`, label: `p${i}` }));
+    const result = selectInfoSources(infoUrls, []);
+    assert.equal(result.length, 5);
+  });
+
+  test('discoveredLinks は最大2件まで', () => {
+    const discovered = Array.from({ length: 5 }, (_, i) => ({ href: `https://example.com/p${i}/` }));
+    const result = selectInfoSources([], discovered);
+    assert.equal(result.length, 2);
+  });
+});
 
 // ── getMissingFields ユニットテスト ───────────────────────────────────
 

@@ -132,5 +132,23 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": []
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://katsutamarathon.jp/info/abbott/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://katsutamarathon.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://katsutamarathon.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://katsutamarathon.jp/course/",
+      "label": "コース情報"
+    }
+  ]
 }

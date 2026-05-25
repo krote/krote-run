@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-05-25T13:58:30.179Z
+-- 生成日時: 2026-05-25T14:23:29.501Z
 -- 対象ファイル数: 79 件（既存 2 件はskip）
 
 -- ==================
@@ -5806,12 +5806,8 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('shonan-international-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('shonan-international-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-04', '2026-09-09', 16000, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('shonan-international-marathon-2026', NULL, NULL, '湘南海岸', 'Shonan coast', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('shonan-international-marathon-2026', NULL, NULL, '江の島', 'Enoshima', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('shonan-international-marathon-2026', NULL, NULL, '富士山', 'Mt. Fuji', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('shonan-international-marathon-2026', NULL, '二次募集', 'General Entry', '2026-06-05', '2026-09-09', NULL, 1);
 
 -- ==================
 -- そうじゃ吉備路マラソン (soja-kibiji-marathon-2026)

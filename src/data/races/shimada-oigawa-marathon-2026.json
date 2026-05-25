@@ -92,19 +92,19 @@
   "course_highlights": [],
   "info_urls": [
     {
-      "url": "https://www.shimada-marathon.jp/m-information/course.html/",
+      "url": "https://www.shimada-marathon.jp/m-information/course.html",
       "label": "コース情報"
     },
     {
-      "url": "https://www.shimada-marathon.jp/entry.html/",
+      "url": "https://www.shimada-marathon.jp/entry.html",
       "label": "エントリー"
     },
     {
-      "url": "https://www.shimada-marathon.jp/access.html/",
+      "url": "https://www.shimada-marathon.jp/access.html",
       "label": "アクセス"
     },
     {
-      "url": "https://www.shimada-marathon.jp/faq.html/",
+      "url": "https://www.shimada-marathon.jp/faq.html",
       "label": "FAQ"
     }
   ]

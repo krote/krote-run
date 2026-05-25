@@ -12,7 +12,7 @@
   "description_ja": "世界遺産・富士山と五つの湖を舞台にしたウルトラマラソン大会。62km・80km・100km・120kmの4種目から実力に合わせて選べる。フラットなコースと春の走りやすい気候で、初めてのウルトラマラソンにもおすすめ。120kmの部はSPARTATHLON一般エントリー枠の国際レース基準を満たす大会。",
   "description_en": "An ultra marathon set against the World Heritage site of Mt. Fuji and five beautiful lakes. Choose from 4 distances: 62km, 80km, 100km, and 120km to match your ability. The flat course and pleasant spring climate make it ideal for first-time ultra marathon runners. The 120km category meets the international race criteria for SPARTATHLON general entry.",
   "official_url": "https://www.r-wellness.com/fuji5/",
-  "entry_fee": 0,
+  "entry_fee": 19500,
   "entry_fee_by_category": true,
   "entry_capacity": 4500,
   "entry_start_date": "2025-10-24",
@@ -281,7 +281,7 @@
   ],
   "result": null,
   "created_at": "2026-03-10T00:00:00Z",
-  "updated_at": "2026-03-10T00:00:00Z",
+  "updated_at": "2026-05-25T01:17:31.952Z",
   "_metadata": {
     "data_source": "公式サイト (r-wellness.com/fuji5/) 、スポーツエントリー、PR TIMES プレスリリース等の公開情報から手動転記",
     "data_accuracy_notes": [
@@ -289,9 +289,10 @@
       "エイドステーションの提供内容・設置距離は過去大会の一般的な情報を参考に記載。正確な内容は大会ごとに異なる。紙コップなし・携帯ボトル必須は公式情報",
       "気象データは富士吉田市の4月中旬の概算値。標高が高いため長野市より低温。正式には気象庁データで要検証",
       "関門（checkpoints）情報は未取得。公式の最終案内で確認が必要",
-      "WAVEの時刻は第36回大会の公式情報に基づく"
+      "WAVEの時刻は第36回大会の公式情報に基づく",
+      "2026-05-25: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-10",
+    "last_verified": "2026-05-25",
     "detail_level": "full"
   },
   "entry_periods": [

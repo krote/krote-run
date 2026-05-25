@@ -91,7 +91,11 @@ function extractLabeledLinks(html, baseUrl) {
       // 同一ドメインのみ
       if (fullUrl.hostname !== base.hostname) continue;
       // クエリ・フラグメントなし・パスが違うもの
-      const cleanUrl = `${fullUrl.origin}${fullUrl.pathname}`.replace(/\/$/, '') + '/';
+      // ファイル拡張子で終わるパスには末尾スラッシュを付けない
+      const hasFileExt = /\.[a-z0-9]{2,5}$/i.test(fullUrl.pathname);
+      const cleanUrl = hasFileExt
+        ? `${fullUrl.origin}${fullUrl.pathname}`
+        : `${fullUrl.origin}${fullUrl.pathname}`.replace(/\/$/, '') + '/';
       if (seen.has(cleanUrl)) continue;
       seen.add(cleanUrl);
 

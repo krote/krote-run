@@ -12,9 +12,9 @@
   "description_ja": "北海道第2の都市・旭川で開催されるハーフマラソン。忠別川沿いの自然豊かなコースを走る。旭川ならではのグルメ提供や託児サービスもあり、ファミリーでも楽しめる大会。",
   "description_en": "A half marathon held in Asahikawa, Hokkaido's second largest city. Run along the scenic Chubetsu River. Features local Asahikawa cuisine and childcare services, welcoming families.",
   "official_url": "https://www.asahikawa-half-marathon.jp/",
-  "entry_fee": 0,
+  "entry_fee": 6500,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 2500,
   "entry_start_date": "2026-04-01",
   "entry_end_date": "2026-07-26",
   "reception_type": "pre_day",
@@ -63,13 +63,14 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-03-29T00:00:00Z",
-  "updated_at": "2026-03-29T00:00:00Z",
+  "updated_at": "2026-05-25T01:17:00.049Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.asahikawa-half-marathon.jp/）およびRunnet掲載情報",
     "data_accuracy_notes": [
-      "基本情報のみ。10km制限時間は未公表のためnull。エイド、周辺スポット等は未入力"
+      "基本情報のみ。10km制限時間は未公表のためnull。エイド、周辺スポット等は未入力",
+      "2026-05-25: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-29",
+    "last_verified": "2026-05-25",
     "detail_level": "basic"
   },
   "entry_periods": [

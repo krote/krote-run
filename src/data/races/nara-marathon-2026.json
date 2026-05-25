@@ -146,23 +146,23 @@
   ],
   "info_urls": [
     {
-      "url": "https://www.nara-marathon.jp/guidelines.html/",
+      "url": "https://www.nara-marathon.jp/guidelines.html",
       "label": "大会要項"
     },
     {
-      "url": "https://www.nara-marathon.jp/course.html/",
+      "url": "https://www.nara-marathon.jp/course.html",
       "label": "コース情報"
     },
     {
-      "url": "https://www.nara-marathon.jp/access.html/",
+      "url": "https://www.nara-marathon.jp/access.html",
       "label": "アクセス"
     },
     {
-      "url": "https://www.nara-marathon.jp/qa.html/",
+      "url": "https://www.nara-marathon.jp/qa.html",
       "label": "FAQ"
     },
     {
-      "url": "https://www.nara-marathon.jp/entry.html/",
+      "url": "https://www.nara-marathon.jp/entry.html",
       "label": "エントリー"
     }
   ]

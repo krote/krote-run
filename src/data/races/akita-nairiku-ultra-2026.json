@@ -12,9 +12,9 @@
   "description_ja": "秋田内陸縦貫鉄道沿いを走るウルトラマラソン。最大高低差531mのアップダウンあるコースを100km・70km・50kmの3種目で競う。きりたんぽなど秋田の郷土料理がふるまわれるエイドステーションが名物。",
   "description_en": "An ultra marathon along the Akita Nairiku Railway line. Three distances (100km, 70km, 50km) through a course with 531m elevation difference. Famous for aid stations serving local Akita cuisine including kiritanpo.",
   "official_url": "https://www.kumagera.ne.jp/a100km/",
-  "entry_fee": 0,
+  "entry_fee": 22000,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 1050,
   "entry_start_date": "2026-04-01",
   "entry_end_date": "2026-06-30",
   "reception_type": "pre_day",
@@ -73,13 +73,14 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-03-29T00:00:00Z",
-  "updated_at": "2026-03-29T00:00:00Z",
+  "updated_at": "2026-05-25T10:40:47.866Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.kumagera.ne.jp/a100km/）およびRunnet掲載情報",
     "data_accuracy_notes": [
-      "基本情報のみ。スタート時間は推定値。エイド、周辺スポット等は未入力"
+      "基本情報のみ。スタート時間は推定値。エイド、周辺スポット等は未入力",
+      "2026-05-25: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-29",
+    "last_verified": "2026-05-25",
     "detail_level": "basic"
   },
   "entry_periods": [
@@ -124,23 +125,23 @@
   ],
   "info_urls": [
     {
-      "url": "https://www.kumagera.ne.jp/a100km/course.html/",
+      "url": "https://www.kumagera.ne.jp/a100km/course.html",
       "label": "コース情報"
     },
     {
-      "url": "https://www.kumagera.ne.jp/a100km/entry.html/",
+      "url": "https://www.kumagera.ne.jp/a100km/entry.html",
       "label": "エントリー"
     },
     {
-      "url": "https://www.kumagera.ne.jp/a100km/essentia-point.html/",
+      "url": "https://www.kumagera.ne.jp/a100km/essentia-point.html",
       "label": "大会要項"
     },
     {
-      "url": "https://www.kumagera.ne.jp/a100km/access.html/",
+      "url": "https://www.kumagera.ne.jp/a100km/access.html",
       "label": "アクセス"
     },
     {
-      "url": "https://www.kumagera.ne.jp/a100km/question.html/",
+      "url": "https://www.kumagera.ne.jp/a100km/question.html",
       "label": "FAQ"
     }
   ]

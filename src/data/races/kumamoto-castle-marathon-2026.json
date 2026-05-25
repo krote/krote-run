@@ -134,23 +134,23 @@
   ],
   "info_urls": [
     {
-      "url": "https://kumamotojyo-marathon.jp/outline.php/",
+      "url": "https://kumamotojyo-marathon.jp/outline.php",
       "label": "大会の特色"
     },
     {
-      "url": "https://kumamotojyo-marathon.jp/course.php/",
+      "url": "https://kumamotojyo-marathon.jp/course.php",
       "label": "コース情報"
     },
     {
-      "url": "https://kumamotojyo-marathon.jp/entry.php/",
+      "url": "https://kumamotojyo-marathon.jp/entry.php",
       "label": "エントリー"
     },
     {
-      "url": "https://kumamotojyo-marathon.jp/volunteer.php/",
+      "url": "https://kumamotojyo-marathon.jp/volunteer.php",
       "label": "大会要項"
     },
     {
-      "url": "https://kumamotojyo-marathon.jp/traffic.php/",
+      "url": "https://kumamotojyo-marathon.jp/traffic.php",
       "label": "アクセス"
     }
   ]

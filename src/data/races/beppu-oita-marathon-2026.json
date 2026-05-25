@@ -12,9 +12,9 @@
   "description_ja": "大分県で開催される歴史あるエリートマラソン。MGCシリーズG1大会。別府温泉から大分を結ぶ海岸沿いの高速コース。",
   "description_en": "A prestigious elite marathon in Oita Prefecture. MGC Series G1 event. A fast coastal course connecting Beppu Onsen to Oita.",
   "official_url": "https://www.betsudai.com",
-  "entry_fee": 0,
+  "entry_fee": 15000,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 4000,
   "entry_start_date": "2025-08-29",
   "entry_end_date": "2025-09-11",
   "reception_type": "pre_day",
@@ -91,13 +91,14 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-03-16T00:00:00Z",
+  "updated_at": "2026-05-25T01:17:05.123Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "2026-05-25: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-16",
+    "last_verified": "2026-05-25",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -152,7 +153,7 @@
       "label": "FAQ"
     },
     {
-      "url": "https://www.betsudai.com/wp-content/themes/betsudai/pdf/74/kou.pdf/",
+      "url": "https://www.betsudai.com/wp-content/themes/betsudai/pdf/74/kou.pdf",
       "label": "アクセス"
     }
   ]

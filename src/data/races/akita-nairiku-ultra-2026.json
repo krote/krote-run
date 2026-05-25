@@ -124,23 +124,23 @@
   ],
   "info_urls": [
     {
-      "url": "https://www.kumagera.ne.jp/a100km/course.html/",
+      "url": "https://www.kumagera.ne.jp/a100km/course.html",
       "label": "コース情報"
     },
     {
-      "url": "https://www.kumagera.ne.jp/a100km/entry.html/",
+      "url": "https://www.kumagera.ne.jp/a100km/entry.html",
       "label": "エントリー"
     },
     {
-      "url": "https://www.kumagera.ne.jp/a100km/essentia-point.html/",
+      "url": "https://www.kumagera.ne.jp/a100km/essentia-point.html",
       "label": "大会要項"
     },
     {
-      "url": "https://www.kumagera.ne.jp/a100km/access.html/",
+      "url": "https://www.kumagera.ne.jp/a100km/access.html",
       "label": "アクセス"
     },
     {
-      "url": "https://www.kumagera.ne.jp/a100km/question.html/",
+      "url": "https://www.kumagera.ne.jp/a100km/question.html",
       "label": "FAQ"
     }
   ]

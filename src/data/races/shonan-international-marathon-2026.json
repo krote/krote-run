@@ -50,7 +50,11 @@
       "name_en": null,
       "description_ja": null,
       "description_en": null,
-      "waves": null
+      "waves": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": []
     },
     {
       "distance_type": "10k",
@@ -58,7 +62,12 @@
       "entry_fee": 8500,
       "capacity": 4800,
       "time_limit_minutes": 0,
-      "start_time": ""
+      "start_time": "",
+      "name_ja": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": []
     }
   ],
   "aid_stations": [],
@@ -108,6 +117,13 @@
       "entry_fee": 16000,
       "label_ja": "",
       "label_en": ""
+    },
+    {
+      "start_date": "2026-06-05",
+      "end_date": "2026-09-09",
+      "entry_fee": null,
+      "label_ja": "二次募集",
+      "label_en": "Secondary Entry"
     }
   ],
   "motif": "湘南の海",
@@ -121,26 +137,6 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": [
-    {
-      "name_ja": "湘南海岸",
-      "name_en": "Shonan coast",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "江の島",
-      "name_en": "Enoshima",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "富士山",
-      "name_en": "Mt. Fuji",
-      "description_ja": null,
-      "description_en": null
-    }
-  ],
   "info_urls": [
     {
       "url": "https://www.shonan-kokusai.jp/entry/",
@@ -162,5 +158,7 @@
       "url": "https://www.shonan-kokusai.jp/faq/",
       "label": "FAQ"
     }
-  ]
+  ],
+  "entry_closed": false,
+  "entry_links": []
 }

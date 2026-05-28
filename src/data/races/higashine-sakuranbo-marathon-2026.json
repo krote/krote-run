@@ -12,9 +12,9 @@
   "description_ja": "さくらんぼの名産地・山形県東根市で毎年6月に開催される大会。陸上自衛隊神町駐屯地をスタート・フィニッシュ地点とし、フルーツラインの周回コースを走る。ハーフマラソン・10km・5kmの3種目。さくらんぼの季節に合わせた地域密着型のレース。",
   "description_en": "A popular race held every June in Higashine City, Yamagata, famous for its cherries. The course starts and finishes at JGSDF Kanomachi Garrison and loops around the Fruit Line road. Three distances: half marathon, 10km, and 5km.",
   "official_url": "https://www.sakuranbo-m.jp/",
-  "entry_fee": 0,
+  "entry_fee": 6000,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 10000,
   "entry_start_date": "2026-02-01",
   "entry_end_date": "2026-03-31",
   "reception_type": "pre_day",
@@ -82,13 +82,14 @@
   ],
   "result": null,
   "created_at": "2026-03-30T00:00:00Z",
-  "updated_at": "2026-03-30T00:00:00Z",
+  "updated_at": "2026-05-27T14:55:48.396Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.sakuranbo-m.jp/）・大会概要ページ",
     "data_accuracy_notes": [
-      "基本情報のみ。エイド、周辺スポット等は未入力"
+      "基本情報のみ。エイド、周辺スポット等は未入力",
+      "2026-05-27: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-30",
+    "last_verified": "2026-05-27",
     "detail_level": "basic"
   },
   "entry_periods": [

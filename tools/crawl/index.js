@@ -26,7 +26,6 @@ const FETCH_OPTS = {
     'User-Agent': 'Mozilla/5.0 (compatible; HASHIRUBot/1.0; +https://hashiru.run)',
     'Accept-Language': 'ja,en;q=0.9',
   },
-  signal: AbortSignal.timeout(15000),
 };
 
 // ── 純粋関数（テスト対象） ────────────────────────────────────────
@@ -93,7 +92,7 @@ function cleanHtml(html) {
 }
 
 async function fetchPageText(url) {
-  const res = await fetch(url, FETCH_OPTS);
+  const res = await fetch(url, { ...FETCH_OPTS, signal: AbortSignal.timeout(15000) });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return cleanHtml(await res.text());
 }

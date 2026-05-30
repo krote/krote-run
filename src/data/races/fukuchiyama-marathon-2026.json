@@ -12,7 +12,7 @@
   "description_ja": "京都府福知山市で開催される歴史あるフルマラソン。由良川沿いの起伏あるコースが特徴で、ランナーの実力が試される大会として知られる。三段池扶桑化学工業アリーナ西側をスタート・ゴールとする。",
   "description_en": "A historic full marathon held in Fukuchiyama City, Kyoto Prefecture. Known for its challenging course along the Yura River with rolling hills. Starts and finishes at the west side of Sandaike Fusokagaku Arena.",
   "official_url": "https://fukuchiyama-marathon.com/",
-  "entry_fee": null,
+  "entry_fee": 10000,
   "entry_fee_by_category": true,
   "entry_capacity": 6000,
   "entry_start_date": "2026-05-01",
@@ -96,16 +96,17 @@
   ],
   "result": null,
   "created_at": "2026-04-30T00:00:00Z",
-  "updated_at": "2026-05-25T01:18:41.038Z",
+  "updated_at": "2026-05-30T06:11:39.885Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、気象データ等は未入力",
       "参加費は2024年実績からの推定。正式発表後に要更新",
       "レイト（9/1-9/20）・直前（11/1-11/15）申込は参加賞なし",
-      "2026-05-25: 自動クロールで更新"
+      "2026-05-25: 自動クロールで更新",
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-25",
+    "last_verified": "2026-05-30",
     "detail_level": "light"
   },
   "entry_periods": [

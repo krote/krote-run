@@ -12,9 +12,9 @@
   "description_ja": "笑顔も深さも日本一！！～田沢湖ブルーを駆けぬけろ～\n田沢湖マラソンは、1986年、県内初のフルマラソン大会として始まりました。 全国のフルマラソン大会の中でも開催時期が早いことで愛好者からの人気が高く、近年では国内外から3,000人前後が出場しています。 国内でも屈指の難コースといわれる日本一深い神秘の田沢湖を周回することで、国内外に仙北市の魅力を発信し、交流人口の増加を図りたいと考えています。",
   "description_en": "",
   "official_url": "https://tazawako-marathon.com/",
-  "entry_fee": null,
+  "entry_fee": 10000,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 5550,
   "entry_start_date": "2026-04-01",
   "entry_end_date": "2026-05-27",
   "reception_type": "pre_mail",
@@ -80,7 +80,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-03-29T11:30:29.091Z",
-  "updated_at": "2026-03-29T11:30:29.091Z",
+  "updated_at": "2026-05-30T06:43:05.830Z",
   "entry_periods": [
     {
       "start_date": "2026-04-01",
@@ -130,5 +130,11 @@
       "url": "https://tazawako-marathon.com/entry/",
       "label": "エントリー"
     }
-  ]
+  ],
+  "_metadata": {
+    "last_verified": "2026-05-30",
+    "data_accuracy_notes": [
+      "2026-05-30: 自動クロールで更新"
+    ]
+  }
 }

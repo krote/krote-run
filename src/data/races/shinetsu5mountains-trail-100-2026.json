@@ -12,9 +12,9 @@
   "description_ja": "トレイルランナー石川弘樹氏がプロデュースした、信越五岳を結ぶ全長160kmにも及ぶ山岳エリアと信越高原の各地域を繋いだ壮大なコース設定。\n家族や友人が選手にサポートを提供できるアシスタントポイントの設置、夜間走行となる選手の安全に配慮したぺーサ1名の同行を許可する区間の設定など、選手はじめ、沢山の人々がトレイルランニングの魅力を味わえるレーススタイル",
   "description_en": "",
   "official_url": "https://sfmt100.com",
-  "entry_fee": null,
+  "entry_fee": 35000,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 1300,
   "entry_start_date": "2026-04-08",
   "entry_end_date": "2026-04-15",
   "reception_type": "pre_day",
@@ -59,7 +59,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-05T07:49:25.657Z",
-  "updated_at": "2026-04-05T07:49:25.657Z",
+  "updated_at": "2026-05-30T06:42:15.502Z",
   "entry_periods": [
     {
       "start_date": "2026-04-08",
@@ -114,5 +114,11 @@
       "url": "https://sfmt100.com/map/",
       "label": "コース情報"
     }
-  ]
+  ],
+  "_metadata": {
+    "last_verified": "2026-05-30",
+    "data_accuracy_notes": [
+      "2026-05-30: 自動クロールで更新"
+    ]
+  }
 }

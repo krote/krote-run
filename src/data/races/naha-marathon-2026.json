@@ -12,9 +12,9 @@
   "description_ja": "沖縄・那覇で開催される日本最南端の大規模フルマラソン。南国の温暖な気候で走れる12月の人気大会。制限時間6時間15分。",
   "description_en": "Japan's southernmost large-scale full marathon in Naha, Okinawa. A popular December race in the subtropical climate. 6 hour 15 min time limit.",
   "official_url": "https://www.naha-marathon.jp",
-  "entry_fee": null,
+  "entry_fee": 11000,
   "entry_fee_by_category": true,
-  "entry_capacity": null,
+  "entry_capacity": 30000,
   "entry_start_date": null,
   "entry_end_date": null,
   "reception_type": "pre_day",
@@ -98,14 +98,15 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-05-30T06:39:09.521Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-15",
+    "last_verified": "2026-05-30",
     "detail_level": "medium"
   },
   "entry_periods": [],

@@ -12,9 +12,9 @@
   "description_ja": "御嶽山（標高3,067m）麓の通常立入禁止の国有林を特別開放して行われる夜間スタートのロングレース。100Kと100マイルの2種目。深い森と御嶽山の雄大な景色の中を走る。「フィニッシュの感動は格別」と称されるOSJが誇るロングレースシリーズの一戦。",
   "description_en": "A night-start long race through special-access national forest at the foot of Mt. Ontake (3,067m). Two distances: 100K and 100 Miles. Run through deep forest with majestic views of Mt. Ontake. Part of OSJ's premier long-race series, renowned for an exceptional finish experience.",
   "official_url": "https://www.outdoorsportsjapan.com/trail/ontake100/",
-  "entry_fee": 0,
+  "entry_fee": 19000,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 1400,
   "entry_start_date": "2026-02-01",
   "entry_end_date": "2026-06-14",
   "reception_type": "pre_day",
@@ -64,13 +64,14 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-03-30T00:00:00Z",
-  "updated_at": "2026-03-30T00:00:00Z",
+  "updated_at": "2026-05-30T06:40:45.827Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.outdoorsportsjapan.com/trail/ontake100/）・大会概要ページ",
     "data_accuracy_notes": [
-      "基本情報のみ。距離は約163km・約109kmの推定値。エイド、周辺スポット等は未入力"
+      "基本情報のみ。距離は約163km・約109kmの推定値。エイド、周辺スポット等は未入力",
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-30",
+    "last_verified": "2026-05-30",
     "detail_level": "basic"
   },
   "entry_periods": [

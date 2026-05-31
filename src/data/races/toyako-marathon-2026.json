@@ -12,9 +12,9 @@
   "description_ja": "北海道・洞爺湖畔を一周するフルマラソン。羊蹄山と洞爺湖の絶景を楽しめる。新緑の季節に開催。",
   "description_en": "A full marathon circling Lake Toya in Hokkaido. Enjoy magnificent views of Mt. Yotei and Lake Toya in the fresh green season.",
   "official_url": "https://www.toyako-marathon.jp",
-  "entry_fee": 0,
+  "entry_fee": 11500,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 4500,
   "entry_start_date": "2026-02-01",
   "entry_end_date": "2026-03-08",
   "reception_type": "pre_day",
@@ -94,13 +94,14 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-05-30T06:44:01.797Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-15",
+    "last_verified": "2026-05-30",
     "detail_level": "medium"
   },
   "entry_periods": [

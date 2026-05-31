@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-05-25T14:45:30.146Z
+-- 生成日時: 2026-05-31T14:06:45.508Z
 -- 対象ファイル数: 79 件（既存 2 件はskip）
 
 -- ==================
@@ -921,7 +921,7 @@ INSERT OR REPLACE INTO races (
   '京都府福知山市で開催される歴史あるフルマラソン。由良川沿いの起伏あるコースが特徴で、ランナーの実力が試される大会として知られる。三段池扶桑化学工業アリーナ西側をスタート・ゴールとする。',
   'A historic full marathon held in Fukuchiyama City, Kyoto Prefecture. Known for its challenging course along the Yura River with rolling hills. Starts and finishes at the west side of Sandaike Fusokagaku Arena.',
   'https://fukuchiyama-marathon.com/',
-  NULL,
+  10000,
   1,
   6000,
   '2026-05-01',
@@ -950,7 +950,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-04-30T00:00:00Z',
-  '2026-05-25T01:18:41.038Z'
+  '2026-05-30T06:11:39.885Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fukuchiyama-marathon-2026', 'full', 42.195, 360, '', 5400, 11000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -1291,7 +1291,7 @@ INSERT OR REPLACE INTO races (
   1,
   5500,
   '2026-04-09',
-  '2026-08-17',
+  '2026-05-13',
   0,
   'pre_mail',
   '参加者には、アスリートビブス、計測チップ、参加マニュアル等を申込時の住所に事前に発送します（10月下旬発送予定）。大会前日・当日の受付は行いません。
@@ -1326,7 +1326,7 @@ If you are unable to participate after registering, you do not need to contact u
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-05-25T01:19:17.709Z'
+  '2026-05-27T14:55:42.669Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('gunma-marathon-2026', 'full', 42.195, 360, '08:55', 5500, 13500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -1341,7 +1341,7 @@ Translated with DeepL.com (free version)', '', 'https://worldheritage.pref.gunma
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('gunma-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('gunma-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-09', '2026-08-17', NULL, 0);
+  ('gunma-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-09', '2026-05-13', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('gunma-marathon-2026', NULL, NULL, '赤城山', 'Mt. Akagi', NULL, NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -1394,9 +1394,9 @@ INSERT OR REPLACE INTO races (
   'さくらんぼの名産地・山形県東根市で毎年6月に開催される大会。陸上自衛隊神町駐屯地をスタート・フィニッシュ地点とし、フルーツラインの周回コースを走る。ハーフマラソン・10km・5kmの3種目。さくらんぼの季節に合わせた地域密着型のレース。',
   'A popular race held every June in Higashine City, Yamagata, famous for its cherries. The course starts and finishes at JGSDF Kanomachi Garrison and loops around the Fruit Line road. Three distances: half marathon, 10km, and 5km.',
   'https://www.sakuranbo-m.jp/',
-  0,
+  6000,
   1,
-  0,
+  10000,
   '2026-02-01',
   '2026-03-31',
   0,
@@ -1423,7 +1423,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-30T00:00:00Z',
-  '2026-03-30T00:00:00Z'
+  '2026-05-27T14:55:48.396Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('higashine-sakuranbo-marathon-2026', 'half', 21.0975, 170, '08:40', 5500, 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -1742,9 +1742,9 @@ INSERT OR REPLACE INTO races (
   '山口県防府市で開催されるエリート志向のフルマラソン。制限時間4時間で走力が求められる。MGCシリーズG1大会。',
   'An elite-oriented full marathon in Hofu, Yamaguchi. The 4-hour time limit demands strong running ability. MGC Series G1 event.',
   'https://hofu-yomiuri.jp/',
-  0,
+  13000,
   1,
-  0,
+  3500,
   NULL,
   NULL,
   0,
@@ -1771,7 +1771,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-16T00:00:00Z'
+  '2026-05-30T06:35:00.134Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('hofu-yomiuri-marathon-2026', 'full', 42.195, 240, '12:03', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -1825,9 +1825,9 @@ INSERT OR REPLACE INTO races (
   '夏に開催される日本唯一の大規模フルマラソン。札幌の市街地と北海道大学キャンパス内を走る。MGCシリーズG2大会。',
   'Japan''s only large-scale summer full marathon. Run through Sapporo''s city center and Hokkaido University campus. MGC Series G2 event.',
   'https://hokkaido-marathon.com',
-  0,
+  16500,
   1,
-  0,
+  20000,
   '2026-03-29',
   '2026-04-24',
   0,
@@ -1854,7 +1854,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:35:06.519Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('hokkaido-marathon-2026', 'full', 42.195, 360, '08:30', 20000, 16500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -1918,11 +1918,11 @@ INSERT OR REPLACE INTO races (
   '南国の指宿を舞台に、菜の花が咲き誇る温暖な1月に開催されるフルマラソン。開聞岳や錦江湾の絶景を楽しみながら走れる。レース後は砂むし温泉が楽しめる。',
   'A full marathon held in warm January in Ibusuki, surrounded by blooming canola flowers. Enjoy views of Mt. Kaimon and Kinko Bay. Sand steam baths available after the race.',
   'https://ibusuki-nanohana.com',
-  NULL,
+  10000,
   1,
-  0,
-  NULL,
-  NULL,
+  10000,
+  '2025-08-01',
+  '2025-10-19',
   0,
   'race_day',
   'アスリートビブスは事前郵送。記念品引換は前日・当日に総合体育館にて。',
@@ -1947,7 +1947,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-16T00:00:00Z'
+  '2026-05-30T06:35:12.039Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('ibusuki-nanohana-2026', 'full', 42.195, 480, '09:00', 10000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2011,9 +2011,9 @@ INSERT OR REPLACE INTO races (
   '最大高低差わずか15mのフラットコースを誇る一関国際ハーフマラソン。日本陸連公認の高速コースで、賞金レースとしても知られる。みちのく選手権も同時開催。優秀成績者にはホノルルマラソン派遣の特典あり。',
   'A flat course with only 15m elevation difference, the Ichinoseki International Half Marathon is a JAAF-certified fast course with prize money. Held simultaneously with the Michinoku Championship. Top finishers receive an invitation to the Honolulu Marathon.',
   'https://ichinoseki-half.jp/',
-  0,
+  6000,
   1,
-  0,
+  2500,
   '2026-04-01',
   '2026-06-30',
   0,
@@ -2040,7 +2040,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-29T00:00:00Z',
-  '2026-03-29T00:00:00Z'
+  '2026-05-30T06:35:21.220Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('ichinoseki-half-marathon-2026', 'half', 21.0975, 170, '09:00', 2000, 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2096,7 +2096,7 @@ INSERT OR REPLACE INTO races (
   'https://iki-ultra.jp/',
   NULL,
   1,
-  0,
+  1000,
   '2026-04-10',
   '2026-07-17',
   0,
@@ -2123,7 +2123,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-04-05T08:19:26.353Z',
-  '2026-04-05T08:19:26.353Z'
+  '2026-05-30T06:35:34.537Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('iki-ultra-marathon-2026', 'ultra', 100, 840, '05:00', 1000, 20000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2177,9 +2177,9 @@ INSERT OR REPLACE INTO races (
   '荒川河川敷を走るフラットなフルマラソン。記録を狙いやすいコースとして人気。制限時間7時間で初心者にも優しい。',
   'A flat full marathon along the Arakawa River. Popular for record attempts. 7-hour time limit is beginner-friendly.',
   'https://i-c-m.jp',
-  0,
+  11550,
   1,
-  0,
+  10000,
   '2025-08-01',
   '2025-11-24',
   0,
@@ -2206,7 +2206,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:35:40.462Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('itabashi-city-marathon-2026', 'full', 42.195, 420, '09:00', 10000, 11550, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2264,9 +2264,9 @@ INSERT OR REPLACE INTO races (
   '福島県いわき市で開催されるフルマラソン。太平洋に面した海岸コース。いわきの復興と元気を発信する大会。',
   'A full marathon in Iwaki City, Fukushima, along the Pacific coast. A race promoting Iwaki''s recovery and vitality.',
   'https://iwaki-marathon.jp',
-  0,
+  9000,
   1,
-  0,
+  8000,
   '2025-09-12',
   '2025-10-15',
   0,
@@ -2293,7 +2293,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:35:45.814Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('iwaki-sunshine-marathon-2026', 'full', 42.195, 360, '', 5000, 9000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2381,9 +2381,9 @@ Feature 4: Full Marathon Finisher Awards Include a Nanbu Ironware Finisher Medal
 
 Translated with DeepL.com (free version)',
   'https://iwate-morioka-city-marathon.jp/',
-  NULL,
+  12000,
   1,
-  0,
+  6000,
   '2026-04-01',
   '2026-07-20',
   0,
@@ -2414,7 +2414,7 @@ Translated with DeepL.com (free version)',
   NULL,
   NULL,
   '2026-04-16T15:23:52.019Z',
-  '2026-04-16T15:23:52.019Z'
+  '2026-05-30T06:35:52.274Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('iwate-morioka-city-marathon-2026', 'full', 42.195, 360, '09:00', 6000, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2466,11 +2466,11 @@ INSERT OR REPLACE INTO races (
   '岩手県奥州市で開催。奥州の自然と歴史を感じながら走るフルマラソン。',
   'A full marathon in Oshu City, Iwate, running through the nature and history of the region.',
   'https://oshukirameki.jp',
-  0,
+  10000,
   1,
-  0,
+  3000,
   '2025-11-28',
-  '2026-02-15',
+  '2026-02-28',
   0,
   'pre_day',
   '',
@@ -2495,7 +2495,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:36:12.295Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('iwate-oshu-kirameki-marathon-2026', 'full', 42.195, 360, '08:30', 3000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2553,7 +2553,7 @@ INSERT OR REPLACE INTO races (
   'https://kagawa-marathon.com',
   0,
   1,
-  0,
+  10000,
   '2025-10-06',
   '2025-11-24',
   0,
@@ -2580,7 +2580,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:36:17.548Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kagawa-marathon-2026', 'full', 42.195, 360, '10:00', 10000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2636,9 +2636,9 @@ INSERT OR REPLACE INTO races (
   '桜島を望みながら走るフルマラソン。錦江湾沿いの雄大な景色が魅力。',
   'A full marathon with views of Sakurajima volcano. Features magnificent scenery along Kinko Bay.',
   'https://www.kagoshima-marathon.jp',
-  0,
+  14000,
   1,
-  0,
+  10000,
   '2025-08-08',
   '2025-11-16',
   0,
@@ -2665,7 +2665,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:36:35.675Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kagoshima-marathon-2026', 'full', 42.195, 420, '08:30', 10000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2725,7 +2725,7 @@ INSERT OR REPLACE INTO races (
   '関門海峡を望む下関で開催されるフルマラソン。海峡沿いの爽快なコースを走り、関門大橋や巌流島など絶景スポットを楽しめる。フグの街・下関ならではのエイドも人気。',
   'A full marathon in Shimonoseki overlooking the Kanmon Strait. Enjoy scenic views of the Kanmon Bridge and Ganryujima Island. The city''s famous fugu (blowfish) appears as a unique aid station treat.',
   'https://kaikyomarathon.jp/',
-  NULL,
+  12000,
   1,
   10000,
   '2026-05-15',
@@ -2754,7 +2754,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-04-30T00:00:00Z',
-  '2026-04-30T00:00:00Z'
+  '2026-05-30T06:36:44.764Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kaikyo-marathon-2026', 'full', 42.195, 360, '', 10000, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2818,9 +2818,9 @@ INSERT OR REPLACE INTO races (
   '加賀百万石の城下町・金沢を走るフルマラソン。兼六園や金沢城など歴史的名所を巡るコース。ご当地グルメのエイドが充実。',
   'A full marathon through Kanazawa, the historic castle town. The course passes Kenroku-en Garden, Kanazawa Castle, and more. Known for excellent local food at aid stations.',
   'https://www.kanazawa-marathon.jp',
-  NULL,
+  14000,
   1,
-  0,
+  15000,
   '2026-04-10',
   '2026-05-20',
   0,
@@ -2847,7 +2847,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:36:53.964Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kanazawa-marathon-2026', 'full', 42.195, 420, '08:30', 15000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2905,9 +2905,9 @@ INSERT OR REPLACE INTO races (
   '',
   '',
   'https://www.kasa-mara.jp/',
-  NULL,
+  5000,
   1,
-  0,
+  2000,
   '2025-08-11',
   '2025-10-24',
   0,
@@ -2934,7 +2934,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-05-09T14:16:13.893Z',
-  '2026-05-09T14:16:13.893Z'
+  '2026-05-30T06:37:00.046Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kasama-togeinosato-half-2025-2025', 'half', 21.0975, 150, '10:00', 2000, 5000, NULL, NULL, NULL, NULL, NULL, '18歳以上（高校生を除く）で健康に異常がなく２時間30分以内で完走できる方。なお、安全管理運営上、車いすやベビーカーを使用しての参加はできません。
@@ -3008,9 +3008,9 @@ INSERT OR REPLACE INTO races (
   '霞ヶ浦湖畔を走るフルマラソン。平坦なコースで記録を狙いやすい。',
   'A full marathon along the shore of Lake Kasumigaura. A flat course ideal for personal records.',
   'https://www.kasumigaura-marathon.jp',
-  0,
+  12000,
   1,
-  0,
+  20000,
   '2025-12-01',
   '2026-01-25',
   0,
@@ -3037,7 +3037,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:37:10.498Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kasumigaura-marathon-2026', 'full', 42.195, 360, '09:45', 14000, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3097,9 +3097,9 @@ INSERT OR REPLACE INTO races (
   '茨城県ひたちなか市で開催される歴史ある市民マラソン。1953年からの長い歴史を持つ伝統大会。',
   'A historic citizens'' marathon held in Hitachinaka City, Ibaraki. A traditional race with a long history since 1953.',
   'https://katsutamarathon.jp',
-  0,
+  8000,
   1,
-  0,
+  12000,
   '2025-09-26',
   '2025-10-31',
   0,
@@ -3126,7 +3126,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-16T00:00:00Z'
+  '2026-05-30T06:37:19.558Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('katsuta-marathon-2026', 'full', 42.195, 360, '10:30', 0, 8000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3184,9 +3184,9 @@ INSERT OR REPLACE INTO races (
   '福岡県北九州市で開催されるフルマラソン。小倉の市街地と関門海峡を望むコース。',
   'A full marathon in Kitakyushu, Fukuoka. Course features Kokura city center and views of the Kanmon Strait.',
   'https://kitakyushu-marathon.jp',
-  0,
+  14500,
   1,
-  0,
+  10800,
   '2025-08-08',
   '2025-09-25',
   0,
@@ -3213,7 +3213,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:37:31.465Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kitakyushu-marathon-2026', 'full', 42.195, 360, '09:00', 10800, 14500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3273,9 +3273,9 @@ INSERT OR REPLACE INTO races (
   '大阪南部の泉州地域を走るフルマラソン。関西国際空港連絡橋付近をコースに含む。',
   'A full marathon through the Senshu area of southern Osaka, with parts of the course near the Kansai International Airport bridge.',
   'http://www.senshu-marathon.jp',
-  0,
+  5000,
   1,
-  0,
+  700,
   '2025-10-10',
   '2025-11-30',
   0,
@@ -3302,7 +3302,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:37:37.791Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kix-senshu-marathon-2026', 'full', 42.195, 420, '10:30', 700, 5000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3358,9 +3358,9 @@ INSERT OR REPLACE INTO races (
   '神戸の港町を走る大規模フルマラソン。明石海峡大橋の折り返しが見どころ。「感謝と友情」がテーマ。',
   'A large-scale marathon through the port city of Kobe. The turnaround point near Akashi Kaikyo Bridge is a highlight. Theme: Gratitude and Friendship.',
   'https://www.kobe-marathon.net',
-  NULL,
+  18000,
   1,
-  0,
+  20000,
   '2026-04-17',
   '2026-06-01',
   0,
@@ -3405,7 +3405,7 @@ For relay runs, both runners must register together. Registration by one person,
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:37:42.947Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kobe-marathon-2026', 'full', 42.195, 420, '09:00', 20000, 18000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3469,9 +3469,9 @@ INSERT OR REPLACE INTO races (
   '坂本龍馬ゆかりの高知で開催されるフルマラソン。太平洋を望む雄大なコースが魅力。制限時間7時間で初心者にも優しい。',
   'A full marathon in Kochi, the home of Sakamoto Ryoma. Features a magnificent course overlooking the Pacific Ocean. 7-hour time limit is beginner-friendly.',
   'https://ryoma-marathon.jp',
-  0,
+  13000,
   1,
-  0,
+  10000,
   '2025-08-01',
   '2025-10-31',
   0,
@@ -3498,7 +3498,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:37:49.063Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kochi-ryoma-marathon-2026', 'full', 42.195, 420, '09:00', 10000, 13000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3560,9 +3560,9 @@ INSERT OR REPLACE INTO races (
   '熊本城を発着点とするフルマラソン。復興のシンボル・熊本城を目指してゴールする感動のフィニッシュ。',
   'A full marathon starting and finishing at Kumamoto Castle, the symbol of the city''s recovery.',
   'https://kumamotojyo-marathon.jp',
-  0,
+  13750,
   1,
-  0,
+  13000,
   '2025-07-29',
   '2025-09-24',
   0,
@@ -3589,7 +3589,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-16T00:00:00Z'
+  '2026-05-30T06:37:58.617Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kumamoto-castle-marathon-2026', 'full', 42.195, 420, '09:00', 13000, 13750, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3649,7 +3649,7 @@ INSERT OR REPLACE INTO races (
   'https://kyoto-marathon.com',
   0,
   1,
-  0,
+  16000,
   '2025-07-17',
   '2025-09-22',
   0,
@@ -3676,7 +3676,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:38:04.533Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kyoto-marathon-2026', 'full', 42.195, 360, '08:55', 16000, 18500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3744,11 +3744,11 @@ INSERT OR REPLACE INTO races (
   '三重県松阪市で開催。松阪牛の産地を走るフルマラソン。ご当地グルメのエイドが期待される。',
   'Held in Matsusaka, Mie, home of the famous Matsusaka beef. Expect local gourmet food at aid stations.',
   'https://mie-matsusaka-marathon.jp',
-  0,
+  12900,
   1,
-  0,
-  NULL,
-  NULL,
+  10000,
+  '2026-05-24',
+  '2026-07-31',
   0,
   'pre_day',
   '',
@@ -3773,7 +3773,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:38:15.333Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('mie-matsusaka-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3827,9 +3827,9 @@ INSERT OR REPLACE INTO races (
   '茨城県水戸市で開催。偕楽園や千波湖など水戸の名所を巡るコース。',
   'Held in Mito City, Ibaraki. Course visits Kairakuen Garden, Lake Senba, and other Mito landmarks.',
   'https://www.mitokomon-manyu-marathon.com',
-  NULL,
+  10000,
   1,
-  0,
+  10000,
   '2026-04-16',
   '2026-06-30',
   1,
@@ -3856,7 +3856,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:38:20.579Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('mito-komon-manyu-marathon-2026', 'full', 42.195, 360, '', 10000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'mito-komon-manyu-marathon-2026', '[]', 0);
@@ -3928,9 +3928,9 @@ Participants who finish within 1 hour and 50 minutes (net time) will qualify to 
 
 Translated with DeepL.com (free version)',
   'https://mtfujiclimbrun.com/',
-  NULL,
+  15000,
   1,
-  0,
+  2000,
   '2026-04-24',
   '2026-07-31',
   0,
@@ -3959,7 +3959,7 @@ Sunday, September 13, 6:30 AM – 30 minutes before the start time of each wave'
   NULL,
   NULL,
   '2026-04-28T13:53:53.451Z',
-  '2026-04-28T13:53:53.451Z'
+  '2026-05-30T06:38:26.366Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('mtfuji-climb-run-2026', 'other', 12, 180, '09:00', 2000, 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -4100,10 +4100,10 @@ INSERT OR REPLACE INTO races (
   '世界最大の女性限定マラソン。完走者全員にティファニーのオリジナルペンダントが贈られる。MGCシリーズ女子G1大会。',
   'The world''s largest women-only marathon. All finishers receive an original Tiffany pendant. MGC Series Women''s G1 event.',
   'https://womens-marathon.nagoya',
-  NULL,
+  18000,
   0,
-  20000,
-  NULL,
+  22000,
+  '2025-07-02',
   NULL,
   0,
   'pre_day',
@@ -4129,7 +4129,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:39:00.304Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('nagoya-womens-marathon-2026', 'full', 42.195, 420, '09:10', 20000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -4187,9 +4187,9 @@ INSERT OR REPLACE INTO races (
   '沖縄・那覇で開催される日本最南端の大規模フルマラソン。南国の温暖な気候で走れる12月の人気大会。制限時間6時間15分。',
   'Japan''s southernmost large-scale full marathon in Naha, Okinawa. A popular December race in the subtropical climate. 6 hour 15 min time limit.',
   'https://www.naha-marathon.jp',
-  NULL,
+  11000,
   1,
-  0,
+  30000,
   NULL,
   NULL,
   0,
@@ -4216,7 +4216,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:39:09.521Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('naha-marathon-2026', 'full', 42.195, 375, '09:00', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -4270,11 +4270,11 @@ INSERT OR REPLACE INTO races (
   '世界遺産の古都・奈良を走るフルマラソン。東大寺、春日大社などの名所を巡る。アップダウンが多いが、運営の評価が非常に高い人気大会。',
   'A full marathon through the ancient World Heritage city of Nara. Pass Todai-ji, Kasuga Shrine, and more. Hilly course but highly rated operations.',
   'https://www.nara-marathon.jp',
-  NULL,
+  15000,
   0,
-  0,
-  NULL,
-  NULL,
+  11750,
+  '2026-06-05',
+  '2026-07-09',
   0,
   'race_day',
   '',
@@ -4299,7 +4299,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:39:22.310Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('nara-marathon-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -4525,9 +4525,9 @@ INSERT OR REPLACE INTO races (
   '岡山城や後楽園を巡る岡山のフルマラソン。',
   'A full marathon in Okayama passing Okayama Castle and Korakuen Garden.',
   'https://www.okayamamarathon.jp',
-  0,
+  14000,
   1,
-  0,
+  15000,
   '2026-04-16',
   '2026-05-18',
   0,
@@ -4555,7 +4555,7 @@ Loppi端末(ローソン・ミニストップ店頭)',
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:39:43.610Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('okayama-marathon-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -4613,9 +4613,9 @@ INSERT OR REPLACE INTO races (
   '長野県奥信濃の豊かな自然の中を走るトレイルランニングレース。「たくさんの方に奥信濃の幸せなトレイルランニングを楽しんでほしい。トレイルランニングと奥信濃が100年続くように」という願いを込めた大会。100km・50km・25km・8kmの4種目。スタートはSBCホテル前（旧木島平スキー場）。',
   'A trail running race through the lush natural landscape of Okushinano in Nagano Prefecture. Four distances: 100km, 50km, 25km, and 8km. Start at the former Kijimadaira Ski Resort (SBC Hotel).',
   'https://okushinano100.com/',
-  NULL,
+  31000,
   1,
-  0,
+  700,
   '2025-12-14',
   '2026-05-10',
   0,
@@ -4642,7 +4642,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-30T00:00:00Z',
-  '2026-03-30T00:00:00Z'
+  '2026-05-30T06:40:08.022Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('okushinano100-2026', 'ultra', 100, 1260, '05:00', 700, 31000, NULL, NULL, NULL, NULL, NULL, '・各種目の規定年齢に達している方（100km／50km…18歳以上、25km…高校生以上、8km…中学生以上）※未成年者は保護者の承認が必要
@@ -4717,9 +4717,9 @@ INSERT OR REPLACE INTO races (
   'https://www.osaka-marathon.com',
   NULL,
   0,
-  31970,
-  NULL,
-  NULL,
+  34000,
+  '2025-07-30',
+  '2025-08-29',
   0,
   'pre_day',
   'EXPO会場にて前日受付',
@@ -4744,7 +4744,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:40:23.729Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('osaka-marathon-2026', 'full', 42.195, 420, '09:15', 31970, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -4905,9 +4905,9 @@ INSERT OR REPLACE INTO races (
   '御嶽山（標高3,067m）麓の通常立入禁止の国有林を特別開放して行われる夜間スタートのロングレース。100Kと100マイルの2種目。深い森と御嶽山の雄大な景色の中を走る。「フィニッシュの感動は格別」と称されるOSJが誇るロングレースシリーズの一戦。',
   'A night-start long race through special-access national forest at the foot of Mt. Ontake (3,067m). Two distances: 100K and 100 Miles. Run through deep forest with majestic views of Mt. Ontake. Part of OSJ''s premier long-race series, renowned for an exceptional finish experience.',
   'https://www.outdoorsportsjapan.com/trail/ontake100/',
-  0,
+  19000,
   1,
-  0,
+  1400,
   '2026-02-01',
   '2026-06-14',
   0,
@@ -4934,7 +4934,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-30T00:00:00Z',
-  '2026-03-30T00:00:00Z'
+  '2026-05-30T06:40:45.827Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('osj-ontake100-2026', 'ultra', 163, 1440, '20:00', 200, 21000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -5075,11 +5075,11 @@ INSERT OR REPLACE INTO races (
   '桜の季節に開催される佐賀のフルマラソン。佐賀平野を駆け抜ける。',
   'A full marathon in Saga during cherry blossom season. Run across the Saga Plain.',
   'https://sagasakura-marathon.jp',
-  NULL,
+  14500,
   0,
-  0,
-  NULL,
-  NULL,
+  8500,
+  '2025-10-01',
+  '2025-10-21',
   0,
   'race_day',
   '',
@@ -5104,7 +5104,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:40:53.342Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('saga-sakura-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -5239,9 +5239,9 @@ INSERT OR REPLACE INTO races (
   '',
   '',
   'https://satumara.sapporo-sport.jp/index.html',
-  NULL,
+  8000,
   1,
-  0,
+  8000,
   '2026-05-23',
   '2026-07-11',
   0,
@@ -5268,7 +5268,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-05-15T14:40:14.753Z',
-  '2026-05-15T14:40:14.753Z'
+  '2026-05-30T06:41:49.778Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('sapporo-marathon-2026', 'half', 21.0975, 0, '09:20', 8000, 8000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -5334,7 +5334,7 @@ INSERT OR REPLACE INTO races (
   'https://www.nature-scene.net/shiga100',
   NULL,
   1,
-  0,
+  700,
   '2026-04-05',
   '2026-07-27',
   0,
@@ -5447,7 +5447,7 @@ EQUIPMENT
   NULL,
   NULL,
   '2026-04-05T06:01:54.559Z',
-  '2026-04-05T06:01:54.559Z'
+  '2026-05-30T06:41:54.953Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('shiga-kogen100-2026', 'ultra', 100, 1560, '04:30', 700, 28000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -5593,9 +5593,9 @@ INSERT OR REPLACE INTO races (
 家族や友人が選手にサポートを提供できるアシスタントポイントの設置、夜間走行となる選手の安全に配慮したぺーサ1名の同行を許可する区間の設定など、選手はじめ、沢山の人々がトレイルランニングの魅力を味わえるレーススタイル',
   '',
   'https://sfmt100.com',
-  NULL,
+  35000,
   1,
-  0,
+  1300,
   '2026-04-08',
   '2026-04-15',
   0,
@@ -5622,7 +5622,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-04-05T07:49:25.657Z',
-  '2026-04-05T07:49:25.657Z'
+  '2026-05-30T06:42:15.502Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('shinetsu5mountains-trail-100-2026', 'ultra', 163, 1980, '18:30', 600, 47000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -5852,9 +5852,9 @@ INSERT OR REPLACE INTO races (
   '岡山県総社市で開催。吉備路の歴史ある風景の中を走るマラソン。五重塔や古墳群を眺めながら走れる。',
   'Held in Soja City, Okayama. Run through the historic Kibiji landscape, passing a five-story pagoda and ancient burial mounds.',
   'https://soja-kibijimarathon.jp',
-  NULL,
+  9100,
   1,
-  0,
+  15000,
   '2025-10-01',
   '2026-01-03',
   0,
@@ -5884,7 +5884,7 @@ Therefore, there is no registration required.',
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:42:39.583Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('soja-kibiji-marathon-2026', 'full', 42.195, 360, '09:20', 2000, 9100, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -5944,11 +5944,11 @@ INSERT OR REPLACE INTO races (
   '兵庫県丹波篠山で開催。城下町の風情と田園風景の中を走る。制限時間5時間30分。',
   'Held in Tamba-Sasayama, Hyogo. Run through a castle town atmosphere and rural landscapes. 5.5-hour time limit.',
   'https://tambasasayama-abc-marathon.jp',
-  NULL,
+  10000,
   0,
-  0,
-  NULL,
-  NULL,
+  8000,
+  '2025-10-01',
+  '2026-01-31',
   0,
   'race_day',
   '',
@@ -5973,7 +5973,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:42:47.716Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tamba-sasayama-abc-marathon-2026', 'full', 42.195, 330, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -6029,11 +6029,11 @@ INSERT OR REPLACE INTO races (
   '千葉県館山市の海沿いを走るフルマラソン。温暖な房総の海を眺めながら走れる冬の人気大会。',
   'A full marathon along the coast of Tateyama, Chiba. A popular winter race with views of the warm Boso coast.',
   'https://tateyama-wakasio.jp',
-  NULL,
+  9000,
   0,
-  0,
-  NULL,
-  NULL,
+  5000,
+  '2025-09-14',
+  '2025-11-13',
   0,
   'race_day',
   '',
@@ -6058,7 +6058,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-16T00:00:00Z'
+  '2026-05-30T06:42:59.250Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tateyama-wakashio-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -6115,9 +6115,9 @@ INSERT OR REPLACE INTO races (
 田沢湖マラソンは、1986年、県内初のフルマラソン大会として始まりました。 全国のフルマラソン大会の中でも開催時期が早いことで愛好者からの人気が高く、近年では国内外から3,000人前後が出場しています。 国内でも屈指の難コースといわれる日本一深い神秘の田沢湖を周回することで、国内外に仙北市の魅力を発信し、交流人口の増加を図りたいと考えています。',
   '',
   'https://tazawako-marathon.com/',
-  NULL,
+  10000,
   1,
-  0,
+  5550,
   '2026-04-01',
   '2026-05-27',
   0,
@@ -6144,7 +6144,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-29T11:30:29.091Z',
-  '2026-03-29T11:30:29.091Z'
+  '2026-05-30T06:43:05.830Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tazawako-marathon-2026', 'full', 42.195, 360, '08:30', 1600, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -6200,11 +6200,11 @@ INSERT OR REPLACE INTO races (
   '吉野川沿いを走る徳島のフルマラソン。阿波踊りの街を駆け抜ける。',
   'A full marathon along the Yoshino River in Tokushima, the city of Awa Odori dance.',
   'https://www.tokushima-marathon.jp',
-  NULL,
+  11000,
   0,
   0,
-  NULL,
-  NULL,
+  '2025-09-30',
+  '2025-12-31',
   0,
   'race_day',
   '',
@@ -6229,7 +6229,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:43:19.054Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tokushima-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -6643,9 +6643,9 @@ INSERT OR REPLACE INTO races (
   'スイカの一大産地・千葉県富里市で毎年6月に開催される人気大会。エイドステーションでスイカを食べながら走れる名物大会。コース沿いのスイカ畑が広がる田園風景の中、7kmと10kmで競う。マイカップ給水対応。',
   'A popular race held every June in Tomisato City, Chiba, the top watermelon-producing area in Japan. Famous for eating watermelon at aid stations while running. Race through scenic watermelon fields in 7km and 10km distances. Supports personal cup hydration.',
   'https://tomisato-suikaroad.jp/',
-  NULL,
+  6500,
   1,
-  0,
+  7000,
   '2026-02-22',
   '2026-04-04',
   0,
@@ -6672,7 +6672,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-30T00:00:00Z',
-  '2026-03-30T00:00:00Z'
+  '2026-05-30T06:43:46.887Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tomisato-suikaroad-2026', '10k', 10, 70, '09:15', 1500, 6500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -6728,9 +6728,9 @@ INSERT OR REPLACE INTO races (
   '鳥取砂丘に近いコースを走るフルマラソン。日本海沿いの景色を楽しめる。',
   'A full marathon near Tottori Sand Dunes. Enjoy views along the Sea of Japan coast.',
   'https://tottori-marathon.jp',
-  0,
+  13000,
   1,
-  0,
+  4000,
   '2025-10-15',
   '2025-12-12',
   0,
@@ -6757,7 +6757,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:43:52.495Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tottori-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -6822,9 +6822,9 @@ INSERT OR REPLACE INTO races (
   '北海道・洞爺湖畔を一周するフルマラソン。羊蹄山と洞爺湖の絶景を楽しめる。新緑の季節に開催。',
   'A full marathon circling Lake Toya in Hokkaido. Enjoy magnificent views of Mt. Yotei and Lake Toya in the fresh green season.',
   'https://www.toyako-marathon.jp',
-  0,
+  11500,
   1,
-  0,
+  4500,
   '2026-02-01',
   '2026-03-08',
   0,
@@ -6851,7 +6851,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  '2026-05-30T06:44:01.797Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('toyako-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -6911,9 +6911,9 @@ INSERT OR REPLACE INTO races (
   '立山連峰を望みながら走るフルマラソン。新湊大橋を渡るコースが特徴。富山湾の景色が美しい。',
   'A full marathon with views of the Tateyama mountain range. Features crossing the Shinminato Bridge with beautiful Toyama Bay scenery.',
   'https://www.toyamamarathon.com',
-  NULL,
+  14000,
   1,
-  0,
+  13000,
   '2026-04-11',
   '2026-06-30',
   0,
@@ -6940,7 +6940,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-16T00:00:00Z'
+  '2026-05-30T06:44:11.814Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('toyama-marathon-2026', 'full', 42.195, 420, '09:30', 13000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -7038,7 +7038,7 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('tsukuba-marathon-2026', '観光地', '筑波山', 'Mt. Tsukuba', '関東平野にそびえる名山。ロープウェイで山頂へ。コースからも望める。', 'A famous mountain rising from the Kanto Plain. Ropeway to the summit. Visible from the course.', 'つくば市から車約30分', NULL, 36.2253, 140.1);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('tsukuba-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('tsukuba-marathon-2026', '["tshirt"]', '大会Tシャツ', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('tsukuba-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-07-05', '2026-07-27', NULL, 0);
 
@@ -7180,7 +7180,7 @@ INSERT OR REPLACE INTO races (
   1,
   0,
   '2026-04-08',
-  '2026-05-08',
+  '2026-05-17',
   0,
   'pre_day',
   'ローソンWEB',
@@ -7205,7 +7205,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-03-16T00:00:00Z'
+  '2026-05-30T06:44:28.893Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('yokohama-marathon-2026', 'full', 42.195, 390, '08:30', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);

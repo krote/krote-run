@@ -12,9 +12,9 @@
   "description_ja": "岡山県総社市で開催。吉備路の歴史ある風景の中を走るマラソン。五重塔や古墳群を眺めながら走れる。",
   "description_en": "Held in Soja City, Okayama. Run through the historic Kibiji landscape, passing a five-story pagoda and ancient burial mounds.",
   "official_url": "https://soja-kibijimarathon.jp",
-  "entry_fee": null,
+  "entry_fee": 9100,
   "entry_fee_by_category": true,
-  "entry_capacity": null,
+  "entry_capacity": 15000,
   "entry_start_date": "2025-10-01",
   "entry_end_date": "2026-01-03",
   "reception_type": "pre_mail",
@@ -82,14 +82,15 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-05-30T06:42:39.583Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-15",
+    "last_verified": "2026-05-30",
     "detail_level": "medium"
   },
   "entry_periods": [

@@ -12,7 +12,7 @@
   "description_ja": "関門海峡を望む下関で開催されるフルマラソン。海峡沿いの爽快なコースを走り、関門大橋や巌流島など絶景スポットを楽しめる。フグの街・下関ならではのエイドも人気。",
   "description_en": "A full marathon in Shimonoseki overlooking the Kanmon Strait. Enjoy scenic views of the Kanmon Bridge and Ganryujima Island. The city's famous fugu (blowfish) appears as a unique aid station treat.",
   "official_url": "https://kaikyomarathon.jp/",
-  "entry_fee": null,
+  "entry_fee": 12000,
   "entry_fee_by_category": true,
   "entry_capacity": 10000,
   "entry_start_date": "2026-05-15",
@@ -106,14 +106,15 @@
   ],
   "result": null,
   "created_at": "2026-04-30T00:00:00Z",
-  "updated_at": "2026-04-30T00:00:00Z",
+  "updated_at": "2026-05-30T06:36:44.764Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、気象データ等は未入力",
-      "参加費は2025年実績からの推定。正式発表後に要更新"
+      "参加費は2025年実績からの推定。正式発表後に要更新",
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-04-30",
+    "last_verified": "2026-05-30",
     "detail_level": "light"
   },
   "entry_periods": [

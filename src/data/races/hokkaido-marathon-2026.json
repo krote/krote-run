@@ -12,9 +12,9 @@
   "description_ja": "夏に開催される日本唯一の大規模フルマラソン。札幌の市街地と北海道大学キャンパス内を走る。MGCシリーズG2大会。",
   "description_en": "Japan's only large-scale summer full marathon. Run through Sapporo's city center and Hokkaido University campus. MGC Series G2 event.",
   "official_url": "https://hokkaido-marathon.com",
-  "entry_fee": 0,
+  "entry_fee": 16500,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 20000,
   "entry_start_date": "2026-03-29",
   "entry_end_date": "2026-04-24",
   "reception_type": "pre_day",
@@ -108,13 +108,14 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-05-30T06:35:06.519Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-15",
+    "last_verified": "2026-05-30",
     "detail_level": "medium"
   },
   "entry_periods": [

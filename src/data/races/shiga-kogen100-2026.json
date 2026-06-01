@@ -14,7 +14,7 @@
   "official_url": "https://www.nature-scene.net/shiga100",
   "entry_fee": null,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 700,
   "entry_start_date": "2026-04-05",
   "entry_end_date": "2026-07-27",
   "reception_type": "pre_day",
@@ -69,7 +69,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-05T06:01:54.559Z",
-  "updated_at": "2026-04-05T06:01:54.559Z",
+  "updated_at": "2026-05-30T06:41:54.953Z",
   "entry_periods": [
     {
       "start_date": "2026-04-05",
@@ -114,5 +114,11 @@
       "url": "https://www.nature-scene.net/shiga100/entry/",
       "label": "エントリー"
     }
-  ]
+  ],
+  "_metadata": {
+    "last_verified": "2026-05-30",
+    "data_accuracy_notes": [
+      "2026-05-30: 自動クロールで更新"
+    ]
+  }
 }

@@ -12,9 +12,9 @@
   "description_ja": "福島県いわき市で開催されるフルマラソン。太平洋に面した海岸コース。いわきの復興と元気を発信する大会。",
   "description_en": "A full marathon in Iwaki City, Fukushima, along the Pacific coast. A race promoting Iwaki's recovery and vitality.",
   "official_url": "https://iwaki-marathon.jp",
-  "entry_fee": 0,
+  "entry_fee": 9000,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 8000,
   "entry_start_date": "2025-09-12",
   "entry_end_date": "2025-10-15",
   "reception_type": "pre_day",
@@ -105,13 +105,14 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-05-30T06:35:45.814Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-15",
+    "last_verified": "2026-05-30",
     "detail_level": "medium"
   },
   "entry_periods": [

@@ -12,11 +12,11 @@
   "description_ja": "世界遺産の古都・奈良を走るフルマラソン。東大寺、春日大社などの名所を巡る。アップダウンが多いが、運営の評価が非常に高い人気大会。",
   "description_en": "A full marathon through the ancient World Heritage city of Nara. Pass Todai-ji, Kasuga Shrine, and more. Hilly course but highly rated operations.",
   "official_url": "https://www.nara-marathon.jp",
-  "entry_fee": null,
+  "entry_fee": 15000,
   "entry_fee_by_category": false,
-  "entry_capacity": null,
-  "entry_start_date": null,
-  "entry_end_date": null,
+  "entry_capacity": 11750,
+  "entry_start_date": "2026-06-05",
+  "entry_end_date": "2026-07-09",
   "reception_type": null,
   "reception_note_ja": "",
   "reception_note_en": "",
@@ -96,14 +96,15 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-05-30T06:39:22.310Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-15",
+    "last_verified": "2026-05-30",
     "detail_level": "medium"
   },
   "entry_periods": [],

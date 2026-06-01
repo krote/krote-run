@@ -12,9 +12,9 @@
   "description_ja": "福岡県北九州市で開催されるフルマラソン。小倉の市街地と関門海峡を望むコース。",
   "description_en": "A full marathon in Kitakyushu, Fukuoka. Course features Kokura city center and views of the Kanmon Strait.",
   "official_url": "https://kitakyushu-marathon.jp",
-  "entry_fee": 0,
+  "entry_fee": 14500,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 10800,
   "entry_start_date": "2025-08-08",
   "entry_end_date": "2025-09-25",
   "reception_type": "pre_day",
@@ -90,13 +90,14 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-05-30T06:37:31.465Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-15",
+    "last_verified": "2026-05-30",
     "detail_level": "medium"
   },
   "entry_periods": [

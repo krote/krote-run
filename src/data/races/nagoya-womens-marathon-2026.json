@@ -12,10 +12,10 @@
   "description_ja": "世界最大の女性限定マラソン。完走者全員にティファニーのオリジナルペンダントが贈られる。MGCシリーズ女子G1大会。",
   "description_en": "The world's largest women-only marathon. All finishers receive an original Tiffany pendant. MGC Series Women's G1 event.",
   "official_url": "https://womens-marathon.nagoya",
-  "entry_fee": null,
+  "entry_fee": 18000,
   "entry_fee_by_category": false,
-  "entry_capacity": 20000,
-  "entry_start_date": null,
+  "entry_capacity": 22000,
+  "entry_start_date": "2025-07-02",
   "entry_end_date": null,
   "reception_type": "pre_day",
   "reception_note_ja": "",
@@ -96,13 +96,14 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-05-30T06:39:00.304Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-15",
+    "last_verified": "2026-05-30",
     "detail_level": "medium"
   },
   "entry_periods": [],

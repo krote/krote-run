@@ -199,11 +199,10 @@ async function fetchOfficialContent(officialUrl, infoUrls = []) {
       'User-Agent': 'Mozilla/5.0 (compatible; HASHIRUBot/1.0)',
       'Accept-Language': 'ja,en;q=0.9',
     },
-    signal: AbortSignal.timeout(15000),
   };
 
   // メインページ取得
-  const mainRes = await fetch(officialUrl, FETCH_OPTS);
+  const mainRes = await fetch(officialUrl, { ...FETCH_OPTS, signal: AbortSignal.timeout(15000) });
   if (!mainRes.ok) throw new Error(`HTTPエラー: ${mainRes.status} ${officialUrl}`);
   const mainHtml = await mainRes.text();
 
@@ -215,7 +214,7 @@ async function fetchOfficialContent(officialUrl, infoUrls = []) {
 
   for (const url of subUrls) {
     try {
-      const res = await fetch(url, FETCH_OPTS);
+      const res = await fetch(url, { ...FETCH_OPTS, signal: AbortSignal.timeout(15000) });
       if (res.ok) {
         const html = await res.text();
         pages.push({ url, text: cleanHtml(html) });

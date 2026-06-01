@@ -12,11 +12,11 @@
   "description_ja": "1998年長野冬季オリンピックの理念を継承し、1999年に初開催された歴史ある市民マラソン大会。エムウェーブ、ホワイトリング、ビッグハットなどのオリンピック施設を巡りながら、春の信濃路を駆け抜ける42.195km。日本陸連公認・AIMS公認コース。AbbottWMMワンダ・エイジグループワールドランキング予選大会。",
   "description_en": "A historic citizens' marathon inheriting the spirit of the 1998 Nagano Winter Olympics, first held in 1999. The 42.195km course passes through Olympic venues including M-Wave, White Ring, and Big Hat, running through the scenic spring landscape of Shinano. JAAF and AIMS certified course. AbbottWMM Wanda Age Group World Rankings qualifying event.",
   "official_url": "https://www.naganomarathon.gr.jp/",
-  "entry_fee": 0,
+  "entry_fee": 14300,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
-  "entry_start_date": "2025-10-11",
-  "entry_end_date": "2025-10-31",
+  "entry_capacity": 10000,
+  "entry_start_date": "2025-09-13",
+  "entry_end_date": "2025-11-03",
   "reception_type": "none",
   "reception_note_ja": "前日受付なし。アスリートビブス・参加賞は大会2週間〜10日前に事前郵送",
   "reception_note_en": "No on-site registration. Athlete bibs and participation gifts are mailed 10-14 days before the event.",
@@ -285,7 +285,7 @@
   ],
   "result": null,
   "created_at": "2026-03-10T00:00:00Z",
-  "updated_at": "2026-03-10T00:00:00Z",
+  "updated_at": "2026-05-30T06:38:34.647Z",
   "_metadata": {
     "data_source": "公式サイト (naganomarathon.gr.jp) および公開情報から手動転記",
     "data_accuracy_notes": [
@@ -293,9 +293,10 @@
       "エイドステーションの提供内容は過去大会の一般的な内容を参考に記載。正確な内容は大会ごとに異なる",
       "気象データは長野市の4月中旬の実測値ではなく、概算値。正式には気象庁データで要検証",
       "関門時刻は過去大会の情報を参考に記載。第28回の正式な関門時刻は大会要項で要確認",
-      "エントリー開始日・終了日は第28回の実績を反映"
+      "エントリー開始日・終了日は第28回の実績を反映",
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-10",
+    "last_verified": "2026-05-30",
     "detail_level": "full"
   },
   "entry_periods": [

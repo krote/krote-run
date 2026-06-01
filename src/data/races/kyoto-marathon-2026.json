@@ -14,7 +14,7 @@
   "official_url": "https://kyoto-marathon.com",
   "entry_fee": 0,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 16000,
   "entry_start_date": "2025-07-17",
   "entry_end_date": "2025-09-22",
   "reception_type": "pre_day",
@@ -107,13 +107,14 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-05-30T06:38:04.533Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-15",
+    "last_verified": "2026-05-30",
     "detail_level": "medium"
   },
   "entry_periods": [

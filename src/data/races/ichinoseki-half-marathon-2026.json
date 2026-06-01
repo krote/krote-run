@@ -12,9 +12,9 @@
   "description_ja": "最大高低差わずか15mのフラットコースを誇る一関国際ハーフマラソン。日本陸連公認の高速コースで、賞金レースとしても知られる。みちのく選手権も同時開催。優秀成績者にはホノルルマラソン派遣の特典あり。",
   "description_en": "A flat course with only 15m elevation difference, the Ichinoseki International Half Marathon is a JAAF-certified fast course with prize money. Held simultaneously with the Michinoku Championship. Top finishers receive an invitation to the Honolulu Marathon.",
   "official_url": "https://ichinoseki-half.jp/",
-  "entry_fee": 0,
+  "entry_fee": 6000,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 2500,
   "entry_start_date": "2026-04-01",
   "entry_end_date": "2026-06-30",
   "reception_type": "pre_day",
@@ -65,13 +65,14 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-03-29T00:00:00Z",
-  "updated_at": "2026-03-29T00:00:00Z",
+  "updated_at": "2026-05-30T06:35:21.220Z",
   "_metadata": {
     "data_source": "公式サイト（https://ichinoseki-half.jp/）およびRunnet掲載情報",
     "data_accuracy_notes": [
-      "基本情報のみ。エイド、周辺スポット等は未入力"
+      "基本情報のみ。エイド、周辺スポット等は未入力",
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-29",
+    "last_verified": "2026-05-30",
     "detail_level": "basic"
   },
   "entry_periods": [

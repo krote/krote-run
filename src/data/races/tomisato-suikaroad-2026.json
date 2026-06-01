@@ -12,9 +12,9 @@
   "description_ja": "スイカの一大産地・千葉県富里市で毎年6月に開催される人気大会。エイドステーションでスイカを食べながら走れる名物大会。コース沿いのスイカ畑が広がる田園風景の中、7kmと10kmで競う。マイカップ給水対応。",
   "description_en": "A popular race held every June in Tomisato City, Chiba, the top watermelon-producing area in Japan. Famous for eating watermelon at aid stations while running. Race through scenic watermelon fields in 7km and 10km distances. Supports personal cup hydration.",
   "official_url": "https://tomisato-suikaroad.jp/",
-  "entry_fee": null,
+  "entry_fee": 6500,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 7000,
   "entry_start_date": "2026-02-22",
   "entry_end_date": "2026-04-04",
   "reception_type": "race_day",
@@ -83,13 +83,14 @@
   ],
   "result": null,
   "created_at": "2026-03-30T00:00:00Z",
-  "updated_at": "2026-03-30T00:00:00Z",
+  "updated_at": "2026-05-30T06:43:46.887Z",
   "_metadata": {
     "data_source": "公式サイト（https://tomisato-suikaroad.jp/）・大会要項ページ",
     "data_accuracy_notes": [
-      "基本情報のみ。エイド、周辺スポット等は未入力"
+      "基本情報のみ。エイド、周辺スポット等は未入力",
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-30",
+    "last_verified": "2026-05-30",
     "detail_level": "basic"
   },
   "entry_periods": [

@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-05-31T14:52:06.979Z
--- 対象ファイル数: 79 件（既存 2 件はskip）
+-- 生成日時: 2026-06-06T09:50:38.032Z
+-- 対象ファイル数: 80 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -925,7 +925,7 @@ INSERT OR REPLACE INTO races (
   1,
   6000,
   '2026-05-01',
-  '2026-05-31',
+  '2026-09-20',
   0,
   'pre_day',
   '',
@@ -950,7 +950,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-04-30T00:00:00Z',
-  '2026-05-30T06:11:39.885Z'
+  '2026-06-06T08:48:36.076Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fukuchiyama-marathon-2026', 'full', 42.195, 360, '', 5400, 11000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2507,6 +2507,89 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('iwate-oshu-kirameki-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('iwate-oshu-kirameki-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-11-28', '2026-02-28', NULL, 0);
+
+-- ==================
+-- 伊豆大島マラソン (izu-oshima-2026)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'izu-oshima-2026';
+DELETE FROM race_categories WHERE race_id = 'izu-oshima-2026';
+DELETE FROM aid_stations WHERE race_id = 'izu-oshima-2026';
+DELETE FROM checkpoints WHERE race_id = 'izu-oshima-2026';
+DELETE FROM access_points WHERE race_id = 'izu-oshima-2026';
+DELETE FROM nearby_spots WHERE race_id = 'izu-oshima-2026';
+DELETE FROM weather_history WHERE race_id = 'izu-oshima-2026';
+DELETE FROM participation_gifts WHERE race_id = 'izu-oshima-2026';
+DELETE FROM race_entry_links WHERE race_id = 'izu-oshima-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'izu-oshima-2026';
+DELETE FROM race_results WHERE race_id = 'izu-oshima-2026';
+DELETE FROM race_gallery WHERE race_id = 'izu-oshima-2026';
+DELETE FROM race_voices WHERE race_id = 'izu-oshima-2026';
+DELETE FROM race_time_buckets WHERE race_id = 'izu-oshima-2026';
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  created_at, updated_at
+) VALUES (
+  'izu-oshima-2026',
+  '伊豆大島マラソン',
+  'Izu-Oshima-Marathon',
+  '2026-12-05',
+  '13',
+  '伊豆大島（東京都大島町）',
+  '',
+  '',
+  '',
+  'https://www.shining-foundation.org/izu-oshima-run',
+  9400,
+  1,
+  750,
+  '2026-06-06',
+  '2026-11-15',
+  0,
+  'pre_day',
+  '',
+  '',
+  '[]',
+  NULL,
+  0,
+  0,
+  365,
+  'road',
+  '[]',
+  '海沿い、椿のトンネル、三原山',
+  'Coastal road, camellia tunnel, Mt. Mihara',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  '2026-06-06T08:43:10.814Z',
+  '2026-06-06T00:00:00.000Z'
+);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('izu-oshima-2026', 'full', 42.195, 420, '08:00', 0, 9400, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('izu-oshima-2026', 'half', 21.0975, 180, '08:20', 0, 7400, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('izu-oshima-2026', '10k', 10, 100, '09:00', 0, 5400, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('izu-oshima-2026', NULL, '一般エントリー', 'General Entry', '2026-06-06', '2026-11-15', NULL, 0);
 
 -- ==================
 -- かがわマラソン (kagawa-marathon-2026)

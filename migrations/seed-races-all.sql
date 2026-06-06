@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-06-06T09:50:38.032Z
+-- 生成日時: 2026-06-06T13:33:46.941Z
 -- 対象ファイル数: 80 件（既存 2 件はskip）
 
 -- ==================
@@ -925,7 +925,7 @@ INSERT OR REPLACE INTO races (
   1,
   6000,
   '2026-05-01',
-  '2026-09-20',
+  '2026-05-31',
   0,
   'pre_day',
   '',
@@ -950,7 +950,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-04-30T00:00:00Z',
-  '2026-06-06T08:48:36.076Z'
+  '2026-05-30T06:11:39.885Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fukuchiyama-marathon-2026', 'full', 42.195, 360, '', 5400, 11000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2548,18 +2548,43 @@ INSERT OR REPLACE INTO races (
   '13',
   '伊豆大島（東京都大島町）',
   '',
-  '',
-  '',
+  '絶景の海沿い　緑深い椿のトンネル　三原山裏砂漠沿い
+
+三原山を仰ぐ醍醐味のあるアップダウンなど、変化に富んだハードな挑戦コースを走る「伊豆大島マラソン」!
+16回目となる今大会も、豊かな大自然のなか初心者からベテランランナーまで、島民の声援を受けて楽しく島ランしよう!
+海風！山風！最大標高差365m！に、伊豆大島からの挑戦状です！',
+  'Stunning coastal views, lush camellia tunnels, and the desert landscape behind Mt. Mihara
+The “Izu Oshima Marathon” takes you on a challenging, varied course featuring thrilling ups and downs as you gaze up at Mt. Mihara!
+Now in its 16th year, this event invites everyone—from beginners to seasoned runners—to enjoy a fun run around the island amidst rich natural scenery, cheered on by the islanders!
+Sea breezes! Mountain breezes! A maximum elevation gain of 365 meters! This is Izu Oshima’s challenge to you!
+
+Translated with DeepL.com (free version)',
   'https://www.shining-foundation.org/izu-oshima-run',
-  9400,
+  NULL,
   1,
   750,
   '2026-06-06',
   '2026-11-15',
   0,
   'pre_day',
-  '',
-  '',
+  '■大会会場での受付方法：大会の1週間前までに参加案内書（封筒）を本人宛に郵送します。
+12/4（金）
+14:00　前日受付開始（元町港船客待合所）
+16:30　前日受付終了
+※前日の受付は空いていてスムーズに受付ができます。
+
+12/5（土）
+  6:00　開場、当日受付開始（元町港船客待合所）',
+  '■Registration at the Event Venue: A participation guide (in an envelope) will be mailed to you personally at least one week before the event.
+Fri, Dec 4
+2:00 PM: Pre-event registration begins (Motomachi Port Passenger Waiting Hall)
+4:30 PM: Pre-event registration ends
+*The pre-event registration area is less crowded, so the process will be smooth.
+
+December 5 (Sat)
+  6:00 AM: Doors open; on-site registration begins (Motomachi Port Passenger Waiting Hall)
+
+Translated with DeepL.com (free version)',
   '[]',
   NULL,
   0,
@@ -2583,11 +2608,19 @@ INSERT OR REPLACE INTO races (
   '2026-06-06T00:00:00.000Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('izu-oshima-2026', 'full', 42.195, 420, '08:00', 0, 9400, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+  ('izu-oshima-2026', 'full', 42.195, 420, '08:00', 750, 9400, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'izu-oshima-2026.gpx', '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('izu-oshima-2026', 'half', 21.0975, 180, '08:20', 0, 7400, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('izu-oshima-2026', '10k', 10, 100, '09:00', 0, 5400, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('izu-oshima-2026', '["medal"]', 'オリジナル完走メダル', '', NULL, 0);
+INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
+  ('izu-oshima-2026', 'RUNNET', 'https://runnet.jp/entry/runtes/user/pc/competitionDetailAction.do?raceId=392378&div=1', 0);
+INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
+  ('izu-oshima-2026', 'SPORT ENTRY', 'https://www.sportsentry.ne.jp/event/t/105839', 1);
+INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
+  ('izu-oshima-2026', 'LAWSON SPORTS', 'https://do.l-tike.com/app/dss/race/detail?acd=nemqQ8yPKR7', 2);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('izu-oshima-2026', NULL, '一般エントリー', 'General Entry', '2026-06-06', '2026-11-15', NULL, 0);
 

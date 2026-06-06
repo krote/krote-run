@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-06-06T13:33:46.941Z
+-- 生成日時: 2026-06-06T13:54:56.669Z
 -- 対象ファイル数: 80 件（既存 2 件はskip）
 
 -- ==================
@@ -2596,10 +2596,10 @@ Translated with DeepL.com (free version)',
   'Coastal road, camellia tunnel, Mt. Mihara',
   NULL,
   NULL,
+  '三原山',
   NULL,
-  NULL,
-  NULL,
-  NULL,
+  'Mt.MIHARA',
+  '初心者からベテランランナーまでハードな挑戦コース',
   NULL,
   NULL,
   NULL,

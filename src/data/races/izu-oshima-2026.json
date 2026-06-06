@@ -1,0 +1,174 @@
+{
+  "id": "izu-oshima-2026",
+  "name_ja": "伊豆大島マラソン",
+  "name_en": "Izu-Oshima-Marathon",
+  "full_name_ja": "第16回伊豆大島マラソン",
+  "full_name_en": "Izu-Oshima-Marathon",
+  "edition": 16,
+  "date": "2026-12-05",
+  "prefecture": "13",
+  "city_ja": "伊豆大島（東京都大島町）",
+  "city_en": "",
+  "description_ja": "絶景の海沿い　緑深い椿のトンネル　三原山裏砂漠沿い\n\n三原山を仰ぐ醍醐味のあるアップダウンなど、変化に富んだハードな挑戦コースを走る「伊豆大島マラソン」!\n16回目となる今大会も、豊かな大自然のなか初心者からベテランランナーまで、島民の声援を受けて楽しく島ランしよう!\n海風！山風！最大標高差365m！に、伊豆大島からの挑戦状です！",
+  "description_en": "Stunning coastal views, lush camellia tunnels, and the desert landscape behind Mt. Mihara\nThe “Izu Oshima Marathon” takes you on a challenging, varied course featuring thrilling ups and downs as you gaze up at Mt. Mihara!\nNow in its 16th year, this event invites everyone—from beginners to seasoned runners—to enjoy a fun run around the island amidst rich natural scenery, cheered on by the islanders!\nSea breezes! Mountain breezes! A maximum elevation gain of 365 meters! This is Izu Oshima’s challenge to you!\n\nTranslated with DeepL.com (free version)",
+  "official_url": "https://www.shining-foundation.org/izu-oshima-run",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 750,
+  "entry_start_date": "2026-06-06",
+  "entry_end_date": "2026-11-15",
+  "reception_type": "pre_day",
+  "reception_note_ja": "■大会会場での受付方法：大会の1週間前までに参加案内書（封筒）を本人宛に郵送します。\n12/4（金）\n14:00　前日受付開始（元町港船客待合所）\n16:30　前日受付終了\n※前日の受付は空いていてスムーズに受付ができます。\n\n12/5（土）\n  6:00　開場、当日受付開始（元町港船客待合所）",
+  "reception_note_en": "■Registration at the Event Venue: A participation guide (in an envelope) will be mailed to you personally at least one week before the event.\nFri, Dec 4\n2:00 PM: Pre-event registration begins (Motomachi Port Passenger Waiting Hall)\n4:30 PM: Pre-event registration ends\n*The pre-event registration area is less crowded, so the process will be smooth.\n\nDecember 5 (Sat)\n  6:00 AM: Doors open; on-site registration begins (Motomachi Port Passenger Waiting Hall)\n\nTranslated with DeepL.com (free version)",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": 365,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "海沿い、椿のトンネル、三原山",
+    "highlights_en": "Coastal road, camellia tunnel, Mt. Mihara",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 420,
+      "start_time": "08:00",
+      "capacity": 750,
+      "entry_fee": 9400,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": "izu-oshima-2026.gpx",
+      "course_highlights": []
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 180,
+      "start_time": "08:20",
+      "capacity": 0,
+      "entry_fee": 7400,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": []
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 100,
+      "start_time": "09:00",
+      "capacity": 0,
+      "entry_fee": 5400,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": []
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "result": null,
+  "created_at": "2026-06-06T08:43:10.814Z",
+  "updated_at": "2026-06-06T00:00:00.000Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "2026-06-06: 公式サイトより手動入力"
+    ],
+    "last_verified": "2026-06-06",
+    "detail_level": "medium"
+  },
+  "info_urls": [
+    {
+      "url": "https://www.shining-foundation.org/izu-oshima-outline",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.shining-foundation.org/izu-oshima-entry",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.shining-foundation.org/izu-oshima-special",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.shining-foundation.org/izu-oshima-couse",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.shining-foundation.org/izu-oshima-access",
+      "label": "アクセス"
+    }
+  ],
+  "entry_periods": [
+    {
+      "start_date": "2026-06-06",
+      "end_date": "2026-11-15",
+      "entry_fee": null,
+      "label_ja": "",
+      "label_en": ""
+    }
+  ],
+  "entry_closed": false,
+  "entry_links": [
+    {
+      "site_name": "RUNNET",
+      "url": "https://runnet.jp/entry/runtes/user/pc/competitionDetailAction.do?raceId=392378&div=1"
+    },
+    {
+      "site_name": "SPORT ENTRY",
+      "url": "https://www.sportsentry.ne.jp/event/t/105839"
+    },
+    {
+      "site_name": "LAWSON SPORTS",
+      "url": "https://do.l-tike.com/app/dss/race/detail?acd=nemqQ8yPKR7"
+    }
+  ],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "オリジナル完走メダル",
+      "description_en": "",
+      "image": null
+    }
+  ],
+  "motif": "三原山",
+  "motif_romaji": "Mt.MIHARA",
+  "motif_color": null,
+  "tagline_ja": "初心者からベテランランナーまでハードな挑戦コース",
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": []
+}

@@ -40,6 +40,7 @@ function generateRaceSQL(r) {
   lines.push(`DELETE FROM nearby_spots WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM weather_history WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM participation_gifts WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM completion_gifts WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_entry_links WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_entry_periods WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_results WHERE race_id = ${esc(r.id)};`);
@@ -167,6 +168,14 @@ function generateRaceSQL(r) {
     r.participation_gifts.forEach((pg, idx) => {
       lines.push(`INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   (${esc(r.id)}, ${escJson(pg.gift_categories)}, ${esc(pg.description_ja || '')}, ${esc(pg.description_en || '')}, ${esc(pg.image)}, ${idx});`);
+    });
+  }
+
+  // completion_gifts
+  if (r.completion_gifts && r.completion_gifts.length > 0) {
+    r.completion_gifts.forEach((cg, idx) => {
+      lines.push(`INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  (${esc(r.id)}, ${escJson(cg.gift_categories)}, ${esc(cg.description_ja || '')}, ${esc(cg.description_en || '')}, ${esc(cg.image ?? null)}, ${idx});`);
     });
   }
 

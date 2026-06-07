@@ -39,7 +39,7 @@ for (const file of files) {
         gift_categories: ['medal'],
         description_ja: gift.description_ja ?? '',
         description_en: gift.description_en ?? '',
-        image: null,
+        image: gift.image ?? null,
       };
       completionGifts.push(medalGift);
 

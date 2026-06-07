@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { vi } from 'vitest';
 import { filterRaces, sortRacesByDate, sortRaces, emptyFilter } from '../utils';
-import { makeRace, makeCategory, makeEntryPeriod, makeParticipationGift } from './fixtures';
+import { makeRace, makeCategory, makeEntryPeriod, makeParticipationGift, makeCompletionGift } from './fixtures';
 import type { Race } from '../types';
 
 const TODAY = '2026-04-02';
@@ -242,6 +242,30 @@ describe('filterRaces - giftCategories フィルタ', () => {
     ];
     const result = filterRaces(races, { ...emptyFilter(), giftCategories: ['medal'] });
     expect(result).toHaveLength(1);
+  });
+});
+
+describe('filterRaces - completion_gifts を含む giftCategories フィルタ', () => {
+  it('completion_gifts にのみ medal がある大会が medal フィルタにヒットする', () => {
+    const races = [
+      makeRace({ id: 'completion-medal', participation_gifts: [], completion_gifts: [makeCompletionGift({ gift_categories: ['medal'] })] }),
+      makeRace({ id: 'no-gift', participation_gifts: [], completion_gifts: [] }),
+    ];
+    const result = filterRaces(races, { ...emptyFilter(), giftCategories: ['medal'] });
+    expect(result).toHaveLength(1);
+    expect(result[0].id).toBe('completion-medal');
+  });
+
+  it('participation_gifts と completion_gifts 両方を合算してフィルタする', () => {
+    const races = [
+      makeRace({ id: 'both', participation_gifts: [makeParticipationGift({ gift_categories: ['tshirt'] })], completion_gifts: [makeCompletionGift({ gift_categories: ['medal'] })] }),
+      makeRace({ id: 'only-completion', participation_gifts: [], completion_gifts: [makeCompletionGift({ gift_categories: ['medal'] })] }),
+      makeRace({ id: 'no-medal', participation_gifts: [makeParticipationGift({ gift_categories: ['tshirt'] })], completion_gifts: [] }),
+    ];
+    const result = filterRaces(races, { ...emptyFilter(), giftCategories: ['medal'] });
+    expect(result).toHaveLength(2);
+    expect(result.map(r => r.id)).toContain('both');
+    expect(result.map(r => r.id)).toContain('only-completion');
   });
 });
 

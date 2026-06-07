@@ -664,3 +664,17 @@
 - `scripts/migrate-medal-gifts.js`: メダル移行スクリプトを追加
 - `src/data/races/*.json`: 51件の `participation_gifts` からメダルを `completion_gifts` に移行
 - `migrations/seed-races-all.sql`: 移行後のJSONから再生成
+
+### 完走賞フルスタック対応（CodeRabbit対応）
+- `src/lib/types.ts`: `CompletionGift` 型エイリアス追加、`Race` に `completion_gifts` フィールド追加
+- `src/lib/db/schema.ts`: `completion_gifts` テーブル追加（`participation_gifts` と同構造）
+- `migrations/0009_shallow_captain_stacy.sql`: `completion_gifts` テーブルのマイグレーション生成・適用
+- `src/lib/data.ts`: 全クエリ関数に `completion_gifts` 取得・組み立てを追加
+- `src/lib/utils.ts`: `filterRaces()` の `giftCategories` フィルタを `completion_gifts` も含めて検索するよう修正
+- `src/app/[locale]/races/[id]/page.tsx`: 「参加賞・完走賞」セクションに `completion_gifts` 表示を追加
+- `scripts/generate-seed-races.js`: `completion_gifts` のSQL生成を追加
+- `migrations/seed-races-all.sql`: `completion_gifts` データを含めて再生成・ローカルDB適用
+- `docs/schema.md`: `completion_gifts` テーブル定義・マイグレーション履歴を追記
+- `scripts/migrate-medal-gifts.js`: `image: null` → `gift.image ?? null` バグ修正（CodeRabbit指摘）
+- `src/lib/__tests__/fixtures.ts`: `makeCompletionGift` ファクトリ追加、`makeRace` に `completion_gifts: []` 追加
+- `src/lib/__tests__/utils.filter.test.ts`: `completion_gifts` を含む `giftCategories` フィルタのテスト追加

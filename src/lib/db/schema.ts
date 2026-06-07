@@ -200,6 +200,22 @@ export const participation_gifts = sqliteTable("participation_gifts", {
 ]);
 
 // ==================
+// completion_gifts
+// ==================
+
+export const completion_gifts = sqliteTable("completion_gifts", {
+  id:              integer("id").primaryKey({ autoIncrement: true }),
+  race_id:         text("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
+  gift_categories: text("gift_categories").notNull().default("[]"), // JSON: GiftCategoryId[]
+  description_ja:  text("description_ja").notNull().default(""),
+  description_en:  text("description_en").notNull().default(""),
+  image:           text("image"),
+  sort_order:      integer("sort_order").notNull().default(0),
+}, (t) => [
+  index("completion_gifts_race_id_idx").on(t.race_id),
+]);
+
+// ==================
 // race_series (シリーズマスタ)
 // ==================
 
@@ -454,6 +470,7 @@ export const racesRelations = relations(races, ({ many, one }) => ({
   nearby_spots:        many(nearby_spots),
   weather_history:     many(weather_history),
   participation_gifts: many(participation_gifts),
+  completion_gifts:    many(completion_gifts),
   entry_periods:       many(race_entry_periods),
   entry_links:         many(race_entry_links),
   result:              one(race_results, { fields: [races.id], references: [race_results.race_id] }),
@@ -517,6 +534,10 @@ export const weatherHistoryRelations = relations(weather_history, ({ one }) => (
 
 export const participationGiftsRelations = relations(participation_gifts, ({ one }) => ({
   race: one(races, { fields: [participation_gifts.race_id], references: [races.id] }),
+}));
+
+export const completionGiftsRelations = relations(completion_gifts, ({ one }) => ({
+  race: one(races, { fields: [completion_gifts.race_id], references: [races.id] }),
 }));
 
 export const userRacesRelations = relations(user_races, ({ one }) => ({

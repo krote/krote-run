@@ -179,6 +179,22 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 
 ---
 
+### completion_gifts
+
+| カラム | 型 | NULL | デフォルト | 備考 |
+|---|---|---|---|---|
+| id | integer | NO | autoincrement | PK |
+| race_id | text | NO | — | FK → races.id（CASCADE） |
+| gift_categories | text | NO | `"[]"` | JSON: `GiftCategoryId[]` |
+| description_ja | text | NO | `""` | |
+| description_en | text | NO | `""` | |
+| image | text | YES | — | |
+| sort_order | integer | NO | `0` | |
+
+> `participation_gifts` と同構造。`medal` など完走者のみ受け取れる賞を格納する。
+
+---
+
 ### race_series
 
 | カラム | 型 | NULL | デフォルト | 備考 |
@@ -402,3 +418,4 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0008_stormy_reavers.sql` | race_voices に quote_en カラムを追加（英語対応） |
 | `migrations/0007_yielding_obadiah_stane.sql` | race_course_highlights に category_id カラムを追加（FK ON DELETE 句なし ← 0010 で修正） |
 | `migrations/0010_fix_course_highlights_fk.sql` | race_course_highlights.category_id FK を ON DELETE CASCADE に修正（schema.ts との整合） |
+| `migrations/0009_shallow_captain_stacy.sql` | completion_gifts テーブルを追加（Issue #73）。medal 等の完走賞を participation_gifts から分離 |

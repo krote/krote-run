@@ -207,8 +207,9 @@ export function filterRaces(races: Race[], filter: RaceFilter): Race[] {
     }
 
     if (filter.giftCategories.length > 0) {
+      const allGifts = [...race.participation_gifts, ...(race.completion_gifts ?? [])];
       const hasGift = filter.giftCategories.some((catId) =>
-        race.participation_gifts.some((g) => g.gift_categories.includes(catId)),
+        allGifts.some((g) => g.gift_categories.includes(catId)),
       );
       if (!hasGift) return false;
     }

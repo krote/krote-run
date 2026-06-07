@@ -4,7 +4,7 @@ import * as schema from "./db/schema";
 import type {
   Race, Prefecture, GiftCategory, RaceCategory, Wave, CourseInfo,
   AidStation, Checkpoint, AccessPoint, NearbySpot, WeatherHistory,
-  ParticipationGift, GiftCategoryId, CourseSurface, ReceptionType, NearbySpotType,
+  ParticipationGift, CompletionGift, GiftCategoryId, CourseSurface, ReceptionType, NearbySpotType,
   RaceSeries, RaceResult, EntryPeriod, EntryLink,
   RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight,
 } from "./types";
@@ -29,6 +29,7 @@ type AccessPointRow = typeof schema.access_points.$inferSelect;
 type NearbySpotRow = typeof schema.nearby_spots.$inferSelect;
 type WeatherRow = typeof schema.weather_history.$inferSelect;
 type GiftRow = typeof schema.participation_gifts.$inferSelect;
+type CompletionGiftRow = typeof schema.completion_gifts.$inferSelect;
 
 function rowToCategory(row: CategoryRow, highlights: CourseHighlightRow[] = []): RaceCategory {
   return {
@@ -106,7 +107,7 @@ function rowToWeather(row: WeatherRow): WeatherHistory {
   };
 }
 
-function rowToGift(row: GiftRow): ParticipationGift {
+function rowToGift(row: GiftRow | CompletionGiftRow): ParticipationGift | CompletionGift {
   return {
     gift_categories: parseJson<GiftCategoryId[]>(row.gift_categories, []),
     description_ja: row.description_ja,
@@ -229,6 +230,7 @@ function assembleRace(
   voiceRows: VoiceRow[] = [],
   timeBucketRows: TimeBucketRow[] = [],
   courseHighlightRows: CourseHighlightRow[] = [],
+  completionGiftRows: CompletionGiftRow[] = [],
 ): Race {
   const course_info: CourseInfo = {
     max_elevation_m: row.course_max_elevation_m,
@@ -285,7 +287,8 @@ function assembleRace(
     access_points: accessPointRows.map(rowToAccessPoint),
     nearby_spots: nearbySpotRows.map(rowToNearbySpot),
     weather_history: weatherRows.map(rowToWeather),
-    participation_gifts: giftRows.map(rowToGift),
+    participation_gifts: giftRows.map(rowToGift) as ParticipationGift[],
+    completion_gifts: completionGiftRows.map(rowToGift) as CompletionGift[],
     entry_periods: entryPeriodRows.map(rowToEntryPeriod),
     entry_links: entryLinkRows.map(rowToEntryLink),
     result: resultRows.length > 0 ? rowToResult(resultRows[0]) : null,
@@ -312,11 +315,12 @@ function assembleRace(
 export async function getRaces(): Promise<Race[]> {
   const db = getDatabase();
 
-  const [raceRows, categoryRows, giftRows, entryPeriodRows] = await db.batch([
+  const [raceRows, categoryRows, giftRows, entryPeriodRows, completionGiftRows] = await db.batch([
     db.select().from(schema.races).orderBy(asc(schema.races.date)),
     db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
     db.select().from(schema.participation_gifts).orderBy(asc(schema.participation_gifts.sort_order)),
     db.select().from(schema.race_entry_periods).orderBy(asc(schema.race_entry_periods.sort_order)),
+    db.select().from(schema.completion_gifts).orderBy(asc(schema.completion_gifts.sort_order)),
   ]);
 
   return raceRows.map((row) =>
@@ -327,6 +331,8 @@ export async function getRaces(): Promise<Race[]> {
       giftRows.filter((g) => g.race_id === row.id),
       [],
       entryPeriodRows.filter((p) => p.race_id === row.id),
+      [], [], [], [], [],
+      completionGiftRows.filter((g) => g.race_id === row.id),
     ),
   );
 }
@@ -334,7 +340,7 @@ export async function getRaces(): Promise<Race[]> {
 export async function getRaceById(id: string): Promise<Race | null> {
   const db = getDatabase();
 
-  const [raceRows, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows, galleryRows, voiceRows, timeBucketRows, courseHighlightRows] =
+  const [raceRows, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows, galleryRows, voiceRows, timeBucketRows, courseHighlightRows, completionGiftRows] =
     await db.batch([
       db.select().from(schema.races).where(eq(schema.races.id, id)),
       db.select().from(schema.race_categories).where(eq(schema.race_categories.race_id, id)).orderBy(asc(schema.race_categories.sort_order)),
@@ -351,12 +357,13 @@ export async function getRaceById(id: string): Promise<Race | null> {
       db.select().from(schema.race_voices).where(eq(schema.race_voices.race_id, id)).orderBy(asc(schema.race_voices.sort_order)),
       db.select().from(schema.race_time_buckets).where(eq(schema.race_time_buckets.race_id, id)).orderBy(asc(schema.race_time_buckets.sort_order)),
       db.select().from(schema.race_course_highlights).where(eq(schema.race_course_highlights.race_id, id)).orderBy(asc(schema.race_course_highlights.sort_order)),
+      db.select().from(schema.completion_gifts).where(eq(schema.completion_gifts.race_id, id)).orderBy(asc(schema.completion_gifts.sort_order)),
     ]);
 
   const row = raceRows[0];
   if (!row) return null;
 
-  return assembleRace(row, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows, galleryRows, voiceRows, timeBucketRows, courseHighlightRows);
+  return assembleRace(row, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows, galleryRows, voiceRows, timeBucketRows, courseHighlightRows, completionGiftRows);
 }
 
 export async function getRacesByPrefecture(prefecture: string): Promise<Race[]> {
@@ -368,11 +375,12 @@ export async function getUpcomingRaces(limit = 6): Promise<Race[]> {
   const db = getDatabase();
   const today = new Date().toISOString().split("T")[0];
 
-  const [raceRows, categoryRows, giftRows, entryPeriodRows] = await db.batch([
+  const [raceRows, categoryRows, giftRows, entryPeriodRows, completionGiftRows] = await db.batch([
     db.select().from(schema.races).where(gte(schema.races.date, today)).orderBy(asc(schema.races.date)),
     db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
     db.select().from(schema.participation_gifts),
     db.select().from(schema.race_entry_periods).orderBy(asc(schema.race_entry_periods.sort_order)),
+    db.select().from(schema.completion_gifts),
   ]);
 
   const limited = raceRows.slice(0, limit);
@@ -385,6 +393,8 @@ export async function getUpcomingRaces(limit = 6): Promise<Race[]> {
       giftRows.filter((g) => g.race_id === row.id),
       [],
       entryPeriodRows.filter((p) => p.race_id === row.id),
+      [], [], [], [], [],
+      completionGiftRows.filter((g) => g.race_id === row.id),
     ),
   );
 }
@@ -393,7 +403,7 @@ export async function getOpenEntryRaces(limit = 8): Promise<Race[]> {
   const db = getDatabase();
   const today = new Date().toISOString().split("T")[0];
 
-  const [raceRows, categoryRows, giftRows, entryPeriodRows] = await db.batch([
+  const [raceRows, categoryRows, giftRows, entryPeriodRows, completionGiftRows] = await db.batch([
     db.select().from(schema.races).where(
       sql`EXISTS (
         SELECT 1 FROM race_entry_periods rep
@@ -405,10 +415,11 @@ export async function getOpenEntryRaces(limit = 8): Promise<Race[]> {
     db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
     db.select().from(schema.participation_gifts),
     db.select().from(schema.race_entry_periods).orderBy(asc(schema.race_entry_periods.sort_order)),
+    db.select().from(schema.completion_gifts),
   ]);
 
   return raceRows.slice(0, limit).map((row) =>
-    assembleRace(row, categoryRows.filter((c) => c.race_id === row.id), [], [], [], [], [], giftRows.filter((g) => g.race_id === row.id), [], entryPeriodRows.filter((p) => p.race_id === row.id)),
+    assembleRace(row, categoryRows.filter((c) => c.race_id === row.id), [], [], [], [], [], giftRows.filter((g) => g.race_id === row.id), [], entryPeriodRows.filter((p) => p.race_id === row.id), [], [], [], [], [], completionGiftRows.filter((g) => g.race_id === row.id)),
   );
 }
 
@@ -417,7 +428,7 @@ export async function getSoonOpeningEntryRaces(limit = 6): Promise<Race[]> {
   const today = new Date().toISOString().split("T")[0];
   const in30days = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
 
-  const [raceRows, categoryRows, giftRows, entryPeriodRows] = await db.batch([
+  const [raceRows, categoryRows, giftRows, entryPeriodRows, completionGiftRows] = await db.batch([
     db.select().from(schema.races).where(
       sql`EXISTS (
         SELECT 1 FROM race_entry_periods rep
@@ -429,10 +440,11 @@ export async function getSoonOpeningEntryRaces(limit = 6): Promise<Race[]> {
     db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
     db.select().from(schema.participation_gifts),
     db.select().from(schema.race_entry_periods).orderBy(asc(schema.race_entry_periods.sort_order)),
+    db.select().from(schema.completion_gifts),
   ]);
 
   return raceRows.slice(0, limit).map((row) =>
-    assembleRace(row, categoryRows.filter((c) => c.race_id === row.id), [], [], [], [], [], giftRows.filter((g) => g.race_id === row.id), [], entryPeriodRows.filter((p) => p.race_id === row.id)),
+    assembleRace(row, categoryRows.filter((c) => c.race_id === row.id), [], [], [], [], [], giftRows.filter((g) => g.race_id === row.id), [], entryPeriodRows.filter((p) => p.race_id === row.id), [], [], [], [], [], completionGiftRows.filter((g) => g.race_id === row.id)),
   );
 }
 
@@ -512,13 +524,14 @@ export async function getSeriesById(seriesId: string): Promise<RaceSeries | null
 export async function getSeriesRaces(seriesId: string, excludeRaceId: string): Promise<Race[]> {
   const db = getDatabase();
 
-  const [raceRows, categoryRows, giftRows, resultRows] = await db.batch([
+  const [raceRows, categoryRows, giftRows, resultRows, completionGiftRows] = await db.batch([
     db.select().from(schema.races)
       .where(eq(schema.races.series_id, seriesId))
       .orderBy(asc(schema.races.date)),
     db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
     db.select().from(schema.participation_gifts),
     db.select().from(schema.race_results),
+    db.select().from(schema.completion_gifts),
   ]);
 
   return raceRows
@@ -530,6 +543,8 @@ export async function getSeriesRaces(seriesId: string, excludeRaceId: string): P
         [], [], [], [], [],
         giftRows.filter((g) => g.race_id === row.id),
         resultRows.filter((r) => r.race_id === row.id),
+        [], [], [], [], [], [],
+        completionGiftRows.filter((g) => g.race_id === row.id),
       ),
     );
 }

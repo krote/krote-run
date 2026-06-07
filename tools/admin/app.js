@@ -385,6 +385,8 @@ function addEntryPeriodRow(period = {}) {
   const container = document.getElementById('entry-periods-container');
   const row = document.createElement('div');
   row.className = 'entry-period-row';
+  // entry_fee はUI廃止後も既存データを保持するため data属性に退避
+  if (period.entry_fee != null) row.dataset.entryFee = period.entry_fee;
   row.innerHTML = `
     <div class="entry-period-header">
       <span class="entry-period-label">期間 ${container.children.length + 1}</span>
@@ -427,6 +429,7 @@ function collectEntryPeriods() {
   return [...document.querySelectorAll('.entry-period-row')].map(row => ({
     start_date: row.querySelector('.ep-start').value || null,
     end_date: row.querySelector('.ep-end').value || null,
+    entry_fee: row.dataset.entryFee != null ? parseInt(row.dataset.entryFee) : null,
     label_ja: row.querySelector('.ep-label-ja').value || '',
     label_en: row.querySelector('.ep-label-en').value || '',
   })).filter(p => p.start_date && p.end_date);
@@ -1070,6 +1073,8 @@ function buildRaceData() {
     reception_note_en: getVal('f-reception_note_en'),
     categories,
     tags,
+    // course_gpx_file はUI廃止後も既存データを保持（カテゴリ別GPXに未移行のレース用）
+    course_gpx_file: currentRace?.course_gpx_file ?? null,
     participation_gifts: collectGifts(),
     completion_gifts: collectCompletionGifts(),
     nearby_spots: collectNearbySpots(),

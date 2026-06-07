@@ -86,7 +86,6 @@
     {
       "gift_categories": [
         "tshirt",
-        "medal",
         "towel"
       ],
       "description_ja": "大会オリジナルTシャツ、完走メダル、フィニッシャータオル",
@@ -165,6 +164,16 @@
     {
       "url": "https://www.nara-marathon.jp/entry.html",
       "label": "エントリー"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会オリジナルTシャツ、完走メダル、フィニッシャータオル",
+      "description_en": "Official race T-shirt, Finisher medal, Finisher towel",
+      "image": null
     }
   ]
 }

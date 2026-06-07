@@ -71,7 +71,6 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "medal",
         "tshirt",
         "towel",
         "local_product"
@@ -143,6 +142,16 @@
     {
       "url": "https://tottori-marathon.jp/faq/",
       "label": "FAQ"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ\n●完走賞\n・完走証\n・特別メダル\n・フィニッシャータオル\n・鳥取のお土産\n・スポンサードリンク\n",
+      "description_en": "Race T-shirt",
+      "image": null
     }
   ]
 }

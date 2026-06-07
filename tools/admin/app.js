@@ -196,11 +196,11 @@ function populateForm(r) {
   // 参加賞
   renderGifts(r.participation_gifts ?? []);
 
+  // 完走賞
+  renderCompletionGifts(r.completion_gifts ?? []);
+
   // 周辺スポット
   renderNearbySpots(r.nearby_spots ?? []);
-
-  // コース
-  setVal('f-course_gpx_file', r.course_gpx_file ?? '');
 
   // ビジュアル (Phase 2)
   setVal('f-motif', r.motif ?? '');
@@ -400,10 +400,6 @@ function addEntryPeriodRow(period = {}) {
         <input type="date" class="ep-end" value="${period.end_date ?? ''}" />
       </div>
       <div class="field">
-        <label>参加費（円）</label>
-        <input type="number" class="ep-fee" min="0" value="${period.entry_fee ?? ''}" />
-      </div>
-      <div class="field">
         <label>ラベル（日本語）</label>
         <input type="text" class="ep-label-ja" value="${period.label_ja ?? ''}" placeholder="例: 一般エントリー" />
       </div>
@@ -431,7 +427,6 @@ function collectEntryPeriods() {
   return [...document.querySelectorAll('.entry-period-row')].map(row => ({
     start_date: row.querySelector('.ep-start').value || null,
     end_date: row.querySelector('.ep-end').value || null,
-    entry_fee: parseInt(row.querySelector('.ep-fee').value) || null,
     label_ja: row.querySelector('.ep-label-ja').value || '',
     label_en: row.querySelector('.ep-label-en').value || '',
   })).filter(p => p.start_date && p.end_date);
@@ -683,6 +678,108 @@ function collectGifts() {
 
 document.getElementById('btn-add-gift').addEventListener('click', () => {
   addGiftRow();
+  markDirty();
+});
+
+// ── 完走賞 ─────────────────────────────────────────────────────────
+function renderCompletionGifts(gifts) {
+  const container = document.getElementById('completion-gifts-container');
+  container.innerHTML = '';
+  gifts.forEach(gift => addCompletionGiftRow(gift));
+}
+
+function addCompletionGiftRow(gift = {}) {
+  const container = document.getElementById('completion-gifts-container');
+  const selectedCats = new Set(gift.gift_categories ?? []);
+  const row = document.createElement('div');
+  row.className = 'gift-row completion-gift-row';
+
+  row.innerHTML = `
+    <div class="gift-row-header">
+      <span class="gift-row-label">完走賞 ${container.children.length + 1}</span>
+      <button class="btn btn-danger btn-remove-completion-gift">削除</button>
+    </div>
+    <div class="gift-categories-grid">
+      ${GIFT_CATEGORIES.map(c => `
+        <label class="gift-cat-item${selectedCats.has(c.id) ? ' selected' : ''}">
+          <input type="checkbox" value="${c.id}" ${selectedCats.has(c.id) ? 'checked' : ''} />
+          ${c.icon} ${c.label}
+        </label>
+      `).join('')}
+    </div>
+    <div class="gift-fields">
+      <div class="field full">
+        <label>説明（日本語）</label>
+        <textarea class="gift-desc-ja" rows="2">${gift.description_ja ?? ''}</textarea>
+      </div>
+      <div class="field full">
+        <label>説明（English）</label>
+        <div class="input-row align-top">
+          <textarea class="gift-desc-en" rows="2">${gift.description_en ?? ''}</textarea>
+          <button class="btn btn-translate completion-gift-translate">🔄 翻訳</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  row.querySelectorAll('.gift-cat-item').forEach(el => {
+    el.addEventListener('click', () => {
+      const cb = el.querySelector('input');
+      cb.checked = !cb.checked;
+      el.classList.toggle('selected', cb.checked);
+      markDirty();
+    });
+  });
+
+  row.querySelector('.completion-gift-translate').addEventListener('click', async (e) => {
+    const btn = e.currentTarget;
+    const srcEl = row.querySelector('.gift-desc-ja');
+    const dstEl = row.querySelector('.gift-desc-en');
+    const text = srcEl.value.trim();
+    if (!text) return alert('翻訳する日本語テキストを入力してください');
+    btn.disabled = true;
+    btn.textContent = '翻訳中…';
+    try {
+      const res = await fetch('/api/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text, field: 'description' }),
+      });
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      dstEl.value = data.translated;
+      markDirty();
+    } catch (err) {
+      alert(`翻訳エラー: ${err.message}`);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = '🔄 翻訳';
+    }
+  });
+
+  row.querySelector('.btn-remove-completion-gift').addEventListener('click', () => {
+    row.remove();
+    document.querySelectorAll('.completion-gift-row .gift-row-label').forEach((el, i) => {
+      el.textContent = `完走賞 ${i + 1}`;
+    });
+    markDirty();
+  });
+
+  row.querySelectorAll('textarea').forEach(el => el.addEventListener('input', markDirty));
+  container.appendChild(row);
+}
+
+function collectCompletionGifts() {
+  return [...document.querySelectorAll('.completion-gift-row')].map(row => ({
+    gift_categories: [...row.querySelectorAll('.gift-cat-item input:checked')].map(cb => cb.value),
+    description_ja: row.querySelector('.gift-desc-ja').value,
+    description_en: row.querySelector('.gift-desc-en').value,
+    image: null,
+  }));
+}
+
+document.getElementById('btn-add-completion-gift').addEventListener('click', () => {
+  addCompletionGiftRow();
   markDirty();
 });
 
@@ -973,8 +1070,8 @@ function buildRaceData() {
     reception_note_en: getVal('f-reception_note_en'),
     categories,
     tags,
-    course_gpx_file: getVal('f-course_gpx_file') || null,
     participation_gifts: collectGifts(),
+    completion_gifts: collectCompletionGifts(),
     nearby_spots: collectNearbySpots(),
     // Phase 2: ビジュアル拡張フィールド
     motif: getVal('f-motif') || null,
@@ -1152,8 +1249,8 @@ function markDirty() {
 }
 
 function bindEvents() {
-  // フォーム変更検知
-  document.querySelectorAll('input:not([readonly]), select, textarea').forEach(el => {
+  // フォーム変更検知（エディター内の静的要素のみ対象。動的要素は各 addXxxRow で個別にバインド）
+  document.querySelectorAll('.form-body input:not([readonly]), .form-body select, .form-body textarea').forEach(el => {
     el.addEventListener('input', markDirty);
   });
 

@@ -271,7 +271,6 @@
     {
       "gift_categories": [
         "tshirt",
-        "medal",
         "towel"
       ],
       "description_ja": "大会オリジナルTシャツ（THE NORTH FACE製・先着2,800名。先着数到達後はオリジナルタオルに変更）、完走メダル（完走者）、WEB完走証（完走者）",
@@ -373,6 +372,16 @@
     {
       "url": "https://www.r-wellness.com/fuji5/faq/",
       "label": "FAQ"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会オリジナルTシャツ（THE NORTH FACE製・先着2,800名。先着数到達後はオリジナルタオルに変更）、完走メダル（完走者）、WEB完走証（完走者）",
+      "description_en": "Official race T-shirt by THE NORTH FACE (first 2,800 entries; changes to original towel after limit reached), Finisher medal (finishers), Web finisher certificate (finishers)",
+      "image": null
     }
   ]
 }

@@ -68,7 +68,6 @@
     {
       "gift_categories": [
         "tshirt",
-        "medal",
         "towel"
       ],
       "description_ja": "大会Tシャツ、完走メダル、フィニッシャータオル",
@@ -135,6 +134,16 @@
     {
       "url": "https://www.himeji-marathon.jp/participation/index.html",
       "label": "エントリー"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル、フィニッシャータオル",
+      "description_en": "Race T-shirt, Finisher medal, Finisher towel",
+      "image": null
     }
   ]
 }

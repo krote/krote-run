@@ -646,3 +646,21 @@
 
 ### ドキュメント
 - `README.md`: `tools/` ディレクトリ構成・クローラー使い方を更新
+
+## 2026-06-07 管理ツール項目見直し (issue #73)
+
+### バグ修正
+- `tools/admin/app.js`: `bindEvents()` のセレクターを `.form-body` 内に限定し、サイドバー検索・データチェックフィルター操作で「未保存」ポップアップが誤表示される問題を修正
+
+### 機能追加
+- `tools/admin/index.html`: 「完走賞」セクションを「参加賞」の直後に追加
+- `tools/admin/app.js`: `renderCompletionGifts` / `addCompletionGiftRow` / `collectCompletionGifts` を追加
+
+### 機能削除
+- `tools/admin/index.html`: 「コース」セクション（GPXファイル名フィールド）を削除（カテゴリ別GPXに統一）
+- `tools/admin/app.js`: エントリー期間の「参加費（円）」フィールドを削除（カテゴリ別参加費に統一）
+
+### データ移行
+- `scripts/migrate-medal-gifts.js`: メダル移行スクリプトを追加
+- `src/data/races/*.json`: 51件の `participation_gifts` からメダルを `completion_gifts` に移行
+- `migrations/seed-races-all.sql`: 移行後のJSONから再生成

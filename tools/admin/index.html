@@ -217,6 +217,13 @@
             <button class="btn btn-secondary" id="btn-add-gift">＋ 参加賞を追加</button>
           </section>
 
+          <!-- 完走賞 -->
+          <section class="form-section">
+            <h2 class="section-title">完走賞</h2>
+            <div id="completion-gifts-container"></div>
+            <button class="btn btn-secondary" id="btn-add-completion-gift">＋ 完走賞を追加</button>
+          </section>
+
           <!-- 周辺スポット -->
           <section class="form-section">
             <h2 class="section-title">周辺スポット</h2>
@@ -281,16 +288,6 @@
                 <label>ヒーロー画像キャプション（英語）</label>
                 <input type="text" id="f-hero_caption_en" placeholder="例: Runners beneath cherry blossoms in Nagano" />
               </div>
-            </div>
-          </section>
-
-          <!-- コース -->
-          <section class="form-section">
-            <h2 class="section-title">コース</h2>
-            <div class="field full">
-              <label>GPXファイル名</label>
-              <input type="text" id="f-course_gpx_file" placeholder="例: nagano-marathon-2026.gpx" />
-              <p class="field-hint">GPXファイルは <code>public/gpx/</code> に配置し、保存後に <code>npm run course:generate</code> を実行するとコースマップが表示されます。ファイル名はレースID（例: <code>nagano-marathon-2026.gpx</code>）に合わせてください。</p>
             </div>
           </section>
 

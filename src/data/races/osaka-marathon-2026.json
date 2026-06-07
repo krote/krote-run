@@ -99,7 +99,6 @@
     {
       "gift_categories": [
         "tshirt",
-        "medal",
         "towel"
       ],
       "description_ja": "参加記念Tシャツ、完走メダル、フィニッシャータオル",
@@ -177,6 +176,16 @@
     {
       "url": "https://www.osaka-marathon.com/2026/expo/outline/",
       "label": "大会の特色"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "参加記念Tシャツ、完走メダル、フィニッシャータオル",
+      "description_en": "Commemorative T-shirt, Finisher medal, Finisher towel",
+      "image": null
     }
   ]
 }

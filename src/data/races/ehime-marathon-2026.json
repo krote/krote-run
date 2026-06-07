@@ -87,7 +87,6 @@
     {
       "gift_categories": [
         "tshirt",
-        "medal",
         "towel"
       ],
       "description_ja": "大会オリジナルTシャツ、完走メダル、今治タオル（完走者）",
@@ -161,6 +160,16 @@
     {
       "url": "https://ehimemarathon.jp/access/",
       "label": "アクセス"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会オリジナルTシャツ、完走メダル、今治タオル（完走者）",
+      "description_en": "Official race T-shirt, Finisher medal, Imabari towel (finishers)",
+      "image": null
     }
   ]
 }

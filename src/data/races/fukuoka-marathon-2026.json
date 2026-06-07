@@ -133,7 +133,6 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "medal",
         "tshirt"
       ],
       "description_ja": "完走メダル、大会オリジナルTシャツ",
@@ -196,6 +195,16 @@
     {
       "url": "https://www.f-marathon.jp/traffic/",
       "label": "アクセス"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "完走メダル、大会オリジナルTシャツ",
+      "description_en": "Finisher medal, Official race T-shirt",
+      "image": null
     }
   ]
 }

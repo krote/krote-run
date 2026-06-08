@@ -224,7 +224,13 @@ async function run(options = {}) {
 
         console.log(`更新フィールド: ${updatedFields.map(d => d.label).join(', ')}`);
         for (const d of updatedFields) {
-          console.log(`  ${d.label}: ${d.current} → ${d.extracted}`);
+          const isComplex = Array.isArray(d.extracted) || (d.extracted && typeof d.extracted === 'object');
+          if (isComplex) {
+            const count = Array.isArray(d.extracted) ? `${d.extracted.length}件` : 'object';
+            console.log(`  ${d.label}: (複合) → ${count}`);
+          } else {
+            console.log(`  ${d.label}: ${d.current} → ${d.extracted}`);
+          }
         }
 
         if (!dryRun) {

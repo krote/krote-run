@@ -49,6 +49,43 @@ describe('buildExtractionPrompt', () => {
     const prompt = buildExtractionPrompt(race, pageTexts);
     assert.ok(prompt.includes('2026-03-01'));
   });
+
+  test('course_info の現在値をプロンプトに含む', () => {
+    const raceWithCourse = {
+      ...race,
+      course_info: { max_elevation_m: 200, min_elevation_m: 0, elevation_diff_m: 200, surface: 'road', certification: [], highlights_ja: 'フラットコース', highlights_en: 'Flat course', notes_ja: null, notes_en: null },
+    };
+    const prompt = buildExtractionPrompt(raceWithCourse, pageTexts);
+    assert.ok(prompt.includes('course_info'));
+    assert.ok(prompt.includes('フラットコース'));
+  });
+
+  test('entry_periods の現在値をプロンプトに含む', () => {
+    const raceWithPeriods = {
+      ...race,
+      entry_periods: [{ label_ja: '一般', label_en: 'General', start_date: '2025-08-01', end_date: '2025-10-31', entry_fee: null, category_id: null, sort_order: 0 }],
+    };
+    const prompt = buildExtractionPrompt(raceWithPeriods, pageTexts);
+    assert.ok(prompt.includes('entry_periods'));
+    assert.ok(prompt.includes('2025-08-01'));
+  });
+
+  test('participation_gifts の現在値をプロンプトに含む', () => {
+    const raceWithGifts = {
+      ...race,
+      participation_gifts: [{ gift_categories: ['tshirt'], description_ja: '記念Tシャツ', description_en: 'T-shirt', image: null }],
+    };
+    const prompt = buildExtractionPrompt(raceWithGifts, pageTexts);
+    assert.ok(prompt.includes('participation_gifts'));
+    assert.ok(prompt.includes('記念Tシャツ'));
+  });
+
+  test('motif の現在値をプロンプトに含む', () => {
+    const raceWithMotif = { ...race, motif: '富士山', tagline_ja: '世界遺産を駆け抜ける' };
+    const prompt = buildExtractionPrompt(raceWithMotif, pageTexts);
+    assert.ok(prompt.includes('motif'));
+    assert.ok(prompt.includes('富士山'));
+  });
 });
 
 // ── parseClaudeResponse ───────────────────────────────────────────
@@ -138,5 +175,82 @@ describe('buildDiff', () => {
     const diff = buildDiff(current, extracted);
     const feeEntry = diff.find(d => d.key === 'entry_fee');
     assert.equal(feeEntry.changed, true);
+  });
+});
+
+// ── buildDiff - 複合フィールド ─────────────────────────────────────
+
+describe('buildDiff - 複合フィールド', () => {
+  const current = {
+    date: '2026-03-01',
+    course_info: { max_elevation_m: 100, min_elevation_m: 0, elevation_diff_m: 100, surface: 'road', certification: [], highlights_ja: '旧ハイライト', highlights_en: 'old', notes_ja: null, notes_en: null },
+    entry_periods: [],
+    participation_gifts: [],
+    completion_gifts: [],
+    nearby_spots: [],
+    motif: null,
+  };
+
+  test('course_info オブジェクトが変わったとき changed=true', () => {
+    const extracted = { course_info: { max_elevation_m: 200, min_elevation_m: 0, elevation_diff_m: 200, surface: 'road', certification: [], highlights_ja: '新ハイライト', highlights_en: 'new', notes_ja: null, notes_en: null } };
+    const diff = buildDiff(current, extracted);
+    const entry = diff.find(d => d.key === 'course_info');
+    assert.ok(entry);
+    assert.equal(entry.changed, true);
+  });
+
+  test('course_info が同じなら changed=false', () => {
+    const extracted = { course_info: { max_elevation_m: 100, min_elevation_m: 0, elevation_diff_m: 100, surface: 'road', certification: [], highlights_ja: '旧ハイライト', highlights_en: 'old', notes_ja: null, notes_en: null } };
+    const diff = buildDiff(current, extracted);
+    const entry = diff.find(d => d.key === 'course_info');
+    assert.equal(entry.changed, false);
+  });
+
+  test('entry_periods 配列が変わったとき changed=true', () => {
+    const extracted = { entry_periods: [{ label_ja: '一般', label_en: 'General', start_date: '2025-08-01', end_date: '2025-10-31', entry_fee: null, category_id: null, sort_order: 0 }] };
+    const diff = buildDiff(current, extracted);
+    const entry = diff.find(d => d.key === 'entry_periods');
+    assert.ok(entry);
+    assert.equal(entry.changed, true);
+  });
+
+  test('entry_periods が同じなら changed=false', () => {
+    const currentWithPeriods = { ...current, entry_periods: [{ label_ja: '一般', label_en: 'General', start_date: '2025-08-01', end_date: '2025-10-31', entry_fee: null, category_id: null, sort_order: 0 }] };
+    const extracted = { entry_periods: [{ label_ja: '一般', label_en: 'General', start_date: '2025-08-01', end_date: '2025-10-31', entry_fee: null, category_id: null, sort_order: 0 }] };
+    const diff = buildDiff(currentWithPeriods, extracted);
+    const entry = diff.find(d => d.key === 'entry_periods');
+    assert.equal(entry.changed, false);
+  });
+
+  test('participation_gifts 配列が変わったとき changed=true', () => {
+    const extracted = { participation_gifts: [{ gift_categories: ['tshirt'], description_ja: '記念Tシャツ', description_en: 'T-shirt', image: null }] };
+    const diff = buildDiff(current, extracted);
+    const entry = diff.find(d => d.key === 'participation_gifts');
+    assert.ok(entry);
+    assert.equal(entry.changed, true);
+  });
+
+  test('completion_gifts 配列が変わったとき changed=true', () => {
+    const extracted = { completion_gifts: [{ gift_categories: ['medal'], description_ja: '完走メダル', description_en: 'Finisher medal', image: null }] };
+    const diff = buildDiff(current, extracted);
+    const entry = diff.find(d => d.key === 'completion_gifts');
+    assert.ok(entry);
+    assert.equal(entry.changed, true);
+  });
+
+  test('motif スカラーが変わったとき changed=true', () => {
+    const extracted = { motif: '富士山' };
+    const diff = buildDiff(current, extracted);
+    const entry = diff.find(d => d.key === 'motif');
+    assert.ok(entry);
+    assert.equal(entry.changed, true);
+  });
+
+  test('nearby_spots 配列が変わったとき changed=true', () => {
+    const extracted = { nearby_spots: [{ type: '観光地', name_ja: '富士山', name_en: 'Mt.Fuji', description_ja: '世界遺産', description_en: 'World heritage', distance_from_venue: '車で30分', url: null, latitude: 35.3, longitude: 138.7 }] };
+    const diff = buildDiff(current, extracted);
+    const entry = diff.find(d => d.key === 'nearby_spots');
+    assert.ok(entry);
+    assert.equal(entry.changed, true);
   });
 });

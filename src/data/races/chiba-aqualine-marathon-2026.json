@@ -66,7 +66,6 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "medal",
         "tshirt"
       ],
       "description_ja": "参加賞Tシャツ、完走メダル",
@@ -149,6 +148,16 @@
     {
       "url": "https://chiba-aqualine-marathon.com/runner/guidelines.html",
       "label": "大会要項"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "参加賞Tシャツ、完走メダル",
+      "description_en": "",
+      "image": null
     }
   ]
 }

@@ -100,7 +100,6 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "medal",
         "tshirt",
         "local_product"
       ],
@@ -165,5 +164,15 @@
     }
   ],
   "entry_closed": false,
-  "entry_links": []
+  "entry_links": [],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会オリジナルTシャツ、完走メダル、地元特産品",
+      "description_en": "Official race T-shirt, Finisher medal, Local specialty products",
+      "image": null
+    }
+  ]
 }

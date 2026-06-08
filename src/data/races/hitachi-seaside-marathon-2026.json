@@ -62,7 +62,6 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "medal",
         "towel"
       ],
       "description_ja": "出走特典\n（タオル）\n\n完走賞\n（完走メダル）",
@@ -98,6 +97,16 @@
     {
       "url": "https://hitachi-marathon.jp/2025/wp-content/uploads/2025/08/roadclosure2025.pdf",
       "label": "アクセス"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "出走特典\n（タオル）\n\n完走賞\n（完走メダル）",
+      "description_en": "",
+      "image": null
     }
   ]
 }

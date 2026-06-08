@@ -138,7 +138,7 @@ export default async function RaceDetailPage({
     { id: 'course', label: locale === 'ja' ? 'コース' : 'Course' },
     { id: 'entry', label: locale === 'ja' ? 'エントリー' : 'Registration' },
     ...(race.access_points.length > 0 ? [{ id: 'access', label: locale === 'ja' ? 'アクセス' : 'Access' }] : []),
-    ...(race.participation_gifts.length > 0 ? [{ id: 'gifts', label: locale === 'ja' ? '参加賞' : 'Gifts' }] : []),
+    ...((race.participation_gifts.length > 0 || race.completion_gifts.length > 0) ? [{ id: 'gifts', label: locale === 'ja' ? '参加賞' : 'Gifts' }] : []),
     ...(race.nearby_spots.length > 0 ? [{ id: 'nearby', label: locale === 'ja' ? '近隣' : 'Nearby' }] : []),
     ...(race.time_buckets.length > 0 ? [{ id: 'result', label: locale === 'ja' ? 'リザルト' : 'Result' }] : []),
     ...(race.result ? [{ id: 'last-edition', label: locale === 'ja' ? '前回大会' : 'Last Edition' }] : []),
@@ -563,37 +563,80 @@ export default async function RaceDetailPage({
           </section>
         )}
 
-        {/* Participation Gift */}
-        {race.participation_gifts.length > 0 && (
+        {/* Participation Gift / Completion Gift */}
+        {(race.participation_gifts.length > 0 || race.completion_gifts.length > 0) && (
           <section id="gifts" style={{ scrollMarginTop: '3.5rem' }}>
-            <SectionHeading num="05" title={locale === 'ja' ? '参加賞' : 'Participation / Finisher Gift'}
-              subtitle={locale === 'ja' ? 'Participation / Finisher Gift' : '参加賞'}
+            <SectionHeading num="05" title={locale === 'ja' ? '参加賞・完走賞' : 'Gifts'}
+              subtitle={locale === 'ja' ? 'Participation & Finisher Gift' : '参加賞・完走賞'}
             />
-            {race.participation_gifts.map((gift, i) => (
-              <Card key={i}>
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {gift.gift_categories.map((catId) => {
-                    const cat = giftCategoryMap.get(catId);
-                    if (!cat) return null;
-                    return (
-                      <span
-                        key={catId}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-[4px] text-sm font-medium"
-                        style={{ background: 'var(--color-cream)', border: '1px solid var(--color-border)' }}
-                      >
-                        <span>{cat.icon}</span>
-                        <span>{locale === 'ja' ? cat.name_ja : cat.name_en}</span>
-                      </span>
-                    );
-                  })}
-                </div>
-                {(locale === 'ja' ? gift.description_ja : gift.description_en) && (
-                  <p className="text-sm leading-relaxed whitespace-pre-line" style={{ color: 'var(--color-ink2)' }}>
-                    {locale === 'ja' ? gift.description_ja : gift.description_en}
+            {race.participation_gifts.length > 0 && (
+              <>
+                {race.completion_gifts.length > 0 && (
+                  <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: 'var(--color-mid)' }}>
+                    {locale === 'ja' ? '参加賞' : 'Participation Gift'}
                   </p>
                 )}
-              </Card>
-            ))}
+                {race.participation_gifts.map((gift, i) => (
+                  <Card key={i}>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {gift.gift_categories.map((catId) => {
+                        const cat = giftCategoryMap.get(catId);
+                        if (!cat) return null;
+                        return (
+                          <span
+                            key={catId}
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-[4px] text-sm font-medium"
+                            style={{ background: 'var(--color-cream)', border: '1px solid var(--color-border)' }}
+                          >
+                            <span>{cat.icon}</span>
+                            <span>{locale === 'ja' ? cat.name_ja : cat.name_en}</span>
+                          </span>
+                        );
+                      })}
+                    </div>
+                    {(locale === 'ja' ? gift.description_ja : gift.description_en) && (
+                      <p className="text-sm leading-relaxed whitespace-pre-line" style={{ color: 'var(--color-ink2)' }}>
+                        {locale === 'ja' ? gift.description_ja : gift.description_en}
+                      </p>
+                    )}
+                  </Card>
+                ))}
+              </>
+            )}
+            {race.completion_gifts.length > 0 && (
+              <>
+                {race.participation_gifts.length > 0 && (
+                  <p className="text-xs font-semibold uppercase tracking-widest mt-4 mb-2" style={{ color: 'var(--color-mid)' }}>
+                    {locale === 'ja' ? '完走賞' : 'Finisher Gift'}
+                  </p>
+                )}
+                {race.completion_gifts.map((gift, i) => (
+                  <Card key={i}>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {gift.gift_categories.map((catId) => {
+                        const cat = giftCategoryMap.get(catId);
+                        if (!cat) return null;
+                        return (
+                          <span
+                            key={catId}
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-[4px] text-sm font-medium"
+                            style={{ background: 'var(--color-cream)', border: '1px solid var(--color-border)' }}
+                          >
+                            <span>{cat.icon}</span>
+                            <span>{locale === 'ja' ? cat.name_ja : cat.name_en}</span>
+                          </span>
+                        );
+                      })}
+                    </div>
+                    {(locale === 'ja' ? gift.description_ja : gift.description_en) && (
+                      <p className="text-sm leading-relaxed whitespace-pre-line" style={{ color: 'var(--color-ink2)' }}>
+                        {locale === 'ja' ? gift.description_ja : gift.description_en}
+                      </p>
+                    )}
+                  </Card>
+                ))}
+              </>
+            )}
           </section>
         )}
 

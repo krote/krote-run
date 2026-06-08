@@ -1,8 +1,9 @@
-import type { Race, RaceCategory, EntryPeriod, EntryLink, RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight, ParticipationGift } from '../types';
+import type { Race, RaceCategory, EntryPeriod, EntryLink, RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight, ParticipationGift, CompletionGift } from '../types';
 
 /** テスト用の最小限 Race オブジェクトを生成するファクトリ */
 export function makeRace(overrides: Partial<Race> = {}): Race {
   return {
+    completion_gifts: [],
     id: 'test-race-2026',
     name_ja: 'テスト大会2026',
     name_en: 'Test Race 2026',
@@ -169,6 +170,16 @@ export function makeParticipationGift(overrides: Partial<ParticipationGift> = {}
     gift_categories: ['medal'],
     description_ja: 'テスト参加賞',
     description_en: 'Test participation gift',
+    image: null,
+    ...overrides,
+  };
+}
+
+export function makeCompletionGift(overrides: Partial<CompletionGift> = {}): CompletionGift {
+  return {
+    gift_categories: ['medal'],
+    description_ja: 'テスト完走賞',
+    description_en: 'Test completion gift',
     image: null,
     ...overrides,
   };

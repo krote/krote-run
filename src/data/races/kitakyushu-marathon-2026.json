@@ -80,7 +80,6 @@
     {
       "gift_categories": [
         "tshirt",
-        "medal",
         "towel"
       ],
       "description_ja": "大会Tシャツ、完走メダル、フィニッシャータオル",
@@ -154,6 +153,16 @@
     {
       "url": "https://kitakyushu-marathon.jp/qa/",
       "label": "FAQ"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル、フィニッシャータオル",
+      "description_en": "Race T-shirt, Finisher medal, Finisher towel",
+      "image": null
     }
   ]
 }

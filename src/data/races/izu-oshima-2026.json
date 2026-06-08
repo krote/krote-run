@@ -150,16 +150,7 @@
       "url": "https://do.l-tike.com/app/dss/race/detail?acd=nemqQ8yPKR7"
     }
   ],
-  "participation_gifts": [
-    {
-      "gift_categories": [
-        "medal"
-      ],
-      "description_ja": "オリジナル完走メダル",
-      "description_en": "",
-      "image": null
-    }
-  ],
+  "participation_gifts": [],
   "motif": "三原山",
   "motif_romaji": "Mt.MIHARA",
   "motif_color": null,
@@ -170,5 +161,15 @@
   "hero_caption_en": null,
   "gallery": [],
   "voices": [],
-  "time_buckets": []
+  "time_buckets": [],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "オリジナル完走メダル",
+      "description_en": "",
+      "image": null
+    }
+  ]
 }

@@ -76,7 +76,6 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "medal",
         "goods"
       ],
       "description_ja": "",
@@ -107,6 +106,16 @@
     {
       "url": "https://legacyhalf.tokyo/news/detail/news_0248.html",
       "label": "エントリー"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "",
+      "description_en": "",
+      "image": null
     }
   ]
 }

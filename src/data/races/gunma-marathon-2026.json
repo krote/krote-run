@@ -86,7 +86,6 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "medal",
         "tshirt"
       ],
       "description_ja": "大会Tシャツ、完走メダル",
@@ -174,6 +173,16 @@
     {
       "url": "https://www.g-marathon.com/info/",
       "label": "開催概要"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
     }
   ]
 }

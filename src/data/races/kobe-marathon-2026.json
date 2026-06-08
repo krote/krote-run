@@ -98,7 +98,6 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "medal",
         "tshirt",
         "towel"
       ],
@@ -180,6 +179,16 @@
     {
       "url": "https://www.kobe-marathon.net/2026/support/expo/expoinfo/",
       "label": "開催概要"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会オリジナルTシャツ、完走メダル、フィニッシャータオル",
+      "description_en": "Official race T-shirt, Finisher medal, Finisher towel",
+      "image": null
     }
   ]
 }

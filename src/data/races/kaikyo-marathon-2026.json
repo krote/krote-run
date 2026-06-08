@@ -96,7 +96,6 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "medal",
         "tshirt"
       ],
       "description_ja": "完走メダル、大会オリジナルTシャツ",
@@ -177,6 +176,16 @@
     {
       "url": "https://kaikyomarathon.jp/qa/",
       "label": "FAQ"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "完走メダル、大会オリジナルTシャツ",
+      "description_en": "Finisher medal, Official race T-shirt",
+      "image": null
     }
   ]
 }

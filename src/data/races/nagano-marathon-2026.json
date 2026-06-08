@@ -275,7 +275,6 @@
     {
       "gift_categories": [
         "tshirt",
-        "medal",
         "towel"
       ],
       "description_ja": "大会オリジナルTシャツ（参加者全員）、完走メダル（完走者）、フィニッシャータオル（完走者）",
@@ -377,6 +376,16 @@
     {
       "url": "https://www.naganomarathon.gr.jp/stay/",
       "label": "アクセス"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会オリジナルTシャツ（参加者全員）、完走メダル（完走者）、フィニッシャータオル（完走者）",
+      "description_en": "Official race T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)",
+      "image": null
     }
   ]
 }

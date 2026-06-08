@@ -98,8 +98,7 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "tshirt",
-        "medal"
+        "tshirt"
       ],
       "description_ja": "大会オリジナルTシャツ、完走メダル",
       "description_en": "Official race T-shirt, Finisher medal",
@@ -178,6 +177,16 @@
     {
       "url": "https://hokkaido-marathon.com/info/12731/",
       "label": "開催概要"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会オリジナルTシャツ、完走メダル",
+      "description_en": "Official race T-shirt, Finisher medal",
+      "image": null
     }
   ]
 }

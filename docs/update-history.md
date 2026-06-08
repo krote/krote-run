@@ -646,3 +646,35 @@
 
 ### ドキュメント
 - `README.md`: `tools/` ディレクトリ構成・クローラー使い方を更新
+
+## 2026-06-07 管理ツール項目見直し (issue #73)
+
+### バグ修正
+- `tools/admin/app.js`: `bindEvents()` のセレクターを `.form-body` 内に限定し、サイドバー検索・データチェックフィルター操作で「未保存」ポップアップが誤表示される問題を修正
+
+### 機能追加
+- `tools/admin/index.html`: 「完走賞」セクションを「参加賞」の直後に追加
+- `tools/admin/app.js`: `renderCompletionGifts` / `addCompletionGiftRow` / `collectCompletionGifts` を追加
+
+### 機能削除
+- `tools/admin/index.html`: 「コース」セクション（GPXファイル名フィールド）を削除（カテゴリ別GPXに統一）
+- `tools/admin/app.js`: エントリー期間の「参加費（円）」フィールドを削除（カテゴリ別参加費に統一）
+
+### データ移行
+- `scripts/migrate-medal-gifts.js`: メダル移行スクリプトを追加
+- `src/data/races/*.json`: 51件の `participation_gifts` からメダルを `completion_gifts` に移行
+- `migrations/seed-races-all.sql`: 移行後のJSONから再生成
+
+### 完走賞フルスタック対応（CodeRabbit対応）
+- `src/lib/types.ts`: `CompletionGift` 型エイリアス追加、`Race` に `completion_gifts` フィールド追加
+- `src/lib/db/schema.ts`: `completion_gifts` テーブル追加（`participation_gifts` と同構造）
+- `migrations/0009_shallow_captain_stacy.sql`: `completion_gifts` テーブルのマイグレーション生成・適用
+- `src/lib/data.ts`: 全クエリ関数に `completion_gifts` 取得・組み立てを追加
+- `src/lib/utils.ts`: `filterRaces()` の `giftCategories` フィルタを `completion_gifts` も含めて検索するよう修正
+- `src/app/[locale]/races/[id]/page.tsx`: 「参加賞・完走賞」セクションに `completion_gifts` 表示を追加
+- `scripts/generate-seed-races.js`: `completion_gifts` のSQL生成を追加
+- `migrations/seed-races-all.sql`: `completion_gifts` データを含めて再生成・ローカルDB適用
+- `docs/schema.md`: `completion_gifts` テーブル定義・マイグレーション履歴を追記
+- `scripts/migrate-medal-gifts.js`: `image: null` → `gift.image ?? null` バグ修正（CodeRabbit指摘）
+- `src/lib/__tests__/fixtures.ts`: `makeCompletionGift` ファクトリ追加、`makeRace` に `completion_gifts: []` 追加
+- `src/lib/__tests__/utils.filter.test.ts`: `completion_gifts` を含む `giftCategories` フィルタのテスト追加

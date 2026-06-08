@@ -53,7 +53,6 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "medal",
         "goods"
       ],
       "description_ja": "YAMAtune製オリジナルソックス、ランニンググローブ、おもてなしブース飲食券",
@@ -105,5 +104,15 @@
     "data_accuracy_notes": [
       "2026-05-25: 自動クロールで更新"
     ]
-  }
+  },
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "YAMAtune製オリジナルソックス、ランニンググローブ、おもてなしブース飲食券",
+      "description_en": "",
+      "image": null
+    }
+  ]
 }

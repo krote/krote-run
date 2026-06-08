@@ -72,7 +72,6 @@
     {
       "gift_categories": [
         "tshirt",
-        "medal",
         "local_product"
       ],
       "description_ja": "大会Tシャツ、完走メダル、松阪の特産品",
@@ -133,6 +132,16 @@
     {
       "url": "https://mie-matsusaka-marathon.jp/runner/",
       "label": "エントリー"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル、松阪の特産品",
+      "description_en": "Race T-shirt, Finisher medal, Matsusaka local products",
+      "image": null
     }
   ]
 }

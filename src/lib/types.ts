@@ -46,6 +46,7 @@ export interface Race {
   nearby_spots: NearbySpot[];
   weather_history: WeatherHistory[];
   participation_gifts: ParticipationGift[];
+  completion_gifts: CompletionGift[];
   entry_periods: EntryPeriod[];
   entry_links: EntryLink[];
   result: RaceResult | null;      // 開催実績（未開催の場合は null）
@@ -233,6 +234,9 @@ export interface ParticipationGift {
   description_en: string;
   image: string | null;
 }
+
+/** 完走賞（ParticipationGift と同構造） */
+export type CompletionGift = ParticipationGift;
 
 export interface GiftCategory {
   id: GiftCategoryId;

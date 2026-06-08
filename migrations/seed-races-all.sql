@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-06-06T13:54:56.669Z
+-- 生成日時: 2026-06-07T14:20:37.173Z
 -- 対象ファイル数: 80 件（既存 2 件はskip）
 
 -- ==================
@@ -13,6 +13,7 @@ DELETE FROM access_points WHERE race_id = 'abashiri-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'abashiri-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'abashiri-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'abashiri-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'abashiri-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'abashiri-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'abashiri-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'abashiri-marathon-2026';
@@ -79,7 +80,9 @@ INSERT OR REPLACE INTO races (
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('abashiri-marathon-2026', 'full', 42.195, 390, '08:45', 2600, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('abashiri-marathon-2026', '["medal","goods"]', 'YAMAtune製オリジナルソックス、ランニンググローブ、おもてなしブース飲食券', '', NULL, 0);
+  ('abashiri-marathon-2026', '["goods"]', 'YAMAtune製オリジナルソックス、ランニンググローブ、おもてなしブース飲食券', '', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('abashiri-marathon-2026', '["medal"]', 'YAMAtune製オリジナルソックス、ランニンググローブ、おもてなしブース飲食券', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('abashiri-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-07-16', NULL, 0);
 
@@ -94,6 +97,7 @@ DELETE FROM access_points WHERE race_id = 'akita-nairiku-ultra-2026';
 DELETE FROM nearby_spots WHERE race_id = 'akita-nairiku-ultra-2026';
 DELETE FROM weather_history WHERE race_id = 'akita-nairiku-ultra-2026';
 DELETE FROM participation_gifts WHERE race_id = 'akita-nairiku-ultra-2026';
+DELETE FROM completion_gifts WHERE race_id = 'akita-nairiku-ultra-2026';
 DELETE FROM race_entry_links WHERE race_id = 'akita-nairiku-ultra-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'akita-nairiku-ultra-2026';
 DELETE FROM race_results WHERE race_id = 'akita-nairiku-ultra-2026';
@@ -183,6 +187,7 @@ DELETE FROM access_points WHERE race_id = 'aomori-sakura-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'aomori-sakura-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'aomori-sakura-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'aomori-sakura-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'aomori-sakura-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'aomori-sakura-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'aomori-sakura-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'aomori-sakura-marathon-2026';
@@ -255,7 +260,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('aomori-sakura-marathon-2026', '観光地', '弘前城・弘前公園', 'Hirosaki Castle & Park', '日本屈指の桜の名所。4月下旬は桜まつりの時期と重なる可能性あり。', 'One of Japan''s top cherry blossom spots. Late April may coincide with the cherry blossom festival.', '青森市から車約1時間', NULL, 40.6072, 140.4639);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('aomori-sakura-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('aomori-sakura-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('aomori-sakura-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('aomori-sakura-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-11-01', '2026-01-30', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -276,6 +283,7 @@ DELETE FROM access_points WHERE race_id = 'asahikawa-half-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'asahikawa-half-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'asahikawa-half-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'asahikawa-half-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'asahikawa-half-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'asahikawa-half-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'asahikawa-half-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'asahikawa-half-marathon-2026';
@@ -359,6 +367,7 @@ DELETE FROM access_points WHERE race_id = 'beppu-oita-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'beppu-oita-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'beppu-oita-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'beppu-oita-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'beppu-oita-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'beppu-oita-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'beppu-oita-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'beppu-oita-marathon-2026';
@@ -448,6 +457,7 @@ DELETE FROM access_points WHERE race_id = 'biwako-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'biwako-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'biwako-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'biwako-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'biwako-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'biwako-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'biwako-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'biwako-marathon-2026';
@@ -535,6 +545,7 @@ DELETE FROM access_points WHERE race_id = 'chiba-aqualine-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'chiba-aqualine-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'chiba-aqualine-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'chiba-aqualine-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'chiba-aqualine-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'chiba-aqualine-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'chiba-aqualine-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'chiba-aqualine-marathon-2026';
@@ -603,7 +614,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('chiba-aqualine-marathon-2026', 'half', 21.0975, 205, '09:45', 5000, 13500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('chiba-aqualine-marathon-2026', '["medal","tshirt"]', '参加賞Tシャツ、完走メダル', '', NULL, 0);
+  ('chiba-aqualine-marathon-2026', '["tshirt"]', '参加賞Tシャツ、完走メダル', '', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('chiba-aqualine-marathon-2026', '["medal"]', '参加賞Tシャツ、完走メダル', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('chiba-aqualine-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-03-22', '2026-04-12', 16500, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -626,6 +639,7 @@ DELETE FROM access_points WHERE race_id = 'ehime-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'ehime-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'ehime-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'ehime-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'ehime-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'ehime-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'ehime-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'ehime-marathon-2026';
@@ -696,7 +710,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('ehime-marathon-2026', '観光地', '松山城', 'Matsuyama Castle', '現存12天守の一つ。コース上から望める。ロープウェイで天守閣へ。', 'One of Japan''s 12 surviving original castle keeps. Visible from the course. Ropeway access to the keep.', 'コース付近', NULL, 33.8456, 132.7656);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('ehime-marathon-2026', '["tshirt","medal","towel"]', '大会オリジナルTシャツ、完走メダル、今治タオル（完走者）', 'Official race T-shirt, Finisher medal, Imabari towel (finishers)', NULL, 0);
+  ('ehime-marathon-2026', '["tshirt","towel"]', '大会オリジナルTシャツ、完走メダル、今治タオル（完走者）', 'Official race T-shirt, Finisher medal, Imabari towel (finishers)', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('ehime-marathon-2026', '["medal"]', '大会オリジナルTシャツ、完走メダル、今治タオル（完走者）', 'Official race T-shirt, Finisher medal, Imabari towel (finishers)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('ehime-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-01', '2025-08-19', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -715,6 +731,7 @@ DELETE FROM access_points WHERE race_id = 'fuji-mountain-race-2026';
 DELETE FROM nearby_spots WHERE race_id = 'fuji-mountain-race-2026';
 DELETE FROM weather_history WHERE race_id = 'fuji-mountain-race-2026';
 DELETE FROM participation_gifts WHERE race_id = 'fuji-mountain-race-2026';
+DELETE FROM completion_gifts WHERE race_id = 'fuji-mountain-race-2026';
 DELETE FROM race_entry_links WHERE race_id = 'fuji-mountain-race-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'fuji-mountain-race-2026';
 DELETE FROM race_results WHERE race_id = 'fuji-mountain-race-2026';
@@ -804,6 +821,7 @@ DELETE FROM access_points WHERE race_id = 'fujisan-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'fujisan-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'fujisan-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'fujisan-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'fujisan-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'fujisan-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'fujisan-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'fujisan-marathon-2026';
@@ -872,7 +890,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fujisan-marathon-2026', '温泉', '河口湖温泉', 'Lake Kawaguchi Onsen', '河口湖畔の温泉。富士山を望む露天風呂が魅力。レース後に最適。', 'Hot springs on the shore of Lake Kawaguchi. Open-air baths with Mt. Fuji views.', '会場付近', NULL, 35.51, 138.75);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('fujisan-marathon-2026', '["medal","tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+  ('fujisan-marathon-2026', '["tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('fujisan-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
   ('fujisan-marathon-2026', 'RUNNET', 'https://runnet.jp/parts/2026/392477/entry2.html', 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -889,6 +909,7 @@ DELETE FROM access_points WHERE race_id = 'fukuchiyama-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'fukuchiyama-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'fukuchiyama-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'fukuchiyama-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'fukuchiyama-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'fukuchiyama-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'fukuchiyama-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'fukuchiyama-marathon-2026';
@@ -959,7 +980,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fukuchiyama-marathon-2026', '温泉', '天の湯', 'Ame no Yu Hot Spring', '福知山市内の温泉施設。レース後のリカバリーに利用できる。', 'Hot spring facility in Fukuchiyama. Available for post-race recovery.', '福知山市内', NULL, 35.295, 135.12);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('fukuchiyama-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ（レイト・直前申込を除く）', 'Finisher medal, Official race T-shirt (excluding late/last-minute entries)', NULL, 0);
+  ('fukuchiyama-marathon-2026', '["tshirt"]', '完走メダル、大会オリジナルTシャツ（レイト・直前申込を除く）', 'Finisher medal, Official race T-shirt (excluding late/last-minute entries)', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('fukuchiyama-marathon-2026', '["medal"]', '完走メダル、大会オリジナルTシャツ（レイト・直前申込を除く）', 'Finisher medal, Official race T-shirt (excluding late/last-minute entries)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('fukuchiyama-marathon-2026', NULL, '早割', 'Early Bird', '2026-05-01', '2026-05-31', 10000, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -978,6 +1001,7 @@ DELETE FROM access_points WHERE race_id = 'fukui-sakura-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'fukui-sakura-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'fukui-sakura-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'fukui-sakura-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'fukui-sakura-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'fukui-sakura-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'fukui-sakura-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'fukui-sakura-marathon-2026';
@@ -1052,7 +1076,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fukui-sakura-marathon-2026', 'グルメ', '越前おろしそば', 'Echizen Oroshi Soba', '大根おろしとだしで食べる福井名物のそば。レース後のエネルギー補給に。', 'Fukui''s specialty soba with grated radish and broth. For post-race energy.', '福井市内', NULL, 36.0652, 136.2199);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('fukui-sakura-marathon-2026', '["medal","tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+  ('fukui-sakura-marathon-2026', '["tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('fukui-sakura-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('fukui-sakura-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-09-25', '2025-11-10', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -1071,6 +1097,7 @@ DELETE FROM access_points WHERE race_id = 'fukuoka-international-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'fukuoka-international-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'fukuoka-international-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'fukuoka-international-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'fukuoka-international-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'fukuoka-international-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'fukuoka-international-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'fukuoka-international-marathon-2026';
@@ -1158,6 +1185,7 @@ DELETE FROM access_points WHERE race_id = 'fukuoka-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'fukuoka-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'fukuoka-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'fukuoka-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'fukuoka-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'fukuoka-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'fukuoka-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'fukuoka-marathon-2026';
@@ -1240,7 +1268,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fukuoka-marathon-2026', '温泉', '二丈温泉きららの湯', 'Nijo Onsen Kirara no Yu', '糸島・二丈エリアの温泉施設。コース沿いでレース後のリカバリーに最適。', 'Hot spring facility in the Itoshima/Nijo area. Ideal for post-race recovery near the course.', '糸島市内', NULL, 33.54, 130.16);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('fukuoka-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
+  ('fukuoka-marathon-2026', '["tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('fukuoka-marathon-2026', '["medal"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('fukuoka-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-20', '2026-05-20', 16000, 0);
 
@@ -1255,6 +1285,7 @@ DELETE FROM access_points WHERE race_id = 'gunma-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'gunma-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'gunma-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'gunma-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'gunma-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'gunma-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'gunma-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'gunma-marathon-2026';
@@ -1339,7 +1370,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 
 Translated with DeepL.com (free version)', '', 'https://worldheritage.pref.gunma.jp/whc/', 36.2551968, 138.8850047);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('gunma-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('gunma-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('gunma-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('gunma-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-09', '2026-05-13', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -1362,6 +1395,7 @@ DELETE FROM access_points WHERE race_id = 'higashine-sakuranbo-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'higashine-sakuranbo-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'higashine-sakuranbo-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'higashine-sakuranbo-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'higashine-sakuranbo-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'higashine-sakuranbo-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'higashine-sakuranbo-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'higashine-sakuranbo-marathon-2026';
@@ -1451,6 +1485,7 @@ DELETE FROM access_points WHERE race_id = 'higashinipon-half-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'higashinipon-half-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'higashinipon-half-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'higashinipon-half-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'higashinipon-half-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'higashinipon-half-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'higashinipon-half-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'higashinipon-half-marathon-2026';
@@ -1536,6 +1571,7 @@ DELETE FROM access_points WHERE race_id = 'himeji-castle-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'himeji-castle-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'himeji-castle-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'himeji-castle-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'himeji-castle-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'himeji-castle-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'himeji-castle-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'himeji-castle-marathon-2026';
@@ -1604,7 +1640,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('himeji-castle-marathon-2026', '観光地', '姫路城', 'Himeji Castle', '世界遺産・国宝の白鷺城。日本で最も美しい城の一つ。コース上から望める。', 'A World Heritage and National Treasure. One of Japan''s most beautiful castles. Visible from the course.', 'コース上', NULL, 34.8394, 134.6939);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('himeji-castle-marathon-2026', '["tshirt","medal","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+  ('himeji-castle-marathon-2026', '["tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('himeji-castle-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('himeji-castle-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-04', '2025-10-31', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -1621,6 +1659,7 @@ DELETE FROM access_points WHERE race_id = 'hitachi-seaside-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'hitachi-seaside-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'hitachi-seaside-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'hitachi-seaside-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'hitachi-seaside-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'hitachi-seaside-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'hitachi-seaside-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'hitachi-seaside-marathon-2026';
@@ -1691,7 +1730,13 @@ With the scenery and the sea breeze pushing you forward, you can fully savor the
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('hitachi-seaside-marathon-2026', 'full', 42.195, 360, '10:00', 6000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('hitachi-seaside-marathon-2026', '["medal","towel"]', '出走特典
+  ('hitachi-seaside-marathon-2026', '["towel"]', '出走特典
+（タオル）
+
+完走賞
+（完走メダル）', '', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('hitachi-seaside-marathon-2026', '["medal"]', '出走特典
 （タオル）
 
 完走賞
@@ -1710,6 +1755,7 @@ DELETE FROM access_points WHERE race_id = 'hofu-yomiuri-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'hofu-yomiuri-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'hofu-yomiuri-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'hofu-yomiuri-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'hofu-yomiuri-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'hofu-yomiuri-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'hofu-yomiuri-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'hofu-yomiuri-marathon-2026';
@@ -1777,7 +1823,7 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('hofu-yomiuri-marathon-2026', 'full', 42.195, 240, '12:03', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('hofu-yomiuri-marathon-2026', '観光地', '防府天満宮', 'Hofu Tenmangu', '日本三大天神の一つ。学問の神様・菅原道真を祀る。コース付近。', 'One of Japan''s three great Tenmangu shrines. Enshrines Sugawara no Michizane, deity of learning.', 'コース付近', NULL, 34.0478, 131.5711);
-INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('hofu-yomiuri-marathon-2026', '["medal"]', '完走メダル', 'Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('hofu-yomiuri-marathon-2026', NULL, NULL, '防府天満宮付近', 'Near Hofu Tenmangu Shrine', NULL, NULL, 0);
@@ -1793,6 +1839,7 @@ DELETE FROM access_points WHERE race_id = 'hokkaido-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'hokkaido-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'hokkaido-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'hokkaido-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'hokkaido-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'hokkaido-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'hokkaido-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'hokkaido-marathon-2026';
@@ -1865,7 +1912,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('hokkaido-marathon-2026', '温泉', '定山渓温泉', 'Jozankei Onsen', '札幌の奥座敷と呼ばれる温泉地。レース翌日の観光に。札幌中心部からバスで約60分。', 'Known as Sapporo''s inner parlor. For sightseeing the day after. About 60 min by bus from central Sapporo.', '札幌中心部からバス約60分', NULL, 42.9694, 141.1667);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('hokkaido-marathon-2026', '["tshirt","medal"]', '大会オリジナルTシャツ、完走メダル', 'Official race T-shirt, Finisher medal', NULL, 0);
+  ('hokkaido-marathon-2026', '["tshirt"]', '大会オリジナルTシャツ、完走メダル', 'Official race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('hokkaido-marathon-2026', '["medal"]', '大会オリジナルTシャツ、完走メダル', 'Official race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('hokkaido-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-03-29', '2026-04-24', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -1886,6 +1935,7 @@ DELETE FROM access_points WHERE race_id = 'ibusuki-nanohana-2026';
 DELETE FROM nearby_spots WHERE race_id = 'ibusuki-nanohana-2026';
 DELETE FROM weather_history WHERE race_id = 'ibusuki-nanohana-2026';
 DELETE FROM participation_gifts WHERE race_id = 'ibusuki-nanohana-2026';
+DELETE FROM completion_gifts WHERE race_id = 'ibusuki-nanohana-2026';
 DELETE FROM race_entry_links WHERE race_id = 'ibusuki-nanohana-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'ibusuki-nanohana-2026';
 DELETE FROM race_results WHERE race_id = 'ibusuki-nanohana-2026';
@@ -1979,6 +2029,7 @@ DELETE FROM access_points WHERE race_id = 'ichinoseki-half-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'ichinoseki-half-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'ichinoseki-half-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'ichinoseki-half-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'ichinoseki-half-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'ichinoseki-half-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'ichinoseki-half-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'ichinoseki-half-marathon-2026';
@@ -2062,6 +2113,7 @@ DELETE FROM access_points WHERE race_id = 'iki-ultra-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'iki-ultra-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'iki-ultra-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'iki-ultra-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'iki-ultra-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'iki-ultra-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'iki-ultra-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'iki-ultra-marathon-2026';
@@ -2145,6 +2197,7 @@ DELETE FROM access_points WHERE race_id = 'itabashi-city-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'itabashi-city-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'itabashi-city-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'itabashi-city-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'itabashi-city-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'itabashi-city-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'itabashi-city-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'itabashi-city-marathon-2026';
@@ -2215,7 +2268,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('itabashi-city-marathon-2026', '観光地', '荒川河川敷', 'Arakawa Riverbank', 'フラットな河川敷コース。記録を狙うランナーに人気の定番コース。', 'A flat riverbank course. A classic course popular with runners aiming for personal records.', 'コース上', NULL, 35.7917, 139.675);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('itabashi-city-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('itabashi-city-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('itabashi-city-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('itabashi-city-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-01', '2025-11-24', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -2232,6 +2287,7 @@ DELETE FROM access_points WHERE race_id = 'iwaki-sunshine-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'iwaki-sunshine-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'iwaki-sunshine-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'iwaki-sunshine-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'iwaki-sunshine-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'iwaki-sunshine-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'iwaki-sunshine-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'iwaki-sunshine-marathon-2026';
@@ -2306,7 +2362,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('iwaki-sunshine-marathon-2026', '温泉', 'いわき湯本温泉', 'Iwaki Yumoto Onsen', 'いわき市の歴史ある温泉地。レース後のリカバリーに。', 'A historic hot spring in Iwaki. For post-race recovery.', 'いわき市内', NULL, 36.9744, 140.8456);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('iwaki-sunshine-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('iwaki-sunshine-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('iwaki-sunshine-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('iwaki-sunshine-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-09-12', '2025-10-15', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -2323,6 +2381,7 @@ DELETE FROM access_points WHERE race_id = 'iwate-morioka-city-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'iwate-morioka-city-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'iwate-morioka-city-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'iwate-morioka-city-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'iwate-morioka-city-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'iwate-morioka-city-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'iwate-morioka-city-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'iwate-morioka-city-marathon-2026';
@@ -2419,7 +2478,9 @@ Translated with DeepL.com (free version)',
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('iwate-morioka-city-marathon-2026', 'full', 42.195, 360, '09:00', 6000, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('iwate-morioka-city-marathon-2026', '["medal","towel"]', '完走賞	フィニッシャータオル、南部鉄器製完走メダル', '', NULL, 0);
+  ('iwate-morioka-city-marathon-2026', '["towel"]', '完走賞	フィニッシャータオル、南部鉄器製完走メダル', '', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('iwate-morioka-city-marathon-2026', '["medal"]', '完走賞	フィニッシャータオル、南部鉄器製完走メダル', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('iwate-morioka-city-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-07-20', 12000, 0);
 
@@ -2434,6 +2495,7 @@ DELETE FROM access_points WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
@@ -2504,7 +2566,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('iwate-oshu-kirameki-marathon-2026', '観光地', '中尊寺金色堂', 'Chusonji Konjikido', '世界遺産・平泉。奥州藤原氏の栄華を伝える。奥州市から車約30分。', 'World Heritage Hiraizumi. Tells of the glory of the Oshu Fujiwara clan. About 30 min by car from Oshu.', '奥州市から車約30分', NULL, 39, 141.1);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('iwate-oshu-kirameki-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('iwate-oshu-kirameki-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('iwate-oshu-kirameki-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('iwate-oshu-kirameki-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-11-28', '2026-02-28', NULL, 0);
 
@@ -2519,6 +2583,7 @@ DELETE FROM access_points WHERE race_id = 'izu-oshima-2026';
 DELETE FROM nearby_spots WHERE race_id = 'izu-oshima-2026';
 DELETE FROM weather_history WHERE race_id = 'izu-oshima-2026';
 DELETE FROM participation_gifts WHERE race_id = 'izu-oshima-2026';
+DELETE FROM completion_gifts WHERE race_id = 'izu-oshima-2026';
 DELETE FROM race_entry_links WHERE race_id = 'izu-oshima-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'izu-oshima-2026';
 DELETE FROM race_results WHERE race_id = 'izu-oshima-2026';
@@ -2613,7 +2678,7 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('izu-oshima-2026', 'half', 21.0975, 180, '08:20', 0, 7400, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('izu-oshima-2026', '10k', 10, 100, '09:00', 0, 5400, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
-INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('izu-oshima-2026', '["medal"]', 'オリジナル完走メダル', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
   ('izu-oshima-2026', 'RUNNET', 'https://runnet.jp/entry/runtes/user/pc/competitionDetailAction.do?raceId=392378&div=1', 0);
@@ -2635,6 +2700,7 @@ DELETE FROM access_points WHERE race_id = 'kagawa-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'kagawa-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'kagawa-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'kagawa-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'kagawa-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'kagawa-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'kagawa-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'kagawa-marathon-2026';
@@ -2720,6 +2786,7 @@ DELETE FROM access_points WHERE race_id = 'kagoshima-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'kagoshima-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'kagoshima-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'kagoshima-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'kagoshima-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'kagoshima-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'kagoshima-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'kagoshima-marathon-2026';
@@ -2790,7 +2857,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kagoshima-marathon-2026', '温泉', '指宿温泉', 'Ibusuki Onsen', '砂むし温泉で有名。鹿児島市から特急で約1時間。レース翌日の遠足に。', 'Famous for sand steam baths. About 1 hour by express from Kagoshima. Day trip the day after.', '鹿児島市から特急約1時間', NULL, 31.25, 130.65);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('kagoshima-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('kagoshima-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('kagoshima-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kagoshima-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-08', '2025-11-16', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -2809,6 +2878,7 @@ DELETE FROM access_points WHERE race_id = 'kaikyo-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'kaikyo-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'kaikyo-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'kaikyo-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'kaikyo-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'kaikyo-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'kaikyo-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'kaikyo-marathon-2026';
@@ -2881,7 +2951,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kaikyo-marathon-2026', 'グルメ', 'ふくの里', 'Fuku no Sato', '下関名物のふぐ料理を堪能できるエリア。レース後のご褒美食事に最適。', 'Area to enjoy Shimonoseki''s famous fugu cuisine. Perfect post-race reward.', '下関市内', NULL, 33.955, 130.945);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('kaikyo-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
+  ('kaikyo-marathon-2026', '["tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('kaikyo-marathon-2026', '["medal"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kaikyo-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-05-15', '2026-07-12', 12000, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -2902,6 +2974,7 @@ DELETE FROM access_points WHERE race_id = 'kanazawa-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'kanazawa-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'kanazawa-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'kanazawa-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'kanazawa-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'kanazawa-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'kanazawa-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'kanazawa-marathon-2026';
@@ -2974,7 +3047,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kanazawa-marathon-2026', '温泉', '金沢駅周辺の温泉施設', 'Hot spring facilities near Kanazawa Station', '金沢駅周辺には日帰り温泉施設あり。レース後のリカバリーに。', 'Day-trip hot spring facilities available near Kanazawa Station. For post-race recovery.', '金沢駅周辺', NULL, 36.5781, 136.6486);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('kanazawa-marathon-2026', '["medal","tshirt","local_product"]', '大会オリジナルTシャツ、完走メダル、地元特産品', 'Official race T-shirt, Finisher medal, Local specialty products', NULL, 0);
+  ('kanazawa-marathon-2026', '["tshirt","local_product"]', '大会オリジナルTシャツ、完走メダル、地元特産品', 'Official race T-shirt, Finisher medal, Local specialty products', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('kanazawa-marathon-2026', '["medal"]', '大会オリジナルTシャツ、完走メダル、地元特産品', 'Official race T-shirt, Finisher medal, Local specialty products', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kanazawa-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-10', '2026-05-20', 14000, 0);
 
@@ -2989,6 +3064,7 @@ DELETE FROM access_points WHERE race_id = 'kasama-togeinosato-half-2025-2025';
 DELETE FROM nearby_spots WHERE race_id = 'kasama-togeinosato-half-2025-2025';
 DELETE FROM weather_history WHERE race_id = 'kasama-togeinosato-half-2025-2025';
 DELETE FROM participation_gifts WHERE race_id = 'kasama-togeinosato-half-2025-2025';
+DELETE FROM completion_gifts WHERE race_id = 'kasama-togeinosato-half-2025-2025';
 DELETE FROM race_entry_links WHERE race_id = 'kasama-togeinosato-half-2025-2025';
 DELETE FROM race_entry_periods WHERE race_id = 'kasama-togeinosato-half-2025-2025';
 DELETE FROM race_results WHERE race_id = 'kasama-togeinosato-half-2025-2025';
@@ -3092,6 +3168,7 @@ DELETE FROM access_points WHERE race_id = 'kasumigaura-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'kasumigaura-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'kasumigaura-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'kasumigaura-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'kasumigaura-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'kasumigaura-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'kasumigaura-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'kasumigaura-marathon-2026';
@@ -3164,7 +3241,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kasumigaura-marathon-2026', '観光地', '霞ヶ浦', 'Lake Kasumigaura', '日本第2位の面積を持つ湖。コースで湖畔を走る。広大な水面は壮観。', 'Japan''s second largest lake. Run along the lakeshore. The vast water surface is spectacular.', 'コース上', NULL, 36.0333, 140.3333);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('kasumigaura-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('kasumigaura-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('kasumigaura-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kasumigaura-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-12-01', '2026-01-25', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -3181,6 +3260,7 @@ DELETE FROM access_points WHERE race_id = 'katsuta-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'katsuta-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'katsuta-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'katsuta-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'katsuta-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'katsuta-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'katsuta-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'katsuta-marathon-2026';
@@ -3268,6 +3348,7 @@ DELETE FROM access_points WHERE race_id = 'kitakyushu-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'kitakyushu-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'kitakyushu-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'kitakyushu-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'kitakyushu-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'kitakyushu-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'kitakyushu-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'kitakyushu-marathon-2026';
@@ -3338,7 +3419,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kitakyushu-marathon-2026', '観光地', '門司港レトロ', 'Mojiko Retro', '大正ロマンの雰囲気が残る港町。焼きカレーが名物。', 'A port town with Taisho-era atmosphere. Famous for baked curry.', '小倉から電車約15分', NULL, 33.95, 130.9611);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('kitakyushu-marathon-2026', '["tshirt","medal","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+  ('kitakyushu-marathon-2026', '["tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('kitakyushu-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kitakyushu-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-08', '2025-09-25', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -3357,6 +3440,7 @@ DELETE FROM access_points WHERE race_id = 'kix-senshu-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'kix-senshu-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'kix-senshu-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'kix-senshu-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'kix-senshu-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'kix-senshu-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'kix-senshu-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'kix-senshu-marathon-2026';
@@ -3442,6 +3526,7 @@ DELETE FROM access_points WHERE race_id = 'kobe-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'kobe-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'kobe-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'kobe-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'kobe-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'kobe-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'kobe-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'kobe-marathon-2026';
@@ -3532,7 +3617,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kobe-marathon-2026', 'グルメ', '神戸牛', 'Kobe Beef', '世界的に有名なブランド和牛。レース後のご褒美に。三宮・元町エリアに名店多数。', 'World-famous premium wagyu beef. A reward after the race. Many restaurants in Sannomiya-Motomachi area.', '三宮・元町エリア', NULL, 34.6913, 135.1956);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('kobe-marathon-2026', '["medal","tshirt","towel"]', '大会オリジナルTシャツ、完走メダル、フィニッシャータオル', 'Official race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+  ('kobe-marathon-2026', '["tshirt","towel"]', '大会オリジナルTシャツ、完走メダル、フィニッシャータオル', 'Official race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('kobe-marathon-2026', '["medal"]', '大会オリジナルTシャツ、完走メダル、フィニッシャータオル', 'Official race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kobe-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-17', '2026-06-01', 18000, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -3553,6 +3640,7 @@ DELETE FROM access_points WHERE race_id = 'kochi-ryoma-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'kochi-ryoma-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'kochi-ryoma-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'kochi-ryoma-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'kochi-ryoma-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'kochi-ryoma-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'kochi-ryoma-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'kochi-ryoma-marathon-2026';
@@ -3623,7 +3711,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kochi-ryoma-marathon-2026', 'グルメ', 'カツオのたたき', 'Katsuo no Tataki', '高知を代表するグルメ。藁焼きで仕上げた鰹のたたきは絶品。ひろめ市場で気軽に楽しめる。', 'Kochi''s signature dish. Straw-grilled bonito tataki is exquisite. Enjoy casually at Hirome Market.', '高知市内', NULL, 33.5589, 133.5311);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('kochi-ryoma-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('kochi-ryoma-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('kochi-ryoma-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kochi-ryoma-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-01', '2025-10-31', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -3644,6 +3734,7 @@ DELETE FROM access_points WHERE race_id = 'kumamoto-castle-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'kumamoto-castle-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'kumamoto-castle-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'kumamoto-castle-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'kumamoto-castle-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'kumamoto-castle-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'kumamoto-castle-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'kumamoto-castle-marathon-2026';
@@ -3714,7 +3805,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kumamoto-castle-marathon-2026', 'グルメ', '馬刺し・太平燕', 'Horse Sashimi & Taipien', '熊本を代表するグルメ。馬刺しと太平燕（春雨スープ）はぜひ試したい。', 'Kumamoto''s signature dishes. Horse sashimi and taipien (glass noodle soup) are must-tries.', '熊本市内', NULL, 32.8032, 130.7079);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('kumamoto-castle-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('kumamoto-castle-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('kumamoto-castle-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kumamoto-castle-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-07-29', '2025-09-24', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -3731,6 +3824,7 @@ DELETE FROM access_points WHERE race_id = 'kyoto-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'kyoto-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'kyoto-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'kyoto-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'kyoto-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'kyoto-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'kyoto-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'kyoto-marathon-2026';
@@ -3803,7 +3897,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('kyoto-marathon-2026', '温泉', 'さがの温泉 天山の湯', 'Sagano Onsen Tenzan no Yu', '嵐山エリアの天然温泉。レース後のリカバリーに。', 'Natural hot spring in the Arashiyama area. For post-race recovery.', '嵐山エリア', NULL, 35.0167, 135.6833);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('kyoto-marathon-2026', '["tshirt","medal"]', '大会オリジナルTシャツ、完走メダル', 'Official race T-shirt, Finisher medal', NULL, 0);
+  ('kyoto-marathon-2026', '["tshirt"]', '大会オリジナルTシャツ、完走メダル', 'Official race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('kyoto-marathon-2026', '["medal"]', '大会オリジナルTシャツ、完走メダル', 'Official race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kyoto-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-07-17', '2025-09-22', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -3828,6 +3924,7 @@ DELETE FROM access_points WHERE race_id = 'mie-matsusaka-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'mie-matsusaka-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'mie-matsusaka-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'mie-matsusaka-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'mie-matsusaka-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'mie-matsusaka-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'mie-matsusaka-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'mie-matsusaka-marathon-2026';
@@ -3896,7 +3993,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('mie-matsusaka-marathon-2026', 'グルメ', '松阪牛', 'Matsusaka Beef', '日本三大和牛の一つ。レース後のご褒美に。', 'One of Japan''s three premium wagyu. A reward after the race.', '松阪市内', NULL, 34.5778, 136.5312);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('mie-matsusaka-marathon-2026', '["tshirt","medal","local_product"]', '大会Tシャツ、完走メダル、松阪の特産品', 'Race T-shirt, Finisher medal, Matsusaka local products', NULL, 0);
+  ('mie-matsusaka-marathon-2026', '["tshirt","local_product"]', '大会Tシャツ、完走メダル、松阪の特産品', 'Race T-shirt, Finisher medal, Matsusaka local products', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('mie-matsusaka-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル、松阪の特産品', 'Race T-shirt, Finisher medal, Matsusaka local products', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('mie-matsusaka-marathon-2026', NULL, NULL, '松阪の城下町', 'Matsusaka castle town', NULL, NULL, 0);
 
@@ -3911,6 +4010,7 @@ DELETE FROM access_points WHERE race_id = 'mito-komon-manyu-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'mito-komon-manyu-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'mito-komon-manyu-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'mito-komon-manyu-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'mito-komon-manyu-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'mito-komon-manyu-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'mito-komon-manyu-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'mito-komon-manyu-marathon-2026';
@@ -3979,7 +4079,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('mito-komon-manyu-marathon-2026', '観光地', '偕楽園', 'Kairakuen Garden', '日本三名園の一つ。2〜3月は梅まつりで有名。コース上から望める。', 'One of Japan''s three most beautiful gardens. Famous for plum blossom festival in Feb-Mar.', 'コース付近', NULL, 36.3811, 140.4511);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('mito-komon-manyu-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('mito-komon-manyu-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('mito-komon-manyu-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
   ('mito-komon-manyu-marathon-2026', 'RUNNET', 'https://runnet.jp/entry/runtes/user/pc/competitionDetailAction.do?raceId=387694&div=1', 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -3996,6 +4098,7 @@ DELETE FROM access_points WHERE race_id = 'mtfuji-climb-run-2026';
 DELETE FROM nearby_spots WHERE race_id = 'mtfuji-climb-run-2026';
 DELETE FROM weather_history WHERE race_id = 'mtfuji-climb-run-2026';
 DELETE FROM participation_gifts WHERE race_id = 'mtfuji-climb-run-2026';
+DELETE FROM completion_gifts WHERE race_id = 'mtfuji-climb-run-2026';
 DELETE FROM race_entry_links WHERE race_id = 'mtfuji-climb-run-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'mtfuji-climb-run-2026';
 DELETE FROM race_results WHERE race_id = 'mtfuji-climb-run-2026';
@@ -4095,6 +4198,7 @@ DELETE FROM access_points WHERE race_id = 'nagai-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'nagai-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'nagai-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'nagai-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'nagai-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'nagai-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'nagai-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'nagai-marathon-2026';
@@ -4184,6 +4288,7 @@ DELETE FROM access_points WHERE race_id = 'nagoya-womens-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'nagoya-womens-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'nagoya-womens-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'nagoya-womens-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'nagoya-womens-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'nagoya-womens-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'nagoya-womens-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'nagoya-womens-marathon-2026';
@@ -4254,7 +4359,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('nagoya-womens-marathon-2026', 'グルメ', '名古屋めし', 'Nagoya Meshi', '味噌カツ、ひつまぶし、手羽先など名古屋名物が充実。レース後のご褒美に。', 'Miso katsu, hitsumabushi, chicken wings and more Nagoya specialties. A reward after the race.', '名古屋市内', NULL, 35.1709, 136.8815);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('nagoya-womens-marathon-2026', '["medal","goods"]', 'ティファニー オリジナルペンダント（完走者全員）', 'Tiffany original pendant (all finishers)', NULL, 0);
+  ('nagoya-womens-marathon-2026', '["goods"]', 'ティファニー オリジナルペンダント（完走者全員）', 'Tiffany original pendant (all finishers)', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('nagoya-womens-marathon-2026', '["medal"]', 'ティファニー オリジナルペンダント（完走者全員）', 'Tiffany original pendant (all finishers)', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('nagoya-womens-marathon-2026', NULL, NULL, '名古屋ドーム（バンテリンドーム ナゴヤ）', 'Nagoya Dome (Vantelin Dome Nagoya)', NULL, NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -4271,6 +4378,7 @@ DELETE FROM access_points WHERE race_id = 'naha-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'naha-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'naha-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'naha-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'naha-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'naha-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'naha-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'naha-marathon-2026';
@@ -4341,7 +4449,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('naha-marathon-2026', 'グルメ', '沖縄そば', 'Okinawa Soba', '沖縄を代表するご当地グルメ。あっさりとしたスープと太麺が特徴。レース後のエネルギー補給に。', 'Okinawa''s signature local dish. Characterized by light broth and thick noodles. Perfect for post-race energy.', '那覇市内各所', NULL, 26.3344, 127.7679);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('naha-marathon-2026', '["medal","tshirt"]', '大会オリジナルTシャツ、完走メダル', 'Official race T-shirt, Finisher medal', NULL, 0);
+  ('naha-marathon-2026', '["tshirt"]', '大会オリジナルTシャツ、完走メダル', 'Official race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('naha-marathon-2026', '["medal"]', '大会オリジナルTシャツ、完走メダル', 'Official race T-shirt, Finisher medal', NULL, 0);
 
 -- ==================
 -- 奈良マラソン (nara-marathon-2026)
@@ -4354,6 +4464,7 @@ DELETE FROM access_points WHERE race_id = 'nara-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'nara-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'nara-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'nara-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'nara-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'nara-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'nara-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'nara-marathon-2026';
@@ -4424,7 +4535,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('nara-marathon-2026', '温泉', 'ゆららの湯 奈良店', 'Yurara no Yu Nara', '奈良市内の日帰り温泉施設。レース後のリカバリーに便利。', 'A day-trip hot spring facility in Nara city. Convenient for post-race recovery.', '奈良市内', NULL, 34.6851, 135.8048);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('nara-marathon-2026', '["tshirt","medal","towel"]', '大会オリジナルTシャツ、完走メダル、フィニッシャータオル', 'Official race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+  ('nara-marathon-2026', '["tshirt","towel"]', '大会オリジナルTシャツ、完走メダル、フィニッシャータオル', 'Official race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('nara-marathon-2026', '["medal"]', '大会オリジナルTシャツ、完走メダル、フィニッシャータオル', 'Official race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('nara-marathon-2026', NULL, NULL, '東大寺', 'Todai-ji', NULL, NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -4445,6 +4558,7 @@ DELETE FROM access_points WHERE race_id = 'niigata-city-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'niigata-city-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'niigata-city-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'niigata-city-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'niigata-city-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'niigata-city-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'niigata-city-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'niigata-city-marathon-2026';
@@ -4528,6 +4642,7 @@ DELETE FROM access_points WHERE race_id = 'nishio-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'nishio-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'nishio-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'nishio-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'nishio-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'nishio-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'nishio-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'nishio-marathon-2026';
@@ -4609,6 +4724,7 @@ DELETE FROM access_points WHERE race_id = 'okayama-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'okayama-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'okayama-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'okayama-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'okayama-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'okayama-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'okayama-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'okayama-marathon-2026';
@@ -4678,7 +4794,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('okayama-marathon-2026', '観光地', '後楽園', 'Korakuen Garden', '日本三名園の一つ。岡山城とセットで訪れたい。', 'One of Japan''s three most beautiful gardens. Visit together with Okayama Castle.', 'コース付近', NULL, 34.6694, 133.9356);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('okayama-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('okayama-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('okayama-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('okayama-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-16', '2026-05-18', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -4697,6 +4815,7 @@ DELETE FROM access_points WHERE race_id = 'okushinano100-2026';
 DELETE FROM nearby_spots WHERE race_id = 'okushinano100-2026';
 DELETE FROM weather_history WHERE race_id = 'okushinano100-2026';
 DELETE FROM participation_gifts WHERE race_id = 'okushinano100-2026';
+DELETE FROM completion_gifts WHERE race_id = 'okushinano100-2026';
 DELETE FROM race_entry_links WHERE race_id = 'okushinano100-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'okushinano100-2026';
 DELETE FROM race_results WHERE race_id = 'okushinano100-2026';
@@ -4799,6 +4918,7 @@ DELETE FROM access_points WHERE race_id = 'osaka-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'osaka-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'osaka-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'osaka-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'osaka-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'osaka-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'osaka-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'osaka-marathon-2026';
@@ -4871,7 +4991,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('osaka-marathon-2026', '温泉', 'スパワールド世界の大温泉', 'Spa World', '通天閣近くの大型温泉施設。レース後のリカバリーに。コースの近くにあり便利。', 'A large hot spring facility near Tsutenkaku. Convenient for post-race recovery, located near the course.', '通天閣付近', NULL, 34.6522, 135.5064);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('osaka-marathon-2026', '["tshirt","medal","towel"]', '参加記念Tシャツ、完走メダル、フィニッシャータオル', 'Commemorative T-shirt, Finisher medal, Finisher towel', NULL, 0);
+  ('osaka-marathon-2026', '["tshirt","towel"]', '参加記念Tシャツ、完走メダル、フィニッシャータオル', 'Commemorative T-shirt, Finisher medal, Finisher towel', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('osaka-marathon-2026', '["medal"]', '参加記念Tシャツ、完走メダル、フィニッシャータオル', 'Commemorative T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('osaka-marathon-2026', NULL, NULL, '大阪城', 'Osaka Castle', NULL, NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -4892,6 +5014,7 @@ DELETE FROM access_points WHERE race_id = 'osaka-yodo-river-citizens-marathon-20
 DELETE FROM nearby_spots WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
@@ -4989,6 +5112,7 @@ DELETE FROM access_points WHERE race_id = 'osj-ontake100-2026';
 DELETE FROM nearby_spots WHERE race_id = 'osj-ontake100-2026';
 DELETE FROM weather_history WHERE race_id = 'osj-ontake100-2026';
 DELETE FROM participation_gifts WHERE race_id = 'osj-ontake100-2026';
+DELETE FROM completion_gifts WHERE race_id = 'osj-ontake100-2026';
 DELETE FROM race_entry_links WHERE race_id = 'osj-ontake100-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'osj-ontake100-2026';
 DELETE FROM race_results WHERE race_id = 'osj-ontake100-2026';
@@ -5074,6 +5198,7 @@ DELETE FROM access_points WHERE race_id = 'sado-toki-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'sado-toki-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'sado-toki-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'sado-toki-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'sado-toki-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'sado-toki-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'sado-toki-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'sado-toki-marathon-2026';
@@ -5144,7 +5269,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('sado-toki-marathon-2026', '観光地', 'トキの森公園', 'Toki no Mori Park', '国の特別天然記念物トキを間近で観察できる施設。大会のモチーフであるトキに会える。', 'A facility to observe the crested ibis, a national special natural monument, up close.', '佐渡島内', NULL, 38.0333, 138.3667);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('sado-toki-marathon-2026', '["medal","tshirt","local_product"]', '大会Tシャツ、完走メダル、佐渡の特産品', 'Race T-shirt, Finisher medal, Sado Island local products', NULL, 0);
+  ('sado-toki-marathon-2026', '["tshirt","local_product"]', '大会Tシャツ、完走メダル、佐渡の特産品', 'Race T-shirt, Finisher medal, Sado Island local products', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('sado-toki-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル、佐渡の特産品', 'Race T-shirt, Finisher medal, Sado Island local products', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('sado-toki-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-12-01', '2026-03-22', NULL, 0);
 
@@ -5159,6 +5286,7 @@ DELETE FROM access_points WHERE race_id = 'saga-sakura-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'saga-sakura-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'saga-sakura-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'saga-sakura-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'saga-sakura-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'saga-sakura-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'saga-sakura-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'saga-sakura-marathon-2026';
@@ -5227,7 +5355,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('saga-sakura-marathon-2026', '観光地', '吉野ヶ里遺跡', 'Yoshinogari Ruins', '弥生時代の大規模環濠集落遺跡。国の特別史跡。佐賀市から近い。', 'A large-scale Yayoi period moated settlement. National Special Historic Site. Close to Saga city.', '佐賀市から車約20分', NULL, 33.3167, 130.3833);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('saga-sakura-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('saga-sakura-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('saga-sakura-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('saga-sakura-marathon-2026', NULL, NULL, '桜並木', 'Cherry blossom trees', NULL, NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -5244,6 +5374,7 @@ DELETE FROM access_points WHERE race_id = 'saitama-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'saitama-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'saitama-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'saitama-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'saitama-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'saitama-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'saitama-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'saitama-marathon-2026';
@@ -5323,6 +5454,7 @@ DELETE FROM access_points WHERE race_id = 'sapporo-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'sapporo-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'sapporo-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'sapporo-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'sapporo-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'sapporo-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'sapporo-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'sapporo-marathon-2026';
@@ -5411,6 +5543,7 @@ DELETE FROM access_points WHERE race_id = 'shiga-kogen100-2026';
 DELETE FROM nearby_spots WHERE race_id = 'shiga-kogen100-2026';
 DELETE FROM weather_history WHERE race_id = 'shiga-kogen100-2026';
 DELETE FROM participation_gifts WHERE race_id = 'shiga-kogen100-2026';
+DELETE FROM completion_gifts WHERE race_id = 'shiga-kogen100-2026';
 DELETE FROM race_entry_links WHERE race_id = 'shiga-kogen100-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'shiga-kogen100-2026';
 DELETE FROM race_results WHERE race_id = 'shiga-kogen100-2026';
@@ -5587,6 +5720,7 @@ DELETE FROM access_points WHERE race_id = 'shimada-oigawa-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'shimada-oigawa-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'shimada-oigawa-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'shimada-oigawa-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'shimada-oigawa-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'shimada-oigawa-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'shimada-oigawa-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'shimada-oigawa-marathon-2026';
@@ -5676,6 +5810,7 @@ DELETE FROM access_points WHERE race_id = 'shinetsu5mountains-trail-100-2026';
 DELETE FROM nearby_spots WHERE race_id = 'shinetsu5mountains-trail-100-2026';
 DELETE FROM weather_history WHERE race_id = 'shinetsu5mountains-trail-100-2026';
 DELETE FROM participation_gifts WHERE race_id = 'shinetsu5mountains-trail-100-2026';
+DELETE FROM completion_gifts WHERE race_id = 'shinetsu5mountains-trail-100-2026';
 DELETE FROM race_entry_links WHERE race_id = 'shinetsu5mountains-trail-100-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'shinetsu5mountains-trail-100-2026';
 DELETE FROM race_results WHERE race_id = 'shinetsu5mountains-trail-100-2026';
@@ -5768,6 +5903,7 @@ DELETE FROM access_points WHERE race_id = 'shizuoka-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'shizuoka-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'shizuoka-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'shizuoka-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'shizuoka-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'shizuoka-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'shizuoka-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'shizuoka-marathon-2026';
@@ -5836,7 +5972,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('shizuoka-marathon-2026', '観光地', '三保松原', 'Miho no Matsubara', '世界遺産「富士山」の構成資産。松林越しの富士山の眺望が美しい。', 'Part of the World Heritage ''Mt. Fuji''. Beautiful views of Mt. Fuji through pine groves.', '静岡市内から車約30分', NULL, 35.0136, 138.5167);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('shizuoka-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('shizuoka-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('shizuoka-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 
 -- ==================
 -- 湘南国際マラソン (shonan-international-marathon-2026)
@@ -5849,6 +5987,7 @@ DELETE FROM access_points WHERE race_id = 'shonan-international-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'shonan-international-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'shonan-international-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'shonan-international-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'shonan-international-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'shonan-international-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'shonan-international-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'shonan-international-marathon-2026';
@@ -5919,7 +6058,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('shonan-international-marathon-2026', '観光地', '江の島', 'Enoshima', 'コースの折り返し地点付近。湘南のシンボル。しらす丼やサザエが名物。', 'Near the turnaround point. Symbol of Shonan. Famous for shirasu bowl and turban shell.', 'コース折り返し付近', NULL, 35.2994, 139.4806);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('shonan-international-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('shonan-international-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('shonan-international-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('shonan-international-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-04', '2026-09-09', 16000, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -5936,6 +6077,7 @@ DELETE FROM access_points WHERE race_id = 'soja-kibiji-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'soja-kibiji-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'soja-kibiji-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'soja-kibiji-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'soja-kibiji-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'soja-kibiji-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'soja-kibiji-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'soja-kibiji-marathon-2026';
@@ -6007,7 +6149,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('soja-kibiji-marathon-2026', '観光地', '備中国分寺五重塔', 'Bitchu Kokubunji Five-Story Pagoda', '吉備路のシンボル。コース上から望める。田園風景の中に立つ姿が美しい。', 'Symbol of Kibiji. Visible from the course. Beautiful standing among rice paddies.', 'コース上', NULL, 34.65, 133.7833);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('soja-kibiji-marathon-2026', '["medal","tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('soja-kibiji-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('soja-kibiji-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('soja-kibiji-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-10-01', '2026-01-03', 9100, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -6028,6 +6172,7 @@ DELETE FROM access_points WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
@@ -6113,6 +6258,7 @@ DELETE FROM access_points WHERE race_id = 'tateyama-wakashio-2026';
 DELETE FROM nearby_spots WHERE race_id = 'tateyama-wakashio-2026';
 DELETE FROM weather_history WHERE race_id = 'tateyama-wakashio-2026';
 DELETE FROM participation_gifts WHERE race_id = 'tateyama-wakashio-2026';
+DELETE FROM completion_gifts WHERE race_id = 'tateyama-wakashio-2026';
 DELETE FROM race_entry_links WHERE race_id = 'tateyama-wakashio-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'tateyama-wakashio-2026';
 DELETE FROM race_results WHERE race_id = 'tateyama-wakashio-2026';
@@ -6183,7 +6329,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('tateyama-wakashio-2026', 'グルメ', '房総の海鮮', 'Boso Seafood', '新鮮な海鮮が楽しめる。特に寿司や刺身がおすすめ。', 'Fresh seafood. Sushi and sashimi are especially recommended.', '館山市内', NULL, 34.9997, 139.8697);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('tateyama-wakashio-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('tateyama-wakashio-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('tateyama-wakashio-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('tateyama-wakashio-2026', NULL, NULL, '房総の海岸線', 'Boso coastline', NULL, NULL, 0);
 
@@ -6198,6 +6346,7 @@ DELETE FROM access_points WHERE race_id = 'tazawako-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'tazawako-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'tazawako-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'tazawako-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'tazawako-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'tazawako-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'tazawako-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'tazawako-marathon-2026';
@@ -6284,6 +6433,7 @@ DELETE FROM access_points WHERE race_id = 'tokushima-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'tokushima-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'tokushima-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'tokushima-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'tokushima-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'tokushima-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'tokushima-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'tokushima-marathon-2026';
@@ -6352,7 +6502,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('tokushima-marathon-2026', '観光地', '鳴門の渦潮', 'Naruto Whirlpools', '世界三大潮流の一つ。大鳴門橋の遊歩道から渦潮を観察できる。', 'One of the world''s three great tidal currents. Observe whirlpools from the Onaruto Bridge walkway.', '徳島市から車約1時間', NULL, 34.2333, 134.6333);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('tokushima-marathon-2026', '["tshirt","medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('tokushima-marathon-2026', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('tokushima-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('tokushima-marathon-2026', NULL, NULL, '吉野川', 'Yoshino River', NULL, NULL, 0);
 
@@ -6367,6 +6519,7 @@ DELETE FROM access_points WHERE race_id = 'tokyo-legacy-half-2026';
 DELETE FROM nearby_spots WHERE race_id = 'tokyo-legacy-half-2026';
 DELETE FROM weather_history WHERE race_id = 'tokyo-legacy-half-2026';
 DELETE FROM participation_gifts WHERE race_id = 'tokyo-legacy-half-2026';
+DELETE FROM completion_gifts WHERE race_id = 'tokyo-legacy-half-2026';
 DELETE FROM race_entry_links WHERE race_id = 'tokyo-legacy-half-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'tokyo-legacy-half-2026';
 DELETE FROM race_results WHERE race_id = 'tokyo-legacy-half-2026';
@@ -6504,7 +6657,9 @@ Competition Classes:
 
 Translated with DeepL.com (free version)', NULL, '[]', 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('tokyo-legacy-half-2026', '["medal","goods"]', '', '', NULL, 0);
+  ('tokyo-legacy-half-2026', '["goods"]', '', '', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('tokyo-legacy-half-2026', '["medal"]', '', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('tokyo-legacy-half-2026', NULL, 'ジャパンプレミアハーフ優先エントリー', 'General Entry', '2026-05-18', '2026-05-25', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -6521,6 +6676,7 @@ DELETE FROM access_points WHERE race_id = 'tokyo-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'tokyo-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'tokyo-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'tokyo-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'tokyo-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'tokyo-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'tokyo-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'tokyo-marathon-2026';
@@ -6597,7 +6753,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('tokyo-marathon-2026', 'グルメ', '東京駅周辺グルメ', 'Tokyo Station Area Dining', 'フィニッシュ地点の東京駅周辺には多数の飲食店。レース後の打ち上げに最適。', 'Numerous restaurants around Tokyo Station at the finish. Perfect for post-race celebrations.', 'フィニッシュ地点周辺', NULL, 35.6812, 139.7671);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('tokyo-marathon-2026', '["medal","tshirt","towel"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
+  ('tokyo-marathon-2026', '["tshirt","towel"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('tokyo-marathon-2026', '["medal"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('tokyo-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-15', '2025-08-29', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -6624,6 +6782,7 @@ DELETE FROM access_points WHERE race_id = 'tokyo-marathon-2027';
 DELETE FROM nearby_spots WHERE race_id = 'tokyo-marathon-2027';
 DELETE FROM weather_history WHERE race_id = 'tokyo-marathon-2027';
 DELETE FROM participation_gifts WHERE race_id = 'tokyo-marathon-2027';
+DELETE FROM completion_gifts WHERE race_id = 'tokyo-marathon-2027';
 DELETE FROM race_entry_links WHERE race_id = 'tokyo-marathon-2027';
 DELETE FROM race_entry_periods WHERE race_id = 'tokyo-marathon-2027';
 DELETE FROM race_results WHERE race_id = 'tokyo-marathon-2027';
@@ -6700,7 +6859,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('tokyo-marathon-2027', 'グルメ', '東京駅周辺グルメ', 'Tokyo Station Area Dining', 'フィニッシュ地点の東京駅周辺には多数の飲食店。レース後の打ち上げに最適。', 'Numerous restaurants around Tokyo Station at the finish. Perfect for post-race celebrations.', 'フィニッシュ地点周辺', NULL, 35.6812, 139.7671);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('tokyo-marathon-2027', '["medal","tshirt","towel"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
+  ('tokyo-marathon-2027', '["tshirt","towel"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('tokyo-marathon-2027', '["medal"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('tokyo-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-08-14', '2026-08-28', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -6727,6 +6888,7 @@ DELETE FROM access_points WHERE race_id = 'tomisato-suikaroad-2026';
 DELETE FROM nearby_spots WHERE race_id = 'tomisato-suikaroad-2026';
 DELETE FROM weather_history WHERE race_id = 'tomisato-suikaroad-2026';
 DELETE FROM participation_gifts WHERE race_id = 'tomisato-suikaroad-2026';
+DELETE FROM completion_gifts WHERE race_id = 'tomisato-suikaroad-2026';
 DELETE FROM race_entry_links WHERE race_id = 'tomisato-suikaroad-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'tomisato-suikaroad-2026';
 DELETE FROM race_results WHERE race_id = 'tomisato-suikaroad-2026';
@@ -6812,6 +6974,7 @@ DELETE FROM access_points WHERE race_id = 'tottori-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'tottori-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'tottori-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'tottori-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'tottori-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'tottori-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'tottori-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'tottori-marathon-2026';
@@ -6880,7 +7043,16 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('tottori-marathon-2026', '観光地', '鳥取砂丘', 'Tottori Sand Dunes', '日本最大級の砂丘。起伏のある広大な砂の風景は圧巻。パラグライダーやラクダ乗りも。', 'Japan''s largest sand dunes. Vast sandy landscape. Paragliding and camel rides available.', '会場から車約15分', NULL, 35.5411, 134.2289);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('tottori-marathon-2026', '["medal","tshirt","towel","local_product"]', '大会Tシャツ
+  ('tottori-marathon-2026', '["tshirt","towel","local_product"]', '大会Tシャツ
+●完走賞
+・完走証
+・特別メダル
+・フィニッシャータオル
+・鳥取のお土産
+・スポンサードリンク
+', 'Race T-shirt', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('tottori-marathon-2026', '["medal"]', '大会Tシャツ
 ●完走賞
 ・完走証
 ・特別メダル
@@ -6906,6 +7078,7 @@ DELETE FROM access_points WHERE race_id = 'toyako-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'toyako-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'toyako-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'toyako-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'toyako-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'toyako-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'toyako-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'toyako-marathon-2026';
@@ -6976,7 +7149,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('toyako-marathon-2026', '観光地', '有珠山・昭和新山', 'Mt. Usu & Showa-Shinzan', '活火山とその噴火で誕生した昭和新山。ロープウェイで山頂へ。洞爺湖を一望。', 'An active volcano and Showa-Shinzan born from its eruption. Ropeway to the summit with panoramic lake views.', '洞爺湖温泉から車約10分', NULL, 42.5389, 140.8411);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('toyako-marathon-2026', '["medal","tshirt"]', '大会Tシャツとトートバッグ及びフェイスタオル、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('toyako-marathon-2026', '["tshirt"]', '大会Tシャツとトートバッグ及びフェイスタオル、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('toyako-marathon-2026', '["medal"]', '大会Tシャツとトートバッグ及びフェイスタオル、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('toyako-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-02-01', '2026-03-08', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -6995,6 +7170,7 @@ DELETE FROM access_points WHERE race_id = 'toyama-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'toyama-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'toyama-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'toyama-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'toyama-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'toyama-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'toyama-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'toyama-marathon-2026';
@@ -7065,7 +7241,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('toyama-marathon-2026', 'グルメ', '富山ブラックラーメン・白えび', 'Toyama Black Ramen & White Shrimp', '富山名物の濃い醤油ラーメンと、富山湾の宝石・白えび。', 'Toyama''s dark soy sauce ramen and white shrimp, jewels of Toyama Bay.', '富山市内', NULL, 36.6953, 137.2113);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('toyama-marathon-2026', '["medal","tshirt","towel"]', '大会Tシャツ、完走メダル・フィニッシャータオル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('toyama-marathon-2026', '["tshirt","towel"]', '大会Tシャツ、完走メダル・フィニッシャータオル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('toyama-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル・フィニッシャータオル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('toyama-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-11', '2026-06-30', 14000, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -7086,6 +7264,7 @@ DELETE FROM access_points WHERE race_id = 'tsukuba-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'tsukuba-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'tsukuba-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'tsukuba-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'tsukuba-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'tsukuba-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'tsukuba-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'tsukuba-marathon-2026';
@@ -7169,6 +7348,7 @@ DELETE FROM access_points WHERE race_id = 'wakkanai-peace-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'wakkanai-peace-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'wakkanai-peace-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'wakkanai-peace-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'wakkanai-peace-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'wakkanai-peace-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'wakkanai-peace-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'wakkanai-peace-marathon-2026';
@@ -7239,7 +7419,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('wakkanai-peace-marathon-2026', '温泉', '童夢', 'Domu Hot Spring', '稚内市内の温泉施設。レース後のリカバリーに。', 'Hot spring facility in Wakkanai. Great for post-race recovery.', '稚内市内', NULL, 45.4167, 141.6722);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('wakkanai-peace-marathon-2026', '["medal","tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
+  ('wakkanai-peace-marathon-2026', '["tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('wakkanai-peace-marathon-2026', '["medal"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('wakkanai-peace-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-06-30', 10000, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -7260,6 +7442,7 @@ DELETE FROM access_points WHERE race_id = 'yokohama-marathon-2026';
 DELETE FROM nearby_spots WHERE race_id = 'yokohama-marathon-2026';
 DELETE FROM weather_history WHERE race_id = 'yokohama-marathon-2026';
 DELETE FROM participation_gifts WHERE race_id = 'yokohama-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'yokohama-marathon-2026';
 DELETE FROM race_entry_links WHERE race_id = 'yokohama-marathon-2026';
 DELETE FROM race_entry_periods WHERE race_id = 'yokohama-marathon-2026';
 DELETE FROM race_results WHERE race_id = 'yokohama-marathon-2026';
@@ -7330,7 +7513,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('yokohama-marathon-2026', 'グルメ', '横浜中華街', 'Yokohama Chinatown', '日本最大の中華街。レース後の食べ歩きに最適。', 'Japan''s largest Chinatown. Perfect for post-race food tours.', 'みなとみらいから徒歩約15分', NULL, 35.4422, 139.6453);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('yokohama-marathon-2026', '["medal","tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+  ('yokohama-marathon-2026', '["tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('yokohama-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('yokohama-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-08', '2026-05-17', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES

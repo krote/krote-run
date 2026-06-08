@@ -86,7 +86,6 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "medal",
         "goods"
       ],
       "description_ja": "ティファニー オリジナルペンダント（完走者全員）",
@@ -152,6 +151,16 @@
     {
       "url": "https://womens-marathon.nagoya/course/",
       "label": "コース情報"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "ティファニー オリジナルペンダント（完走者全員）",
+      "description_en": "Tiffany original pendant (all finishers)",
+      "image": null
     }
   ]
 }

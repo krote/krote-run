@@ -78,11 +78,10 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "tshirt",
-        "towel"
+        "tshirt"
       ],
-      "description_ja": "大会Tシャツ、完走メダル、フィニッシャータオル",
-      "description_en": "Race T-shirt, Finisher medal, Finisher towel",
+      "description_ja": "大会Tシャツ",
+      "description_en": "Race T-shirt",
       "image": null
     }
   ],
@@ -150,10 +149,11 @@
   "completion_gifts": [
     {
       "gift_categories": [
-        "medal"
+        "medal",
+        "towel"
       ],
-      "description_ja": "大会Tシャツ、完走メダル、フィニッシャータオル",
-      "description_en": "Race T-shirt, Finisher medal, Finisher towel",
+      "description_ja": "完走メダル、フィニッシャータオル",
+      "description_en": "Finisher medal, Finisher towel",
       "image": null
     }
   ]

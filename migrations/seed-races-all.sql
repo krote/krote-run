@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-06-07T14:20:37.173Z
--- 対象ファイル数: 80 件（既存 2 件はskip）
+-- 生成日時: 2026-06-08T14:12:33.614Z
+-- 対象ファイル数: 81 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -890,9 +890,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fujisan-marathon-2026', '温泉', '河口湖温泉', 'Lake Kawaguchi Onsen', '河口湖畔の温泉。富士山を望む露天風呂が魅力。レース後に最適。', 'Hot springs on the shore of Lake Kawaguchi. Open-air baths with Mt. Fuji views.', '会場付近', NULL, 35.51, 138.75);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('fujisan-marathon-2026', '["tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+  ('fujisan-marathon-2026', '["tshirt"]', '大会Tシャツ', 'Race T-shirt', NULL, 0);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('fujisan-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+  ('fujisan-marathon-2026', '["medal","towel"]', '完走メダル、フィニッシャータオル', 'Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
   ('fujisan-marathon-2026', 'RUNNET', 'https://runnet.jp/parts/2026/392477/entry2.html', 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -4712,6 +4712,83 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('nishio-marathon-2026', 'グルメ', '西尾の抹茶スイーツ', 'Nishio Matcha Sweets', '日本有数の抹茶産地・西尾ならではの抹茶グルメが充実。', 'Nishio, one of Japan''s top matcha producing areas, offers rich matcha cuisine.', '西尾市内', NULL, 34.8667, 137.0667);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('nishio-marathon-2026', '["tshirt","local_product"]', '大会Tシャツ、抹茶関連の特産品', 'Race T-shirt, Matcha-related local products', NULL, 0);
+
+-- ==================
+-- 大田原マラソン (ohtawara-marathon-2026)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'ohtawara-marathon-2026';
+DELETE FROM race_categories WHERE race_id = 'ohtawara-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'ohtawara-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'ohtawara-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'ohtawara-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'ohtawara-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'ohtawara-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'ohtawara-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'ohtawara-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'ohtawara-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'ohtawara-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'ohtawara-marathon-2026';
+DELETE FROM race_gallery WHERE race_id = 'ohtawara-marathon-2026';
+DELETE FROM race_voices WHERE race_id = 'ohtawara-marathon-2026';
+DELETE FROM race_time_buckets WHERE race_id = 'ohtawara-marathon-2026';
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  created_at, updated_at
+) VALUES (
+  'ohtawara-marathon-2026',
+  '大田原マラソン',
+  'Ohtawara Marathon',
+  '2026-11-23',
+  '09',
+  'DI STADIUM（美原公園陸上競技場）',
+  '',
+  '',
+  '',
+  'https://www.ohtawara-marathon.com/',
+  NULL,
+  1,
+  0,
+  NULL,
+  NULL,
+  0,
+  'pre_mail',
+  '当日受付の必要はありません。
+事前に送付（申込時の住所）するアスリートビブス、計測チップを装着し、号砲時刻20分前までにスタート地点に整列してください。',
+  '',
+  '[]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '',
+  '',
+  '',
+  '',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  '2026-06-08T14:04:29.954Z',
+  '2026-06-08T14:04:29.954Z'
+);
 
 -- ==================
 -- おかやまマラソン (okayama-marathon-2026)

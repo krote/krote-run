@@ -1,0 +1,82 @@
+{
+  "id": "ohtawara-marathon-2026",
+  "name_ja": "大田原マラソン",
+  "name_en": "Ohtawara Marathon",
+  "full_name_ja": "第36回大田原マラソン2026",
+  "full_name_en": "Ohtawara Marathon",
+  "edition": 36,
+  "date": "2026-11-23",
+  "prefecture": "09",
+  "city_ja": "DI STADIUM（美原公園陸上競技場）",
+  "city_en": "",
+  "description_ja": "",
+  "description_en": "",
+  "official_url": "https://www.ohtawara-marathon.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": "pre_mail",
+  "reception_note_ja": "当日受付の必要はありません。\n事前に送付（申込時の住所）するアスリートビブス、計測チップを装着し、号砲時刻20分前までにスタート地点に整列してください。",
+  "reception_note_en": "",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "",
+    "highlights_en": "",
+    "notes_ja": "",
+    "notes_en": ""
+  },
+  "categories": [],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "result": null,
+  "created_at": "2026-06-08T14:04:29.954Z",
+  "updated_at": "2026-06-08T14:04:29.954Z",
+  "info_urls": [
+    {
+      "url": "https://www.ohtawara-marathon.com/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.ohtawara-marathon.com/feature/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.ohtawara-marathon.com/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.ohtawara-marathon.com/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.ohtawara-marathon.com/contact/",
+      "label": "FAQ"
+    }
+  ],
+  "entry_periods": [],
+  "entry_closed": false,
+  "entry_links": [],
+  "participation_gifts": [],
+  "completion_gifts": [],
+  "motif": null,
+  "motif_romaji": null,
+  "motif_color": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": []
+}

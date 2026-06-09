@@ -27,11 +27,13 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [],
-    "highlights_ja": "",
-    "highlights_en": "",
-    "notes_ja": "",
-    "notes_en": ""
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "ハーフマラソン・10kmは日本陸上競技連盟公認コース。豊平川沿いの河川敷や市街地を走る平坦なコース。真駒内セキスイハイムスタジアムをスタート・フィニッシュ地点とする。",
+    "highlights_en": "Half marathon and 10km courses are certified by the Japan Association of Athletics Federations (JAAF). Flat course along the Toyohira River and city streets, starting and finishing at Makomanai Sekisui Heim Stadium.",
+    "notes_ja": "ハーフマラソン・10km種目はマイボトル・マイカップ必携（給水はセルフ形式）。",
+    "notes_en": "My bottle or my cup is required for half marathon and 10km participants (self-service hydration stations)."
   },
   "categories": [
     {
@@ -67,14 +69,39 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-05-15T14:40:14.753Z",
-  "updated_at": "2026-05-30T06:41:49.778Z",
+  "updated_at": "2026-06-08T14:40:01.427Z",
   "entry_periods": [
     {
+      "label_ja": "JPHS優先エントリー",
+      "label_en": "JPHS Priority Entry",
+      "start_date": "2026-05-15",
+      "end_date": "2026-05-22",
+      "entry_fee": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "スペシャルエントリーデイ",
+      "label_en": "Special Entry Day",
+      "start_date": "2026-05-22",
+      "end_date": "2026-05-22",
+      "entry_fee": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
       "start_date": "2026-05-23",
       "end_date": "2026-07-11",
+      "entry_fee": 8000,
+      "sort_order": 2
+    },
+    {
+      "label_ja": "ふるさと納税枠（ハーフマラソンのみ）",
+      "label_en": "Hometown Tax Donation Entry (Half Marathon only)",
+      "start_date": "2026-05-23",
+      "end_date": "2026-06-28",
       "entry_fee": null,
-      "label_ja": "",
-      "label_en": ""
+      "sort_order": 3
     }
   ],
   "entry_closed": false,
@@ -132,9 +159,10 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-06-08",
     "data_accuracy_notes": [
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-06-08: 自動クロールで更新"
     ]
   }
 }

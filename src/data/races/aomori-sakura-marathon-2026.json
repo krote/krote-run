@@ -30,7 +30,9 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [],
+    "certification": [
+      "jaaf"
+    ],
     "highlights_ja": "八甲田山、陸奥湾、桜並木",
     "highlights_en": "Mt. Hakkoda, Mutsu Bay, cherry blossom trees",
     "notes_ja": null,
@@ -84,21 +86,22 @@
       "gift_categories": [
         "tshirt"
       ],
-      "description_ja": "大会Tシャツ、完走メダル",
-      "description_en": "Race T-shirt, Finisher medal",
+      "description_ja": "参加記念Tシャツ",
+      "description_en": "Commemorative T-shirt",
       "image": null
     }
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-05-25T01:16:54.322Z",
+  "updated_at": "2026-06-08T14:29:28.845Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-05-25: 自動クロールで更新"
+      "2026-05-25: 自動クロールで更新",
+      "2026-06-08: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-25",
+    "last_verified": "2026-06-08",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -166,10 +169,10 @@
   "completion_gifts": [
     {
       "gift_categories": [
-        "medal"
+        "towel"
       ],
-      "description_ja": "大会Tシャツ、完走メダル",
-      "description_en": "Race T-shirt, Finisher medal",
+      "description_ja": "フィニッシャーズタオル",
+      "description_en": "Finisher's towel",
       "image": null
     }
   ]

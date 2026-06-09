@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-06-09T14:29:01.713Z
+-- 生成日時: 2026-06-09T15:13:31.553Z
 -- 対象ファイル数: 81 件（既存 2 件はskip）
 
 -- ==================
@@ -235,7 +235,7 @@ INSERT OR REPLACE INTO races (
   0,
   0,
   'road',
-  '["jaaf"]',
+  '["JAAF"]',
   '八甲田山、陸奥湾、桜並木',
   'Mt. Hakkoda, Mutsu Bay, cherry blossom trees',
   NULL,
@@ -2469,7 +2469,7 @@ Translated with DeepL.com (free version)',
   0,
   0,
   'road',
-  '["jaaf"]',
+  '["JAAF"]',
   'きたぎんボールパーク発着。岩手山、鮭が遡る川、城跡・城下町の古きよき街並の中心市街地と新市街地を走るコース',
   'Start and finish at Kitagin Ballpark. A course through Morioka''s historic castle town streets, riverside scenery with salmon runs, and new city developments beneath Mt. Iwate.',
   '',
@@ -4066,7 +4066,7 @@ INSERT OR REPLACE INTO races (
   0,
   0,
   'road',
-  '["jaaf","world-athletics"]',
+  '["JAAF","world-athletics"]',
   '偕楽園、千波湖',
   'Kairakuen Garden, Lake Senba',
   NULL,
@@ -6167,7 +6167,7 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('shonan-international-marathon-2026', '["medal"]', '完走メダル', 'Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('shonan-international-marathon-2026', NULL, '一次募集', 'General Entry', '2026-04-04', '2026-09-09', 16000, 0);
+  ('shonan-international-marathon-2026', NULL, '一次募集', 'First Round Entry', '2026-04-04', '2026-09-09', 16000, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('shonan-international-marathon-2026', NULL, '二次募集', 'Secondary Entry', '2026-06-05', '2026-09-09', NULL, 1);
 

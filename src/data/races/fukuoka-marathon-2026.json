@@ -12,11 +12,11 @@
   "description_ja": "福岡市の中心部・天神をスタートし、糸島市までを走るフルマラソン。博多湾や玄界灘を望む海沿いのコースが続き、九州の大自然と都市の景観を同時に楽しめる。",
   "description_en": "A full marathon starting from Tenjin in central Fukuoka and finishing in Itoshima City. The course runs along the coast with views of Hakata Bay and the Genkai Sea.",
   "official_url": "https://www.f-marathon.jp/",
-  "entry_fee": 16000,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 15000,
   "entry_start_date": "2026-04-20",
-  "entry_end_date": "2026-07-24",
+  "entry_end_date": "2026-05-20",
   "reception_type": "pre_day",
   "reception_note_ja": "",
   "reception_note_en": "",
@@ -138,6 +138,14 @@
       "description_ja": "完走メダル、大会オリジナルTシャツ",
       "description_en": "Finisher medal, Official race T-shirt",
       "image": null
+    },
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "完走メダル、大会オリジナルTシャツ",
+      "description_en": "Finisher medal, Official race T-shirt",
+      "image": null
     }
   ],
   "result": null,
@@ -156,13 +164,11 @@
   },
   "entry_periods": [
     {
-      "label_ja": "",
-      "label_en": "",
       "start_date": "2026-04-20",
-      "end_date": "2026-07-24",
+      "end_date": "2026-05-20",
       "entry_fee": 16000,
-      "category_id": null,
-      "sort_order": 0
+      "label_ja": "",
+      "label_en": ""
     }
   ],
   "motif": "博多湾",

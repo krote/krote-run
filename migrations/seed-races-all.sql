@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-06-09T14:15:03.521Z
+-- 生成日時: 2026-06-09T14:29:01.713Z
 -- 対象ファイル数: 81 件（既存 2 件はskip）
 
 -- ==================
@@ -1226,11 +1226,11 @@ INSERT OR REPLACE INTO races (
   '福岡市の中心部・天神をスタートし、糸島市までを走るフルマラソン。博多湾や玄界灘を望む海沿いのコースが続き、九州の大自然と都市の景観を同時に楽しめる。',
   'A full marathon starting from Tenjin in central Fukuoka and finishing in Itoshima City. The course runs along the coast with views of Hakata Bay and the Genkai Sea.',
   'https://www.f-marathon.jp/',
-  16000,
+  NULL,
   1,
   15000,
   '2026-04-20',
-  '2026-07-24',
+  '2026-05-20',
   0,
   'pre_day',
   '',
@@ -1277,10 +1277,12 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('fukuoka-marathon-2026', '温泉', '二丈温泉きららの湯', 'Nijo Onsen Kirara no Yu', '糸島・二丈エリアの温泉施設。コース沿いでレース後のリカバリーに最適。', 'Hot spring facility in the Itoshima/Nijo area. Ideal for post-race recovery near the course.', '糸島市内', NULL, 33.54, 130.16);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('fukuoka-marathon-2026', '["tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('fukuoka-marathon-2026', '["medal"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 1);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('fukuoka-marathon-2026', '["medal"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('fukuoka-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-20', '2026-07-24', 16000, 0);
+  ('fukuoka-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-20', '2026-05-20', 16000, 0);
 
 -- ==================
 -- ぐんまマラソン (gunma-marathon-2026)

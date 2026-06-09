@@ -30,7 +30,10 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [],
+    "certification": [
+      "JAAF",
+      "world-athletics"
+    ],
     "highlights_ja": "偕楽園、千波湖",
     "highlights_en": "Kairakuen Garden, Lake Senba",
     "notes_ja": null,
@@ -78,31 +81,43 @@
       "gift_categories": [
         "tshirt"
       ],
-      "description_ja": "大会Tシャツ、完走メダル",
-      "description_en": "Race T-shirt, Finisher medal",
+      "description_ja": "参加賞Tシャツ（事前発送）",
+      "description_en": "Race T-shirt (pre-mailed)",
       "image": null
     }
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-05-30T06:38:20.579Z",
+  "updated_at": "2026-06-08T14:34:37.171Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-06-08: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-06-08",
     "detail_level": "medium"
   },
   "entry_periods": [
     {
+      "label_ja": "水戸市民先行枠",
+      "label_en": "Mito Citizens Priority Entry",
       "start_date": "2026-04-16",
+      "end_date": "2026-04-22",
+      "entry_fee": 10000,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "一般枠",
+      "label_en": "General Entry",
+      "start_date": "2026-04-24",
       "end_date": "2026-06-30",
-      "entry_fee": null,
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry"
+      "entry_fee": 10000,
+      "category_id": null,
+      "sort_order": 1
     }
   ],
   "entry_closed": true,
@@ -150,8 +165,8 @@
       "gift_categories": [
         "medal"
       ],
-      "description_ja": "大会Tシャツ、完走メダル",
-      "description_en": "Race T-shirt, Finisher medal",
+      "description_ja": "完走記念メダル（水戸黄門の印籠デザイン）",
+      "description_en": "Finisher medal (Mito Komon inro design)",
       "image": null
     }
   ]

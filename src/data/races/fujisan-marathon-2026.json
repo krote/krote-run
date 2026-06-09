@@ -15,7 +15,7 @@
   "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
-  "entry_start_date": "2026-05-07",
+  "entry_start_date": "2026-04-20",
   "entry_end_date": "2026-08-31",
   "reception_type": "pre_day",
   "reception_note_ja": "",
@@ -87,23 +87,62 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-03-16T00:00:00Z",
+  "updated_at": "2026-06-08T14:30:14.213Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
+      "2026-06-08: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-16",
+    "last_verified": "2026-06-08",
     "detail_level": "medium"
   },
   "entry_periods": [
     {
+      "label_ja": "富士河口湖町民限定エントリー",
+      "label_en": "Fujikawaguchiko Residents Entry",
+      "start_date": "2026-04-20",
+      "end_date": "2026-05-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "アーリーエントリー（国内在住者）",
+      "label_en": "Early Entry (Japanese Residents)",
+      "start_date": "2026-04-20",
+      "end_date": "2026-05-04",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "一般エントリー（国内在住者）",
+      "label_en": "General Entry (Japanese Residents)",
       "start_date": "2026-05-07",
       "end_date": "2026-08-31",
       "entry_fee": 12900,
-      "label_ja": "",
-      "label_en": ""
+      "category_id": null,
+      "sort_order": 2
+    },
+    {
+      "label_ja": "海外在住者ツアーエントリー",
+      "label_en": "Tour Package for International Residents",
+      "start_date": "2026-05-07",
+      "end_date": null,
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 3
+    },
+    {
+      "label_ja": "外国人居住者エントリー",
+      "label_en": "International Residents Entry",
+      "start_date": "2026-06-01",
+      "end_date": null,
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 4
     }
   ],
   "motif": "富士山",

@@ -28,10 +28,10 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [],
-    "highlights_ja": "",
-    "highlights_en": "",
-    "notes_ja": "",
-    "notes_en": ""
+    "highlights_ja": "淀川河川公園の河川敷のみを走るフラットコース。通常は通行できない淀川大堰を渡れる特徴がある。フルマラソン9:00・ハーフマラソン8:30・10km 13:00スタート。給水所7地点、救護所4地点設置。",
+    "highlights_en": "A flat course running entirely along the Yodo River riverbank park. Runners can cross the Yodo River Weir, normally closed to the public. Full marathon starts at 9:00, half at 8:30, 10km at 13:00. 7 water stations and 4 first-aid stations.",
+    "notes_ja": null,
+    "notes_en": null
   },
   "categories": [
     {
@@ -65,7 +65,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-11T14:42:59.225Z",
-  "updated_at": "2026-04-11T14:42:59.225Z",
+  "updated_at": "2026-06-08T14:38:38.451Z",
   "entry_periods": [
     {
       "start_date": "2026-04-17",
@@ -119,5 +119,11 @@
       "url": "https://www.osaka42195.com/runner/entry/",
       "label": "エントリー"
     }
-  ]
+  ],
+  "_metadata": {
+    "last_verified": "2026-06-08",
+    "data_accuracy_notes": [
+      "2026-06-08: 自動クロールで更新"
+    ]
+  }
 }

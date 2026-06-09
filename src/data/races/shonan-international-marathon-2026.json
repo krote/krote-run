@@ -92,21 +92,22 @@
       "gift_categories": [
         "tshirt"
       ],
-      "description_ja": "大会Tシャツ、完走メダル",
-      "description_en": "Race T-shirt, Finisher medal",
+      "description_ja": "THE NORTH FACE 大会オリジナルTシャツ（ショートスリーブ／スリーブレス選択）",
+      "description_en": "THE NORTH FACE original T-shirt (short sleeve or sleeveless)",
       "image": null
     }
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-03-16T00:00:00Z",
+  "updated_at": "2026-06-08T14:40:37.321Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新"
+      "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
+      "2026-06-08: 自動クロールで更新"
     ],
-    "last_verified": "2026-03-16",
+    "last_verified": "2026-06-08",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -114,8 +115,8 @@
       "start_date": "2026-04-04",
       "end_date": "2026-09-09",
       "entry_fee": 16000,
-      "label_ja": "",
-      "label_en": ""
+      "label_ja": "一次募集",
+      "label_en": "First Round Entry"
     },
     {
       "start_date": "2026-06-05",
@@ -165,8 +166,8 @@
       "gift_categories": [
         "medal"
       ],
-      "description_ja": "大会Tシャツ、完走メダル",
-      "description_en": "Race T-shirt, Finisher medal",
+      "description_ja": "完走メダル",
+      "description_en": "Finisher medal",
       "image": null
     }
   ]

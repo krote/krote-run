@@ -27,9 +27,11 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [],
-    "highlights_ja": "",
-    "highlights_en": "",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "きたぎんボールパーク発着。岩手山、鮭が遡る川、城跡・城下町の古きよき街並の中心市街地と新市街地を走るコース",
+    "highlights_en": "Start and finish at Kitagin Ballpark. A course through Morioka's historic castle town streets, riverside scenery with salmon runs, and new city developments beneath Mt. Iwate.",
     "notes_ja": "",
     "notes_en": ""
   },
@@ -49,7 +51,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-16T15:23:52.019Z",
-  "updated_at": "2026-05-30T06:35:52.274Z",
+  "updated_at": "2026-06-08T14:33:03.724Z",
   "entry_periods": [
     {
       "start_date": "2026-04-01",
@@ -59,16 +61,7 @@
       "label_en": "General Entry"
     }
   ],
-  "participation_gifts": [
-    {
-      "gift_categories": [
-        "towel"
-      ],
-      "description_ja": "完走賞\tフィニッシャータオル、南部鉄器製完走メダル",
-      "description_en": "",
-      "image": null
-    }
-  ],
+  "participation_gifts": [],
   "motif": "岩手山",
   "motif_color": "#374151",
   "motif_romaji": "Iwate-san",
@@ -104,18 +97,20 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-06-08",
     "data_accuracy_notes": [
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-06-08: 自動クロールで更新"
     ]
   },
   "completion_gifts": [
     {
       "gift_categories": [
+        "towel",
         "medal"
       ],
-      "description_ja": "完走賞\tフィニッシャータオル、南部鉄器製完走メダル",
-      "description_en": "",
+      "description_ja": "フィニッシャータオル、南部鉄器製完走メダル",
+      "description_en": "Finisher towel, Nanbu ironware finisher medal",
       "image": null
     }
   ]

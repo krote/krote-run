@@ -31,9 +31,11 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [],
-    "highlights_ja": "国際通り、那覇市街、沖縄の風景",
-    "highlights_en": "Kokusai Street, Naha city, Okinawan scenery",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "平和祈念公園、那覇市街、沖縄南部の風景",
+    "highlights_en": "Peace Memorial Park, Naha city, Southern Okinawa scenery",
     "notes_ja": null,
     "notes_en": null
   },
@@ -90,22 +92,23 @@
       "gift_categories": [
         "tshirt"
       ],
-      "description_ja": "大会オリジナルTシャツ、完走メダル",
-      "description_en": "Official race T-shirt, Finisher medal",
+      "description_ja": "記念Tシャツ、アスリートビブス",
+      "description_en": "Commemorative T-shirt, Athlete bib",
       "image": null
     }
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-05-30T06:39:09.521Z",
+  "updated_at": "2026-06-08T14:35:07.903Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-06-08: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-06-08",
     "detail_level": "medium"
   },
   "entry_periods": [],
@@ -145,8 +148,8 @@
       "gift_categories": [
         "medal"
       ],
-      "description_ja": "大会オリジナルTシャツ、完走メダル",
-      "description_en": "Official race T-shirt, Finisher medal",
+      "description_ja": "完走記念メダル、完走証",
+      "description_en": "Finisher medal, Finisher certificate",
       "image": null
     }
   ]

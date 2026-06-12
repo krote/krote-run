@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-06-09T15:13:31.553Z
--- 対象ファイル数: 81 件（既存 2 件はskip）
+-- 生成日時: 2026-06-12T13:49:24.119Z
+-- 対象ファイル数: 82 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -271,6 +271,82 @@ INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja
   ('aomori-sakura-marathon-2026', NULL, NULL, '陸奥湾', 'Mutsu Bay', NULL, NULL, 1);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('aomori-sakura-marathon-2026', NULL, NULL, '桜並木', 'cherry blossom trees', NULL, NULL, 2);
+
+-- ==================
+-- 青島太平洋マラソン (aoshima-taiheyo-marathon-2026)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'aoshima-taiheyo-marathon-2026';
+DELETE FROM race_categories WHERE race_id = 'aoshima-taiheyo-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'aoshima-taiheyo-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'aoshima-taiheyo-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'aoshima-taiheyo-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'aoshima-taiheyo-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'aoshima-taiheyo-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'aoshima-taiheyo-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'aoshima-taiheyo-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'aoshima-taiheyo-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'aoshima-taiheyo-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'aoshima-taiheyo-marathon-2026';
+DELETE FROM race_gallery WHERE race_id = 'aoshima-taiheyo-marathon-2026';
+DELETE FROM race_voices WHERE race_id = 'aoshima-taiheyo-marathon-2026';
+DELETE FROM race_time_buckets WHERE race_id = 'aoshima-taiheyo-marathon-2026';
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  created_at, updated_at
+) VALUES (
+  'aoshima-taiheyo-marathon-2026',
+  '青島太平洋マラソン',
+  'Aotai',
+  '2026-12-13',
+  '45',
+  '',
+  '',
+  '',
+  '',
+  'https://www.aotai.gr.jp/',
+  NULL,
+  1,
+  0,
+  NULL,
+  NULL,
+  0,
+  'pre_day',
+  '',
+  '',
+  '[]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '',
+  '',
+  '',
+  '',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  '2026-06-12T13:47:30.815Z',
+  '2026-06-12T13:47:30.815Z'
+);
 
 -- ==================
 -- 旭川ハーフマラソン (asahikawa-half-marathon-2026)

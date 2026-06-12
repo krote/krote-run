@@ -88,23 +88,24 @@
       "gift_categories": [
         "tshirt"
       ],
-      "description_ja": "大会Tシャツ、完走メダル",
-      "description_en": "Race T-shirt, Finisher medal",
+      "description_ja": "大会Tシャツ（ミントブルー基調、ぐんまちゃんデザイン）",
+      "description_en": "Race T-shirt (mint blue, Gunma-chan design)",
       "image": null
     }
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-05-27T14:55:42.669Z",
+  "updated_at": "2026-06-12T13:56:56.130Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
       "2026-05-25: 自動クロールで更新",
-      "2026-05-27: 自動クロールで更新"
+      "2026-05-27: 自動クロールで更新",
+      "2026-06-12: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-27",
+    "last_verified": "2026-06-12",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -178,10 +179,10 @@
   "completion_gifts": [
     {
       "gift_categories": [
-        "medal"
+        "towel"
       ],
-      "description_ja": "大会Tシャツ、完走メダル",
-      "description_en": "Race T-shirt, Finisher medal",
+      "description_ja": "フルマラソン完走記念タオル（スポーツタオル、ミントブルー基調）",
+      "description_en": "Full marathon finisher towel (sports towel, mint blue design)",
       "image": null
     }
   ]

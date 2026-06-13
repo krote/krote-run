@@ -714,3 +714,14 @@
 - `migrations/0010_loving_mister_fear.sql`: テーブル再作成によるマイグレーション生成
 - `docs/schema.md`: マイグレーション履歴に追記
 - ローカル・リモートDBへのマイグレーション適用・シード再適用完了
+
+## 2026-06-13 end_date nullable 対応 - 型修正と null ガード追加
+
+- `src/lib/types.ts`: `EntryPeriod.end_date` を `string | null` に変更
+- `src/lib/utils.ts`: `getRaceStatus`/`getEarliestActiveEnd` で `end_date === null` を open-ended として扱う
+- `src/components/calendar/CalendarView.tsx`: null ガード追加
+- `src/components/calendar/MonthGrid.tsx`: null の `end_date` を持つ期間をカレンダー表示対象外に
+- `src/components/home/HomeSections.tsx`: null ガード追加
+- `src/components/races/RaceCard.tsx`: 複数箇所に null 対応
+- `src/components/races/RaceCardExp.tsx`: null ガード追加
+- `src/components/races/detail/EntrySection.tsx`: `formatDate` 呼び出しに null ガード追加

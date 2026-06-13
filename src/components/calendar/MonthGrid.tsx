@@ -62,6 +62,7 @@ export default function MonthGrid({ races, year, month, locale, today, onHover }
           : []);
 
     effectivePeriods.forEach((period) => {
+      if (!period.end_date) return;
       const periodStart = new Date(period.start_date + 'T00:00:00');
       const periodEnd = new Date(period.end_date + 'T00:00:00');
       if (periodStart > monthEnd || periodEnd < monthStart) return;
@@ -102,6 +103,7 @@ export default function MonthGrid({ races, year, month, locale, today, onHover }
           : []);
 
     effectivePeriods.forEach((period) => {
+      if (!period.end_date) return;
       const periodStart = new Date(period.start_date + 'T00:00:00');
       const periodEnd = new Date(period.end_date + 'T00:00:00');
       if (periodStart > monthEnd || periodEnd < monthStart) return;

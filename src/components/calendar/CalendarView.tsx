@@ -23,7 +23,7 @@ function getRaceStatus(race: Race, today: string): 'open' | 'soon' | 'closed' | 
   if (race.entry_closed) return 'closed';
 
   const activePeriod = race.entry_periods.find(
-    (p) => today >= p.start_date && today <= p.end_date,
+    (p) => today >= p.start_date && (p.end_date === null || today <= p.end_date),
   ) ?? (race.entry_start_date && race.entry_end_date &&
     today >= race.entry_start_date && today <= race.entry_end_date
       ? { start_date: race.entry_start_date, end_date: race.entry_end_date }

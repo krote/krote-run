@@ -79,7 +79,7 @@ export interface EntryPeriod {
   label_ja: string;
   label_en: string;
   start_date: string; // YYYY-MM-DD
-  end_date: string;   // YYYY-MM-DD
+  end_date: string | null; // YYYY-MM-DD（終了日未定の場合は null）
   entry_fee: number | null;
   sort_order: number;
 }

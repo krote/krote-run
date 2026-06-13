@@ -48,7 +48,7 @@ export default function EntrySection({ race, locale, today }: EntrySectionProps)
                 <p className="font-medium">
                   {formatDate(race.entry_periods[0].start_date, locale)}
                   {' — '}
-                  {formatDate(race.entry_periods[0].end_date, locale)}
+                  {race.entry_periods[0].end_date ? formatDate(race.entry_periods[0].end_date, locale) : '—'}
                 </p>
               </div>
               {race.entry_periods[0].entry_fee && (
@@ -83,7 +83,7 @@ export default function EntrySection({ race, locale, today }: EntrySectionProps)
                         {locale === 'ja' ? ep.label_ja : ep.label_en}
                       </td>
                       <td className="py-2.5">
-                        {formatDate(ep.start_date, locale)} — {formatDate(ep.end_date, locale)}
+                        {formatDate(ep.start_date, locale)} — {ep.end_date ? formatDate(ep.end_date, locale) : '—'}
                       </td>
                       <td className="py-2.5 text-right">
                         {ep.entry_fee

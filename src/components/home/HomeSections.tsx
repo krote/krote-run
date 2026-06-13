@@ -62,9 +62,7 @@ function OpenSection({ races, locale }: { races: Race[]; locale: Locale }) {
           {races.slice(0, 3).map((race) => {
             const periods = race.entry_periods ?? [];
             const activePeriod = periods.find((p) => p.start_date <= today && (p.end_date === null || p.end_date >= today));
-            const deadline = activePeriod?.end_date
-              ?? race.entry_end_date
-              ?? null;
+            const deadline = activePeriod ? activePeriod.end_date : (race.entry_end_date ?? null);
 
             return (
               <Link key={race.id} href={`/races/${race.id}`} className="no-underline" style={{ color: 'inherit' }}>

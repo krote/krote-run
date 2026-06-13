@@ -114,7 +114,7 @@ export function getRaceStatus(race: Race): RaceStatus {
   if (race.date < today) return 'past';
   if (race.entry_closed) return 'entry_closed';
   const periods = race.entry_periods ?? [];
-  if (periods.some((p) => p.start_date <= today && p.end_date >= today)) return 'open_entry';
+  if (periods.some((p) => p.start_date <= today && (p.end_date === null || p.end_date >= today))) return 'open_entry';
   if (periods.some((p) => p.start_date > today)) return 'entry_not_open';
   // Phase 2 で削除予定: 旧フィールドへのフォールバック
   const { entry_start_date: es, entry_end_date: ee } = race;
@@ -248,11 +248,14 @@ export function sortRacesByDate(races: Race[], ascending = true): Race[] {
 
 /** 受付中の期間のうち最も早い終了日を取得（締切が近い順用） */
 function getEarliestActiveEnd(race: Race, today: string): string | null {
-  const periods = (race as { entry_periods?: { start_date: string; end_date: string }[] }).entry_periods ?? [];
+  const periods = (race as { entry_periods?: { start_date: string; end_date: string | null }[] }).entry_periods ?? [];
   if (periods.length > 0) {
-    const active = periods.filter((p) => p.start_date <= today && p.end_date >= today);
+    const active = periods.filter((p) => p.start_date <= today && (p.end_date === null || p.end_date >= today));
     if (active.length === 0) return null;
-    return active.reduce((min, p) => (p.end_date < min ? p.end_date : min), active[0].end_date);
+    // end_date が null（終了日未定）の期間は締切なしとみなし比較から除外
+    const withEnd = active.filter((p): p is { start_date: string; end_date: string } => p.end_date !== null);
+    if (withEnd.length === 0) return null;
+    return withEnd.reduce((min, p) => (p.end_date < min ? p.end_date : min), withEnd[0].end_date);
   }
   // 旧フィールドへのフォールバック
   const es = race.entry_start_date;

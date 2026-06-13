@@ -74,14 +74,14 @@ export default function RaceCard({ race, locale, from }: RaceCardProps) {
   const isPast = race.date < today;
 
   const periods = race.entry_periods ?? [];
-  const activePeriod = periods.find((p) => p.start_date <= today && p.end_date >= today)
+  const activePeriod = periods.find((p) => p.start_date <= today && (p.end_date === null || p.end_date >= today))
     ?? (race.entry_start_date && race.entry_end_date && today >= race.entry_start_date && today <= race.entry_end_date
         ? { start_date: race.entry_start_date, end_date: race.entry_end_date } : null);
   const futurePeriod = periods.find((p) => p.start_date > today)
     ?? (race.entry_start_date && today < race.entry_start_date
         ? { start_date: race.entry_start_date, end_date: race.entry_end_date ?? '' } : null);
   const latestEndDate = periods.length > 0
-    ? periods.reduce((max, p) => p.end_date > max ? p.end_date : max, '')
+    ? periods.reduce((max, p) => (p.end_date !== null && p.end_date > max) ? p.end_date : max, '')
     : race.entry_end_date ?? null;
 
   const isEntryOpen = !!activePeriod && !race.entry_closed;
@@ -89,6 +89,7 @@ export default function RaceCard({ race, locale, from }: RaceCardProps) {
     isEntryOpen &&
     activePeriod !== null &&
     'end_date' in activePeriod &&
+    activePeriod.end_date !== null &&
     new Date(activePeriod.end_date).getTime() - new Date(today).getTime() <= 14 * 24 * 60 * 60 * 1000;
   const isEntrySoon = !isEntryOpen && !isPast && !!futurePeriod;
   const isEntryClosed =
@@ -100,7 +101,7 @@ export default function RaceCard({ race, locale, from }: RaceCardProps) {
     const fmt = (d: string) => formatDate(d, locale);
     if (periods.length > 0) {
       const first = periods[0];
-      const base = `${fmt(first.start_date)} 〜 ${fmt(first.end_date)}`;
+      const base = `${fmt(first.start_date)} 〜 ${first.end_date ? fmt(first.end_date) : '—'}`;
       return periods.length > 1
         ? `${base} ${locale === 'ja' ? `他${periods.length - 1}件` : `+${periods.length - 1} more`}`
         : base;

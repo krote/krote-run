@@ -262,7 +262,7 @@ export const race_entry_periods = sqliteTable("race_entry_periods", {
   label_ja:    text("label_ja").notNull().default("一般エントリー"),
   label_en:    text("label_en").notNull().default("General Entry"),
   start_date:  text("start_date").notNull(),
-  end_date:    text("end_date").notNull(),
+  end_date:    text("end_date"),
   entry_fee:   integer("entry_fee"),
   sort_order:  integer("sort_order").notNull().default(0),
 }, (t) => [

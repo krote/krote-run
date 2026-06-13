@@ -678,3 +678,39 @@
 - `scripts/migrate-medal-gifts.js`: `image: null` → `gift.image ?? null` バグ修正（CodeRabbit指摘）
 - `src/lib/__tests__/fixtures.ts`: `makeCompletionGift` ファクトリ追加、`makeRace` に `completion_gifts: []` 追加
 - `src/lib/__tests__/utils.filter.test.ts`: `completion_gifts` を含む `giftCategories` フィルタのテスト追加
+
+## 2026-06-09 クロールツール拡張と自動クロール結果反映（PR #75）
+
+### クロールツール拡張
+- `tools/crawl/extractor.js`: `DIFF_FIELDS` を5フィールドから15フィールドに拡張（course_info, entry_periods, participation_gifts, completion_gifts, nearby_spots, motif/tagline等）
+- `tools/crawl/extractor.js`: `buildDiff` を object/array 型対応（JSON.stringify比較）
+- `tools/crawl/extractor.js`: `buildExtractionPrompt` に構造データの現在値・出力スキーマ例を追加
+- `tools/crawl/index.js`: 複合フィールドのログ出力を件数表示に改善
+- `tools/crawl/extractor.test.js`: 複合フィールド対応のテストを追加（計29テスト）
+
+### 2026-06-08 自動クロール結果反映（12レース更新）
+- `src/data/races/fujisan-marathon-2026.json`: entry_periods追加（5種）、completion_gifts修正
+- `src/data/races/fukuchiyama-marathon-2026.json`: entry_periods更新
+- `src/data/races/fukuoka-marathon-2026.json`: entry_periods更新
+- `src/data/races/aomori-sakura-marathon-2026.json`: certification, completion_gifts更新
+- `src/data/races/iwate-morioka-city-marathon-2026.json`: certification, course_info更新
+- `src/data/races/mito-komon-manyu-marathon-2026.json`: certification更新
+- `src/data/races/naha-marathon-2026.json`: certification, completion_gifts更新
+- `src/data/races/nara-marathon-2026.json`: entry_periods, completion_gifts更新
+- `src/data/races/osaka-yodo-river-citizens-marathon-2026.json`: certification更新
+- `src/data/races/sapporo-marathon-2026.json`: entry_periods, certification更新
+- `src/data/races/shonan-international-marathon-2026.json`: entry_periods更新
+- `src/data/races/toyama-marathon-2026.json`: certification更新
+- `tools/crawl/checksums.json`: チェックサム更新
+
+### CodeRabbitレビュー対応
+- `src/data/races/aomori-sakura-marathon-2026.json`, `iwate-morioka-city-marathon-2026.json`, `mito-komon-manyu-marathon-2026.json`: certification を `"jaaf"` → `"JAAF"` に大文字統一
+- `src/data/races/shonan-international-marathon-2026.json`: entry_periods label_en `"General Entry"` → `"First Round Entry"`（一次募集の正確な翻訳）
+- `migrations/seed-races-all.sql`: 上記修正を反映して再生成
+
+## 2026-06-12 race_entry_periods.end_date を NULL 許容に変更
+
+- `src/lib/db/schema.ts`: `race_entry_periods.end_date` から `.notNull()` を削除（終了日未定のエントリー期間を許容）
+- `migrations/0010_loving_mister_fear.sql`: テーブル再作成によるマイグレーション生成
+- `docs/schema.md`: マイグレーション履歴に追記
+- ローカル・リモートDBへのマイグレーション適用・シード再適用完了

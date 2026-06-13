@@ -419,3 +419,4 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0007_yielding_obadiah_stane.sql` | race_course_highlights に category_id カラムを追加（FK ON DELETE 句なし ← 0010 で修正） |
 | `migrations/0010_fix_course_highlights_fk.sql` | race_course_highlights.category_id FK を ON DELETE CASCADE に修正（schema.ts との整合） |
 | `migrations/0009_shallow_captain_stacy.sql` | completion_gifts テーブルを追加（Issue #73）。medal 等の完走賞を participation_gifts から分離 |
+| `migrations/0010_loving_mister_fear.sql` | race_entry_periods.end_date の NOT NULL 制約を削除（終了日未定のエントリー期間を許容） |

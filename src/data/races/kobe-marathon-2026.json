@@ -30,13 +30,15 @@
   "course_info": {
     "max_elevation_m": null,
     "min_elevation_m": null,
-    "elevation_diff_m": null,
+    "elevation_diff_m": 10,
     "surface": "road",
     "certification": [
-      "JAAF"
+      "JAAF",
+      "WA",
+      "AIMS"
     ],
-    "highlights_ja": "明石海峡大橋、ポートアイランド、ハーバーランド",
-    "highlights_en": "Akashi Kaikyo Bridge, Port Island, Harborland",
+    "highlights_ja": "明石海峡大橋、明石市大蔵海岸、メリケンパーク、ハーバーランド",
+    "highlights_en": "Akashi Kaikyo Bridge, Akashi Ohama Beach, Meriken Park, Harborland",
     "notes_ja": null,
     "notes_en": null
   },
@@ -108,15 +110,16 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-05-30T06:37:42.947Z",
+  "updated_at": "2026-06-22T15:03:49.422Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-06-22: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-06-22",
     "detail_level": "medium"
   },
   "entry_periods": [

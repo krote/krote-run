@@ -16,7 +16,7 @@
   "entry_fee_by_category": true,
   "entry_capacity": 5500,
   "entry_start_date": "2026-04-09",
-  "entry_end_date": "2026-05-13",
+  "entry_end_date": "2026-08-17",
   "reception_type": "pre_mail",
   "reception_note_ja": "参加者には、アスリートビブス、計測チップ、参加マニュアル等を申込時の住所に事前に発送します（10月下旬発送予定）。大会前日・当日の受付は行いません。\n\nエントリー締切後の住所変更は、郵便局にて転送手続きをお願いします。\n計測チップは、アスリートビブスに貼り付けてあります。外さずに参加してください。なお、詳細につきましてはアスリートビブスが入ったビニール袋同封の案内をご覧ください。\n大会にエントリー後、出場できなくなった場合のご連絡は不要です。参加賞の受取方法は「参加マニュアル」をご参照ください。",
   "reception_note_en": "Participants will receive their athlete bibs, timing chips, and participation manuals in advance at the address provided during registration (scheduled for late October). There will be no registration on the day before or the day of the event.\n\nFor address changes after the entry deadline, please arrange for mail forwarding at the post office.\n\nThe timing chip is attached to the athlete bib. Please do not remove it during the event. For further details, please refer to the instructions enclosed in the plastic bag containing the athlete bib.\n\nIf you are unable to participate after registering, you do not need to contact us. Please refer to the \"Participation Manual\" for instructions on how to receive your participation prize.",
@@ -95,7 +95,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-06-12T13:56:56.130Z",
+  "updated_at": "2026-06-22T15:01:11.589Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -103,18 +103,19 @@
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
       "2026-05-25: 自動クロールで更新",
       "2026-05-27: 自動クロールで更新",
-      "2026-06-12: 自動クロールで更新"
+      "2026-06-12: 自動クロールで更新",
+      "2026-06-22: 自動クロールで更新"
     ],
-    "last_verified": "2026-06-12",
+    "last_verified": "2026-06-22",
     "detail_level": "medium"
   },
   "entry_periods": [
     {
-      "start_date": "2026-04-09",
-      "end_date": "2026-05-13",
-      "entry_fee": null,
       "label_ja": "",
-      "label_en": ""
+      "label_en": "",
+      "start_date": "2026-04-09",
+      "end_date": "2026-08-17",
+      "entry_fee": null
     }
   ],
   "motif": "赤城山",

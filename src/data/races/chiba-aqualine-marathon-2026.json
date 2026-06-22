@@ -29,9 +29,9 @@
   ],
   "course_gpx_file": null,
   "course_info": {
-    "max_elevation_m": 41,
+    "max_elevation_m": 40.85,
     "min_elevation_m": 0,
-    "elevation_diff_m": 41,
+    "elevation_diff_m": 40.85,
     "surface": "road",
     "certification": [
       "JAAF"
@@ -75,14 +75,15 @@
   ],
   "result": null,
   "created_at": "2026-03-30T00:00:00Z",
-  "updated_at": "2026-05-25T01:17:37.771Z",
+  "updated_at": "2026-06-22T14:59:41.999Z",
   "_metadata": {
     "data_source": "公式サイト（https://chiba-aqualine-marathon.com/）・募集要項ページ",
     "data_accuracy_notes": [
       "基本情報のみ。エイド、周辺スポット等は未入力",
-      "2026-05-25: 自動クロールで更新"
+      "2026-05-25: 自動クロールで更新",
+      "2026-06-22: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-25",
+    "last_verified": "2026-06-22",
     "detail_level": "basic"
   },
   "entry_periods": [

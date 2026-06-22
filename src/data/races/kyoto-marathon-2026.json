@@ -5,14 +5,14 @@
   "full_name_ja": "京都マラソン2026",
   "full_name_en": "Kyoto Marathon",
   "edition": null,
-  "date": "2026-02-15",
+  "date": "2027-02-21",
   "prefecture": "26",
   "city_ja": "京都市",
   "city_en": "Kyoto City",
   "description_ja": "古都京都を舞台にしたフルマラソン。世界遺産の社寺を巡りながら走る。嵐山、金閣寺、銀閣寺、平安神宮などの名所がコース上に。",
   "description_en": "A full marathon through the ancient capital Kyoto. Run past World Heritage temples and shrines including Arashiyama, Kinkaku-ji, Ginkaku-ji, and Heian Shrine.",
   "official_url": "https://kyoto-marathon.com",
-  "entry_fee": 0,
+  "entry_fee": 18500,
   "entry_fee_by_category": true,
   "entry_capacity": 16000,
   "entry_start_date": "2025-07-17",
@@ -32,10 +32,12 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [
-      "JAAF"
+      "JAAF",
+      "WA",
+      "AIMS"
     ],
-    "highlights_ja": "嵐山、金閣寺付近、今出川通、銀閣寺付近、平安神宮",
-    "highlights_en": "Arashiyama, near Kinkaku-ji, Imadegawa-dori, near Ginkaku-ji, Heian Shrine",
+    "highlights_ja": "嵐山・渡月橋、嵯峨野・広沢池、仁和寺、龍安寺、金閣寺、上賀茂神社、下鴨神社、銀閣寺、平安神宮（7つの世界文化遺産付近を通過）",
+    "highlights_en": "Arashiyama/Togetsukyo Bridge, Sagano/Hirosawa Pond, Ninna-ji, Ryoan-ji, Kinkaku-ji, Kamigamo Shrine, Shimogamo Shrine, Ginkaku-ji, Heian Shrine (near 7 World Heritage sites)",
     "notes_ja": null,
     "notes_en": null
   },
@@ -106,14 +108,15 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-05-30T06:38:04.533Z",
+  "updated_at": "2026-06-22T15:04:24.950Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-06-22: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-06-22",
     "detail_level": "medium"
   },
   "entry_periods": [

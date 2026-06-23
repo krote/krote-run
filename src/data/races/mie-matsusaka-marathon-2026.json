@@ -30,7 +30,7 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [
-      "jaaf"
+      "JAAF"
     ],
     "highlights_ja": "松阪の城下町・伊勢街道沿いの豪商のまちを走るコース。32km地点のトンネル内にプロジェクションマッピングあり",
     "highlights_en": "Run through Matsusaka castle town and the historic merchant district along the Ise-kaido road. Projection mapping in the tunnel at km 32.",
@@ -117,7 +117,7 @@
     {
       "label_ja": "ふるさと納税エントリー",
       "label_en": "Hometown Tax Entry",
-      "start_date": null,
+      "start_date": "2026-05-24",
       "end_date": "2026-07-24",
       "entry_fee": 44000,
       "category_id": null,

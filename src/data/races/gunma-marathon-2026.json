@@ -111,8 +111,8 @@
   },
   "entry_periods": [
     {
-      "label_ja": "",
-      "label_en": "",
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
       "start_date": "2026-04-09",
       "end_date": "2026-08-17",
       "entry_fee": null

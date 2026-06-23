@@ -5,7 +5,7 @@
   "full_name_ja": "東京マラソン2026",
   "full_name_en": "Tokyo Marathon",
   "edition": null,
-  "date": "2027-03-07",
+  "date": "2026-03-01",
   "prefecture": "13",
   "city_ja": "新宿区〜千代田区",
   "city_en": "Shinjuku to Chiyoda",
@@ -15,8 +15,8 @@
   "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 38500,
-  "entry_start_date": "2026-07-31",
-  "entry_end_date": "2026-08-28",
+  "entry_start_date": "2025-08-15",
+  "entry_end_date": "2025-08-29",
   "reception_type": "pre_day",
   "reception_note_ja": "EXPO会場（東京ビッグサイト）にて前日受付。2/26-28。大会当日の受付なし。",
   "reception_note_en": "Pre-race registration at EXPO venue (Tokyo Big Sight). Feb 26-28. No registration on race day.",
@@ -131,34 +131,22 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-06-22T15:07:47.390Z",
+  "updated_at": "2026-03-15T00:00:00Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-06-22: 自動クロールで更新"
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
     ],
-    "last_verified": "2026-06-22",
+    "last_verified": "2026-03-15",
     "detail_level": "medium"
   },
   "entry_periods": [
     {
-      "label_ja": "ONE TOKYOプレミアムメンバーエントリー",
-      "label_en": "ONE TOKYO Premium Member Entry",
-      "start_date": "2026-07-31",
-      "end_date": "2026-08-13",
+      "start_date": "2025-08-15",
+      "end_date": "2025-08-29",
       "entry_fee": null,
-      "category_id": null,
-      "sort_order": 0
-    },
-    {
       "label_ja": "一般エントリー",
-      "label_en": "General Entry",
-      "start_date": "2026-08-14",
-      "end_date": "2026-08-28",
-      "entry_fee": null,
-      "category_id": null,
-      "sort_order": 1
+      "label_en": "General Entry"
     }
   ],
   "motif": "東京の街",

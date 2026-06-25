@@ -29,9 +29,11 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [],
-    "highlights_ja": "松阪の城下町",
-    "highlights_en": "Matsusaka castle town",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "松阪の城下町・伊勢街道沿いの豪商のまちを走るコース。32km地点のトンネル内にプロジェクションマッピングあり",
+    "highlights_en": "Run through Matsusaka castle town and the historic merchant district along the Ise-kaido road. Projection mapping in the tunnel at km 32.",
     "notes_ja": null,
     "notes_en": null
   },
@@ -74,25 +76,63 @@
         "tshirt",
         "local_product"
       ],
-      "description_ja": "大会Tシャツ、完走メダル、松阪の特産品",
-      "description_en": "Race T-shirt, Finisher medal, Matsusaka local products",
+      "description_ja": "大会Tシャツ、松阪横丁チケット（フィニッシュ会場で使用可）",
+      "description_en": "Race T-shirt, Matsusaka Yokocho ticket (usable at finish venue)",
       "image": null
     }
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-05-30T06:38:15.333Z",
+  "updated_at": "2026-06-22T15:05:11.803Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-06-22: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-06-22",
     "detail_level": "medium"
   },
-  "entry_periods": [],
+  "entry_periods": [
+    {
+      "label_ja": "三重県民先行エントリー",
+      "label_en": "Mie Residents Priority Entry",
+      "start_date": "2026-05-24",
+      "end_date": "2026-05-31",
+      "entry_fee": 12900,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "宿泊付きエントリー",
+      "label_en": "Entry with Accommodation",
+      "start_date": "2026-05-24",
+      "end_date": "2026-05-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "ふるさと納税エントリー",
+      "label_en": "Hometown Tax Entry",
+      "start_date": "2026-05-24",
+      "end_date": "2026-07-24",
+      "entry_fee": 44000,
+      "category_id": null,
+      "sort_order": 2
+    },
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-06-01",
+      "end_date": "2026-07-31",
+      "entry_fee": 12900,
+      "category_id": null,
+      "sort_order": 3
+    }
+  ],
   "motif": "松阪牛",
   "motif_color": "#7f1d1d",
   "motif_romaji": "Matsusaka-gyu",
@@ -139,8 +179,8 @@
       "gift_categories": [
         "medal"
       ],
-      "description_ja": "大会Tシャツ、完走メダル、松阪の特産品",
-      "description_en": "Race T-shirt, Finisher medal, Matsusaka local products",
+      "description_ja": "完走メダル",
+      "description_en": "Finisher medal",
       "image": null
     }
   ]

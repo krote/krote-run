@@ -102,6 +102,29 @@ Cloudflare D1 (SQLite)
 - 新しいレースを追加する場合: JSONを作成 → シードスクリプトを実行 → DBに適用。
 - `nearby_spots.type` は列挙型ではなく日本語文字列（`'観光地' | '温泉' | 'グルメ' | '宿泊'`）で保存されます。
 
+### レースデータ品質ルール（JSON作成・更新時に必ず守ること）
+
+これらはCodeRabbitで繰り返し指摘されるルール。クロール結果を取り込む際も同様に適用する。
+
+1. **`entry_periods[].label_ja` / `label_en` は空文字禁止**
+   - 区分名が不明な場合のデフォルト: `"label_ja": "一般エントリー"`, `"label_en": "General Entry"`
+
+2. **`course_info.certification` の値は大文字統一**
+   - 正: `"JAAF"`, `"WA"`, `"AIMS"`, `"WMM"`
+   - 誤: `"jaaf"`, `"aims"` など小文字は不可
+
+3. **`entry_periods[].start_date` は null 禁止**
+   - `start_date` が不明な場合はトップレベルの `entry_start_date` と同じ日付を使用する
+   - `end_date` は null 可（終了日未定の場合）
+
+4. **`entry_start_date` はすべての `entry_periods[].start_date` の中で最も早い日付に合わせる**
+   - 例: ONE TOKYOプレミアムが 2026-07-31 開始なら `entry_start_date: "2026-07-31"`
+
+5. **レースJSON変更後は必ずシードを再生成**
+   ```bash
+   node scripts/generate-seed-races.js
+   ```
+
 ### 主要型: RaceFilter
 `src/lib/types.ts` の `RaceFilter` の定義:
 - `giftCategories: GiftCategoryId[]` — OR条件の複数選択（単一値ではなく配列）

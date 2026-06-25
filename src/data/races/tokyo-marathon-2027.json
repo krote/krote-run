@@ -3,8 +3,8 @@
   "name_ja": "東京マラソン",
   "name_en": "Tokyo Marathon",
   "full_name_ja": "東京マラソン2027",
-  "full_name_en": "Tokyo Marathon",
-  "edition": 19,
+  "full_name_en": "Tokyo Marathon 2027",
+  "edition": null,
   "date": "2027-03-07",
   "prefecture": "13",
   "city_ja": "新宿区〜千代田区",
@@ -15,30 +15,19 @@
   "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 38500,
-  "entry_start_date": "2026-08-14",
+  "entry_start_date": "2026-07-31",
   "entry_end_date": "2026-08-28",
   "reception_type": "pre_day",
-  "reception_note_ja": "EXPO会場（東京ビッグサイト）にて前日受付。2/26-28。大会当日の受付なし。",
-  "reception_note_en": "Pre-race registration at EXPO venue (Tokyo Big Sight). Feb 26-28. No registration on race day.",
-  "tags": [
-    "フラット",
-    "ワールドメジャーズ",
-    "初心者おすすめ",
-    "大規模",
-    "日本陸連公認",
-    "観光"
-  ],
+  "reception_note_ja": "EXPO会場（東京ビッグサイト）にて前日受付。大会当日の受付なし。",
+  "reception_note_en": "Pre-race registration at EXPO venue (Tokyo Big Sight). No registration on race day.",
+  "tags": ["フラット","ワールドメジャーズ","初心者おすすめ","大規模","日本陸連公認","観光"],
   "course_gpx_file": null,
   "course_info": {
     "max_elevation_m": 40,
     "min_elevation_m": 3,
     "elevation_diff_m": 37,
     "surface": "road",
-    "certification": [
-      "JAAF",
-      "AIMS",
-      "WMM"
-    ],
+    "certification": ["JAAF","AIMS","WMM"],
     "highlights_ja": "東京都庁、皇居、浅草雷門、銀座、東京タワー、東京駅丸の内",
     "highlights_en": "Tokyo Metropolitan Government, Imperial Palace, Asakusa Kaminarimon, Ginza, Tokyo Tower, Tokyo Station Marunouchi",
     "notes_ja": null,
@@ -48,9 +37,9 @@
     {
       "distance_type": "full",
       "distance_km": 42.195,
-      "time_limit_minutes": 0,
-      "start_time": "",
-      "capacity": 0,
+      "time_limit_minutes": 420,
+      "start_time": "09:10",
+      "capacity": 38500,
       "entry_fee": null,
       "entry_fee_u25": null,
       "name_ja": null,
@@ -120,33 +109,42 @@
   "weather_history": [],
   "participation_gifts": [
     {
-      "gift_categories": [
-        "tshirt",
-        "towel"
-      ],
-      "description_ja": "参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）",
-      "description_en": "Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)",
+      "gift_categories": ["tshirt"],
+      "description_ja": "参加記念Tシャツ（参加者全員）",
+      "description_en": "Commemorative T-shirt (all participants)",
       "image": null
     }
   ],
   "result": null,
-  "created_at": "2026-04-27T13:59:53.295Z",
-  "updated_at": "2026-04-27T13:59:53.295Z",
+  "created_at": "2026-06-24T00:00:00Z",
+  "updated_at": "2026-06-22T15:07:47.390Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "2026-06-22: 自動クロールで取得した2027年大会情報を元に新規作成"
     ],
-    "last_verified": "2026-03-15",
+    "last_verified": "2026-06-22",
     "detail_level": "medium"
   },
   "entry_periods": [
     {
+      "label_ja": "ONE TOKYOプレミアムメンバーエントリー",
+      "label_en": "ONE TOKYO Premium Member Entry",
+      "start_date": "2026-07-31",
+      "end_date": "2026-08-13",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
       "start_date": "2026-08-14",
       "end_date": "2026-08-28",
       "entry_fee": null,
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry"
+      "category_id": null,
+      "sort_order": 1
     }
   ],
   "motif": "東京の街",
@@ -161,72 +159,25 @@
   "voices": [],
   "time_buckets": [],
   "course_highlights": [
-    {
-      "name_ja": "東京都庁",
-      "name_en": "Tokyo Metropolitan Government",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "皇居",
-      "name_en": "Imperial Palace",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "浅草雷門",
-      "name_en": "Asakusa Kaminarimon",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "銀座",
-      "name_en": "Ginza",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "東京タワー",
-      "name_en": "Tokyo Tower",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "東京駅丸の内",
-      "name_en": "Tokyo Station Marunouchi",
-      "description_ja": null,
-      "description_en": null
-    }
+    {"name_ja": "東京都庁","name_en": "Tokyo Metropolitan Government","description_ja": null,"description_en": null},
+    {"name_ja": "皇居","name_en": "Imperial Palace","description_ja": null,"description_en": null},
+    {"name_ja": "浅草雷門","name_en": "Asakusa Kaminarimon","description_ja": null,"description_en": null},
+    {"name_ja": "銀座","name_en": "Ginza","description_ja": null,"description_en": null},
+    {"name_ja": "東京タワー","name_en": "Tokyo Tower","description_ja": null,"description_en": null},
+    {"name_ja": "東京駅丸の内","name_en": "Tokyo Station Marunouchi","description_ja": null,"description_en": null}
   ],
   "info_urls": [
-    {
-      "url": "https://www.marathon.tokyo/volunteer/about/",
-      "label": "大会の特色"
-    },
-    {
-      "url": "https://www.marathon.tokyo/faq/",
-      "label": "FAQ"
-    },
-    {
-      "url": "https://www.marathon.tokyo/about/outline/",
-      "label": "大会要項"
-    },
-    {
-      "url": "https://www.marathon.tokyo/about/course/",
-      "label": "コース情報"
-    },
-    {
-      "url": "https://www.marathon.tokyo/participants/",
-      "label": "エントリー"
-    }
+    {"url": "https://www.marathon.tokyo/volunteer/about/","label": "大会の特色"},
+    {"url": "https://www.marathon.tokyo/faq/","label": "FAQ"},
+    {"url": "https://www.marathon.tokyo/about/outline/","label": "大会要項"},
+    {"url": "https://www.marathon.tokyo/about/course/","label": "コース情報"},
+    {"url": "https://www.marathon.tokyo/participants/","label": "エントリー"}
   ],
   "completion_gifts": [
     {
-      "gift_categories": [
-        "medal"
-      ],
-      "description_ja": "参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）",
-      "description_en": "Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)",
+      "gift_categories": ["medal","towel"],
+      "description_ja": "完走メダル、完走タオル（完走者）",
+      "description_en": "Finisher medal, Finisher towel (finishers)",
       "image": null
     }
   ]

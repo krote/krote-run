@@ -1,0 +1,177 @@
+{
+  "id": "iwaki-sunshine-marathon-2027",
+  "name_ja": "いわきサンシャインマラソン",
+  "name_en": "Iwaki Sunshine Marathon",
+  "full_name_ja": "第18回いわきサンシャインマラソン",
+  "full_name_en": "Iwaki Sunshine Marathon",
+  "edition": 18,
+  "date": "2027-02-28",
+  "prefecture": "07",
+  "city_ja": "いわき市",
+  "city_en": "Iwaki City",
+  "description_ja": "福島県いわき市で開催されるフルマラソン。太平洋に面した海岸コース。いわきの復興と元気を発信する大会。",
+  "description_en": "A full marathon in Iwaki City, Fukushima, along the Pacific coast. A race promoting Iwaki's recovery and vitality.",
+  "official_url": "https://iwaki-marathon.jp",
+  "entry_fee": 9000,
+  "entry_fee_by_category": true,
+  "entry_capacity": 8000,
+  "entry_start_date": "2026-09-11",
+  "entry_end_date": "2026-10-15",
+  "reception_type": "pre_day",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [
+    "海沿い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "太平洋沿岸",
+    "highlights_en": "Pacific coastline",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 360,
+      "start_time": "",
+      "capacity": 5000,
+      "entry_fee": 9000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "entry_fee": 4500,
+      "capacity": 900,
+      "time_limit_minutes": 0,
+      "start_time": ""
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "entry_fee": 4500,
+      "capacity": 500,
+      "time_limit_minutes": 0,
+      "start_time": ""
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2,
+      "entry_fee": 1500,
+      "capacity": 400,
+      "time_limit_minutes": 0,
+      "start_time": ""
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "温泉",
+      "name_ja": "いわき湯本温泉",
+      "name_en": "Iwaki Yumoto Onsen",
+      "description_ja": "いわき市の歴史ある温泉地。レース後のリカバリーに。",
+      "description_en": "A historic hot spring in Iwaki. For post-race recovery.",
+      "distance_from_venue": "いわき市内",
+      "url": null,
+      "latitude": 36.9744,
+      "longitude": 140.8456
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会Tシャツ",
+      "description_en": "Race T-shirt",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-06-24T00:00:00Z",
+  "updated_at": "2026-06-22T15:02:41.436Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "2026-06-22: 自動クロールで取得した2027年大会情報を元に新規作成"
+    ],
+    "last_verified": "2026-06-22",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-11",
+      "end_date": "2026-10-15",
+      "entry_fee": null
+    }
+  ],
+  "motif": "太平洋",
+  "motif_color": "#0369a1",
+  "motif_romaji": "Taiheiyo",
+  "tagline_ja": "太平洋の輝きとともに、いわきの海岸を走る",
+  "tagline_en": "Run along Iwaki's Pacific coast in sunshine",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "太平洋沿岸",
+      "name_en": "Pacific coastline",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://iwaki-marathon.jp/outline/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://iwaki-marathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://iwaki-marathon.jp/outline/schedule/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://iwaki-marathon.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://iwaki-marathon.jp/access/",
+      "label": "アクセス"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "完走メダル",
+      "description_en": "Finisher medal",
+      "image": null
+    }
+  ]
+}

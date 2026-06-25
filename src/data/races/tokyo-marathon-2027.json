@@ -109,9 +109,9 @@
   "weather_history": [],
   "participation_gifts": [
     {
-      "gift_categories": ["tshirt","towel"],
-      "description_ja": "参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）",
-      "description_en": "Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)",
+      "gift_categories": ["tshirt"],
+      "description_ja": "参加記念Tシャツ（参加者全員）",
+      "description_en": "Commemorative T-shirt (all participants)",
       "image": null
     }
   ],
@@ -175,9 +175,9 @@
   ],
   "completion_gifts": [
     {
-      "gift_categories": ["medal"],
-      "description_ja": "参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）",
-      "description_en": "Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)",
+      "gift_categories": ["medal","towel"],
+      "description_ja": "完走メダル、完走タオル（完走者）",
+      "description_en": "Finisher medal, Finisher towel (finishers)",
       "image": null
     }
   ]

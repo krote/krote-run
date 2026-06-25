@@ -101,8 +101,8 @@
       "gift_categories": [
         "tshirt"
       ],
-      "description_ja": "大会オリジナルTシャツ、完走メダル",
-      "description_en": "Official race T-shirt, Finisher medal",
+      "description_ja": "大会オリジナルTシャツ",
+      "description_en": "Official race T-shirt",
       "image": null
     }
   ],
@@ -198,8 +198,8 @@
       "gift_categories": [
         "medal"
       ],
-      "description_ja": "大会オリジナルTシャツ、完走メダル",
-      "description_en": "Official race T-shirt, Finisher medal",
+      "description_ja": "完走メダル",
+      "description_en": "Finisher medal",
       "image": null
     }
   ]

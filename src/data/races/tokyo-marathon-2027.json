@@ -15,7 +15,7 @@
   "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 38500,
-  "entry_start_date": "2026-07-31",
+  "entry_start_date": "2026-06-24",
   "entry_end_date": "2026-08-28",
   "reception_type": "pre_day",
   "reception_note_ja": "EXPO会場（東京ビッグサイト）にて前日受付。大会当日の受付なし。",
@@ -117,17 +117,27 @@
   ],
   "result": null,
   "created_at": "2026-06-24T00:00:00Z",
-  "updated_at": "2026-06-22T15:07:47.390Z",
+  "updated_at": "2026-06-27T00:00:00Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-06-22: 自動クロールで取得した2027年大会情報を元に新規作成"
+      "2026-06-22: 自動クロールで取得した2027年大会情報を元に新規作成",
+      "2026-06-27: 自動クロールでエントリー区分を更新"
     ],
-    "last_verified": "2026-06-22",
+    "last_verified": "2026-06-27",
     "detail_level": "medium"
   },
   "entry_periods": [
+    {
+      "label_ja": "チャリティランナー寄付申込",
+      "label_en": "Charity Runner Donation Entry",
+      "start_date": "2026-06-24",
+      "end_date": "2026-07-09",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
     {
       "label_ja": "ONE TOKYOプレミアムメンバーエントリー",
       "label_en": "ONE TOKYO Premium Member Entry",
@@ -135,7 +145,16 @@
       "end_date": "2026-08-13",
       "entry_fee": null,
       "category_id": null,
-      "sort_order": 0
+      "sort_order": 1
+    },
+    {
+      "label_ja": "準エリートエントリー",
+      "label_en": "Sub-Elite Entry",
+      "start_date": "2026-07-31",
+      "end_date": "2026-08-13",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 2
     },
     {
       "label_ja": "一般エントリー",
@@ -144,7 +163,7 @@
       "end_date": "2026-08-28",
       "entry_fee": null,
       "category_id": null,
-      "sort_order": 1
+      "sort_order": 3
     }
   ],
   "motif": "東京の街",

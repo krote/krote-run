@@ -1,0 +1,196 @@
+{
+  "id": "ehime-marathon-2027",
+  "name_ja": "愛媛マラソン",
+  "name_en": "Ehime Marathon",
+  "full_name_ja": "第64回 愛媛マラソン",
+  "full_name_en": "Ehime Marathon",
+  "edition": 64,
+  "date": "2027-02-07",
+  "prefecture": "38",
+  "city_ja": "松山市",
+  "city_en": "Matsuyama City",
+  "description_ja": "愛媛県松山市で開催されるフルマラソン。松山城や道後温泉など、歴史ある街並みを走る。レース後は道後温泉でリカバリー。",
+  "description_en": "A full marathon in Matsuyama, Ehime. Run through historic streets past Matsuyama Castle and Dogo Onsen. Recover at Dogo Onsen after the race.",
+  "official_url": "https://ehimemarathon.jp",
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 10000,
+  "entry_start_date": "2026-07-13",
+  "entry_end_date": "2026-07-31",
+  "reception_type": "pre_day",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [
+    "城下町",
+    "景色が良い",
+    "温泉"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "松山城、道後温泉",
+    "highlights_en": "Matsuyama Castle, Dogo Onsen",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 360,
+      "start_time": "10:00",
+      "capacity": 10000,
+      "entry_fee": 12900,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "温泉",
+      "name_ja": "道後温泉",
+      "name_en": "Dogo Onsen",
+      "description_ja": "日本最古の温泉の一つ。フィニッシュ地点から近く、レース後のリカバリーに最適。夏目漱石の「坊ちゃん」の舞台としても有名。",
+      "description_en": "One of Japan's oldest hot springs. Close to the finish and perfect for post-race recovery. Famous as the setting of Natsume Soseki's 'Botchan'.",
+      "distance_from_venue": "フィニッシュ付近",
+      "url": null,
+      "latitude": 33.8492,
+      "longitude": 132.7867
+    },
+    {
+      "type": "観光地",
+      "name_ja": "松山城",
+      "name_en": "Matsuyama Castle",
+      "description_ja": "現存12天守の一つ。コース上から望める。ロープウェイで天守閣へ。",
+      "description_en": "One of Japan's 12 surviving original castle keeps. Visible from the course. Ropeway access to the keep.",
+      "distance_from_venue": "コース付近",
+      "url": null,
+      "latitude": 33.8456,
+      "longitude": 132.7656
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会オリジナルTシャツ",
+      "description_en": "Official race T-shirt",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-06-27T00:00:00Z",
+  "updated_at": "2026-06-27T13:27:58.737Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "2026-06-27: 自動クロールで取得した2027年大会情報を元に新規作成",
+      "開催日は例年パターン（2月第1日曜）からの推定。正式発表後に要更新"
+    ],
+    "last_verified": "2026-06-27",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "アスリートエントリー",
+      "label_en": "Athlete Entry",
+      "start_date": "2026-07-13",
+      "end_date": "2026-07-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "ネットタイムアスリートエントリー",
+      "label_en": "Net Time Athlete Entry",
+      "start_date": "2026-07-13",
+      "end_date": "2026-07-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "ランナーボランティア参加者エントリー",
+      "label_en": "Runner Volunteer Entry",
+      "start_date": "2026-07-13",
+      "end_date": "2026-07-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 2
+    }
+  ],
+  "motif": "みかん",
+  "motif_color": "#f97316",
+  "motif_romaji": "Mikan",
+  "tagline_ja": "蜜柑の香り漂う、瀬戸内の道を走る",
+  "tagline_en": "Run through the Seto Inland citrus country",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "松山城",
+      "name_en": "Matsuyama Castle",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "道後温泉",
+      "name_en": "Dogo Onsen",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://ehimemarathon.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://ehimemarathon.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://ehimemarathon.jp/about-volunteer/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://ehimemarathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://ehimemarathon.jp/access/",
+      "label": "アクセス"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal",
+        "towel"
+      ],
+      "description_ja": "完走メダル、今治タオル（完走者）",
+      "description_en": "Finisher medal, Imabari towel (finishers)",
+      "image": null
+    }
+  ]
+}

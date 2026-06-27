@@ -33,10 +33,12 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [
-      "JAAF"
+      "JAAF",
+      "WA",
+      "AIMS"
     ],
-    "highlights_ja": "大通公園、北海道大学、豊平川",
-    "highlights_en": "Odori Park, Hokkaido University, Toyohira River",
+    "highlights_ja": "大通公園、北海道大学、北海道庁赤れんが庁舎、豊平川",
+    "highlights_en": "Odori Park, Hokkaido University, Hokkaido Government Red Brick Office, Toyohira River",
     "notes_ja": "夏開催のため暑さ対策が必須。制限時間6時間。",
     "notes_en": "Summer heat countermeasures essential. 6-hour time limit."
   },
@@ -107,14 +109,15 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-05-30T06:35:06.519Z",
+  "updated_at": "2026-06-27T13:29:05.102Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-06-27: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-06-27",
     "detail_level": "medium"
   },
   "entry_periods": [

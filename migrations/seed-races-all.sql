@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-06-27T13:59:27.815Z
--- 対象ファイル数: 85 件（既存 2 件はskip）
+-- 生成日時: 2026-06-27T14:11:17.003Z
+-- 対象ファイル数: 86 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -751,6 +751,98 @@ INSERT OR REPLACE INTO races (
   0,
   1,
   10000,
+  '2025-08-01',
+  '2025-08-19',
+  0,
+  'pre_day',
+  '',
+  '',
+  '["城下町","景色が良い","温泉"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '["JAAF"]',
+  '松山城、道後温泉',
+  'Matsuyama Castle, Dogo Onsen',
+  NULL,
+  NULL,
+  'みかん',
+  '#f97316',
+  'Mikan',
+  '蜜柑の香り漂う、瀬戸内の道を走る',
+  'Run through the Seto Inland citrus country',
+  NULL,
+  NULL,
+  NULL,
+  '2026-03-15T00:00:00Z',
+  '2026-05-25T01:17:59.684Z'
+);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ehime-marathon-2026', 'full', 42.195, 360, '10:00', 10000, 12900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('ehime-marathon-2026', '温泉', '道後温泉', 'Dogo Onsen', '日本最古の温泉の一つ。フィニッシュ地点から近く、レース後のリカバリーに最適。夏目漱石の「坊ちゃん」の舞台としても有名。', 'One of Japan''s oldest hot springs. Close to the finish and perfect for post-race recovery. Famous as the setting of Natsume Soseki''s ''Botchan''.', 'フィニッシュ付近', NULL, 33.8492, 132.7867);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('ehime-marathon-2026', '観光地', '松山城', 'Matsuyama Castle', '現存12天守の一つ。コース上から望める。ロープウェイで天守閣へ。', 'One of Japan''s 12 surviving original castle keeps. Visible from the course. Ropeway access to the keep.', 'コース付近', NULL, 33.8456, 132.7656);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('ehime-marathon-2026', '["tshirt","towel"]', '大会オリジナルTシャツ、完走メダル、今治タオル（完走者）', 'Official race T-shirt, Finisher medal, Imabari towel (finishers)', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('ehime-marathon-2026', '["medal"]', '大会オリジナルTシャツ、完走メダル、今治タオル（完走者）', 'Official race T-shirt, Finisher medal, Imabari towel (finishers)', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('ehime-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-01', '2025-08-19', NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('ehime-marathon-2026', NULL, NULL, '松山城', 'Matsuyama Castle', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('ehime-marathon-2026', NULL, NULL, '道後温泉', 'Dogo Onsen', NULL, NULL, 1);
+
+-- ==================
+-- 愛媛マラソン (ehime-marathon-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'ehime-marathon-2027';
+DELETE FROM race_categories WHERE race_id = 'ehime-marathon-2027';
+DELETE FROM aid_stations WHERE race_id = 'ehime-marathon-2027';
+DELETE FROM checkpoints WHERE race_id = 'ehime-marathon-2027';
+DELETE FROM access_points WHERE race_id = 'ehime-marathon-2027';
+DELETE FROM nearby_spots WHERE race_id = 'ehime-marathon-2027';
+DELETE FROM weather_history WHERE race_id = 'ehime-marathon-2027';
+DELETE FROM participation_gifts WHERE race_id = 'ehime-marathon-2027';
+DELETE FROM completion_gifts WHERE race_id = 'ehime-marathon-2027';
+DELETE FROM race_entry_links WHERE race_id = 'ehime-marathon-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'ehime-marathon-2027';
+DELETE FROM race_results WHERE race_id = 'ehime-marathon-2027';
+DELETE FROM race_gallery WHERE race_id = 'ehime-marathon-2027';
+DELETE FROM race_voices WHERE race_id = 'ehime-marathon-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'ehime-marathon-2027';
+INSERT OR REPLACE INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  created_at, updated_at
+) VALUES (
+  'ehime-marathon-2027',
+  '愛媛マラソン',
+  'Ehime Marathon',
+  '2027-02-07',
+  '38',
+  '松山市',
+  'Matsuyama City',
+  '愛媛県松山市で開催されるフルマラソン。松山城や道後温泉など、歴史ある街並みを走る。レース後は道後温泉でリカバリー。',
+  'A full marathon in Matsuyama, Ehime. Run through historic streets past Matsuyama Castle and Dogo Onsen. Recover at Dogo Onsen after the race.',
+  'https://ehimemarathon.jp',
+  0,
+  1,
+  10000,
   '2026-07-13',
   '2026-07-31',
   0,
@@ -776,29 +868,29 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   NULL,
-  '2026-03-15T00:00:00Z',
+  '2026-06-27T00:00:00Z',
   '2026-06-27T13:27:58.737Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('ehime-marathon-2026', 'full', 42.195, 360, '10:00', 10000, 12900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+  ('ehime-marathon-2027', 'full', 42.195, 360, '10:00', 10000, 12900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
-  ('ehime-marathon-2026', '温泉', '道後温泉', 'Dogo Onsen', '日本最古の温泉の一つ。フィニッシュ地点から近く、レース後のリカバリーに最適。夏目漱石の「坊ちゃん」の舞台としても有名。', 'One of Japan''s oldest hot springs. Close to the finish and perfect for post-race recovery. Famous as the setting of Natsume Soseki''s ''Botchan''.', 'フィニッシュ付近', NULL, 33.8492, 132.7867);
+  ('ehime-marathon-2027', '温泉', '道後温泉', 'Dogo Onsen', '日本最古の温泉の一つ。フィニッシュ地点から近く、レース後のリカバリーに最適。夏目漱石の「坊ちゃん」の舞台としても有名。', 'One of Japan''s oldest hot springs. Close to the finish and perfect for post-race recovery. Famous as the setting of Natsume Soseki''s ''Botchan''.', 'フィニッシュ付近', NULL, 33.8492, 132.7867);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
-  ('ehime-marathon-2026', '観光地', '松山城', 'Matsuyama Castle', '現存12天守の一つ。コース上から望める。ロープウェイで天守閣へ。', 'One of Japan''s 12 surviving original castle keeps. Visible from the course. Ropeway access to the keep.', 'コース付近', NULL, 33.8456, 132.7656);
+  ('ehime-marathon-2027', '観光地', '松山城', 'Matsuyama Castle', '現存12天守の一つ。コース上から望める。ロープウェイで天守閣へ。', 'One of Japan''s 12 surviving original castle keeps. Visible from the course. Ropeway access to the keep.', 'コース付近', NULL, 33.8456, 132.7656);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('ehime-marathon-2026', '["tshirt","towel"]', '大会オリジナルTシャツ、完走メダル、今治タオル（完走者）', 'Official race T-shirt, Finisher medal, Imabari towel (finishers)', NULL, 0);
+  ('ehime-marathon-2027', '["tshirt"]', '大会オリジナルTシャツ', 'Official race T-shirt', NULL, 0);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('ehime-marathon-2026', '["medal"]', '大会オリジナルTシャツ、完走メダル、今治タオル（完走者）', 'Official race T-shirt, Finisher medal, Imabari towel (finishers)', NULL, 0);
+  ('ehime-marathon-2027', '["medal","towel"]', '完走メダル、今治タオル（完走者）', 'Finisher medal, Imabari towel (finishers)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('ehime-marathon-2026', NULL, 'アスリートエントリー', 'Athlete Entry', '2026-07-13', '2026-07-31', NULL, 0);
+  ('ehime-marathon-2027', NULL, 'アスリートエントリー', 'Athlete Entry', '2026-07-13', '2026-07-31', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('ehime-marathon-2026', NULL, 'ネットタイムアスリートエントリー', 'Net Time Athlete Entry', '2026-07-13', '2026-07-31', NULL, 1);
+  ('ehime-marathon-2027', NULL, 'ネットタイムアスリートエントリー', 'Net Time Athlete Entry', '2026-07-13', '2026-07-31', NULL, 1);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('ehime-marathon-2026', NULL, 'ランナーボランティア参加者エントリー', 'Runner Volunteer Entry', '2026-07-13', '2026-07-31', NULL, 2);
+  ('ehime-marathon-2027', NULL, 'ランナーボランティア参加者エントリー', 'Runner Volunteer Entry', '2026-07-13', '2026-07-31', NULL, 2);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('ehime-marathon-2026', NULL, NULL, '松山城', 'Matsuyama Castle', NULL, NULL, 0);
+  ('ehime-marathon-2027', NULL, NULL, '松山城', 'Matsuyama Castle', NULL, NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('ehime-marathon-2026', NULL, NULL, '道後温泉', 'Dogo Onsen', NULL, NULL, 1);
+  ('ehime-marathon-2027', NULL, NULL, '道後温泉', 'Dogo Onsen', NULL, NULL, 1);
 
 -- ==================
 -- 富士登山競走 (fuji-mountain-race-2026)

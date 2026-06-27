@@ -114,7 +114,9 @@ function cleanHtml(html) {
 async function fetchPageText(url) {
   const res = await fetch(url, { ...FETCH_OPTS, signal: AbortSignal.timeout(15000) });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return cleanHtml(await res.text());
+  const text = cleanHtml(await res.text());
+  if (text.length < 100) throw new Error('ページコンテンツが空または短すぎます（スキップ）');
+  return text;
 }
 
 // ── クロール ─────────────────────────────────────────────────────

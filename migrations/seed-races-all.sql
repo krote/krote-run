@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-06-27T14:11:17.003Z
+-- 生成日時: 2026-06-27T14:38:06.836Z
 -- 対象ファイル数: 86 件（既存 2 件はskip）
 
 -- ==================
@@ -7279,75 +7279,45 @@ INSERT OR REPLACE INTO races (
 ) VALUES (
   'tokyo-marathon-2026',
   '東京マラソン',
-  'Tokyo Marathon',
-  '2026-03-01',
-  '13',
-  '新宿区〜千代田区',
-  'Shinjuku to Chiyoda',
-  '日本最大規模の市民マラソン。東京都庁をスタートし、皇居、浅草、銀座など東京の名所を巡り東京駅前でフィニッシュ。ワールドマラソンメジャーズの一つ。',
-  'Japan''s largest citizens'' marathon. Starting from Tokyo Metropolitan Government, passing the Imperial Palace, Asakusa, Ginza, finishing at Tokyo Station. One of the World Marathon Majors.',
-  'https://www.marathon.tokyo',
   NULL,
-  1,
-  38500,
-  '2025-08-15',
-  '2025-08-29',
+  '2027-03-01',
+  NULL,
+  NULL,
+  NULL,
+  '',
+  '',
+  '',
+  16200,
   0,
-  'pre_day',
-  'EXPO会場（東京ビッグサイト）にて前日受付。2/26-28。大会当日の受付なし。',
-  'Pre-race registration at EXPO venue (Tokyo Big Sight). Feb 26-28. No registration on race day.',
-  '["フラット","ワールドメジャーズ","初心者おすすめ","大規模","日本陸連公認","観光"]',
+  38000,
+  '2025-08-01',
+  '2025-10-31',
+  0,
+  'race_day',
+  '',
+  '',
+  '{}',
   NULL,
-  40,
-  3,
-  37,
+  0,
+  0,
+  0,
   'road',
-  '["JAAF","AIMS","WMM"]',
-  '東京都庁、皇居、浅草雷門、銀座、東京タワー、東京駅丸の内',
-  'Tokyo Metropolitan Government, Imperial Palace, Asakusa Kaminarimon, Ginza, Tokyo Tower, Tokyo Station Marunouchi',
-  NULL,
-  NULL,
-  '東京の街',
-  '#1e293b',
-  'Tokyo-no-Machi',
-  '世界6大メジャーの一つ、東京の街を駆け抜ける',
-  'Race through Tokyo — one of the six World Marathon Majors',
+  '{}',
+  '',
+  '',
   NULL,
   NULL,
   NULL,
-  '2026-03-15T00:00:00Z',
-  '2026-03-15T00:00:00Z'
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  '2026-06-27T14:28:07.694Z'
 );
-INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('tokyo-marathon-2026', 'full', 42.195, 420, '09:10', 38500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
-  ('tokyo-marathon-2026', '新宿駅', 'Shinjuku Station', 'shinjuku', '新宿駅西口から徒歩約10分でスタート会場（東京都庁前）', '10 min walk from Shinjuku Station West Exit to the start (Tokyo Metropolitan Government)', 35.6896, 139.6999, 0);
-INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
-  ('tokyo-marathon-2026', '都庁前駅', 'Tochomae Station', 'tochomae', '都営大江戸線都庁前駅直結', 'Direct access from Toei Oedo Line Tochomae Station', 35.6915, 139.6917, 1);
-INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
-  ('tokyo-marathon-2026', '観光地', '浅草寺・雷門', 'Sensoji Temple & Kaminarimon', 'コース上を通過する東京を代表する観光名所。外国人ランナーにも人気のスポット。', 'An iconic Tokyo landmark on the course. Popular with international runners.', 'コース上（約15km地点）', NULL, 35.7148, 139.7967);
-INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
-  ('tokyo-marathon-2026', '観光地', '皇居', 'Imperial Palace', 'コースの中盤で皇居周辺を通過。普段はランナーの聖地として知られるランニングコース。', 'The course passes near the Imperial Palace in the middle section. Known as a holy ground for runners.', 'コース上（約37km地点）', NULL, 35.6852, 139.7528);
-INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
-  ('tokyo-marathon-2026', 'グルメ', '東京駅周辺グルメ', 'Tokyo Station Area Dining', 'フィニッシュ地点の東京駅周辺には多数の飲食店。レース後の打ち上げに最適。', 'Numerous restaurants around Tokyo Station at the finish. Perfect for post-race celebrations.', 'フィニッシュ地点周辺', NULL, 35.6812, 139.7671);
-INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('tokyo-marathon-2026', '["tshirt","towel"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
-INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('tokyo-marathon-2026', '["medal"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
-INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('tokyo-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-15', '2025-08-29', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2026', NULL, NULL, '東京都庁', 'Tokyo Metropolitan Government', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2026', NULL, NULL, '皇居', 'Imperial Palace', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2026', NULL, NULL, '浅草雷門', 'Asakusa Kaminarimon', NULL, NULL, 2);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2026', NULL, NULL, '銀座', 'Ginza', NULL, NULL, 3);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2026', NULL, NULL, '東京タワー', 'Tokyo Tower', NULL, NULL, 4);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('tokyo-marathon-2026', NULL, NULL, '東京駅丸の内', 'Tokyo Station Marunouchi', NULL, NULL, 5);
 
 -- ==================
 -- 東京マラソン (tokyo-marathon-2027)
@@ -7422,7 +7392,7 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-06-24T00:00:00Z',
-  '2026-06-22T15:07:47.390Z'
+  '2026-06-27T00:00:00Z'
 );
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tokyo-marathon-2027', 'full', 42.195, 420, '09:10', 38500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);

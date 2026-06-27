@@ -154,12 +154,13 @@ async function run(options = {}) {
     .sort();
 
   const summary = {
-    changed: [],    // { race_id, url }
-    new: [],        // { race_id, url }
+    changed: [],         // { race_id, url }
+    new: [],             // { race_id, url }
     unchanged: 0,
-    skipped: 0,     // info_urls も official_url もない
-    errors: [],     // { race_id, url, error }
-    extracted: [],  // { race_id, diff } LLM抽出で変更が見つかったもの
+    skipped: 0,          // info_urls も official_url もない
+    errors: [],          // { race_id, url, error }
+    extracted: [],       // { race_id, diff } LLM抽出で変更が見つかったもの
+    year_mismatches: [], // { race_id, currentYear, extractedYear, suggestedFile }
   };
 
   // 変更が検出されたレースを収集（LLM抽出用）
@@ -234,7 +235,18 @@ async function run(options = {}) {
         }
 
         if (!dryRun) {
-          applyAndSave(race, extracted);
+          const saveResult = applyAndSave(race, extracted);
+          if (saveResult.yearMismatch) {
+            console.log(`  ⚠ 年度不一致: ${race.id} (現在:${saveResult.currentYear} → 抽出:${saveResult.extractedYear})`);
+            console.log(`    手動対応が必要: src/data/races/${saveResult.suggestedFile} を新規作成してください`);
+            summary.year_mismatches.push({
+              race_id: race.id,
+              currentYear: saveResult.currentYear,
+              extractedYear: saveResult.extractedYear,
+              suggestedFile: saveResult.suggestedFile,
+            });
+            continue;
+          }
           console.log(`  → ${race.id}.json を更新しました`);
         }
 
@@ -253,11 +265,20 @@ async function run(options = {}) {
   console.log(`LLM更新  : ${summary.extracted.length}件`);
   console.log(`エラー   : ${summary.errors.length}件`);
   console.log(`スキップ : ${summary.skipped}件（URL未設定）`);
+  console.log(`年度不一致: ${summary.year_mismatches.length}件（手動対応要）`);
 
   if (summary.extracted.length > 0) {
     console.log('\n--- 更新されたレース ---');
     for (const item of summary.extracted) {
       console.log(`  ${item.race_id}: ${item.diff.map(d => d.label).join(', ')}`);
+    }
+  }
+
+  if (summary.year_mismatches.length > 0) {
+    console.log('\n--- ⚠ 年度不一致（手動対応要） ---');
+    for (const item of summary.year_mismatches) {
+      console.log(`  ${item.race_id}: ${item.currentYear}年 → ${item.extractedYear}年`);
+      console.log(`    → src/data/races/${item.suggestedFile} を新規作成してください`);
     }
   }
 

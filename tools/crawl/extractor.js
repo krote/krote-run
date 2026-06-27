@@ -196,6 +196,16 @@ async function extractFromPages(race, pageTexts) {
 const ALLOWED_KEYS = new Set(DIFF_FIELDS.map(f => f.key));
 
 function applyAndSave(race, extracted) {
+  // 年度不一致チェック: 抽出された開催日の年が現在のファイルの年と異なる場合は保存しない
+  if (extracted.date && race.date) {
+    const currentYear = race.date.slice(0, 4);
+    const extractedYear = extracted.date.slice(0, 4);
+    if (extractedYear !== currentYear) {
+      const suggestedFile = race.id.replace(/-\d{4}$/, `-${extractedYear}`) + '.json';
+      return { yearMismatch: true, currentYear, extractedYear, suggestedFile };
+    }
+  }
+
   const filePath = path.join(RACES_DIR, `${race.id}.json`);
   const updated = {
     ...race,

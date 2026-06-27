@@ -226,6 +226,71 @@ function applyAndSave(race, extracted) {
   return updated;
 }
 
+/**
+ * 既存レースデータを元に次年度版のレースオブジェクトを構築する（純粋関数）
+ * @param {object} race - 現在の race JSON
+ * @param {object} extracted - 抽出済みデータ（extracted.date が次年度）
+ * @returns {object} 新しい年度用 race オブジェクト
+ */
+function buildNewEditionRace(race, extracted) {
+  const currentYear = race.date.slice(0, 4);
+  const extractedYear = extracted.date.slice(0, 4);
+
+  const newId = race.id.replace(/-\d{4}$/, `-${extractedYear}`);
+  const now = new Date().toISOString();
+  const today = now.slice(0, 10);
+
+  const extractedFiltered = Object.fromEntries(
+    Object.entries(extracted).filter(([k, v]) => v != null && ALLOWED_KEYS.has(k))
+  );
+
+  return {
+    ...race,
+    id: newId,
+    full_name_ja: race.full_name_ja?.replace(currentYear, extractedYear) ?? race.full_name_ja,
+    full_name_en: race.full_name_en?.replace(currentYear, extractedYear) ?? race.full_name_en,
+    // 前年のエントリー情報をリセット（extractedで上書きされる場合を除く）
+    entry_start_date: null,
+    entry_end_date: null,
+    entry_periods: [],
+    // 前年の実績データをリセット
+    result: null,
+    weather_history: [],
+    gallery: [],
+    voices: [],
+    time_buckets: [],
+    // 抽出フィールドを適用（entry_start_date 等もここで復元される）
+    ...extractedFiltered,
+    created_at: now,
+    updated_at: now,
+    _metadata: {
+      ...race._metadata,
+      last_verified: today,
+      data_accuracy_notes: [
+        `${today}: 自動クロールで ${race.id} を元に${extractedYear}年大会ファイルを新規作成`,
+      ],
+    },
+  };
+}
+
+/**
+ * 次年度版の race JSON ファイルを新規作成する
+ * @param {object} race
+ * @param {object} extracted
+ * @returns {{ created: boolean, skipped: boolean, newId: string, filePath: string }}
+ */
+function createNewEditionFile(race, extracted) {
+  const newRace = buildNewEditionRace(race, extracted);
+  const filePath = path.join(RACES_DIR, `${newRace.id}.json`);
+
+  if (fs.existsSync(filePath)) {
+    return { created: false, skipped: true, newId: newRace.id, filePath };
+  }
+
+  fs.writeFileSync(filePath, JSON.stringify(newRace, null, 2) + '\n', 'utf-8');
+  return { created: true, skipped: false, newId: newRace.id, filePath };
+}
+
 // ── エクスポート ──────────────────────────────────────────────────
 
 module.exports = {
@@ -234,4 +299,6 @@ module.exports = {
   buildDiff,
   extractFromPages,
   applyAndSave,
+  buildNewEditionRace,
+  createNewEditionFile,
 };

@@ -19,7 +19,7 @@ const ROOT = path.join(__dirname, '../..');
 const RACES_DIR = path.join(ROOT, 'src/data/races');
 const CHECKSUMS_FILE = path.join(__dirname, 'checksums.json');
 
-const { extractFromPages, applyAndSave, buildDiff } = require('./extractor');
+const { extractFromPages, applyAndSave, buildDiff, createNewEditionFile } = require('./extractor');
 
 const FETCH_OPTS = {
   headers: {
@@ -57,6 +57,26 @@ function buildUrlsToCheck(race) {
     return race.info_urls.map(u => u.url);
   }
   return race.official_url ? [race.official_url] : [];
+}
+
+/**
+ * ファイルリストからシリーズごとに最新年のファイルのみ返す
+ * 例: ['tokyo-marathon-2026.json', 'tokyo-marathon-2027.json'] → ['tokyo-marathon-2027.json']
+ * @param {string[]} files - JSONファイル名の配列（index.json は除外済み前提）
+ * @returns {string[]} ソート済みの最新ファイル一覧
+ */
+function getLatestFilesPerSeries(files) {
+  const map = new Map(); // series → { file, year }
+  for (const file of files) {
+    const match = file.match(/^(.+)-(\d{4})\.json$/);
+    if (!match) continue;
+    const [, series, year] = match;
+    const existing = map.get(series);
+    if (!existing || year > existing.year) {
+      map.set(series, { file, year });
+    }
+  }
+  return [...map.values()].map(v => v.file).sort();
 }
 
 // ── I/O ──────────────────────────────────────────────────────────
@@ -149,24 +169,26 @@ async function run(options = {}) {
   const dryRun = options.dryRun ?? false;
 
   const checksums = loadChecksums();
-  const files = fs.readdirSync(RACES_DIR)
+  const allFiles = fs.readdirSync(RACES_DIR)
     .filter(f => f.endsWith('.json') && f !== 'index.json')
     .sort();
+  const files = getLatestFilesPerSeries(allFiles);
+  const skippedBySeries = allFiles.length - files.length;
 
   const summary = {
-    changed: [],         // { race_id, url }
-    new: [],             // { race_id, url }
+    changed: [],       // { race_id, url }
+    new: [],           // { race_id, url }
     unchanged: 0,
-    skipped: 0,          // info_urls も official_url もない
-    errors: [],          // { race_id, url, error }
-    extracted: [],       // { race_id, diff } LLM抽出で変更が見つかったもの
-    year_mismatches: [], // { race_id, currentYear, extractedYear, suggestedFile }
+    skipped: 0,        // info_urls も official_url もない
+    errors: [],        // { race_id, url, error }
+    extracted: [],     // { race_id, diff } LLM抽出で変更が見つかったもの
+    new_editions: [],  // { race_id, new_race_id } 次年度ファイルを自動作成したもの
   };
 
   // 変更が検出されたレースを収集（LLM抽出用）
   const changedRaces = [];
 
-  console.log(`[crawl] ${files.length}件のレースをチェックします${dryRun ? ' (dry-run)' : ''}\n`);
+  console.log(`[crawl] ${files.length}件のレースをチェックします（${skippedBySeries}件は旧年度のためスキップ）${dryRun ? ' (dry-run)' : ''}\n`);
 
   for (const file of files) {
     const race = JSON.parse(fs.readFileSync(path.join(RACES_DIR, file), 'utf-8'));
@@ -237,14 +259,14 @@ async function run(options = {}) {
         if (!dryRun) {
           const saveResult = applyAndSave(race, extracted);
           if (saveResult.yearMismatch) {
-            console.log(`  ⚠ 年度不一致: ${race.id} (現在:${saveResult.currentYear} → 抽出:${saveResult.extractedYear})`);
-            console.log(`    手動対応が必要: src/data/races/${saveResult.suggestedFile} を新規作成してください`);
-            summary.year_mismatches.push({
-              race_id: race.id,
-              currentYear: saveResult.currentYear,
-              extractedYear: saveResult.extractedYear,
-              suggestedFile: saveResult.suggestedFile,
-            });
+            console.log(`  次年度大会を検出: ${race.id} (${saveResult.currentYear} → ${saveResult.extractedYear})`);
+            const createResult = createNewEditionFile(race, extracted);
+            if (createResult.created) {
+              console.log(`  → 新規ファイル作成: src/data/races/${createResult.newId}.json`);
+              summary.new_editions.push({ race_id: race.id, new_race_id: createResult.newId });
+            } else {
+              console.log(`  → ${createResult.newId}.json は既に存在するためスキップ`);
+            }
             continue;
           }
           console.log(`  → ${race.id}.json を更新しました`);
@@ -263,9 +285,9 @@ async function run(options = {}) {
   console.log(`新規     : ${summary.new.length}件`);
   console.log(`変更なし : ${summary.unchanged}件`);
   console.log(`LLM更新  : ${summary.extracted.length}件`);
+  console.log(`新年度作成: ${summary.new_editions.length}件`);
   console.log(`エラー   : ${summary.errors.length}件`);
   console.log(`スキップ : ${summary.skipped}件（URL未設定）`);
-  console.log(`年度不一致: ${summary.year_mismatches.length}件（手動対応要）`);
 
   if (summary.extracted.length > 0) {
     console.log('\n--- 更新されたレース ---');
@@ -274,11 +296,10 @@ async function run(options = {}) {
     }
   }
 
-  if (summary.year_mismatches.length > 0) {
-    console.log('\n--- ⚠ 年度不一致（手動対応要） ---');
-    for (const item of summary.year_mismatches) {
-      console.log(`  ${item.race_id}: ${item.currentYear}年 → ${item.extractedYear}年`);
-      console.log(`    → src/data/races/${item.suggestedFile} を新規作成してください`);
+  if (summary.new_editions.length > 0) {
+    console.log('\n--- 次年度ファイル作成 ---');
+    for (const item of summary.new_editions) {
+      console.log(`  ${item.race_id} → src/data/races/${item.new_race_id}.json`);
     }
   }
 
@@ -294,5 +315,5 @@ if (require.main === module) {
     process.exit(1);
   });
 } else {
-  module.exports = { computeHash, hasChanged, buildUrlsToCheck };
+  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries };
 }

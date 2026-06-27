@@ -2,7 +2,7 @@
 
 const { test, describe } = require('node:test');
 const assert = require('node:assert/strict');
-const { buildExtractionPrompt, parseClaudeResponse, buildDiff, applyAndSave } = require('./extractor');
+const { buildExtractionPrompt, parseClaudeResponse, buildDiff, applyAndSave, buildNewEditionRace } = require('./extractor');
 
 // ── buildExtractionPrompt ─────────────────────────────────────────
 
@@ -320,5 +320,111 @@ describe('applyAndSave - 年度不一致チェック', () => {
     } catch {
       // fs書き込みエラーは許容
     }
+  });
+});
+
+// ── buildNewEditionRace ───────────────────────────────────────────
+
+describe('buildNewEditionRace', () => {
+  const race = {
+    id: 'tokyo-marathon-2026',
+    name_ja: '東京マラソン',
+    name_en: 'Tokyo Marathon',
+    full_name_ja: '東京マラソン2026',
+    full_name_en: 'Tokyo Marathon 2026',
+    date: '2026-03-01',
+    entry_start_date: '2025-08-01',
+    entry_end_date: '2025-10-31',
+    entry_fee: 16200,
+    entry_capacity: 38000,
+    entry_periods: [{ label_ja: '一般', start_date: '2025-08-01', end_date: '2025-10-31', entry_fee: null, category_id: null, sort_order: 0 }],
+    result: { finishers: 30000 },
+    weather_history: [{ year: 2026, temp: 10 }],
+    gallery: ['img1.jpg'],
+    voices: ['voice1'],
+    time_buckets: [{ bucket: '3:30', count: 100 }],
+    _metadata: { data_accuracy_notes: ['old note'], last_verified: '2026-01-01' },
+  };
+  const extracted = {
+    date: '2027-03-07',
+    entry_start_date: '2026-06-24',
+    entry_end_date: '2026-08-28',
+    entry_periods: [{ label_ja: '一般エントリー', label_en: 'General Entry', start_date: '2026-06-24', end_date: '2026-08-28', entry_fee: null, category_id: null, sort_order: 0 }],
+  };
+
+  test('新しいidは年を置換したもの', () => {
+    const newRace = buildNewEditionRace(race, extracted);
+    assert.equal(newRace.id, 'tokyo-marathon-2027');
+  });
+
+  test('full_name_jaの年を更新する', () => {
+    const newRace = buildNewEditionRace(race, extracted);
+    assert.equal(newRace.full_name_ja, '東京マラソン2027');
+  });
+
+  test('full_name_enの年を更新する', () => {
+    const newRace = buildNewEditionRace(race, extracted);
+    assert.equal(newRace.full_name_en, 'Tokyo Marathon 2027');
+  });
+
+  test('resultをnullにリセット', () => {
+    const newRace = buildNewEditionRace(race, extracted);
+    assert.equal(newRace.result, null);
+  });
+
+  test('weather_historyを空配列にリセット', () => {
+    const newRace = buildNewEditionRace(race, extracted);
+    assert.deepEqual(newRace.weather_history, []);
+  });
+
+  test('galleryを空配列にリセット', () => {
+    const newRace = buildNewEditionRace(race, extracted);
+    assert.deepEqual(newRace.gallery, []);
+  });
+
+  test('voicesを空配列にリセット', () => {
+    const newRace = buildNewEditionRace(race, extracted);
+    assert.deepEqual(newRace.voices, []);
+  });
+
+  test('time_bucketsを空配列にリセット', () => {
+    const newRace = buildNewEditionRace(race, extracted);
+    assert.deepEqual(newRace.time_buckets, []);
+  });
+
+  test('extractedのdateが適用される', () => {
+    const newRace = buildNewEditionRace(race, extracted);
+    assert.equal(newRace.date, '2027-03-07');
+  });
+
+  test('extractedのentry_start_dateが適用される', () => {
+    const newRace = buildNewEditionRace(race, extracted);
+    assert.equal(newRace.entry_start_date, '2026-06-24');
+  });
+
+  test('extractedのentry_periodsが適用される', () => {
+    const newRace = buildNewEditionRace(race, extracted);
+    assert.equal(newRace.entry_periods.length, 1);
+    assert.equal(newRace.entry_periods[0].label_ja, '一般エントリー');
+  });
+
+  test('extractedにentry_periodsがない場合は空配列', () => {
+    const newRace = buildNewEditionRace(race, { date: '2027-03-07' });
+    assert.deepEqual(newRace.entry_periods, []);
+  });
+
+  test('extractedにentry_start_dateがない場合はnull', () => {
+    const newRace = buildNewEditionRace(race, { date: '2027-03-07' });
+    assert.equal(newRace.entry_start_date, null);
+  });
+
+  test('metadataに新規作成ノートが追加される', () => {
+    const newRace = buildNewEditionRace(race, extracted);
+    assert.ok(newRace._metadata.data_accuracy_notes.some(n => n.includes('2027')));
+  });
+
+  test('metadataの旧ノートは引き継がない（新規作成なのでリセット）', () => {
+    const newRace = buildNewEditionRace(race, extracted);
+    assert.ok(!newRace._metadata.data_accuracy_notes.includes('old note'));
   });
 });

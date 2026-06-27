@@ -2,7 +2,7 @@
 
 const { test, describe } = require('node:test');
 const assert = require('node:assert/strict');
-const { computeHash, hasChanged, buildUrlsToCheck } = require('./index');
+const { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries } = require('./index');
 
 // ── computeHash ───────────────────────────────────────────────────
 
@@ -83,5 +83,57 @@ describe('buildUrlsToCheck', () => {
   test('official_url が空文字なら空配列を返す', () => {
     const race = { id: 'test-2026', official_url: '' };
     assert.deepEqual(buildUrlsToCheck(race), []);
+  });
+});
+
+// ── getLatestFilesPerSeries ───────────────────────────────────────
+
+describe('getLatestFilesPerSeries', () => {
+  test('同一シリーズに複数年がある場合は最新年のみ返す', () => {
+    const files = ['tokyo-marathon-2026.json', 'tokyo-marathon-2027.json'];
+    const result = getLatestFilesPerSeries(files);
+    assert.deepEqual(result, ['tokyo-marathon-2027.json']);
+  });
+
+  test('異なるシリーズはそれぞれ返す', () => {
+    const files = ['kyoto-marathon-2027.json', 'tokyo-marathon-2027.json'];
+    const result = getLatestFilesPerSeries(files);
+    assert.deepEqual(result, ['kyoto-marathon-2027.json', 'tokyo-marathon-2027.json']);
+  });
+
+  test('シリーズが混在する場合は各シリーズの最新のみ返す', () => {
+    const files = [
+      'ehime-marathon-2026.json',
+      'ehime-marathon-2027.json',
+      'tokyo-marathon-2026.json',
+      'tokyo-marathon-2027.json',
+      'kyoto-marathon-2027.json',
+    ];
+    const result = getLatestFilesPerSeries(files);
+    assert.deepEqual(result, [
+      'ehime-marathon-2027.json',
+      'kyoto-marathon-2027.json',
+      'tokyo-marathon-2027.json',
+    ]);
+  });
+
+  test('単独のファイルはそのまま返す', () => {
+    const files = ['saitama-marathon-2026.json'];
+    const result = getLatestFilesPerSeries(files);
+    assert.deepEqual(result, ['saitama-marathon-2026.json']);
+  });
+
+  test('結果はソートされている', () => {
+    const files = ['tokyo-marathon-2026.json', 'kyoto-marathon-2026.json', 'ehime-marathon-2026.json'];
+    const result = getLatestFilesPerSeries(files);
+    assert.deepEqual(result, [
+      'ehime-marathon-2026.json',
+      'kyoto-marathon-2026.json',
+      'tokyo-marathon-2026.json',
+    ]);
+  });
+
+  test('空配列を渡すと空配列を返す', () => {
+    assert.deepEqual(getLatestFilesPerSeries([]), []);
   });
 });

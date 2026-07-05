@@ -49,25 +49,24 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-05T07:57:29.198Z",
-  "updated_at": "2026-06-22T15:06:22.893Z",
+  "updated_at": "2026-06-29T14:15:05.114Z",
   "entry_periods": [
     {
+      "label_ja": "一般枠",
+      "label_en": "General Entry",
       "start_date": "2026-04-08",
       "end_date": "2026-06-30",
-      "entry_fee": 12500,
-      "label_ja": "一般枠",
-      "label_en": ""
+      "entry_fee": 12500
     }
   ],
   "participation_gifts": [
     {
       "gift_categories": [
         "bag",
-        "cap",
-        "bottle"
+        "cap"
       ],
-      "description_ja": "新潟が誇るアウトドアメーカー「キャプテンスタッグ」製の大会オリジナルグッズ3種類の中からお好きなグッズをお選びください。\nA. オリジナルサコッシュ（幅25cm×高さ20cm、カラー：ブラック）\nB. オリジナルランニングキャップ\nC. シリコンボトル",
-      "description_en": "Choose one of three original goods made by Niigata outdoor brand CAPTAIN STAG: A. Original sacoche (W25cm×H20cm, black), B. Original running cap, C. Silicone bottle",
+      "description_ja": "新潟が誇るアウトドアメーカー「キャプテンスタッグ」製の大会オリジナルグッズ2種類の中からお好きなグッズをお選びください。\nA. オリジナルサコッシュ（幅25cm×高さ20cm、カラー：ブラック）\nB. オリジナルランニングキャップ",
+      "description_en": "Choose one of two original goods made by Niigata outdoor brand CAPTAIN STAG: A. Original sacoche (W25cm×H20cm, black), B. Original running cap",
       "image": null
     }
   ],
@@ -105,9 +104,10 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-06-22",
+    "last_verified": "2026-06-29",
     "data_accuracy_notes": [
-      "2026-06-22: 自動クロールで更新"
+      "2026-06-22: 自動クロールで更新",
+      "2026-06-29: 自動クロールで更新"
     ]
   }
 }

@@ -1,0 +1,182 @@
+{
+  "id": "kochi-ryoma-marathon-2027",
+  "name_ja": "高知龍馬マラソン",
+  "name_en": "Kochi Ryoma Marathon",
+  "full_name_ja": "高知龍馬マラソン2027",
+  "full_name_en": "Kochi Ryoma Marathon",
+  "edition": null,
+  "date": "2027-02-21",
+  "prefecture": "39",
+  "city_ja": "高知市",
+  "city_en": "Kochi City",
+  "description_ja": "坂本龍馬ゆかりの高知で開催されるフルマラソン。太平洋を望む雄大なコースが魅力。制限時間7時間で初心者にも優しい。",
+  "description_en": "A full marathon in Kochi, the home of Sakamoto Ryoma. Features a magnificent course overlooking the Pacific Ocean. 7-hour time limit is beginner-friendly.",
+  "official_url": "https://ryoma-marathon.jp",
+  "entry_fee": 13000,
+  "entry_fee_by_category": true,
+  "entry_capacity": 10000,
+  "entry_start_date": "2026-08-01",
+  "entry_end_date": "2026-10-31",
+  "reception_type": "pre_day",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [
+    "初心者おすすめ",
+    "景色が良い",
+    "海沿い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF",
+      "WA"
+    ],
+    "highlights_ja": "太平洋、浦戸大橋、桂浜方面",
+    "highlights_en": "Pacific Ocean, Urado Bridge, Katsurahama area",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 420,
+      "start_time": "09:00",
+      "capacity": 10000,
+      "entry_fee": 13000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "桂浜",
+      "name_en": "Katsurahama Beach",
+      "description_ja": "坂本龍馬像がある高知を代表する景勝地。太平洋の荒波が美しい。",
+      "description_en": "A scenic spot representing Kochi with a statue of Sakamoto Ryoma. Beautiful Pacific waves.",
+      "distance_from_venue": "高知市から車約30分",
+      "url": null,
+      "latitude": 33.4997,
+      "longitude": 133.575
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "カツオのたたき",
+      "name_en": "Katsuo no Tataki",
+      "description_ja": "高知を代表するグルメ。藁焼きで仕上げた鰹のたたきは絶品。ひろめ市場で気軽に楽しめる。",
+      "description_en": "Kochi's signature dish. Straw-grilled bonito tataki is exquisite. Enjoy casually at Hirome Market.",
+      "distance_from_venue": "高知市内",
+      "url": null,
+      "latitude": 33.5589,
+      "longitude": 133.5311
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-06-29T14:13:35.752Z",
+  "updated_at": "2026-06-29T14:13:35.752Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "2026-06-29: 自動クロールで kochi-ryoma-marathon-2026 を元に2027年大会ファイルを新規作成"
+    ],
+    "last_verified": "2026-06-29",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-08-01",
+      "end_date": "2026-10-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": "坂本龍馬",
+  "motif_color": "#1a3a1a",
+  "motif_romaji": "Ryoma",
+  "tagline_ja": "龍馬の志を胸に、土佐の大地を駆け抜ける",
+  "tagline_en": "Run the Tosa plains with the spirit of Ryoma",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "太平洋",
+      "name_en": "Pacific Ocean",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "浦戸大橋",
+      "name_en": "Urado Bridge",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "桂浜方面",
+      "name_en": "Katsurahama area",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://ryoma-marathon.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://ryoma-marathon.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://ryoma-marathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://ryoma-marathon.jp/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://ryoma-marathon.jp/faq/",
+      "label": "FAQ"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ]
+}

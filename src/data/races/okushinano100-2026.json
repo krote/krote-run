@@ -116,7 +116,7 @@
       "label_ja": "100km",
       "label_en": "100km",
       "start_date": "2025-12-14",
-      "end_date": "2026-02-15",
+      "end_date": "2026-02-28",
       "entry_fee": 27500,
       "category_id": null,
       "sort_order": 0
@@ -125,7 +125,7 @@
       "label_ja": "50km",
       "label_en": "50km",
       "start_date": "2025-12-14",
-      "end_date": "2026-02-15",
+      "end_date": "2026-02-28",
       "entry_fee": 13200,
       "category_id": null,
       "sort_order": 1

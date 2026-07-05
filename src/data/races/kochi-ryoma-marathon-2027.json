@@ -111,7 +111,7 @@
       "label_en": "General Entry",
       "start_date": "2026-08-01",
       "end_date": "2026-10-31",
-      "entry_fee": null,
+      "entry_fee": 13000,
       "category_id": null,
       "sort_order": 0
     }
@@ -174,8 +174,8 @@
       "gift_categories": [
         "medal"
       ],
-      "description_ja": "大会Tシャツ、完走メダル",
-      "description_en": "Race T-shirt, Finisher medal",
+      "description_ja": "完走メダル",
+      "description_en": "Finisher medal",
       "image": null
     }
   ]

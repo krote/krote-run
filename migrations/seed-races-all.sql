@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-07-05T14:03:49.704Z
+-- 生成日時: 2026-07-05T14:07:44.461Z
 -- 対象ファイル数: 87 件（既存 2 件はskip）
 
 -- ==================
@@ -5763,9 +5763,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('kochi-ryoma-marathon-2027', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('kochi-ryoma-marathon-2027', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+  ('kochi-ryoma-marathon-2027', '["medal"]', '完走メダル', 'Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('kochi-ryoma-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-08-01', '2026-10-31', NULL, 0);
+  ('kochi-ryoma-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-08-01', '2026-10-31', 13000, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('kochi-ryoma-marathon-2027', NULL, NULL, '太平洋', 'Pacific Ocean', NULL, NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -7718,9 +7718,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
   ('okushinano100-2026', 'SPORT ENTRY', 'https://www.sportsentry.ne.jp/event/t/103253', 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('okushinano100-2026', NULL, '100km', '100km', '2025-12-14', '2026-02-15', 27500, 0);
+  ('okushinano100-2026', NULL, '100km', '100km', '2025-12-14', '2026-02-28', 27500, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('okushinano100-2026', NULL, '50km', '50km', '2025-12-14', '2026-02-15', 13200, 1);
+  ('okushinano100-2026', NULL, '50km', '50km', '2025-12-14', '2026-02-28', 13200, 1);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('okushinano100-2026', NULL, '25km', '25km', '2025-12-14', '2026-05-10', 8800, 2);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES

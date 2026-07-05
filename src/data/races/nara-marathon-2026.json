@@ -15,7 +15,7 @@
   "entry_fee": 15000,
   "entry_fee_by_category": false,
   "entry_capacity": 11750,
-  "entry_start_date": "2026-06-05",
+  "entry_start_date": "2026-05-27",
   "entry_end_date": "2026-07-09",
   "reception_type": null,
   "reception_note_ja": "",
@@ -97,7 +97,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-06-12T14:00:45.631Z",
+  "updated_at": "2026-06-29T14:14:30.479Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -105,9 +105,10 @@
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
       "2026-05-30: 自動クロールで更新",
       "2026-06-08: 自動クロールで更新",
-      "2026-06-12: 自動クロールで更新"
+      "2026-06-12: 自動クロールで更新",
+      "2026-06-29: 自動クロールで更新"
     ],
-    "last_verified": "2026-06-12",
+    "last_verified": "2026-06-29",
     "detail_level": "medium"
   },
   "entry_periods": [

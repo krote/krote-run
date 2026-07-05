@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-06-27T14:38:06.836Z
--- 対象ファイル数: 86 件（既存 2 件はskip）
+-- 生成日時: 2026-07-05T14:07:44.461Z
+-- 対象ファイル数: 87 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -20,7 +20,7 @@ DELETE FROM race_results WHERE race_id = 'abashiri-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'abashiri-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'abashiri-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'abashiri-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -76,7 +76,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-29T11:38:18.538Z',
   '2026-05-25T01:16:41.659Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('abashiri-marathon-2026', 'full', 42.195, 390, '08:45', 2600, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -104,7 +142,7 @@ DELETE FROM race_results WHERE race_id = 'akita-nairiku-ultra-2026';
 DELETE FROM race_gallery WHERE race_id = 'akita-nairiku-ultra-2026';
 DELETE FROM race_voices WHERE race_id = 'akita-nairiku-ultra-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'akita-nairiku-ultra-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -160,7 +198,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-29T00:00:00Z',
   '2026-05-25T10:40:47.866Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('akita-nairiku-ultra-2026', 'ultra', 100, 780, '05:00', 650, 22000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -194,7 +270,7 @@ DELETE FROM race_results WHERE race_id = 'aomori-sakura-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'aomori-sakura-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'aomori-sakura-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'aomori-sakura-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -250,7 +326,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-06-08T14:29:28.845Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('aomori-sakura-marathon-2026', 'full', 42.195, 330, '08:50', 2400, 7000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -290,7 +404,7 @@ DELETE FROM race_results WHERE race_id = 'aoshima-taiheyo-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'aoshima-taiheyo-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'aoshima-taiheyo-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'aoshima-taiheyo-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -346,7 +460,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-06-12T13:47:30.815Z',
   '2026-06-12T13:47:30.815Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 
 -- ==================
 -- 旭川ハーフマラソン (asahikawa-half-marathon-2026)
@@ -366,7 +518,7 @@ DELETE FROM race_results WHERE race_id = 'asahikawa-half-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'asahikawa-half-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'asahikawa-half-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'asahikawa-half-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -422,7 +574,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-29T00:00:00Z',
   '2026-05-25T01:17:00.049Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('asahikawa-half-marathon-2026', 'half', 21.0975, 180, '08:30', 2500, 6500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -450,7 +640,7 @@ DELETE FROM race_results WHERE race_id = 'beppu-oita-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'beppu-oita-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'beppu-oita-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'beppu-oita-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -506,7 +696,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-25T01:17:05.123Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('beppu-oita-marathon-2026', 'full', 42.195, 0, '12:00', 4000, 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -540,7 +768,7 @@ DELETE FROM race_results WHERE race_id = 'biwako-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'biwako-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'biwako-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'biwako-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -596,7 +824,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('biwako-marathon-2026', 'full', 42.195, 360, '08:20', 7000, 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -628,7 +894,7 @@ DELETE FROM race_results WHERE race_id = 'chiba-aqualine-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'chiba-aqualine-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'chiba-aqualine-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'chiba-aqualine-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -684,7 +950,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-30T00:00:00Z',
   '2026-06-22T14:59:41.999Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('chiba-aqualine-marathon-2026', 'full', 42.195, 375, '09:45', 12000, 16500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -722,7 +1026,7 @@ DELETE FROM race_results WHERE race_id = 'ehime-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'ehime-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'ehime-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'ehime-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -778,7 +1082,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-25T01:17:59.684Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('ehime-marathon-2026', 'full', 42.195, 360, '10:00', 10000, 12900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -814,7 +1156,7 @@ DELETE FROM race_results WHERE race_id = 'ehime-marathon-2027';
 DELETE FROM race_gallery WHERE race_id = 'ehime-marathon-2027';
 DELETE FROM race_voices WHERE race_id = 'ehime-marathon-2027';
 DELETE FROM race_time_buckets WHERE race_id = 'ehime-marathon-2027';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -855,7 +1197,7 @@ INSERT OR REPLACE INTO races (
   0,
   0,
   'road',
-  '["JAAF"]',
+  '["JAAF","WA","AIMS"]',
   '松山城、道後温泉',
   'Matsuyama Castle, Dogo Onsen',
   NULL,
@@ -869,8 +1211,46 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-06-27T00:00:00Z',
-  '2026-06-27T13:27:58.737Z'
-);
+  '2026-06-29T14:12:11.705Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('ehime-marathon-2027', 'full', 42.195, 360, '10:00', 10000, 12900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -910,7 +1290,7 @@ DELETE FROM race_results WHERE race_id = 'fuji-mountain-race-2026';
 DELETE FROM race_gallery WHERE race_id = 'fuji-mountain-race-2026';
 DELETE FROM race_voices WHERE race_id = 'fuji-mountain-race-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'fuji-mountain-race-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -972,7 +1352,45 @@ Please note that if you forget your race number or timing chip on the day of the
   NULL,
   '2026-04-28T16:44:56.479Z',
   '2026-04-28T16:44:56.479Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fuji-mountain-race-2026', 'other', 21, 260, '07:00', 1770, 18000, NULL, '山頂コース', NULL, NULL, NULL, '第76回大会、第77回大会、第78回大会のいずれかにおいて五合目関門（五合目ゴール）通過時間が2時間20分以内の実績のある者。又は、第2回富士山クライムランにおいて五合目ゴール時間が2時間以内の実績がある者とする。 過去(第76回、第77回、第78回)の大会の記録についてはこちらからご確認ください。 第2回富士山クライムランの記録についてはこちらからご確認ください。', 'Participants must have completed the 5th Station checkpoint (5th Station finish) in 2 hours and 20 minutes or less in either the 76th, 77th, or 78th edition of the race. Alternatively, participants must have completed the 5th Station finish in 2 hours or less in the 2nd Mount Fuji Climb Run. Please click here to view records from past editions (76th, 77th, and 78th). Please click here to view records from the 2nd Mt. Fuji Climb Run.  Translated with DeepL.com (free version)', 'fuji-mountain-race-2026.gpx', '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -1000,7 +1418,7 @@ DELETE FROM race_results WHERE race_id = 'fujisan-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'fujisan-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'fujisan-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'fujisan-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -1056,7 +1474,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-06-08T14:30:14.213Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fujisan-marathon-2026', 'full', 42.195, 360, '09:00', 0, 12900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'fujisan-marathon-2026.kml', '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -1096,7 +1552,7 @@ DELETE FROM race_results WHERE race_id = 'fukuchiyama-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'fukuchiyama-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'fukuchiyama-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'fukuchiyama-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -1152,7 +1608,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-04-30T00:00:00Z',
   '2026-06-08T14:30:53.853Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fukuchiyama-marathon-2026', 'full', 42.195, 360, '', 5400, 11000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -1188,7 +1682,7 @@ DELETE FROM race_results WHERE race_id = 'fukui-sakura-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'fukui-sakura-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'fukui-sakura-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'fukui-sakura-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -1244,7 +1738,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-25T01:18:51.816Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fukui-sakura-marathon-2026', 'full', 42.195, 420, '08:30', 13200, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -1284,7 +1816,7 @@ DELETE FROM race_results WHERE race_id = 'fukuoka-international-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'fukuoka-international-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'fukuoka-international-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'fukuoka-international-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -1340,7 +1872,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-03-16T00:00:00Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fukuoka-international-marathon-2026', 'full', 42.195, 155, '12:10', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -1372,7 +1942,7 @@ DELETE FROM race_results WHERE race_id = 'fukuoka-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'fukuoka-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'fukuoka-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'fukuoka-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -1398,7 +1968,7 @@ INSERT OR REPLACE INTO races (
   '福岡市の中心部・天神をスタートし、糸島市までを走るフルマラソン。博多湾や玄界灘を望む海沿いのコースが続き、九州の大自然と都市の景観を同時に楽しめる。',
   'A full marathon starting from Tenjin in central Fukuoka and finishing in Itoshima City. The course runs along the coast with views of Hakata Bay and the Genkai Sea.',
   'https://www.f-marathon.jp/',
-  NULL,
+  16000,
   1,
   15000,
   '2026-04-20',
@@ -1413,7 +1983,7 @@ INSERT OR REPLACE INTO races (
   0,
   0,
   'road',
-  '[]',
+  '["JAAF"]',
   '天神スタート、博多湾沿い、玄界灘、糸島フィニッシュ',
   'Tenjin start, Hakata Bay coastline, Genkai Sea, Itoshima finish',
   NULL,
@@ -1427,8 +1997,46 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-04-30T00:00:00Z',
-  '2026-06-08T14:31:12.680Z'
-);
+  '2026-06-29T14:13:09.859Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fukuoka-marathon-2026', 'full', 42.195, 420, '08:20', 13000, 16000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -1448,11 +2056,9 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fukuoka-marathon-2026', '温泉', '二丈温泉きららの湯', 'Nijo Onsen Kirara no Yu', '糸島・二丈エリアの温泉施設。コース沿いでレース後のリカバリーに最適。', 'Hot spring facility in the Itoshima/Nijo area. Ideal for post-race recovery near the course.', '糸島市内', NULL, 33.54, 130.16);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('fukuoka-marathon-2026', '["tshirt"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
-INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('fukuoka-marathon-2026', '["medal"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 1);
+  ('fukuoka-marathon-2026', '["tshirt"]', '大会オリジナルTシャツ（有償・希望者のみ）', 'Official race T-shirt (paid, optional)', NULL, 0);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('fukuoka-marathon-2026', '["medal"]', '完走メダル、大会オリジナルTシャツ', 'Finisher medal, Official race T-shirt', NULL, 0);
+  ('fukuoka-marathon-2026', '["medal","towel"]', '完走メダル、スポーツタオル（マラソンの部のみ）', 'Finisher medal, sports towel (marathon only)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('fukuoka-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-20', '2026-05-20', 16000, 0);
 
@@ -1474,7 +2080,7 @@ DELETE FROM race_results WHERE race_id = 'gunma-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'gunma-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'gunma-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'gunma-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -1540,7 +2146,45 @@ If you are unable to participate after registering, you do not need to contact u
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-06-22T15:01:11.589Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('gunma-marathon-2026', 'full', 42.195, 360, '08:55', 5500, 13500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -1584,7 +2228,7 @@ DELETE FROM race_results WHERE race_id = 'higashine-sakuranbo-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'higashine-sakuranbo-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'higashine-sakuranbo-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'higashine-sakuranbo-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -1640,7 +2284,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-30T00:00:00Z',
   '2026-05-27T14:55:48.396Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('higashine-sakuranbo-marathon-2026', 'half', 21.0975, 170, '08:40', 5500, 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -1674,7 +2356,7 @@ DELETE FROM race_results WHERE race_id = 'higashinipon-half-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'higashinipon-half-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'higashinipon-half-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'higashinipon-half-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -1730,7 +2412,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-29T00:00:00Z',
   '2026-03-29T00:00:00Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('higashinipon-half-marathon-2026', 'half', 21.0975, 180, '09:00', 4000, 5500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -1760,7 +2480,7 @@ DELETE FROM race_results WHERE race_id = 'himeji-castle-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'himeji-castle-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'himeji-castle-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'himeji-castle-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -1816,7 +2536,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('himeji-castle-marathon-2026', 'full', 42.195, 360, '', 9000, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -1848,7 +2606,7 @@ DELETE FROM race_results WHERE race_id = 'hitachi-seaside-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'hitachi-seaside-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'hitachi-seaside-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'hitachi-seaside-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -1908,7 +2666,45 @@ With the scenery and the sea breeze pushing you forward, you can fully savor the
   NULL,
   '2026-04-11T14:28:19.021Z',
   '2026-04-11T14:28:19.021Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('hitachi-seaside-marathon-2026', 'full', 42.195, 360, '10:00', 6000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -1944,7 +2740,7 @@ DELETE FROM race_results WHERE race_id = 'hofu-yomiuri-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'hofu-yomiuri-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'hofu-yomiuri-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'hofu-yomiuri-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -2000,7 +2796,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-06-12T13:57:36.968Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('hofu-yomiuri-marathon-2026', 'full', 42.195, 240, '12:03', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -2036,7 +2870,7 @@ DELETE FROM race_results WHERE race_id = 'hokkaido-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'hokkaido-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'hokkaido-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'hokkaido-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -2092,7 +2926,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-06-27T13:29:05.102Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('hokkaido-marathon-2026', 'full', 42.195, 360, '08:30', 20000, 16500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -2132,7 +3004,7 @@ DELETE FROM race_results WHERE race_id = 'ibusuki-nanohana-2026';
 DELETE FROM race_gallery WHERE race_id = 'ibusuki-nanohana-2026';
 DELETE FROM race_voices WHERE race_id = 'ibusuki-nanohana-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'ibusuki-nanohana-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -2188,7 +3060,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:35:12.039Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('ibusuki-nanohana-2026', 'full', 42.195, 480, '09:00', 10000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
@@ -2226,7 +3136,7 @@ DELETE FROM race_results WHERE race_id = 'ichinoseki-half-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'ichinoseki-half-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'ichinoseki-half-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'ichinoseki-half-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -2282,7 +3192,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-29T00:00:00Z',
   '2026-05-30T06:35:21.220Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('ichinoseki-half-marathon-2026', 'half', 21.0975, 170, '09:00', 2000, 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -2310,7 +3258,7 @@ DELETE FROM race_results WHERE race_id = 'iki-ultra-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'iki-ultra-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'iki-ultra-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'iki-ultra-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -2366,7 +3314,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-04-05T08:19:26.353Z',
   '2026-05-30T06:35:34.537Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('iki-ultra-marathon-2026', 'ultra', 100, 840, '05:00', 1000, 20000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -2394,7 +3380,7 @@ DELETE FROM race_results WHERE race_id = 'itabashi-city-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'itabashi-city-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'itabashi-city-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'itabashi-city-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -2450,7 +3436,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:35:40.462Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('itabashi-city-marathon-2026', 'full', 42.195, 420, '09:00', 10000, 11550, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -2484,7 +3508,7 @@ DELETE FROM race_results WHERE race_id = 'iwaki-sunshine-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'iwaki-sunshine-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'iwaki-sunshine-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'iwaki-sunshine-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -2540,7 +3564,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:35:45.814Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('iwaki-sunshine-marathon-2026', 'full', 42.195, 360, '', 5000, 9000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -2578,7 +3640,7 @@ DELETE FROM race_results WHERE race_id = 'iwaki-sunshine-marathon-2027';
 DELETE FROM race_gallery WHERE race_id = 'iwaki-sunshine-marathon-2027';
 DELETE FROM race_voices WHERE race_id = 'iwaki-sunshine-marathon-2027';
 DELETE FROM race_time_buckets WHERE race_id = 'iwaki-sunshine-marathon-2027';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -2634,7 +3696,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-06-24T00:00:00Z',
   '2026-06-22T15:02:41.436Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('iwaki-sunshine-marathon-2027', 'full', 42.195, 360, '', 5000, 9000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -2672,7 +3772,7 @@ DELETE FROM race_results WHERE race_id = 'iwate-morioka-city-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'iwate-morioka-city-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'iwate-morioka-city-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'iwate-morioka-city-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -2758,7 +3858,45 @@ Translated with DeepL.com (free version)',
   NULL,
   '2026-04-16T15:23:52.019Z',
   '2026-06-08T14:33:03.724Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('iwate-morioka-city-marathon-2026', 'full', 42.195, 360, '09:00', 6000, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -2784,7 +3922,7 @@ DELETE FROM race_results WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'iwate-oshu-kirameki-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -2840,7 +3978,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-06-22T15:03:07.746Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('iwate-oshu-kirameki-marathon-2026', 'full', 42.195, 360, '08:30', 3000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -2872,7 +4048,7 @@ DELETE FROM race_results WHERE race_id = 'izu-oshima-2026';
 DELETE FROM race_gallery WHERE race_id = 'izu-oshima-2026';
 DELETE FROM race_voices WHERE race_id = 'izu-oshima-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'izu-oshima-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -2953,7 +4129,45 @@ Translated with DeepL.com (free version)',
   NULL,
   '2026-06-06T08:43:10.814Z',
   '2026-06-06T00:00:00.000Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('izu-oshima-2026', 'full', 42.195, 420, '08:00', 750, 9400, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'izu-oshima-2026.gpx', '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -2989,7 +4203,7 @@ DELETE FROM race_results WHERE race_id = 'kagawa-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'kagawa-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'kagawa-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'kagawa-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -3045,7 +4259,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-06-27T13:29:44.929Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kagawa-marathon-2026', 'full', 42.195, 360, '10:00', 10000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -3079,7 +4331,7 @@ DELETE FROM race_results WHERE race_id = 'kagoshima-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'kagoshima-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'kagoshima-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'kagoshima-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -3135,7 +4387,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:36:35.675Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kagoshima-marathon-2026', 'full', 42.195, 420, '08:30', 10000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -3171,7 +4461,7 @@ DELETE FROM race_results WHERE race_id = 'kaikyo-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'kaikyo-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'kaikyo-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'kaikyo-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -3227,7 +4517,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-04-30T00:00:00Z',
   '2026-05-30T06:36:44.764Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kaikyo-marathon-2026', 'full', 42.195, 360, '', 10000, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -3267,7 +4595,7 @@ DELETE FROM race_results WHERE race_id = 'kanazawa-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'kanazawa-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'kanazawa-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'kanazawa-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -3323,7 +4651,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:36:53.964Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kanazawa-marathon-2026', 'full', 42.195, 420, '08:30', 15000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -3357,7 +4723,7 @@ DELETE FROM race_results WHERE race_id = 'kasama-togeinosato-half-2025-2025';
 DELETE FROM race_gallery WHERE race_id = 'kasama-togeinosato-half-2025-2025';
 DELETE FROM race_voices WHERE race_id = 'kasama-togeinosato-half-2025-2025';
 DELETE FROM race_time_buckets WHERE race_id = 'kasama-togeinosato-half-2025-2025';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -3413,7 +4779,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-05-09T14:16:13.893Z',
   '2026-05-30T06:37:00.046Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kasama-togeinosato-half-2025-2025', 'half', 21.0975, 150, '10:00', 2000, 5000, NULL, NULL, NULL, NULL, NULL, '18歳以上（高校生を除く）で健康に異常がなく２時間30分以内で完走できる方。なお、安全管理運営上、車いすやベビーカーを使用しての参加はできません。
 
@@ -3461,7 +4865,7 @@ DELETE FROM race_results WHERE race_id = 'kasumigaura-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'kasumigaura-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'kasumigaura-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'kasumigaura-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -3517,7 +4921,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:37:10.498Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kasumigaura-marathon-2026', 'full', 42.195, 360, '09:45', 14000, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -3553,7 +4995,7 @@ DELETE FROM race_results WHERE race_id = 'katsuta-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'katsuta-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'katsuta-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'katsuta-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -3609,7 +5051,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:37:19.558Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('katsuta-marathon-2026', 'full', 42.195, 360, '10:30', 0, 8000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -3641,7 +5121,7 @@ DELETE FROM race_results WHERE race_id = 'kitakyushu-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'kitakyushu-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'kitakyushu-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'kitakyushu-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -3697,7 +5177,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:37:31.465Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kitakyushu-marathon-2026', 'full', 42.195, 360, '09:00', 10800, 14500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -3733,7 +5251,7 @@ DELETE FROM race_results WHERE race_id = 'kix-senshu-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'kix-senshu-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'kix-senshu-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'kix-senshu-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -3789,7 +5307,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:37:37.791Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kix-senshu-marathon-2026', 'full', 42.195, 420, '10:30', 700, 5000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -3819,7 +5375,7 @@ DELETE FROM race_results WHERE race_id = 'kobe-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'kobe-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'kobe-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'kobe-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -3893,7 +5449,45 @@ For relay runs, both runners must register together. Registration by one person,
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-06-27T13:30:41.348Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kobe-marathon-2026', 'full', 42.195, 420, '09:00', 20000, 18000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -3933,7 +5527,7 @@ DELETE FROM race_results WHERE race_id = 'kochi-ryoma-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'kochi-ryoma-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'kochi-ryoma-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'kochi-ryoma-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -3989,7 +5583,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:37:49.063Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kochi-ryoma-marathon-2026', 'full', 42.195, 420, '09:00', 10000, 13000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -4010,6 +5642,138 @@ INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja
   ('kochi-ryoma-marathon-2026', NULL, NULL, '桂浜方面', 'Katsurahama area', NULL, NULL, 2);
 
 -- ==================
+-- 高知龍馬マラソン (kochi-ryoma-marathon-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'kochi-ryoma-marathon-2027';
+DELETE FROM race_categories WHERE race_id = 'kochi-ryoma-marathon-2027';
+DELETE FROM aid_stations WHERE race_id = 'kochi-ryoma-marathon-2027';
+DELETE FROM checkpoints WHERE race_id = 'kochi-ryoma-marathon-2027';
+DELETE FROM access_points WHERE race_id = 'kochi-ryoma-marathon-2027';
+DELETE FROM nearby_spots WHERE race_id = 'kochi-ryoma-marathon-2027';
+DELETE FROM weather_history WHERE race_id = 'kochi-ryoma-marathon-2027';
+DELETE FROM participation_gifts WHERE race_id = 'kochi-ryoma-marathon-2027';
+DELETE FROM completion_gifts WHERE race_id = 'kochi-ryoma-marathon-2027';
+DELETE FROM race_entry_links WHERE race_id = 'kochi-ryoma-marathon-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'kochi-ryoma-marathon-2027';
+DELETE FROM race_results WHERE race_id = 'kochi-ryoma-marathon-2027';
+DELETE FROM race_gallery WHERE race_id = 'kochi-ryoma-marathon-2027';
+DELETE FROM race_voices WHERE race_id = 'kochi-ryoma-marathon-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'kochi-ryoma-marathon-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  created_at, updated_at
+) VALUES (
+  'kochi-ryoma-marathon-2027',
+  '高知龍馬マラソン',
+  'Kochi Ryoma Marathon',
+  '2027-02-21',
+  '39',
+  '高知市',
+  'Kochi City',
+  '坂本龍馬ゆかりの高知で開催されるフルマラソン。太平洋を望む雄大なコースが魅力。制限時間7時間で初心者にも優しい。',
+  'A full marathon in Kochi, the home of Sakamoto Ryoma. Features a magnificent course overlooking the Pacific Ocean. 7-hour time limit is beginner-friendly.',
+  'https://ryoma-marathon.jp',
+  13000,
+  1,
+  10000,
+  '2026-08-01',
+  '2026-10-31',
+  0,
+  'pre_day',
+  '',
+  '',
+  '["初心者おすすめ","景色が良い","海沿い"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '["JAAF","WA"]',
+  '太平洋、浦戸大橋、桂浜方面',
+  'Pacific Ocean, Urado Bridge, Katsurahama area',
+  NULL,
+  NULL,
+  '坂本龍馬',
+  '#1a3a1a',
+  'Ryoma',
+  '龍馬の志を胸に、土佐の大地を駆け抜ける',
+  'Run the Tosa plains with the spirit of Ryoma',
+  NULL,
+  NULL,
+  NULL,
+  '2026-06-29T14:13:35.752Z',
+  '2026-06-29T14:13:35.752Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('kochi-ryoma-marathon-2027', 'full', 42.195, 420, '09:00', 10000, 13000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('kochi-ryoma-marathon-2027', '観光地', '桂浜', 'Katsurahama Beach', '坂本龍馬像がある高知を代表する景勝地。太平洋の荒波が美しい。', 'A scenic spot representing Kochi with a statue of Sakamoto Ryoma. Beautiful Pacific waves.', '高知市から車約30分', NULL, 33.4997, 133.575);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('kochi-ryoma-marathon-2027', 'グルメ', 'カツオのたたき', 'Katsuo no Tataki', '高知を代表するグルメ。藁焼きで仕上げた鰹のたたきは絶品。ひろめ市場で気軽に楽しめる。', 'Kochi''s signature dish. Straw-grilled bonito tataki is exquisite. Enjoy casually at Hirome Market.', '高知市内', NULL, 33.5589, 133.5311);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('kochi-ryoma-marathon-2027', '["tshirt"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('kochi-ryoma-marathon-2027', '["medal"]', '完走メダル', 'Finisher medal', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('kochi-ryoma-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-08-01', '2026-10-31', 13000, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kochi-ryoma-marathon-2027', NULL, NULL, '太平洋', 'Pacific Ocean', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kochi-ryoma-marathon-2027', NULL, NULL, '浦戸大橋', 'Urado Bridge', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('kochi-ryoma-marathon-2027', NULL, NULL, '桂浜方面', 'Katsurahama area', NULL, NULL, 2);
+
+-- ==================
 -- 熊本城マラソン (kumamoto-castle-marathon-2026)
 -- ==================
 DELETE FROM race_course_highlights WHERE race_id = 'kumamoto-castle-marathon-2026';
@@ -4027,7 +5791,7 @@ DELETE FROM race_results WHERE race_id = 'kumamoto-castle-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'kumamoto-castle-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'kumamoto-castle-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'kumamoto-castle-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -4083,7 +5847,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:37:58.617Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kumamoto-castle-marathon-2026', 'full', 42.195, 420, '09:00', 13000, 13750, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -4117,7 +5919,7 @@ DELETE FROM race_results WHERE race_id = 'kyoto-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'kyoto-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'kyoto-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'kyoto-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -4173,7 +5975,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:38:04.533Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kyoto-marathon-2026', 'full', 42.195, 360, '08:55', 16000, 18500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -4217,7 +6057,7 @@ DELETE FROM race_results WHERE race_id = 'kyoto-marathon-2027';
 DELETE FROM race_gallery WHERE race_id = 'kyoto-marathon-2027';
 DELETE FROM race_voices WHERE race_id = 'kyoto-marathon-2027';
 DELETE FROM race_time_buckets WHERE race_id = 'kyoto-marathon-2027';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -4273,7 +6113,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-06-24T00:00:00Z',
   '2026-06-22T15:04:24.950Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kyoto-marathon-2027', 'full', 42.195, 360, '08:55', 16000, 18500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -4317,7 +6195,7 @@ DELETE FROM race_results WHERE race_id = 'mie-matsusaka-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'mie-matsusaka-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'mie-matsusaka-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'mie-matsusaka-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -4373,7 +6251,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-06-22T15:05:11.803Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('mie-matsusaka-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -4411,7 +6327,7 @@ DELETE FROM race_results WHERE race_id = 'mito-komon-manyu-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'mito-komon-manyu-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'mito-komon-manyu-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'mito-komon-manyu-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -4467,7 +6383,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-06-12T14:00:15.434Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('mito-komon-manyu-marathon-2026', 'full', 42.195, 360, '', 10000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'mito-komon-manyu-marathon-2026', '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -4501,7 +6455,7 @@ DELETE FROM race_results WHERE race_id = 'mtfuji-climb-run-2026';
 DELETE FROM race_gallery WHERE race_id = 'mtfuji-climb-run-2026';
 DELETE FROM race_voices WHERE race_id = 'mtfuji-climb-run-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'mtfuji-climb-run-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -4575,7 +6529,45 @@ Sunday, September 13, 6:30 AM – 30 minutes before the start time of each wave'
   NULL,
   '2026-04-28T13:53:53.451Z',
   '2026-05-30T06:38:26.366Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('mtfuji-climb-run-2026', 'other', 12, 180, '09:00', 2000, 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -4601,7 +6593,7 @@ DELETE FROM race_results WHERE race_id = 'nagai-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'nagai-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'nagai-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'nagai-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -4657,7 +6649,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-05-20T14:02:09.788Z',
   '2026-05-20T14:02:09.788Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('nagai-marathon-2026', 'full', 42.195, 330, '09:25', 0, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -4691,7 +6721,7 @@ DELETE FROM race_results WHERE race_id = 'nagoya-womens-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'nagoya-womens-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'nagoya-womens-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'nagoya-womens-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -4747,7 +6777,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:39:00.304Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('nagoya-womens-marathon-2026', 'full', 42.195, 420, '09:10', 20000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -4781,7 +6849,7 @@ DELETE FROM race_results WHERE race_id = 'naha-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'naha-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'naha-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'naha-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -4837,7 +6905,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-06-08T14:35:07.903Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('naha-marathon-2026', 'full', 42.195, 375, '09:00', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -4867,7 +6973,7 @@ DELETE FROM race_results WHERE race_id = 'nara-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'nara-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'nara-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'nara-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -4896,7 +7002,7 @@ INSERT OR REPLACE INTO races (
   15000,
   0,
   11750,
-  '2026-06-05',
+  '2026-05-27',
   '2026-07-09',
   0,
   'race_day',
@@ -4922,8 +7028,46 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-06-12T14:00:45.631Z'
-);
+  '2026-06-29T14:14:30.479Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('nara-marathon-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -4965,7 +7109,7 @@ DELETE FROM race_results WHERE race_id = 'niigata-city-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'niigata-city-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'niigata-city-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'niigata-city-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -5020,15 +7164,52 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-04-05T07:57:29.198Z',
-  '2026-06-22T15:06:22.893Z'
-);
+  '2026-06-29T14:15:05.114Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('niigata-city-marathon-2026', 'full', 42.195, 420, '08:30', 9000, 12500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('niigata-city-marathon-2026', '["bag","cap","bottle"]', '新潟が誇るアウトドアメーカー「キャプテンスタッグ」製の大会オリジナルグッズ3種類の中からお好きなグッズをお選びください。
+  ('niigata-city-marathon-2026', '["bag","cap"]', '新潟が誇るアウトドアメーカー「キャプテンスタッグ」製の大会オリジナルグッズ2種類の中からお好きなグッズをお選びください。
 A. オリジナルサコッシュ（幅25cm×高さ20cm、カラー：ブラック）
-B. オリジナルランニングキャップ
-C. シリコンボトル', 'Choose one of three original goods made by Niigata outdoor brand CAPTAIN STAG: A. Original sacoche (W25cm×H20cm, black), B. Original running cap, C. Silicone bottle', NULL, 0);
+B. オリジナルランニングキャップ', 'Choose one of two original goods made by Niigata outdoor brand CAPTAIN STAG: A. Original sacoche (W25cm×H20cm, black), B. Original running cap', NULL, 0);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('niigata-city-marathon-2026', '["towel","food"]', 'フィニッシャータオル 及び ジャンボおにぎり または パックごはん', 'Finisher towel and jumbo onigiri or packed rice', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -5052,7 +7233,7 @@ DELETE FROM race_results WHERE race_id = 'nishio-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'nishio-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'nishio-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'nishio-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -5108,7 +7289,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('nishio-marathon-2026', 'full', 42.195, 390, '09:00', 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -5134,7 +7353,7 @@ DELETE FROM race_results WHERE race_id = 'ohtawara-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'ohtawara-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'ohtawara-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'ohtawara-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -5191,7 +7410,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-06-08T14:04:29.954Z',
   '2026-06-08T14:04:29.954Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 
 -- ==================
 -- おかやまマラソン (okayama-marathon-2026)
@@ -5211,7 +7468,7 @@ DELETE FROM race_results WHERE race_id = 'okayama-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'okayama-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'okayama-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'okayama-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -5268,7 +7525,45 @@ Loppi端末(ローソン・ミニストップ店頭)',
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:39:43.610Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('okayama-marathon-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -5302,7 +7597,7 @@ DELETE FROM race_results WHERE race_id = 'okushinano100-2026';
 DELETE FROM race_gallery WHERE race_id = 'okushinano100-2026';
 DELETE FROM race_voices WHERE race_id = 'okushinano100-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'okushinano100-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -5328,7 +7623,7 @@ INSERT OR REPLACE INTO races (
   '長野県奥信濃の豊かな自然の中を走るトレイルランニングレース。「たくさんの方に奥信濃の幸せなトレイルランニングを楽しんでほしい。トレイルランニングと奥信濃が100年続くように」という願いを込めた大会。100km・50km・25km・8kmの4種目。スタートはSBCホテル前（旧木島平スキー場）。',
   'A trail running race through the lush natural landscape of Okushinano in Nagano Prefecture. Four distances: 100km, 50km, 25km, and 8km. Start at the former Kijimadaira Ski Resort (SBC Hotel).',
   'https://okushinano100.com/',
-  31000,
+  27500,
   1,
   700,
   '2025-12-14',
@@ -5341,13 +7636,13 @@ INSERT OR REPLACE INTO races (
   NULL,
   0,
   0,
-  0,
+  4800,
   'trail',
   '[]',
   '奥信濃の山岳トレイル、木島平村〜飯山市周辺',
   'Mountain trails of Okushinano, Kijimadaira to Iiyama area',
-  '3日間開催（6/5〜6/7）。登山道整備活動も実施。',
-  '3-day event (Jun 5–7). Trail maintenance activities also conducted.',
+  '3日間開催（6/5〜6/7）。登山道整備活動も実施。ITRA 4ポイント付与、Western States100 2026予選レース。',
+  '3-day event (Jun 5–7). Trail maintenance activities also conducted. ITRA 4 points, Western States100 2026 Qualifying race.',
   '北アルプス',
   '#1e40af',
   'Kita-Arupusu',
@@ -5357,8 +7652,46 @@ INSERT OR REPLACE INTO races (
   NULL,
   NULL,
   '2026-03-30T00:00:00Z',
-  '2026-05-30T06:40:08.022Z'
-);
+  '2026-06-29T14:15:52.190Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('okushinano100-2026', 'ultra', 100, 1260, '05:00', 700, 31000, NULL, NULL, NULL, NULL, NULL, '・各種目の規定年齢に達している方（100km／50km…18歳以上、25km…高校生以上、8km…中学生以上）※未成年者は保護者の承認が必要
 ・コースを迷うことなく制限時間内に完走できる自信がある方
@@ -5385,7 +7718,15 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
   ('okushinano100-2026', 'SPORT ENTRY', 'https://www.sportsentry.ne.jp/event/t/103253', 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('okushinano100-2026', NULL, '一般エントリー', 'General Entry', '2025-12-14', '2026-05-10', NULL, 0);
+  ('okushinano100-2026', NULL, '100km', '100km', '2025-12-14', '2026-02-28', 27500, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('okushinano100-2026', NULL, '50km', '50km', '2025-12-14', '2026-02-28', 13200, 1);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('okushinano100-2026', NULL, '25km', '25km', '2025-12-14', '2026-05-10', 8800, 2);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('okushinano100-2026', NULL, '8km', '8km', '2025-12-14', '2026-05-10', 0, 3);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('okushinano100-2026', NULL, 'キッズ（小学生・未就学児）', 'Kids (Elementary & Preschool)', '2025-12-14', '2026-05-10', 2200, 4);
 
 -- ==================
 -- 大阪マラソン (osaka-marathon-2026)
@@ -5405,7 +7746,7 @@ DELETE FROM race_results WHERE race_id = 'osaka-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'osaka-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'osaka-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'osaka-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -5461,7 +7802,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:40:23.729Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('osaka-marathon-2026', 'full', 42.195, 420, '09:15', 31970, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -5501,7 +7880,7 @@ DELETE FROM race_results WHERE race_id = 'osaka-yodo-river-citizens-marathon-202
 DELETE FROM race_gallery WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'osaka-yodo-river-citizens-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -5565,7 +7944,45 @@ Based on themes such as “people,” “environment,” and “the Yodogawa Riv
   NULL,
   '2026-04-11T14:42:59.225Z',
   '2026-06-27T13:32:25.650Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('osaka-yodo-river-citizens-marathon-2026', 'full', 42.195, 480, '09:00', 4000, 9800, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -5599,7 +8016,7 @@ DELETE FROM race_results WHERE race_id = 'osj-ontake100-2026';
 DELETE FROM race_gallery WHERE race_id = 'osj-ontake100-2026';
 DELETE FROM race_voices WHERE race_id = 'osj-ontake100-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'osj-ontake100-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -5655,7 +8072,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-30T00:00:00Z',
   '2026-06-08T14:39:14.413Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('osj-ontake100-2026', 'ultra', 163, 1440, '20:00', 200, 21000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -5693,7 +8148,7 @@ DELETE FROM race_results WHERE race_id = 'sado-toki-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'sado-toki-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'sado-toki-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'sado-toki-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -5749,7 +8204,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('sado-toki-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -5781,7 +8274,7 @@ DELETE FROM race_results WHERE race_id = 'saga-sakura-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'saga-sakura-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'saga-sakura-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'saga-sakura-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -5837,7 +8330,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:40:53.342Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('saga-sakura-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -5869,7 +8400,7 @@ DELETE FROM race_results WHERE race_id = 'saitama-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'saitama-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'saitama-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'saitama-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -5925,7 +8456,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('saitama-marathon-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -5949,7 +8518,7 @@ DELETE FROM race_results WHERE race_id = 'saitama-marathon-2027';
 DELETE FROM race_gallery WHERE race_id = 'saitama-marathon-2027';
 DELETE FROM race_voices WHERE race_id = 'saitama-marathon-2027';
 DELETE FROM race_time_buckets WHERE race_id = 'saitama-marathon-2027';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -6005,7 +8574,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-06-27T00:00:00Z',
   '2026-06-27T13:33:20.980Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('saitama-marathon-2027', 'full', 42.195, 360, '', 14000, 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -6033,7 +8640,7 @@ DELETE FROM race_results WHERE race_id = 'sapporo-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'sapporo-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'sapporo-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'sapporo-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -6089,7 +8696,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-05-15T14:40:14.753Z',
   '2026-06-08T14:40:01.427Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('sapporo-marathon-2026', 'half', 21.0975, 0, '09:20', 8000, 8000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -6128,7 +8773,7 @@ DELETE FROM race_results WHERE race_id = 'shiga-kogen100-2026';
 DELETE FROM race_gallery WHERE race_id = 'shiga-kogen100-2026';
 DELETE FROM race_voices WHERE race_id = 'shiga-kogen100-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'shiga-kogen100-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -6275,7 +8920,45 @@ EQUIPMENT
   NULL,
   '2026-04-05T06:01:54.559Z',
   '2026-06-22T15:06:42.561Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('shiga-kogen100-2026', 'ultra', 100, 1560, '04:30', 700, 28000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -6305,7 +8988,7 @@ DELETE FROM race_results WHERE race_id = 'shimada-oigawa-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'shimada-oigawa-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'shimada-oigawa-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'shimada-oigawa-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -6367,7 +9050,45 @@ Translated with DeepL.com (free version)',
   NULL,
   '2026-04-25T04:12:54.667Z',
   '2026-04-25T04:12:54.667Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('shimada-oigawa-marathon-2026', 'full', 42.195, 420, '09:00', 6000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -6395,7 +9116,7 @@ DELETE FROM race_results WHERE race_id = 'shinetsu5mountains-trail-100-2026';
 DELETE FROM race_gallery WHERE race_id = 'shinetsu5mountains-trail-100-2026';
 DELETE FROM race_voices WHERE race_id = 'shinetsu5mountains-trail-100-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'shinetsu5mountains-trail-100-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -6452,7 +9173,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-04-05T07:49:25.657Z',
   '2026-05-30T06:42:15.502Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('shinetsu5mountains-trail-100-2026', 'ultra', 163, 1980, '18:30', 600, 47000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -6488,7 +9247,7 @@ DELETE FROM race_results WHERE race_id = 'shizuoka-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'shizuoka-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'shizuoka-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'shizuoka-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -6544,7 +9303,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-03-15T00:00:00Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('shizuoka-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -6572,7 +9369,7 @@ DELETE FROM race_results WHERE race_id = 'shonan-international-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'shonan-international-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'shonan-international-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'shonan-international-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -6628,7 +9425,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-06-08T14:40:37.321Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('shonan-international-marathon-2026', 'full', 42.195, 345, '', 19500, 16000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -6662,7 +9497,7 @@ DELETE FROM race_results WHERE race_id = 'soja-kibiji-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'soja-kibiji-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'soja-kibiji-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'soja-kibiji-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -6721,7 +9556,45 @@ Therefore, there is no registration required.',
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:42:39.583Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('soja-kibiji-marathon-2026', 'full', 42.195, 360, '09:20', 2000, 9100, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -6757,7 +9630,7 @@ DELETE FROM race_results WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'tamba-sasayama-abc-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -6813,7 +9686,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:42:47.716Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tamba-sasayama-abc-marathon-2026', 'full', 42.195, 330, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -6843,7 +9754,7 @@ DELETE FROM race_results WHERE race_id = 'tateyama-wakashio-2026';
 DELETE FROM race_gallery WHERE race_id = 'tateyama-wakashio-2026';
 DELETE FROM race_voices WHERE race_id = 'tateyama-wakashio-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'tateyama-wakashio-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -6899,7 +9810,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:42:59.250Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tateyama-wakashio-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -6931,7 +9880,7 @@ DELETE FROM race_results WHERE race_id = 'tazawako-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'tazawako-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'tazawako-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'tazawako-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -6988,7 +9937,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-29T11:30:29.091Z',
   '2026-05-30T06:43:05.830Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tazawako-marathon-2026', 'full', 42.195, 360, '08:30', 1600, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -7018,7 +10005,7 @@ DELETE FROM race_results WHERE race_id = 'tokushima-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'tokushima-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'tokushima-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'tokushima-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -7074,7 +10061,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:43:19.054Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tokushima-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -7104,7 +10129,7 @@ DELETE FROM race_results WHERE race_id = 'tokyo-legacy-half-2026';
 DELETE FROM race_gallery WHERE race_id = 'tokyo-legacy-half-2026';
 DELETE FROM race_voices WHERE race_id = 'tokyo-legacy-half-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'tokyo-legacy-half-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -7172,7 +10197,45 @@ MUFG Stadium (National Stadium): 10-1 Kasumigaoka-cho, Shinjuku-ku, Tokyo',
   NULL,
   '2026-05-14T14:47:07.523Z',
   '2026-05-14T14:47:07.523Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tokyo-legacy-half-2026', 'half', 21.0975, 180, '08:05', 18000, 13200, NULL, NULL, NULL, NULL, NULL, '大会当日満18歳以上で以下の条件にあてはまる者で、主催者が出場を認めた者。
 ※主催者が実施するイベント等による出走権付与者を含みます。
@@ -7261,7 +10324,7 @@ DELETE FROM race_results WHERE race_id = 'tokyo-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'tokyo-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'tokyo-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'tokyo-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -7279,45 +10342,113 @@ INSERT OR REPLACE INTO races (
 ) VALUES (
   'tokyo-marathon-2026',
   '東京マラソン',
+  'Tokyo Marathon',
+  '2026-03-01',
+  '13',
+  '新宿区〜千代田区',
+  'Shinjuku to Chiyoda',
+  '日本最大規模の市民マラソン。東京都庁をスタートし、皇居、浅草、銀座など東京の名所を巡り東京駅前でフィニッシュ。ワールドマラソンメジャーズの一つ。',
+  'Japan''s largest citizens'' marathon. Starting from Tokyo Metropolitan Government, passing the Imperial Palace, Asakusa, Ginza, finishing at Tokyo Station. One of the World Marathon Majors.',
+  'https://www.marathon.tokyo',
   NULL,
-  '2027-03-01',
+  1,
+  38500,
+  '2025-08-15',
+  '2025-08-29',
+  0,
+  'pre_day',
+  'EXPO会場（東京ビッグサイト）にて前日受付。2/26-28。大会当日の受付なし。',
+  'Pre-race registration at EXPO venue (Tokyo Big Sight). Feb 26-28. No registration on race day.',
+  '["フラット","ワールドメジャーズ","初心者おすすめ","大規模","日本陸連公認","観光"]',
   NULL,
-  NULL,
-  NULL,
-  '',
-  '',
-  '',
-  16200,
-  0,
-  38000,
-  '2025-08-01',
-  '2025-10-31',
-  0,
-  'race_day',
-  '',
-  '',
-  '{}',
-  NULL,
-  0,
-  0,
-  0,
+  40,
+  3,
+  37,
   'road',
-  '{}',
-  '',
-  '',
+  '["JAAF","AIMS","WMM"]',
+  '東京都庁、皇居、浅草雷門、銀座、東京タワー、東京駅丸の内',
+  'Tokyo Metropolitan Government, Imperial Palace, Asakusa Kaminarimon, Ginza, Tokyo Tower, Tokyo Station Marunouchi',
+  NULL,
+  NULL,
+  '東京の街',
+  '#1e293b',
+  'Tokyo-no-Machi',
+  '世界6大メジャーの一つ、東京の街を駆け抜ける',
+  'Race through Tokyo — one of the six World Marathon Majors',
   NULL,
   NULL,
   NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  '2026-06-27T14:28:07.694Z'
-);
+  '2026-03-15T00:00:00Z',
+  '2026-03-15T00:00:00Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tokyo-marathon-2026', 'full', 42.195, 420, '09:10', 38500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
+  ('tokyo-marathon-2026', '新宿駅', 'Shinjuku Station', 'shinjuku', '新宿駅西口から徒歩約10分でスタート会場（東京都庁前）', '10 min walk from Shinjuku Station West Exit to the start (Tokyo Metropolitan Government)', 35.6896, 139.6999, 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
+  ('tokyo-marathon-2026', '都庁前駅', 'Tochomae Station', 'tochomae', '都営大江戸線都庁前駅直結', 'Direct access from Toei Oedo Line Tochomae Station', 35.6915, 139.6917, 1);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('tokyo-marathon-2026', '観光地', '浅草寺・雷門', 'Sensoji Temple & Kaminarimon', 'コース上を通過する東京を代表する観光名所。外国人ランナーにも人気のスポット。', 'An iconic Tokyo landmark on the course. Popular with international runners.', 'コース上（約15km地点）', NULL, 35.7148, 139.7967);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('tokyo-marathon-2026', '観光地', '皇居', 'Imperial Palace', 'コースの中盤で皇居周辺を通過。普段はランナーの聖地として知られるランニングコース。', 'The course passes near the Imperial Palace in the middle section. Known as a holy ground for runners.', 'コース上（約37km地点）', NULL, 35.6852, 139.7528);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('tokyo-marathon-2026', 'グルメ', '東京駅周辺グルメ', 'Tokyo Station Area Dining', 'フィニッシュ地点の東京駅周辺には多数の飲食店。レース後の打ち上げに最適。', 'Numerous restaurants around Tokyo Station at the finish. Perfect for post-race celebrations.', 'フィニッシュ地点周辺', NULL, 35.6812, 139.7671);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('tokyo-marathon-2026', '["tshirt","towel"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('tokyo-marathon-2026', '["medal"]', '参加記念Tシャツ（参加者全員）、完走メダル（完走者）、完走タオル（完走者）', 'Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('tokyo-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-15', '2025-08-29', NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2026', NULL, NULL, '東京都庁', 'Tokyo Metropolitan Government', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2026', NULL, NULL, '皇居', 'Imperial Palace', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2026', NULL, NULL, '浅草雷門', 'Asakusa Kaminarimon', NULL, NULL, 2);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2026', NULL, NULL, '銀座', 'Ginza', NULL, NULL, 3);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2026', NULL, NULL, '東京タワー', 'Tokyo Tower', NULL, NULL, 4);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('tokyo-marathon-2026', NULL, NULL, '東京駅丸の内', 'Tokyo Station Marunouchi', NULL, NULL, 5);
 
 -- ==================
 -- 東京マラソン (tokyo-marathon-2027)
@@ -7337,7 +10468,7 @@ DELETE FROM race_results WHERE race_id = 'tokyo-marathon-2027';
 DELETE FROM race_gallery WHERE race_id = 'tokyo-marathon-2027';
 DELETE FROM race_voices WHERE race_id = 'tokyo-marathon-2027';
 DELETE FROM race_time_buckets WHERE race_id = 'tokyo-marathon-2027';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -7393,7 +10524,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-06-24T00:00:00Z',
   '2026-06-27T00:00:00Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tokyo-marathon-2027', 'full', 42.195, 420, '09:10', 38500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
@@ -7449,7 +10618,7 @@ DELETE FROM race_results WHERE race_id = 'tomisato-suikaroad-2026';
 DELETE FROM race_gallery WHERE race_id = 'tomisato-suikaroad-2026';
 DELETE FROM race_voices WHERE race_id = 'tomisato-suikaroad-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'tomisato-suikaroad-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -7505,7 +10674,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-30T00:00:00Z',
   '2026-05-30T06:43:46.887Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tomisato-suikaroad-2026', '10k', 10, 70, '09:15', 1500, 6500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
@@ -7535,7 +10742,7 @@ DELETE FROM race_results WHERE race_id = 'tottori-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'tottori-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'tottori-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'tottori-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -7591,7 +10798,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:43:52.495Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tottori-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -7639,7 +10884,7 @@ DELETE FROM race_results WHERE race_id = 'toyako-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'toyako-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'toyako-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'toyako-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -7695,7 +10940,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:44:01.797Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('toyako-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -7731,7 +11014,7 @@ DELETE FROM race_results WHERE race_id = 'toyama-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'toyama-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'toyama-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'toyama-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -7787,7 +11070,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-06-08T14:41:11.626Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('toyama-marathon-2026', 'full', 42.195, 420, '09:30', 13000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -7825,7 +11146,7 @@ DELETE FROM race_results WHERE race_id = 'tsukuba-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'tsukuba-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'tsukuba-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'tsukuba-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -7881,7 +11202,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-03-16T00:00:00Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tsukuba-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -7909,7 +11268,7 @@ DELETE FROM race_results WHERE race_id = 'wakkanai-peace-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'wakkanai-peace-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'wakkanai-peace-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'wakkanai-peace-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -7965,7 +11324,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-04-30T00:00:00Z',
   '2026-04-30T00:00:00Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('wakkanai-peace-marathon-2026', 'full', 42.195, 390, '', 1000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -8003,7 +11400,7 @@ DELETE FROM race_results WHERE race_id = 'yokohama-marathon-2026';
 DELETE FROM race_gallery WHERE race_id = 'yokohama-marathon-2026';
 DELETE FROM race_voices WHERE race_id = 'yokohama-marathon-2026';
 DELETE FROM race_time_buckets WHERE race_id = 'yokohama-marathon-2026';
-INSERT OR REPLACE INTO races (
+INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -8059,7 +11456,45 @@ INSERT OR REPLACE INTO races (
   NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:44:28.893Z'
-);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('yokohama-marathon-2026', 'full', 42.195, 390, '08:30', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES

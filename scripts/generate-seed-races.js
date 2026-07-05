@@ -48,8 +48,9 @@ function generateRaceSQL(r) {
   lines.push(`DELETE FROM race_voices WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_time_buckets WHERE race_id = ${esc(r.id)};`);
 
-  // races テーブル（子テーブルのDELETE後に実行することでカスケード削除のFK競合を回避）
-  lines.push(`INSERT OR REPLACE INTO races (
+  // races テーブル: INSERT OR REPLACE ではなく ON CONFLICT DO UPDATE を使う。
+  // INSERT OR REPLACE は内部的に DELETE+INSERT のため user_races の ON DELETE CASCADE が発火してユーザーデータが消える。
+  lines.push(`INSERT INTO races (
   id, name_ja, name_en, date, prefecture, city_ja, city_en,
   description_ja, description_en, official_url,
   entry_fee, entry_fee_by_category, entry_capacity,
@@ -105,7 +106,45 @@ function generateRaceSQL(r) {
   ${esc(r.hero_caption_en)},
   ${esc(r.created_at)},
   ${esc(r.updated_at)}
-);`);
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  updated_at = excluded.updated_at;`);
 
   // race_categories（+ カテゴリに付随する course_highlights）
   if (r.categories && r.categories.length > 0) {

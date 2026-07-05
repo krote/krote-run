@@ -60,6 +60,11 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | hero_image_url | text | YES | — | ヒーロー画像パス。例: `/images/races/nagano-marathon-2026-hero.jpg` |
 | hero_caption_ja | text | YES | — | ヒーロー画像キャプション（日本語） |
 | hero_caption_en | text | YES | — | ヒーロー画像キャプション（英語） |
+| venue_name_ja | text | YES | — | スタート地点名称（例: `"神戸市役所前"`）。Issue #80 |
+| venue_name_en | text | YES | — | |
+| venue_address | text | YES | — | ジオコーディング・経路検索の宛先。Issue #80 |
+| start_lat | real | YES | — | スタート地点緯度。Issue #80 |
+| start_lng | real | YES | — | スタート地点経度。Issue #80 |
 | created_at | text | NO | — | ISO 8601 |
 | updated_at | text | NO | — | ISO 8601 |
 
@@ -127,6 +132,8 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | transport_to_venue_en | text | NO | `""` | |
 | latitude | real | NO | `0` | |
 | longitude | real | NO | `0` | |
+| walk_minutes | integer | YES | — | 駅から会場までの徒歩分数。Issue #80 |
+| is_primary | integer(bool) | NO | `false` | 代表最寄駅フラグ（前泊判定・旅程で使用）。Issue #80 |
 | sort_order | integer | NO | `0` | |
 
 ---
@@ -420,3 +427,4 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0010_fix_course_highlights_fk.sql` | race_course_highlights.category_id FK を ON DELETE CASCADE に修正（schema.ts との整合） |
 | `migrations/0009_shallow_captain_stacy.sql` | completion_gifts テーブルを追加（Issue #73）。medal 等の完走賞を participation_gifts から分離 |
 | `migrations/0010_loving_mister_fear.sql` | race_entry_periods.end_date の NOT NULL 制約を削除（終了日未定のエントリー期間を許容） |
+| `migrations/0011_parallel_winter_soldier.sql` | races に venue_name_ja/venue_name_en/venue_address/start_lat/start_lng を追加。access_points に walk_minutes/is_primary を追加（Issue #80） |

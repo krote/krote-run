@@ -70,7 +70,9 @@
       "transport_to_venue_ja": "新宿駅西口から徒歩約10分でスタート会場（東京都庁前）",
       "transport_to_venue_en": "10 min walk from Shinjuku Station West Exit to the start (Tokyo Metropolitan Government)",
       "latitude": 35.6896,
-      "longitude": 139.6999
+      "longitude": 139.6999,
+      "walk_minutes": null,
+      "is_primary": false
     },
     {
       "station_name_ja": "都庁前駅",
@@ -79,7 +81,9 @@
       "transport_to_venue_ja": "都営大江戸線都庁前駅直結",
       "transport_to_venue_en": "Direct access from Toei Oedo Line Tochomae Station",
       "latitude": 35.6915,
-      "longitude": 139.6917
+      "longitude": 139.6917,
+      "walk_minutes": null,
+      "is_primary": false
     }
   ],
   "nearby_spots": [
@@ -229,5 +233,10 @@
       "description_en": "Commemorative T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)",
       "image": null
     }
-  ]
+  ],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

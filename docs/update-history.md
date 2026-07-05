@@ -714,3 +714,18 @@
 - `migrations/0010_loving_mister_fear.sql`: テーブル再作成によるマイグレーション生成
 - `docs/schema.md`: マイグレーション履歴に追記
 - ローカル・リモートDBへのマイグレーション適用・シード再適用完了
+
+
+## 2026-07-05 会場・アクセスデータ基盤の整備（Issue #80）
+
+- `src/lib/db/schema.ts`: `races` に `venue_name_ja` / `venue_name_en` / `venue_address` / `start_lat` / `start_lng` を追加。`access_points` に `walk_minutes` / `is_primary` を追加
+- `migrations/0011_parallel_winter_soldier.sql`: Drizzle生成マイグレーション。ローカルD1に適用済み
+- `src/lib/types.ts`: `Race` / `AccessPoint` 型に新フィールドを追加
+- `src/lib/__tests__/fixtures.ts`: `makeRace` / `makeAccessPoint` に新フィールドを追加
+- `src/lib/data.ts`: `rowToRace` / `rowToAccessPoint` に新フィールドを追加
+- `scripts/add-venue-fields.js`: 全89 JSONに新フィールド（null）を一括追加するスクリプトを新規作成・実行済み
+- `scripts/generate-seed-races.js`: races INSERT と access_points INSERT に新カラムを追加
+- `migrations/seed-races-all.sql`: シード再生成済み。ローカルD1に適用済み
+- `tools/admin-server.js`: `getMissingFields` に venue_address / start_coords / access_point_primary のチェックを追加。新規レーステンプレートに venue フィールドを追加
+- `tools/admin-server.test.js`: 会場住所・座標・代表最寄駅チェックのテストを追加（53テスト全Pass）
+- `docs/schema.md`: races / access_points テーブル定義とマイグレーション履歴を更新

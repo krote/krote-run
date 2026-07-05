@@ -78,6 +78,8 @@ function rowToAccessPoint(row: AccessPointRow): AccessPoint {
     transport_to_venue_en: row.transport_to_venue_en,
     latitude: row.latitude,
     longitude: row.longitude,
+    walk_minutes: row.walk_minutes ?? null,
+    is_primary: row.is_primary,
   };
 }
 
@@ -303,6 +305,11 @@ function assembleRace(
     hero_image_url:  row.hero_image_url ?? null,
     hero_caption_ja: row.hero_caption_ja ?? null,
     hero_caption_en: row.hero_caption_en ?? null,
+    venue_name_ja:   row.venue_name_ja ?? null,
+    venue_name_en:   row.venue_name_en ?? null,
+    venue_address:   row.venue_address ?? null,
+    start_lat:       row.start_lat ?? null,
+    start_lng:       row.start_lng ?? null,
     created_at: row.created_at,
     updated_at: row.updated_at,
   };

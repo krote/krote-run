@@ -1,4 +1,4 @@
-import type { Race, RaceCategory, EntryPeriod, EntryLink, RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight, ParticipationGift, CompletionGift } from '../types';
+import type { Race, RaceCategory, EntryPeriod, EntryLink, RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight, ParticipationGift, CompletionGift, AccessPoint } from '../types';
 
 /** テスト用の最小限 Race オブジェクトを生成するファクトリ */
 export function makeRace(overrides: Partial<Race> = {}): Race {
@@ -60,6 +60,11 @@ export function makeRace(overrides: Partial<Race> = {}): Race {
     hero_image_url: null,
     hero_caption_ja: null,
     hero_caption_en: null,
+    venue_name_ja: null,
+    venue_name_en: null,
+    venue_address: null,
+    start_lat: null,
+    start_lng: null,
     created_at: '2025-01-01T00:00:00Z',
     updated_at: '2025-01-01T00:00:00Z',
     ...overrides,
@@ -181,6 +186,21 @@ export function makeCompletionGift(overrides: Partial<CompletionGift> = {}): Com
     description_ja: 'テスト完走賞',
     description_en: 'Test completion gift',
     image: null,
+    ...overrides,
+  };
+}
+
+export function makeAccessPoint(overrides: Partial<AccessPoint> = {}): AccessPoint {
+  return {
+    station_name_ja: 'テスト駅',
+    station_name_en: 'Test Station',
+    station_code: 'test',
+    transport_to_venue_ja: '徒歩10分',
+    transport_to_venue_en: '10 min walk',
+    latitude: 35.0,
+    longitude: 135.0,
+    walk_minutes: 10,
+    is_primary: true,
     ...overrides,
   };
 }

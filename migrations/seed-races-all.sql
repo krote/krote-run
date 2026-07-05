@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-07-05T14:07:44.461Z
+-- 生成日時: 2026-07-05T14:23:29.257Z
 -- 対象ファイル数: 87 件（既存 2 件はskip）
 
 -- ==================
@@ -34,6 +34,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'abashiri-marathon-2026',
@@ -71,6 +72,11 @@ INSERT INTO races (
   'Ryuhyo',
   '流氷の大地を駆け抜ける春の42km',
   'Run through the land of drift ice in spring',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -114,6 +120,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('abashiri-marathon-2026', 'full', 42.195, 390, '08:45', 2600, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -156,6 +167,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'akita-nairiku-ultra-2026',
@@ -193,6 +205,11 @@ INSERT INTO races (
   'Koyo',
   '秋田内陸の紅葉の回廊を走る100km',
   'A 100km journey through autumn foliage corridors',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -236,6 +253,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('akita-nairiku-ultra-2026', 'ultra', 100, 780, '05:00', 650, 22000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -284,6 +306,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'aomori-sakura-marathon-2026',
@@ -321,6 +344,11 @@ INSERT INTO races (
   'Sakura',
   '桜前線に乗って、青森を走る',
   'Run through Aomori on the cherry blossom front',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -364,6 +392,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('aomori-sakura-marathon-2026', 'full', 42.195, 330, '08:50', 2400, 7000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -418,6 +451,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'aoshima-taiheyo-marathon-2026',
@@ -450,6 +484,11 @@ INSERT INTO races (
   '',
   '',
   '',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -498,6 +537,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 
 -- ==================
@@ -532,6 +576,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'asahikawa-half-marathon-2026',
@@ -569,6 +614,11 @@ INSERT INTO races (
   'Taisetsuzan',
   '大雪山を仰ぎながら旭川の街を駆ける',
   'Run through Asahikawa with Mt. Taisetsu in view',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -612,6 +662,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('asahikawa-half-marathon-2026', 'half', 21.0975, 180, '08:30', 2500, 6500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -654,6 +709,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'beppu-oita-marathon-2026',
@@ -691,6 +747,11 @@ INSERT INTO races (
   'Onsen',
   '湯けむりの街から、大分へ。歴史ある42.195km',
   'From the city of hot springs to Oita — a storied 42.195km',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -734,6 +795,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('beppu-oita-marathon-2026', 'full', 42.195, 0, '12:00', 4000, 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -782,6 +848,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'biwako-marathon-2026',
@@ -819,6 +886,11 @@ INSERT INTO races (
   'Biwako',
   '日本最大の湖を舞台に、水の都を走る',
   'Run along Japan''s largest lake',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -862,6 +934,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('biwako-marathon-2026', 'full', 42.195, 360, '08:20', 7000, 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -908,6 +985,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'chiba-aqualine-marathon-2026',
@@ -945,6 +1023,11 @@ INSERT INTO races (
   'Umi',
   '東京湾アクアラインを渡る、世界唯一のコース',
   'The world-unique course crossing Tokyo Bay Aqua-Line',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -988,6 +1071,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('chiba-aqualine-marathon-2026', 'full', 42.195, 375, '09:45', 12000, 16500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -1040,6 +1128,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'ehime-marathon-2026',
@@ -1077,6 +1166,11 @@ INSERT INTO races (
   'Mikan',
   '蜜柑の香り漂う、瀬戸内の道を走る',
   'Run through the Seto Inland citrus country',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -1120,6 +1214,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('ehime-marathon-2026', 'full', 42.195, 360, '10:00', 10000, 12900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -1170,6 +1269,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'ehime-marathon-2027',
@@ -1207,6 +1307,11 @@ INSERT INTO races (
   'Mikan',
   '蜜柑の香り漂う、瀬戸内の道を走る',
   'Run through the Seto Inland citrus country',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -1250,6 +1355,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('ehime-marathon-2027', 'full', 42.195, 360, '10:00', 10000, 12900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -1304,6 +1414,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'fuji-mountain-race-2026',
@@ -1350,6 +1461,11 @@ Please note that if you forget your race number or timing chip on the day of the
   NULL,
   NULL,
   NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   '2026-04-28T16:44:56.479Z',
   '2026-04-28T16:44:56.479Z'
 ) ON CONFLICT(id) DO UPDATE SET
@@ -1390,6 +1506,11 @@ Please note that if you forget your race number or timing chip on the day of the
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fuji-mountain-race-2026', 'other', 21, 260, '07:00', 1770, 18000, NULL, '山頂コース', NULL, NULL, NULL, '第76回大会、第77回大会、第78回大会のいずれかにおいて五合目関門（五合目ゴール）通過時間が2時間20分以内の実績のある者。又は、第2回富士山クライムランにおいて五合目ゴール時間が2時間以内の実績がある者とする。 過去(第76回、第77回、第78回)の大会の記録についてはこちらからご確認ください。 第2回富士山クライムランの記録についてはこちらからご確認ください。', 'Participants must have completed the 5th Station checkpoint (5th Station finish) in 2 hours and 20 minutes or less in either the 76th, 77th, or 78th edition of the race. Alternatively, participants must have completed the 5th Station finish in 2 hours or less in the 2nd Mount Fuji Climb Run. Please click here to view records from past editions (76th, 77th, and 78th). Please click here to view records from the 2nd Mt. Fuji Climb Run.  Translated with DeepL.com (free version)', 'fuji-mountain-race-2026.gpx', '[]', 0);
@@ -1432,6 +1553,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'fujisan-marathon-2026',
@@ -1469,6 +1591,11 @@ INSERT INTO races (
   'Fujisan',
   '霊峰富士を望みながら駆ける、絶景のコース',
   'Run with Japan''s sacred peak as your guide',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -1512,6 +1639,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fujisan-marathon-2026', 'full', 42.195, 360, '09:00', 0, 12900, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'fujisan-marathon-2026.kml', '[]', 0);
@@ -1566,6 +1698,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'fukuchiyama-marathon-2026',
@@ -1603,6 +1736,11 @@ INSERT INTO races (
   'Fukuchiyama-jo',
   '城下町・福知山の歴史街道を駆け抜ける',
   'Run through the historic castle town of Fukuchiyama',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -1646,6 +1784,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fukuchiyama-marathon-2026', 'full', 42.195, 360, '', 5400, 11000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -1696,6 +1839,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'fukui-sakura-marathon-2026',
@@ -1733,6 +1877,11 @@ INSERT INTO races (
   'Sakura',
   '福井の桜回廊を巡る、春の42km',
   'A spring 42km through Fukui''s cherry blossom corridors',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -1776,6 +1925,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fukui-sakura-marathon-2026', 'full', 42.195, 420, '08:30', 13200, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -1830,6 +1984,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'fukuoka-international-marathon-2026',
@@ -1867,6 +2022,11 @@ INSERT INTO races (
   'Hakata',
   '国際都市・福岡が誇る、世界へ続く道',
   'A world-class course in the international city of Fukuoka',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -1910,6 +2070,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fukuoka-international-marathon-2026', 'full', 42.195, 155, '12:10', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -1956,6 +2121,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'fukuoka-marathon-2026',
@@ -1993,6 +2159,11 @@ INSERT INTO races (
   'Hakata-wan',
   '博多の海沿いを走る、秋の風物詩',
   'Run along Hakata Bay in autumn',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -2036,6 +2207,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('fukuoka-marathon-2026', 'full', 42.195, 420, '08:20', 13000, 16000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2094,6 +2270,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'gunma-marathon-2026',
@@ -2144,6 +2321,11 @@ If you are unable to participate after registering, you do not need to contact u
   NULL,
   NULL,
   NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   '2026-03-15T00:00:00Z',
   '2026-06-22T15:01:11.589Z'
 ) ON CONFLICT(id) DO UPDATE SET
@@ -2184,6 +2366,11 @@ If you are unable to participate after registering, you do not need to contact u
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('gunma-marathon-2026', 'full', 42.195, 360, '08:55', 5500, 13500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2242,6 +2429,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'higashine-sakuranbo-marathon-2026',
@@ -2279,6 +2467,11 @@ INSERT INTO races (
   'Sakuranbo',
   'さくらんぼの里・東根で走る、甘い42km',
   'Run 42km in Japan''s cherry capital',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -2322,6 +2515,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('higashine-sakuranbo-marathon-2026', 'half', 21.0975, 170, '08:40', 5500, 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2370,6 +2568,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'higashinipon-half-marathon-2026',
@@ -2407,6 +2606,11 @@ INSERT INTO races (
   'Sakura',
   '立川の春を駆け抜ける東日本ハーフ',
   'East Japan Half Marathon through spring Tachikawa',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -2450,6 +2654,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('higashinipon-half-marathon-2026', 'half', 21.0975, 180, '09:00', 4000, 5500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2494,6 +2703,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'himeji-castle-marathon-2026',
@@ -2531,6 +2741,11 @@ INSERT INTO races (
   'Himeji-jo',
   '世界遺産・白鷺城を眺めながら走る42.195km',
   'Run beneath the White Heron Castle, a World Heritage Site',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -2574,6 +2789,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('himeji-castle-marathon-2026', 'full', 42.195, 360, '', 9000, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2620,6 +2840,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'hitachi-seaside-marathon-2026',
@@ -2664,6 +2885,11 @@ With the scenery and the sea breeze pushing you forward, you can fully savor the
   NULL,
   NULL,
   NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   '2026-04-11T14:28:19.021Z',
   '2026-04-11T14:28:19.021Z'
 ) ON CONFLICT(id) DO UPDATE SET
@@ -2704,6 +2930,11 @@ With the scenery and the sea breeze pushing you forward, you can fully savor the
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('hitachi-seaside-marathon-2026', 'full', 42.195, 360, '10:00', 6000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2754,6 +2985,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'hofu-yomiuri-marathon-2026',
@@ -2791,6 +3023,11 @@ INSERT INTO races (
   'Hofu-Tenmangu',
   '日本最古の天満宮の参道を巡る歴史ある大会',
   'Race through the grounds of Japan''s oldest Tenmangu shrine',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -2834,6 +3071,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('hofu-yomiuri-marathon-2026', 'full', 42.195, 240, '12:03', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -2884,6 +3126,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'hokkaido-marathon-2026',
@@ -2921,6 +3164,11 @@ INSERT INTO races (
   'Rairakku',
   'ライラック香る大通公園から、北の大地を走る',
   'From the lilac-scented Odori Park across Hokkaido',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -2964,6 +3212,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('hokkaido-marathon-2026', 'full', 42.195, 360, '08:30', 20000, 16500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3018,6 +3271,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'ibusuki-nanohana-2026',
@@ -3055,6 +3309,11 @@ INSERT INTO races (
   'Nanohana',
   '黄金色の菜の花畑と薩摩の海を巡る42km',
   'Run through golden rapeseed fields along the Satsuma sea',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -3098,6 +3357,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('ibusuki-nanohana-2026', 'full', 42.195, 480, '09:00', 10000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3111,8 +3375,8 @@ INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerin
   ('ibusuki-nanohana-2026', 28, '水、スポーツドリンク、茶ぶし', 'Water, sports drink, tea-steamed rice cake', 1);
 INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
   ('ibusuki-nanohana-2026', 35, '水、スポーツドリンク', 'Water, sports drink', 0);
-INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
-  ('ibusuki-nanohana-2026', '指宿駅', 'Ibusuki Station', 'ibusuki', 'JR指宿駅から徒歩約15分', 'About 15 min walk from JR Ibusuki Station', 31.2544, 130.6556, 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('ibusuki-nanohana-2026', '指宿駅', 'Ibusuki Station', 'ibusuki', 'JR指宿駅から徒歩約15分', 'About 15 min walk from JR Ibusuki Station', 31.2544, 130.6556, NULL, 0, 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('ibusuki-nanohana-2026', '温泉', '砂むし温泉', 'Sand Steam Bath (Sunamushi Onsen)', '指宿名物の砂蒸し温泉。海岸の天然砂の中に埋まって温まる独特の体験。レース後のリカバリーに最適。', 'Ibusuki''s famous sand steam bath. A unique experience of being buried in naturally heated sand on the beach. Perfect for post-race recovery.', '指宿市内', NULL, 31.2283, 130.6367);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -3150,6 +3414,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'ichinoseki-half-marathon-2026',
@@ -3187,6 +3452,11 @@ INSERT INTO races (
   'Genbikei',
   '厳美渓の渓谷美を感じながら走る一関ハーフ',
   'Run through the scenic Genbikei gorge in Ichinoseki',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -3230,6 +3500,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('ichinoseki-half-marathon-2026', 'half', 21.0975, 170, '09:00', 2000, 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3272,6 +3547,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'iki-ultra-marathon-2026',
@@ -3309,6 +3585,11 @@ INSERT INTO races (
   'Iki-no-Umi',
   '玄界灘に浮かぶ神秘の島・壱岐を一周する',
   'Circle the mystical island of Iki in the Genkai Sea',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -3352,6 +3633,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('iki-ultra-marathon-2026', 'ultra', 100, 840, '05:00', 1000, 20000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3394,6 +3680,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'itabashi-city-marathon-2026',
@@ -3431,6 +3718,11 @@ INSERT INTO races (
   'Arakawa',
   '荒川河川敷を駆ける、春の板橋シティマラソン',
   'Run the Arakawa riverside in spring',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -3474,6 +3766,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('itabashi-city-marathon-2026', 'full', 42.195, 420, '09:00', 10000, 11550, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3522,6 +3819,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'iwaki-sunshine-marathon-2026',
@@ -3559,6 +3857,11 @@ INSERT INTO races (
   'Taiheiyo',
   '太平洋の輝きとともに、いわきの海岸を走る',
   'Run along Iwaki''s Pacific coast in sunshine',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -3602,6 +3905,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('iwaki-sunshine-marathon-2026', 'full', 42.195, 360, '', 5000, 9000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3654,6 +3962,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'iwaki-sunshine-marathon-2027',
@@ -3691,6 +4000,11 @@ INSERT INTO races (
   'Taiheiyo',
   '太平洋の輝きとともに、いわきの海岸を走る',
   'Run along Iwaki''s Pacific coast in sunshine',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -3734,6 +4048,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('iwaki-sunshine-marathon-2027', 'full', 42.195, 360, '', 5000, 9000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3786,6 +4105,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'iwate-morioka-city-marathon-2026',
@@ -3856,6 +4176,11 @@ Translated with DeepL.com (free version)',
   NULL,
   NULL,
   NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   '2026-04-16T15:23:52.019Z',
   '2026-06-08T14:33:03.724Z'
 ) ON CONFLICT(id) DO UPDATE SET
@@ -3896,6 +4221,11 @@ Translated with DeepL.com (free version)',
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('iwate-morioka-city-marathon-2026', 'full', 42.195, 360, '09:00', 6000, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -3936,6 +4266,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'iwate-oshu-kirameki-marathon-2026',
@@ -3973,6 +4304,11 @@ INSERT INTO races (
   'Hiraizumi',
   '世界遺産・平泉の黄金文化を感じながら走る',
   'Run through Hiraizumi, the Golden City of World Heritage',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -4016,6 +4352,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('iwate-oshu-kirameki-marathon-2026', 'full', 42.195, 360, '08:30', 3000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -4062,6 +4403,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'izu-oshima-2026',
@@ -4127,6 +4469,11 @@ Translated with DeepL.com (free version)',
   NULL,
   NULL,
   NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   '2026-06-06T08:43:10.814Z',
   '2026-06-06T00:00:00.000Z'
 ) ON CONFLICT(id) DO UPDATE SET
@@ -4167,6 +4514,11 @@ Translated with DeepL.com (free version)',
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('izu-oshima-2026', 'full', 42.195, 420, '08:00', 750, 9400, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'izu-oshima-2026.gpx', '[]', 0);
@@ -4217,6 +4569,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'kagawa-marathon-2026',
@@ -4254,6 +4607,11 @@ INSERT INTO races (
   'Setonaikai',
   '瀬戸内の穏やかな海を見渡しながら走る42km',
   'Run along the serene shores of the Seto Inland Sea',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -4297,6 +4655,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kagawa-marathon-2026', 'full', 42.195, 360, '10:00', 10000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -4345,6 +4708,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'kagoshima-marathon-2026',
@@ -4382,6 +4746,11 @@ INSERT INTO races (
   'Sakura-jima',
   '活火山・桜島を望む、薩摩の海岸を走る',
   'Run along Kagoshima Bay with the volcanic Sakurajima in view',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -4425,6 +4794,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kagoshima-marathon-2026', 'full', 42.195, 420, '08:30', 10000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -4475,6 +4849,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'kaikyo-marathon-2026',
@@ -4512,6 +4887,11 @@ INSERT INTO races (
   'Kanmon-Kaikyo',
   '本州と九州をつなぐ、関門海峡を渡る',
   'Cross the Kanmon Strait connecting Honshu and Kyushu',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -4555,6 +4935,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kaikyo-marathon-2026', 'full', 42.195, 360, '', 10000, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -4609,6 +4994,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'kanazawa-marathon-2026',
@@ -4646,6 +5032,11 @@ INSERT INTO races (
   'Kenroku-en',
   '加賀百万石の城下町・金沢を駆ける',
   'Run through Kanazawa, the castle town of one million koku',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -4689,6 +5080,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kanazawa-marathon-2026', 'full', 42.195, 420, '08:30', 15000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -4737,6 +5133,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'kasama-togeinosato-half-2025-2025',
@@ -4774,6 +5171,11 @@ INSERT INTO races (
   'KASAMA-YAKI',
   'アップダウンが自慢の大会となります。日本全国の「ガチランナー」の皆さん、エントリーお待ちしております',
   'This race is known for its challenging terrain. We look forward to your entries, serious runners from all over Japan!',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -4817,6 +5219,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kasama-togeinosato-half-2025-2025', 'half', 21.0975, 150, '10:00', 2000, 5000, NULL, NULL, NULL, NULL, NULL, '18歳以上（高校生を除く）で健康に異常がなく２時間30分以内で完走できる方。なお、安全管理運営上、車いすやベビーカーを使用しての参加はできません。
@@ -4879,6 +5286,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'kasumigaura-marathon-2026',
@@ -4916,6 +5324,11 @@ INSERT INTO races (
   'Kasumigaura',
   '日本第2位の湖・霞ヶ浦のほとりを走る',
   'Run along the shores of Lake Kasumigaura, Japan''s 2nd largest lake',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -4959,6 +5372,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kasumigaura-marathon-2026', 'full', 42.195, 360, '09:45', 14000, 12000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -5009,6 +5427,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'katsuta-marathon-2026',
@@ -5046,6 +5465,11 @@ INSERT INTO races (
   'Hyakuri',
   '常陸の大地を駆け抜ける、勝田全国マラソン',
   'Run across the Hitachi plains at Katsuta',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -5089,13 +5513,18 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('katsuta-marathon-2026', 'full', 42.195, 360, '10:30', 0, 8000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('katsuta-marathon-2026', '10k', 10, 0, '', 0, 5000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
-INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
-  ('katsuta-marathon-2026', '勝田駅', 'Katsuta Station', 'katsuta', 'JR勝田駅東口から徒歩約10分。無料シャトルバスあり。', 'About 10 min walk from JR Katsuta Station East Exit. Free shuttle bus available.', 36.3933, 140.4756, 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('katsuta-marathon-2026', '勝田駅', 'Katsuta Station', 'katsuta', 'JR勝田駅東口から徒歩約10分。無料シャトルバスあり。', 'About 10 min walk from JR Katsuta Station East Exit. Free shuttle bus available.', 36.3933, 140.4756, NULL, 0, 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('katsuta-marathon-2026', '観光地', '国営ひたち海浜公園', 'Hitachi Seaside Park', 'ネモフィラやコキアで有名な広大な公園。ひたちなか市のシンボル。', 'A vast park famous for nemophila and kochia. Symbol of Hitachinaka City.', 'ひたちなか市内', NULL, 36.3958, 140.5917);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -5135,6 +5564,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'kitakyushu-marathon-2026',
@@ -5172,6 +5602,11 @@ INSERT INTO races (
   'Dokai-wan',
   '北九州の海と工場夜景の街を走る',
   'Run through Kitakyushu''s industrial waterfront',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -5215,6 +5650,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kitakyushu-marathon-2026', 'full', 42.195, 360, '09:00', 10800, 14500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -5265,6 +5705,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'kix-senshu-marathon-2026',
@@ -5302,6 +5743,11 @@ INSERT INTO races (
   'Osaka-wan',
   '関西国際空港を望む、泉州の海岸を駆ける',
   'Run the Senshu coast with Kansai International Airport in view',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -5345,6 +5791,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kix-senshu-marathon-2026', 'full', 42.195, 420, '10:30', 700, 5000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -5389,6 +5840,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'kobe-marathon-2026',
@@ -5447,6 +5899,11 @@ For relay runs, both runners must register together. Registration by one person,
   NULL,
   NULL,
   NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   '2026-03-15T00:00:00Z',
   '2026-06-27T13:30:41.348Z'
 ) ON CONFLICT(id) DO UPDATE SET
@@ -5487,6 +5944,11 @@ For relay runs, both runners must register together. Registration by one person,
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kobe-marathon-2026', 'full', 42.195, 420, '09:00', 20000, 18000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -5541,6 +6003,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'kochi-ryoma-marathon-2026',
@@ -5578,6 +6041,11 @@ INSERT INTO races (
   'Ryoma',
   '龍馬の志を胸に、土佐の大地を駆け抜ける',
   'Run the Tosa plains with the spirit of Ryoma',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -5621,6 +6089,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kochi-ryoma-marathon-2026', 'full', 42.195, 420, '09:00', 10000, 13000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -5673,6 +6146,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'kochi-ryoma-marathon-2027',
@@ -5710,6 +6184,11 @@ INSERT INTO races (
   'Ryoma',
   '龍馬の志を胸に、土佐の大地を駆け抜ける',
   'Run the Tosa plains with the spirit of Ryoma',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -5753,6 +6232,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kochi-ryoma-marathon-2027', 'full', 42.195, 420, '09:00', 10000, 13000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -5805,6 +6289,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'kumamoto-castle-marathon-2026',
@@ -5842,6 +6327,11 @@ INSERT INTO races (
   'Kumamoto-jo',
   '不落の名城・熊本城をめぐる感動の42km',
   '42km around the legendary Kumamoto Castle',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -5885,6 +6375,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kumamoto-castle-marathon-2026', 'full', 42.195, 420, '09:00', 13000, 13750, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -5933,6 +6428,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'kyoto-marathon-2026',
@@ -5970,6 +6466,11 @@ INSERT INTO races (
   'Daimonji-yama',
   '千年の古都・京都の世界遺産をめぐる',
   'Run through Kyoto''s thousand years of world heritage',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -6013,6 +6514,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kyoto-marathon-2026', 'full', 42.195, 360, '08:55', 16000, 18500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -6071,6 +6577,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'kyoto-marathon-2027',
@@ -6108,6 +6615,11 @@ INSERT INTO races (
   'Daimonji-yama',
   '千年の古都・京都の世界遺産をめぐる',
   'Run through Kyoto''s thousand years of world heritage',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -6151,6 +6663,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('kyoto-marathon-2027', 'full', 42.195, 360, '08:55', 16000, 18500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -6209,6 +6726,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'mie-matsusaka-marathon-2026',
@@ -6246,6 +6764,11 @@ INSERT INTO races (
   'Matsusaka-gyu',
   '松阪牛の里・松阪を走る、美食ランナーの聖地',
   'Run through Matsusaka, home of Japan''s finest beef',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -6289,6 +6812,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('mie-matsusaka-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -6341,6 +6869,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'mito-komon-manyu-marathon-2026',
@@ -6378,6 +6907,11 @@ INSERT INTO races (
   'Mito-Komon',
   '助さん格さんも驚く、水戸を駆ける42km',
   'Run through Mito as legends of the Komon await',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -6421,6 +6955,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('mito-komon-manyu-marathon-2026', 'full', 42.195, 360, '', 10000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'mito-komon-manyu-marathon-2026', '[]', 0);
@@ -6469,6 +7008,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'mtfuji-climb-run-2026',
@@ -6527,6 +7067,11 @@ Sunday, September 13, 6:30 AM – 30 minutes before the start time of each wave'
   NULL,
   NULL,
   NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   '2026-04-28T13:53:53.451Z',
   '2026-05-30T06:38:26.366Z'
 ) ON CONFLICT(id) DO UPDATE SET
@@ -6567,6 +7112,11 @@ Sunday, September 13, 6:30 AM – 30 minutes before the start time of each wave'
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('mtfuji-climb-run-2026', 'other', 12, 180, '09:00', 2000, 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -6607,6 +7157,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'nagai-marathon-2026',
@@ -6642,6 +7193,11 @@ INSERT INTO races (
   '芋煮',
   NULL,
   'IMONI',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -6687,6 +7243,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('nagai-marathon-2026', 'full', 42.195, 330, '09:25', 0, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -6735,6 +7296,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'nagoya-womens-marathon-2026',
@@ -6772,6 +7334,11 @@ INSERT INTO races (
   'Nagoya-jo',
   '女性ランナーの憧れ、名古屋の街を駆ける42km',
   'The women''s marathon destination — run through Nagoya',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -6815,6 +7382,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('nagoya-womens-marathon-2026', 'full', 42.195, 420, '09:10', 20000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -6863,6 +7435,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'naha-marathon-2026',
@@ -6900,6 +7473,11 @@ INSERT INTO races (
   'Haibisukasu',
   '南国の陽光と笑顔溢れる、那覇の42km',
   'Run through tropical Naha with sunshine and smiles',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -6943,6 +7521,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('naha-marathon-2026', 'full', 42.195, 375, '09:00', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -6987,6 +7570,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'nara-marathon-2026',
@@ -7024,6 +7608,11 @@ INSERT INTO races (
   'Nara-no-Shika',
   '奈良の鹿と世界遺産が待つ、古都の42km',
   'Run through the ancient capital of Nara alongside sacred deer',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -7067,6 +7656,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('nara-marathon-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -7123,6 +7717,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'niigata-city-marathon-2026',
@@ -7160,6 +7755,11 @@ INSERT INTO races (
   'Shinano-gawa',
   '日本一の大河・信濃川が流れる、米どころを走る',
   'Run along the Shinano River, Japan''s longest',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -7203,6 +7803,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('niigata-city-marathon-2026', 'full', 42.195, 420, '08:30', 9000, 12500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -7247,6 +7852,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'nishio-marathon-2026',
@@ -7284,6 +7890,11 @@ INSERT INTO races (
   'Matcha',
   '日本有数の抹茶の産地・西尾を巡る42km',
   'Run through Nishio, one of Japan''s top matcha-producing cities',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -7327,6 +7938,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('nishio-marathon-2026', 'full', 42.195, 390, '09:00', 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -7367,6 +7983,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'ohtawara-marathon-2026',
@@ -7400,6 +8017,11 @@ INSERT INTO races (
   '',
   '',
   '',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -7448,6 +8070,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 
 -- ==================
@@ -7482,6 +8109,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'okayama-marathon-2026',
@@ -7520,6 +8148,11 @@ Loppi端末(ローソン・ミニストップ店頭)',
   'Momo',
   '桃太郎の里・岡山を、晴れの国で走る',
   'Run through Okayama, the sunny land of Momotaro',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -7563,6 +8196,11 @@ Loppi端末(ローソン・ミニストップ店頭)',
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('okayama-marathon-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -7611,6 +8249,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'okushinano100-2026',
@@ -7648,6 +8287,11 @@ INSERT INTO races (
   'Kita-Arupusu',
   '北アルプスの麓・奥信濃を走る100km',
   '100km through the foothills of the Northern Alps',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -7691,6 +8335,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('okushinano100-2026', 'ultra', 100, 1260, '05:00', 700, 31000, NULL, NULL, NULL, NULL, NULL, '・各種目の規定年齢に達している方（100km／50km…18歳以上、25km…高校生以上、8km…中学生以上）※未成年者は保護者の承認が必要
@@ -7760,6 +8409,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'osaka-marathon-2026',
@@ -7797,6 +8447,11 @@ INSERT INTO races (
   'Osaka-jo',
   '笑いと活気溢れる、天下の台所・大阪を走る',
   'Run through Osaka, the nation''s kitchen of energy',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -7840,6 +8495,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('osaka-marathon-2026', 'full', 42.195, 420, '09:15', 31970, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -7894,6 +8554,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'osaka-yodo-river-citizens-marathon-2026',
@@ -7942,6 +8603,11 @@ Based on themes such as “people,” “environment,” and “the Yodogawa Riv
   NULL,
   NULL,
   NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   '2026-04-11T14:42:59.225Z',
   '2026-06-27T13:32:25.650Z'
 ) ON CONFLICT(id) DO UPDATE SET
@@ -7982,6 +8648,11 @@ Based on themes such as “people,” “environment,” and “the Yodogawa Riv
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('osaka-yodo-river-citizens-marathon-2026', 'full', 42.195, 480, '09:00', 4000, 9800, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -8030,6 +8701,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'osj-ontake100-2026',
@@ -8067,6 +8739,11 @@ INSERT INTO races (
   'Ontake-san',
   '霊峰・御嶽山の麓を巡る、100kmの山岳路',
   '100km through the sacred slopes of Mt. Ontake',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -8110,6 +8787,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('osj-ontake100-2026', 'ultra', 163, 1440, '20:00', 200, 21000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -8162,6 +8844,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'sado-toki-marathon-2026',
@@ -8199,6 +8882,11 @@ INSERT INTO races (
   'Toki',
   '朱鷺舞う離島・佐渡で走る、自然豊かな42km',
   'Run the island of Sado where the endangered crested ibis soars',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -8242,6 +8930,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('sado-toki-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -8288,6 +8981,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'saga-sakura-marathon-2026',
@@ -8325,6 +9019,11 @@ INSERT INTO races (
   'Sakura',
   '佐賀城址の桜を愛でながら走る、春の42km',
   'Run beneath cherry blossoms at Saga Castle in spring',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -8368,6 +9067,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('saga-sakura-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -8414,6 +9118,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'saitama-marathon-2026',
@@ -8451,6 +9156,11 @@ INSERT INTO races (
   'Arakawa',
   '荒川の雄大な流れとともに走る、さいたまの42km',
   'Run along the vast Arakawa River through Saitama',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -8494,6 +9204,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('saitama-marathon-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -8532,6 +9247,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'saitama-marathon-2027',
@@ -8569,6 +9285,11 @@ INSERT INTO races (
   'Arakawa',
   '荒川の雄大な流れとともに走る、さいたまの42km',
   'Run along the vast Arakawa River through Saitama',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -8612,6 +9333,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('saitama-marathon-2027', 'full', 42.195, 360, '', 14000, 15000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -8654,6 +9380,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'sapporo-marathon-2026',
@@ -8691,6 +9418,11 @@ INSERT INTO races (
   'NEW CLASSIC',
   'その一歩から、また始まる。',
   'It all starts with that first step.',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -8734,6 +9466,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('sapporo-marathon-2026', 'half', 21.0975, 0, '09:20', 8000, 8000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -8787,6 +9524,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'shiga-kogen100-2026',
@@ -8918,6 +9656,11 @@ EQUIPMENT
   NULL,
   NULL,
   NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   '2026-04-05T06:01:54.559Z',
   '2026-06-22T15:06:42.561Z'
 ) ON CONFLICT(id) DO UPDATE SET
@@ -8958,6 +9701,11 @@ EQUIPMENT
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('shiga-kogen100-2026', 'ultra', 100, 1560, '04:30', 700, 28000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -9002,6 +9750,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'shimada-oigawa-marathon-2026',
@@ -9048,6 +9797,11 @@ Translated with DeepL.com (free version)',
   NULL,
   NULL,
   NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   '2026-04-25T04:12:54.667Z',
   '2026-04-25T04:12:54.667Z'
 ) ON CONFLICT(id) DO UPDATE SET
@@ -9088,6 +9842,11 @@ Translated with DeepL.com (free version)',
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('shimada-oigawa-marathon-2026', 'full', 42.195, 420, '09:00', 6000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -9130,6 +9889,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'shinetsu5mountains-trail-100-2026',
@@ -9168,6 +9928,11 @@ INSERT INTO races (
   'Shin-etsu-Gogaku',
   '信越の五つの山を巡る、100マイルの挑戦',
   'A 100-mile challenge through five peaks of the Shin-Etsu mountains',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -9211,6 +9976,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('shinetsu5mountains-trail-100-2026', 'ultra', 163, 1980, '18:30', 600, 47000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -9261,6 +10031,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'shizuoka-marathon-2026',
@@ -9298,6 +10069,11 @@ INSERT INTO races (
   'Fujisan',
   '富士山を正面に望む、海岸線の42km',
   'Run the coastline with Mt. Fuji straight ahead',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -9341,6 +10117,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('shizuoka-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -9383,6 +10164,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'shonan-international-marathon-2026',
@@ -9420,6 +10202,11 @@ INSERT INTO races (
   'Shonan-no-Umi',
   '湘南の海風を感じながら走る、江ノ島から湘南へ',
   'Run the Shonan coast from Enoshima with ocean breezes',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -9463,6 +10250,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('shonan-international-marathon-2026', 'full', 42.195, 345, '', 19500, 16000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -9511,6 +10303,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'soja-kibiji-marathon-2026',
@@ -9554,6 +10347,11 @@ Therefore, there is no registration required.',
   NULL,
   NULL,
   NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   '2026-03-15T00:00:00Z',
   '2026-05-30T06:42:39.583Z'
 ) ON CONFLICT(id) DO UPDATE SET
@@ -9594,6 +10392,11 @@ Therefore, there is no registration required.',
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('soja-kibiji-marathon-2026', 'full', 42.195, 360, '09:20', 2000, 9100, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -9644,6 +10447,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'tamba-sasayama-abc-marathon-2026',
@@ -9681,6 +10485,11 @@ INSERT INTO races (
   'Jokamachi',
   '丹波篠山・城下町の風情漂う黒豆の里を走る',
   'Run through the castle town of Tamba Sasayama, home of black soybeans',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -9724,6 +10533,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tamba-sasayama-abc-marathon-2026', 'full', 42.195, 330, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -9768,6 +10582,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'tateyama-wakashio-2026',
@@ -9805,6 +10620,11 @@ INSERT INTO races (
   'Wakashio',
   '太平洋に面した館山の若潮を感じながら走る',
   'Run Tateyama''s Pacific coast on the fresh tides of spring',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -9848,6 +10668,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tateyama-wakashio-2026', 'full', 42.195, 360, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -9894,6 +10719,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'tazawako-marathon-2026',
@@ -9932,6 +10758,11 @@ INSERT INTO races (
   'Tazawako',
   '日本最深の湖・田沢湖を一望しながら走る',
   'Run overlooking Lake Tazawa, Japan''s deepest lake',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -9975,6 +10806,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tazawako-marathon-2026', 'full', 42.195, 360, '08:30', 1600, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -10019,6 +10855,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'tokushima-marathon-2026',
@@ -10056,6 +10893,11 @@ INSERT INTO races (
   'Awa-Odori',
   '踊る阿呆に走る阿呆！阿波の国を駆け抜ける',
   'Run the land of Awa dance — the spirit of Tokushima',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -10099,6 +10941,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tokushima-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -10143,6 +10990,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'tokyo-legacy-half-2026',
@@ -10195,6 +11043,11 @@ MUFG Stadium (National Stadium): 10-1 Kasumigaoka-cho, Shinjuku-ku, Tokyo',
   NULL,
   NULL,
   NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   '2026-05-14T14:47:07.523Z',
   '2026-05-14T14:47:07.523Z'
 ) ON CONFLICT(id) DO UPDATE SET
@@ -10235,6 +11088,11 @@ MUFG Stadium (National Stadium): 10-1 Kasumigaoka-cho, Shinjuku-ku, Tokyo',
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tokyo-legacy-half-2026', 'half', 21.0975, 180, '08:05', 18000, 13200, NULL, NULL, NULL, NULL, NULL, '大会当日満18歳以上で以下の条件にあてはまる者で、主催者が出場を認めた者。
@@ -10338,6 +11196,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'tokyo-marathon-2026',
@@ -10375,6 +11234,11 @@ INSERT INTO races (
   'Tokyo-no-Machi',
   '世界6大メジャーの一つ、東京の街を駆け抜ける',
   'Race through Tokyo — one of the six World Marathon Majors',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -10418,13 +11282,18 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tokyo-marathon-2026', 'full', 42.195, 420, '09:10', 38500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
-  ('tokyo-marathon-2026', '新宿駅', 'Shinjuku Station', 'shinjuku', '新宿駅西口から徒歩約10分でスタート会場（東京都庁前）', '10 min walk from Shinjuku Station West Exit to the start (Tokyo Metropolitan Government)', 35.6896, 139.6999, 0);
-INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
-  ('tokyo-marathon-2026', '都庁前駅', 'Tochomae Station', 'tochomae', '都営大江戸線都庁前駅直結', 'Direct access from Toei Oedo Line Tochomae Station', 35.6915, 139.6917, 1);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('tokyo-marathon-2026', '新宿駅', 'Shinjuku Station', 'shinjuku', '新宿駅西口から徒歩約10分でスタート会場（東京都庁前）', '10 min walk from Shinjuku Station West Exit to the start (Tokyo Metropolitan Government)', 35.6896, 139.6999, NULL, 0, 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('tokyo-marathon-2026', '都庁前駅', 'Tochomae Station', 'tochomae', '都営大江戸線都庁前駅直結', 'Direct access from Toei Oedo Line Tochomae Station', 35.6915, 139.6917, NULL, 0, 1);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('tokyo-marathon-2026', '観光地', '浅草寺・雷門', 'Sensoji Temple & Kaminarimon', 'コース上を通過する東京を代表する観光名所。外国人ランナーにも人気のスポット。', 'An iconic Tokyo landmark on the course. Popular with international runners.', 'コース上（約15km地点）', NULL, 35.7148, 139.7967);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -10482,6 +11351,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'tokyo-marathon-2027',
@@ -10519,6 +11389,11 @@ INSERT INTO races (
   'Tokyo-no-Machi',
   '世界6大メジャーの一つ、東京の街を駆け抜ける',
   'Race through Tokyo — one of the six World Marathon Majors',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -10562,13 +11437,18 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tokyo-marathon-2027', 'full', 42.195, 420, '09:10', 38500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
-INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
-  ('tokyo-marathon-2027', '新宿駅', 'Shinjuku Station', 'shinjuku', '新宿駅西口から徒歩約10分でスタート会場（東京都庁前）', '10 min walk from Shinjuku Station West Exit to the start (Tokyo Metropolitan Government)', 35.6896, 139.6999, 0);
-INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
-  ('tokyo-marathon-2027', '都庁前駅', 'Tochomae Station', 'tochomae', '都営大江戸線都庁前駅直結', 'Direct access from Toei Oedo Line Tochomae Station', 35.6915, 139.6917, 1);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('tokyo-marathon-2027', '新宿駅', 'Shinjuku Station', 'shinjuku', '新宿駅西口から徒歩約10分でスタート会場（東京都庁前）', '10 min walk from Shinjuku Station West Exit to the start (Tokyo Metropolitan Government)', 35.6896, 139.6999, NULL, 0, 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('tokyo-marathon-2027', '都庁前駅', 'Tochomae Station', 'tochomae', '都営大江戸線都庁前駅直結', 'Direct access from Toei Oedo Line Tochomae Station', 35.6915, 139.6917, NULL, 0, 1);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('tokyo-marathon-2027', '観光地', '浅草寺・雷門', 'Sensoji Temple & Kaminarimon', 'コース上を通過する東京を代表する観光名所。外国人ランナーにも人気のスポット。', 'An iconic Tokyo landmark on the course. Popular with international runners.', 'コース上（約15km地点）', NULL, 35.7148, 139.7967);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -10632,6 +11512,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'tomisato-suikaroad-2026',
@@ -10669,6 +11550,11 @@ INSERT INTO races (
   'KyuSuika',
   '日本一のスイカの産地・富里を走る、夏の風物詩',
   'Run Japan''s watermelon capital — a midsummer tradition',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -10712,6 +11598,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tomisato-suikaroad-2026', '10k', 10, 70, '09:15', 1500, 6500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -10756,6 +11647,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'tottori-marathon-2026',
@@ -10793,6 +11685,11 @@ INSERT INTO races (
   'Sakyu',
   '日本最大の砂丘を望む、山陰の大地を走る',
   'Run the San-in coast with Japan''s great sand dunes in view',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -10836,6 +11733,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tottori-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -10898,6 +11800,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'toyako-marathon-2026',
@@ -10935,6 +11838,11 @@ INSERT INTO races (
   'Toyako',
   '洞爺湖の湖畔を巡る、北海道の爽快42km',
   'Circle the shores of Lake Toya in refreshing Hokkaido',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -10978,6 +11886,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('toyako-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -11028,6 +11941,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'toyama-marathon-2026',
@@ -11065,6 +11979,11 @@ INSERT INTO races (
   'Tateyama-Rempo',
   '立山連峰と富山湾を望む、360度の絶景コース',
   'Run with panoramic views of the Tateyama Range and Toyama Bay',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -11108,6 +12027,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('toyama-marathon-2026', 'full', 42.195, 420, '09:30', 13000, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -11160,6 +12084,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'tsukuba-marathon-2026',
@@ -11197,6 +12122,11 @@ INSERT INTO races (
   'Tsukuba-san',
   '西の富士、東の筑波。科学の街を快走する',
   'Run through the science city with Mt. Tsukuba as your landmark',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -11240,6 +12170,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tsukuba-marathon-2026', 'full', 42.195, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -11282,6 +12217,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'wakkanai-peace-marathon-2026',
@@ -11319,6 +12255,11 @@ INSERT INTO races (
   'Soya-Misaki',
   '日本最北端・宗谷岬を目指す平和の42km',
   'Run toward Cape Soya, Japan''s northernmost point',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -11362,6 +12303,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('wakkanai-peace-marathon-2026', 'full', 42.195, 390, '', 1000, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
@@ -11414,6 +12360,7 @@ INSERT INTO races (
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   'yokohama-marathon-2026',
@@ -11451,6 +12398,11 @@ INSERT INTO races (
   'Minato',
   '開港の街・横浜の海と丘を駆け抜ける',
   'Run through Yokohama''s historic port city of sea and hills',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
   NULL,
   NULL,
   NULL,
@@ -11494,6 +12446,11 @@ INSERT INTO races (
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('yokohama-marathon-2026', 'full', 42.195, 390, '08:30', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);

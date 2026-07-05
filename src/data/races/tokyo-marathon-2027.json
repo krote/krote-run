@@ -20,14 +20,25 @@
   "reception_type": "pre_day",
   "reception_note_ja": "EXPO会場（東京ビッグサイト）にて前日受付。大会当日の受付なし。",
   "reception_note_en": "Pre-race registration at EXPO venue (Tokyo Big Sight). No registration on race day.",
-  "tags": ["フラット","ワールドメジャーズ","初心者おすすめ","大規模","日本陸連公認","観光"],
+  "tags": [
+    "フラット",
+    "ワールドメジャーズ",
+    "初心者おすすめ",
+    "大規模",
+    "日本陸連公認",
+    "観光"
+  ],
   "course_gpx_file": null,
   "course_info": {
     "max_elevation_m": 40,
     "min_elevation_m": 3,
     "elevation_diff_m": 37,
     "surface": "road",
-    "certification": ["JAAF","AIMS","WMM"],
+    "certification": [
+      "JAAF",
+      "AIMS",
+      "WMM"
+    ],
     "highlights_ja": "東京都庁、皇居、浅草雷門、銀座、東京タワー、東京駅丸の内",
     "highlights_en": "Tokyo Metropolitan Government, Imperial Palace, Asakusa Kaminarimon, Ginza, Tokyo Tower, Tokyo Station Marunouchi",
     "notes_ja": null,
@@ -59,7 +70,9 @@
       "transport_to_venue_ja": "新宿駅西口から徒歩約10分でスタート会場（東京都庁前）",
       "transport_to_venue_en": "10 min walk from Shinjuku Station West Exit to the start (Tokyo Metropolitan Government)",
       "latitude": 35.6896,
-      "longitude": 139.6999
+      "longitude": 139.6999,
+      "walk_minutes": null,
+      "is_primary": false
     },
     {
       "station_name_ja": "都庁前駅",
@@ -68,7 +81,9 @@
       "transport_to_venue_ja": "都営大江戸線都庁前駅直結",
       "transport_to_venue_en": "Direct access from Toei Oedo Line Tochomae Station",
       "latitude": 35.6915,
-      "longitude": 139.6917
+      "longitude": 139.6917,
+      "walk_minutes": null,
+      "is_primary": false
     }
   ],
   "nearby_spots": [
@@ -109,7 +124,9 @@
   "weather_history": [],
   "participation_gifts": [
     {
-      "gift_categories": ["tshirt"],
+      "gift_categories": [
+        "tshirt"
+      ],
       "description_ja": "参加記念Tシャツ（参加者全員）",
       "description_en": "Commemorative T-shirt (all participants)",
       "image": null
@@ -178,26 +195,79 @@
   "voices": [],
   "time_buckets": [],
   "course_highlights": [
-    {"name_ja": "東京都庁","name_en": "Tokyo Metropolitan Government","description_ja": null,"description_en": null},
-    {"name_ja": "皇居","name_en": "Imperial Palace","description_ja": null,"description_en": null},
-    {"name_ja": "浅草雷門","name_en": "Asakusa Kaminarimon","description_ja": null,"description_en": null},
-    {"name_ja": "銀座","name_en": "Ginza","description_ja": null,"description_en": null},
-    {"name_ja": "東京タワー","name_en": "Tokyo Tower","description_ja": null,"description_en": null},
-    {"name_ja": "東京駅丸の内","name_en": "Tokyo Station Marunouchi","description_ja": null,"description_en": null}
+    {
+      "name_ja": "東京都庁",
+      "name_en": "Tokyo Metropolitan Government",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "皇居",
+      "name_en": "Imperial Palace",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "浅草雷門",
+      "name_en": "Asakusa Kaminarimon",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "銀座",
+      "name_en": "Ginza",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "東京タワー",
+      "name_en": "Tokyo Tower",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "東京駅丸の内",
+      "name_en": "Tokyo Station Marunouchi",
+      "description_ja": null,
+      "description_en": null
+    }
   ],
   "info_urls": [
-    {"url": "https://www.marathon.tokyo/volunteer/about/","label": "大会の特色"},
-    {"url": "https://www.marathon.tokyo/faq/","label": "FAQ"},
-    {"url": "https://www.marathon.tokyo/about/outline/","label": "大会要項"},
-    {"url": "https://www.marathon.tokyo/about/course/","label": "コース情報"},
-    {"url": "https://www.marathon.tokyo/participants/","label": "エントリー"}
+    {
+      "url": "https://www.marathon.tokyo/volunteer/about/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.marathon.tokyo/faq/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://www.marathon.tokyo/about/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.marathon.tokyo/about/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.marathon.tokyo/participants/",
+      "label": "エントリー"
+    }
   ],
   "completion_gifts": [
     {
-      "gift_categories": ["medal","towel"],
+      "gift_categories": [
+        "medal",
+        "towel"
+      ],
       "description_ja": "完走メダル、完走タオル（完走者）",
       "description_en": "Finisher medal, Finisher towel (finishers)",
       "image": null
     }
-  ]
+  ],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

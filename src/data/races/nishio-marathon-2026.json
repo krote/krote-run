@@ -101,5 +101,10 @@
   "voices": [],
   "time_buckets": [],
   "course_highlights": [],
-  "info_urls": []
+  "info_urls": [],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

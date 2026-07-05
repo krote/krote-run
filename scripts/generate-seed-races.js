@@ -64,6 +64,7 @@ function generateRaceSQL(r) {
   motif, motif_color, motif_romaji,
   tagline_ja, tagline_en,
   hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
   created_at, updated_at
 ) VALUES (
   ${esc(r.id)},
@@ -104,6 +105,11 @@ function generateRaceSQL(r) {
   ${esc(r.hero_image_url)},
   ${esc(r.hero_caption_ja)},
   ${esc(r.hero_caption_en)},
+  ${esc(r.venue_name_ja ?? null)},
+  ${esc(r.venue_name_en ?? null)},
+  ${esc(r.venue_address ?? null)},
+  ${esc(r.start_lat ?? null)},
+  ${esc(r.start_lng ?? null)},
   ${esc(r.created_at)},
   ${esc(r.updated_at)}
 ) ON CONFLICT(id) DO UPDATE SET
@@ -144,6 +150,11 @@ function generateRaceSQL(r) {
   hero_image_url = excluded.hero_image_url,
   hero_caption_ja = excluded.hero_caption_ja,
   hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;`);
 
   // race_categories（+ カテゴリに付随する course_highlights）
@@ -181,8 +192,8 @@ function generateRaceSQL(r) {
   // access_points
   if (r.access_points && r.access_points.length > 0) {
     r.access_points.forEach((ap, idx) => {
-      lines.push(`INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, sort_order) VALUES
-  (${esc(r.id)}, ${esc(ap.station_name_ja)}, ${esc(ap.station_name_en || '')}, ${esc(ap.station_code || '')}, ${esc(ap.transport_to_venue_ja || '')}, ${esc(ap.transport_to_venue_en || '')}, ${esc(ap.latitude || 0)}, ${esc(ap.longitude || 0)}, ${idx});`);
+      lines.push(`INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  (${esc(r.id)}, ${esc(ap.station_name_ja)}, ${esc(ap.station_name_en || '')}, ${esc(ap.station_code || '')}, ${esc(ap.transport_to_venue_ja || '')}, ${esc(ap.transport_to_venue_en || '')}, ${esc(ap.latitude || 0)}, ${esc(ap.longitude || 0)}, ${esc(ap.walk_minutes ?? null)}, ${ap.is_primary ? '1' : '0'}, ${idx});`);
     });
   }
 

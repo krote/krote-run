@@ -164,5 +164,10 @@
       "2026-05-30: 自動クロールで更新",
       "2026-06-08: 自動クロールで更新"
     ]
-  }
+  },
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

@@ -62,6 +62,12 @@ export interface Race {
   hero_image_url: string | null;
   hero_caption_ja: string | null;
   hero_caption_en: string | null;
+  // Issue #80: 会場・スタート地点
+  venue_name_ja: string | null;
+  venue_name_en: string | null;
+  venue_address: string | null;
+  start_lat: number | null;
+  start_lng: number | null;
   created_at: string; // ISO datetime string
   updated_at: string; // ISO datetime string
 }
@@ -179,6 +185,9 @@ export interface AccessPoint {
   transport_to_venue_en: string;
   latitude: number;
   longitude: number;
+  // Issue #80: 追加フィールド
+  walk_minutes: number | null;
+  is_primary: boolean;
 }
 
 // ==================

@@ -103,7 +103,9 @@
       "transport_to_venue_ja": "JR指宿駅から徒歩約15分",
       "transport_to_venue_en": "About 15 min walk from JR Ibusuki Station",
       "latitude": 31.2544,
-      "longitude": 130.6556
+      "longitude": 130.6556,
+      "walk_minutes": null,
+      "is_primary": false
     }
   ],
   "nearby_spots": [
@@ -177,5 +179,10 @@
     }
   ],
   "entry_closed": false,
-  "entry_links": []
+  "entry_links": [],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

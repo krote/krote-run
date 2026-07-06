@@ -28,6 +28,14 @@ const DIFF_FIELDS = [
   { key: 'motif_romaji',        label: 'モチーフローマ字',    type: 'scalar' },
   { key: 'tagline_ja',          label: 'タグライン（日）',    type: 'scalar' },
   { key: 'tagline_en',          label: 'タグライン（英）',    type: 'scalar' },
+  // Issue #81: 会場・アクセス・受付情報
+  { key: 'venue_name_ja',       label: '会場名（日）',        type: 'scalar' },
+  { key: 'venue_name_en',       label: '会場名（英）',        type: 'scalar' },
+  { key: 'venue_address',       label: '会場住所',            type: 'scalar' },
+  { key: 'access_points',       label: '最寄駅・アクセス',    type: 'array'  },
+  { key: 'reception_type',      label: '受付種別',            type: 'scalar' },
+  { key: 'reception_note_ja',   label: '受付メモ（日）',      type: 'scalar' },
+  { key: 'reception_note_en',   label: '受付メモ（英）',      type: 'scalar' },
 ];
 
 // ── 純粋関数（テスト対象） ────────────────────────────────────────
@@ -50,6 +58,12 @@ function buildExtractionPrompt(race, pageTexts) {
     `  motif_romaji: ${race.motif_romaji ?? '未設定'}`,
     `  tagline_ja: ${race.tagline_ja ?? '未設定'}`,
     `  tagline_en: ${race.tagline_en ?? '未設定'}`,
+    `  venue_name_ja: ${race.venue_name_ja ?? '未設定'}`,
+    `  venue_name_en: ${race.venue_name_en ?? '未設定'}`,
+    `  venue_address: ${race.venue_address ?? '未設定'}`,
+    `  reception_type: ${race.reception_type ?? '未設定'}`,
+    `  reception_note_ja: ${race.reception_note_ja ?? '未設定'}`,
+    `  reception_note_en: ${race.reception_note_en ?? '未設定'}`,
   ].join('\n');
 
   const existingComplex = [
@@ -58,6 +72,7 @@ function buildExtractionPrompt(race, pageTexts) {
     `  participation_gifts: ${JSON.stringify(race.participation_gifts ?? [])}`,
     `  completion_gifts: ${JSON.stringify(race.completion_gifts ?? [])}`,
     `  nearby_spots: ${JSON.stringify(race.nearby_spots ?? [])}`,
+    `  access_points: ${JSON.stringify(race.access_points ?? [])}`,
   ].join('\n');
 
   const pages = pageTexts
@@ -85,6 +100,13 @@ ${pages}
 - motif_color は #RRGGBB 形式
 - nearby_spots の lat/lng が不明な場合は 0 を使用
 - participation_gifts と completion_gifts は別々に設定すること（完走賞・メダルは completion_gifts）
+- start_lat / start_lng は出力禁止（座標はジオコーディングスクリプトで別途処理する）
+- reception_type は "pre_day" / "race_day" / "both" / "pre_mail" / "none" のいずれか。判別不能なら出力しない
+  - 前日と当日の両方の受付記載あり → "both"
+  - 「当日受付は行わない」等の明記あり → "pre_day"
+  - ナンバーカード事前郵送 → "pre_mail"
+- access_points の lat/lng は不明な場合 0 を使用（後でジオコーディングで補完）
+- access_points[].is_primary: 最もアクセスしやすい代表駅を true にする（複数の場合は1件のみ）
 
 【出力スキーマ例】
 {
@@ -102,7 +124,14 @@ ${pages}
   "motif_color": "#RRGGBB",
   "motif_romaji": "romaji",
   "tagline_ja": "キャッチコピー",
-  "tagline_en": "tagline"
+  "tagline_en": "tagline",
+  "venue_name_ja": "会場名",
+  "venue_name_en": "Venue Name",
+  "venue_address": "都道府県市区町村番地",
+  "access_points": [{"station_name_ja":"駅名","station_name_en":"Station Name","station_code":"","transport_to_venue_ja":"徒歩15分","transport_to_venue_en":"15 min walk","latitude":0,"longitude":0,"walk_minutes":15,"is_primary":true}],
+  "reception_type": "pre_day|race_day|both|pre_mail|none",
+  "reception_note_ja": "受付の詳細（日本語）",
+  "reception_note_en": "Reception details (English)"
 }`;
 }
 

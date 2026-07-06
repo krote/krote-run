@@ -259,8 +259,8 @@ describe('buildDiff - 複合フィールド', () => {
 
 describe('applyAndSave - 年度不一致チェック', () => {
   const race = {
-    id: 'tokyo-marathon-2026',
-    name_ja: '東京マラソン',
+    id: 'test-marathon-2026',
+    name_ja: 'テストマラソン',
     date: '2026-03-01',
     entry_start_date: '2025-08-01',
     entry_end_date: '2025-10-31',
@@ -285,7 +285,7 @@ describe('applyAndSave - 年度不一致チェック', () => {
   test('年度不一致時はsuggestedFileを返す（race.idの年を置換）', () => {
     const extracted = { date: '2027-03-01' };
     const result = applyAndSave(race, extracted);
-    assert.equal(result.suggestedFile, 'tokyo-marathon-2027.json');
+    assert.equal(result.suggestedFile, 'test-marathon-2027.json');
   });
 
   test('extractedにdateがない場合はyearMismatchにならない', () => {

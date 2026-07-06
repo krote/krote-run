@@ -716,6 +716,20 @@
 - ローカル・リモートDBへのマイグレーション適用・シード再適用完了
 
 
+## 2026-07-06 クロール処理拡張・データ品質lint・GitHub Actions定期実行（Issue #81）
+
+- `scripts/validate-races.js`: データ品質チェック（6ルール: label空文字禁止・certification大文字統一・start_date null禁止・entry_start_date整合・reception矛盾検知・座標日本国内チェック）
+- `scripts/validate-races.test.js`: 32テスト
+- `scripts/geocode-venues.js`: 国土地理院 API で venue_address → 座標取得（prefecture bounding box 検証付き・冪等設計）
+- `scripts/geocode-venues.test.js`: 18テスト
+- `tools/crawl/extractor.js`: DIFF_FIELDS に venue_name_ja/en / venue_address / access_points / reception_type / reception_note_ja/en を追加。callClaudeP を async + Messages API フォールバック対応
+- `tools/crawl/extractor.test.js`: 新フィールド・API フォールバックの 17テスト追加（計 67件）
+- `tools/crawl/index.js`: discoverInfoLinks() 追加（アクセス・受付ページリンクの自動発見）。--no-cli フラグ対応
+- `tools/crawl/index.test.js`: discoverInfoLinks の 10テスト追加（計 29件）
+- `.github/workflows/crawl.yml`: 週次 cron + workflow_dispatch → crawl → geocode → validate → 差分PR自動作成
+- `package.json`: validate:races / geocode:venues / geocode:venues:dry スクリプト追加
+- 既存17ファイルのデータ品質修正（entry_periods label空文字・certification小文字・entry_start_date不整合）
+
 ## 2026-07-06 装備管理テーブル追加（Issue #120）
 
 - `src/lib/db/schema.ts`: `user_gear` / `user_race_gear` / `user_race_results` テーブルを追加。`user_races` に `gear_is_public` カラムを追加。各テーブルの Relations を追加

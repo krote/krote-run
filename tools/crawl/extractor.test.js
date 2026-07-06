@@ -495,6 +495,75 @@ describe('buildExtractionPrompt - venue / access_points / reception フィール
   });
 });
 
+// ── Step 5: callClaudeP Messages API フォールバック ───────────────────
+
+const { callClaudeP } = require('./extractor');
+
+describe('callClaudeP - Messages API フォールバック', () => {
+  test('ANTHROPIC_API_KEY がある場合は fetch を呼ぶ（CLI なし）', async () => {
+    const originalEnv = process.env.ANTHROPIC_API_KEY;
+    process.env.ANTHROPIC_API_KEY = 'test-key-123';
+
+    let fetchCalled = false;
+    let fetchUrl = '';
+    const mockFetch = async (url, opts) => {
+      fetchCalled = true;
+      fetchUrl = url;
+      return {
+        ok: true,
+        json: async () => ({
+          content: [{ type: 'text', text: '{"date":"2027-03-01"}' }],
+        }),
+      };
+    };
+
+    try {
+      const result = await callClaudeP('test prompt', { useCli: false, fetchFn: mockFetch });
+      assert.ok(fetchCalled, 'fetch が呼ばれる');
+      assert.ok(fetchUrl.includes('anthropic.com'), 'Anthropic API エンドポイントに送信');
+      assert.ok(result.includes('2027-03-01'), 'レスポンスが返る');
+    } finally {
+      if (originalEnv === undefined) delete process.env.ANTHROPIC_API_KEY;
+      else process.env.ANTHROPIC_API_KEY = originalEnv;
+    }
+  });
+
+  test('fetch が失敗したとき Error をスローする', async () => {
+    const originalEnv = process.env.ANTHROPIC_API_KEY;
+    process.env.ANTHROPIC_API_KEY = 'test-key';
+
+    const mockFetch = async () => ({
+      ok: false,
+      status: 401,
+      statusText: 'Unauthorized',
+    });
+
+    try {
+      await assert.rejects(
+        () => callClaudeP('test prompt', { useCli: false, fetchFn: mockFetch }),
+        /401|Unauthorized|認証/
+      );
+    } finally {
+      if (originalEnv === undefined) delete process.env.ANTHROPIC_API_KEY;
+      else process.env.ANTHROPIC_API_KEY = originalEnv;
+    }
+  });
+
+  test('ANTHROPIC_API_KEY がない場合かつ useCli=false のとき Error をスローする', async () => {
+    const originalEnv = process.env.ANTHROPIC_API_KEY;
+    delete process.env.ANTHROPIC_API_KEY;
+
+    try {
+      await assert.rejects(
+        () => callClaudeP('test prompt', { useCli: false }),
+        /ANTHROPIC_API_KEY|API キー/
+      );
+    } finally {
+      if (originalEnv !== undefined) process.env.ANTHROPIC_API_KEY = originalEnv;
+    }
+  });
+});
+
 describe('buildDiff - venue / access_points / reception フィールド', () => {
   const current = {
     date: '2026-03-01',

@@ -186,21 +186,56 @@ function buildDiff(current, extracted) {
 
 /**
  * claude -p でプロンプトを実行して結果テキストを返す
+ * ANTHROPIC_API_KEY が設定されている場合は Messages API を直接呼び出す（CI 対応）
  * @param {string} prompt
- * @returns {string}
+ * @param {{ useCli?: boolean, fetchFn?: Function }} opts
+ * @returns {Promise<string>}
  */
-function callClaudeP(prompt) {
-  const result = spawnSync('claude', ['-p', prompt], {
-    encoding: 'utf-8',
-    timeout: 60000,
-    maxBuffer: 4 * 1024 * 1024,
+async function callClaudeP(prompt, opts = {}) {
+  const useCli = opts.useCli ?? true;
+  const fetchFn = opts.fetchFn ?? fetch;
+
+  // CLI を使う場合
+  if (useCli) {
+    const result = spawnSync('claude', ['-p', prompt], {
+      encoding: 'utf-8',
+      timeout: 60000,
+      maxBuffer: 4 * 1024 * 1024,
+    });
+
+    if (result.error) throw result.error;
+    if (result.status !== 0) {
+      throw new Error(`claude -p 失敗 (exit ${result.status}): ${result.stderr?.trim()}`);
+    }
+    return result.stdout.trim();
+  }
+
+  // Messages API フォールバック（CI / ANTHROPIC_API_KEY 環境変数）
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
+    throw new Error('ANTHROPIC_API_KEY 環境変数が未設定です。API キーを設定してください');
+  }
+
+  const res = await fetchFn('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01',
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 4096,
+      messages: [{ role: 'user', content: prompt }],
+    }),
   });
 
-  if (result.error) throw result.error;
-  if (result.status !== 0) {
-    throw new Error(`claude -p 失敗 (exit ${result.status}): ${result.stderr?.trim()}`);
+  if (!res.ok) {
+    throw new Error(`Anthropic API エラー: ${res.status} ${res.statusText}`);
   }
-  return result.stdout.trim();
+
+  const data = await res.json();
+  return data.content?.[0]?.text?.trim() ?? '';
 }
 
 /**
@@ -209,9 +244,9 @@ function callClaudeP(prompt) {
  * @param {{ url: string, text: string }[]} pageTexts
  * @returns {{ extracted: object, diff: object[] }}
  */
-async function extractFromPages(race, pageTexts) {
+async function extractFromPages(race, pageTexts, opts = {}) {
   const prompt = buildExtractionPrompt(race, pageTexts);
-  const raw = callClaudeP(prompt);
+  const raw = await callClaudeP(prompt, opts);
   const extracted = parseClaudeResponse(raw);
   const diff = buildDiff(race, extracted);
   return { extracted, diff };
@@ -326,6 +361,7 @@ module.exports = {
   buildExtractionPrompt,
   parseClaudeResponse,
   buildDiff,
+  callClaudeP,
   extractFromPages,
   applyAndSave,
   buildNewEditionRace,

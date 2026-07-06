@@ -549,6 +549,28 @@ describe('callClaudeP - Messages API フォールバック', () => {
     }
   });
 
+  test('fetch が AbortSignal を受け取る（タイムアウト制御可能）', async () => {
+    const originalEnv = process.env.ANTHROPIC_API_KEY;
+    process.env.ANTHROPIC_API_KEY = 'test-key-123';
+
+    let receivedSignal = null;
+    const mockFetch = async (url, opts) => {
+      receivedSignal = opts?.signal ?? null;
+      return {
+        ok: true,
+        json: async () => ({ content: [{ type: 'text', text: '{}' }] }),
+      };
+    };
+
+    try {
+      await callClaudeP('test prompt', { useCli: false, fetchFn: mockFetch });
+      assert.ok(receivedSignal instanceof AbortSignal, 'signal が渡される');
+    } finally {
+      if (originalEnv === undefined) delete process.env.ANTHROPIC_API_KEY;
+      else process.env.ANTHROPIC_API_KEY = originalEnv;
+    }
+  });
+
   test('ANTHROPIC_API_KEY がない場合かつ useCli=false のとき Error をスローする', async () => {
     const originalEnv = process.env.ANTHROPIC_API_KEY;
     delete process.env.ANTHROPIC_API_KEY;

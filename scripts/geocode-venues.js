@@ -67,9 +67,17 @@ function buildGeocodingUrl(address) {
  */
 async function geocodeAddress(address) {
   const url = buildGeocodingUrl(address);
-  const res = await fetch(url, {
-    headers: { 'User-Agent': 'HASHIRUBot/1.0 (+https://hashiru.run)' },
-  });
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 10000);
+  let res;
+  try {
+    res = await fetch(url, {
+      headers: { 'User-Agent': 'HASHIRUBot/1.0 (+https://hashiru.run)' },
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timer);
+  }
   if (!res.ok) {
     throw new Error(`ジオコーディング API エラー: ${res.status} ${res.statusText}`);
   }
@@ -79,9 +87,9 @@ async function geocodeAddress(address) {
 
 /**
  * 全レース JSON を走査し、venue_address がありかつ座標が未設定のものを geocode する
- * @param {{ dryRun?: boolean, fetchFn?: Function }} opts
+ * @param {{ dryRun?: boolean, fetchFn?: Function, _delayMs?: number }} opts
  */
-async function geocodeAll({ dryRun = false, fetchFn = geocodeAddress } = {}) {
+async function geocodeAll({ dryRun = false, fetchFn = geocodeAddress, _delayMs = 1000 } = {}) {
   const files = fs.readdirSync(RACES_DIR)
     .filter(f => f.endsWith('.json') && f !== 'index.json')
     .sort();
@@ -103,31 +111,27 @@ async function geocodeAll({ dryRun = false, fetchFn = geocodeAddress } = {}) {
       const coords = await fetchFn(race.venue_address);
       if (!coords) {
         console.log('結果なし（スキップ）');
-        skipped++;
-        continue;
-      }
-
-      if (!isInJapan(coords.lat, coords.lng)) {
+        failed++;
+      } else if (!isInJapan(coords.lat, coords.lng)) {
         console.log(`範囲外 (${coords.lat}, ${coords.lng})（スキップ）`);
         failed++;
-        continue;
+      } else {
+        console.log(`(${coords.lat}, ${coords.lng})`);
+        processed++;
+
+        if (!dryRun) {
+          race.start_lat = coords.lat;
+          race.start_lng = coords.lng;
+          race.updated_at = new Date().toISOString();
+          fs.writeFileSync(fp, JSON.stringify(race, null, 2) + '\n', 'utf-8');
+        }
       }
-
-      console.log(`(${coords.lat}, ${coords.lng})`);
-      processed++;
-
-      if (!dryRun) {
-        race.start_lat = coords.lat;
-        race.start_lng = coords.lng;
-        race.updated_at = new Date().toISOString();
-        fs.writeFileSync(fp, JSON.stringify(race, null, 2) + '\n', 'utf-8');
-      }
-
-      // 礼儀正しく 1秒待つ（APIへの連続リクエストを避ける）
-      await new Promise(resolve => setTimeout(resolve, 1000));
     } catch (err) {
       console.log(`エラー: ${err.message}`);
       failed++;
+    } finally {
+      // 礼儀正しく待つ（APIへの連続リクエストを避ける）
+      await new Promise(resolve => setTimeout(resolve, _delayMs));
     }
   }
 

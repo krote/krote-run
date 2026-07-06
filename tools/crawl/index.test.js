@@ -212,4 +212,17 @@ describe('discoverInfoLinks', () => {
     const links = discoverInfoLinks(html, base);
     assert.equal(links.length, 0);
   });
+
+  test('baseUrl が不正な場合は空配列を返す（fail closed）', () => {
+    const html = '<a href="/access/">アクセス</a>';
+    const links = discoverInfoLinks(html, 'not-a-url');
+    assert.deepEqual(links, []);
+  });
+
+  test('同ドメイン前置詞を持つ別オリジンは除外する', () => {
+    const html = '<a href="https://example.com.evil.com/access/">アクセス</a>';
+    const base = 'https://example.com/';
+    const links = discoverInfoLinks(html, base);
+    assert.equal(links.length, 0);
+  });
 });

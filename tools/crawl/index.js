@@ -51,6 +51,9 @@ function discoverInfoLinks(html, baseUrl) {
     try { return new URL(baseUrl).origin; } catch { return ''; }
   })();
 
+  // baseUrl が不正な場合はリンクなし（fail closed）
+  if (!baseDomain) return [];
+
   // <a href="...">...</a> を抽出
   const linkPattern = /<a\s[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
   let match;
@@ -66,8 +69,10 @@ function discoverInfoLinks(html, baseUrl) {
       continue;
     }
 
-    // 同一ドメインのみ
-    if (!href.startsWith(baseDomain)) continue;
+    // 同一オリジンのみ（origin 比較でプレフィックス攻撃を防ぐ）
+    let hrefOrigin;
+    try { hrefOrigin = new URL(href).origin; } catch { continue; }
+    if (hrefOrigin !== baseDomain) continue;
 
     // キーワードチェック（href または テキスト に含まれるか）
     const target = `${href} ${linkText}`;

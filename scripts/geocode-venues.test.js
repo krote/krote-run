@@ -7,7 +7,7 @@
 
 const { test, describe, mock } = require('node:test');
 const assert = require('node:assert/strict');
-const { isInJapan, extractCoords, buildGeocodingUrl } = require('./geocode-venues');
+const { isInJapan, extractCoords, buildGeocodingUrl, geocodeAll } = require('./geocode-venues');
 
 // ── isInJapan ────────────────────────────────────────────────────────
 
@@ -112,5 +112,22 @@ describe('buildGeocodingUrl', () => {
     const url = buildGeocodingUrl(address);
     const decoded = decodeURIComponent(url);
     assert.ok(decoded.includes(address));
+  });
+});
+
+// ── geocodeAll ─────────────────────────────────────────────────────────
+
+describe('geocodeAll', () => {
+  test('fetchFn が null を返した場合でも例外なく完了する（dry-run）', async () => {
+    // fetchFn=null返し → "結果なし" パスでスロットルが finally で必ず動くが例外なし
+    await assert.doesNotReject(
+      () => geocodeAll({ dryRun: true, fetchFn: async () => null, _delayMs: 0 })
+    );
+  });
+
+  test('fetchFn がスローしても例外は吸収して完了する（dry-run）', async () => {
+    await assert.doesNotReject(
+      () => geocodeAll({ dryRun: true, fetchFn: async () => { throw new Error('API error'); }, _delayMs: 0 })
+    );
   });
 });

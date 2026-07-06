@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-07-06T04:04:31.966Z
+-- 生成日時: 2026-07-06T13:58:17.324Z
 -- 対象ファイル数: 87 件（既存 2 件はskip）
 
 -- ==================
@@ -6897,7 +6897,7 @@ INSERT INTO races (
   0,
   0,
   'road',
-  '["JAAF","world-athletics"]',
+  '["JAAF","WA"]',
   '偕楽園、千波湖',
   'Kairakuen Garden, Lake Senba',
   NULL,
@@ -9396,7 +9396,7 @@ INSERT INTO races (
   8000,
   1,
   8000,
-  '2026-05-23',
+  '2026-05-15',
   '2026-07-11',
   0,
   'pre_mail',

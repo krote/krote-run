@@ -72,8 +72,8 @@
       "start_date": "2025-08-11",
       "end_date": "2025-10-24",
       "entry_fee": null,
-      "label_ja": "",
-      "label_en": ""
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry"
     }
   ],
   "entry_closed": false,

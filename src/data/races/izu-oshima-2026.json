@@ -131,8 +131,8 @@
       "start_date": "2026-06-06",
       "end_date": "2026-11-15",
       "entry_fee": null,
-      "label_ja": "",
-      "label_en": ""
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry"
     }
   ],
   "entry_closed": false,

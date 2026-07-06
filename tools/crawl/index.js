@@ -30,6 +30,60 @@ const FETCH_OPTS = {
 
 // ── 純粋関数（テスト対象） ────────────────────────────────────────
 
+// アクセス・受付・エントリー関連ページを示すキーワード
+const INFO_LINK_KEYWORDS = [
+  'access', 'アクセス', '交通', '最寄', '会場',
+  '受付', 'reception', 'entry', 'エントリー', '申込',
+];
+
+/**
+ * HTML テキストからアクセス・受付・エントリー関連リンクを抽出する
+ * @param {string} html - HTML テキスト（生）
+ * @param {string} baseUrl - ベースURL（相対URLの解決に使用）
+ * @returns {{ href: string, text: string }[]}
+ */
+function discoverInfoLinks(html, baseUrl) {
+  if (!html) return [];
+
+  const links = [];
+  const seen = new Set();
+  const baseDomain = (() => {
+    try { return new URL(baseUrl).origin; } catch { return ''; }
+  })();
+
+  // <a href="...">...</a> を抽出
+  const linkPattern = /<a\s[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  let match;
+  while ((match = linkPattern.exec(html)) !== null) {
+    const rawHref = match[1];
+    const linkText = match[2].replace(/<[^>]+>/g, '').trim();
+
+    // 絶対URLに変換
+    let href;
+    try {
+      href = new URL(rawHref, baseUrl).href;
+    } catch {
+      continue;
+    }
+
+    // 同一ドメインのみ
+    if (!href.startsWith(baseDomain)) continue;
+
+    // キーワードチェック（href または テキスト に含まれるか）
+    const target = `${href} ${linkText}`;
+    const matched = INFO_LINK_KEYWORDS.some(kw => target.includes(kw));
+    if (!matched) continue;
+
+    // 重複除外
+    if (seen.has(href)) continue;
+    seen.add(href);
+
+    links.push({ href, text: linkText });
+  }
+
+  return links;
+}
+
 /** テキストの SHA-256 ハッシュを返す */
 function computeHash(text) {
   return crypto.createHash('sha256').update(text).digest('hex');
@@ -317,5 +371,5 @@ if (require.main === module) {
     process.exit(1);
   });
 } else {
-  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries };
+  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks };
 }

@@ -137,3 +137,79 @@ describe('getLatestFilesPerSeries', () => {
     assert.deepEqual(getLatestFilesPerSeries([]), []);
   });
 });
+
+// ── discoverInfoLinks ──────────────────────────────────────────────
+
+const { discoverInfoLinks } = require('./index');
+
+describe('discoverInfoLinks', () => {
+  test('アクセスページのリンクを検出する', () => {
+    const html = '<a href="/access/">アクセス</a><a href="/entry/">エントリー</a>';
+    const base = 'https://example.com/';
+    const links = discoverInfoLinks(html, base);
+    const hrefs = links.map(l => l.href);
+    assert.ok(hrefs.some(h => h.includes('access')));
+  });
+
+  test('受付ページのリンクを検出する', () => {
+    const html = '<a href="/reception/">受付・受取り</a><a href="/other/">その他</a>';
+    const base = 'https://example.com/';
+    const links = discoverInfoLinks(html, base);
+    assert.ok(links.some(l => l.href.includes('reception')));
+  });
+
+  test('エントリーページのリンクを検出する', () => {
+    const html = '<a href="/entry/">エントリー</a>';
+    const base = 'https://example.com/';
+    const links = discoverInfoLinks(html, base);
+    assert.ok(links.some(l => l.href.includes('entry')));
+  });
+
+  test('交通ページのリンクを検出する', () => {
+    const html = '<a href="/traffic/">交通アクセス</a>';
+    const base = 'https://example.com/';
+    const links = discoverInfoLinks(html, base);
+    assert.ok(links.length > 0);
+  });
+
+  test('関係ないリンクは除外する', () => {
+    const html = '<a href="/about/">運営会社</a><a href="/news/">お知らせ</a>';
+    const base = 'https://example.com/';
+    const links = discoverInfoLinks(html, base);
+    assert.equal(links.length, 0);
+  });
+
+  test('相対URLを絶対URLに変換する', () => {
+    const html = '<a href="/access/">アクセス</a>';
+    const base = 'https://example.com/';
+    const links = discoverInfoLinks(html, base);
+    assert.ok(links[0].href.startsWith('https://example.com'));
+  });
+
+  test('別ドメインのリンクは除外する', () => {
+    const html = '<a href="https://other.com/access/">アクセス</a>';
+    const base = 'https://example.com/';
+    const links = discoverInfoLinks(html, base);
+    assert.equal(links.length, 0);
+  });
+
+  test('重複するリンクは1件に絞る', () => {
+    const html = '<a href="/access/">アクセス</a><a href="/access/">交通案内</a>';
+    const base = 'https://example.com/';
+    const links = discoverInfoLinks(html, base);
+    const unique = new Set(links.map(l => l.href));
+    assert.equal(unique.size, links.length);
+  });
+
+  test('空のHTMLは空配列を返す', () => {
+    const links = discoverInfoLinks('', 'https://example.com/');
+    assert.deepEqual(links, []);
+  });
+
+  test('href がない a タグは無視する', () => {
+    const html = '<a name="top">アクセス</a>';
+    const base = 'https://example.com/';
+    const links = discoverInfoLinks(html, base);
+    assert.equal(links.length, 0);
+  });
+});

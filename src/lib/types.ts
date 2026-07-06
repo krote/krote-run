@@ -417,3 +417,56 @@ export interface RaceFilter {
   sort: RaceSortKey;
   view: 'mag' | 'exp';
 }
+
+// ==================
+// 装備品管理（Issue #120）
+// ==================
+
+export const GEAR_CATEGORIES = [
+  'shoes', 'tops', 'bottoms', 'socks', 'cap', 'sunglasses',
+  'watch', 'pack', 'light', 'poles', 'nutrition', 'other',
+] as const;
+export type GearCategory = typeof GEAR_CATEGORIES[number];
+
+export const GEAR_USAGE_TAGS = ['race', 'training', 'both'] as const;
+export type GearUsageTag = typeof GEAR_USAGE_TAGS[number];
+
+export const RACE_RESULT_STATUSES = ['finished', 'dnf', 'dns'] as const;
+export type RaceResultStatus = typeof RACE_RESULT_STATUSES[number];
+
+export interface UserGear {
+  id: string;
+  user_id: string;
+  category: GearCategory;
+  brand: string;
+  name: string;
+  amazon_url: string | null;
+  asin: string | null;
+  usage_tag: GearUsageTag;
+  memo: string;
+  is_retired: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface UserRaceGear {
+  id: number;
+  user_race_id: string;
+  gear_id: string;
+  quantity: number;
+  used: boolean | null;
+  used_quantity: number | null;
+  note: string;
+  sort_order: number;
+}
+
+export interface UserRaceResult {
+  id: string;
+  user_race_id: string;
+  category_id: number | null;
+  status: RaceResultStatus;
+  finish_time_sec: number | null;
+  note: string;
+  created_at: string;
+  updated_at: string;
+}

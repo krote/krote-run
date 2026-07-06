@@ -461,12 +461,70 @@ export const user_races = sqliteTable("user_races", {
   planning_category_id:      integer("planning_category_id").references(() => race_categories.id, { onDelete: "set null" }),
   // 受付開始前日リマインド（複数エントリー期間対応）
   entry_reminder_period_ids: text("entry_reminder_period_ids").notNull().default("[]"), // JSON: number[]
+  // 装備リスト公開フラグ（Issue #120）
+  gear_is_public:            integer("gear_is_public", { mode: "boolean" }).notNull().default(false),
   created_at:                text("created_at").notNull(),
   updated_at:                text("updated_at").notNull(),
 }, (t) => [
   index("user_races_user_id_idx").on(t.user_id),
   index("user_races_race_id_idx").on(t.race_id),
   index("user_races_user_race_idx").on(t.user_id, t.race_id),
+]);
+
+// ==================
+// user_gear（マイギア）Issue #120
+// ==================
+
+export const user_gear = sqliteTable("user_gear", {
+  id:          text("id").primaryKey(),
+  user_id:     text("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+  category:    text("category").notNull(),           // GearCategory
+  brand:       text("brand").notNull().default(""),
+  name:        text("name").notNull(),
+  amazon_url:  text("amazon_url"),                   // ユーザーが貼った元URL
+  asin:        text("asin"),                         // URLから抽出したASIN
+  usage_tag:   text("usage_tag").notNull().default("both"), // GearUsageTag
+  memo:        text("memo").notNull().default(""),
+  is_retired:  integer("is_retired", { mode: "boolean" }).notNull().default(false),
+  created_at:  text("created_at").notNull(),
+  updated_at:  text("updated_at").notNull(),
+}, (t) => [
+  index("user_gear_user_id_idx").on(t.user_id),
+]);
+
+// ==================
+// user_race_gear（レース×装備の紐付け）Issue #120
+// ==================
+
+export const user_race_gear = sqliteTable("user_race_gear", {
+  id:            integer("id").primaryKey({ autoIncrement: true }),
+  user_race_id:  text("user_race_id").notNull().references(() => user_races.id, { onDelete: "cascade" }),
+  gear_id:       text("gear_id").notNull().references(() => user_gear.id, { onDelete: "cascade" }),
+  quantity:      integer("quantity").notNull().default(1),
+  used:          integer("used", { mode: "boolean" }),   // NULL=未記録
+  used_quantity: integer("used_quantity"),
+  note:          text("note").notNull().default(""),
+  sort_order:    integer("sort_order").notNull().default(0),
+}, (t) => [
+  index("user_race_gear_user_race_id_idx").on(t.user_race_id),
+  uniqueIndex("user_race_gear_unique_idx").on(t.user_race_id, t.gear_id),
+]);
+
+// ==================
+// user_race_results（レース結果の自己記録）Issue #120
+// ==================
+
+export const user_race_results = sqliteTable("user_race_results", {
+  id:               text("id").primaryKey(),
+  user_race_id:     text("user_race_id").notNull().unique().references(() => user_races.id, { onDelete: "cascade" }),
+  category_id:      integer("category_id").references(() => race_categories.id, { onDelete: "set null" }),
+  status:           text("status").notNull(),           // RaceResultStatus
+  finish_time_sec:  integer("finish_time_sec"),         // NULL=DNF/DNS
+  note:             text("note").notNull().default(""),
+  created_at:       text("created_at").notNull(),
+  updated_at:       text("updated_at").notNull(),
+}, (t) => [
+  index("user_race_results_user_race_id_idx").on(t.user_race_id),
 ]);
 
 // ==================
@@ -551,7 +609,24 @@ export const completionGiftsRelations = relations(completion_gifts, ({ one }) =>
   race: one(races, { fields: [completion_gifts.race_id], references: [races.id] }),
 }));
 
-export const userRacesRelations = relations(user_races, ({ one }) => ({
-  user: one(user, { fields: [user_races.user_id], references: [user.id] }),
-  race: one(races, { fields: [user_races.race_id], references: [races.id] }),
+export const userRacesRelations = relations(user_races, ({ one, many }) => ({
+  user:   one(user, { fields: [user_races.user_id], references: [user.id] }),
+  race:   one(races, { fields: [user_races.race_id], references: [races.id] }),
+  gear:   many(user_race_gear),
+  result: one(user_race_results, { fields: [user_races.id], references: [user_race_results.user_race_id] }),
+}));
+
+export const userGearRelations = relations(user_gear, ({ one, many }) => ({
+  user:      one(user, { fields: [user_gear.user_id], references: [user.id] }),
+  race_gear: many(user_race_gear),
+}));
+
+export const userRaceGearRelations = relations(user_race_gear, ({ one }) => ({
+  user_race: one(user_races, { fields: [user_race_gear.user_race_id], references: [user_races.id] }),
+  gear:      one(user_gear, { fields: [user_race_gear.gear_id], references: [user_gear.id] }),
+}));
+
+export const userRaceResultsRelations = relations(user_race_results, ({ one }) => ({
+  user_race: one(user_races, { fields: [user_race_results.user_race_id], references: [user_races.id] }),
+  category:  one(race_categories, { fields: [user_race_results.category_id], references: [race_categories.id] }),
 }));

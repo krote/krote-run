@@ -716,6 +716,14 @@
 - ローカル・リモートDBへのマイグレーション適用・シード再適用完了
 
 
+## 2026-07-06 装備管理テーブル追加（Issue #120）
+
+- `src/lib/db/schema.ts`: `user_gear` / `user_race_gear` / `user_race_results` テーブルを追加。`user_races` に `gear_is_public` カラムを追加。各テーブルの Relations を追加
+- `migrations/0013_old_rick_jones.sql`: Drizzle生成マイグレーション。ローカルD1に適用済み
+- `src/lib/types.ts`: `GEAR_CATEGORIES`（12種）/ `GEAR_USAGE_TAGS`（3値）/ `RACE_RESULT_STATUSES`（3値）定数と `UserGear` / `UserRaceGear` / `UserRaceResult` 型を追加
+- `src/lib/__tests__/gear-types.test.ts`: 型・定数のユニットテスト9件（全Pass）
+- `docs/schema.md`: 新テーブル定義・マイグレーション履歴・インデックス一覧を更新
+
 ## 2026-07-05 会場・アクセスデータ基盤の整備（Issue #80）
 
 - `src/lib/db/schema.ts`: `races` に `venue_name_ja` / `venue_name_en` / `venue_address` / `start_lat` / `start_lng` を追加。`access_points` に `walk_minutes` / `is_primary` を追加

@@ -751,3 +751,17 @@
 - `tools/admin-server.js`: `getMissingFields` に venue_address / start_coords / access_point_primary のチェックを追加。新規レーステンプレートに venue フィールドを追加
 - `tools/admin-server.test.js`: 会場住所・座標・代表最寄駅チェックのテストを追加（53テスト全Pass）
 - `docs/schema.md`: races / access_points テーブル定義とマイグレーション履歴を更新
+
+
+## 2026-07-07 Issue #85 コア実装（reception_sessions + reception.ts ヘルパー）
+
+- `src/lib/types.ts`: `ReceptionSession` 型を追加。`Race` に `reception_sessions: ReceptionSession[]` を追加
+- `src/lib/reception.ts`: 新設。`canReceiveOnRaceDay` / `getRaceDayReceptionClose` / `getArrivalDeadline` ヘルパーを実装
+- `src/lib/__tests__/reception.test.ts`: 新設。5系統17テスト全Pass
+- `src/lib/__tests__/fixtures.ts`: `makeReceptionSession` ファクトリを追加。`makeRace` に `reception_sessions: []` を追加
+- `src/lib/db/schema.ts`: `reception_sessions` テーブルを追加。`racesRelations` に `reception_sessions` を追加
+- `migrations/0014_lowly_mentallo.sql`: 生成済み。ローカルD1に適用済み
+- `src/lib/data.ts`: `rowToReceptionSession` 追加。`assembleRace` / `getRaces` / `getRaceById` で reception_sessions を取得
+- `scripts/generate-seed-races.js`: reception_sessions の DELETE / INSERT を追加
+- `migrations/seed-races-all.sql`: シード再生成済み。ローカルD1に適用済み
+- `docs/schema.md`: reception_sessions テーブル定義・インデックス・マイグレーション履歴を追記

@@ -449,6 +449,25 @@ export const race_course_highlights = sqliteTable("race_course_highlights", {
 ]);
 
 // ==================
+// reception_sessions（受付セッション）Issue #85
+// ==================
+
+export const reception_sessions = sqliteTable("reception_sessions", {
+  id:          integer("id").primaryKey({ autoIncrement: true }),
+  race_id:     text("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
+  date:        text("date").notNull(),              // YYYY-MM-DD
+  open_time:   text("open_time"),                   // HH:MM（不明なら NULL）
+  close_time:  text("close_time"),                  // HH:MM（不明なら NULL）
+  location_ja: text("location_ja").notNull().default(""),
+  location_en: text("location_en").notNull().default(""),
+  note_ja:     text("note_ja").notNull().default(""),
+  note_en:     text("note_en").notNull().default(""),
+  sort_order:  integer("sort_order").notNull().default(0),
+}, (t) => [
+  index("reception_sessions_race_id_idx").on(t.race_id),
+]);
+
+// ==================
 // user_races (ユーザー大会登録)
 // ==================
 
@@ -546,7 +565,8 @@ export const racesRelations = relations(races, ({ many, one }) => ({
   gallery:             many(race_gallery),
   voices:              many(race_voices),
   time_buckets:        many(race_time_buckets),
-  course_highlights:   many(race_course_highlights),
+  course_highlights:    many(race_course_highlights),
+  reception_sessions:   many(reception_sessions),
 }));
 
 export const raceGalleryRelations = relations(race_gallery, ({ one }) => ({
@@ -563,6 +583,10 @@ export const raceTimeBucketsRelations = relations(race_time_buckets, ({ one }) =
 
 export const raceCourseHighlightsRelations = relations(race_course_highlights, ({ one }) => ({
   race: one(races, { fields: [race_course_highlights.race_id], references: [races.id] }),
+}));
+
+export const receptionSessionsRelations = relations(reception_sessions, ({ one }) => ({
+  race: one(races, { fields: [reception_sessions.race_id], references: [races.id] }),
 }));
 
 export const raceEntryLinksRelations = relations(race_entry_links, ({ one }) => ({

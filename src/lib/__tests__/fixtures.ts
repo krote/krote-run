@@ -1,4 +1,4 @@
-import type { Race, RaceCategory, EntryPeriod, EntryLink, RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight, ParticipationGift, CompletionGift, AccessPoint } from '../types';
+import type { Race, RaceCategory, EntryPeriod, EntryLink, RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight, ParticipationGift, CompletionGift, AccessPoint, ReceptionSession } from '../types';
 
 /** テスト用の最小限 Race オブジェクトを生成するファクトリ */
 export function makeRace(overrides: Partial<Race> = {}): Race {
@@ -26,6 +26,7 @@ export function makeRace(overrides: Partial<Race> = {}): Race {
     reception_type: 'pre_day',
     reception_note_ja: '',
     reception_note_en: '',
+    reception_sessions: [],
     tags: [],
     course_gpx_file: null,
     course_info: {
@@ -201,6 +202,22 @@ export function makeAccessPoint(overrides: Partial<AccessPoint> = {}): AccessPoi
     longitude: 135.0,
     walk_minutes: 10,
     is_primary: true,
+    ...overrides,
+  };
+}
+
+export function makeReceptionSession(overrides: Partial<ReceptionSession> = {}): ReceptionSession {
+  return {
+    id: 1,
+    race_id: 'test-race-2026',
+    date: '2026-10-01',
+    open_time: '06:00',
+    close_time: '08:30',
+    location_ja: 'テスト会場',
+    location_en: 'Test Venue',
+    note_ja: '',
+    note_en: '',
+    sort_order: 0,
     ...overrides,
   };
 }

@@ -140,7 +140,9 @@
       "transport_to_venue_ja": "富士山駅から富士北麓公園までシャトルバス運行（大会当日早朝）。または徒歩約30分。",
       "transport_to_venue_en": "Shuttle bus from Fujisan Station to Fuji Hokuroku Park (early morning on race day). Or approx. 30 min walk.",
       "latitude": 35.4879,
-      "longitude": 138.7948
+      "longitude": 138.7948,
+      "walk_minutes": null,
+      "is_primary": false
     },
     {
       "station_name_ja": "河口湖駅",
@@ -149,7 +151,9 @@
       "transport_to_venue_ja": "河口湖駅からタクシーで約15分。大会当日のシャトルバスは富士山駅発。",
       "transport_to_venue_en": "Approx. 15 min by taxi from Kawaguchiko Station. Race day shuttle buses depart from Fujisan Station.",
       "latitude": 35.4997,
-      "longitude": 138.7656
+      "longitude": 138.7656,
+      "walk_minutes": null,
+      "is_primary": false
     }
   ],
   "nearby_spots": [
@@ -383,5 +387,10 @@
       "description_en": "Official race T-shirt by THE NORTH FACE (first 2,800 entries; changes to original towel after limit reached), Finisher medal (finishers), Web finisher certificate (finishers)",
       "image": null
     }
-  ]
+  ],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

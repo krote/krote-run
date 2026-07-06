@@ -74,7 +74,9 @@
       "transport_to_venue_ja": "JR勝田駅東口から徒歩約10分。無料シャトルバスあり。",
       "transport_to_venue_en": "About 10 min walk from JR Katsuta Station East Exit. Free shuttle bus available.",
       "latitude": 36.3933,
-      "longitude": 140.4756
+      "longitude": 140.4756,
+      "walk_minutes": null,
+      "is_primary": true
     }
   ],
   "nearby_spots": [
@@ -151,5 +153,10 @@
       "url": "https://katsutamarathon.jp/course/",
       "label": "コース情報"
     }
-  ]
+  ],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

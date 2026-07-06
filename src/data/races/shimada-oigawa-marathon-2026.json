@@ -107,5 +107,10 @@
       "url": "https://www.shimada-marathon.jp/faq.html",
       "label": "FAQ"
     }
-  ]
+  ],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

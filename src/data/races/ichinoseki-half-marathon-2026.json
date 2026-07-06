@@ -116,5 +116,10 @@
       "url": "https://ichinoseki-half.jp/course/",
       "label": "コース情報"
     }
-  ]
+  ],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

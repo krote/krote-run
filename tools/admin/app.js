@@ -199,6 +199,14 @@ function populateForm(r) {
   // 完走賞
   renderCompletionGifts(r.completion_gifts ?? []);
 
+  // 会場・アクセス（Issue #80）
+  setVal('f-venue_name_ja', r.venue_name_ja ?? '');
+  setVal('f-venue_name_en', r.venue_name_en ?? '');
+  setVal('f-venue_address', r.venue_address ?? '');
+  setVal('f-start_lat', r.start_lat ?? '');
+  setVal('f-start_lng', r.start_lng ?? '');
+  renderAccessPoints(r.access_points ?? []);
+
   // 周辺スポット
   renderNearbySpots(r.nearby_spots ?? []);
 
@@ -795,6 +803,91 @@ const NEARBY_SPOT_TYPES = [
   { value: '宿泊',   icon: '🏨' },
 ];
 
+// ── アクセスポイント ──────────────────────────────────────────────
+function escAttr(val) {
+  return String(val ?? '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function renderAccessPoints(points) {
+  const container = document.getElementById('access-points-container');
+  container.innerHTML = '';
+  points.forEach(ap => addAccessPointRow(ap));
+}
+
+function addAccessPointRow(ap = {}) {
+  const container = document.getElementById('access-points-container');
+  const row = document.createElement('div');
+  row.className = 'nearby-spot-row';
+
+  row.innerHTML = `
+    <div class="gift-row-header">
+      <span class="gift-row-label">駅 ${container.children.length + 1}</span>
+      <button class="btn btn-danger btn-remove-ap">削除</button>
+    </div>
+    <div class="nearby-spot-fields">
+      <div class="field">
+        <label>駅名（日本語）</label>
+        <input type="text" class="ap-name-ja" value="${escAttr(ap.station_name_ja)}">
+      </div>
+      <div class="field">
+        <label>駅名（English）</label>
+        <input type="text" class="ap-name-en" value="${escAttr(ap.station_name_en)}">
+      </div>
+      <div class="field">
+        <label>駅コード</label>
+        <input type="text" class="ap-station-code" placeholder="例: shinjuku" value="${escAttr(ap.station_code)}">
+      </div>
+      <div class="field full">
+        <label>アクセス方法（日本語）</label>
+        <input type="text" class="ap-transport-ja" placeholder="例: 徒歩10分" value="${escAttr(ap.transport_to_venue_ja)}">
+      </div>
+      <div class="field full">
+        <label>アクセス方法（English）</label>
+        <input type="text" class="ap-transport-en" placeholder="例: 10 min walk" value="${escAttr(ap.transport_to_venue_en)}">
+      </div>
+      <div class="field">
+        <label>徒歩分数</label>
+        <input type="number" class="ap-walk-minutes" min="0" placeholder="例: 10" value="${escAttr(ap.walk_minutes ?? '')}">
+      </div>
+      <div class="field">
+        <label>緯度</label>
+        <input type="number" class="ap-lat" step="0.000001" value="${escAttr(ap.latitude != null && ap.latitude !== 0 ? ap.latitude : '')}">
+      </div>
+      <div class="field">
+        <label>経度</label>
+        <input type="number" class="ap-lng" step="0.000001" value="${escAttr(ap.longitude != null && ap.longitude !== 0 ? ap.longitude : '')}">
+      </div>
+      <div class="field">
+        <label><input type="checkbox" class="ap-is-primary" ${ap.is_primary ? 'checked' : ''}> 代表最寄駅</label>
+      </div>
+    </div>
+  `;
+
+  row.querySelector('.btn-remove-ap').addEventListener('click', () => row.remove());
+  container.appendChild(row);
+}
+
+function collectAccessPoints() {
+  return Array.from(document.querySelectorAll('#access-points-container .nearby-spot-row')).map((row, idx) => {
+    const latVal = row.querySelector('.ap-lat').value;
+    const lngVal = row.querySelector('.ap-lng').value;
+    return {
+      station_name_ja: row.querySelector('.ap-name-ja').value,
+      station_name_en: row.querySelector('.ap-name-en').value,
+      station_code: row.querySelector('.ap-station-code').value,
+      transport_to_venue_ja: row.querySelector('.ap-transport-ja').value,
+      transport_to_venue_en: row.querySelector('.ap-transport-en').value,
+      walk_minutes: row.querySelector('.ap-walk-minutes').value ? Number(row.querySelector('.ap-walk-minutes').value) : null,
+      latitude: latVal ? Number(latVal) : null,
+      longitude: lngVal ? Number(lngVal) : null,
+      is_primary: row.querySelector('.ap-is-primary').checked,
+      sort_order: idx,
+    };
+  });
+}
+
+document.getElementById('btn-add-access-point').addEventListener('click', () => addAccessPointRow());
+
 function renderNearbySpots(spots) {
   const container = document.getElementById('nearby-spots-container');
   container.innerHTML = '';
@@ -950,6 +1043,14 @@ async function saveRace() {
   if (!currentRace) return;
 
   const updated = buildRaceData();
+
+  // 代表最寄駅（is_primary=true）は1件のみ許可
+  const primaryCount = (updated.access_points ?? []).filter(ap => ap.is_primary).length;
+  if (primaryCount > 1) {
+    alert(`代表最寄駅（is_primary）は1件のみ設定できます。現在 ${primaryCount} 件が選択されています。`);
+    return;
+  }
+
   const btn = document.getElementById('btn-save');
   const status = document.getElementById('save-status');
   btn.disabled = true;
@@ -1077,6 +1178,13 @@ function buildRaceData() {
     course_gpx_file: currentRace?.course_gpx_file ?? null,
     participation_gifts: collectGifts(),
     completion_gifts: collectCompletionGifts(),
+    // 会場・アクセス（Issue #80）
+    venue_name_ja: getVal('f-venue_name_ja') || null,
+    venue_name_en: getVal('f-venue_name_en') || null,
+    venue_address: getVal('f-venue_address') || null,
+    start_lat: getVal('f-start_lat') ? Number(getVal('f-start_lat')) : null,
+    start_lng: getVal('f-start_lng') ? Number(getVal('f-start_lng')) : null,
+    access_points: collectAccessPoints(),
     nearby_spots: collectNearbySpots(),
     // Phase 2: ビジュアル拡張フィールド
     motif: getVal('f-motif') || null,

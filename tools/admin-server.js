@@ -303,6 +303,18 @@ function getMissingFields(r) {
     medium.push({ field: 'description', label: '説明文' });
   }
 
+  // 会場・スタート地点（Issue #80）
+  if (!r.venue_address) {
+    high.push({ field: 'venue_address', label: '会場住所' });
+  }
+  if (r.start_lat == null || r.start_lng == null) {
+    high.push({ field: 'start_coords', label: 'スタート地点座標' });
+  }
+  const hasPrimaryAccessPoint = (r.access_points ?? []).some(ap => ap.is_primary);
+  if ((r.access_points ?? []).length > 0 && !hasPrimaryAccessPoint) {
+    medium.push({ field: 'access_point_primary', label: '代表最寄駅（is_primary）' });
+  }
+
   // 周辺スポット
   if (!r.nearby_spots || r.nearby_spots.length === 0) {
     medium.push({ field: 'nearby_spots', label: '周辺スポット' });
@@ -572,6 +584,11 @@ const server = http.createServer(async (req, res) => {
           checkpoints: [],
           access_points: [],
           nearby_spots: [],
+          venue_name_ja: null,
+          venue_name_en: null,
+          venue_address: null,
+          start_lat: null,
+          start_lng: null,
           result: null,
           created_at: now,
           updated_at: now,

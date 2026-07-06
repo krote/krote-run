@@ -78,6 +78,20 @@
       "when": 1781274009633,
       "tag": "0010_loving_mister_fear",
       "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "6",
+      "when": 1783261279345,
+      "tag": "0011_parallel_winter_soldier",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "6",
+      "when": 1783310438507,
+      "tag": "0012_fearless_sleeper",
+      "breakpoints": true
     }
   ]
 }

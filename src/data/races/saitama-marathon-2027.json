@@ -131,5 +131,10 @@
       "label": "エントリー"
     }
   ],
-  "completion_gifts": []
+  "completion_gifts": [],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

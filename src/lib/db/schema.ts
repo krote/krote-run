@@ -1,4 +1,5 @@
-import { sqliteTable, text, integer, real, index } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text, integer, real, index, uniqueIndex } from "drizzle-orm/sqlite-core";
+import { sql } from "drizzle-orm";
 import { relations } from "drizzle-orm";
 
 // ==================
@@ -41,6 +42,12 @@ export const races = sqliteTable("races", {
   course_highlights_en:    text("course_highlights_en").notNull().default(""),
   course_notes_ja:         text("course_notes_ja"),
   course_notes_en:         text("course_notes_en"),
+  // Issue #80: 会場・スタート地点
+  venue_name_ja:         text("venue_name_ja"),            // スタート地点名称（例: 神戸市役所前）
+  venue_name_en:         text("venue_name_en"),
+  venue_address:         text("venue_address"),            // ジオコーディング・経路検索の宛先
+  start_lat:             real("start_lat"),                // スタート地点緯度
+  start_lng:             real("start_lng"),                // スタート地点経度
   // Phase 2: ビジュアル拡張フィールド
   motif:                 text("motif"),                    // 漢字モチーフ（例: 都、霊峰）
   motif_color:           text("motif_color"),              // モチーフカラー（例: #1d4373）
@@ -140,9 +147,13 @@ export const access_points = sqliteTable("access_points", {
   transport_to_venue_en: text("transport_to_venue_en").notNull().default(""),
   latitude:              real("latitude").notNull().default(0),
   longitude:             real("longitude").notNull().default(0),
+  walk_minutes:          integer("walk_minutes"),          // 駅から会場までの徒歩分数（不明なら NULL）
+  is_primary:            integer("is_primary", { mode: "boolean" }).notNull().default(false), // 代表最寄駅フラグ
   sort_order:            integer("sort_order").notNull().default(0),
 }, (t) => [
   index("access_points_race_id_idx").on(t.race_id),
+  // 1レースにつき is_primary=true の行は1件のみ許可する partial unique index
+  uniqueIndex("access_points_primary_unique_idx").on(t.race_id, t.is_primary).where(sql`${t.is_primary} = 1`),
 ]);
 
 // ==================

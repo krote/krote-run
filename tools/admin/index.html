@@ -224,6 +224,40 @@
             <button class="btn btn-secondary" id="btn-add-completion-gift">＋ 完走賞を追加</button>
           </section>
 
+          <!-- 会場・アクセス -->
+          <section class="form-section">
+            <h2 class="section-title">会場・アクセス</h2>
+            <div class="form-grid">
+              <div class="field">
+                <label>会場名（日本語）</label>
+                <input type="text" id="f-venue_name_ja" placeholder="例: 神戸市役所前" />
+              </div>
+              <div class="field">
+                <label>会場名（English）</label>
+                <input type="text" id="f-venue_name_en" placeholder="例: Kobe City Hall" />
+              </div>
+              <div class="field full">
+                <label>会場住所 <span class="required-badge">必須</span></label>
+                <input type="text" id="f-venue_address" placeholder="例: 兵庫県神戸市中央区加納町6丁目5-1" />
+              </div>
+              <div class="field">
+                <label>スタート地点 緯度 <span class="required-badge">必須</span></label>
+                <input type="number" id="f-start_lat" step="0.000001" placeholder="例: 34.6901" />
+              </div>
+              <div class="field">
+                <label>スタート地点 経度 <span class="required-badge">必須</span></label>
+                <input type="number" id="f-start_lng" step="0.000001" placeholder="例: 135.1956" />
+              </div>
+            </div>
+            <div style="margin-top:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                <label style="font-size:13px;font-weight:600;color:var(--mid);">最寄駅・アクセス</label>
+                <button class="btn btn-secondary" id="btn-add-access-point">＋ 駅を追加</button>
+              </div>
+              <div id="access-points-container"></div>
+            </div>
+          </section>
+
           <!-- 周辺スポット -->
           <section class="form-section">
             <h2 class="section-title">周辺スポット</h2>

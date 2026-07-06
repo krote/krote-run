@@ -223,6 +223,60 @@ describe('getMissingFields', () => {
     });
   });
 
+  describe('会場住所（high）', () => {
+    test('venue_address が null → high に追加', () => {
+      const r = { entry_periods: [{ start_date: '2026-01-01' }], entry_start_date: null, entry_fee_by_category: true, categories: [{ entry_fee: 5000, time_limit_minutes: 360 }], official_url: 'https://example.com', entry_capacity: 100, description_ja: '説明', nearby_spots: [{}], venue_address: null, start_lat: 35.0, start_lng: 135.0 };
+      const { high } = getMissingFields(r);
+      assert.ok(high.some(f => f.field === 'venue_address'));
+    });
+
+    test('venue_address に値あり → 追加しない', () => {
+      const r = { entry_periods: [{ start_date: '2026-01-01' }], entry_start_date: null, entry_fee_by_category: true, categories: [{ entry_fee: 5000, time_limit_minutes: 360 }], official_url: 'https://example.com', entry_capacity: 100, description_ja: '説明', nearby_spots: [{}], venue_address: '東京都新宿区1-1-1', start_lat: 35.0, start_lng: 135.0 };
+      const { high } = getMissingFields(r);
+      assert.ok(!high.some(f => f.field === 'venue_address'));
+    });
+  });
+
+  describe('スタート地点座標（high）', () => {
+    test('start_lat が null → high に追加', () => {
+      const r = { entry_periods: [{ start_date: '2026-01-01' }], entry_start_date: null, entry_fee_by_category: true, categories: [{ entry_fee: 5000, time_limit_minutes: 360 }], official_url: 'https://example.com', entry_capacity: 100, description_ja: '説明', nearby_spots: [{}], venue_address: '住所', start_lat: null, start_lng: 135.0 };
+      const { high } = getMissingFields(r);
+      assert.ok(high.some(f => f.field === 'start_coords'));
+    });
+
+    test('start_lng が null → high に追加', () => {
+      const r = { entry_periods: [{ start_date: '2026-01-01' }], entry_start_date: null, entry_fee_by_category: true, categories: [{ entry_fee: 5000, time_limit_minutes: 360 }], official_url: 'https://example.com', entry_capacity: 100, description_ja: '説明', nearby_spots: [{}], venue_address: '住所', start_lat: 35.0, start_lng: null };
+      const { high } = getMissingFields(r);
+      assert.ok(high.some(f => f.field === 'start_coords'));
+    });
+
+    test('座標両方あり → 追加しない', () => {
+      const r = { entry_periods: [{ start_date: '2026-01-01' }], entry_start_date: null, entry_fee_by_category: true, categories: [{ entry_fee: 5000, time_limit_minutes: 360 }], official_url: 'https://example.com', entry_capacity: 100, description_ja: '説明', nearby_spots: [{}], venue_address: '住所', start_lat: 35.0, start_lng: 135.0 };
+      const { high } = getMissingFields(r);
+      assert.ok(!high.some(f => f.field === 'start_coords'));
+    });
+  });
+
+  describe('代表最寄駅（medium）', () => {
+    test('access_points が1件以上あり is_primary=false のみ → medium に追加', () => {
+      const r = { entry_periods: [{ start_date: '2026-01-01' }], entry_start_date: null, entry_fee_by_category: true, categories: [{ entry_fee: 5000, time_limit_minutes: 360 }], official_url: 'https://example.com', entry_capacity: 100, description_ja: '説明', nearby_spots: [{}], venue_address: '住所', start_lat: 35.0, start_lng: 135.0, access_points: [{ is_primary: false }] };
+      const { medium } = getMissingFields(r);
+      assert.ok(medium.some(f => f.field === 'access_point_primary'));
+    });
+
+    test('access_points に is_primary=true あり → 追加しない', () => {
+      const r = { entry_periods: [{ start_date: '2026-01-01' }], entry_start_date: null, entry_fee_by_category: true, categories: [{ entry_fee: 5000, time_limit_minutes: 360 }], official_url: 'https://example.com', entry_capacity: 100, description_ja: '説明', nearby_spots: [{}], venue_address: '住所', start_lat: 35.0, start_lng: 135.0, access_points: [{ is_primary: true }] };
+      const { medium } = getMissingFields(r);
+      assert.ok(!medium.some(f => f.field === 'access_point_primary'));
+    });
+
+    test('access_points が空配列 → 追加しない（駅データ自体が未入力）', () => {
+      const r = { entry_periods: [{ start_date: '2026-01-01' }], entry_start_date: null, entry_fee_by_category: true, categories: [{ entry_fee: 5000, time_limit_minutes: 360 }], official_url: 'https://example.com', entry_capacity: 100, description_ja: '説明', nearby_spots: [{}], venue_address: '住所', start_lat: 35.0, start_lng: 135.0, access_points: [] };
+      const { medium } = getMissingFields(r);
+      assert.ok(!medium.some(f => f.field === 'access_point_primary'));
+    });
+  });
+
   describe('すべて整備済み', () => {
     test('全フィールド揃っている場合は high/medium ともに空配列', () => {
       const r = {
@@ -234,6 +288,10 @@ describe('getMissingFields', () => {
         entry_capacity: 38000,
         description_ja: '世界的に有名な都市型マラソン大会',
         nearby_spots: [{ type: '観光地', name_ja: 'テスト神社' }],
+        venue_address: '東京都新宿区1-1-1',
+        start_lat: 35.6895,
+        start_lng: 139.6917,
+        access_points: [{ is_primary: true }],
       };
       const { high, medium } = getMissingFields(r);
       assert.deepEqual(high, []);

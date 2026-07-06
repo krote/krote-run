@@ -155,7 +155,9 @@
       "transport_to_venue_ja": "長野駅東口からスタート会場（長野運動公園）までシャトルバスで約15分。または北長野駅から徒歩約15分。",
       "transport_to_venue_en": "Shuttle bus from Nagano Station East Exit to the start venue (Nagano Athletic Park), approx. 15 min. Or 15 min walk from Kita-Nagano Station.",
       "latitude": 36.6433,
-      "longitude": 138.1889
+      "longitude": 138.1889,
+      "walk_minutes": null,
+      "is_primary": false
     },
     {
       "station_name_ja": "北長野駅",
@@ -164,7 +166,9 @@
       "transport_to_venue_ja": "徒歩約15分でスタート会場（長野運動公園）に到着",
       "transport_to_venue_en": "Approx. 15 min walk to the start venue (Nagano Athletic Park)",
       "latitude": 36.6586,
-      "longitude": 138.1932
+      "longitude": 138.1932,
+      "walk_minutes": null,
+      "is_primary": false
     }
   ],
   "nearby_spots": [
@@ -387,5 +391,10 @@
       "description_en": "Official race T-shirt (all participants), Finisher medal (finishers), Finisher towel (finishers)",
       "image": null
     }
-  ]
+  ],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

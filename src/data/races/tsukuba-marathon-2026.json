@@ -140,5 +140,10 @@
       "url": "https://www.tsukuba-marathon.com/sitemap.php",
       "label": "コース情報"
     }
-  ]
+  ],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

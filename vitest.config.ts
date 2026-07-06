@@ -6,7 +6,7 @@ export default defineConfig({
     globals: true,
     // コンポーネントテストは jsdom、ユニットテストは node（ファイルごとに @vitest-environment で上書き可能）
     environment: 'node',
-    exclude: ['node_modules/**', 'tools/**'],
+    exclude: ['node_modules/**', 'tools/**', 'scripts/**'],
     setupFiles: ['./src/test-setup.ts'],
     coverage: {
       provider: 'v8',

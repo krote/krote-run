@@ -366,7 +366,7 @@ async function run(options = {}) {
 
 if (require.main === module) {
   const dryRun = process.argv.includes('--dry-run');
-  run({ dryRun }).catch(err => {
+  run({ dryRun, useCli: !process.argv.includes('--no-cli') }).catch(err => {
     console.error('予期しないエラー:', err);
     process.exit(1);
   });

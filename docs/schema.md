@@ -428,3 +428,4 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0009_shallow_captain_stacy.sql` | completion_gifts テーブルを追加（Issue #73）。medal 等の完走賞を participation_gifts から分離 |
 | `migrations/0010_loving_mister_fear.sql` | race_entry_periods.end_date の NOT NULL 制約を削除（終了日未定のエントリー期間を許容） |
 | `migrations/0011_parallel_winter_soldier.sql` | races に venue_name_ja/venue_name_en/venue_address/start_lat/start_lng を追加。access_points に walk_minutes/is_primary を追加（Issue #80） |
+| `migrations/0012_fearless_sleeper.sql` | access_points に partial unique index を追加（race_id + is_primary=1 の組み合わせを一意制約）（Issue #80） |

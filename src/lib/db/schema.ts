@@ -1,4 +1,5 @@
-import { sqliteTable, text, integer, real, index } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text, integer, real, index, uniqueIndex } from "drizzle-orm/sqlite-core";
+import { sql } from "drizzle-orm";
 import { relations } from "drizzle-orm";
 
 // ==================
@@ -151,6 +152,8 @@ export const access_points = sqliteTable("access_points", {
   sort_order:            integer("sort_order").notNull().default(0),
 }, (t) => [
   index("access_points_race_id_idx").on(t.race_id),
+  // 1レースにつき is_primary=true の行は1件のみ許可する partial unique index
+  uniqueIndex("access_points_primary_unique_idx").on(t.race_id, t.is_primary).where(sql`${t.is_primary} = 1`),
 ]);
 
 // ==================

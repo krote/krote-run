@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX `access_points_primary_unique_idx` ON `access_points` (`race_id`,`is_primary`) WHERE "access_points"."is_primary" = 1;

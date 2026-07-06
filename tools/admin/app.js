@@ -804,6 +804,10 @@ const NEARBY_SPOT_TYPES = [
 ];
 
 // ── アクセスポイント ──────────────────────────────────────────────
+function escAttr(val) {
+  return String(val ?? '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 function renderAccessPoints(points) {
   const container = document.getElementById('access-points-container');
   container.innerHTML = '';
@@ -823,31 +827,35 @@ function addAccessPointRow(ap = {}) {
     <div class="nearby-spot-fields">
       <div class="field">
         <label>駅名（日本語）</label>
-        <input type="text" class="ap-name-ja" value="${ap.station_name_ja ?? ''}">
+        <input type="text" class="ap-name-ja" value="${escAttr(ap.station_name_ja)}">
       </div>
       <div class="field">
         <label>駅名（English）</label>
-        <input type="text" class="ap-name-en" value="${ap.station_name_en ?? ''}">
+        <input type="text" class="ap-name-en" value="${escAttr(ap.station_name_en)}">
+      </div>
+      <div class="field">
+        <label>駅コード</label>
+        <input type="text" class="ap-station-code" placeholder="例: shinjuku" value="${escAttr(ap.station_code)}">
       </div>
       <div class="field full">
         <label>アクセス方法（日本語）</label>
-        <input type="text" class="ap-transport-ja" placeholder="例: 徒歩10分" value="${ap.transport_to_venue_ja ?? ''}">
+        <input type="text" class="ap-transport-ja" placeholder="例: 徒歩10分" value="${escAttr(ap.transport_to_venue_ja)}">
       </div>
       <div class="field full">
         <label>アクセス方法（English）</label>
-        <input type="text" class="ap-transport-en" placeholder="例: 10 min walk" value="${ap.transport_to_venue_en ?? ''}">
+        <input type="text" class="ap-transport-en" placeholder="例: 10 min walk" value="${escAttr(ap.transport_to_venue_en)}">
       </div>
       <div class="field">
         <label>徒歩分数</label>
-        <input type="number" class="ap-walk-minutes" min="0" placeholder="例: 10" value="${ap.walk_minutes ?? ''}">
+        <input type="number" class="ap-walk-minutes" min="0" placeholder="例: 10" value="${escAttr(ap.walk_minutes ?? '')}">
       </div>
       <div class="field">
         <label>緯度</label>
-        <input type="number" class="ap-lat" step="0.000001" value="${ap.latitude ?? ''}">
+        <input type="number" class="ap-lat" step="0.000001" value="${escAttr(ap.latitude != null && ap.latitude !== 0 ? ap.latitude : '')}">
       </div>
       <div class="field">
         <label>経度</label>
-        <input type="number" class="ap-lng" step="0.000001" value="${ap.longitude ?? ''}">
+        <input type="number" class="ap-lng" step="0.000001" value="${escAttr(ap.longitude != null && ap.longitude !== 0 ? ap.longitude : '')}">
       </div>
       <div class="field">
         <label><input type="checkbox" class="ap-is-primary" ${ap.is_primary ? 'checked' : ''}> 代表最寄駅</label>
@@ -860,17 +868,22 @@ function addAccessPointRow(ap = {}) {
 }
 
 function collectAccessPoints() {
-  return Array.from(document.querySelectorAll('#access-points-container .nearby-spot-row')).map(row => ({
-    station_name_ja: row.querySelector('.ap-name-ja').value,
-    station_name_en: row.querySelector('.ap-name-en').value,
-    station_code: '',
-    transport_to_venue_ja: row.querySelector('.ap-transport-ja').value,
-    transport_to_venue_en: row.querySelector('.ap-transport-en').value,
-    walk_minutes: row.querySelector('.ap-walk-minutes').value ? Number(row.querySelector('.ap-walk-minutes').value) : null,
-    latitude: Number(row.querySelector('.ap-lat').value) || 0,
-    longitude: Number(row.querySelector('.ap-lng').value) || 0,
-    is_primary: row.querySelector('.ap-is-primary').checked,
-  }));
+  return Array.from(document.querySelectorAll('#access-points-container .nearby-spot-row')).map((row, idx) => {
+    const latVal = row.querySelector('.ap-lat').value;
+    const lngVal = row.querySelector('.ap-lng').value;
+    return {
+      station_name_ja: row.querySelector('.ap-name-ja').value,
+      station_name_en: row.querySelector('.ap-name-en').value,
+      station_code: row.querySelector('.ap-station-code').value,
+      transport_to_venue_ja: row.querySelector('.ap-transport-ja').value,
+      transport_to_venue_en: row.querySelector('.ap-transport-en').value,
+      walk_minutes: row.querySelector('.ap-walk-minutes').value ? Number(row.querySelector('.ap-walk-minutes').value) : null,
+      latitude: latVal ? Number(latVal) : null,
+      longitude: lngVal ? Number(lngVal) : null,
+      is_primary: row.querySelector('.ap-is-primary').checked,
+      sort_order: idx,
+    };
+  });
 }
 
 document.getElementById('btn-add-access-point').addEventListener('click', () => addAccessPointRow());

@@ -193,7 +193,7 @@ function generateRaceSQL(r) {
   if (r.access_points && r.access_points.length > 0) {
     r.access_points.forEach((ap, idx) => {
       lines.push(`INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
-  (${esc(r.id)}, ${esc(ap.station_name_ja)}, ${esc(ap.station_name_en || '')}, ${esc(ap.station_code || '')}, ${esc(ap.transport_to_venue_ja || '')}, ${esc(ap.transport_to_venue_en || '')}, ${esc(ap.latitude || 0)}, ${esc(ap.longitude || 0)}, ${esc(ap.walk_minutes ?? null)}, ${ap.is_primary ? '1' : '0'}, ${idx});`);
+  (${esc(r.id)}, ${esc(ap.station_name_ja)}, ${esc(ap.station_name_en || '')}, ${esc(ap.station_code || '')}, ${esc(ap.transport_to_venue_ja || '')}, ${esc(ap.transport_to_venue_en || '')}, ${esc(ap.latitude ?? 0)}, ${esc(ap.longitude ?? 0)}, ${esc(ap.walk_minutes ?? null)}, ${ap.is_primary ? '1' : '0'}, ${idx});`);
     });
   }
 

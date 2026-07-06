@@ -76,7 +76,7 @@
       "latitude": 36.3933,
       "longitude": 140.4756,
       "walk_minutes": null,
-      "is_primary": false
+      "is_primary": true
     }
   ],
   "nearby_spots": [

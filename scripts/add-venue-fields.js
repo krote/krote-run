@@ -26,10 +26,16 @@ for (const file of files) {
   if (!('start_lng' in race)) { race.start_lng = null; changed = true; }
 
   // access_points の新フィールド
-  if (Array.isArray(race.access_points)) {
+  if (Array.isArray(race.access_points) && race.access_points.length > 0) {
     for (const ap of race.access_points) {
       if (!('walk_minutes' in ap)) { ap.walk_minutes = null; changed = true; }
       if (!('is_primary' in ap)) { ap.is_primary = false; changed = true; }
+    }
+    // access_points が1件のみで全て is_primary=false の場合は先頭を primary にする
+    const hasPrimary = race.access_points.some(ap => ap.is_primary);
+    if (!hasPrimary && race.access_points.length === 1) {
+      race.access_points[0].is_primary = true;
+      changed = true;
     }
   }
 

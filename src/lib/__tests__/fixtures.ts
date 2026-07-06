@@ -1,4 +1,4 @@
-import type { Race, RaceCategory, EntryPeriod, EntryLink, RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight, ParticipationGift, CompletionGift, AccessPoint, ReceptionSession } from '../types';
+import type { Race, RaceCategory, EntryPeriod, EntryLink, RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight, ParticipationGift, CompletionGift, AccessPoint, ReceptionSession, RaceTravelTime } from '../types';
 
 /** テスト用の最小限 Race オブジェクトを生成するファクトリ */
 export function makeRace(overrides: Partial<Race> = {}): Race {
@@ -27,6 +27,7 @@ export function makeRace(overrides: Partial<Race> = {}): Race {
     reception_note_ja: '',
     reception_note_en: '',
     reception_sessions: [],
+    travel_times: [],
     tags: [],
     course_gpx_file: null,
     course_info: {
@@ -218,6 +219,18 @@ export function makeReceptionSession(overrides: Partial<ReceptionSession> = {}):
     note_ja: '',
     note_en: '',
     sort_order: 0,
+    ...overrides,
+  };
+}
+
+export function makeRaceTravelTime(overrides: Partial<RaceTravelTime> = {}): RaceTravelTime {
+  return {
+    id: 1,
+    race_id: 'test-race-2026',
+    hub_id: 'tokyo',
+    duration_minutes: 60,
+    departure_time: null,
+    calculated_at: '2026-01-01T00:00:00Z',
     ...overrides,
   };
 }

@@ -296,6 +296,10 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | user_races | user_races_user_id_idx | user_id |
 | user_races | user_races_race_id_idx | race_id |
 | user_races | user_races_user_race_idx | user_id, race_id |
+| user_gear | user_gear_user_id_idx | user_id |
+| user_race_gear | user_race_gear_user_race_id_idx | user_race_id |
+| user_race_gear | user_race_gear_unique_idx（unique） | user_race_id, gear_id |
+| user_race_results | user_race_results_user_race_id_idx | user_race_id |
 
 ---
 
@@ -311,6 +315,7 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | is_planning | integer(boolean) | NO | 参加予定フラグ |
 | planning_category_id | integer | YES | FK → race_categories.id（SET NULL）。参加予定カテゴリ |
 | entry_reminder_period_ids | text | NO | エントリーリマインド対象の entry_period id 一覧（JSON: number[]、デフォルト "[]"） |
+| gear_is_public | integer(bool) | NO | 装備リストを公開するかどうか（デフォルト false）。Issue #120 |
 | created_at | text | NO | ISO8601 |
 | updated_at | text | NO | ISO8601 |
 
@@ -406,6 +411,64 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 
 ---
 
+## user_gear テーブル
+
+ユーザーが所持するギア（シューズ・ウェア・栄養補給品など）のマスター。
+
+| カラム | 型 | NULL | デフォルト | 備考 |
+|---|---|---|---|---|
+| id | text | NO | — | PK（UUID） |
+| user_id | text | NO | — | FK → user.id（CASCADE） |
+| category | text | NO | — | `GearCategory`（shoes / tops / bottoms 等 12種） |
+| brand | text | NO | `""` | ブランド名 |
+| name | text | NO | — | 商品名 |
+| amazon_url | text | YES | — | Amazon商品URL |
+| asin | text | YES | — | Amazon ASIN |
+| usage_tag | text | NO | — | `race` / `training` / `both` |
+| memo | text | NO | `""` | メモ |
+| is_retired | integer(bool) | NO | `false` | 引退フラグ |
+| created_at | text | NO | — | ISO8601 |
+| updated_at | text | NO | — | ISO8601 |
+
+---
+
+## user_race_gear テーブル
+
+ユーザーの大会登録（user_races）に紐付くギアリスト。
+
+| カラム | 型 | NULL | デフォルト | 備考 |
+|---|---|---|---|---|
+| id | integer | NO | autoincrement | PK |
+| user_race_id | text | NO | — | FK → user_races.id（CASCADE） |
+| gear_id | text | NO | — | FK → user_gear.id（CASCADE） |
+| quantity | integer | NO | `1` | 持参予定数量 |
+| used | integer(bool) | YES | — | NULL=未記録 / true=使用 / false=未使用 |
+| used_quantity | integer | YES | — | 実際に使用した数量 |
+| note | text | NO | `""` | メモ |
+| sort_order | integer | NO | `0` | 表示順 |
+
+**備考**
+- `(user_race_id, gear_id)` に unique 制約あり（同一大会に同じギアを重複登録不可）
+
+---
+
+## user_race_results テーブル
+
+ユーザーの大会結果（自己記録）。user_races と 1:1 対応。
+
+| カラム | 型 | NULL | デフォルト | 備考 |
+|---|---|---|---|---|
+| id | text | NO | — | PK（UUID） |
+| user_race_id | text | NO | — | FK → user_races.id（CASCADE）。UNIQUE |
+| category_id | integer | YES | — | FK → race_categories.id（SET NULL）。参加カテゴリ |
+| status | text | NO | — | `finished` / `dnf` / `dns` |
+| finish_time_sec | integer | YES | — | フィニッシュタイム（秒）。DNF/DNS 時は null |
+| note | text | NO | `""` | 振り返りメモ |
+| created_at | text | NO | — | ISO8601 |
+| updated_at | text | NO | — | ISO8601 |
+
+---
+
 ## マイグレーション履歴
 
 | ファイル | 内容 |
@@ -429,3 +492,4 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0010_loving_mister_fear.sql` | race_entry_periods.end_date の NOT NULL 制約を削除（終了日未定のエントリー期間を許容） |
 | `migrations/0011_parallel_winter_soldier.sql` | races に venue_name_ja/venue_name_en/venue_address/start_lat/start_lng を追加。access_points に walk_minutes/is_primary を追加（Issue #80） |
 | `migrations/0012_fearless_sleeper.sql` | access_points に partial unique index を追加（race_id + is_primary=1 の組み合わせを一意制約）（Issue #80） |
+| `migrations/0013_old_rick_jones.sql` | user_gear / user_race_gear / user_race_results テーブルを追加。user_races に gear_is_public カラムを追加（Issue #120） |

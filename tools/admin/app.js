@@ -1043,6 +1043,14 @@ async function saveRace() {
   if (!currentRace) return;
 
   const updated = buildRaceData();
+
+  // 代表最寄駅（is_primary=true）は1件のみ許可
+  const primaryCount = (updated.access_points ?? []).filter(ap => ap.is_primary).length;
+  if (primaryCount > 1) {
+    alert(`代表最寄駅（is_primary）は1件のみ設定できます。現在 ${primaryCount} 件が選択されています。`);
+    return;
+  }
+
   const btn = document.getElementById('btn-save');
   const status = document.getElementById('save-status');
   btn.disabled = true;

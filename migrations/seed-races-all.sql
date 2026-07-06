@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-07-06T04:04:31.966Z
+-- 生成日時: 2026-07-06T14:39:26.458Z
 -- 対象ファイル数: 87 件（既存 2 件はskip）
 
 -- ==================
@@ -4431,7 +4431,7 @@ Translated with DeepL.com (free version)',
   '2026-06-06',
   '2026-11-15',
   0,
-  'pre_day',
+  'both',
   '■大会会場での受付方法：大会の1週間前までに参加案内書（封筒）を本人宛に郵送します。
 12/4（金）
 14:00　前日受付開始（元町港船客待合所）
@@ -4526,6 +4526,8 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('izu-oshima-2026', 'half', 21.0975, 180, '08:20', 0, 7400, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('izu-oshima-2026', '10k', 10, 100, '09:00', 0, 5400, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('izu-oshima-2026', '["medal"]', 'オリジナル完走メダル', '', NULL, 0);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('izu-oshima-2026', '["medal"]', 'オリジナル完走メダル', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VALUES
@@ -5853,13 +5855,13 @@ INSERT INTO races (
   '神戸の港町を走る大規模フルマラソン。明石海峡大橋の折り返しが見どころ。「感謝と友情」がテーマ。',
   'A large-scale marathon through the port city of Kobe. The turnaround point near Akashi Kaikyo Bridge is a highlight. Theme: Gratitude and Friendship.',
   'https://www.kobe-marathon.net',
-  18000,
+  NULL,
   1,
   20000,
   '2026-04-17',
   '2026-06-01',
   0,
-  'pre_day',
+  'both',
   '日時
 2026年11月13日（金曜）　13：00～20：00（最終入場）
 2026年11月14日（土曜）　10：00～19：00（最終入場）　
@@ -5960,16 +5962,12 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('kobe-marathon-2026', 'グルメ', '神戸牛', 'Kobe Beef', '世界的に有名なブランド和牛。レース後のご褒美に。三宮・元町エリアに名店多数。', 'World-famous premium wagyu beef. A reward after the race. Many restaurants in Sannomiya-Motomachi area.', '三宮・元町エリア', NULL, 34.6913, 135.1956);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('kobe-marathon-2026', '["tshirt","towel"]', '大会オリジナルTシャツ、完走メダル、フィニッシャータオル', 'Official race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('kobe-marathon-2026', '["medal"]', '大会オリジナルTシャツ、完走メダル、フィニッシャータオル', 'Official race T-shirt, Finisher medal, Finisher towel', NULL, 1);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('kobe-marathon-2026', '["medal"]', '大会オリジナルTシャツ、完走メダル、フィニッシャータオル', 'Official race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kobe-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-17', '2026-06-01', 18000, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kobe-marathon-2026', NULL, NULL, '明石海峡大橋', 'Akashi Kaikyo Bridge', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kobe-marathon-2026', NULL, NULL, 'ポートアイランド', 'Port Island', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('kobe-marathon-2026', NULL, NULL, 'ハーバーランド', 'Harborland', NULL, NULL, 2);
 
 -- ==================
 -- 高知龍馬マラソン (kochi-ryoma-marathon-2026)
@@ -6897,7 +6895,7 @@ INSERT INTO races (
   0,
   0,
   'road',
-  '["JAAF","world-athletics"]',
+  '["JAAF","WA"]',
   '偕楽園、千波湖',
   'Kairakuen Garden, Lake Senba',
   NULL,
@@ -9396,7 +9394,7 @@ INSERT INTO races (
   8000,
   1,
   8000,
-  '2026-05-23',
+  '2026-05-15',
   '2026-07-11',
   0,
   'pre_mail',

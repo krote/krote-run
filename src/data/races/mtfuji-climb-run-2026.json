@@ -55,8 +55,8 @@
       "start_date": "2026-04-24",
       "end_date": "2026-07-31",
       "entry_fee": 15000,
-      "label_ja": "",
-      "label_en": ""
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry"
     }
   ],
   "participation_gifts": [

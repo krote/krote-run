@@ -259,8 +259,8 @@ describe('buildDiff - 複合フィールド', () => {
 
 describe('applyAndSave - 年度不一致チェック', () => {
   const race = {
-    id: 'tokyo-marathon-2026',
-    name_ja: '東京マラソン',
+    id: 'test-marathon-2026',
+    name_ja: 'テストマラソン',
     date: '2026-03-01',
     entry_start_date: '2025-08-01',
     entry_end_date: '2025-10-31',
@@ -285,7 +285,7 @@ describe('applyAndSave - 年度不一致チェック', () => {
   test('年度不一致時はsuggestedFileを返す（race.idの年を置換）', () => {
     const extracted = { date: '2027-03-01' };
     const result = applyAndSave(race, extracted);
-    assert.equal(result.suggestedFile, 'tokyo-marathon-2027.json');
+    assert.equal(result.suggestedFile, 'test-marathon-2027.json');
   });
 
   test('extractedにdateがない場合はyearMismatchにならない', () => {
@@ -426,5 +426,215 @@ describe('buildNewEditionRace', () => {
   test('metadataの旧ノートは引き継がない（新規作成なのでリセット）', () => {
     const newRace = buildNewEditionRace(race, extracted);
     assert.ok(!newRace._metadata.data_accuracy_notes.includes('old note'));
+  });
+});
+
+// ── Step 2: 新フィールド（venue / access_points / reception） ─────────
+
+describe('buildExtractionPrompt - venue / access_points / reception フィールド', () => {
+  const race = {
+    id: 'test-marathon-2026',
+    name_ja: 'テストマラソン',
+    date: '2026-03-01',
+    entry_start_date: '2025-08-01',
+    entry_end_date: '2025-10-31',
+    entry_fee: 10000,
+    entry_capacity: 5000,
+    reception_type: 'pre_day',
+    reception_note_ja: '前日受付のみ',
+    venue_name_ja: null,
+    venue_address: null,
+    access_points: [],
+  };
+  const pageTexts = [{ url: 'https://example.com/access/', text: '会場: 長野市オリンピックスタジアム 最寄駅: JR長野駅（徒歩15分）受付: 大会前日13:00〜20:00' }];
+
+  test('venue_name_ja の現在値をプロンプトに含む', () => {
+    const prompt = buildExtractionPrompt(race, pageTexts);
+    assert.ok(prompt.includes('venue_name_ja'));
+  });
+
+  test('venue_address の現在値をプロンプトに含む', () => {
+    const prompt = buildExtractionPrompt(race, pageTexts);
+    assert.ok(prompt.includes('venue_address'));
+  });
+
+  test('access_points の現在値をプロンプトに含む', () => {
+    const prompt = buildExtractionPrompt(race, pageTexts);
+    assert.ok(prompt.includes('access_points'));
+  });
+
+  test('reception_type の現在値をプロンプトに含む', () => {
+    const prompt = buildExtractionPrompt(race, pageTexts);
+    assert.ok(prompt.includes('reception_type'));
+    assert.ok(prompt.includes('pre_day'));
+  });
+
+  test('reception_note_ja の現在値をプロンプトに含む', () => {
+    const prompt = buildExtractionPrompt(race, pageTexts);
+    assert.ok(prompt.includes('reception_note_ja'));
+  });
+
+  test('スキーマ例に venue_name_ja を含む', () => {
+    const prompt = buildExtractionPrompt(race, pageTexts);
+    assert.ok(prompt.includes('"venue_name_ja"'));
+  });
+
+  test('スキーマ例に access_points を含む', () => {
+    const prompt = buildExtractionPrompt(race, pageTexts);
+    assert.ok(prompt.includes('"access_points"'));
+  });
+
+  test('スキーマ例に reception_type を含む', () => {
+    const prompt = buildExtractionPrompt(race, pageTexts);
+    assert.ok(prompt.includes('"reception_type"'));
+  });
+
+  test('座標(start_lat/start_lng)の抽出禁止ルールをプロンプトに含む', () => {
+    const prompt = buildExtractionPrompt(race, pageTexts);
+    assert.ok(prompt.includes('start_lat') || prompt.includes('座標'));
+  });
+});
+
+// ── Step 5: callClaudeP Messages API フォールバック ───────────────────
+
+const { callClaudeP } = require('./extractor');
+
+describe('callClaudeP - Messages API フォールバック', () => {
+  test('ANTHROPIC_API_KEY がある場合は fetch を呼ぶ（CLI なし）', async () => {
+    const originalEnv = process.env.ANTHROPIC_API_KEY;
+    process.env.ANTHROPIC_API_KEY = 'test-key-123';
+
+    let fetchCalled = false;
+    let fetchUrl = '';
+    const mockFetch = async (url, opts) => {
+      fetchCalled = true;
+      fetchUrl = url;
+      return {
+        ok: true,
+        json: async () => ({
+          content: [{ type: 'text', text: '{"date":"2027-03-01"}' }],
+        }),
+      };
+    };
+
+    try {
+      const result = await callClaudeP('test prompt', { useCli: false, fetchFn: mockFetch });
+      assert.ok(fetchCalled, 'fetch が呼ばれる');
+      assert.ok(fetchUrl.includes('anthropic.com'), 'Anthropic API エンドポイントに送信');
+      assert.ok(result.includes('2027-03-01'), 'レスポンスが返る');
+    } finally {
+      if (originalEnv === undefined) delete process.env.ANTHROPIC_API_KEY;
+      else process.env.ANTHROPIC_API_KEY = originalEnv;
+    }
+  });
+
+  test('fetch が失敗したとき Error をスローする', async () => {
+    const originalEnv = process.env.ANTHROPIC_API_KEY;
+    process.env.ANTHROPIC_API_KEY = 'test-key';
+
+    const mockFetch = async () => ({
+      ok: false,
+      status: 401,
+      statusText: 'Unauthorized',
+    });
+
+    try {
+      await assert.rejects(
+        () => callClaudeP('test prompt', { useCli: false, fetchFn: mockFetch }),
+        /401|Unauthorized|認証/
+      );
+    } finally {
+      if (originalEnv === undefined) delete process.env.ANTHROPIC_API_KEY;
+      else process.env.ANTHROPIC_API_KEY = originalEnv;
+    }
+  });
+
+  test('fetch が AbortSignal を受け取る（タイムアウト制御可能）', async () => {
+    const originalEnv = process.env.ANTHROPIC_API_KEY;
+    process.env.ANTHROPIC_API_KEY = 'test-key-123';
+
+    let receivedSignal = null;
+    const mockFetch = async (url, opts) => {
+      receivedSignal = opts?.signal ?? null;
+      return {
+        ok: true,
+        json: async () => ({ content: [{ type: 'text', text: '{}' }] }),
+      };
+    };
+
+    try {
+      await callClaudeP('test prompt', { useCli: false, fetchFn: mockFetch });
+      assert.ok(receivedSignal instanceof AbortSignal, 'signal が渡される');
+    } finally {
+      if (originalEnv === undefined) delete process.env.ANTHROPIC_API_KEY;
+      else process.env.ANTHROPIC_API_KEY = originalEnv;
+    }
+  });
+
+  test('ANTHROPIC_API_KEY がない場合かつ useCli=false のとき Error をスローする', async () => {
+    const originalEnv = process.env.ANTHROPIC_API_KEY;
+    delete process.env.ANTHROPIC_API_KEY;
+
+    try {
+      await assert.rejects(
+        () => callClaudeP('test prompt', { useCli: false }),
+        /ANTHROPIC_API_KEY|API キー/
+      );
+    } finally {
+      if (originalEnv !== undefined) process.env.ANTHROPIC_API_KEY = originalEnv;
+    }
+  });
+});
+
+describe('buildDiff - venue / access_points / reception フィールド', () => {
+  const current = {
+    date: '2026-03-01',
+    venue_name_ja: null,
+    venue_name_en: null,
+    venue_address: null,
+    access_points: [],
+    reception_type: 'pre_day',
+    reception_note_ja: '前日受付のみ',
+    reception_note_en: 'Pre-day only',
+  };
+
+  test('venue_name_ja が変わったとき changed=true', () => {
+    const extracted = { venue_name_ja: '長野市オリンピックスタジアム' };
+    const diff = buildDiff(current, extracted);
+    const entry = diff.find(d => d.key === 'venue_name_ja');
+    assert.ok(entry, 'venue_name_ja がdiffに含まれる');
+    assert.equal(entry.changed, true);
+  });
+
+  test('venue_address が変わったとき changed=true', () => {
+    const extracted = { venue_address: '長野市南長野運動公園総合運動場' };
+    const diff = buildDiff(current, extracted);
+    const entry = diff.find(d => d.key === 'venue_address');
+    assert.ok(entry);
+    assert.equal(entry.changed, true);
+  });
+
+  test('access_points 配列が変わったとき changed=true', () => {
+    const extracted = { access_points: [{ station_name_ja: 'JR長野駅', station_name_en: 'Nagano Station', station_code: '', transport_to_venue_ja: '徒歩15分', transport_to_venue_en: '15 min walk', latitude: 36.6, longitude: 138.1, walk_minutes: 15, is_primary: true }] };
+    const diff = buildDiff(current, extracted);
+    const entry = diff.find(d => d.key === 'access_points');
+    assert.ok(entry);
+    assert.equal(entry.changed, true);
+  });
+
+  test('reception_type が変わったとき changed=true', () => {
+    const extracted = { reception_type: 'both' };
+    const diff = buildDiff(current, extracted);
+    const entry = diff.find(d => d.key === 'reception_type');
+    assert.ok(entry);
+    assert.equal(entry.changed, true);
+  });
+
+  test('reception_note_ja が変わったとき changed=true', () => {
+    const extracted = { reception_note_ja: '前日・当日受付' };
+    const diff = buildDiff(current, extracted);
+    const entry = diff.find(d => d.key === 'reception_note_ja');
+    assert.ok(entry);
+    assert.equal(entry.changed, true);
   });
 });

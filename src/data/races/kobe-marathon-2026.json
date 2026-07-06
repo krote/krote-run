@@ -12,12 +12,12 @@
   "description_ja": "神戸の港町を走る大規模フルマラソン。明石海峡大橋の折り返しが見どころ。「感謝と友情」がテーマ。",
   "description_en": "A large-scale marathon through the port city of Kobe. The turnaround point near Akashi Kaikyo Bridge is a highlight. Theme: Gratitude and Friendship.",
   "official_url": "https://www.kobe-marathon.net",
-  "entry_fee": 18000,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 20000,
   "entry_start_date": "2026-04-17",
   "entry_end_date": "2026-06-01",
-  "reception_type": "pre_day",
+  "reception_type": "both",
   "reception_note_ja": "日時\n2026年11月13日（金曜）　13：00～20：00（最終入場）\n2026年11月14日（土曜）　10：00～19：00（最終入場）　\n場所\n神戸国際展示場１号館１階（ＥＸＰＯ会場）\n上記時間帯のみとし、大会当日（11月15日）の受付は行わない。ただし、神戸マラソン応援ランナー枠は当日受付可。\n伴走者も上記日時に受付を行う。\n本人確認を行うので必ず本人確認書類（原本）を持参すること（代理人不可）。\n障がい者は、身体障害者手帳等（原本）を持参すること\nリレーランの受付は必ず出走者２人が揃って行うこと。どちらか１人での受付、個別の受付、代理受付はできない。",
   "reception_note_en": "Date and Time\nNovember 13, 2026 (Friday) 13:00-20:00 (Last entry)\nNovember 14, 2026 (Saturday) 10:00-19:00 (Last entry)\nLocation\nKobe International Exhibition Hall 1st Floor (EXPO venue)\nRegistration will only be accepted during the above times; registration will not be available on the day of the race (November 15). However, registration for the Kobe Marathon support runner category will be available on the day.\nAccompanying runners must also register at the above times.\nIdentity verification will be required, so please be sure to bring your identification document (original) (no proxy registration).\nPersons with disabilities must bring their disability certificate (original).\nFor relay runs, both runners must register together. Registration by one person, individual registration, or proxy registration is not permitted.",
   "tags": [
@@ -55,7 +55,11 @@
       "name_en": null,
       "description_ja": null,
       "description_en": null,
-      "waves": null
+      "waves": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": []
     }
   ],
   "aid_stations": [],
@@ -106,6 +110,14 @@
       "description_ja": "大会オリジナルTシャツ、完走メダル、フィニッシャータオル",
       "description_en": "Official race T-shirt, Finisher medal, Finisher towel",
       "image": null
+    },
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会オリジナルTシャツ、完走メダル、フィニッシャータオル",
+      "description_en": "Official race T-shirt, Finisher medal, Finisher towel",
+      "image": null
     }
   ],
   "result": null,
@@ -125,13 +137,11 @@
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
       "start_date": "2026-04-17",
       "end_date": "2026-06-01",
       "entry_fee": 18000,
-      "category_id": null,
-      "sort_order": 0
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry"
     }
   ],
   "motif": "異人館",
@@ -145,26 +155,6 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": [
-    {
-      "name_ja": "明石海峡大橋",
-      "name_en": "Akashi Kaikyo Bridge",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "ポートアイランド",
-      "name_en": "Port Island",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "ハーバーランド",
-      "name_en": "Harborland",
-      "description_ja": null,
-      "description_en": null
-    }
-  ],
   "info_urls": [
     {
       "url": "https://www.kobe-marathon.net/2026/faq/",
@@ -201,5 +191,7 @@
   "venue_name_en": null,
   "venue_address": null,
   "start_lat": null,
-  "start_lng": null
+  "start_lng": null,
+  "entry_closed": false,
+  "entry_links": []
 }

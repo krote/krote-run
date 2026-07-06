@@ -17,7 +17,7 @@
   "entry_capacity": 750,
   "entry_start_date": "2026-06-06",
   "entry_end_date": "2026-11-15",
-  "reception_type": "pre_day",
+  "reception_type": "both",
   "reception_note_ja": "■大会会場での受付方法：大会の1週間前までに参加案内書（封筒）を本人宛に郵送します。\n12/4（金）\n14:00　前日受付開始（元町港船客待合所）\n16:30　前日受付終了\n※前日の受付は空いていてスムーズに受付ができます。\n\n12/5（土）\n  6:00　開場、当日受付開始（元町港船客待合所）",
   "reception_note_en": "■Registration at the Event Venue: A participation guide (in an envelope) will be mailed to you personally at least one week before the event.\nFri, Dec 4\n2:00 PM: Pre-event registration begins (Motomachi Port Passenger Waiting Hall)\n4:30 PM: Pre-event registration ends\n*The pre-event registration area is less crowded, so the process will be smooth.\n\nDecember 5 (Sat)\n  6:00 AM: Doors open; on-site registration begins (Motomachi Port Passenger Waiting Hall)\n\nTranslated with DeepL.com (free version)",
   "tags": [],
@@ -150,7 +150,16 @@
       "url": "https://do.l-tike.com/app/dss/race/detail?acd=nemqQ8yPKR7"
     }
   ],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "オリジナル完走メダル",
+      "description_en": "",
+      "image": null
+    }
+  ],
   "motif": "三原山",
   "motif_romaji": "Mt.MIHARA",
   "motif_color": null,

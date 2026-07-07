@@ -65,7 +65,7 @@ export default function RaceFilter({ filter, prefectures, giftCategories, availa
             <label className="block text-[0.68rem] font-bold tracking-[0.12em] uppercase mb-2" style={{ color: 'var(--color-mid)' }}>
               {locale === 'ja' ? '日帰り' : 'Day Trip'}
             </label>
-            <label className="flex items-center gap-3 cursor-pointer w-fit">
+            <div className="flex items-center gap-3">
               <button
                 role="switch"
                 aria-checked={filter.dayTrip}
@@ -78,10 +78,14 @@ export default function RaceFilter({ filter, prefectures, giftCategories, availa
                   style={{ transform: filter.dayTrip ? 'translateX(20px)' : 'translateX(0)' }}
                 />
               </button>
-              <span className="text-xs font-semibold" style={{ color: 'var(--color-ink)' }}>
+              <span
+                className="text-xs font-semibold cursor-pointer"
+                style={{ color: 'var(--color-ink)' }}
+                onClick={() => onChange({ ...filter, dayTrip: !filter.dayTrip })}
+              >
                 {locale === 'ja' ? '日帰り可能のみ' : 'Day trip only'}
               </span>
-            </label>
+            </div>
           </div>
         )}
 

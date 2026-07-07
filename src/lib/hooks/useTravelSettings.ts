@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import type { TravelSettings } from '../travel';
 
 const STORAGE_KEY = 'hashiru_travel_settings';
@@ -24,10 +24,13 @@ function saveToStorage(settings: TravelSettings): void {
 }
 
 export function useTravelSettings() {
-  const [settings, setSettings] = useState<TravelSettings | null>(() => {
-    if (typeof window === 'undefined') return null;
-    return loadFromStorage();
-  });
+  // SSR とのハイドレーション不一致を防ぐため、初期値は null に固定し
+  // マウント後に useEffect で localStorage を読む
+  const [settings, setSettings] = useState<TravelSettings | null>(null);
+
+  useEffect(() => {
+    setSettings(loadFromStorage());
+  }, []);
 
   const updateSettings = useCallback((next: TravelSettings | null) => {
     setSettings(next);

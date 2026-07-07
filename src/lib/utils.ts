@@ -188,7 +188,8 @@ export function isFilterEmpty(filter: RaceFilter): boolean {
     filter.timeLimitMin === null &&
     filter.tags.length === 0 &&
     filter.searchText === '' &&
-    filter.statuses.length === 0
+    filter.statuses.length === 0 &&
+    filter.dayTrip === false
   );
 }
 

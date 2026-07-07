@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import type { Prefecture, GiftCategory, RaceFilter as RaceFilterType, RaceStatus, DistanceType } from '@/lib/types';
 import { defaultFilter, getDistanceLabel, isDefaultFilter } from '@/lib/utils';
+import type { TravelSettings } from '@/lib/travel';
 
 interface RaceFilterProps {
   filter: RaceFilterType;
@@ -10,6 +11,7 @@ interface RaceFilterProps {
   giftCategories: GiftCategory[];
   availableTags: string[];
   locale: string;
+  travelSettings: TravelSettings | null;
   onChange: (filter: RaceFilterType) => void;
 }
 
@@ -25,7 +27,7 @@ const STATUS_OPTIONS: { value: RaceStatus; labelJa: string; labelEn: string }[] 
   { value: 'past',           labelJa: '開催済み',   labelEn: 'Past' },
 ];
 
-export default function RaceFilter({ filter, prefectures, giftCategories, availableTags, locale, onChange }: RaceFilterProps) {
+export default function RaceFilter({ filter, prefectures, giftCategories, availableTags, locale, travelSettings, onChange }: RaceFilterProps) {
   const t = useTranslations('races.filter');
   const monthLabels = locale === 'ja' ? MONTHS_JA : MONTHS_EN;
 
@@ -57,6 +59,32 @@ export default function RaceFilter({ filter, prefectures, giftCategories, availa
       </div>
 
       <div className="space-y-5">
+        {/* Day-trip filter (shown only when travel settings are configured) */}
+        {travelSettings && (
+          <div>
+            <label className="block text-[0.68rem] font-bold tracking-[0.12em] uppercase mb-2" style={{ color: 'var(--color-mid)' }}>
+              {locale === 'ja' ? '日帰り' : 'Day Trip'}
+            </label>
+            <label className="flex items-center gap-3 cursor-pointer w-fit">
+              <button
+                role="switch"
+                aria-checked={filter.dayTrip}
+                onClick={() => onChange({ ...filter, dayTrip: !filter.dayTrip })}
+                className="relative w-11 h-6 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                style={{ background: filter.dayTrip ? 'var(--color-primary)' : 'var(--color-border)' }}
+              >
+                <span
+                  className="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform"
+                  style={{ transform: filter.dayTrip ? 'translateX(20px)' : 'translateX(0)' }}
+                />
+              </button>
+              <span className="text-xs font-semibold" style={{ color: 'var(--color-ink)' }}>
+                {locale === 'ja' ? '日帰り可能のみ' : 'Day trip only'}
+              </span>
+            </label>
+          </div>
+        )}
+
         {/* Status */}
         <div>
           <label

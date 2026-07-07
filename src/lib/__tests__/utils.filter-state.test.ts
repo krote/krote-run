@@ -73,6 +73,16 @@ describe('isDefaultFilter', () => {
     const f = { ...defaultFilter(), statuses: ['entry_closed', 'open_entry', 'entry_not_open'] as const };
     expect(isDefaultFilter({ ...f })).toBe(true);
   });
+
+  it('dayTrip=true を指定すると false', () => {
+    expect(isDefaultFilter({ ...defaultFilter(), dayTrip: true })).toBe(false);
+  });
+});
+
+describe('defaultFilter - dayTrip', () => {
+  it('dayTrip は false', () => {
+    expect(defaultFilter().dayTrip).toBe(false);
+  });
 });
 
 describe('isFilterEmpty', () => {

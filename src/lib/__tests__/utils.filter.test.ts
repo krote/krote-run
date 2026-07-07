@@ -1,7 +1,8 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { vi } from 'vitest';
 import { filterRaces, sortRacesByDate, sortRaces, emptyFilter } from '../utils';
-import { makeRace, makeCategory, makeEntryPeriod, makeParticipationGift, makeCompletionGift } from './fixtures';
+import { makeRace, makeCategory, makeEntryPeriod, makeParticipationGift, makeCompletionGift, makeRaceTravelTime } from './fixtures';
+import type { TravelSettings } from '../travel';
 import type { Race } from '../types';
 
 const TODAY = '2026-04-02';
@@ -279,6 +280,53 @@ describe('filterRaces - 複合条件', () => {
     });
     expect(result).toHaveLength(1);
     expect(result[0].id).toBe('race-open');
+  });
+});
+
+describe('filterRaces - dayTrip フィルタ', () => {
+  const baseSettings: TravelSettings = {
+    hubId: 'tokyo',
+    nearestStation: '東京駅',
+    offsetMinutes: 0,
+    firstTrainTime: '05:00',
+  };
+
+  it('dayTrip=false なら travelSettings を無視して全件返す', () => {
+    const races = [
+      makeRace({ id: 'day',   reception_type: 'race_day', categories: [makeCategory({ start_time: '09:00' })], travel_times: [makeRaceTravelTime({ hub_id: 'tokyo', duration_minutes: 60 })] }),
+      makeRace({ id: 'night', reception_type: 'pre_day',  categories: [makeCategory({ start_time: '09:00' })], travel_times: [makeRaceTravelTime({ hub_id: 'tokyo', duration_minutes: 60 })] }),
+    ];
+    const result = filterRaces(races, { ...emptyFilter(), dayTrip: false }, baseSettings);
+    expect(result).toHaveLength(2);
+  });
+
+  it('dayTrip=true かつ settings あり → day_trip 判定の大会のみ返す', () => {
+    const races = [
+      // day_trip: 移動60分, start 09:00, reception race_day → 出発07:30 → OK
+      makeRace({ id: 'day',   reception_type: 'race_day', categories: [makeCategory({ start_time: '09:00' })], travel_times: [makeRaceTravelTime({ hub_id: 'tokyo', duration_minutes: 60 })] }),
+      // overnight_required: reception pre_day のみ
+      makeRace({ id: 'night', reception_type: 'pre_day',  categories: [makeCategory({ start_time: '09:00' })], travel_times: [makeRaceTravelTime({ hub_id: 'tokyo', duration_minutes: 60 })] }),
+    ];
+    const result = filterRaces(races, { ...emptyFilter(), dayTrip: true }, baseSettings);
+    expect(result).toHaveLength(1);
+    expect(result[0].id).toBe('day');
+  });
+
+  it('dayTrip=true かつ settings なし → フィルタ無効（全件返す）', () => {
+    const races = [
+      makeRace({ id: 'day',   reception_type: 'race_day', categories: [makeCategory({ start_time: '09:00' })], travel_times: [makeRaceTravelTime({ hub_id: 'tokyo', duration_minutes: 60 })] }),
+      makeRace({ id: 'night', reception_type: 'pre_day',  categories: [makeCategory({ start_time: '09:00' })], travel_times: [] }),
+    ];
+    const result = filterRaces(races, { ...emptyFilter(), dayTrip: true }, null);
+    expect(result).toHaveLength(2);
+  });
+
+  it('travel_times に hub のデータがない大会は unknown → day_trip 扱いにしない', () => {
+    const races = [
+      makeRace({ id: 'no-time', reception_type: 'race_day', categories: [makeCategory({ start_time: '09:00' })], travel_times: [] }),
+    ];
+    const result = filterRaces(races, { ...emptyFilter(), dayTrip: true }, baseSettings);
+    expect(result).toHaveLength(0);
   });
 });
 

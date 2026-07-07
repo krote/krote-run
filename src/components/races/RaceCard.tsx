@@ -3,11 +3,14 @@ import { formatDate, getRaceName } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import prefecturesData from '@/data/prefectures.json';
+import type { TravelSettings } from '@/lib/travel';
+import { calcDayTripStatus } from '@/lib/travel';
 
 interface RaceCardProps {
   race: Race;
   locale: Locale;
   from?: string;
+  travelSettings?: TravelSettings | null;
 }
 
 const PREF_MAP = new Map(
@@ -68,7 +71,7 @@ function getSeason(dateStr: string): { en: string; ja: string } {
   return { en: 'WINTER', ja: '冬' };
 }
 
-export default function RaceCard({ race, locale, from }: RaceCardProps) {
+export default function RaceCard({ race, locale, from, travelSettings }: RaceCardProps) {
   const t = useTranslations('races.detail');
   const today = new Date().toISOString().split('T')[0];
   const isPast = race.date < today;
@@ -134,6 +137,13 @@ export default function RaceCard({ race, locale, from }: RaceCardProps) {
   const prefLabel = locale === 'ja' ? pref?.ja ?? '' : pref?.en ?? '';
 
   const season = getSeason(race.date);
+
+  // Day-trip status
+  const dayTripStatus = (() => {
+    if (!travelSettings) return null;
+    const mins = race.travel_times?.find((t) => t.hub_id === travelSettings.hubId)?.duration_minutes ?? null;
+    return calcDayTripStatus(race, mins, travelSettings);
+  })();
 
   // Status badge styles
   let badgeBg = 'transparent';
@@ -412,6 +422,39 @@ export default function RaceCard({ race, locale, from }: RaceCardProps) {
               </div>
             </div>
           </div>
+          {/* Day-trip status */}
+          {dayTripStatus && (
+            <div className="pt-2" style={{ borderTop: '1px solid var(--color-border-soft)' }}>
+              {dayTripStatus.status === 'overnight_required' && (
+                <span
+                  className="inline-block text-[0.6rem] font-semibold px-2 py-0.5 rounded-[2px]"
+                  style={{ background: '#fef3c7', color: '#92400e' }}
+                >
+                  {locale === 'ja' ? '前泊必須' : 'Overnight Required'}
+                </span>
+              )}
+              {dayTripStatus.status === 'overnight_recommended' && (
+                <span
+                  className="inline-block text-[0.6rem] font-semibold px-2 py-0.5 rounded-[2px]"
+                  style={{ background: '#fef9c3', color: '#713f12' }}
+                >
+                  {locale === 'ja'
+                    ? `前泊推奨（${dayTripStatus.departureNeeded}発が必要）`
+                    : `Overnight Rec. (departs ${dayTripStatus.departureNeeded})`}
+                </span>
+              )}
+              {dayTripStatus.status === 'day_trip' && (
+                <span
+                  className="inline-block text-[0.6rem] font-semibold px-2 py-0.5 rounded-[2px]"
+                  style={{ background: '#dcfce7', color: '#166534' }}
+                >
+                  {locale === 'ja'
+                    ? `日帰り可 ${dayTripStatus.departureNeeded}発`
+                    : `Day trip · departs ${dayTripStatus.departureNeeded}`}
+                </span>
+              )}
+            </div>
+          )}
         </div>
       </article>
     </Link>

@@ -6,9 +6,6 @@ import { routing } from '@/i18n/routing';
 import { useState } from 'react';
 import { useSession, signOut } from '@/lib/auth-client';
 import UserRaceList from '@/components/mypage/UserRaceList';
-import { useTravelSettings } from '@/lib/hooks/useTravelSettings';
-import { HUBS } from '@/lib/hubs';
-import type { HubId } from '@/lib/hubs';
 
 export default function MyPage() {
   const t = useTranslations('settings');
@@ -19,7 +16,6 @@ export default function MyPage() {
   const { data: session, isPending } = useSession();
 
   const [saved, setSaved] = useState(false);
-  const { settings: travelSettings, updateSettings: updateTravelSettings } = useTravelSettings();
   const [gcalAutoOpen, setGcalAutoOpen] = useState(() => {
     if (typeof window === 'undefined') return true;
     try { return localStorage.getItem('hashiru_gcal_auto_open') !== 'false'; } catch { return true; }
@@ -107,97 +103,6 @@ export default function MyPage() {
           <UserRaceList />
         </section>
       )}
-
-      {/* Travel settings */}
-      <section className="p-6 bg-white border border-[var(--color-border)] rounded-xl mb-6">
-        <h2 className="text-sm font-semibold mb-1" style={{ color: 'var(--color-mid)' }}>
-          {locale === 'ja' ? '日帰り判定の設定' : 'Day-trip Settings'}
-        </h2>
-        <p className="text-xs mb-4" style={{ color: 'var(--color-mid)' }}>
-          {locale === 'ja'
-            ? '出発地を設定すると、大会一覧で「日帰り可能」フィルターが使えます。'
-            : 'Set your departure hub to use the day-trip filter on the race list.'}
-        </p>
-
-        {/* Hub */}
-        <div className="mb-4">
-          <label className="block text-xs font-semibold mb-2" style={{ color: 'var(--color-ink2)' }}>
-            {locale === 'ja' ? '出発地（最寄りの主要駅）' : 'Departure Hub'}
-          </label>
-          <div className="flex flex-wrap gap-2">
-            {(Object.values(HUBS) as typeof HUBS[HubId][]).map((hub) => {
-              const isActive = travelSettings?.hubId === hub.id;
-              return (
-                <button
-                  key={hub.id}
-                  onClick={() =>
-                    updateTravelSettings({
-                      hubId: hub.id,
-                      nearestStation: travelSettings?.nearestStation ?? '',
-                      offsetMinutes: travelSettings?.offsetMinutes ?? 10,
-                      firstTrainTime: travelSettings?.firstTrainTime ?? '05:00',
-                    })
-                  }
-                  className="px-3.5 py-2 rounded-lg font-medium text-sm transition-colors"
-                  style={
-                    isActive
-                      ? { background: 'var(--color-ink)', color: 'white' }
-                      : { background: '#f5f5f5', color: 'var(--color-ink2)' }
-                  }
-                >
-                  {locale === 'ja' ? hub.name_ja : hub.name_en}
-                </button>
-              );
-            })}
-            {travelSettings && (
-              <button
-                onClick={() => updateTravelSettings(null)}
-                className="px-3.5 py-2 rounded-lg text-sm transition-colors"
-                style={{ background: '#f5f5f5', color: 'var(--color-mid)' }}
-              >
-                {locale === 'ja' ? 'クリア' : 'Clear'}
-              </button>
-            )}
-          </div>
-        </div>
-
-        {travelSettings && (
-          <div className="grid grid-cols-2 gap-3 mt-3">
-            {/* Offset minutes */}
-            <div>
-              <label className="block text-xs font-semibold mb-1" style={{ color: 'var(--color-ink2)' }}>
-                {locale === 'ja' ? '余裕時間（分）' : 'Buffer (min)'}
-              </label>
-              <input
-                type="number"
-                min={0}
-                max={120}
-                value={travelSettings.offsetMinutes}
-                onChange={(e) =>
-                  updateTravelSettings({ ...travelSettings, offsetMinutes: Number(e.target.value) })
-                }
-                className="w-full px-3 py-2 text-sm rounded-[3px]"
-                style={{ border: '1px solid var(--color-border)', color: 'var(--color-ink)' }}
-              />
-            </div>
-            {/* First train */}
-            <div>
-              <label className="block text-xs font-semibold mb-1" style={{ color: 'var(--color-ink2)' }}>
-                {locale === 'ja' ? '始発時刻' : 'First Train'}
-              </label>
-              <input
-                type="time"
-                value={travelSettings.firstTrainTime}
-                onChange={(e) =>
-                  updateTravelSettings({ ...travelSettings, firstTrainTime: e.target.value })
-                }
-                className="w-full px-3 py-2 text-sm rounded-[3px]"
-                style={{ border: '1px solid var(--color-border)', color: 'var(--color-ink)' }}
-              />
-            </div>
-          </div>
-        )}
-      </section>
 
       {/* Language */}
       <section className="p-6 bg-white border border-[var(--color-border)] rounded-xl mb-6">

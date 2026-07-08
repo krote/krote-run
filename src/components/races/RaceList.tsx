@@ -5,7 +5,6 @@ import { useRouter, usePathname } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import type { Race, Prefecture, GiftCategory, RaceFilter as RaceFilterType, Locale } from '@/lib/types';
 import { filterRaces, sortRaces, defaultFilter, filterToSearchParams } from '@/lib/utils';
-import { useTravelSettings } from '@/lib/hooks/useTravelSettings';
 import RaceCard from './RaceCard';
 import RaceCardExp from './RaceCardExp';
 import RaceFilter from './RaceFilter';
@@ -23,8 +22,6 @@ export default function RaceList({ races, prefectures, giftCategories, locale, i
   const router = useRouter();
   const pathname = usePathname();
 
-  const { settings: travelSettings } = useTravelSettings();
-
   // ローカル state で即時反映しつつ、URL も同期することでブラウザ履歴に残す
   const [filter, setFilterState] = useState<RaceFilterType>(initialFilter ?? defaultFilter());
   const view = filter.view;
@@ -36,9 +33,9 @@ export default function RaceList({ races, prefectures, giftCategories, locale, i
   }, [races]);
 
   const filteredRaces = useMemo(() => {
-    const filtered = filterRaces(races, filter, travelSettings);
+    const filtered = filterRaces(races, filter);
     return sortRaces(filtered, filter.sort);
-  }, [races, filter, travelSettings]);
+  }, [races, filter]);
 
   const updateFilter = useCallback((next: RaceFilterType) => {
     setFilterState(next);
@@ -68,7 +65,6 @@ export default function RaceList({ races, prefectures, giftCategories, locale, i
             giftCategories={giftCategories}
             availableTags={availableTags}
             locale={locale}
-            travelSettings={travelSettings ?? null}
             onChange={setFilter}
           />
         </div>
@@ -135,9 +131,9 @@ export default function RaceList({ races, prefectures, giftCategories, locale, i
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {filteredRaces.map((race) =>
               view === 'mag' ? (
-                <RaceCard key={race.id} race={race} locale={locale} from="races" travelSettings={travelSettings ?? null} />
+                <RaceCard key={race.id} race={race} locale={locale} from="races" />
               ) : (
-                <RaceCardExp key={race.id} race={race} locale={locale} from="races" travelSettings={travelSettings ?? null} />
+                <RaceCardExp key={race.id} race={race} locale={locale} from="races" />
               ),
             )}
           </div>

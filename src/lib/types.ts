@@ -449,8 +449,6 @@ export interface RaceFilter {
   statuses: RaceStatus[];
   sort: RaceSortKey;
   view: 'mag' | 'exp';
-  /** true のとき日帰り可能な大会のみ表示（TravelSettings が未設定の場合は無視） */
-  dayTrip: boolean;
 }
 
 // ==================

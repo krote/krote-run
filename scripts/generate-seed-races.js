@@ -44,6 +44,7 @@ function generateRaceSQL(r) {
   lines.push(`DELETE FROM race_entry_links WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_entry_periods WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM reception_sessions WHERE race_id = ${esc(r.id)};`);
+  lines.push(`DELETE FROM race_travel_times WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_results WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_gallery WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_voices WHERE race_id = ${esc(r.id)};`);
@@ -275,6 +276,14 @@ function generateRaceSQL(r) {
     r.course_highlights.forEach((ch, idx) => {
       lines.push(`INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   (${esc(r.id)}, NULL, ${esc(ch.km)}, ${esc(ch.name_ja)}, ${esc(ch.name_en ?? null)}, ${esc(ch.note_ja ?? null)}, ${esc(ch.note_en ?? null)}, ${idx});`);
+    });
+  }
+
+  // travel_times
+  if (r.travel_times && r.travel_times.length > 0) {
+    r.travel_times.forEach((tt) => {
+      lines.push(`INSERT OR REPLACE INTO race_travel_times (race_id, hub_id, duration_minutes, departure_time, calculated_at) VALUES
+  (${esc(r.id)}, ${esc(tt.hub_id)}, ${esc(tt.duration_minutes)}, ${esc(tt.departure_time ?? null)}, ${esc(tt.calculated_at)});`);
     });
   }
 

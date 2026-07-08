@@ -74,15 +74,6 @@ describe('isDefaultFilter', () => {
     expect(isDefaultFilter({ ...f })).toBe(true);
   });
 
-  it('dayTrip=true を指定すると false', () => {
-    expect(isDefaultFilter({ ...defaultFilter(), dayTrip: true })).toBe(false);
-  });
-});
-
-describe('defaultFilter - dayTrip', () => {
-  it('dayTrip は false', () => {
-    expect(defaultFilter().dayTrip).toBe(false);
-  });
 });
 
 describe('isFilterEmpty', () => {

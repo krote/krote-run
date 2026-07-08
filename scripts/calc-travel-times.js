@@ -27,6 +27,13 @@ const HUBS = {
 };
 
 const RACES_DIR = path.join(__dirname, '..', 'src', 'data', 'races');
+const PREFECTURES_FILE = path.join(__dirname, '..', 'src', 'data', 'prefectures.json');
+
+/** @type {Map<string, { lat: number, lng: number }>} */
+const prefectureCoords = (() => {
+  const list = JSON.parse(fs.readFileSync(PREFECTURES_FILE, 'utf-8'));
+  return new Map(list.map((p) => [p.code, { lat: p.lat, lng: p.lng }]));
+})();
 
 // ── ユーティリティ ───────────────────────────────────────────────────────
 
@@ -137,12 +144,18 @@ async function calcTravelTimesForRace(raceId, apiKey, fetchFn = fetch) {
   }
 
   const race = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-  if (!race.start_lat || !race.start_lng) {
-    console.log(`[${raceId}] start_lat/start_lng が未設定のためスキップ`);
+
+  let destination;
+  if (race.start_lat && race.start_lng) {
+    destination = { lat: race.start_lat, lng: race.start_lng };
+  } else if (race.prefecture && prefectureCoords.has(race.prefecture)) {
+    const coords = prefectureCoords.get(race.prefecture);
+    destination = coords;
+    console.log(`[${raceId}] start_lat 未設定のため都道府県座標を使用 (${race.prefecture}: ${coords.lat},${coords.lng})`);
+  } else {
+    console.log(`[${raceId}] 座標が取得できないためスキップ`);
     return;
   }
-
-  const destination = { lat: race.start_lat, lng: race.start_lng };
 
   // 大会の最も早いスタート時刻から arrival time を設定（デフォルト 08:00）
   const startTimes = (race.categories ?? []).map((c) => c.start_time).filter(Boolean);

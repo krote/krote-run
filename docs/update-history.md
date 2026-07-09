@@ -765,3 +765,19 @@
 - `scripts/generate-seed-races.js`: reception_sessions の DELETE / INSERT を追加
 - `migrations/seed-races-all.sql`: シード再生成済み。ローカルD1に適用済み
 - `docs/schema.md`: reception_sessions テーブル定義・インデックス・マイグレーション履歴を追記
+
+## 2026-07-08 日帰り検索UIを削除（データ層は保持）
+
+APIの調査中にGoogle Routes API v2がTRANSITモードで日本に非対応であることが判明。
+代替API選定まで日帰り検索機能（UI）を一時削除。travel_timesデータ層・scriptsは保持。
+
+- `src/lib/types.ts`: `RaceFilter.dayTrip` フィールドを削除
+- `src/lib/utils.ts`: `filterRaces` の `travelSettings` パラメータ・dayTripロジック削除。`defaultFilter`/`emptyFilter`/`isDefaultFilter`/`isFilterEmpty` から dayTrip 削除。URLパラメータ `daytrip` 削除。`TravelSettings`/`calcDayTripStatus` import 削除
+- `src/components/races/RaceFilter.tsx`: `travelSettings` prop・日帰りトグルセクションを削除
+- `src/components/races/RaceList.tsx`: `useTravelSettings` hook・travelSettings 関連を削除
+- `src/components/races/RaceCard.tsx`: `travelSettings` prop・dayTripStatusバッジを削除
+- `src/components/races/RaceCardExp.tsx`: 同上
+- `src/app/[locale]/mypage/page.tsx`: 日帰り判定設定セクション・関連importを削除
+- `src/lib/hooks/useTravelSettings.ts`: 削除（不要になったため）
+- `src/lib/__tests__/utils.filter.test.ts`: dayTripフィルタテスト・関連importを削除
+- `src/lib/__tests__/utils.filter-state.test.ts`: dayTrip関連テストを削除

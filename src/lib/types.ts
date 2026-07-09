@@ -37,6 +37,7 @@ export interface Race {
   reception_note_ja: string;
   reception_note_en: string;
   reception_sessions: ReceptionSession[];
+  travel_times: RaceTravelTime[];
   tags: string[];
   course_gpx_file: string | null;
   course_info: CourseInfo;
@@ -91,6 +92,19 @@ export interface ReceptionSession {
   note_ja: string;
   note_en: string;
   sort_order: number;
+}
+
+// ==================
+// RaceTravelTime
+// ==================
+
+export interface RaceTravelTime {
+  id: number;
+  race_id: string;
+  hub_id: string;
+  duration_minutes: number;
+  departure_time: string | null;
+  calculated_at: string;
 }
 
 // ==================

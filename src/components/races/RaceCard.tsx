@@ -3,7 +3,6 @@ import { formatDate, getRaceName } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import prefecturesData from '@/data/prefectures.json';
-
 interface RaceCardProps {
   race: Race;
   locale: Locale;

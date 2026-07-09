@@ -469,6 +469,21 @@ export const reception_sessions = sqliteTable("reception_sessions", {
 ]);
 
 // ==================
+// race_travel_times（移動時間）Issue #82
+// ==================
+
+export const race_travel_times = sqliteTable("race_travel_times", {
+  id:               integer("id").primaryKey({ autoIncrement: true }),
+  race_id:          text("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
+  hub_id:           text("hub_id").notNull(),          // HubId: sapporo / sendai / tokyo / ...
+  duration_minutes: integer("duration_minutes").notNull(), // 公共交通機関の所要時間
+  departure_time:   text("departure_time"),             // HH:MM（計算基準の出発時刻）
+  calculated_at:    text("calculated_at").notNull(),    // ISO8601
+}, (t) => [
+  uniqueIndex("race_travel_times_race_hub_idx").on(t.race_id, t.hub_id),
+]);
+
+// ==================
 // user_races (ユーザー大会登録)
 // ==================
 
@@ -568,6 +583,7 @@ export const racesRelations = relations(races, ({ many, one }) => ({
   time_buckets:        many(race_time_buckets),
   course_highlights:    many(race_course_highlights),
   reception_sessions:   many(reception_sessions),
+  travel_times:         many(race_travel_times),
 }));
 
 export const raceGalleryRelations = relations(race_gallery, ({ one }) => ({
@@ -588,6 +604,10 @@ export const raceCourseHighlightsRelations = relations(race_course_highlights, (
 
 export const receptionSessionsRelations = relations(reception_sessions, ({ one }) => ({
   race: one(races, { fields: [reception_sessions.race_id], references: [races.id] }),
+}));
+
+export const raceTravelTimesRelations = relations(race_travel_times, ({ one }) => ({
+  race: one(races, { fields: [race_travel_times.race_id], references: [races.id] }),
 }));
 
 export const raceEntryLinksRelations = relations(race_entry_links, ({ one }) => ({

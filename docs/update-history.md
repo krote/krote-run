@@ -766,11 +766,18 @@
 - `migrations/seed-races-all.sql`: シード再生成済み。ローカルD1に適用済み
 - `docs/schema.md`: reception_sessions テーブル定義・インデックス・マイグレーション履歴を追記
 
-## 2026-07-10 PR #129 CodeRabbitレビュー対応（reception.ts・schema）
+## 2026-07-08 日帰り検索UIを削除（データ層は保持）
 
-- `src/lib/reception.ts`: `fromMinutes` が負値を正しくフォーマットできないバグを修正（`((m % 1440) + 1440) % 1440` で24時間ラップ）。`findRaceDaySession` 共通ヘルパーを抽出し重複ロジック解消
-- `src/lib/data.ts`: `rowToReceptionSession` の `open_time`/`close_time` で冗長な `?? null` を削除
-- `src/lib/db/schema.ts`: `reception_sessions` に `(race_id, date)` の UNIQUE インデックスを追加（同日受付重複防止）
-- `migrations/0015_simple_agent_zero.sql`: 上記 UNIQUE インデックスのマイグレーション生成・ローカルD1に適用済み
-- `docs/schema.md`: インデックス定義・マイグレーション履歴を更新
-- `src/lib/__tests__/reception.test.ts`: `fromMinutes` 負値（00:20スタート→23:50）テストを追加
+APIの調査中にGoogle Routes API v2がTRANSITモードで日本に非対応であることが判明。
+代替API選定まで日帰り検索機能（UI）を一時削除。travel_timesデータ層・scriptsは保持。
+
+- `src/lib/types.ts`: `RaceFilter.dayTrip` フィールドを削除
+- `src/lib/utils.ts`: `filterRaces` の `travelSettings` パラメータ・dayTripロジック削除。`defaultFilter`/`emptyFilter`/`isDefaultFilter`/`isFilterEmpty` から dayTrip 削除。URLパラメータ `daytrip` 削除。`TravelSettings`/`calcDayTripStatus` import 削除
+- `src/components/races/RaceFilter.tsx`: `travelSettings` prop・日帰りトグルセクションを削除
+- `src/components/races/RaceList.tsx`: `useTravelSettings` hook・travelSettings 関連を削除
+- `src/components/races/RaceCard.tsx`: `travelSettings` prop・dayTripStatusバッジを削除
+- `src/components/races/RaceCardExp.tsx`: 同上
+- `src/app/[locale]/mypage/page.tsx`: 日帰り判定設定セクション・関連importを削除
+- `src/lib/hooks/useTravelSettings.ts`: 削除（不要になったため）
+- `src/lib/__tests__/utils.filter.test.ts`: dayTripフィルタテスト・関連importを削除
+- `src/lib/__tests__/utils.filter-state.test.ts`: dayTrip関連テストを削除

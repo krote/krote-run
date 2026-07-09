@@ -6,11 +6,17 @@ function toMinutes(time: string): number {
   return h * 60 + m;
 }
 
-/** 分を HH:MM 文字列に変換 */
+/** 分を HH:MM 文字列に変換（負値は24時間でラップ） */
 function fromMinutes(minutes: number): string {
-  const h = Math.floor(minutes / 60);
-  const m = minutes % 60;
+  const normalized = ((minutes % 1440) + 1440) % 1440;
+  const h = Math.floor(normalized / 60);
+  const m = normalized % 60;
   return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+}
+
+/** 大会当日（race.date）の reception_session を返す */
+function findRaceDaySession(race: Race) {
+  return race.reception_sessions.find(s => s.date === race.date);
 }
 
 /**
@@ -20,7 +26,7 @@ function fromMinutes(minutes: number): string {
  */
 export function canReceiveOnRaceDay(race: Race): boolean {
   if (race.reception_sessions.length > 0) {
-    return race.reception_sessions.some(s => s.date === race.date);
+    return findRaceDaySession(race) !== undefined;
   }
   return race.reception_type === 'both' || race.reception_type === 'race_day';
 }
@@ -30,8 +36,7 @@ export function canReceiveOnRaceDay(race: Race): boolean {
  * 対応する reception_session がない、または close_time が null の場合は null。
  */
 export function getRaceDayReceptionClose(race: Race): string | null {
-  const session = race.reception_sessions.find(s => s.date === race.date);
-  return session?.close_time ?? null;
+  return findRaceDaySession(race)?.close_time ?? null;
 }
 
 /**

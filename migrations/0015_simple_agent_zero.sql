@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX `reception_sessions_race_id_date_uidx` ON `reception_sessions` (`race_id`,`date`);

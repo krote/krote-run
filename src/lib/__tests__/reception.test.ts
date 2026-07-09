@@ -186,4 +186,14 @@ describe('getArrivalDeadline', () => {
     });
     expect(getArrivalDeadline(race)).toBe('08:30');
   });
+
+  it('start_time が 00:20 の場合、deadline は前日時刻（23:50）', () => {
+    const race = makeRace({
+      date: '2026-10-01',
+      reception_sessions: [],
+      categories: [makeCategory({ start_time: '00:20' })],
+    });
+    // 00:20 - 30分 = -10分 → 23:50（翌日の前日）
+    expect(getArrivalDeadline(race)).toBe('23:50');
+  });
 });

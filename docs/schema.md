@@ -487,7 +487,9 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | note_en | text | NO | `""` | 注記（英語） |
 | sort_order | integer | NO | 0 | 表示順 |
 
-**インデックス**: `reception_sessions_race_id_idx` (race_id)
+**インデックス**:
+- `reception_sessions_race_id_idx` (race_id)
+- `reception_sessions_race_id_date_uidx` (race_id, date) — UNIQUE（同一大会の同日受付重複を防止）
 
 ---
 
@@ -516,3 +518,4 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0012_fearless_sleeper.sql` | access_points に partial unique index を追加（race_id + is_primary=1 の組み合わせを一意制約）（Issue #80） |
 | `migrations/0013_old_rick_jones.sql` | user_gear / user_race_gear / user_race_results テーブルを追加。user_races に gear_is_public カラムを追加（Issue #120） |
 | `migrations/0014_lowly_mentallo.sql` | reception_sessions テーブルを追加（Issue #85）。受付セッションの構造化対応 |
+| `migrations/0015_simple_agent_zero.sql` | reception_sessions に (race_id, date) の UNIQUE インデックスを追加（同日受付重複防止） |

@@ -765,3 +765,12 @@
 - `scripts/generate-seed-races.js`: reception_sessions の DELETE / INSERT を追加
 - `migrations/seed-races-all.sql`: シード再生成済み。ローカルD1に適用済み
 - `docs/schema.md`: reception_sessions テーブル定義・インデックス・マイグレーション履歴を追記
+
+## 2026-07-10 PR #129 CodeRabbitレビュー対応（reception.ts・schema）
+
+- `src/lib/reception.ts`: `fromMinutes` が負値を正しくフォーマットできないバグを修正（`((m % 1440) + 1440) % 1440` で24時間ラップ）。`findRaceDaySession` 共通ヘルパーを抽出し重複ロジック解消
+- `src/lib/data.ts`: `rowToReceptionSession` の `open_time`/`close_time` で冗長な `?? null` を削除
+- `src/lib/db/schema.ts`: `reception_sessions` に `(race_id, date)` の UNIQUE インデックスを追加（同日受付重複防止）
+- `migrations/0015_simple_agent_zero.sql`: 上記 UNIQUE インデックスのマイグレーション生成・ローカルD1に適用済み
+- `docs/schema.md`: インデックス定義・マイグレーション履歴を更新
+- `src/lib/__tests__/reception.test.ts`: `fromMinutes` 負値（00:20スタート→23:50）テストを追加

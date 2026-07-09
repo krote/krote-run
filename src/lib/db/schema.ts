@@ -465,6 +465,7 @@ export const reception_sessions = sqliteTable("reception_sessions", {
   sort_order:  integer("sort_order").notNull().default(0),
 }, (t) => [
   index("reception_sessions_race_id_idx").on(t.race_id),
+  uniqueIndex("reception_sessions_race_id_date_uidx").on(t.race_id, t.date),
 ]);
 
 // ==================

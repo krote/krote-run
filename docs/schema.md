@@ -518,4 +518,5 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0012_fearless_sleeper.sql` | access_points に partial unique index を追加（race_id + is_primary=1 の組み合わせを一意制約）（Issue #80） |
 | `migrations/0013_old_rick_jones.sql` | user_gear / user_race_gear / user_race_results テーブルを追加。user_races に gear_is_public カラムを追加（Issue #120） |
 | `migrations/0014_lowly_mentallo.sql` | reception_sessions テーブルを追加（Issue #85）。受付セッションの構造化対応 |
-| `migrations/0015_simple_agent_zero.sql` | reception_sessions に (race_id, date) の UNIQUE インデックスを追加（同日受付重複防止） |
+| `migrations/0015_puzzling_wasp.sql` | race_travel_times テーブルを追加（Issue #82）。拠点別移動時間・終電・始発データ |
+| `migrations/0016_silky_shaman.sql` | reception_sessions に (race_id, date) の UNIQUE インデックスを追加（同日受付重複防止）（Issue #85） |

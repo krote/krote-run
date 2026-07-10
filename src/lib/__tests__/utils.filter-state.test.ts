@@ -73,6 +73,7 @@ describe('isDefaultFilter', () => {
     const f = { ...defaultFilter(), statuses: ['entry_closed', 'open_entry', 'entry_not_open'] as const };
     expect(isDefaultFilter({ ...f })).toBe(true);
   });
+
 });
 
 describe('isFilterEmpty', () => {

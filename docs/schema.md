@@ -469,6 +469,30 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 
 ---
 
+## reception_sessions テーブル
+
+受付セッション（Issue #85）。1大会が複数日程の受付を持つ場合に対応。
+`reception_type` が `both` や `race_day` の場合に大会当日の session を持つ。
+
+| カラム | 型 | NULL | デフォルト | 備考 |
+|---|---|---|---|---|
+| id | integer | NO | AUTOINCREMENT | PK |
+| race_id | text | NO | — | FK → races.id（CASCADE） |
+| date | text | NO | — | YYYY-MM-DD。大会当日と同日なら当日受付 |
+| open_time | text | YES | — | HH:MM（不明なら NULL） |
+| close_time | text | YES | — | HH:MM（不明なら NULL） |
+| location_ja | text | NO | `""` | 受付場所名称（日本語） |
+| location_en | text | NO | `""` | 受付場所名称（英語） |
+| note_ja | text | NO | `""` | 注記（日本語） |
+| note_en | text | NO | `""` | 注記（英語） |
+| sort_order | integer | NO | 0 | 表示順 |
+
+**インデックス**:
+- `reception_sessions_race_id_idx` (race_id)
+- `reception_sessions_race_id_date_uidx` (race_id, date) — UNIQUE（同一大会の同日受付重複を防止）
+
+---
+
 ## マイグレーション履歴
 
 | ファイル | 内容 |
@@ -493,3 +517,6 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0011_parallel_winter_soldier.sql` | races に venue_name_ja/venue_name_en/venue_address/start_lat/start_lng を追加。access_points に walk_minutes/is_primary を追加（Issue #80） |
 | `migrations/0012_fearless_sleeper.sql` | access_points に partial unique index を追加（race_id + is_primary=1 の組み合わせを一意制約）（Issue #80） |
 | `migrations/0013_old_rick_jones.sql` | user_gear / user_race_gear / user_race_results テーブルを追加。user_races に gear_is_public カラムを追加（Issue #120） |
+| `migrations/0014_lowly_mentallo.sql` | reception_sessions テーブルを追加（Issue #85）。受付セッションの構造化対応 |
+| `migrations/0015_puzzling_wasp.sql` | race_travel_times テーブルを追加（Issue #82）。拠点別移動時間・終電・始発データ |
+| `migrations/0016_silky_shaman.sql` | reception_sessions に (race_id, date) の UNIQUE インデックスを追加（同日受付重複防止）（Issue #85） |

@@ -2,7 +2,6 @@ import type { Race, Locale } from '@/lib/types';
 import { formatDate, getMainCategory, getRaceName, getRaceCity, getRaceDescription } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
-
 interface RaceCardExpProps {
   race: Race;
   locale: Locale;

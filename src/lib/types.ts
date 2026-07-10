@@ -36,6 +36,8 @@ export interface Race {
   reception_type: ReceptionType;
   reception_note_ja: string;
   reception_note_en: string;
+  reception_sessions: ReceptionSession[];
+  travel_times: RaceTravelTime[];
   tags: string[];
   course_gpx_file: string | null;
   course_info: CourseInfo;
@@ -73,6 +75,37 @@ export interface Race {
 }
 
 export type ReceptionType = 'pre_day' | 'race_day' | 'both' | 'pre_mail' | 'none';
+
+// ==================
+// ReceptionSession
+// ==================
+
+export interface ReceptionSession {
+  id: number;
+  race_id: string;
+  /** YYYY-MM-DD — 大会当日と同日なら当日受付 */
+  date: string;
+  open_time: string | null;   // HH:MM
+  close_time: string | null;  // HH:MM
+  location_ja: string;
+  location_en: string;
+  note_ja: string;
+  note_en: string;
+  sort_order: number;
+}
+
+// ==================
+// RaceTravelTime
+// ==================
+
+export interface RaceTravelTime {
+  id: number;
+  race_id: string;
+  hub_id: string;
+  duration_minutes: number;
+  departure_time: string | null;
+  calculated_at: string;
+}
 
 // ==================
 // EntryPeriod

@@ -751,3 +751,42 @@
 - `tools/admin-server.js`: `getMissingFields` に venue_address / start_coords / access_point_primary のチェックを追加。新規レーステンプレートに venue フィールドを追加
 - `tools/admin-server.test.js`: 会場住所・座標・代表最寄駅チェックのテストを追加（53テスト全Pass）
 - `docs/schema.md`: races / access_points テーブル定義とマイグレーション履歴を更新
+
+
+## 2026-07-07 Issue #85 コア実装（reception_sessions + reception.ts ヘルパー）
+
+- `src/lib/types.ts`: `ReceptionSession` 型を追加。`Race` に `reception_sessions: ReceptionSession[]` を追加
+- `src/lib/reception.ts`: 新設。`canReceiveOnRaceDay` / `getRaceDayReceptionClose` / `getArrivalDeadline` ヘルパーを実装
+- `src/lib/__tests__/reception.test.ts`: 新設。5系統17テスト全Pass
+- `src/lib/__tests__/fixtures.ts`: `makeReceptionSession` ファクトリを追加。`makeRace` に `reception_sessions: []` を追加
+- `src/lib/db/schema.ts`: `reception_sessions` テーブルを追加。`racesRelations` に `reception_sessions` を追加
+- `migrations/0014_lowly_mentallo.sql`: 生成済み。ローカルD1に適用済み
+- `src/lib/data.ts`: `rowToReceptionSession` 追加。`assembleRace` / `getRaces` / `getRaceById` で reception_sessions を取得
+- `scripts/generate-seed-races.js`: reception_sessions の DELETE / INSERT を追加
+- `migrations/seed-races-all.sql`: シード再生成済み。ローカルD1に適用済み
+- `docs/schema.md`: reception_sessions テーブル定義・インデックス・マイグレーション履歴を追記
+
+## 2026-07-08 日帰り検索UIを削除（データ層は保持）
+
+APIの調査中にGoogle Routes API v2がTRANSITモードで日本に非対応であることが判明。
+代替API選定まで日帰り検索機能（UI）を一時削除。travel_timesデータ層・scriptsは保持。
+
+- `src/lib/types.ts`: `RaceFilter.dayTrip` フィールドを削除
+- `src/lib/utils.ts`: `filterRaces` の `travelSettings` パラメータ・dayTripロジック削除。`defaultFilter`/`emptyFilter`/`isDefaultFilter`/`isFilterEmpty` から dayTrip 削除。URLパラメータ `daytrip` 削除。`TravelSettings`/`calcDayTripStatus` import 削除
+- `src/components/races/RaceFilter.tsx`: `travelSettings` prop・日帰りトグルセクションを削除
+- `src/components/races/RaceList.tsx`: `useTravelSettings` hook・travelSettings 関連を削除
+- `src/components/races/RaceCard.tsx`: `travelSettings` prop・dayTripStatusバッジを削除
+- `src/components/races/RaceCardExp.tsx`: 同上
+- `src/app/[locale]/mypage/page.tsx`: 日帰り判定設定セクション・関連importを削除
+- `src/lib/hooks/useTravelSettings.ts`: 削除（不要になったため）
+- `src/lib/__tests__/utils.filter.test.ts`: dayTripフィルタテスト・関連importを削除
+- `src/lib/__tests__/utils.filter-state.test.ts`: dayTrip関連テストを削除
+
+## 2026-07-10 PR #129 CodeRabbitレビュー対応（reception_sessions）
+
+- `src/lib/reception.ts`: `fromMinutes` の負値バグ修正（深夜スタート大会で `-1:-10` が返る問題）→ 24時間正規化。`findRaceDaySession` ヘルパー抽出（重複ロジック解消）
+- `src/lib/data.ts`: `rowToReceptionSession` の冗長な `?? null` を削除
+- `src/lib/db/schema.ts`: `reception_sessions` に `(race_id, date)` UNIQUE インデックスを追加
+- `src/lib/__tests__/reception.test.ts`: 負値ケース（00:20スタート → 23:50）テストを追加（計22テスト）
+- `migrations/0016_silky_shaman.sql`: UNIQUE インデックス作成マイグレーション（`IF NOT EXISTS` でローカルDB二重適用を回避）
+- `docs/schema.md`: 0015_puzzling_wasp（race_travel_times）・0016_silky_shaman のマイグレーション履歴を追記

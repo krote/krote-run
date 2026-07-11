@@ -61,7 +61,9 @@ export async function submitContact(
 
   // ── IP / UA 取得 ───────────────────────────────────────
   const reqHeaders = await headers();
-  const ipAddress = reqHeaders.get('cf-connecting-ip') ?? reqHeaders.get('x-forwarded-for') ?? null;
+  // x-forwarded-for はプロキシ経由でカンマ区切りになる場合があるため最初のIPのみ使用
+  const xForwardedFor = reqHeaders.get('x-forwarded-for')?.split(',')[0]?.trim() ?? null;
+  const ipAddress = reqHeaders.get('cf-connecting-ip') ?? xForwardedFor ?? null;
   const userAgent = reqHeaders.get('user-agent') ?? null;
 
   const db = getDatabase();

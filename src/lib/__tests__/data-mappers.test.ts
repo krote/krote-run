@@ -11,6 +11,7 @@ import {
   rowToCheckpoint,
   rowToAccessPoint,
   rowToNearbySpot,
+  rowToRaceTravelTime,
   rowToWeather,
   rowToGift,
   rowToEntryPeriod,
@@ -22,7 +23,6 @@ import {
   rowToTimeBucket,
   rowToCourseHighlight,
   assembleRace,
-  type RaceRelatedRows,
 } from '../data-mappers';
 
 // ── parseJson ────────────────────────────────────────────────
@@ -499,5 +499,78 @@ describe('assembleRace', () => {
     });
     expect(race.categories[0].course_highlights).toHaveLength(1);
     expect(race.categories[0].course_highlights[0].name_ja).toBe('難所');
+  });
+});
+
+// ── rowToNearbySpot ────────────────────────────────────────────
+
+describe('rowToNearbySpot', () => {
+  it('行データを NearbySpot 型に変換する', () => {
+    const row = {
+      id: 1,
+      race_id: 'test-race-2026',
+      type: '観光地',
+      name_ja: '富士山',
+      name_en: 'Mt. Fuji',
+      description_ja: '日本最高峰',
+      description_en: 'Highest mountain in Japan',
+      distance_from_venue: 30000,
+      url: null,
+      latitude: 35.36,
+      longitude: 138.73,
+    };
+    const result = rowToNearbySpot(row);
+    expect(result.type).toBe('観光地');
+    expect(result.url).toBeNull();
+    expect(result.distance_from_venue).toBe(30000);
+    expect(result.latitude).toBe(35.36);
+  });
+
+  it('url がある場合は文字列で返る', () => {
+    const row = {
+      id: 2,
+      race_id: 'test-race-2026',
+      type: '温泉',
+      name_ja: '道の駅温泉',
+      name_en: null,
+      description_ja: null,
+      description_en: null,
+      distance_from_venue: 500,
+      url: 'https://example.com/onsen',
+      latitude: null,
+      longitude: null,
+    };
+    expect(rowToNearbySpot(row).url).toBe('https://example.com/onsen');
+  });
+});
+
+// ── rowToRaceTravelTime ────────────────────────────────────────
+
+describe('rowToRaceTravelTime', () => {
+  it('行データを RaceTravelTime 型に変換する', () => {
+    const row = {
+      id: 1,
+      race_id: 'test-race-2026',
+      hub_id: 'tokyo',
+      duration_minutes: 90,
+      departure_time: '06:30',
+      calculated_at: '2026-01-01T00:00:00.000Z',
+    };
+    const result = rowToRaceTravelTime(row);
+    expect(result.hub_id).toBe('tokyo');
+    expect(result.duration_minutes).toBe(90);
+    expect(result.departure_time).toBe('06:30');
+  });
+
+  it('departure_time が null の場合は null を返す', () => {
+    const row = {
+      id: 2,
+      race_id: 'test-race-2026',
+      hub_id: 'osaka',
+      duration_minutes: 60,
+      departure_time: null,
+      calculated_at: '2026-01-01T00:00:00.000Z',
+    };
+    expect(rowToRaceTravelTime(row).departure_time).toBeNull();
   });
 });

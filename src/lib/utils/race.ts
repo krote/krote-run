@@ -1,4 +1,5 @@
 import type { Race, Locale, RaceStatus } from '../types';
+import { getTodayJST } from './date';
 
 export function getRaceName(race: Race, locale: Locale): string {
   return locale === 'en' ? race.name_en : race.name_ja;
@@ -13,7 +14,7 @@ export function getRaceDescription(race: Race, locale: Locale): string {
 }
 
 export function getRaceStatus(race: Race): RaceStatus {
-  const today = new Date().toISOString().split('T')[0];
+  const today = getTodayJST();
   if (race.date < today) return 'past';
   if (race.entry_closed) return 'entry_closed';
   const periods = race.entry_periods ?? [];

@@ -1,5 +1,6 @@
 import type { Race, RaceFilter, RaceStatus, DistanceType, RaceSortKey } from '../types';
 import { getRaceStatus } from './race';
+import { getTodayJST } from './date';
 
 /** デフォルト初期フィルタ（開催済みを非表示） */
 export function defaultFilter(): RaceFilter {
@@ -44,7 +45,9 @@ export function isDefaultFilter(filter: RaceFilter): boolean {
     filter.tags.length === 0 &&
     filter.searchText === '' &&
     filter.statuses.length === def.statuses.length &&
-    def.statuses.every((s) => filter.statuses.includes(s))
+    def.statuses.every((s) => filter.statuses.includes(s)) &&
+    filter.sort === def.sort &&
+    filter.view === def.view
   );
 }
 
@@ -118,7 +121,7 @@ export function sortRacesByDate(races: Race[], ascending = true): Race[] {
 
 /** 受付中の期間のうち最も早い終了日を取得（締切が近い順用） */
 function getEarliestActiveEnd(race: Race, today: string): string | null {
-  const periods = (race as { entry_periods?: { start_date: string; end_date: string | null }[] }).entry_periods ?? [];
+  const periods = race.entry_periods;
   if (periods.length > 0) {
     const active = periods.filter((p) => p.start_date <= today && (p.end_date === null || p.end_date >= today));
     if (active.length === 0) return null;
@@ -135,7 +138,7 @@ function getEarliestActiveEnd(race: Race, today: string): string | null {
 
 /** 未来の期間のうち最も早い開始日を取得（受付開始が近い順用） */
 function getEarliestFutureStart(race: Race, today: string): string | null {
-  const periods = (race as { entry_periods?: { start_date: string }[] }).entry_periods ?? [];
+  const periods = race.entry_periods;
   if (periods.length > 0) {
     const future = periods.filter((p) => p.start_date > today);
     if (future.length === 0) return null;
@@ -148,7 +151,7 @@ function getEarliestFutureStart(race: Race, today: string): string | null {
 }
 
 export function sortRaces(races: Race[], sort: RaceSortKey): Race[] {
-  const today = new Date().toISOString().split('T')[0];
+  const today = getTodayJST();
   const sorted = [...races];
 
   if (sort === 'date_asc') {

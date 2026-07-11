@@ -51,8 +51,7 @@
     "react-dom": "19.2.3",
     "react-leaflet": "^5.0.0",
     "recharts": "^3.8.0",
-    "resend": "^6.12.0",
-    "wrangler": "^4.65.0"
+    "resend": "^6.12.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240208.0",
@@ -73,6 +72,7 @@
     "jsdom": "^29.0.1",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vitest": "^4.1.2"
+    "vitest": "^4.1.2",
+    "wrangler": "^4.65.0"
   }
 }

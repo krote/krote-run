@@ -520,3 +520,4 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0014_lowly_mentallo.sql` | reception_sessions テーブルを追加（Issue #85）。受付セッションの構造化対応 |
 | `migrations/0015_puzzling_wasp.sql` | race_travel_times テーブルを追加（Issue #82）。拠点別移動時間・終電・始発データ |
 | `migrations/0016_silky_shaman.sql` | reception_sessions に (race_id, date) の UNIQUE インデックスを追加（同日受付重複防止）（Issue #85） |
+| `migrations/0017_perfect_boomer.sql` | contact_submissions に ip_address / user_agent カラムと複合インデックスを追加（Issue #86 スパム対策） |

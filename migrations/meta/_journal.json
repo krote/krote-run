@@ -120,6 +120,13 @@
       "when": 1783632101732,
       "tag": "0016_silky_shaman",
       "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "6",
+      "when": 1783746991831,
+      "tag": "0017_perfect_boomer",
+      "breakpoints": true
     }
   ]
 }

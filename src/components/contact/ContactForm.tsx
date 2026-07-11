@@ -1,6 +1,6 @@
 'use client';
 
-import { useActionState, useEffect, useRef } from 'react';
+import { useActionState, useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { submitContact, type ContactActionState } from '@/lib/contact-actions';
@@ -18,6 +18,7 @@ export default function ContactForm({ defaultName = '', defaultEmail = '', userI
     null,
   );
   const formRef = useRef<HTMLFormElement>(null);
+  const [formLoadedAt] = useState(() => Date.now());
 
   useEffect(() => {
     if (state && 'success' in state) {
@@ -58,6 +59,11 @@ export default function ContactForm({ defaultName = '', defaultEmail = '', userI
   return (
     <form ref={formRef} action={action} className="space-y-6">
       {userId && <input type="hidden" name="user_id" value={userId} />}
+      {/* honeypot: ボット対策の隠しフィールド。人間には見えない */}
+      <div aria-hidden="true" style={{ display: 'none' }}>
+        <input type="text" name="_website" tabIndex={-1} autoComplete="off" />
+      </div>
+      <input type="hidden" name="form_loaded_at" value={formLoadedAt} />
 
       {state && 'error' in state && (
         <div

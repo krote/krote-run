@@ -380,10 +380,13 @@ export const contact_submissions = sqliteTable("contact_submissions", {
   message:    text("message").notNull(),
   user_id:    text("user_id").references(() => user.id, { onDelete: "set null" }),
   status:     text("status").notNull().default("pending"), // pending / in_progress / resolved
+  ip_address: text("ip_address"),
+  user_agent: text("user_agent"),
   created_at: text("created_at").notNull(),
 }, (t) => [
   index("contact_submissions_status_idx").on(t.status),
   index("contact_submissions_created_at_idx").on(t.created_at),
+  index("contact_submissions_ip_created_idx").on(t.ip_address, t.created_at),
 ]);
 
 // ==================

@@ -1,9 +1,15 @@
 'use server';
 
 import { getCloudflareContext } from '@opennextjs/cloudflare';
+import { headers } from 'next/headers';
+import { and, gte, eq } from 'drizzle-orm';
 import { getDatabase } from '@/lib/db/client';
 import { contact_submissions } from '@/lib/db/schema';
 import { Resend } from 'resend';
+
+const MIN_ELAPSED_MS = 3000; // 3秒未満は bot とみなす
+const RATE_LIMIT_COUNT = 3;  // 1時間に3件超は制限
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1時間
 
 export type ContactActionState =
   | { success: true }
@@ -21,6 +27,18 @@ export async function submitContact(
   _prev: ContactActionState,
   formData: FormData,
 ): Promise<ContactActionState> {
+  // ── スパム対策 ──────────────────────────────────────────
+  // honeypot: ボットが自動入力する隠しフィールド
+  const honeypot = (formData.get('_website') as string) ?? '';
+  if (honeypot) return { error: '送信できませんでした。' };
+
+  // 時間チェック: ページ表示から3秒未満の送信は bot とみなす
+  const formLoadedAt = Number(formData.get('form_loaded_at') ?? 0);
+  if (formLoadedAt && Date.now() - formLoadedAt < MIN_ELAPSED_MS) {
+    return { error: '送信が速すぎます。しばらく待ってから再送信してください。' };
+  }
+
+  // ── バリデーション ─────────────────────────────────────
   const name = (formData.get('name') as string)?.trim();
   const email = (formData.get('email') as string)?.trim();
   const category = (formData.get('category') as string)?.trim();
@@ -41,7 +59,30 @@ export async function submitContact(
     return { error: 'お問い合わせ内容は5000文字以内で入力してください' };
   }
 
+  // ── IP / UA 取得 ───────────────────────────────────────
+  const reqHeaders = await headers();
+  // x-forwarded-for はプロキシ経由でカンマ区切りになる場合があるため最初のIPのみ使用
+  const xForwardedFor = reqHeaders.get('x-forwarded-for')?.split(',')[0]?.trim() ?? null;
+  const ipAddress = reqHeaders.get('cf-connecting-ip') ?? xForwardedFor ?? null;
+  const userAgent = reqHeaders.get('user-agent') ?? null;
+
   const db = getDatabase();
+
+  // ── レート制限: 同一IPから1時間に3件超は拒否 ─────────────
+  if (ipAddress) {
+    const windowStart = new Date(Date.now() - RATE_LIMIT_WINDOW_MS).toISOString();
+    const recent = await db
+      .select({ id: contact_submissions.id })
+      .from(contact_submissions)
+      .where(and(
+        eq(contact_submissions.ip_address, ipAddress),
+        gte(contact_submissions.created_at, windowStart),
+      ))
+      .all();
+    if (recent.length >= RATE_LIMIT_COUNT) {
+      return { error: '送信回数の上限に達しました。しばらく時間をおいてから再送信してください。' };
+    }
+  }
   await db.insert(contact_submissions).values({
     name,
     email,
@@ -49,6 +90,8 @@ export async function submitContact(
     message,
     user_id: userId || null,
     status: 'pending',
+    ip_address: ipAddress,
+    user_agent: userAgent,
     created_at: new Date().toISOString(),
   });
 

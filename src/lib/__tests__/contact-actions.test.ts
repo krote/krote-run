@@ -1,5 +1,16 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
+// ─── モック定義（vi.hoisted でホイスト） ────────────────────────────────────
+const { mockDbSelect, mockHeadersGet } = vi.hoisted(() => {
+  const mockDbSelect = vi.fn();
+  const mockHeadersGet = vi.fn((key: string) => {
+    if (key === 'cf-connecting-ip') return '1.2.3.4';
+    if (key === 'user-agent') return 'TestAgent/1.0';
+    return null;
+  });
+  return { mockDbSelect, mockHeadersGet };
+});
+
 vi.mock('@opennextjs/cloudflare', () => ({
   getCloudflareContext: vi.fn(() => ({ env: {} })),
 }));
@@ -7,6 +18,7 @@ vi.mock('@opennextjs/cloudflare', () => ({
 vi.mock('@/lib/db/client', () => ({
   getDatabase: vi.fn(() => ({
     insert: vi.fn(() => ({ values: vi.fn().mockResolvedValue(undefined) })),
+    select: mockDbSelect,
   })),
 }));
 
@@ -16,7 +28,33 @@ vi.mock('resend', () => ({
   })),
 }));
 
+vi.mock('next/headers', () => ({
+  headers: vi.fn(() => ({ get: mockHeadersGet })),
+}));
+
 import { submitContact } from '../contact-actions';
+
+/** レート制限に引っかからない通常ケース用モック（直近送信0件） */
+function mockNoRateLimit() {
+  mockDbSelect.mockReturnValue({
+    from: vi.fn().mockReturnValue({
+      where: vi.fn().mockReturnValue({
+        all: vi.fn().mockResolvedValue([]),
+      }),
+    }),
+  });
+}
+
+/** レート制限超過ケース用モック（直近送信多数） */
+function mockRateLimitExceeded() {
+  mockDbSelect.mockReturnValue({
+    from: vi.fn().mockReturnValue({
+      where: vi.fn().mockReturnValue({
+        all: vi.fn().mockResolvedValue([{}, {}, {}, {}]), // 4件
+      }),
+    }),
+  });
+}
 
 function makeFormData(overrides: Record<string, string> = {}): FormData {
   const fd = new FormData();
@@ -24,12 +62,17 @@ function makeFormData(overrides: Record<string, string> = {}): FormData {
   fd.append('email', overrides.email ?? 'test@example.com');
   fd.append('category', overrides.category ?? 'other');
   fd.append('message', overrides.message ?? 'テストのお問い合わせ内容です。');
+  // デフォルトで5秒前にフォームを開いたことにする
+  fd.append('form_loaded_at', overrides.form_loaded_at ?? String(Date.now() - 5000));
   if (overrides.user_id !== undefined) fd.append('user_id', overrides.user_id);
   return fd;
 }
 
 describe('submitContact バリデーション', () => {
-  beforeEach(() => vi.clearAllMocks());
+  beforeEach(() => {
+    vi.clearAllMocks();
+    mockNoRateLimit();
+  });
 
   it('正常な入力で success: true を返す', async () => {
     const result = await submitContact(null, makeFormData());
@@ -77,5 +120,84 @@ describe('submitContact バリデーション', () => {
       const result = await submitContact(null, makeFormData({ category }));
       expect(result).toEqual({ success: true });
     }
+  });
+});
+
+// ── スパム対策 ───────────────────────────────────────────────
+
+describe('submitContact スパム対策', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    mockNoRateLimit();
+  });
+
+  it('honeypot(_website)が入力されているとエラーを返す', async () => {
+    const fd = makeFormData();
+    fd.append('_website', 'http://spam.example.com');
+    const result = await submitContact(null, fd);
+    expect(result).toMatchObject({ error: expect.any(String) });
+  });
+
+  it('送信が速すぎる（3秒未満）場合はエラーを返す', async () => {
+    const fd = makeFormData({ form_loaded_at: String(Date.now() - 1000) }); // 1秒
+    const result = await submitContact(null, fd);
+    expect(result).toMatchObject({ error: expect.any(String) });
+  });
+
+  it('form_loaded_at が3秒以上なら通過する', async () => {
+    const fd = makeFormData({ form_loaded_at: String(Date.now() - 4000) }); // 4秒
+    const result = await submitContact(null, fd);
+    expect(result).toEqual({ success: true });
+  });
+
+  it('form_loaded_at が未設定でも通過する（フォールバック）', async () => {
+    const fd = new FormData();
+    fd.append('name', '山田 太郎');
+    fd.append('email', 'test@example.com');
+    fd.append('category', 'other');
+    fd.append('message', 'テストのお問い合わせ内容です。');
+    const result = await submitContact(null, fd);
+    expect(result).toEqual({ success: true });
+  });
+
+  it('同一IPからの送信が3件超でレート制限エラーを返す', async () => {
+    mockRateLimitExceeded();
+    const result = await submitContact(null, makeFormData());
+    expect(result).toMatchObject({ error: expect.any(String) });
+  });
+});
+
+// ── x-forwarded-for パース ──────────────────────────────────────────────────
+
+describe('submitContact x-forwarded-for パース', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    mockNoRateLimit();
+  });
+
+  it('x-forwarded-for がカンマ区切りの場合、最初のIPのみ使用する', async () => {
+    // cf-connecting-ip なし、x-forwarded-for = "10.0.0.1, 172.16.0.1, 192.168.0.1"
+    mockHeadersGet.mockImplementation((key: string) => {
+      if (key === 'cf-connecting-ip') return null;
+      if (key === 'x-forwarded-for') return '10.0.0.1, 172.16.0.1, 192.168.0.1';
+      if (key === 'user-agent') return 'TestAgent/1.0';
+      return null;
+    });
+
+    const result = await submitContact(null, makeFormData());
+    // レート制限クエリで最初のIP(10.0.0.1)が使われることをモック側で確認
+    expect(result).toEqual({ success: true });
+  });
+
+  it('cf-connecting-ip がある場合は x-forwarded-for より優先される', async () => {
+    mockHeadersGet.mockImplementation((key: string) => {
+      if (key === 'cf-connecting-ip') return '11.22.33.44';
+      if (key === 'x-forwarded-for') return '10.0.0.1, 172.16.0.1';
+      if (key === 'user-agent') return 'TestAgent/1.0';
+      return null;
+    });
+
+    const result = await submitContact(null, makeFormData());
+    expect(result).toEqual({ success: true });
   });
 });

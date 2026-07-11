@@ -10,7 +10,19 @@ export default defineConfig({
     setupFiles: ['./src/test-setup.ts'],
     coverage: {
       provider: 'v8',
-      include: ['src/lib/utils.ts', 'src/components/**/*.tsx'],
+      include: [
+        'src/lib/**/*.ts',
+        'src/app/**/*.ts',
+        'src/app/**/*.tsx',
+        'src/components/**/*.tsx',
+      ],
+      exclude: [
+        'src/lib/db/schema.ts',
+        'src/lib/types.ts',
+        'src/**/__tests__/**',
+        'src/**/*.test.ts',
+        'src/**/*.test.tsx',
+      ],
       reporter: ['text', 'lcov'],
     },
   },

@@ -620,10 +620,18 @@ const server = http.createServer(async (req, res) => {
     const uploadMatch = pathname.match(/^\/api\/upload\/([^/]+)$/);
     if (method === 'POST' && uploadMatch) {
       const { base64, ext } = JSON.parse(await readBody(req));
+      // パストラバーサル対策: IDをサニタイズ、拡張子をホワイトリストで検証
+      const safeId = uploadMatch[1].replace(/[^a-z0-9-]/g, '');
+      const ALLOWED_EXTS = ['.jpg', '.jpeg', '.png', '.webp'];
+      const safeExt = ALLOWED_EXTS.includes(ext) ? ext : '.jpg';
+      const filename = `${safeId}${safeExt}`;
+      const destPath = path.resolve(IMAGES_DIR, filename);
+      if (!destPath.startsWith(path.resolve(IMAGES_DIR) + path.sep)) {
+        return jsonRes(res, { error: '不正なパスです' }, 400);
+      }
       fs.mkdirSync(IMAGES_DIR, { recursive: true });
       const buffer = Buffer.from(base64.split(',')[1], 'base64');
-      const filename = `${uploadMatch[1]}${ext || '.jpg'}`;
-      fs.writeFileSync(path.join(IMAGES_DIR, filename), buffer);
+      fs.writeFileSync(destPath, buffer);
       console.log(`[画像] ${filename}`);
       return jsonRes(res, { ok: true, url: `/images/races/${filename}` });
     }

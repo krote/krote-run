@@ -503,3 +503,18 @@ export interface UserRaceResult {
   created_at: string;
   updated_at: string;
 }
+
+// ==================
+// 走力帯（Issue #121）
+// ==================
+
+export const PERFORMANCE_BUCKETS_FULL = ['sub3', 'sub330', 'sub4', 'sub430', 'sub5', 'over5'] as const;
+export const PERFORMANCE_BUCKETS_HALF = ['sub130', 'sub145', 'sub2', 'over2'] as const;
+export const PERFORMANCE_BUCKETS_ULTRA = ['sub10', 'sub11', 'sub12', 'sub13', 'over13'] as const;
+export const PERFORMANCE_BUCKET_ALL = ['all'] as const;
+
+export type PerformanceBucketId =
+  | typeof PERFORMANCE_BUCKETS_FULL[number]
+  | typeof PERFORMANCE_BUCKETS_HALF[number]
+  | typeof PERFORMANCE_BUCKETS_ULTRA[number]
+  | typeof PERFORMANCE_BUCKET_ALL[number];

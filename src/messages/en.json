@@ -300,5 +300,23 @@
     "sectionMain": "Main Pages",
     "sectionInfo": "Site Information",
     "sectionRaces": "Races"
+  },
+  "performance": {
+    "sub3": "Sub 3",
+    "sub330": "Sub 3:30",
+    "sub4": "Sub 4",
+    "sub430": "Sub 4:30",
+    "sub5": "Sub 5",
+    "over5": "5h+",
+    "sub130": "Sub 1:30",
+    "sub145": "Sub 1:45",
+    "sub2": "Sub 2",
+    "over2": "2h+",
+    "sub10": "Sub 10h",
+    "sub11": "Sub 11h",
+    "sub12": "Sub 12h",
+    "sub13": "Sub 13h",
+    "over13": "13h+",
+    "all": "All Times"
   }
 }

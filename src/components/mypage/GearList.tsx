@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useSession } from '@/lib/auth-client';
 import { useTranslations } from 'next-intl';
-import { buildAmazonUrl } from '@/lib/amazon';
+import { buildAmazonUrl, extractAsin } from '@/lib/amazon';
 import { GEAR_CATEGORIES, GEAR_USAGE_TAGS, type GearCategory, type GearUsageTag, type UserGear } from '@/lib/types';
 
 // カテゴリの表示順
@@ -42,6 +42,7 @@ export default function GearList() {
   const [formError, setFormError] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
+  const [lookingUp, setLookingUp] = useState(false);
 
   useEffect(() => {
     if (!session) return;
@@ -93,6 +94,26 @@ export default function GearList() {
     .filter(({ items }) => items.length > 0);
 
   // ─── API呼び出し ───────────────────────────────────────────────────────────
+
+  async function handleAmazonUrlBlur() {
+    const asin = extractAsin(formData.amazon_url);
+    if (!asin) return;
+    setLookingUp(true);
+    try {
+      const res = await fetch(`/api/amazon/product?asin=${asin}`);
+      if (res.ok) {
+        const product = await res.json() as { title: string; brand: string };
+        setFormData((d) => ({
+          ...d,
+          name: d.name || product.title,
+          brand: d.brand || product.brand,
+        }));
+      }
+    } catch {}
+    finally {
+      setLookingUp(false);
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -295,11 +316,17 @@ export default function GearList() {
               <div>
                 <label className="block text-xs font-medium mb-1" style={{ color: 'var(--color-mid)' }}>
                   {t('formAmazonUrl')}
+                  {lookingUp && (
+                    <span className="ml-2 text-xs font-normal" style={{ color: 'var(--color-mid)' }}>
+                      取得中…
+                    </span>
+                  )}
                 </label>
                 <input
                   type="text"
                   value={formData.amazon_url}
                   onChange={(e) => setFormData((d) => ({ ...d, amazon_url: e.target.value }))}
+                  onBlur={handleAmazonUrlBlur}
                   placeholder="https://www.amazon.co.jp/dp/..."
                   className="w-full border border-[var(--color-border)] rounded-[3px] px-2 py-1.5 text-sm"
                   style={{ color: 'var(--color-ink)' }}

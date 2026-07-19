@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 import { useState } from 'react';
 import { useSession, signOut } from '@/lib/auth-client';
 import UserRaceList from '@/components/mypage/UserRaceList';
+import GearList from '@/components/mypage/GearList';
 
 export default function MyPage() {
   const t = useTranslations('settings');
@@ -101,6 +102,16 @@ export default function MyPage() {
             登録中の大会
           </h2>
           <UserRaceList />
+        </section>
+      )}
+
+      {/* Gear management */}
+      {session && (
+        <section className="p-6 bg-white border border-[var(--color-border)] rounded-xl mb-6">
+          <h2 className="text-sm font-semibold mb-4" style={{ color: 'var(--color-mid)' }}>
+            マイギア
+          </h2>
+          <GearList />
         </section>
       )}
 

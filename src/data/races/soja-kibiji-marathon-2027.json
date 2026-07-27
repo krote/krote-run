@@ -1,0 +1,185 @@
+{
+  "id": "soja-kibiji-marathon-2027",
+  "name_ja": "そうじゃ吉備路マラソン",
+  "name_en": "Soja Kibiji Marathon",
+  "full_name_ja": "そうじゃ吉備路マラソン",
+  "full_name_en": "Soja Kibiji Marathon",
+  "edition": null,
+  "date": "2027-02-28",
+  "prefecture": "33",
+  "city_ja": "総社市",
+  "city_en": "Soja City",
+  "description_ja": "岡山県総社市で開催。吉備路の歴史ある風景の中を走るマラソン。五重塔や古墳群を眺めながら走れる。",
+  "description_en": "Held in Soja City, Okayama. Run through the historic Kibiji landscape, passing a five-story pagoda and ancient burial mounds.",
+  "official_url": "https://soja-kibijimarathon.jp",
+  "entry_fee": 9100,
+  "entry_fee_by_category": true,
+  "entry_capacity": 15000,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": "pre_mail",
+  "reception_note_ja": "すべての種目でナンバーカードを事前に発送させていただきます。\nそのため受付はございません。",
+  "reception_note_en": "Number cards for all events will be sent out in advance.\n\nTherefore, there is no registration required.",
+  "tags": [
+    "景色が良い",
+    "歴史"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "備中国分寺五重塔、古墳群、吉備路",
+    "highlights_en": "Bitchu Kokubunji five-story pagoda, burial mounds, Kibiji",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 360,
+      "start_time": "09:20",
+      "capacity": 2000,
+      "entry_fee": 9100,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [
+    {
+      "station_name_ja": "総社駅",
+      "station_name_en": "Soja Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約20分",
+      "transport_to_venue_en": "approx. 20 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 20,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "東総社駅",
+      "station_name_en": "Higashi-Soja Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約20分",
+      "transport_to_venue_en": "approx. 20 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 20,
+      "is_primary": false
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "備中国分寺五重塔",
+      "name_en": "Bitchu Kokubunji Five-Story Pagoda",
+      "description_ja": "吉備路のシンボル。コース上から望める。田園風景の中に立つ姿が美しい。",
+      "description_en": "Symbol of Kibiji. Visible from the course. Beautiful standing among rice paddies.",
+      "distance_from_venue": "コース上",
+      "url": null,
+      "latitude": 34.65,
+      "longitude": 133.7833
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-07-27T14:33:45.113Z",
+  "updated_at": "2026-07-27T14:33:45.113Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "2026-07-27: 自動クロールで soja-kibiji-marathon-2026 を元に2027年大会ファイルを新規作成"
+    ],
+    "last_verified": "2026-07-27",
+    "detail_level": "medium"
+  },
+  "entry_periods": [],
+  "motif": "吉備路",
+  "motif_color": "#854d0e",
+  "motif_romaji": "Kibiji",
+  "tagline_ja": "吉備路の古代ロマンを感じながら走る42km",
+  "tagline_en": "Run the ancient Kibiji road through Soja's historic landscape",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "備中国分寺五重塔",
+      "name_en": "Bitchu Kokubunji five-story pagoda",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "古墳群",
+      "name_en": "burial mounds",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "吉備路",
+      "name_en": "Kibiji",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://soja-kibijimarathon.jp/wp/event-details/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://soja-kibijimarathon.jp/wp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://soja-kibijimarathon.jp/wp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://soja-kibijimarathon.jp/wp/qa/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://soja-kibijimarathon.jp/wp/access/",
+      "label": "アクセス"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "総社商工会館東交差点（発着）・総社市スポーツセンター",
+  "venue_name_en": "Soja Chamber of Commerce East Intersection (Start/Finish) / Soja Sports Center",
+  "venue_address": "岡山県総社市",
+  "start_lat": null,
+  "start_lng": null
+}

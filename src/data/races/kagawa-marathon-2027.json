@@ -1,0 +1,188 @@
+{
+  "id": "kagawa-marathon-2027",
+  "name_ja": "かがわマラソン",
+  "name_en": "Kagawa Marathon",
+  "full_name_ja": "かがわマラソン2027",
+  "full_name_en": "Kagawa Marathon",
+  "edition": null,
+  "date": "2027-03-21",
+  "prefecture": "37",
+  "city_ja": "高松市",
+  "city_en": "Takamatsu City",
+  "description_ja": "2026年が第1回大会の新しいフルマラソン。香川県の瀬戸内海沿いを走る。うどん県ならではのエイドに期待。",
+  "description_en": "A brand new marathon with its first edition in 2026. Run along the Seto Inland Sea in Kagawa, the udon prefecture.",
+  "official_url": "https://kagawa-marathon.com",
+  "entry_fee": 0,
+  "entry_fee_by_category": true,
+  "entry_capacity": 10000,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": "pre_day",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [
+    "ご当地エイド",
+    "海沿い",
+    "第1回大会"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "瀬戸内海、島々、栗林公園、里山、讃岐平野",
+    "highlights_en": "Seto Inland Sea, islands, Ritsurin Garden, satoyama, Sanuki Plain",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 360,
+      "start_time": "10:00",
+      "capacity": 10000,
+      "entry_fee": 14000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [
+    {
+      "station_name_ja": "JR高松駅",
+      "station_name_en": "JR Takamatsu Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約4分（300m）",
+      "transport_to_venue_en": "approx. 4 min walk (300m)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 4,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "ことでん高松築港駅",
+      "station_name_en": "Kotoden Takamatsu-Chikkō Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約4分（320m）",
+      "transport_to_venue_en": "approx. 4 min walk (320m)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 4,
+      "is_primary": false
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "グルメ",
+      "name_ja": "讃岐うどん",
+      "name_en": "Sanuki Udon",
+      "description_ja": "香川を代表するご当地グルメ。コシの強い麺とシンプルなだしが特徴。市内に多数の名店。",
+      "description_en": "Kagawa's signature dish. Characterized by chewy noodles and simple broth. Many famous shops in the city.",
+      "distance_from_venue": "高松市内各所",
+      "url": null,
+      "latitude": 34.3403,
+      "longitude": 134.0472
+    },
+    {
+      "type": "観光地",
+      "name_ja": "栗林公園",
+      "name_en": "Ritsurin Garden",
+      "description_ja": "国の特別名勝。日本を代表する回遊式大名庭園。",
+      "description_en": "A Special Place of Scenic Beauty. One of Japan's finest strolling gardens.",
+      "distance_from_venue": "高松市内",
+      "url": null,
+      "latitude": 34.3289,
+      "longitude": 134.0467
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "オリジナルTシャツと記念品",
+      "description_en": "Original T-shirt and commemorative item",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-07-27T14:15:58.429Z",
+  "updated_at": "2026-07-27T14:15:58.429Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "2026-07-27: 自動クロールで kagawa-marathon-2026 を元に2027年大会ファイルを新規作成"
+    ],
+    "last_verified": "2026-07-27",
+    "detail_level": "medium"
+  },
+  "entry_periods": [],
+  "motif": "瀬戸内海",
+  "motif_color": "#0284c7",
+  "motif_romaji": "Setonaikai",
+  "tagline_ja": "瀬戸内の穏やかな海を見渡しながら走る42km",
+  "tagline_en": "Run along the serene shores of the Seto Inland Sea",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "瀬戸内海",
+      "name_en": "Seto Inland Sea",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://kagawa-marathon.com/faq/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://kagawa-marathon.com/information/essentials/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://kagawa-marathon.com/information/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://kagawa-marathon.com/information/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://kagawa-marathon.com/information/concept/",
+      "label": "大会の特色"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal",
+        "towel"
+      ],
+      "description_ja": "完走メダルとフィニッシャータオル",
+      "description_en": "Finisher medal and finisher towel",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "あなぶきアリーナ香川",
+  "venue_name_en": "Anabuki Arena Kagawa",
+  "venue_address": "香川県高松市サンポート",
+  "start_lat": null,
+  "start_lng": null
+}

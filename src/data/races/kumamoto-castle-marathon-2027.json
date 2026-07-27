@@ -1,0 +1,171 @@
+{
+  "id": "kumamoto-castle-marathon-2027",
+  "name_ja": "熊本城マラソン",
+  "name_en": "Kumamoto Castle Marathon",
+  "full_name_ja": "熊本城マラソン2027",
+  "full_name_en": "Kumamoto Castle Marathon",
+  "edition": null,
+  "date": "2027-02-21",
+  "prefecture": "43",
+  "city_ja": "熊本市",
+  "city_en": "Kumamoto City",
+  "description_ja": "熊本城を発着点とするフルマラソン。復興のシンボル・熊本城を目指してゴールする感動のフィニッシュ。",
+  "description_en": "A full marathon starting and finishing at Kumamoto Castle, the symbol of the city's recovery.",
+  "official_url": "https://kumamotojyo-marathon.jp",
+  "entry_fee": 13750,
+  "entry_fee_by_category": true,
+  "entry_capacity": 13000,
+  "entry_start_date": "2026-07-28",
+  "entry_end_date": "2026-09-24",
+  "reception_type": "pre_day",
+  "reception_note_ja": "2027年2月19日（金）12:00〜20:00、2月20日（土）10:00〜20:00。当日受付なし。顔認証システム導入。本人のみ受付可（代理不可）。",
+  "reception_note_en": "February 19, 2027 (Fri) 12:00–20:00, February 20, 2027 (Sat) 10:00–20:00. No race-day reception. Face recognition system in use. Participant must present in person (no proxy).",
+  "tags": [
+    "城下町",
+    "景色が良い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "熊本城",
+    "highlights_en": "Kumamoto Castle",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 420,
+      "start_time": "09:00",
+      "capacity": 13000,
+      "entry_fee": 13750,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "熊本城",
+      "name_en": "Kumamoto Castle",
+      "description_ja": "日本三名城の一つ。震災復興のシンボル。ゴール地点から近い。",
+      "description_en": "One of Japan's three famous castles. Symbol of earthquake recovery. Close to the finish.",
+      "distance_from_venue": "ゴール付近",
+      "url": null,
+      "latitude": 32.806,
+      "longitude": 130.7058
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "馬刺し・太平燕",
+      "name_en": "Horse Sashimi & Taipien",
+      "description_ja": "熊本を代表するグルメ。馬刺しと太平燕（春雨スープ）はぜひ試したい。",
+      "description_en": "Kumamoto's signature dishes. Horse sashimi and taipien (glass noodle soup) are must-tries.",
+      "distance_from_venue": "熊本市内",
+      "url": null,
+      "latitude": 32.8032,
+      "longitude": 130.7079
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-07-27T14:20:33.431Z",
+  "updated_at": "2026-07-27T14:20:33.431Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "2026-07-27: 自動クロールで kumamoto-castle-marathon-2026 を元に2027年大会ファイルを新規作成"
+    ],
+    "last_verified": "2026-07-27",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-07-28",
+      "end_date": "2026-09-24",
+      "entry_fee": 13750
+    }
+  ],
+  "motif": "熊本城",
+  "motif_color": "#1c1917",
+  "motif_romaji": "Kumamoto-jo",
+  "tagline_ja": "不落の名城・熊本城をめぐる感動の42km",
+  "tagline_en": "42km around the legendary Kumamoto Castle",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "熊本城",
+      "name_en": "Kumamoto Castle",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://kumamotojyo-marathon.jp/outline.php",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://kumamotojyo-marathon.jp/course.php",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://kumamotojyo-marathon.jp/entry.php",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://kumamotojyo-marathon.jp/volunteer.php",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://kumamotojyo-marathon.jp/traffic.php",
+      "label": "アクセス"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "花畑広場（くまもと街なか広場）",
+  "venue_name_en": "Hanabata Plaza (Kumamoto City Center Square)",
+  "venue_address": "熊本市中央区花畑町",
+  "start_lat": null,
+  "start_lng": null
+}

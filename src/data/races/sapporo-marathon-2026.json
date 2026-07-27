@@ -69,7 +69,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-05-15T14:40:14.753Z",
-  "updated_at": "2026-06-08T14:40:01.427Z",
+  "updated_at": "2026-07-27T14:31:28.827Z",
   "entry_periods": [
     {
       "label_ja": "JPHS優先エントリー",
@@ -123,6 +123,14 @@
       "description_ja": "オリジナルTシャツ\nhttps://satumara.sapporo-sport.jp/prizes.html",
       "description_en": "",
       "image": null
+    },
+    {
+      "gift_categories": [
+        "other"
+      ],
+      "description_ja": "マイボトル・マイカップ（ソフトフラスク400ml／ソフトカップ200ml）希望者に事前配布。ハーフマラソン参加者はソフトフラスク＋ソフトカップ、10km参加者はソフトカップ。",
+      "description_en": "My bottle / my cup (soft flask 400ml or soft cup 200ml), distributed in advance upon request. Half marathon: soft flask + soft cup; 10km: soft cup only.",
+      "image": null
     }
   ],
   "motif": "時計台",
@@ -159,14 +167,15 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-06-08",
+    "last_verified": "2026-07-27",
     "data_accuracy_notes": [
       "2026-05-30: 自動クロールで更新",
-      "2026-06-08: 自動クロールで更新"
+      "2026-06-08: 自動クロールで更新",
+      "2026-07-27: 自動クロールで更新"
     ]
   },
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "真駒内セキスイハイムスタジアム",
+  "venue_name_en": "Makomanai Sekisui Heim Stadium",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

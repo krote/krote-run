@@ -17,9 +17,9 @@
   "entry_capacity": 10000,
   "entry_start_date": "2025-08-08",
   "entry_end_date": "2025-11-16",
-  "reception_type": "pre_day",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "アスリートビブスは事前郵送。参加賞は2月28日（土）・3月1日（日）に受け取り可能（二次元コードメールを使用）。",
+  "reception_note_en": "Athlete bibs sent by mail in advance. Participation gifts available for pickup on Feb 28 (Sat) and Mar 1 (Sun) via QR code email.",
   "tags": [
     "景色が良い",
     "火山"
@@ -92,14 +92,15 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-05-30T06:36:35.675Z",
+  "updated_at": "2026-07-27T14:16:44.298Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-07-27: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-07-27",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -168,9 +169,9 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
+  "venue_name_ja": "中央公園（おもてなし広場）",
+  "venue_name_en": "Chuo Park (Omotenashi Hiroba)",
+  "venue_address": "鹿児島市山下町4-1",
   "start_lat": null,
   "start_lng": null
 }

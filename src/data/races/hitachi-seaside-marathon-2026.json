@@ -28,8 +28,8 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [],
-    "highlights_ja": "",
-    "highlights_en": "",
+    "highlights_ja": "太平洋を望む日立シーサイドロードを走る非日常の絶景コース。河原子海岸沿いで海を間近に感じながら走れる。アップダウンのある走りごたえのあるコースで、マラソンシーズン初戦の脚試しに最適。",
+    "highlights_en": "A spectacular course along Hitachi Seaside Road overlooking the Pacific Ocean. Runners can feel the ocean up close along Kawarago Beach. A challenging course with hills, ideal as a season opener.",
     "notes_ja": "",
     "notes_en": ""
   },
@@ -49,7 +49,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-11T14:28:19.021Z",
-  "updated_at": "2026-04-11T14:28:19.021Z",
+  "updated_at": "2026-07-27T14:10:45.345Z",
   "entry_periods": [
     {
       "start_date": "2026-04-13",
@@ -62,10 +62,18 @@
   "participation_gifts": [
     {
       "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "参加賞（ロングTシャツ）",
+      "description_en": "Participation gift (Long T-shirt)",
+      "image": null
+    },
+    {
+      "gift_categories": [
         "towel"
       ],
-      "description_ja": "出走特典\n（タオル）\n\n完走賞\n（完走メダル）",
-      "description_en": "",
+      "description_ja": "出走特典（タオル）",
+      "description_en": "Running benefit (Towel)",
       "image": null
     }
   ],
@@ -104,8 +112,8 @@
       "gift_categories": [
         "medal"
       ],
-      "description_ja": "出走特典\n（タオル）\n\n完走賞\n（完走メダル）",
-      "description_en": "",
+      "description_ja": "完走賞（完走メダル）",
+      "description_en": "Finisher award (Finisher medal)",
       "image": null
     }
   ],
@@ -113,5 +121,11 @@
   "venue_name_en": null,
   "venue_address": null,
   "start_lat": null,
-  "start_lng": null
+  "start_lng": null,
+  "_metadata": {
+    "last_verified": "2026-07-27",
+    "data_accuracy_notes": [
+      "2026-07-27: 自動クロールで更新"
+    ]
+  }
 }

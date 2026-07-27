@@ -71,7 +71,7 @@
       "transport_to_venue_en": "10 min walk from Shinjuku Station West Exit to the start (Tokyo Metropolitan Government)",
       "latitude": 35.6896,
       "longitude": 139.6999,
-      "walk_minutes": null,
+      "walk_minutes": 10,
       "is_primary": false
     },
     {
@@ -83,7 +83,7 @@
       "latitude": 35.6915,
       "longitude": 139.6917,
       "walk_minutes": null,
-      "is_primary": false
+      "is_primary": true
     }
   ],
   "nearby_spots": [
@@ -134,15 +134,16 @@
   ],
   "result": null,
   "created_at": "2026-06-24T00:00:00Z",
-  "updated_at": "2026-06-27T00:00:00Z",
+  "updated_at": "2026-07-27T14:34:48.172Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "2026-06-22: 自動クロールで取得した2027年大会情報を元に新規作成",
-      "2026-06-27: 自動クロールでエントリー区分を更新"
+      "2026-06-27: 自動クロールでエントリー区分を更新",
+      "2026-07-27: 自動クロールで更新"
     ],
-    "last_verified": "2026-06-27",
+    "last_verified": "2026-07-27",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -265,9 +266,9 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
+  "venue_name_ja": "東京都庁前",
+  "venue_name_en": "Tokyo Metropolitan Government Plaza",
+  "venue_address": "東京都新宿区西新宿2丁目8-1",
   "start_lat": null,
   "start_lng": null
 }

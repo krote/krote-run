@@ -17,9 +17,9 @@
   "entry_capacity": 30000,
   "entry_start_date": null,
   "entry_end_date": null,
-  "reception_type": "pre_day",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "reception_type": "both",
+  "reception_note_ja": "前日受付：12月5日（土）10:00〜20:00、県立武道館アリーナ棟。当日受付：6:00〜スタートまで、県立武道館",
+  "reception_note_en": "Pre-race reception: Dec 5 (Sat) 10:00–20:00, Kenritsu Budokan Arena. Race-day reception: 6:00 until start, Kenritsu Budokan",
   "tags": [
     "大規模",
     "沖縄",
@@ -61,7 +61,41 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "奥武山公園駅",
+      "station_name_en": "Onoyama Park Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約1分",
+      "transport_to_venue_en": "approx. 1 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 1,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "壺川駅",
+      "station_name_en": "Tsubogawa Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約1分",
+      "transport_to_venue_en": "approx. 1 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 1,
+      "is_primary": false
+    },
+    {
+      "station_name_ja": "旭橋駅（那覇バスターミナル）",
+      "station_name_en": "Asahibashi Station (Naha Bus Terminal)",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約10分",
+      "transport_to_venue_en": "approx. 10 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 10,
+      "is_primary": false
+    }
+  ],
   "nearby_spots": [
     {
       "type": "観光地",
@@ -99,16 +133,17 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-06-08T14:35:07.903Z",
+  "updated_at": "2026-07-27T14:24:47.686Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
       "2026-05-30: 自動クロールで更新",
-      "2026-06-08: 自動クロールで更新"
+      "2026-06-08: 自動クロールで更新",
+      "2026-07-27: 自動クロールで更新"
     ],
-    "last_verified": "2026-06-08",
+    "last_verified": "2026-07-27",
     "detail_level": "medium"
   },
   "entry_periods": [],
@@ -153,8 +188,8 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "奥武山陸上競技場",
+  "venue_name_en": "Ounoyama Athletic Stadium",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

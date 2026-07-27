@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSession } from '@/lib/auth-client';
 import { useTranslations } from 'next-intl';
 import { buildAmazonUrl, extractAsin } from '@/lib/amazon';
@@ -32,6 +32,7 @@ const DEFAULT_FORM: GearFormData = {
 
 export default function GearList() {
   const t = useTranslations('gear');
+  const tCommon = useTranslations('common');
   const { data: session } = useSession();
   const [gears, setGears] = useState<UserGear[]>([]);
   const [loading, setLoading] = useState(true);
@@ -43,13 +44,18 @@ export default function GearList() {
   const [submitting, setSubmitting] = useState(false);
   const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
   const [lookingUp, setLookingUp] = useState(false);
+  const abortRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
     if (!session) return;
-    setLoading(true);
     fetch('/api/user/gear')
-      .then((r) => r.json())
-      .then((data: UserGear[]) => setGears(data))
+      .then((r) => {
+        if (!r.ok) throw new Error('Failed to fetch gears');
+        return r.json();
+      })
+      .then((data: unknown) => {
+        if (Array.isArray(data)) setGears(data as UserGear[]);
+      })
       .catch(() => {})
       .finally(() => setLoading(false));
   }, [session]);
@@ -79,6 +85,13 @@ export default function GearList() {
     return t('usageBoth');
   }
 
+  function closeForm() {
+    abortRef.current?.abort();
+    abortRef.current = null;
+    setShowForm(false);
+    setEditingGear(null);
+  }
+
   // ─── データ分類 ────────────────────────────────────────────────────────────
 
   const activeGears = gears.filter((g) => !g.is_retired);
@@ -98,10 +111,15 @@ export default function GearList() {
   async function handleAmazonUrlBlur() {
     const asin = extractAsin(formData.amazon_url);
     if (!asin) return;
+
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
+
     setLookingUp(true);
     try {
-      const res = await fetch(`/api/amazon/product?asin=${asin}`);
-      if (res.ok) {
+      const res = await fetch(`/api/amazon/product?asin=${asin}`, { signal: controller.signal });
+      if (res.ok && !controller.signal.aborted) {
         const product = await res.json() as { title: string; brand: string };
         setFormData((d) => ({
           ...d,
@@ -135,7 +153,7 @@ export default function GearList() {
       });
       if (!res.ok) {
         const body = await res.json() as { error?: string };
-        setFormError(body.error ?? 'エラーが発生しました');
+        setFormError(body.error ?? tCommon('error'));
         return;
       }
       const updated: UserGear = await res.json();
@@ -144,11 +162,10 @@ export default function GearList() {
       } else {
         setGears((prev) => [...prev, updated]);
       }
-      setShowForm(false);
-      setEditingGear(null);
+      closeForm();
       setFormData(DEFAULT_FORM);
     } catch {
-      setFormError('エラーが発生しました');
+      setFormError(tCommon('error'));
     } finally {
       setSubmitting(false);
     }
@@ -179,6 +196,8 @@ export default function GearList() {
   }
 
   function openEdit(gear: UserGear) {
+    abortRef.current?.abort();
+    abortRef.current = null;
     setEditingGear(gear);
     setFormData({
       category: gear.category as GearCategory,
@@ -193,6 +212,8 @@ export default function GearList() {
   }
 
   function openAdd() {
+    abortRef.current?.abort();
+    abortRef.current = null;
     setEditingGear(null);
     setFormData(DEFAULT_FORM);
     setFormError('');
@@ -259,7 +280,7 @@ export default function GearList() {
       {showForm && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
-          onClick={(e) => { if (e.target === e.currentTarget) { setShowForm(false); setEditingGear(null); } }}
+          onClick={(e) => { if (e.target === e.currentTarget) closeForm(); }}
         >
           <div className="bg-white rounded-xl p-6 w-full max-w-md mx-4 shadow-xl">
             <h3 className="text-base font-semibold mb-4" style={{ color: 'var(--color-ink)' }}>
@@ -274,8 +295,8 @@ export default function GearList() {
                 <select
                   value={formData.category}
                   onChange={(e) => setFormData((d) => ({ ...d, category: e.target.value as GearCategory }))}
-                  className="w-full border border-[var(--color-border)] rounded-[3px] px-2 py-1.5 text-sm"
-                  style={{ color: 'var(--color-ink)' }}
+                  className="w-full border rounded-[3px] px-2 py-1.5 text-sm"
+                  style={{ color: 'var(--color-ink)', borderColor: 'var(--color-border)' }}
                 >
                   {GEAR_CATEGORIES.map((cat) => (
                     <option key={cat} value={cat}>{getCategoryLabel(cat)}</option>
@@ -292,8 +313,8 @@ export default function GearList() {
                   type="text"
                   value={formData.brand}
                   onChange={(e) => setFormData((d) => ({ ...d, brand: e.target.value }))}
-                  className="w-full border border-[var(--color-border)] rounded-[3px] px-2 py-1.5 text-sm"
-                  style={{ color: 'var(--color-ink)' }}
+                  className="w-full border rounded-[3px] px-2 py-1.5 text-sm"
+                  style={{ color: 'var(--color-ink)', borderColor: 'var(--color-border)' }}
                 />
               </div>
 
@@ -307,8 +328,8 @@ export default function GearList() {
                   value={formData.name}
                   onChange={(e) => setFormData((d) => ({ ...d, name: e.target.value }))}
                   required
-                  className="w-full border border-[var(--color-border)] rounded-[3px] px-2 py-1.5 text-sm"
-                  style={{ color: 'var(--color-ink)' }}
+                  className="w-full border rounded-[3px] px-2 py-1.5 text-sm"
+                  style={{ color: 'var(--color-ink)', borderColor: 'var(--color-border)' }}
                 />
               </div>
 
@@ -318,7 +339,7 @@ export default function GearList() {
                   {t('formAmazonUrl')}
                   {lookingUp && (
                     <span className="ml-2 text-xs font-normal" style={{ color: 'var(--color-mid)' }}>
-                      取得中…
+                      {t('lookingUp')}
                     </span>
                   )}
                 </label>
@@ -328,8 +349,8 @@ export default function GearList() {
                   onChange={(e) => setFormData((d) => ({ ...d, amazon_url: e.target.value }))}
                   onBlur={handleAmazonUrlBlur}
                   placeholder="https://www.amazon.co.jp/dp/..."
-                  className="w-full border border-[var(--color-border)] rounded-[3px] px-2 py-1.5 text-sm"
-                  style={{ color: 'var(--color-ink)' }}
+                  className="w-full border rounded-[3px] px-2 py-1.5 text-sm"
+                  style={{ color: 'var(--color-ink)', borderColor: 'var(--color-border)' }}
                 />
               </div>
 
@@ -357,6 +378,20 @@ export default function GearList() {
                 </div>
               </div>
 
+              {/* メモ */}
+              <div>
+                <label className="block text-xs font-medium mb-1" style={{ color: 'var(--color-mid)' }}>
+                  {t('formMemo')}
+                </label>
+                <textarea
+                  value={formData.memo}
+                  onChange={(e) => setFormData((d) => ({ ...d, memo: e.target.value }))}
+                  rows={2}
+                  className="w-full border rounded-[3px] px-2 py-1.5 text-sm resize-none"
+                  style={{ color: 'var(--color-ink)', borderColor: 'var(--color-border)' }}
+                />
+              </div>
+
               {/* エラー */}
               {formError && (
                 <p className="text-xs text-red-600">{formError}</p>
@@ -366,7 +401,7 @@ export default function GearList() {
               <div className="flex justify-end gap-2 pt-2">
                 <button
                   type="button"
-                  onClick={() => { setShowForm(false); setEditingGear(null); }}
+                  onClick={closeForm}
                   className="text-xs px-3 py-1.5 rounded-[3px] transition-colors"
                   style={{ border: '1px solid var(--color-border)', color: 'var(--color-ink2)' }}
                 >
@@ -434,7 +469,10 @@ function GearRow({ gear, t, getUsageLabel, onEdit, onRetireToggle, onDeleteReque
   const amazonUrl = gear.asin ? buildAmazonUrl(gear.asin) : null;
 
   return (
-    <div className="flex items-center justify-between py-2.5 border-b border-[var(--color-border)] last:border-0">
+    <div
+      className="flex items-center justify-between py-2.5 border-b last:border-0"
+      style={{ borderColor: 'var(--color-border)' }}
+    >
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
           {gear.brand && (

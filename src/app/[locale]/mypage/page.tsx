@@ -11,6 +11,7 @@ import GearList from '@/components/mypage/GearList';
 export default function MyPage() {
   const t = useTranslations('settings');
   const tNav = useTranslations('nav');
+  const tGear = useTranslations('gear');
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -107,9 +108,9 @@ export default function MyPage() {
 
       {/* Gear management */}
       {session && (
-        <section className="p-6 bg-white border border-[var(--color-border)] rounded-xl mb-6">
+        <section className="p-6 bg-white border rounded-xl mb-6" style={{ borderColor: 'var(--color-border)' }}>
           <h2 className="text-sm font-semibold mb-4" style={{ color: 'var(--color-mid)' }}>
-            マイギア
+            {tGear('title')}
           </h2>
           <GearList />
         </section>

@@ -861,3 +861,14 @@ APIの調査中にGoogle Routes API v2がTRANSITモードで日本に非対応�
 - `src/lib/__tests__/amazon-creators.test.ts`：APIクライアントテスト10件追加
 - `src/app/api/amazon/product/__tests__/route.test.ts`：ルートテスト6件追加
 - 全体テスト584件パス
+
+## 2026-07-26 PR#136 CodeRabbitレビュー対応
+
+- `src/lib/amazon-creators.ts`：`AmazonUpstreamError`クラスを追加、`process.env`→`env`引数に変更、30秒タイムアウト追加、上流エラー（認証失敗・5xx）をthrow・商品未検出のみnullに区別
+- `src/app/api/amazon/product/route.ts`：`env`渡し対応、`AmazonUpstreamError`を502・その他例外を500に変換
+- `src/lib/amazon.ts`：`extractAsin`のALLOWED_HOSTSからamazon.com（US）を削除しJPのみに限定
+- `src/components/mypage/GearList.tsx`：useEffectでr.ok検証・配列確認追加、handleAmazonUrlBlurでAbortController導入（staleレスポンス防止）、closeForm()ヘルパー追加、ハードコード日本語エラーを翻訳キーに変更、メモ入力欄をフォームに追加、border-[var(--color-border)]をstyle propに変更
+- `src/app/[locale]/mypage/page.tsx`：マイギア見出しをgear.titleキーに変更、gear sectionのborderをstyle propに変更
+- `src/messages/ja.json` / `en.json`：`lookingUp`キー追加、`formAmazonUrlHint`をJP限定に更新
+- テスト更新：amazon-creators・route・GearList・amazon各テストを追従修正、メモ欄テスト追加
+- 全体テスト587件パス

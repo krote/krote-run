@@ -1,13 +1,31 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 // ─── モック定義 ────────────────────────────────────────────────────────────
-const { mockGetSession, mockGetProductByAsin } = vi.hoisted(() => ({
-  mockGetSession: vi.fn(),
-  mockGetProductByAsin: vi.fn(),
-}));
+const { mockGetSession, mockGetProductByAsin, MockAmazonUpstreamError } = vi.hoisted(() => {
+  class MockAmazonUpstreamError extends Error {
+    status: number;
+    constructor(status: number, message: string) {
+      super(message);
+      this.name = 'AmazonUpstreamError';
+      this.status = status;
+    }
+  }
+  return {
+    mockGetSession: vi.fn(),
+    mockGetProductByAsin: vi.fn(),
+    MockAmazonUpstreamError,
+  };
+});
 
 vi.mock('@opennextjs/cloudflare', () => ({
-  getCloudflareContext: vi.fn(() => ({ env: { DB: {} } })),
+  getCloudflareContext: vi.fn(() => ({
+    env: {
+      DB: {},
+      AMAZON_CLIENT_ID: 'test-id',
+      AMAZON_CLIENT_SECRET: 'test-secret',
+      AMAZON_PARTNER_TAG: 'test-tag-22',
+    },
+  })),
 }));
 
 vi.mock('@/lib/auth', () => ({
@@ -18,6 +36,7 @@ vi.mock('@/lib/auth', () => ({
 
 vi.mock('@/lib/amazon-creators', () => ({
   getProductByAsin: mockGetProductByAsin,
+  AmazonUpstreamError: MockAmazonUpstreamError,
 }));
 
 import { GET } from '../route';
@@ -72,11 +91,30 @@ describe('GET /api/amazon/product', () => {
     expect(res.status).toBe(404);
   });
 
-  it('正常系: getProductByAsin に正しい ASIN が渡される', async () => {
+  it('上流エラー（AmazonUpstreamError）: 502 を返す', async () => {
+    mockGetSession.mockResolvedValue({ user: MOCK_USER });
+    mockGetProductByAsin.mockRejectedValue(new MockAmazonUpstreamError(503, 'Service unavailable'));
+
+    const res = await GET(makeRequest('B0XXXXXXXX'));
+    expect(res.status).toBe(502);
+  });
+
+  it('予期しない例外: 500 を返す', async () => {
+    mockGetSession.mockResolvedValue({ user: MOCK_USER });
+    mockGetProductByAsin.mockRejectedValue(new Error('Unexpected error'));
+
+    const res = await GET(makeRequest('B0XXXXXXXX'));
+    expect(res.status).toBe(500);
+  });
+
+  it('正常系: getProductByAsin に正しい ASIN と env が渡される', async () => {
     mockGetSession.mockResolvedValue({ user: MOCK_USER });
     mockGetProductByAsin.mockResolvedValue({ title: '商品', brand: '' });
 
     await GET(makeRequest('B0YYYYYYYY'));
-    expect(mockGetProductByAsin).toHaveBeenCalledWith('B0YYYYYYYY');
+    expect(mockGetProductByAsin).toHaveBeenCalledWith(
+      'B0YYYYYYYY',
+      expect.objectContaining({ AMAZON_CLIENT_ID: 'test-id' }),
+    );
   });
 });

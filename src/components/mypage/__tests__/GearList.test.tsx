@@ -4,41 +4,45 @@ import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import GearList from '../GearList';
 
 // ─── モック ──────────────────────────────────────────────────────────────────
+const TRANSLATION_MAP: Record<string, string> = {
+  title: 'マイギア',
+  add: 'ギアを追加',
+  empty: '登録したギアはありません。',
+  showRetired: '引退したギアを表示',
+  hideRetired: '引退したギアを隠す',
+  retiredBadge: '引退',
+  retire: '引退にする',
+  unretire: '現役に戻す',
+  delete: '削除',
+  edit: '編集',
+  save: '保存',
+  cancel: 'キャンセル',
+  deleteConfirmTitle: 'ギアを削除しますか？',
+  deleteConfirmMessage: '削除すると、過去のレース装備記録からも削除されます。記録を残したい場合は「引退」がおすすめです。',
+  deleteConfirmButton: '削除する',
+  amazonLink: 'Amazonで見る',
+  formCategory: 'カテゴリ',
+  formBrand: 'ブランド（任意）',
+  formName: '製品名',
+  formAmazonUrl: 'Amazon商品URL（任意）',
+  formMemo: 'メモ（任意）',
+  lookingUp: '取得中…',
+  formAddTitle: 'ギアを追加',
+  formEditTitle: 'ギアを編集',
+  usageRace: 'レース用',
+  usageTraining: '練習用',
+  usageBoth: '兼用',
+  categoryShoes: 'シューズ',
+  categoryTops: 'トップス',
+  categoryNutrition: '補給食',
+  categoryOther: 'その他',
+  // common namespace keys
+  error: 'エラーが発生しました',
+  loading: '読み込み中...',
+};
+
 vi.mock('next-intl', () => ({
-  useTranslations: () => (key: string) => {
-    const map: Record<string, string> = {
-      title: 'マイギア',
-      add: 'ギアを追加',
-      empty: '登録したギアはありません。',
-      showRetired: '引退したギアを表示',
-      hideRetired: '引退したギアを隠す',
-      retiredBadge: '引退',
-      retire: '引退にする',
-      unretire: '現役に戻す',
-      delete: '削除',
-      edit: '編集',
-      save: '保存',
-      cancel: 'キャンセル',
-      deleteConfirmTitle: 'ギアを削除しますか？',
-      deleteConfirmMessage: '削除すると、過去のレース装備記録からも削除されます。記録を残したい場合は「引退」がおすすめです。',
-      deleteConfirmButton: '削除する',
-      amazonLink: 'Amazonで見る',
-      formCategory: 'カテゴリ',
-      formBrand: 'ブランド（任意）',
-      formName: '製品名',
-      formAmazonUrl: 'Amazon商品URL（任意）',
-      formAddTitle: 'ギアを追加',
-      formEditTitle: 'ギアを編集',
-      usageRace: 'レース用',
-      usageTraining: '練習用',
-      usageBoth: '兼用',
-      categoryShoes: 'シューズ',
-      categoryTops: 'トップス',
-      categoryNutrition: '補給食',
-      categoryOther: 'その他',
-    };
-    return map[key] ?? key;
-  },
+  useTranslations: () => (key: string) => TRANSLATION_MAP[key] ?? key,
 }));
 
 const { mockUseSession } = vi.hoisted(() => ({
@@ -292,5 +296,16 @@ describe('GearList — 追加ボタン', () => {
     });
     fireEvent.click(screen.getByText('ギアを追加'));
     expect(screen.getByText('ギアを追加', { selector: 'h3, h2, [role="heading"]' })).toBeInTheDocument();
+  });
+
+  it('「ギアを追加」クリック後: メモ入力欄を表示', async () => {
+    setupFetch([]);
+    render(<GearList />);
+    await waitFor(() => {
+      expect(screen.getByText('ギアを追加')).toBeInTheDocument();
+    });
+    fireEvent.click(screen.getByText('ギアを追加'));
+    expect(screen.getByText('メモ（任意）')).toBeInTheDocument();
+    expect(screen.getByText('メモ（任意）').closest('div')?.querySelector('textarea')).toBeInTheDocument();
   });
 });

@@ -4,12 +4,14 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 const mockFetch = vi.fn();
 vi.stubGlobal('fetch', mockFetch);
 
-// 環境変数
-vi.stubEnv('AMAZON_CLIENT_ID', 'test-client-id');
-vi.stubEnv('AMAZON_CLIENT_SECRET', 'test-client-secret');
-vi.stubEnv('AMAZON_PARTNER_TAG', 'test-tag-22');
+const { getProductByAsin, _resetTokenCache, AmazonUpstreamError } = await import('../amazon-creators');
 
-const { getProductByAsin, _resetTokenCache } = await import('../amazon-creators');
+// テスト用 env
+const MOCK_ENV = {
+  AMAZON_CLIENT_ID: 'test-client-id',
+  AMAZON_CLIENT_SECRET: 'test-client-secret',
+  AMAZON_PARTNER_TAG: 'test-tag-22',
+};
 
 // ─── ヘルパー ──────────────────────────────────────────────────────────────
 function makeTokenResponse() {
@@ -54,7 +56,7 @@ describe('getProductByAsin', () => {
         makeFullItem('B0XXXXXXXX', 'テストシューズ Pro', 'Nike'),
       ]));
 
-    const result = await getProductByAsin('B0XXXXXXXX');
+    const result = await getProductByAsin('B0XXXXXXXX', MOCK_ENV);
     expect(result).toEqual({ title: 'テストシューズ Pro', brand: 'Nike' });
   });
 
@@ -65,7 +67,7 @@ describe('getProductByAsin', () => {
         makeFullItem('B0XXXXXXXX', 'タイトルのみ商品'),
       ]));
 
-    const result = await getProductByAsin('B0XXXXXXXX');
+    const result = await getProductByAsin('B0XXXXXXXX', MOCK_ENV);
     expect(result).toEqual({ title: 'タイトルのみ商品', brand: '' });
   });
 
@@ -82,7 +84,7 @@ describe('getProductByAsin', () => {
         },
       }]));
 
-    const result = await getProductByAsin('B0XXXXXXXX');
+    const result = await getProductByAsin('B0XXXXXXXX', MOCK_ENV);
     expect(result?.brand).toBe('Acme Corp');
   });
 
@@ -91,7 +93,7 @@ describe('getProductByAsin', () => {
       .mockResolvedValueOnce(makeTokenResponse())
       .mockResolvedValueOnce(makeItemsResponse([]));
 
-    const result = await getProductByAsin('B0XXXXXXXX');
+    const result = await getProductByAsin('B0XXXXXXXX', MOCK_ENV);
     expect(result).toBeNull();
   });
 
@@ -106,31 +108,28 @@ describe('getProductByAsin', () => {
         }),
       });
 
-    const result = await getProductByAsin('B0XXXXXXXX');
+    const result = await getProductByAsin('B0XXXXXXXX', MOCK_ENV);
     expect(result).toBeNull();
   });
 
-  it('GetItems が 4xx/5xx: null を返す', async () => {
+  it('GetItems が 4xx/5xx: AmazonUpstreamError をスロー', async () => {
     mockFetch
       .mockResolvedValueOnce(makeTokenResponse())
       .mockResolvedValueOnce({ ok: false, status: 500 });
 
-    const result = await getProductByAsin('B0XXXXXXXX');
-    expect(result).toBeNull();
+    await expect(getProductByAsin('B0XXXXXXXX', MOCK_ENV)).rejects.toThrow(AmazonUpstreamError);
   });
 
-  it('トークン取得が失敗: null を返す', async () => {
+  it('トークン取得が失敗: AmazonUpstreamError をスロー', async () => {
     mockFetch.mockResolvedValueOnce({ ok: false, status: 401 });
 
-    const result = await getProductByAsin('B0XXXXXXXX');
-    expect(result).toBeNull();
+    await expect(getProductByAsin('B0XXXXXXXX', MOCK_ENV)).rejects.toThrow(AmazonUpstreamError);
   });
 
-  it('fetch が例外を投げる: null を返す', async () => {
+  it('fetch が例外を投げる: 例外が伝播する', async () => {
     mockFetch.mockRejectedValueOnce(new Error('Network error'));
 
-    const result = await getProductByAsin('B0XXXXXXXX');
-    expect(result).toBeNull();
+    await expect(getProductByAsin('B0XXXXXXXX', MOCK_ENV)).rejects.toThrow('Network error');
   });
 
   it('トークンリクエストに正しいパラメータが渡される', async () => {
@@ -138,7 +137,7 @@ describe('getProductByAsin', () => {
       .mockResolvedValueOnce(makeTokenResponse())
       .mockResolvedValueOnce(makeItemsResponse([makeFullItem('B0XXXXXXXX', '商品')]));
 
-    await getProductByAsin('B0XXXXXXXX');
+    await getProductByAsin('B0XXXXXXXX', MOCK_ENV);
 
     const [tokenUrl, tokenOpts] = mockFetch.mock.calls[0];
     expect(tokenUrl).toBe('https://creatorsapi.auth.us-west-2.amazoncognito.com/oauth2/token');
@@ -155,7 +154,7 @@ describe('getProductByAsin', () => {
       .mockResolvedValueOnce(makeTokenResponse())
       .mockResolvedValueOnce(makeItemsResponse([makeFullItem('B0XXXXXXXX', '商品')]));
 
-    await getProductByAsin('B0XXXXXXXX');
+    await getProductByAsin('B0XXXXXXXX', MOCK_ENV);
 
     const [itemsUrl, itemsOpts] = mockFetch.mock.calls[1];
     expect(itemsUrl).toBe('https://creatorsapi.amazon/catalog/v1/getItems');

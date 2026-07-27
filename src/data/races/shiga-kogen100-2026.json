@@ -16,7 +16,7 @@
   "entry_fee_by_category": true,
   "entry_capacity": 700,
   "entry_start_date": "2026-04-05",
-  "entry_end_date": "2026-08-03",
+  "entry_end_date": "2026-07-27",
   "reception_type": "pre_day",
   "reception_note_ja": "100kmは前日（8月28日・金曜日）に受付・必携装備品チェックあり。参加通知書（はがき）は開催1週間前までに郵送。",
   "reception_note_en": "100km check-in is on the eve of the race (Friday, August 28) with mandatory gear inspection. Participation card mailed approximately one week before the event.",
@@ -87,7 +87,7 @@
       "label_ja": "100km 一般",
       "label_en": "100km General",
       "start_date": "2026-04-05",
-      "end_date": "2026-08-03",
+      "end_date": "2026-07-27",
       "entry_fee": 28000,
       "category_id": null,
       "sort_order": 0
@@ -96,7 +96,7 @@
       "label_ja": "100km 登山道整備参加",
       "label_en": "100km Trail Maintenance",
       "start_date": "2026-04-05",
-      "end_date": "2026-08-03",
+      "end_date": "2026-07-27",
       "entry_fee": 27500,
       "category_id": null,
       "sort_order": 1
@@ -105,7 +105,7 @@
       "label_ja": "40km 一般",
       "label_en": "40km General",
       "start_date": "2026-04-05",
-      "end_date": "2026-08-03",
+      "end_date": "2026-07-27",
       "entry_fee": 9900,
       "category_id": null,
       "sort_order": 2
@@ -114,7 +114,7 @@
       "label_ja": "40km 登山道整備参加",
       "label_en": "40km Trail Maintenance",
       "start_date": "2026-04-05",
-      "end_date": "2026-08-03",
+      "end_date": "2026-07-27",
       "entry_fee": 9400,
       "category_id": null,
       "sort_order": 3
@@ -123,7 +123,7 @@
       "label_ja": "18km",
       "label_en": "18km",
       "start_date": "2026-04-05",
-      "end_date": "2026-08-03",
+      "end_date": "2026-07-27",
       "entry_fee": 7500,
       "category_id": null,
       "sort_order": 4

@@ -68,7 +68,7 @@
       "transport_to_venue_en": "Free shuttle bus, approx. 40 min",
       "latitude": 0,
       "longitude": 0,
-      "walk_minutes": 0,
+      "walk_minutes": null,
       "is_primary": true
     }
   ],

@@ -1,0 +1,213 @@
+{
+  "id": "biwako-marathon-2027",
+  "name_ja": "びわ湖マラソン",
+  "name_en": "Biwako Marathon",
+  "full_name_ja": "びわ湖マラソン2027",
+  "full_name_en": "Biwako Marathon",
+  "edition": null,
+  "date": "2027-03-14",
+  "prefecture": "25",
+  "city_ja": "大津市",
+  "city_en": "Otsu City",
+  "description_ja": "日本最大の湖・琵琶湖畔を走るフルマラソン。湖と比叡山の絶景を楽しめるフラットなコース。",
+  "description_en": "A full marathon along Lake Biwa, Japan's largest lake. A flat course with views of the lake and Mt. Hiei.",
+  "official_url": "https://biwako-marathon.com",
+  "entry_fee": 15000,
+  "entry_fee_by_category": false,
+  "entry_capacity": 8000,
+  "entry_start_date": "2026-08-03",
+  "entry_end_date": "2026-10-30",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "アスリートビブス（ゼッケン）、計測チップ、参加賞等を事前に郵送。大会前日・当日の受付なし。",
+  "reception_note_en": "Bib, timing chip, and participation gift will be mailed in advance. No race-day or day-before pick-up.",
+  "tags": [
+    "フラット",
+    "景色が良い",
+    "湖畔"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF",
+      "WA"
+    ],
+    "highlights_ja": "琵琶湖畔、比叡山",
+    "highlights_en": "Lake Biwa shore, Mt. Hiei",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 360,
+      "start_time": "08:20",
+      "capacity": 7000,
+      "entry_fee": 15000
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [
+    {
+      "station_name_ja": "京阪大津京駅",
+      "station_name_en": "Keihan Otsu-kyo Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩3分",
+      "transport_to_venue_en": "3 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 3,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "大津京駅（JR湖西線）",
+      "station_name_en": "Otsu-kyo Station (JR Kosei Line)",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩6分",
+      "transport_to_venue_en": "6 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 6,
+      "is_primary": false
+    },
+    {
+      "station_name_ja": "大津駅（JR琵琶湖線）",
+      "station_name_en": "Otsu Station (JR Biwako Line)",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩35分",
+      "transport_to_venue_en": "35 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 35,
+      "is_primary": false
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "琵琶湖",
+      "name_en": "Lake Biwa",
+      "description_ja": "日本最大の湖。コース全体で湖畔を走る。水面に映る比叡山の景色が美しい。",
+      "description_en": "Japan's largest lake. The entire course runs along the lakeshore. Beautiful views of Mt. Hiei reflected on the water.",
+      "distance_from_venue": "コース上",
+      "url": null,
+      "latitude": 35.3506,
+      "longitude": 136.0689
+    },
+    {
+      "type": "温泉",
+      "name_ja": "おごと温泉",
+      "name_en": "Ogoto Onsen",
+      "description_ja": "琵琶湖西岸の温泉地。コース付近。レース後のリカバリーに便利。",
+      "description_en": "Hot spring town on the west shore of Lake Biwa. Near the course. Convenient for post-race recovery.",
+      "distance_from_venue": "コース付近",
+      "url": null,
+      "latitude": 35.1167,
+      "longitude": 135.8833
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "Tシャツ・ロングTシャツ・ランニンググローブのいずれか1つ",
+      "description_en": "Choice of one: T-shirt, long-sleeve T-shirt, or running gloves",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-07-27T14:07:25.820Z",
+  "updated_at": "2026-07-27T14:07:25.820Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "2026-07-27: 自動クロールで biwako-marathon-2026 を元に2027年大会ファイルを新規作成"
+    ],
+    "last_verified": "2026-07-27",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-08-03",
+      "end_date": "2026-10-30",
+      "entry_fee": 15000,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": "琵琶湖",
+  "motif_color": "#93c5fd",
+  "motif_romaji": "Biwako",
+  "tagline_ja": "日本最大の湖を舞台に、水の都を走る",
+  "tagline_en": "Run along Japan's largest lake",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "琵琶湖畔",
+      "name_en": "Lake Biwa shore",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "比叡山",
+      "name_en": "Mt. Hiei",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://biwako-marathon.com/outline-marathon/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://biwako-marathon.com/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://biwako-marathon.com/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://biwako-marathon.com/traffic_regulation/",
+      "label": "アクセス"
+    }
+  ],
+  "venue_name_ja": "皇子山陸上競技場",
+  "venue_name_en": "Ojiyama Stadium",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null,
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "完走メダル",
+      "description_en": "Finisher medal",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "towel"
+      ],
+      "description_ja": "完走タオル",
+      "description_en": "Finisher towel",
+      "image": null
+    }
+  ]
+}

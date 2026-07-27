@@ -17,19 +17,19 @@
   "entry_capacity": 2000,
   "entry_start_date": "2026-04-24",
   "entry_end_date": "2026-07-31",
-  "reception_type": "pre_day",
-  "reception_note_ja": "9/12（土）13:00～18:00\n9/13（日） 6:30～各ウェーブのスタート時刻30分前まで",
-  "reception_note_en": "Saturday, September 12, 1:00 PM – 6:00 PM\nSunday, September 13, 6:30 AM – 30 minutes before the start time of each wave",
+  "reception_type": "both",
+  "reception_note_ja": "9月12日（土）（大会前日）13:00～18:00　場所：富士北麓公園 富士山GXスタジアム\n9月13日（日）（大会当日）6:30～各ウェーブのスタート時間の30分前まで　場所：富士北麓公園 富士山GXスタジアム",
+  "reception_note_en": "Saturday, September 12 (pre-race day): 1:00 PM – 6:00 PM / Venue: Fuji Hokuroku Park Fujisan GX Stadium\nSunday, September 13 (race day): 6:30 AM – 30 minutes before the start time of each wave / Venue: Fuji Hokuroku Park Fujisan GX Stadium",
   "tags": [],
   "course_gpx_file": "mtfuji-climb-run-2026.kml",
   "course_info": {
     "max_elevation_m": null,
     "min_elevation_m": null,
-    "elevation_diff_m": null,
-    "surface": "road",
+    "elevation_diff_m": 1200,
+    "surface": "trail",
     "certification": [],
-    "highlights_ja": "",
-    "highlights_en": "",
+    "highlights_ja": "富士北麓公園 富士山GXスタジアムをスタートし、吉田口登山道を経て五合目フィニッシュまで約12km・標高差約1,200m。補助具（ストック・杖等）使用禁止。関門：馬返し12:12、三合目12:34、ゴール制限13:00。",
+    "highlights_en": "Approx. 12km from Fuji Hokuroku Park Fujisan GX Stadium via the Yoshida Trail to the 5th station finish, with approx. 1,200m elevation gain. Poles and walking sticks are prohibited. Cutoffs: Umagaeshi 12:12, 3rd station 12:34, finish 13:00.",
     "notes_ja": "",
     "notes_en": ""
   },
@@ -49,7 +49,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-28T13:53:53.451Z",
-  "updated_at": "2026-05-30T06:38:26.366Z",
+  "updated_at": "2026-07-27T14:23:20.144Z",
   "entry_periods": [
     {
       "start_date": "2026-04-24",
@@ -104,13 +104,14 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-07-27",
     "data_accuracy_notes": [
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-07-27: 自動クロールで更新"
     ]
   },
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "富士北麓公園 富士山GXスタジアム",
+  "venue_name_en": "Fuji Hokuroku Park Fujisan GX Stadium",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

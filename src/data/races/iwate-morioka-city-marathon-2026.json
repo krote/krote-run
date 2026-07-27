@@ -16,7 +16,7 @@
   "entry_fee_by_category": true,
   "entry_capacity": 6000,
   "entry_start_date": "2026-04-01",
-  "entry_end_date": "2026-07-20",
+  "entry_end_date": "2026-08-03",
   "reception_type": "pre_day",
   "reception_note_ja": "前日の2026年10月3日（土）10時から18時まできたぎんボールパーク（盛岡市永井７地割16番地２）で参加者受付を行います。受付時にアスリートビブス、計測チップ及び参加案内等をお渡しします。なお、再発行や大会当日の受付は行いません。\n+600円で事前送付とすることが出来る",
   "reception_note_en": "Registration will take place on the day before the event, Saturday, October 3, 2026, from 10:00 AM to 6:00 PM at Tagin Ball Park (16-2 Nagai 7-chigari, Morioka City). At registration, you will receive your race bib, timing chip, and participant guide. Please note that we will not issue replacements or accept registrations on the day of the event.\nYou can have these items mailed to you in advance for an additional 600 yen.\n\nTranslated with DeepL.com (free version)",
@@ -51,14 +51,25 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-16T15:23:52.019Z",
-  "updated_at": "2026-06-08T14:33:03.724Z",
+  "updated_at": "2026-07-27T14:14:28.754Z",
   "entry_periods": [
     {
       "start_date": "2026-04-01",
-      "end_date": "2026-07-20",
+      "end_date": "2026-08-03",
       "entry_fee": 12000,
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry"
+      "label_ja": "一般エントリー（前日受付）",
+      "label_en": "General Entry (On-site Pickup)",
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "start_date": "2026-04-01",
+      "end_date": "2026-07-20",
+      "entry_fee": 12600,
+      "label_ja": "一般エントリー（事前送付）",
+      "label_en": "General Entry (Pre-delivery +¥600)",
+      "category_id": null,
+      "sort_order": 1
     }
   ],
   "participation_gifts": [],
@@ -97,10 +108,11 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-06-08",
+    "last_verified": "2026-07-27",
     "data_accuracy_notes": [
       "2026-05-30: 自動クロールで更新",
-      "2026-06-08: 自動クロールで更新"
+      "2026-06-08: 自動クロールで更新",
+      "2026-07-27: 自動クロールで更新"
     ]
   },
   "completion_gifts": [
@@ -114,9 +126,9 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
+  "venue_name_ja": "きたぎんボールパーク",
+  "venue_name_en": "Kitagin Ballpark",
+  "venue_address": "岩手県盛岡市永井7地割16番地2",
   "start_lat": null,
   "start_lng": null
 }

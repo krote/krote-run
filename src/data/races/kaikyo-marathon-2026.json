@@ -17,9 +17,9 @@
   "entry_capacity": 10000,
   "entry_start_date": "2026-05-15",
   "entry_end_date": "2026-07-12",
-  "reception_type": "pre_day",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "アスリートビブス（ナンバーカード）・計測チップ・参加賞・大会プログラム・参加案内等を10月上旬に郵送",
+  "reception_note_en": "Athlete bibs, timing chip, participation gift, race program, and entry guide will be mailed in early October",
   "tags": [
     "海峡",
     "絶景",
@@ -105,15 +105,16 @@
   ],
   "result": null,
   "created_at": "2026-04-30T00:00:00Z",
-  "updated_at": "2026-05-30T06:36:44.764Z",
+  "updated_at": "2026-07-27T14:17:08.917Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、気象データ等は未入力",
       "参加費は2025年実績からの推定。正式発表後に要更新",
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-07-27: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-07-27",
     "detail_level": "light"
   },
   "entry_periods": [

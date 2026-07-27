@@ -18,8 +18,8 @@
   "entry_start_date": "2025-11-14",
   "entry_end_date": "2026-06-14",
   "reception_type": "pre_day",
-  "reception_note_ja": "一般エントリー：2025年11月14日〜12月12日（終了）。追加エントリー：2026年2月1日〜6月14日（空きがある場合）。",
-  "reception_note_en": "General entry: Nov 14 – Dec 12, 2025 (closed). Additional entry: Feb 1 – Jun 14, 2026 (if spots available).",
+  "reception_note_ja": "選手受付：7月18日(土) 13:00〜19:00（松原スポーツ公園）",
+  "reception_note_en": "Athlete check-in: Jul 18 (Sat) 13:00–19:00 (Matsubara Sports Park)",
   "tags": [
     "ウルトラマラソン",
     "アップダウン多い",
@@ -59,7 +59,19 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "木曽福島駅",
+      "station_name_en": "Kiso-Fukushima Station",
+      "station_code": "",
+      "transport_to_venue_ja": "無料シャトルバスで約40分",
+      "transport_to_venue_en": "Free shuttle bus, approx. 40 min",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": null,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "participation_gifts": [
     {
@@ -73,15 +85,16 @@
   ],
   "result": null,
   "created_at": "2026-03-30T00:00:00Z",
-  "updated_at": "2026-06-08T14:39:14.413Z",
+  "updated_at": "2026-07-27T14:29:48.574Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.outdoorsportsjapan.com/trail/ontake100/）・大会概要ページ",
     "data_accuracy_notes": [
       "基本情報のみ。距離は約163km・約109kmの推定値。エイド、周辺スポット等は未入力",
       "2026-05-30: 自動クロールで更新",
-      "2026-06-08: 自動クロールで更新"
+      "2026-06-08: 自動クロールで更新",
+      "2026-07-27: 自動クロールで更新"
     ],
-    "last_verified": "2026-06-08",
+    "last_verified": "2026-07-27",
     "detail_level": "basic"
   },
   "entry_periods": [
@@ -165,9 +178,9 @@
       "label": "エントリー"
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
+  "venue_name_ja": "松原スポーツ公園",
+  "venue_name_en": "Matsubara Sports Park",
+  "venue_address": "長野県木曽郡王滝村",
   "start_lat": null,
   "start_lng": null
 }

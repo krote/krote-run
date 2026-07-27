@@ -833,3 +833,42 @@ APIの調査中にGoogle Routes API v2がTRANSITモードで日本に非対応�
 - `src/app/api/user/gear/__tests__/route.test.ts`：GET/POST APIテスト
 - `src/app/api/user/gear/[gearId]/__tests__/route.test.ts`：PATCH/DELETE APIテスト
 - 全体テスト 550件パス
+
+## 2026-07-13 マイギア管理UIの実装（Issue #123）
+
+- `src/messages/ja.json` / `en.json`：`gear` 名前空間を追加（カテゴリ・用途タグ・フォーム文言・削除確認文言など35キー）
+- `src/components/mypage/GearList.tsx`：マイギア管理 Client Component を新規作成
+  - カテゴリ別グルーピング表示
+  - 用途タグバッジ（レース用/練習用/兼用）
+  - Amazonリンク（buildAmazonUrl 経由、rel="sponsored noopener noreferrer"）
+  - 引退ギアはデフォルト非表示、トグルで展開
+  - 追加・編集フォーム（インラインモーダル）
+  - 引退/復帰トグル（即時PATCH）
+  - 削除確認ダイアログ（過去レース記録削除の旨を警告）
+- `src/app/[locale]/mypage/page.tsx`：マイギアセクションを追加（ログイン時のみ）
+- `src/components/mypage/__tests__/GearList.test.tsx`：コンポーネントテスト18件追加
+- 全体テスト568件パス
+
+## 2026-07-19 Amazon Creators API による商品情報自動取得（Issue #123追加）
+
+- `src/lib/amazon-creators.ts`：Creators API クライアントを追加
+  - OAuth2 クライアントクレデンシャルズ（Cognito）でトークン取得・キャッシュ
+  - `getProductByAsin(asin)` で商品タイトル・ブランドを取得
+- `src/app/api/amazon/product/route.ts`：`GET /api/amazon/product?asin=...` を追加
+  - 認証必須（未ログイン → 401）、ASIN形式バリデーション（不正 → 400）
+- `src/components/mypage/GearList.tsx`：Amazon URLフィールドの `onBlur` で商品情報を自動取得
+  - ASIN抽出 → `/api/amazon/product` 呼び出し → brand・name フィールドを空の場合のみ自動入力
+- `src/lib/__tests__/amazon-creators.test.ts`：APIクライアントテスト10件追加
+- `src/app/api/amazon/product/__tests__/route.test.ts`：ルートテスト6件追加
+- 全体テスト584件パス
+
+## 2026-07-26 PR#136 CodeRabbitレビュー対応
+
+- `src/lib/amazon-creators.ts`：`AmazonUpstreamError`クラスを追加、`process.env`→`env`引数に変更、30秒タイムアウト追加、上流エラー（認証失敗・5xx）をthrow・商品未検出のみnullに区別
+- `src/app/api/amazon/product/route.ts`：`env`渡し対応、`AmazonUpstreamError`を502・その他例外を500に変換
+- `src/lib/amazon.ts`：`extractAsin`のALLOWED_HOSTSからamazon.com（US）を削除しJPのみに限定
+- `src/components/mypage/GearList.tsx`：useEffectでr.ok検証・配列確認追加、handleAmazonUrlBlurでAbortController導入（staleレスポンス防止）、closeForm()ヘルパー追加、ハードコード日本語エラーを翻訳キーに変更、メモ入力欄をフォームに追加、border-[var(--color-border)]をstyle propに変更
+- `src/app/[locale]/mypage/page.tsx`：マイギア見出しをgear.titleキーに変更、gear sectionのborderをstyle propに変更
+- `src/messages/ja.json` / `en.json`：`lookingUp`キー追加、`formAmazonUrlHint`をJP限定に更新
+- テスト更新：amazon-creators・route・GearList・amazon各テストを追従修正、メモ欄テスト追加
+- 全体テスト587件パス

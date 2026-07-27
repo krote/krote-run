@@ -1,4 +1,4 @@
-const ALLOWED_HOSTS = new Set(['amazon.co.jp', 'www.amazon.co.jp', 'amazon.com', 'www.amazon.com']);
+const ALLOWED_HOSTS = new Set(['amazon.co.jp', 'www.amazon.co.jp']);
 const ASIN_RE = /^[A-Z0-9]{10}$/;
 
 /**

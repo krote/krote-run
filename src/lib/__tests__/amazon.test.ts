@@ -12,8 +12,8 @@ describe('extractAsin - 正常系', () => {
     expect(extractAsin('https://amazon.co.jp/dp/B0CXX12345')).toBe('B0CXX12345');
   });
 
-  it('amazon.com でも抽出できる', () => {
-    expect(extractAsin('https://www.amazon.com/dp/B0CXX12345')).toBe('B0CXX12345');
+  it('amazon.com は null（JPマーケットプレイスのみサポート）', () => {
+    expect(extractAsin('https://www.amazon.com/dp/B0CXX12345')).toBeNull();
   });
 
   it('/gp/product/ パスから ASIN を抽出する', () => {

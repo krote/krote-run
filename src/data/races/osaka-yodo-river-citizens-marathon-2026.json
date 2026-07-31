@@ -30,8 +30,8 @@
     "certification": [],
     "highlights_ja": "淀川河川公園の河川敷のみを走るフラットコース。通常は通行できない淀川大堰を渡れる特徴がある。フルマラソン9:00・ハーフマラソン8:30・10km 13:00スタート。給水所7地点、救護所4地点設置。",
     "highlights_en": "A flat course running entirely along the Yodo River riverbank park. Runners can cross the Yodo River Weir, normally closed to the public. Full marathon starts at 9:00, half at 8:30, 10km at 13:00. 7 water stations and 4 first-aid stations.",
-    "notes_ja": null,
-    "notes_en": null
+    "notes_ja": "救護所設置予定地点：スタート・ゴール地点、赤川地区、西中島地区、塚本地区。",
+    "notes_en": "Planned first-aid station locations: Start/Finish area, Akagawa district, Nishinakajima district, and Tsukamoto district."
   },
   "categories": [
     {
@@ -65,7 +65,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-11T14:42:59.225Z",
-  "updated_at": "2026-06-27T13:32:25.650Z",
+  "updated_at": "2026-07-31T14:34:51.766Z",
   "entry_periods": [
     {
       "label_ja": "一般エントリー",
@@ -82,7 +82,7 @@
         "towel"
       ],
       "description_ja": "【フル・ハーフ】\n参加賞：Ｔシャツ（フリーサイズ）\n完走証：タオル\n【10km】\n参加賞：タオル",
-      "description_en": "",
+      "description_en": "[Full / Half]\nParticipation gift: T-shirt (free size)\nFinisher certificate: Towel\n[10km]\nParticipation gift: Towel",
       "image": null
     }
   ],
@@ -121,10 +121,11 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-06-27",
+    "last_verified": "2026-07-31",
     "data_accuracy_notes": [
       "2026-06-08: 自動クロールで更新",
-      "2026-06-27: 自動クロールで更新"
+      "2026-06-27: 自動クロールで更新",
+      "2026-07-31: 自動クロールで更新"
     ]
   },
   "venue_name_ja": null,

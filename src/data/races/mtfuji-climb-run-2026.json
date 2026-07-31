@@ -45,11 +45,23 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "富士山駅（富士急行線）",
+      "station_name_en": "Fujisan Station (Fujikyu Railway)",
+      "station_code": "",
+      "transport_to_venue_ja": "タクシーで10〜15分。大会当日（9/13）は無料シャトルバス運行（富士山駅発7:30・8:00・8:30）",
+      "transport_to_venue_en": "10-15 min by taxi. Free shuttle bus on race day (Sep 13) departs Fujisan Station at 7:30, 8:00, and 8:30 AM",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 0,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-28T13:53:53.451Z",
-  "updated_at": "2026-07-27T14:23:20.144Z",
+  "updated_at": "2026-07-31T14:33:27.699Z",
   "entry_periods": [
     {
       "start_date": "2026-04-24",
@@ -104,10 +116,11 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-07-27",
+    "last_verified": "2026-07-31",
     "data_accuracy_notes": [
       "2026-05-30: 自動クロールで更新",
-      "2026-07-27: 自動クロールで更新"
+      "2026-07-27: 自動クロールで更新",
+      "2026-07-31: 自動クロールで更新"
     ]
   },
   "venue_name_ja": "富士北麓公園 富士山GXスタジアム",

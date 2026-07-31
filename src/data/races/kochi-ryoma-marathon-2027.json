@@ -58,7 +58,19 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "高知駅",
+      "station_name_en": "Kochi Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約15分（高知県庁スタート地点）",
+      "transport_to_venue_en": "15 min walk to start (Kochi Prefectural Office)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 15,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [
     {
       "type": "観光地",
@@ -96,13 +108,14 @@
   ],
   "result": null,
   "created_at": "2026-06-29T14:13:35.752Z",
-  "updated_at": "2026-06-29T14:13:35.752Z",
+  "updated_at": "2026-07-31T14:32:35.280Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "2026-06-29: 自動クロールで kochi-ryoma-marathon-2026 を元に2027年大会ファイルを新規作成"
+      "2026-06-29: 自動クロールで kochi-ryoma-marathon-2026 を元に2027年大会ファイルを新規作成",
+      "2026-07-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-06-29",
+    "last_verified": "2026-07-31",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -114,6 +127,15 @@
       "entry_fee": 13000,
       "category_id": null,
       "sort_order": 0
+    },
+    {
+      "label_ja": "新宿シティ連携協定枠",
+      "label_en": "Shinjuku City Partnership Entry",
+      "start_date": "2026-08-22",
+      "end_date": "2026-10-20",
+      "entry_fee": 26000,
+      "category_id": null,
+      "sort_order": 1
     }
   ],
   "motif": "坂本龍馬",
@@ -179,9 +201,9 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
+  "venue_name_ja": "高知県庁前（スタート）／高知県立春野総合運動公園（フィニッシュ）",
+  "venue_name_en": "Kochi Prefectural Office (Start) / Haruno Sogo Undo Koen (Finish)",
+  "venue_address": "高知県高知市丸ノ内1-2-20",
   "start_lat": null,
   "start_lng": null
 }

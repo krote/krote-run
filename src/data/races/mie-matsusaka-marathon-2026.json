@@ -18,8 +18,8 @@
   "entry_start_date": "2026-05-24",
   "entry_end_date": "2026-07-31",
   "reception_type": "pre_mail",
-  "reception_note_ja": "ナンバーカード・計測チップ等は12月上旬頃、登録住所へ事前郵送",
-  "reception_note_en": "Race bib, timing chip, etc. will be mailed to your registered address in early December",
+  "reception_note_ja": "12月上旬頃、登録住所へ大会プログラム・ビブス（ナンバーカード）・記録計測用チップ等を発送予定（健康ウオークの部を除く）",
+  "reception_note_en": "Race program, bib (race number), timing chip, etc. will be mailed to your registered address in early December (excluding Health Walk participants)",
   "tags": [
     "ご当地グルメ"
   ],
@@ -83,7 +83,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-07-27T14:22:17.267Z",
+  "updated_at": "2026-07-31T14:33:07.527Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -91,9 +91,10 @@
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
       "2026-05-30: 自動クロールで更新",
       "2026-06-22: 自動クロールで更新",
-      "2026-07-27: 自動クロールで更新"
+      "2026-07-27: 自動クロールで更新",
+      "2026-07-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-07-27",
+    "last_verified": "2026-07-31",
     "detail_level": "medium"
   },
   "entry_periods": [

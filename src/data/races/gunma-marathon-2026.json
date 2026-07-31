@@ -146,13 +146,22 @@
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
+      "label_ja": "フルマラソン",
+      "label_en": "Full Marathon",
       "start_date": "2026-04-09",
-      "end_date": "2026-08-17",
+      "end_date": "2026-05-13",
       "entry_fee": 13500,
       "category_id": null,
       "sort_order": 0
+    },
+    {
+      "label_ja": "ジョギング（10km）",
+      "label_en": "Jogging (10km)",
+      "start_date": "2026-04-09",
+      "end_date": "2026-08-17",
+      "entry_fee": 6500,
+      "category_id": null,
+      "sort_order": 1
     }
   ],
   "motif": "赤城山",

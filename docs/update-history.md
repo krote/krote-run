@@ -872,3 +872,19 @@ APIの調査中にGoogle Routes API v2がTRANSITモードで日本に非対応�
 - `src/messages/ja.json` / `en.json`：`lookingUp`キー追加、`formAmazonUrlHint`をJP限定に更新
 - テスト更新：amazon-creators・route・GearList・amazon各テストを追従修正、メモ欄テスト追加
 - 全体テスト587件パス
+
+## 2026-08-01 ぐんまマラソン エントリー期間修正 & クロールプロンプト強化
+
+### 問題
+クロールが毎回ぐんまマラソンを誤更新。一般エントリー(フルマラソン)の締切は5/13だが、
+ジョギング(10km)の8/17締切をLLMが「一般エントリー」の締切として抽出していた。
+
+### 変更内容
+- `src/data/races/gunma-marathon-2026.json`：`entry_periods` を2件に分割
+  - フルマラソン: start=2026-04-09, end=2026-05-13, fee=13500
+  - ジョギング（10km）: start=2026-04-09, end=2026-08-17, fee=6500
+- `tools/crawl/extractor.js`：`buildExtractionPrompt` に複数種目エントリー期間の指示を追加
+  - 種目ごとに個別の entry_periods を作成すること
+  - 既存の entry_periods が複数件の場合はその構造を維持すること
+- `tools/crawl/extractor.test.js`：上記プロンプト変更のテスト2件追加
+- `migrations/seed-races-all.sql`：シード再生成

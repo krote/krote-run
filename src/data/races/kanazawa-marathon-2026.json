@@ -18,8 +18,8 @@
   "entry_start_date": "2026-04-10",
   "entry_end_date": "2026-05-20",
   "reception_type": "pre_day",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "reception_note_ja": "ランナー受付：10月23日(金) 13:30～20:30、10月24日(土) 9:30～19:30。大会当日の受付は行いません。代理受付不可。",
+  "reception_note_en": "Runner check-in: Oct 23 (Fri) 13:30–20:30, Oct 24 (Sat) 9:30–19:30. No race-day check-in. No proxy check-in.",
   "tags": [
     "ご当地エイド充実",
     "城下町",
@@ -32,7 +32,11 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [],
+    "certification": [
+      "JAAF",
+      "WA",
+      "AIMS"
+    ],
     "highlights_ja": "兼六園、金沢城、ひがし茶屋街付近",
     "highlights_en": "Kenroku-en Garden, Kanazawa Castle, Higashi Chaya District area",
     "notes_ja": null,
@@ -60,7 +64,19 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "金沢駅",
+      "station_name_en": "Kanazawa Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約20分（スタート会場）／シャトルバス有料（スタート会場行き）・無料（フィニッシュ会場行き）",
+      "transport_to_venue_en": "Approx. 20 min walk to start venue / Paid shuttle bus to start venue / Free shuttle bus to finish venue",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 20,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [
     {
       "type": "観光地",
@@ -110,15 +126,16 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-05-30T06:36:53.964Z",
+  "updated_at": "2026-07-31T14:32:03.226Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-07-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-07-31",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -175,8 +192,8 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "石川県西部緑地公園（産業展示館4号館前）",
+  "venue_name_en": "Ishikawa Prefecture Seibu Green Park (in front of Industrial Exhibition Hall Bldg. 4)",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

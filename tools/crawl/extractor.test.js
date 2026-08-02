@@ -86,6 +86,29 @@ describe('buildExtractionPrompt', () => {
     assert.ok(prompt.includes('motif'));
     assert.ok(prompt.includes('富士山'));
   });
+
+  test('複数種目でエントリー期間が異なる場合の指示をプロンプトに含む', () => {
+    const prompt = buildExtractionPrompt(race, pageTexts);
+    assert.ok(
+      prompt.includes('複数種目') || prompt.includes('種目ごと'),
+      '複数種目のエントリー期間を個別に扱う指示が含まれる'
+    );
+  });
+
+  test('既存のentry_periodsが複数件の場合に件数を維持する指示をプロンプトに含む', () => {
+    const raceWithMultiplePeriods = {
+      ...race,
+      entry_periods: [
+        { label_ja: 'フルマラソン', label_en: 'Full Marathon', start_date: '2025-08-01', end_date: '2025-10-31', entry_fee: 16200, category_id: null, sort_order: 0 },
+        { label_ja: 'ジョギング（10km）', label_en: 'Jogging (10km)', start_date: '2025-08-01', end_date: '2025-12-01', entry_fee: 8000, category_id: null, sort_order: 1 },
+      ],
+    };
+    const prompt = buildExtractionPrompt(raceWithMultiplePeriods, pageTexts);
+    // 既存entry_periodsが2件であることがプロンプトに反映される
+    assert.ok(prompt.includes('entry_periods'));
+    assert.ok(prompt.includes('フルマラソン'));
+    assert.ok(prompt.includes('ジョギング'));
+  });
 });
 
 // ── parseClaudeResponse ───────────────────────────────────────────

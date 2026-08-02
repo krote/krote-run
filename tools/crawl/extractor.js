@@ -100,6 +100,8 @@ ${pages}
 - motif_color は #RRGGBB 形式
 - nearby_spots の lat/lng が不明な場合は 0 を使用
 - participation_gifts と completion_gifts は別々に設定すること（完走賞・メダルは completion_gifts）
+- 複数種目（フルマラソン・ジョギング・10km等）でエントリー締切が異なる場合は、種目ごとに個別の entry_periods エントリーを作成すること（まとめて1件にしない）
+- 既存の entry_periods が複数件設定されている場合は、その種目構造を維持して更新すること
 - start_lat / start_lng は出力禁止（座標はジオコーディングスクリプトで別途処理する）
 - reception_type は "pre_day" / "race_day" / "both" / "pre_mail" / "none" のいずれか。判別不能なら出力しない
   - 前日と当日の両方の受付記載あり → "both"

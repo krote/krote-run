@@ -23,6 +23,13 @@ function fromAbsMonth(abs: number) { return { year: Math.floor(abs / 12), month:
 /** 月の日数 */
 function daysInMonth(y: number, m: number) { return new Date(y, m + 1, 0).getDate(); }
 
+const ROW_H = 28;
+const LABEL_W = 160;
+const CHART_W = 600;
+const MONTH_W = CHART_W / 12;
+const HEADER_H = 32;
+const SVG_FONT = 'var(--font-dm-sans, sans-serif)';
+
 export default function YearTimeline({ races, year, month, locale, today }: YearTimelineProps) {
   const isJa = locale === 'ja';
   const monthLabels = isJa ? MONTH_LABELS_JA : MONTH_LABELS_EN;
@@ -41,12 +48,8 @@ export default function YearTimeline({ races, year, month, locale, today }: Year
 
   const raceName = (race: Race) => isJa ? race.name_ja : (race.name_en ?? race.name_ja);
 
-  const ROW_H = 28;
-  const LABEL_W = 160;
-  const CHART_W = 600;
-  const MONTH_W = CHART_W / 12;
-  const HEADER_H = 32;
-  const svgHeight = HEADER_H + windowRaces.length * ROW_H + 16;
+  const svgWidth = LABEL_W + CHART_W;
+  const bodyHeight = windowRaces.length * ROW_H + 8 + 16;
 
   /** 日付文字列 → SVG x 座標 */
   function xForDate(dateStr: string): number {
@@ -59,7 +62,7 @@ export default function YearTimeline({ races, year, month, locale, today }: Year
   }
 
   // 今日線
-  const todayInWindow = (() => {
+  const todayX = (() => {
     const ty = parseInt(today.slice(0, 4));
     const tm = parseInt(today.slice(5, 7)) - 1;
     const abs = absMonth(ty, tm);
@@ -69,38 +72,55 @@ export default function YearTimeline({ races, year, month, locale, today }: Year
 
   return (
     <div>
-      <svg
-        width={LABEL_W + CHART_W}
-        height={svgHeight}
-        style={{ fontFamily: 'var(--font-dm-sans, sans-serif)', fontSize: 12 }}
+      {/* スティッキー月・年ヘッダー */}
+      <div
+        className="sticky z-40 bg-white"
+        style={{ top: 56, borderBottom: '1px solid var(--color-border-soft)' }}
       >
-        {/* 月グリッド線・ラベル */}
+        <svg
+          width={svgWidth}
+          height={HEADER_H}
+          style={{ display: 'block', fontFamily: SVG_FONT, fontSize: 12 }}
+        >
+          {Array.from({ length: 12 }, (_, i) => {
+            const { year: my, month: mm } = fromAbsMonth(windowStart + i);
+            const x = LABEL_W + i * MONTH_W;
+            const showYear = i === 0 || mm === 0;
+            return (
+              <g key={i}>
+                <text x={x + 3} y={14} fill="var(--color-light)" fontSize={9}>
+                  {showYear ? String(my) : ''}
+                </text>
+                <text x={x + 3} y={26} fill="var(--color-mid)" fontSize={10}>
+                  {monthLabels[mm]}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+
+      {/* タイムライン本体 */}
+      <svg
+        width={svgWidth}
+        height={bodyHeight}
+        style={{ fontFamily: SVG_FONT, fontSize: 12 }}
+      >
+        {/* 月グリッド線 */}
         {Array.from({ length: 12 }, (_, i) => {
-          const { year: my, month: mm } = fromAbsMonth(windowStart + i);
           const x = LABEL_W + i * MONTH_W;
-          const label = monthLabels[mm];
-          // 年をまたぐ場合は年を付記
-          const showYear = i === 0 || mm === 0;
           return (
-            <g key={i}>
-              <line x1={x} y1={HEADER_H} x2={x} y2={svgHeight} stroke="var(--color-border)" strokeWidth={1} />
-              <text x={x + 3} y={HEADER_H - 14} fill="var(--color-light)" fontSize={9}>
-                {showYear ? String(my) : ''}
-              </text>
-              <text x={x + 3} y={HEADER_H - 4} fill="var(--color-mid)" fontSize={10}>
-                {label}
-              </text>
-            </g>
+            <line key={i} x1={x} y1={0} x2={x} y2={bodyHeight} stroke="var(--color-border)" strokeWidth={1} />
           );
         })}
 
         {/* 今日線 */}
-        {todayInWindow !== null && (
+        {todayX !== null && (
           <line
-            x1={todayInWindow}
-            y1={HEADER_H}
-            x2={todayInWindow}
-            y2={svgHeight}
+            x1={todayX}
+            y1={0}
+            x2={todayX}
+            y2={bodyHeight}
             stroke="var(--color-primary)"
             strokeWidth={1.5}
             strokeDasharray="4,3"
@@ -109,7 +129,7 @@ export default function YearTimeline({ races, year, month, locale, today }: Year
 
         {/* 大会行 */}
         {windowRaces.map((race, i) => {
-          const y = HEADER_H + i * ROW_H;
+          const y = 8 + i * ROW_H;
           const cx = xForDate(race.date);
           const name = raceName(race);
 

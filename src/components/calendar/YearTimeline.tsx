@@ -88,10 +88,10 @@ export default function YearTimeline({ races, year, month, locale, today }: Year
             const showYear = i === 0 || mm === 0;
             return (
               <g key={i}>
-                <text x={x + 3} y={14} fill="var(--color-light)" fontSize={9}>
+                <text x={x + 3} y={14} fontSize={9} style={{ fill: 'var(--color-light)' }}>
                   {showYear ? String(my) : ''}
                 </text>
-                <text x={x + 3} y={26} fill="var(--color-mid)" fontSize={10}>
+                <text x={x + 3} y={26} fontSize={10} style={{ fill: 'var(--color-mid)' }}>
                   {monthLabels[mm]}
                 </text>
               </g>

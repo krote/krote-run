@@ -1,0 +1,184 @@
+{
+  "id": "ainotuchiyama-2026",
+  "name_ja": "あいの土山マラソン",
+  "name_en": "Aino Tsuchiyama Marathon",
+  "full_name_ja": "あいの土山マラソン",
+  "full_name_en": "Aino Tsuchiyama Marathon",
+  "edition": null,
+  "date": "2026-11-01",
+  "prefecture": "25",
+  "city_ja": "甲賀市土山町",
+  "city_en": "Tsuchiyama, Koka",
+  "description_ja": "滋賀県甲賀市土山町で開催されるマラソン大会。日本陸連公認のフルマラソンをはじめ、ハーフマラソン、キッズ2.195kmの3種目を実施。旧東海道の宿場町として知られる土山を舞台に、自然豊かな甲賀の山々を望みながら走る。",
+  "description_en": "A marathon event held in Tsuchiyama, Koka City, Shiga Prefecture. Featuring a JAAF-certified full marathon, half marathon, and a Kids 2.195km category. Runners race through Tsuchiyama, a historic post town on the old Tokaido highway, with views of the lush mountains of Koka.",
+  "official_url": "https://www.ac-koka.jp/marathon/index.html",
+  "entry_fee": 7000,
+  "entry_fee_by_category": true,
+  "entry_capacity": 4000,
+  "entry_start_date": "2026-06-14",
+  "entry_end_date": "2026-08-10",
+  "reception_type": "pre_day",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [
+    "日本陸連公認",
+    "ファミリー"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "旧東海道土山宿、甲賀の山々",
+    "highlights_en": "Tsuchiyama-juku post town on the old Tokaido, Koka mountains",
+    "notes_ja": "2026年度より給水所の位置が一部変更（4.3km青土・7.5km横谷林道・13.8km展望広場を新設）",
+    "notes_en": "Aid station locations partially changed for 2026 (new stops at 4.3km Aodo, 7.5km Yokotani Rindo, 13.8km Observation Plaza)"
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 300,
+      "start_time": "10:30",
+      "capacity": null,
+      "entry_fee": 7000
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 180,
+      "start_time": "10:30",
+      "capacity": null,
+      "entry_fee": 7000
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2.195,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 100,
+      "entry_fee": 1000,
+      "name_ja": "キッズ2.195km（小学5・6年生）",
+      "name_en": "Kids 2.195km (5th & 6th graders)"
+    }
+  ],
+  "aid_stations": [
+    {
+      "distance_km": 4.3,
+      "offerings_ja": "水、スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 7.5,
+      "offerings_ja": "水、スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 13.8,
+      "offerings_ja": "水、スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    }
+  ],
+  "checkpoints": [
+    {
+      "distance_km": 15.8,
+      "closing_time": "12:45"
+    },
+    {
+      "distance_km": 25.6,
+      "closing_time": "13:33"
+    },
+    {
+      "distance_km": 40.2,
+      "closing_time": "15:17"
+    }
+  ],
+  "access_points": [
+    {
+      "station_name_ja": "貴生川駅",
+      "station_name_en": "Kibukawa Station",
+      "station_code": "",
+      "transport_to_venue_ja": "バスで約35分、土山中学校バス停または田村神社バス停下車、徒歩5分",
+      "transport_to_venue_en": "Approx. 35 min by bus, alight at Tsuchiyama Junior High School or Tamura Shrine stop, then 5 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 5,
+      "is_primary": true
+    }
+  ],
+  "nearby_spots": [],
+  "venue_name_ja": "土山体育施設",
+  "venue_name_en": "Tsuchiyama Athletic Facilities",
+  "venue_address": "滋賀県甲賀市土山町北土山414-2",
+  "start_lat": null,
+  "start_lng": null,
+  "result": null,
+  "created_at": "2026-08-03T14:37:07.156Z",
+  "updated_at": "2026-08-03T00:00:00.000Z",
+  "info_urls": [
+    {
+      "url": "https://www.ac-koka.jp/marathon/course.html",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.ac-koka.jp/marathon/marathon-access.html",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://www.ac-koka.jp/marathon/2026/26_outline.html",
+      "label": "大会要項"
+    }
+  ],
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-06-14",
+      "end_date": "2026-08-10",
+      "entry_fee": 7000,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "entry_closed": false,
+  "entry_links": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "オリジナルTシャツ（マラソン・ハーフマラソン参加者）",
+      "description_en": "Original T-shirt (marathon and half marathon participants)",
+      "image": null
+    }
+  ],
+  "completion_gifts": [],
+  "weather_history": [],
+  "motif": null,
+  "motif_romaji": null,
+  "motif_color": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "_metadata": {
+    "data_source": "公式サイト（大会要項・コース情報・アクセスページ）",
+    "data_accuracy_notes": [
+      "2026-08-03: 公式サイトをクロールして基本情報を入力"
+    ],
+    "last_verified": "2026-08-03",
+    "detail_level": "medium"
+  }
+}

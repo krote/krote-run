@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-07-31T15:01:03.682Z
+-- 生成日時: 2026-08-03T15:15:18.398Z
 -- 対象ファイル数: 93 件（既存 2 件はskip）
 
 -- ==================
@@ -136,6 +136,157 @@ INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_j
   ('abashiri-marathon-2026', '["medal"]', 'YAMAtune製オリジナルソックス、ランニンググローブ、おもてなしブース飲食券', '', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('abashiri-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-07-16', NULL, 0);
+
+-- ==================
+-- あいの土山マラソン (ainotuchiyama-2026)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM race_categories WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM aid_stations WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM checkpoints WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM access_points WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM nearby_spots WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM weather_history WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM participation_gifts WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM completion_gifts WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM race_entry_links WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM reception_sessions WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM race_travel_times WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM race_results WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM race_gallery WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM race_voices WHERE race_id = 'ainotuchiyama-2026';
+DELETE FROM race_time_buckets WHERE race_id = 'ainotuchiyama-2026';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'ainotuchiyama-2026',
+  'あいの土山マラソン',
+  'Aino Tsuchiyama Marathon',
+  '2026-11-01',
+  '25',
+  '甲賀市土山町',
+  'Tsuchiyama, Koka',
+  '滋賀県甲賀市土山町で開催されるマラソン大会。日本陸連公認のフルマラソンをはじめ、ハーフマラソン、キッズ2.195kmの3種目を実施。旧東海道の宿場町として知られる土山を舞台に、自然豊かな甲賀の山々を望みながら走る。',
+  'A marathon event held in Tsuchiyama, Koka City, Shiga Prefecture. Featuring a JAAF-certified full marathon, half marathon, and a Kids 2.195km category. Runners race through Tsuchiyama, a historic post town on the old Tokaido highway, with views of the lush mountains of Koka.',
+  'https://www.ac-koka.jp/marathon/index.html',
+  7000,
+  1,
+  4000,
+  '2026-06-14',
+  '2026-08-10',
+  0,
+  'pre_day',
+  '',
+  '',
+  '["日本陸連公認","ファミリー"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '["JAAF"]',
+  '旧東海道土山宿、甲賀の山々',
+  'Tsuchiyama-juku post town on the old Tokaido, Koka mountains',
+  '2026年度より給水所の位置が一部変更（4.3km青土・7.5km横谷林道・13.8km展望広場を新設）',
+  'Aid station locations partially changed for 2026 (new stops at 4.3km Aodo, 7.5km Yokotani Rindo, 13.8km Observation Plaza)',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  '土山体育施設',
+  'Tsuchiyama Athletic Facilities',
+  '滋賀県甲賀市土山町北土山414-2',
+  NULL,
+  NULL,
+  '2026-08-03T14:37:07.156Z',
+  '2026-08-03T00:00:00.000Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ainotuchiyama-2026', 'full', 42.195, 300, '10:30', 0, 7000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ainotuchiyama-2026', 'half', 21.0975, 180, '10:30', 0, 7000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ainotuchiyama-2026', 'other', 2.195, 0, '', 100, 1000, NULL, 'キッズ2.195km（小学5・6年生）', 'Kids 2.195km (5th & 6th graders)', NULL, NULL, NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('ainotuchiyama-2026', 4.3, '水、スポーツドリンク', 'Water, sports drink', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('ainotuchiyama-2026', 7.5, '水、スポーツドリンク', 'Water, sports drink', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('ainotuchiyama-2026', 13.8, '水、スポーツドリンク', 'Water, sports drink', 0);
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('ainotuchiyama-2026', 15.8, '12:45');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('ainotuchiyama-2026', 25.6, '13:33');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('ainotuchiyama-2026', 40.2, '15:17');
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('ainotuchiyama-2026', '貴生川駅', 'Kibukawa Station', '', 'バスで約35分、土山中学校バス停または田村神社バス停下車、徒歩5分', 'Approx. 35 min by bus, alight at Tsuchiyama Junior High School or Tamura Shrine stop, then 5 min walk', 0, 0, 5, 1, 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('ainotuchiyama-2026', '["tshirt"]', 'オリジナルTシャツ（マラソン・ハーフマラソン参加者）', 'Original T-shirt (marathon and half marathon participants)', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('ainotuchiyama-2026', NULL, '一般エントリー', 'General Entry', '2026-06-14', '2026-08-10', 7000, 0);
 
 -- ==================
 -- 北緯40°秋田内陸リゾートカップ100キロチャレンジマラソン (akita-nairiku-ultra-2026)
@@ -2570,7 +2721,7 @@ INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en,
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('gunma-marathon-2026', '温泉', '伊香保温泉', 'Ikaho Onsen', '石段街で有名な群馬の温泉地。黄金の湯と白銀の湯の2種。前橋から車約40分。', 'Famous for its stone steps. Two types of springs: Golden and Silver. About 40 min by car from Maebashi.', '前橋市から車約40分', 'https://www.ikaho-kankou.com/', 36.4886, 138.9311);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
-  ('gunma-marathon-2026', '観光地', '富岡製糸工場', '', '明治5年（1872）に明治政府が設立した官営の器械製糸場です。民営化後も一貫して製糸を行い、製糸技術開発の最先端として国内養蚕・製糸業を世界一の水準に牽引しました。また、田島家、高山社、荒船風穴などと連携して、蚕の優良品種の開発と普及を主導しました。和洋技術を混交した工場建築の代表であり、長さ100ｍを超える木骨煉瓦造の2棟の置繭所や繰糸所など、主要な施設が創業当時のまま、ほぼ完全に残されています。', 'This was a government-run mechanical silk mill established by the Meiji government in 1872. Even after its privatization, it continued to produce silk and, as a leader in silk-reeling technology development, propelled Japan’s sericulture and silk-reeling industries to the world’s highest standards. Furthermore, in collaboration with the Tajima family, the Takayama Society, and the Arafune Wind Cave, it led the development and dissemination of superior silkworm breeds. It is a prime example of factory architecture blending Japanese and Western styles, and major facilities—including two wooden-framed brick cocoon storage buildings and a reeling workshop, each over 100 meters long—remain almost entirely intact as they were at the time of the factory’s founding.
+  ('gunma-marathon-2026', '観光地', '富岡製糸工場', 'Tomioka Silk Mill', '明治5年（1872）に明治政府が設立した官営の器械製糸場です。民営化後も一貫して製糸を行い、製糸技術開発の最先端として国内養蚕・製糸業を世界一の水準に牽引しました。また、田島家、高山社、荒船風穴などと連携して、蚕の優良品種の開発と普及を主導しました。和洋技術を混交した工場建築の代表であり、長さ100ｍを超える木骨煉瓦造の2棟の置繭所や繰糸所など、主要な施設が創業当時のまま、ほぼ完全に残されています。', 'This was a government-run mechanical silk mill established by the Meiji government in 1872. Even after its privatization, it continued to produce silk and, as a leader in silk-reeling technology development, propelled Japan’s sericulture and silk-reeling industries to the world’s highest standards. Furthermore, in collaboration with the Tajima family, the Takayama Society, and the Arafune Wind Cave, it led the development and dissemination of superior silkworm breeds. It is a prime example of factory architecture blending Japanese and Western styles, and major facilities—including two wooden-framed brick cocoon storage buildings and a reeling workshop, each over 100 meters long—remain almost entirely intact as they were at the time of the factory’s founding.
 
 Translated with DeepL.com (free version)', '', 'https://worldheritage.pref.gunma.jp/whc/', 36.2551968, 138.8850047);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -11654,133 +11805,6 @@ INSERT OR REPLACE INTO race_entry_links (race_id, site_name, url, sort_order) VA
   ('tazawako-marathon-2026', 'RUNNET', 'https://runnet.jp/entry/runtes/user/pc/competitionDetailAction.do?raceId=388457&div=1', 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('tazawako-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-05-27', NULL, 0);
-
--- ==================
--- テストマラソン (test-marathon-2026)
--- ==================
-DELETE FROM race_course_highlights WHERE race_id = 'test-marathon-2026';
-DELETE FROM race_categories WHERE race_id = 'test-marathon-2026';
-DELETE FROM aid_stations WHERE race_id = 'test-marathon-2026';
-DELETE FROM checkpoints WHERE race_id = 'test-marathon-2026';
-DELETE FROM access_points WHERE race_id = 'test-marathon-2026';
-DELETE FROM nearby_spots WHERE race_id = 'test-marathon-2026';
-DELETE FROM weather_history WHERE race_id = 'test-marathon-2026';
-DELETE FROM participation_gifts WHERE race_id = 'test-marathon-2026';
-DELETE FROM completion_gifts WHERE race_id = 'test-marathon-2026';
-DELETE FROM race_entry_links WHERE race_id = 'test-marathon-2026';
-DELETE FROM race_entry_periods WHERE race_id = 'test-marathon-2026';
-DELETE FROM reception_sessions WHERE race_id = 'test-marathon-2026';
-DELETE FROM race_travel_times WHERE race_id = 'test-marathon-2026';
-DELETE FROM race_results WHERE race_id = 'test-marathon-2026';
-DELETE FROM race_gallery WHERE race_id = 'test-marathon-2026';
-DELETE FROM race_voices WHERE race_id = 'test-marathon-2026';
-DELETE FROM race_time_buckets WHERE race_id = 'test-marathon-2026';
-INSERT INTO races (
-  id, name_ja, name_en, date, prefecture, city_ja, city_en,
-  description_ja, description_en, official_url,
-  entry_fee, entry_fee_by_category, entry_capacity,
-  entry_start_date, entry_end_date, entry_closed,
-  reception_type, reception_note_ja, reception_note_en,
-  tags, course_gpx_file,
-  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
-  course_surface, course_certification,
-  course_highlights_ja, course_highlights_en,
-  course_notes_ja, course_notes_en,
-  motif, motif_color, motif_romaji,
-  tagline_ja, tagline_en,
-  hero_image_url, hero_caption_ja, hero_caption_en,
-  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
-  created_at, updated_at
-) VALUES (
-  'test-marathon-2026',
-  'テストマラソン',
-  NULL,
-  '2027-03-01',
-  NULL,
-  NULL,
-  NULL,
-  '',
-  '',
-  '',
-  16200,
-  0,
-  38000,
-  '2025-08-01',
-  '2025-10-31',
-  0,
-  'race_day',
-  '',
-  '',
-  '{}',
-  NULL,
-  0,
-  0,
-  0,
-  'road',
-  '{}',
-  '',
-  '',
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  '2026-07-31T14:58:53.991Z'
-) ON CONFLICT(id) DO UPDATE SET
-  name_ja = excluded.name_ja,
-  name_en = excluded.name_en,
-  date = excluded.date,
-  prefecture = excluded.prefecture,
-  city_ja = excluded.city_ja,
-  city_en = excluded.city_en,
-  description_ja = excluded.description_ja,
-  description_en = excluded.description_en,
-  official_url = excluded.official_url,
-  entry_fee = excluded.entry_fee,
-  entry_fee_by_category = excluded.entry_fee_by_category,
-  entry_capacity = excluded.entry_capacity,
-  entry_start_date = excluded.entry_start_date,
-  entry_end_date = excluded.entry_end_date,
-  entry_closed = excluded.entry_closed,
-  reception_type = excluded.reception_type,
-  reception_note_ja = excluded.reception_note_ja,
-  reception_note_en = excluded.reception_note_en,
-  tags = excluded.tags,
-  course_gpx_file = excluded.course_gpx_file,
-  course_max_elevation_m = excluded.course_max_elevation_m,
-  course_min_elevation_m = excluded.course_min_elevation_m,
-  course_elevation_diff_m = excluded.course_elevation_diff_m,
-  course_surface = excluded.course_surface,
-  course_certification = excluded.course_certification,
-  course_highlights_ja = excluded.course_highlights_ja,
-  course_highlights_en = excluded.course_highlights_en,
-  course_notes_ja = excluded.course_notes_ja,
-  course_notes_en = excluded.course_notes_en,
-  motif = excluded.motif,
-  motif_color = excluded.motif_color,
-  motif_romaji = excluded.motif_romaji,
-  tagline_ja = excluded.tagline_ja,
-  tagline_en = excluded.tagline_en,
-  hero_image_url = excluded.hero_image_url,
-  hero_caption_ja = excluded.hero_caption_ja,
-  hero_caption_en = excluded.hero_caption_en,
-  venue_name_ja = excluded.venue_name_ja,
-  venue_name_en = excluded.venue_name_en,
-  venue_address = excluded.venue_address,
-  start_lat = excluded.start_lat,
-  start_lng = excluded.start_lng,
-  updated_at = excluded.updated_at;
 
 -- ==================
 -- とくしまマラソン (tokushima-marathon-2026)

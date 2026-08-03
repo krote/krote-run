@@ -888,3 +888,15 @@ APIの調査中にGoogle Routes API v2がTRANSITモードで日本に非対応�
   - 既存の entry_periods が複数件の場合はその構造を維持すること
 - `tools/crawl/extractor.test.js`：上記プロンプト変更のテスト2件追加
 - `migrations/seed-races-all.sql`：シード再生成
+
+## 2026-08-04 あいの土山マラソン情報入力
+
+- `src/data/races/ainotuchiyama-2026.json`：公式サイトをクロールして以下の情報を入力
+  - 基本情報：city_ja/en、description_ja/en、name_en
+  - エントリー：entry_fee（7,000円）、entry_capacity（4,000名）、entry_start/end_date（2026-06-14〜08-10）
+  - 種目：フルマラソン・ハーフマラソン・キッズ2.195km（3種目）
+  - コース：JAAF公認、関門3箇所（15.8/25.6/40.2km）、エイド3箇所（2026年新設）
+  - 会場：土山体育施設（滋賀県甲賀市土山町北土山414-2）
+  - アクセス：JR貴生川駅からバス35分
+  - 参加賞：オリジナルTシャツ
+- `migrations/seed-races-all.sql`：シード再生成

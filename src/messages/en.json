@@ -360,6 +360,24 @@
     "categoryLight": "Light",
     "categoryPoles": "Poles",
     "categoryNutrition": "Nutrition",
-    "categoryOther": "Other"
+    "categoryOther": "Other",
+    "raceGearButton": "Gear",
+    "raceGearEmpty": "No gear registered",
+    "raceGearNoGear": "Register your gear first to create a packing list",
+    "raceGearAddFromGear": "Add from My Gear",
+    "raceGearCopyFromPrev": "Copy from previous race",
+    "raceGearCopySelect": "Select source race",
+    "raceGearCopyConfirm": "Copy this list",
+    "raceGearNoCandidates": "No gear lists available to copy from",
+    "raceGearSave": "Save",
+    "raceGearSaving": "Saving…",
+    "raceGearSaved": "Saved",
+    "raceGearQuantity": "Qty",
+    "raceGearUsed": "Used",
+    "raceGearNotUsed": "Not used",
+    "raceGearUsedUnknown": "Not recorded",
+    "raceGearUsedQuantity": "Used qty",
+    "raceGearNote": "Note",
+    "raceGearGoToGear": "Register gear"
   }
 }

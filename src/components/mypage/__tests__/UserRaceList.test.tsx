@@ -10,6 +10,10 @@ vi.mock('@/i18n/navigation', () => ({
   ),
 }));
 
+vi.mock('next-intl', () => ({
+  useTranslations: () => (key: string) => key,
+}));
+
 const { mockUseSession } = vi.hoisted(() => ({
   mockUseSession: vi.fn(),
 }));

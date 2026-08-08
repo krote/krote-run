@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useSession } from '@/lib/auth-client';
 import { Link } from '@/i18n/navigation';
+import RaceGearSection from './RaceGearSection';
 
 interface UserRaceRow {
   id: string;
@@ -32,6 +33,64 @@ interface RaceInfo {
 
 function getCatLabel(cat: CategoryInfo): string {
   return cat.name_ja ?? `${cat.distance_km}km`;
+}
+
+function RaceItem({ row, raceMap }: { row: UserRaceRow; raceMap: Map<string, RaceInfo> }) {
+  const race = raceMap.get(row.race_id);
+  const name = race ? (race.full_name_ja ?? race.name_ja) : row.race_id;
+
+  // 参加予定カテゴリ
+  const cat = race?.categories?.find((c) => c.id === row.planning_category_id);
+
+  // リマインド設定済み期間数
+  const reminderIds: number[] = (() => { try { return JSON.parse(row.entry_reminder_period_ids ?? '[]'); } catch { return []; } })();
+
+  return (
+    <div
+      className="py-3 border-b last:border-0"
+      style={{ borderColor: 'var(--color-border)' }}
+    >
+      <div className="flex items-center justify-between">
+        <div className="flex-1 min-w-0">
+          <Link
+            href={`/races/${row.race_id}`}
+            className="text-sm font-medium no-underline hover:underline"
+            style={{ color: 'var(--color-ink)' }}
+          >
+            {name}
+          </Link>
+          <div className="flex flex-wrap items-center gap-2 mt-0.5">
+            {race && (
+              <span className="text-xs" style={{ color: 'var(--color-mid)' }}>
+                {race.date}
+              </span>
+            )}
+            {cat && row.is_planning && (
+              <span
+                className="text-xs px-2 py-0.5 rounded-[3px] font-medium"
+                style={{ background: 'var(--color-cream)', color: 'var(--color-ink2)', border: '1px solid var(--color-border)' }}
+              >
+                {getCatLabel(cat)} · {cat.distance_km}km
+              </span>
+            )}
+          </div>
+        </div>
+        <div className="flex items-center gap-2 shrink-0 ml-4">
+          {reminderIds.length > 0 && (
+            <span className="text-xs px-2 py-0.5 rounded-[3px]"
+              style={{ background: '#fef3c7', color: '#92400e' }}>
+              🔔 リマインド{reminderIds.length > 1 ? `×${reminderIds.length}` : ''}
+            </span>
+          )}
+        </div>
+      </div>
+      {race && (
+        <div className="mt-2">
+          <RaceGearSection raceId={row.race_id} raceDate={race.date} />
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default function UserRaceList() {
@@ -89,55 +148,6 @@ export default function UserRaceList() {
     );
   }
 
-  function RaceItem({ row, badge }: { row: UserRaceRow; badge?: React.ReactNode }) {
-    const race = raceMap.get(row.race_id);
-    const name = race ? (race.full_name_ja ?? race.name_ja) : row.race_id;
-
-    // 参加予定カテゴリ
-    const cat = race?.categories?.find((c) => c.id === row.planning_category_id);
-
-    // リマインド設定済み期間数
-    const reminderIds: number[] = (() => { try { return JSON.parse(row.entry_reminder_period_ids ?? '[]'); } catch { return []; } })();
-
-    return (
-      <div className="flex items-center justify-between py-3 border-b border-[var(--color-border)] last:border-0">
-        <div className="flex-1 min-w-0">
-          <Link
-            href={`/races/${row.race_id}`}
-            className="text-sm font-medium no-underline hover:underline"
-            style={{ color: 'var(--color-ink)' }}
-          >
-            {name}
-          </Link>
-          <div className="flex flex-wrap items-center gap-2 mt-0.5">
-            {race && (
-              <span className="text-xs" style={{ color: 'var(--color-mid)' }}>
-                {race.date}
-              </span>
-            )}
-            {cat && row.is_planning && (
-              <span
-                className="text-xs px-2 py-0.5 rounded-[3px] font-medium"
-                style={{ background: 'var(--color-cream)', color: 'var(--color-ink2)', border: '1px solid var(--color-border)' }}
-              >
-                {getCatLabel(cat)} · {cat.distance_km}km
-              </span>
-            )}
-          </div>
-        </div>
-        <div className="flex items-center gap-2 shrink-0 ml-4">
-          {badge}
-          {reminderIds.length > 0 && (
-            <span className="text-xs px-2 py-0.5 rounded-[3px]"
-              style={{ background: '#fef3c7', color: '#92400e' }}>
-              🔔 リマインド{reminderIds.length > 1 ? `×${reminderIds.length}` : ''}
-            </span>
-          )}
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="space-y-6">
       {planning.length > 0 && (
@@ -147,8 +157,9 @@ export default function UserRaceList() {
           </p>
           <div>
             {planning.map((row) => (
-              <RaceItem key={row.id} row={row} />
+              <RaceItem key={row.id} row={row} raceMap={raceMap} />
             ))}
+
           </div>
         </div>
       )}
@@ -160,7 +171,7 @@ export default function UserRaceList() {
           </p>
           <div>
             {reminders.map((row) => (
-              <RaceItem key={row.id} row={row} />
+              <RaceItem key={row.id} row={row} raceMap={raceMap} />
             ))}
           </div>
         </div>

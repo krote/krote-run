@@ -900,3 +900,21 @@ APIの調査中にGoogle Routes API v2がTRANSITモードで日本に非対応�
   - アクセス：JR貴生川駅からバス35分
   - 参加賞：オリジナルTシャツ
 - `migrations/seed-races-all.sql`：シード再生成
+
+## 2026-08-05 Issue #124: レース装備リスト実装
+
+- `src/lib/race-gear-validation.ts`（新規）: `validatePutBody` / `validatePatchBody` バリデーション関数
+- `src/lib/__tests__/race-gear-validation.test.ts`（新規）: バリデーション単体テスト 27件
+- `src/app/api/user/races/[raceId]/gear/route.ts`（新規）: GET / PUT / PATCH APIルート
+  - GET: レース装備リスト取得、`?source=candidates` でコピー元候補一覧
+  - PUT: 装備リスト全置換（gear_id所有者確認、used/note引き継ぎ）
+  - PATCH: 個別使用記録更新（used / used_quantity / note）
+- `src/app/api/user/races/[raceId]/gear/__tests__/route.test.ts`（新規）: APIルートテスト 18件
+- `src/components/mypage/RaceGearSection.tsx`（新規）: レース装備セクションUIコンポーネント
+  - レース前: マイギアから追加、前のレースからコピー、数量編集、保存（PUT）
+  - レース後: 使用/未使用/未記録トグル、使用数入力、メモ入力（PATCH）
+  - マイギア0件時: ギア登録リンクを表示
+- `src/components/mypage/__tests__/RaceGearSection.test.tsx`（新規）: UIコンポーネントテスト 17件
+- `src/components/mypage/UserRaceList.tsx`（変更）: 各レース行に `RaceGearSection` を追加
+- `src/components/mypage/__tests__/UserRaceList.test.tsx`（変更）: `next-intl` モックを追加
+- `src/messages/ja.json` / `src/messages/en.json`（変更）: `gear` 名前空間に raceGear* キーを追加

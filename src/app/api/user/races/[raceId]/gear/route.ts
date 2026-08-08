@@ -108,7 +108,12 @@ export async function PUT(request: Request, { params }: Params) {
   const userRace = await getUserRace(db, session.user.id, raceId);
   if (!userRace) return Response.json({ error: 'Not Found' }, { status: 404 });
 
-  const body = await request.json();
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return Response.json({ error: 'リクエストボディが不正です' }, { status: 400 });
+  }
   const validation = validatePutBody(body);
   if ('error' in validation) return Response.json({ error: validation.error }, { status: 400 });
 
@@ -137,15 +142,13 @@ export async function PUT(request: Request, { params }: Params) {
 
   const existingMap = new Map(existing.map((e) => [e.gear_id, e]));
 
-  // 既存を全削除
-  await db
+  // 削除と挿入を db.batch() でまとめて原子的に実行
+  const deleteOp = db
     .delete(schema.user_race_gear)
     .where(eq(schema.user_race_gear.user_race_id, userRace.id));
-
-  // 新しいアイテムを挿入（同一 gear_id の used/note は引き継ぐ）
-  for (const item of items) {
+  const insertOps = items.map((item) => {
     const prev = existingMap.get(item.gear_id);
-    await db.insert(schema.user_race_gear).values({
+    return db.insert(schema.user_race_gear).values({
       user_race_id: userRace.id,
       gear_id: item.gear_id,
       quantity: item.quantity,
@@ -154,7 +157,9 @@ export async function PUT(request: Request, { params }: Params) {
       used_quantity: prev?.used_quantity ?? null,
       note: prev?.note ?? '',
     });
-  }
+  });
+  type BatchOp = Parameters<typeof db.batch>[0][number];
+  await db.batch([deleteOp, ...insertOps] as [BatchOp, ...BatchOp[]]);
 
   // 更新後のリストを返す
   const updated = await db
@@ -190,7 +195,12 @@ export async function PATCH(request: Request, { params }: Params) {
   const userRace = await getUserRace(db, session.user.id, raceId);
   if (!userRace) return Response.json({ error: 'Not Found' }, { status: 404 });
 
-  const body = await request.json();
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return Response.json({ error: 'リクエストボディが不正です' }, { status: 400 });
+  }
   const validation = validatePatchBody(body);
   if ('error' in validation) return Response.json({ error: validation.error }, { status: 400 });
 

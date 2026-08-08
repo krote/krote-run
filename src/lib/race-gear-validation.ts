@@ -36,7 +36,11 @@ export function validatePutBody(body: unknown): ValidationResult<PutGearBody> {
   const seenGearIds = new Set<string>();
 
   for (let i = 0; i < b.items.length; i++) {
-    const item = b.items[i] as Record<string, unknown>;
+    const raw = b.items[i];
+    if (raw === null || typeof raw !== 'object' || Array.isArray(raw)) {
+      return { error: `items[${i}] はオブジェクトで指定してください` };
+    }
+    const item = raw as Record<string, unknown>;
 
     if (typeof item.gear_id !== 'string' || item.gear_id.trim() === '') {
       return { error: `items[${i}].gear_id は空でない文字列で指定してください` };

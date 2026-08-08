@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { type UserGear } from '@/lib/types';
@@ -57,8 +57,13 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
   const [selectedCandidateRaceId, setSelectedCandidateRaceId] = useState('');
   const [draft, setDraft] = useState<DraftItem[]>([]);
   const [addSelected, setAddSelected] = useState<Set<string>>(new Set());
+  const [patchError, setPatchError] = useState<string | null>(null);
 
-  const today = new Date().toISOString().slice(0, 10);
+  const today = new Intl.DateTimeFormat('en-CA', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(new Date());
   const isPostRace = raceDate < today;
 
   // ─── Load ───────────────────────────────────────────────────────────────
@@ -86,11 +91,13 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
     }
   }, [raceId]);
 
-  useEffect(() => {
-    if (open && !loaded) {
-      load();
-    }
-  }, [open, loaded, load]);
+  const handleToggle = () => {
+    setOpen((v) => {
+      const next = !v;
+      if (next && !loaded) void load();
+      return next;
+    });
+  };
 
   // ─── Helpers ────────────────────────────────────────────────────────────
 
@@ -143,18 +150,25 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
     gearId: string,
     patch: { used: boolean | null; used_quantity?: number; note?: string },
   ) => {
-    const res = await fetch(`/api/user/races/${raceId}/gear`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ gear_id: gearId, ...patch }),
-    });
-    if (res.ok) {
+    try {
+      setPatchError(null);
+      const res = await fetch(`/api/user/races/${raceId}/gear`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ gear_id: gearId, ...patch }),
+      });
+      if (!res.ok) {
+        setPatchError(t('raceGearPatchError'));
+        return;
+      }
       const updated = await res.json();
       setRaceGear((prev) =>
         prev.map((item) =>
           item.gear_id === gearId ? { ...item, ...updated } : item,
         ),
       );
+    } catch {
+      setPatchError(t('raceGearPatchError'));
     }
   };
 
@@ -228,7 +242,7 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
 
   const toggleButton = (
     <button
-      onClick={() => setOpen((v) => !v)}
+      onClick={handleToggle}
       className="text-xs px-2 py-0.5 rounded-[3px] font-medium transition-colors"
       style={{
         background: open ? 'var(--color-primary)' : 'var(--color-cream)',
@@ -319,7 +333,7 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
                     onClick={() => removeFromDraft(d.gear_id)}
                     className="text-xs px-1.5 py-0.5 rounded"
                     style={{ color: 'var(--color-mid)' }}
-                    aria-label="削除"
+                    aria-label={t('raceGearRemove')}
                   >
                     ×
                   </button>
@@ -404,14 +418,14 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
                   className="text-xs px-2 py-1 rounded font-medium"
                   style={{ background: 'var(--color-primary)', color: '#fff' }}
                 >
-                  追加
+                  {t('raceGearAdd')}
                 </button>
                 <button
                   onClick={() => setShowAddPanel(false)}
                   className="text-xs px-2 py-1 rounded"
                   style={{ color: 'var(--color-mid)' }}
                 >
-                  キャンセル
+                  {t('raceGearCancel')}
                 </button>
               </div>
             </div>
@@ -455,7 +469,7 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
                       className="text-xs px-2 py-1 rounded"
                       style={{ color: 'var(--color-mid)' }}
                     >
-                      キャンセル
+                      {t('raceGearCancel')}
                     </button>
                   </div>
                 </>
@@ -479,6 +493,11 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
           background: 'var(--color-cream)',
         }}
       >
+        {patchError && (
+          <p className="text-xs mb-2" style={{ color: 'var(--color-primary)' }}>
+            {patchError}
+          </p>
+        )}
         {raceGear.length === 0 ? (
           <p className="text-xs" style={{ color: 'var(--color-mid)' }}>
             {t('raceGearEmpty')}

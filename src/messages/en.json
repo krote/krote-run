@@ -378,6 +378,10 @@
     "raceGearUsedUnknown": "Not recorded",
     "raceGearUsedQuantity": "Used qty",
     "raceGearNote": "Note",
-    "raceGearGoToGear": "Register gear"
+    "raceGearGoToGear": "Register gear",
+    "raceGearRemove": "Remove",
+    "raceGearAdd": "Add",
+    "raceGearCancel": "Cancel",
+    "raceGearPatchError": "Failed to save"
   }
 }

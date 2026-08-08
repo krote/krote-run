@@ -8,7 +8,7 @@ const {
   mockUpdateWhere,
   mockDeleteWhere,
 } = vi.hoisted(() => {
-  const mockSelectRows = vi.fn<[], Promise<unknown[]>>().mockResolvedValue([]);
+  const mockSelectRows = vi.fn<() => Promise<unknown[]>>().mockResolvedValue([]);
   const mockInsertValues = vi.fn().mockResolvedValue(undefined);
   const mockUpdateWhere = vi.fn().mockResolvedValue(undefined);
   const mockDeleteWhere = vi.fn().mockResolvedValue(undefined);
@@ -56,6 +56,7 @@ vi.mock('drizzle-orm/d1', () => ({
         set: vi.fn(() => ({ where: mockUpdateWhere })),
       })),
       delete: vi.fn(() => ({ where: mockDeleteWhere })),
+      batch: vi.fn().mockResolvedValue([]),
     };
   }),
 }));

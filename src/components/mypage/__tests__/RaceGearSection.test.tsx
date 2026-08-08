@@ -24,6 +24,10 @@ const TRANSLATION_MAP: Record<string, string> = {
   raceGearUsedQuantity: '使用数',
   raceGearNote: 'メモ',
   raceGearGoToGear: 'ギアを登録する',
+  raceGearRemove: '削除',
+  raceGearAdd: '追加',
+  raceGearCancel: 'キャンセル',
+  raceGearPatchError: '保存に失敗しました',
 };
 
 vi.mock('next-intl', () => ({

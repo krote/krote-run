@@ -3,6 +3,8 @@ import { routing } from './src/i18n/routing';
 
 export default createMiddleware(routing);
 
+export const runtime = 'edge';
+
 export const config = {
   matcher: [
     // Enable redirect for root path

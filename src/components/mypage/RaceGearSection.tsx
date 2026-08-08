@@ -160,7 +160,7 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
         setPatchError(t('raceGearPatchError'));
         return;
       }
-      const updated = await res.json();
+      const updated = (await res.json()) as Partial<RaceGearRow>;
       setRaceGear((prev) =>
         prev.map((item) =>
           item.gear_id === gearId ? { ...item, ...updated } : item,

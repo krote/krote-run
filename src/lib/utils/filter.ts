@@ -1,4 +1,4 @@
-import type { Race, RaceFilter, RaceStatus, DistanceType, RaceSortKey } from '../types';
+import type { Race, RaceFilter, RaceStatus, DistanceType, RaceSortKey, EntryPeriod } from '../types';
 import { getRaceStatus } from './race';
 import { getTodayJST } from './date';
 
@@ -125,7 +125,7 @@ function getEarliestActiveEnd(race: Race, today: string): string | null {
   if (periods.length > 0) {
     const active = periods.filter((p) => p.start_date <= today && (p.end_date === null || p.end_date >= today));
     if (active.length === 0) return null;
-    const withEnd = active.filter((p): p is { start_date: string; end_date: string } => p.end_date !== null);
+    const withEnd = active.filter((p): p is EntryPeriod & { end_date: string } => p.end_date !== null);
     if (withEnd.length === 0) return null;
     return withEnd.reduce((min, p) => (p.end_date < min ? p.end_date : min), withEnd[0].end_date);
   }

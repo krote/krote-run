@@ -60,6 +60,7 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
   const [patchError, setPatchError] = useState<string | null>(null);
 
   const today = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Tokyo',
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
@@ -92,11 +93,9 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
   }, [raceId]);
 
   const handleToggle = () => {
-    setOpen((v) => {
-      const next = !v;
-      if (next && !loaded) void load();
-      return next;
-    });
+    const nextOpen = !open;
+    setOpen(nextOpen);
+    if (nextOpen && !loaded) void load();
   };
 
   // ─── Helpers ────────────────────────────────────────────────────────────

@@ -87,7 +87,7 @@ function RaceItem({ row, raceMap }: { row: UserRaceRow; raceMap: Map<string, Rac
       </div>
       {race && (
         <div className="mt-2">
-          <RaceGearSection raceId={row.race_id} raceDate={race.date} />
+          <RaceGearSection raceId={row.race_id} raceDate={race.date} isParticipated={row.is_participated} />
         </div>
       )}
     </div>

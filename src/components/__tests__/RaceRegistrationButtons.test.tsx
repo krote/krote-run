@@ -141,6 +141,7 @@ describe('RaceRegistrationButtons — ログイン済み', () => {
   });
 
   it('リマインドボタンをクリックすると entry_reminder_period_ids を含む PATCH が呼ばれる', async () => {
+
     const fetchMock = vi.fn()
       .mockResolvedValueOnce({ ok: true, json: async () => null })
       .mockResolvedValueOnce({ ok: true, json: async () => ({ is_planning: false, planning_category_id: null, entry_reminder_period_ids: '[10]' }) });
@@ -152,5 +153,57 @@ describe('RaceRegistrationButtons — ログイン済み', () => {
 
     const body = JSON.parse(fetchMock.mock.calls[1][1].body);
     expect(body.entry_reminder_period_ids).toContain(10);
+  });
+});
+
+describe('RaceRegistrationButtons — 開催済み大会 (isPast=true)', () => {
+  beforeEach(() => {
+    mockUseSession.mockReturnValue({
+      data: { user: { id: 'u1', name: 'テスト', email: 'test@example.com', image: null } },
+      isPending: false,
+    });
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => null,
+    }));
+  });
+
+  it('「参加済み」ボタンが表示される', async () => {
+    render(<RaceRegistrationButtons {...BASE_PROPS} isPast={true} />);
+    await waitFor(() => {
+      expect(screen.getByText(/参加済み/)).toBeInTheDocument();
+    });
+  });
+
+  it('受付開始リマインドボタンが表示されない', async () => {
+    render(<RaceRegistrationButtons {...BASE_PROPS} isPast={true} />);
+    await waitFor(() => {
+      expect(screen.getByText(/参加済み/)).toBeInTheDocument();
+    });
+    expect(screen.queryByText(/受付開始リマインド/)).not.toBeInTheDocument();
+  });
+
+  it('未ログインの場合はボタンが表示されない', () => {
+    mockUseSession.mockReturnValue({ data: null, isPending: false });
+    render(<RaceRegistrationButtons {...BASE_PROPS} isPast={true} />);
+    expect(screen.queryByText(/参加済み/)).not.toBeInTheDocument();
+  });
+
+  it('参加済みボタンをクリックすると is_participated を含む PATCH が呼ばれる', async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce({ ok: true, json: async () => null })
+      .mockResolvedValueOnce({ ok: true, json: async () => ({ is_participated: true }) });
+    vi.stubGlobal('fetch', fetchMock);
+
+    render(<RaceRegistrationButtons {...BASE_PROPS} isPast={true} />);
+    await waitFor(() => screen.getByText(/参加済み/));
+    await user.click(screen.getByText(/参加済み/));
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      `/api/user/races/${BASE_PROPS.raceId}`,
+      expect.objectContaining({ method: 'PATCH' }),
+    );
+    const body = JSON.parse(fetchMock.mock.calls[1][1].body);
+    expect(body).toHaveProperty('is_participated');
   });
 });

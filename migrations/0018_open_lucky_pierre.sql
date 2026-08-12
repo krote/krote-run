@@ -1,0 +1,1 @@
+ALTER TABLE `user_races` ADD `is_participated` integer DEFAULT false NOT NULL;

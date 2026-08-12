@@ -57,6 +57,7 @@ export async function PATCH(request: Request, { params }: Params) {
     is_planning?: boolean;
     planning_category_id?: number | null;
     entry_reminder_period_ids?: number[];
+    is_participated?: boolean;
   };
 
   const now = new Date().toISOString();
@@ -75,6 +76,7 @@ export async function PATCH(request: Request, { params }: Params) {
   const newPeriodIds = body.entry_reminder_period_ids !== undefined
     ? body.entry_reminder_period_ids
     : parseIds(existing?.entry_reminder_period_ids ?? '[]');
+  const newIsParticipated = body.is_participated ?? existing?.is_participated ?? false;
 
   if (existing) {
     await db
@@ -83,6 +85,7 @@ export async function PATCH(request: Request, { params }: Params) {
         is_planning: newIsPlanning,
         planning_category_id: newCategoryId,
         entry_reminder_period_ids: JSON.stringify(newPeriodIds),
+        is_participated: newIsParticipated,
         updated_at: now,
       })
       .where(and(eq(schema.user_races.user_id, userId), eq(schema.user_races.race_id, raceId)));
@@ -94,6 +97,7 @@ export async function PATCH(request: Request, { params }: Params) {
       is_planning: newIsPlanning,
       planning_category_id: newCategoryId,
       entry_reminder_period_ids: JSON.stringify(newPeriodIds),
+      is_participated: newIsParticipated,
       created_at: now,
       updated_at: now,
     });

@@ -96,7 +96,13 @@ export default function RaceGearSection({ raceId, raceDate, isParticipated = fal
   const handleToggle = () => {
     const nextOpen = !open;
     setOpen(nextOpen);
-    if (nextOpen && !loaded) void load();
+    if (nextOpen) {
+      setLoaded(false);
+      void load();
+    } else {
+      setShowAddPanel(false);
+      setShowCopyPanel(false);
+    }
   };
 
   // ─── Helpers ────────────────────────────────────────────────────────────
@@ -342,7 +348,7 @@ export default function RaceGearSection({ raceId, raceDate, isParticipated = fal
             </ul>
           )}
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 mb-2">
             <button
               onClick={() => {
                 setAddSelected(new Set());
@@ -367,14 +373,6 @@ export default function RaceGearSection({ raceId, raceDate, isParticipated = fal
               }}
             >
               {t('raceGearCopyFromPrev')}
-            </button>
-            <button
-              onClick={handleSave}
-              disabled={saving}
-              className="text-xs px-2 py-1 rounded font-medium"
-              style={{ background: 'var(--color-primary)', color: '#fff' }}
-            >
-              {saving ? t('raceGearSaving') : saved ? t('raceGearSaved') : t('raceGearSave')}
             </button>
           </div>
 
@@ -476,6 +474,17 @@ export default function RaceGearSection({ raceId, raceDate, isParticipated = fal
               )}
             </div>
           )}
+
+          <div className="mt-3">
+            <button
+              onClick={handleSave}
+              disabled={saving}
+              className="text-xs px-2 py-1 rounded font-medium"
+              style={{ background: 'var(--color-primary)', color: '#fff' }}
+            >
+              {saving ? t('raceGearSaving') : saved ? t('raceGearSaved') : t('raceGearSave')}
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -535,7 +544,7 @@ export default function RaceGearSection({ raceId, raceDate, isParticipated = fal
                 ))}
               </ul>
             )}
-            <div className="flex flex-wrap gap-2 mb-3">
+            <div className="flex flex-wrap gap-2 mb-2">
               <button
                 onClick={() => {
                   setAddSelected(new Set());
@@ -549,14 +558,6 @@ export default function RaceGearSection({ raceId, raceDate, isParticipated = fal
                 }}
               >
                 {t('raceGearAddFromGear')}
-              </button>
-              <button
-                onClick={handleSave}
-                disabled={saving}
-                className="text-xs px-2 py-1 rounded font-medium"
-                style={{ background: 'var(--color-primary)', color: '#fff' }}
-              >
-                {saving ? t('raceGearSaving') : saved ? t('raceGearSaved') : t('raceGearSave')}
               </button>
             </div>
             {showAddPanel && (
@@ -610,6 +611,16 @@ export default function RaceGearSection({ raceId, raceDate, isParticipated = fal
                 </div>
               </div>
             )}
+            <div className="mt-3">
+              <button
+                onClick={handleSave}
+                disabled={saving}
+                className="text-xs px-2 py-1 rounded font-medium"
+                style={{ background: 'var(--color-primary)', color: '#fff' }}
+              >
+                {saving ? t('raceGearSaving') : saved ? t('raceGearSaved') : t('raceGearSave')}
+              </button>
+            </div>
           </>
         )}
 

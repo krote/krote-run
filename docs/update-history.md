@@ -935,3 +935,15 @@ APIの調査中にGoogle Routes API v2がTRANSITモードで日本に非対応�
   - 「参加済み」セクションを追加（`is_participated=true` の行を表示）
 - `src/components/__tests__/RaceRegistrationButtons.test.tsx`（変更）: `isPast=true` シナリオのテスト追加（4件）
 - `src/components/mypage/__tests__/UserRaceList.test.tsx`（変更）: 参加済みセクション・時系列ソートのテスト追加
+
+## 2026-08-20 装備保存ボタン位置移動・パネル再表示時のデータ再取得（Issue #145）
+
+- `src/components/mypage/RaceGearSection.tsx`（変更）:
+  - pre-race ビュー: 保存ボタンを「追加/コピーボタン行」横から「追加パネル・コピーパネルの後（最下部）」に移動
+  - post-race+isParticipated ビュー: 保存ボタンを「追加ボタン行」横から「追加パネルの後（最下部）」に移動
+  - `handleToggle` 改善: close時に `showAddPanel`/`showCopyPanel` をリセット、re-open時に `setLoaded(false)` でロード状態をリセット（再取得保証）
+- `src/components/mypage/__tests__/RaceGearSection.test.tsx`（変更）:
+  - 「パネルを閉じて再度開くと最新のマイギアが取得される」テストの stale DOM reference 問題を修正
+  - `screen.getByRole` を毎回呼び直すよう変更（`!open`→`open`のDOM再構築でボタンがリマウントされるため）
+  - close後に `waitFor` でパネル消滅を確認してから2回目オープンする手順に変更
+  - 全22テスト通過

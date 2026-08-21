@@ -300,6 +300,51 @@ describe('RaceGearSection — レース後（post-race）', () => {
   });
 });
 
+describe('RaceGearSection — パネル再オープン時のデータ再取得', () => {
+  beforeEach(() => vi.clearAllMocks());
+
+  it('パネルを閉じて再度開くと最新のマイギアが取得される', async () => {
+    // 初回: gear-1 のみ
+    const fetchMock = vi.fn().mockImplementation((url: string) => {
+      if (url === '/api/user/gear') {
+        return Promise.resolve({ ok: true, json: async () => MOCK_MY_GEAR.slice(0, 1) });
+      }
+      return Promise.resolve({ ok: true, json: async () => [] });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    render(<RaceGearSection raceId={RACE_ID} raceDate={FUTURE_DATE} />);
+
+    // 1回目open（getByRoleでつど最新DOM要素を取得 - !open→openでDOMが再生成されるため）
+    fireEvent.click(screen.getByRole('button', { name: '装備' }));
+    await waitFor(() => screen.getByRole('button', { name: 'マイギアから追加' }));
+
+    // 閉じる
+    fireEvent.click(screen.getByRole('button', { name: '装備' }));
+    await waitFor(() => {
+      expect(screen.queryByRole('button', { name: 'マイギアから追加' })).not.toBeInTheDocument();
+    });
+
+    // 2回目open前に gear-2 が追加されたと仮定してAPIを更新
+    fetchMock.mockImplementation((url: string) => {
+      if (url === '/api/user/gear') {
+        return Promise.resolve({ ok: true, json: async () => MOCK_MY_GEAR }); // gear-1 + gear-2
+      }
+      return Promise.resolve({ ok: true, json: async () => [] });
+    });
+
+    // 2回目open（setLoaded(false)により、load()完了後にボタンが表示される）
+    fireEvent.click(screen.getByRole('button', { name: '装備' }));
+    await waitFor(() => screen.getByRole('button', { name: 'マイギアから追加' }));
+    fireEvent.click(screen.getByRole('button', { name: 'マイギアから追加' }));
+
+    await waitFor(() => {
+      // gear-2 (ランニングシャツ) が表示される
+      expect(screen.getByText('ランニングシャツ')).toBeInTheDocument();
+    });
+  });
+});
+
 describe('RaceGearSection — 参加済みレース後（post-race + isParticipated）', () => {
   beforeEach(() => {
     vi.clearAllMocks();

@@ -382,6 +382,25 @@
     "raceGearRemove": "Remove",
     "raceGearAdd": "Add",
     "raceGearCancel": "Cancel",
-    "raceGearPatchError": "Failed to save"
+    "raceGearPatchError": "Failed to save",
+    "raceResultButton": "Record Result",
+    "raceResultStatus": "Status",
+    "raceResultFinished": "Finished",
+    "raceResultDnf": "DNF (Did Not Finish)",
+    "raceResultDns": "DNS (Did Not Start)",
+    "raceResultTime": "Finish Time (h:mm:ss)",
+    "raceResultTimePlaceholder": "e.g. 4:30:00",
+    "raceResultCategory": "Category",
+    "raceResultNote": "Note",
+    "raceResultSave": "Save",
+    "raceResultSaving": "Saving…",
+    "raceResultSaved": "Saved",
+    "raceResultEdit": "Edit",
+    "raceResultDelete": "Delete",
+    "raceResultDeleteConfirm": "Delete this result?",
+    "raceResultBucketLabel": "Performance",
+    "raceResultBucketNote": "Your performance bucket is used anonymously in gear statistics when gear is set to public.",
+    "raceResultInvalidTime": "Invalid time format (e.g. 4:30:00)",
+    "raceResultSaveError": "Failed to save"
   }
 }

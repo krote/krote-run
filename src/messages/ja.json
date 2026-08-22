@@ -382,6 +382,25 @@
     "raceGearRemove": "削除",
     "raceGearAdd": "追加",
     "raceGearCancel": "キャンセル",
-    "raceGearPatchError": "保存に失敗しました"
+    "raceGearPatchError": "保存に失敗しました",
+    "raceResultButton": "結果を記録",
+    "raceResultStatus": "完走状態",
+    "raceResultFinished": "完走",
+    "raceResultDnf": "DNF（途中棄権）",
+    "raceResultDns": "DNS（欠場）",
+    "raceResultTime": "タイム（h:mm:ss）",
+    "raceResultTimePlaceholder": "例: 4:30:00",
+    "raceResultCategory": "出走カテゴリ",
+    "raceResultNote": "メモ",
+    "raceResultSave": "保存",
+    "raceResultSaving": "保存中…",
+    "raceResultSaved": "保存しました",
+    "raceResultEdit": "編集",
+    "raceResultDelete": "削除",
+    "raceResultDeleteConfirm": "記録を削除しますか？",
+    "raceResultBucketLabel": "走力帯",
+    "raceResultBucketNote": "走力帯は装備を公開した場合に匿名の集計軸として使われます",
+    "raceResultInvalidTime": "タイムの形式が正しくありません（例: 4:30:00）",
+    "raceResultSaveError": "保存に失敗しました"
   }
 }

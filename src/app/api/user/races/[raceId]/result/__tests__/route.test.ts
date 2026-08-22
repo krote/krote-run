@@ -213,6 +213,23 @@ describe('PUT /api/user/races/[raceId]/result', () => {
     expect(res.status).toBe(200);
     expect(mockInsertValues).toHaveBeenCalledOnce();
   });
+
+  it('同時作成でinsertがUNIQUE制約違反した場合はupdateにフォールバックする', async () => {
+    mockGetSession.mockResolvedValue({ user: MOCK_USER });
+    mockSelectRows
+      .mockResolvedValueOnce([MOCK_USER_RACE])   // user_races lookup
+      .mockResolvedValueOnce([])                  // 既存result なし（並行リクエストとの競合前）
+      .mockResolvedValueOnce([MOCK_RESULT]);      // フォールバック後の取得
+    mockInsertValues.mockRejectedValueOnce(new Error('UNIQUE constraint failed: user_race_results.user_race_id'));
+
+    const res = await PUT(
+      makeRequest('PUT', { status: 'finished', finish_time_sec: 14400 }),
+      makeParams(),
+    );
+    expect(res.status).toBe(200);
+    expect(mockInsertValues).toHaveBeenCalledOnce();
+    expect(mockUpdateWhere).toHaveBeenCalledOnce();
+  });
 });
 
 // ─── DELETE ────────────────────────────────────────────────────────────────

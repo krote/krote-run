@@ -36,7 +36,7 @@ interface Props {
 /** "h:mm:ss" または "m:ss" → 秒。不正な場合は null */
 export function parseTimeToSec(input: string): number | null {
   const parts = input.trim().split(':').map(Number);
-  if (parts.some(isNaN)) return null;
+  if (parts.some((p) => !Number.isInteger(p))) return null;
   if (parts.length === 3) {
     const [h, m, s] = parts;
     if (m >= 60 || s >= 60) return null;
@@ -48,6 +48,14 @@ export function parseTimeToSec(input: string): number | null {
     return m * 60 + s;
   }
   return null;
+}
+
+/** category_id 未指定時の走力帯算出用フォールバック（フルマラソン優先、なければ最長距離） */
+function pickMainCategory(categories: Category[]): Category | null {
+  if (categories.length === 0) return null;
+  const full = categories.find((c) => c.distance_type === 'full');
+  if (full) return full;
+  return categories.reduce((max, c) => (c.distance_km > max.distance_km ? c : max), categories[0]);
 }
 
 /** 秒 → "h:mm:ss" */
@@ -68,8 +76,8 @@ export default function RaceResultSection({ raceId, raceDate, categories }: Prop
     year: 'numeric', month: '2-digit', day: '2-digit',
   }).format(new Date());
 
-  // 大会前は非表示
-  if (raceDate >= today) return null;
+  // 大会前は非表示（当日は表示する）
+  if (raceDate > today) return null;
 
   return <RaceResultContent raceId={raceId} categories={categories} t={t} />;
 }
@@ -144,7 +152,7 @@ function RaceResultContent({
       const body: Record<string, unknown> = { status };
       if (finish_time_sec !== undefined) body.finish_time_sec = finish_time_sec;
       if (categoryId !== '') body.category_id = categoryId;
-      if (note) body.note = note;
+      body.note = note;
 
       const res = await fetch(`/api/user/races/${raceId}/result`, {
         method: 'PUT',
@@ -206,7 +214,7 @@ function RaceResultContent({
   // 走力帯の計算
   const bucket = (() => {
     if (!result || result.status !== 'finished' || result.finish_time_sec == null) return null;
-    const cat = categories.find((c) => c.id === result.category_id) ?? categories[0];
+    const cat = categories.find((c) => c.id === result.category_id) ?? pickMainCategory(categories);
     if (!cat) return null;
     return derivePerformanceBucket(cat.distance_type, result.finish_time_sec);
   })();

@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
-import RaceResultSection from '../RaceResultSection';
+import RaceResultSection, { parseTimeToSec } from '../RaceResultSection';
 
 // ─── モック ──────────────────────────────────────────────────────────────────
 
@@ -52,6 +52,13 @@ const MOCK_RESULT = {
   created_at: '2026-01-02T00:00:00Z',
   updated_at: '2026-01-02T00:00:00Z',
 };
+
+const MOCK_RESULT_WITH_NOTE = { ...MOCK_RESULT, note: '途中で足がつった' };
+
+const TODAY_JST = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Asia/Tokyo',
+  year: 'numeric', month: '2-digit', day: '2-digit',
+}).format(new Date());
 
 // ─── テスト ───────────────────────────────────────────────────────────────────
 
@@ -125,5 +132,62 @@ describe('RaceResultSection — 開催済み大会', () => {
     fireEvent.change(input, { target: { value: 'invalid' } });
     fireEvent.click(screen.getByRole('button', { name: '保存' }));
     expect(screen.getByText('タイム形式が不正です')).toBeInTheDocument();
+  });
+
+  it('大会当日は表示される', () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => null }));
+    render(<RaceResultSection raceId={RACE_ID} raceDate={TODAY_JST} categories={MOCK_CATEGORIES} />);
+    expect(screen.getByRole('button', { name: '結果を記録' })).toBeInTheDocument();
+  });
+
+  it('記録済みのnoteを空にして保存すると空文字がそのまま送信される', async () => {
+    const fetchMock = vi.fn().mockImplementation((url: string, init?: RequestInit) => {
+      if (init?.method === 'PUT') {
+        return Promise.resolve({ ok: true, json: async () => ({ ...MOCK_RESULT_WITH_NOTE, note: '' }) });
+      }
+      return Promise.resolve({ ok: true, json: async () => MOCK_RESULT_WITH_NOTE });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    render(<RaceResultSection raceId={RACE_ID} raceDate={PAST_DATE} categories={MOCK_CATEGORIES} />);
+    fireEvent.click(screen.getByRole('button', { name: '結果を記録' }));
+    await waitFor(() => screen.getByText('途中で足がつった'));
+
+    fireEvent.click(screen.getByRole('button', { name: '編集' }));
+    const noteInput = await screen.findByDisplayValue('途中で足がつった');
+    fireEvent.change(noteInput, { target: { value: '' } });
+    fireEvent.click(screen.getByRole('button', { name: '保存' }));
+
+    await waitFor(() => {
+      const putCall = fetchMock.mock.calls.find(([, init]) => init?.method === 'PUT');
+      expect(putCall).toBeDefined();
+      const body = JSON.parse(putCall![1].body as string);
+      expect(body.note).toBe('');
+    });
+  });
+
+  it('category_id未指定の走力帯はフルマラソンのカテゴリを優先して算出する', async () => {
+    const categories = [
+      { id: 1, name_ja: '10km', distance_km: 10, distance_type: '10k' },
+      { id: 2, name_ja: 'フルマラソン', distance_km: 42.195, distance_type: 'full' },
+    ];
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => MOCK_RESULT }));
+    render(<RaceResultSection raceId={RACE_ID} raceDate={PAST_DATE} categories={categories} />);
+    fireEvent.click(screen.getByRole('button', { name: '結果を記録' }));
+    await waitFor(() => {
+      // 4:00:00 はフルマラソン基準では sub430、10km基準の 'all' ではない
+      expect(screen.getByText(/サブ4.5/)).toBeInTheDocument();
+    });
+  });
+});
+
+describe('parseTimeToSec', () => {
+  it('整数の h:mm:ss を正しく秒に変換する', () => {
+    expect(parseTimeToSec('4:30:00')).toBe(16200);
+  });
+
+  it('小数を含む場合は不正として null を返す', () => {
+    expect(parseTimeToSec('4:30:00.5')).toBeNull();
+    expect(parseTimeToSec('4:30.5:00')).toBeNull();
   });
 });

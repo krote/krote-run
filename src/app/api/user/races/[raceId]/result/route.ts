@@ -98,16 +98,30 @@ export async function PUT(request: Request, { params }: Params) {
       .where(eq(schema.user_race_results.id, existing.id));
   } else {
     const id = crypto.randomUUID();
-    await db.insert(schema.user_race_results).values({
-      id,
-      user_race_id: userRace.id,
-      status,
-      finish_time_sec: finish_time_sec ?? null,
-      category_id: category_id ?? null,
-      note: note ?? '',
-      created_at: now,
-      updated_at: now,
-    });
+    try {
+      await db.insert(schema.user_race_results).values({
+        id,
+        user_race_id: userRace.id,
+        status,
+        finish_time_sec: finish_time_sec ?? null,
+        category_id: category_id ?? null,
+        note: note ?? '',
+        created_at: now,
+        updated_at: now,
+      });
+    } catch {
+      // 並行リクエストで既に作成済みの場合（UNIQUE制約違反）はupdateにフォールバック
+      await db
+        .update(schema.user_race_results)
+        .set({
+          status,
+          finish_time_sec: finish_time_sec ?? null,
+          category_id: category_id ?? null,
+          note: note ?? '',
+          updated_at: now,
+        })
+        .where(eq(schema.user_race_results.user_race_id, userRace.id));
+    }
   }
 
   const updated = await getResult(db, userRace.id);

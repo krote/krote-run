@@ -959,3 +959,15 @@ APIの調査中にGoogle Routes API v2がTRANSITモードで日本に非対応�
 - `src/components/mypage/UserRaceList.tsx`（変更）: 「参加済み」大会に `RaceResultSection` を組み込み（`is_participated=true` の場合のみ表示）
 - `src/components/mypage/__tests__/UserRaceList.test.tsx`（変更）: 結果記録ボタンの表示条件（参加済みのみ）のテスト追加
 - `src/messages/ja.json` / `src/messages/en.json`（変更）: `gear` 名前空間に raceResult* キーを追加
+
+## 2026-08-22 大会結果記録機能のコードレビュー指摘修正（Issue #125）
+
+`/code-review` で検出した5件を修正:
+
+- `src/app/api/user/races/[raceId]/result/route.ts`（変更）: PUTのcheck-then-actがUNIQUE制約と非atomicで、同時リクエストで未捕捉の500になる問題を修正。insertがUNIQUE制約違反で失敗した場合はupdateにフォールバック
+- `src/components/mypage/RaceResultSection.tsx`（変更）:
+  - noteを空文字に編集して保存すると`if (note)`のfalsy判定で送信されず既存値が残る問題を修正（常に送信するよう変更）
+  - 走力帯計算のカテゴリ未指定時フォールバックが`categories[0]`（並び順で先頭）だった問題を修正。`pickMainCategory()`を追加しフルマラソン優先・なければ最長距離を選択
+  - `raceDate >= today`により大会当日は非表示になっていたオフバイワンを修正（`raceDate > today`に変更、当日から記録可能に）
+  - `parseTimeToSec`が小数秒を許容し、サーバー側の整数チェックで弾かれた際に汎用エラーメッセージになる問題を修正（`Number.isInteger`で厳密化）
+- `src/app/api/user/races/[raceId]/result/__tests__/route.test.ts` / `src/components/mypage/__tests__/RaceResultSection.test.tsx`（変更）: 上記5件に対応するテストを追加（TDD: Red確認後に実装）

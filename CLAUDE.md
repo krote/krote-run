@@ -67,6 +67,19 @@ pnpm run cf:deploy               # ビルド + wrangler pages deploy
 - ロケール対応のナビゲーションには `next/navigation` ではなく `@/i18n/navigation` の `Link` と `redirect` を使用します。
 - `Header.tsx` の言語切り替えは next-intl の `<Link locale="en">` / `<Link locale="ja">` を使用します。
 
+### ⚠️ middleware.ts に関する重要な制約
+
+**`src/middleware.ts` を `src/proxy.ts` にリネームしてはいけない。**
+
+Next.js 16 は `middleware.ts` を非推奨とし `proxy.ts` への移行を推奨しているが、`proxy.ts` は **Node.js ランタイム固定**（`export const runtime = 'edge'` すら記述不可）のため `opennextjs-cloudflare` と根本的に非互換。
+
+```
+# proxy.ts にするとこのエラーでcf:buildが失敗する
+ERROR Node.js middleware is not currently supported. Consider switching to Edge Middleware.
+```
+
+`opennextjs-cloudflare` が `proxy.ts` に対応するまでは `middleware.ts` + `export const runtime = 'edge'` を維持すること。Next.js のビルド警告（`⚠ The "middleware" file convention is deprecated`）は承知の上で無視する。
+
 ### データフロー
 ```
 Cloudflare D1 (SQLite)

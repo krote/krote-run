@@ -26,12 +26,14 @@ interface Props {
   entryPeriods: EntryPeriodInfo[];
   today: string;          // "YYYY-MM-DD"
   locale?: string;
+  isPast?: boolean;
 }
 
 interface UserRaceState {
   is_planning: boolean;
   planning_category_id: number | null;
   entry_reminder_period_ids: string; // JSON
+  is_participated: boolean;
 }
 
 // ─── Google Calendar URL ────────────────────────────────────────────────────
@@ -74,6 +76,7 @@ export default function RaceRegistrationButtons({
   categories,
   entryPeriods,
   locale = 'ja',
+  isPast = false,
 }: Props) {
   const isJa = locale === 'ja';
   const { data: session, isPending } = useSession();
@@ -105,7 +108,7 @@ export default function RaceRegistrationButtons({
 
   const reminderPeriodIds = parseReminderIds(reg?.entry_reminder_period_ids ?? '[]');
 
-  async function patch(updates: Partial<{ is_planning: boolean; planning_category_id: number | null; entry_reminder_period_ids: number[] }>) {
+  async function patch(updates: Partial<{ is_planning: boolean; planning_category_id: number | null; entry_reminder_period_ids: number[]; is_participated: boolean }>) {
     setLoading(true);
     try {
       const res = await fetch(`/api/user/races/${raceId}`, {
@@ -173,6 +176,7 @@ export default function RaceRegistrationButtons({
   }
 
   const isPlanning = reg?.is_planning ?? false;
+  const isParticipated = reg?.is_participated ?? false;
   const plannedCatId = reg?.planning_category_id ?? null;
   const plannedCat = categories.find((c) => c.id === plannedCatId);
   const hasReminders = reminderPeriodIds.length > 0;
@@ -186,6 +190,25 @@ export default function RaceRegistrationButtons({
   };
   const planActiveStyle = { border: '1.5px solid var(--color-ink)', color: 'white', background: 'var(--color-ink)' };
   const reminderActiveStyle = { border: '1.5px solid var(--color-primary)', color: 'white', background: 'var(--color-primary)' };
+
+  if (isPast) {
+    const participatedStyle = { border: '1.5px solid var(--color-ink)', color: 'white', background: 'var(--color-ink)' };
+    return (
+      <div className="mt-4">
+        <div className="flex flex-wrap gap-2">
+          <button
+            onClick={() => patch({ is_participated: !isParticipated })}
+            disabled={loading}
+            className={baseBtn}
+            style={isParticipated ? participatedStyle : inactiveStyle}
+          >
+            <span>{isParticipated ? '✓' : '+'}</span>
+            <span>{isJa ? '参加済み' : 'Participated'}</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="mt-4">

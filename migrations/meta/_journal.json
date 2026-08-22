@@ -127,6 +127,13 @@
       "when": 1783746991831,
       "tag": "0017_perfect_boomer",
       "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "6",
+      "when": 1786543249055,
+      "tag": "0018_open_lucky_pierre",
+      "breakpoints": true
     }
   ]
 }

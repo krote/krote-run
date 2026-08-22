@@ -499,6 +499,8 @@ export const user_races = sqliteTable("user_races", {
   planning_category_id:      integer("planning_category_id").references(() => race_categories.id, { onDelete: "set null" }),
   // 受付開始前日リマインド（複数エントリー期間対応）
   entry_reminder_period_ids: text("entry_reminder_period_ids").notNull().default("[]"), // JSON: number[]
+  // 参加済み（開催済み大会への事後登録）
+  is_participated:           integer("is_participated", { mode: "boolean" }).notNull().default(false),
   // 装備リスト公開フラグ（Issue #120）
   gear_is_public:            integer("gear_is_public", { mode: "boolean" }).notNull().default(false),
   created_at:                text("created_at").notNull(),

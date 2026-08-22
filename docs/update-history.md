@@ -918,3 +918,32 @@ APIの調査中にGoogle Routes API v2がTRANSITモードで日本に非対応�
 - `src/components/mypage/UserRaceList.tsx`（変更）: 各レース行に `RaceGearSection` を追加
 - `src/components/mypage/__tests__/UserRaceList.test.tsx`（変更）: `next-intl` モックを追加
 - `src/messages/ja.json` / `src/messages/en.json`（変更）: `gear` 名前空間に raceGear* キーを追加
+
+## 2026-08-12 開催済み大会への参加済み登録・時系列ソート（Issue #144）
+
+- `src/lib/db/schema.ts`（変更）: `user_races` テーブルに `is_participated` カラム追加（boolean, default false）
+- `migrations/0018_open_lucky_pierre.sql`（新規）: `is_participated` カラム追加マイグレーション
+- `src/app/api/user/races/[raceId]/route.ts`（変更）: PATCH で `is_participated` を受け取り保存するよう対応
+- `src/components/races/RaceRegistrationButtons.tsx`（変更）:
+  - `isPast?: boolean` prop 追加
+  - `isPast=true` のとき「参加済み」トグルボタンを表示（リマインドボタンは非表示）
+  - `UserRaceState` に `is_participated` フィールドを追加
+- `src/app/[locale]/races/[id]/page.tsx`（変更）: `{!isPast && ...}` 条件を削除し、`isPast` prop を `RaceRegistrationButtons` に渡す（開催済みでもボタン表示）
+- `src/components/mypage/UserRaceList.tsx`（変更）:
+  - `UserRaceRow` に `is_participated` フィールド追加
+  - 大会を日付昇順にソート（`raceMap` の `date` を基準）
+  - 「参加済み」セクションを追加（`is_participated=true` の行を表示）
+- `src/components/__tests__/RaceRegistrationButtons.test.tsx`（変更）: `isPast=true` シナリオのテスト追加（4件）
+- `src/components/mypage/__tests__/UserRaceList.test.tsx`（変更）: 参加済みセクション・時系列ソートのテスト追加
+
+## 2026-08-20 装備保存ボタン位置移動・パネル再表示時のデータ再取得（Issue #145）
+
+- `src/components/mypage/RaceGearSection.tsx`（変更）:
+  - pre-race ビュー: 保存ボタンを「追加/コピーボタン行」横から「追加パネル・コピーパネルの後（最下部）」に移動
+  - post-race+isParticipated ビュー: 保存ボタンを「追加ボタン行」横から「追加パネルの後（最下部）」に移動
+  - `handleToggle` 改善: close時に `showAddPanel`/`showCopyPanel` をリセット、re-open時に `setLoaded(false)` でロード状態をリセット（再取得保証）
+- `src/components/mypage/__tests__/RaceGearSection.test.tsx`（変更）:
+  - 「パネルを閉じて再度開くと最新のマイギアが取得される」テストの stale DOM reference 問題を修正
+  - `screen.getByRole` を毎回呼び直すよう変更（`!open`→`open`のDOM再構築でボタンがリマウントされるため）
+  - close後に `waitFor` でパネル消滅を確認してから2回目オープンする手順に変更
+  - 全22テスト通過

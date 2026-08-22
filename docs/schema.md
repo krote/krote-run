@@ -315,6 +315,7 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | is_planning | integer(boolean) | NO | 参加予定フラグ |
 | planning_category_id | integer | YES | FK → race_categories.id（SET NULL）。参加予定カテゴリ |
 | entry_reminder_period_ids | text | NO | エントリーリマインド対象の entry_period id 一覧（JSON: number[]、デフォルト "[]"） |
+| is_participated | integer(boolean) | NO | 参加済みフラグ（開催済み大会への事後登録）。デフォルト false。Issue #144 |
 | gear_is_public | integer(bool) | NO | 装備リストを公開するかどうか（デフォルト false）。Issue #120 |
 | created_at | text | NO | ISO8601 |
 | updated_at | text | NO | ISO8601 |
@@ -521,3 +522,4 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0015_puzzling_wasp.sql` | race_travel_times テーブルを追加（Issue #82）。拠点別移動時間・終電・始発データ |
 | `migrations/0016_silky_shaman.sql` | reception_sessions に (race_id, date) の UNIQUE インデックスを追加（同日受付重複防止）（Issue #85） |
 | `migrations/0017_perfect_boomer.sql` | contact_submissions に ip_address / user_agent カラムと複合インデックスを追加（Issue #86 スパム対策） |
+| `migrations/0018_open_lucky_pierre.sql` | user_races に is_participated カラムを追加（開催済み大会への参加済み登録）（Issue #144） |

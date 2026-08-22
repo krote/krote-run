@@ -27,6 +27,7 @@ function makeRow(overrides: Partial<{
   id: string;
   race_id: string;
   is_planning: boolean;
+  is_participated: boolean;
   planning_category_id: number | null;
   entry_reminder_period_ids: string;
   gcal_race_event_id: string | null;
@@ -37,6 +38,7 @@ function makeRow(overrides: Partial<{
     id: 'row-1',
     race_id: 'tokyo-2026',
     is_planning: false,
+    is_participated: false,
     planning_category_id: null,
     entry_reminder_period_ids: '[]',
     gcal_race_event_id: null,
@@ -201,5 +203,85 @@ describe('UserRaceList — 大会名解決', () => {
     await waitFor(() => {
       expect(screen.getByText('unknown-race-999')).toBeInTheDocument();
     });
+  });
+});
+
+describe('UserRaceList — 参加済みセクション', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    mockUseSession.mockReturnValue({ data: MOCK_SESSION });
+  });
+
+  it('is_participated=true の大会は「参加済み」セクションに表示される', async () => {
+    setupFetch([makeRow({ is_participated: true, race_id: 'tokyo-2026' })]);
+
+    render(<UserRaceList />);
+    await waitFor(() => {
+      expect(screen.getByText('参加済み')).toBeInTheDocument();
+      expect(screen.getByText('東京マラソン2026')).toBeInTheDocument();
+    });
+  });
+
+  it('is_participated=true の大会は「参加予定」セクションに表示されない', async () => {
+    setupFetch([makeRow({ is_participated: true, is_planning: false, race_id: 'tokyo-2026' })]);
+
+    render(<UserRaceList />);
+    await waitFor(() => {
+      expect(screen.getByText('参加済み')).toBeInTheDocument();
+    });
+    expect(screen.queryByText('参加予定')).not.toBeInTheDocument();
+  });
+});
+
+describe('UserRaceList — 時系列ソート', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    mockUseSession.mockReturnValue({ data: MOCK_SESSION });
+  });
+
+  it('参加予定の大会が日付昇順で表示される', async () => {
+    const RACE_2026_MARCH = {
+      id: 'tokyo-2026',
+      name_ja: '東京マラソン2026',
+      full_name_ja: null,
+      date: '2026-03-01',
+      categories: [],
+    };
+    const RACE_2026_JAN = {
+      id: 'osaka-2026',
+      name_ja: '大阪マラソン2026',
+      full_name_ja: null,
+      date: '2026-01-26',
+      categories: [],
+    };
+
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockImplementation((url: string) => {
+        if (url.includes('/api/user/races')) {
+          return Promise.resolve({
+            ok: true,
+            json: async () => [
+              makeRow({ is_planning: true, race_id: 'tokyo-2026', id: 'row-1' }),
+              makeRow({ is_planning: true, race_id: 'osaka-2026', id: 'row-2' }),
+            ],
+          });
+        }
+        if (url.includes('/api/races/index')) {
+          return Promise.resolve({ ok: true, json: async () => [RACE_2026_MARCH, RACE_2026_JAN] });
+        }
+        return Promise.resolve({ ok: false, json: async () => [] });
+      }),
+    );
+
+    render(<UserRaceList />);
+    await waitFor(() => {
+      expect(screen.getByText('東京マラソン2026')).toBeInTheDocument();
+      expect(screen.getByText('大阪マラソン2026')).toBeInTheDocument();
+    });
+
+    const items = screen.getAllByText(/マラソン2026/);
+    expect(items[0].textContent).toContain('大阪マラソン2026');
+    expect(items[1].textContent).toContain('東京マラソン2026');
   });
 });

@@ -24,6 +24,8 @@ interface RaceGearRow {
 interface Candidate {
   user_race_id: string;
   race_id: string;
+  race_name_ja: string;
+  race_date: string;
   gear_count: number;
 }
 
@@ -38,11 +40,12 @@ interface DraftItem {
 interface Props {
   raceId: string;
   raceDate: string; // YYYY-MM-DD
+  isParticipated?: boolean;
 }
 
 // ─── Component ─────────────────────────────────────────────────────────────
 
-export default function RaceGearSection({ raceId, raceDate }: Props) {
+export default function RaceGearSection({ raceId, raceDate, isParticipated = false }: Props) {
   const t = useTranslations('gear');
 
   const [open, setOpen] = useState(false);
@@ -95,7 +98,13 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
   const handleToggle = () => {
     const nextOpen = !open;
     setOpen(nextOpen);
-    if (nextOpen && !loaded) void load();
+    if (nextOpen) {
+      setLoaded(false);
+      void load();
+    } else {
+      setShowAddPanel(false);
+      setShowCopyPanel(false);
+    }
   };
 
   // ─── Helpers ────────────────────────────────────────────────────────────
@@ -341,7 +350,7 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
             </ul>
           )}
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 mb-2">
             <button
               onClick={() => {
                 setAddSelected(new Set());
@@ -366,14 +375,6 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
               }}
             >
               {t('raceGearCopyFromPrev')}
-            </button>
-            <button
-              onClick={handleSave}
-              disabled={saving}
-              className="text-xs px-2 py-1 rounded font-medium"
-              style={{ background: 'var(--color-primary)', color: '#fff' }}
-            >
-              {saving ? t('raceGearSaving') : saved ? t('raceGearSaved') : t('raceGearSave')}
             </button>
           </div>
 
@@ -451,7 +452,7 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
                   >
                     {candidates.map((c) => (
                       <option key={c.user_race_id} value={c.race_id}>
-                        {c.race_id} ({c.gear_count})
+                        {c.race_name_ja} ({c.race_date}) — {c.gear_count}点
                       </option>
                     ))}
                   </select>
@@ -475,12 +476,27 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
               )}
             </div>
           )}
+
+          <div className="mt-3">
+            <button
+              onClick={handleSave}
+              disabled={saving}
+              className="text-xs px-2 py-1 rounded font-medium"
+              style={{ background: 'var(--color-primary)', color: '#fff' }}
+            >
+              {saving ? t('raceGearSaving') : saved ? t('raceGearSaved') : t('raceGearSave')}
+            </button>
+          </div>
         </div>
       </div>
     );
   }
 
   // ─── Post-race view ─────────────────────────────────────────────────────
+
+  const availableToAddPostRace = myGear.filter(
+    (g) => !draft.some((d) => d.gear_id === g.id),
+  );
 
   return (
     <div className="w-full">
@@ -492,16 +508,135 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
           background: 'var(--color-cream)',
         }}
       >
+        {/* 参加済み: ギア追加・保存 UI */}
+        {isParticipated && (
+          <>
+            {draft.length === 0 ? (
+              <p className="text-xs mb-2" style={{ color: 'var(--color-mid)' }}>
+                {t('raceGearEmpty')}
+              </p>
+            ) : (
+              <ul className="space-y-1 mb-2">
+                {draft.map((d) => (
+                  <li key={d.gear_id} className="flex items-center gap-2 text-sm">
+                    <span className="flex-1 min-w-0 truncate text-xs">
+                      {getDraftLabel(d)}
+                    </span>
+                    <input
+                      type="number"
+                      min={1}
+                      max={999}
+                      value={d.quantity}
+                      onChange={(e) =>
+                        updateQty(d.gear_id, Math.max(1, parseInt(e.target.value) || 1))
+                      }
+                      className="w-12 text-center border rounded px-1 py-0.5 text-xs"
+                      style={{ borderColor: 'var(--color-border)' }}
+                      aria-label={t('raceGearQuantity')}
+                    />
+                    <button
+                      onClick={() => removeFromDraft(d.gear_id)}
+                      className="text-xs px-1.5 py-0.5 rounded"
+                      style={{ color: 'var(--color-mid)' }}
+                      aria-label={t('raceGearRemove')}
+                    >
+                      ×
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <div className="flex flex-wrap gap-2 mb-2">
+              <button
+                onClick={() => {
+                  setAddSelected(new Set());
+                  setShowAddPanel(true);
+                }}
+                className="text-xs px-2 py-1 rounded border"
+                style={{
+                  borderColor: 'var(--color-border)',
+                  color: 'var(--color-ink2)',
+                  background: '#fff',
+                }}
+              >
+                {t('raceGearAddFromGear')}
+              </button>
+            </div>
+            {showAddPanel && (
+              <div
+                className="mb-3 rounded p-2"
+                style={{ border: '1px solid var(--color-border)', background: '#fff' }}
+              >
+                <p className="text-xs font-semibold mb-2">{t('raceGearAddFromGear')}</p>
+                {availableToAddPostRace.length === 0 ? (
+                  <p className="text-xs" style={{ color: 'var(--color-mid)' }}>
+                    {t('raceGearEmpty')}
+                  </p>
+                ) : (
+                  <ul className="space-y-1 max-h-48 overflow-y-auto mb-2">
+                    {availableToAddPostRace.map((g) => (
+                      <li
+                        key={g.id}
+                        className="flex items-center gap-2 text-xs cursor-pointer py-0.5"
+                        onClick={() => toggleAddSelect(g.id)}
+                      >
+                        <input
+                          type="checkbox"
+                          readOnly
+                          checked={addSelected.has(g.id)}
+                          className="pointer-events-none"
+                        />
+                        <span>
+                          {g.brand ? `${g.brand} ` : ''}
+                          {g.name}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <div className="flex gap-2">
+                  <button
+                    onClick={confirmAdd}
+                    disabled={addSelected.size === 0}
+                    className="text-xs px-2 py-1 rounded font-medium"
+                    style={{ background: 'var(--color-primary)', color: '#fff' }}
+                  >
+                    {t('raceGearAdd')}
+                  </button>
+                  <button
+                    onClick={() => setShowAddPanel(false)}
+                    className="text-xs px-2 py-1 rounded"
+                    style={{ color: 'var(--color-mid)' }}
+                  >
+                    {t('raceGearCancel')}
+                  </button>
+                </div>
+              </div>
+            )}
+            <div className="mt-3">
+              <button
+                onClick={handleSave}
+                disabled={saving}
+                className="text-xs px-2 py-1 rounded font-medium"
+                style={{ background: 'var(--color-primary)', color: '#fff' }}
+              >
+                {saving ? t('raceGearSaving') : saved ? t('raceGearSaved') : t('raceGearSave')}
+              </button>
+            </div>
+          </>
+        )}
+
         {patchError && (
           <p className="text-xs mb-2" style={{ color: 'var(--color-primary)' }}>
             {patchError}
           </p>
         )}
-        {raceGear.length === 0 ? (
+        {raceGear.length === 0 && !isParticipated && (
           <p className="text-xs" style={{ color: 'var(--color-mid)' }}>
             {t('raceGearEmpty')}
           </p>
-        ) : (
+        )}
+        {raceGear.length > 0 && (
           <ul className="space-y-3">
             {raceGear.map((item) => (
               <li key={item.gear_id} className="text-xs">
@@ -583,3 +718,4 @@ export default function RaceGearSection({ raceId, raceDate }: Props) {
     </div>
   );
 }
+

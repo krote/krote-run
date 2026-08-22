@@ -200,32 +200,31 @@ export default async function RaceDetailPage({
       <AnchorBar items={anchorItems} />
 
       {/* ── 登録ボタン ── */}
-      {!isPast && (
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-4">
-          <RaceRegistrationButtons
-            raceId={race.id}
-            raceName={raceName}
-            raceDate={race.date}
-            locale={locale}
-            categories={race.categories.map((c) => ({
-              id: c.id,
-              name_ja: c.name_ja,
-              name_en: c.name_en,
-              distance_km: c.distance_km,
-              distance_type: c.distance_type,
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-4">
+        <RaceRegistrationButtons
+          raceId={race.id}
+          raceName={raceName}
+          raceDate={race.date}
+          locale={locale}
+          isPast={isPast}
+          categories={race.categories.map((c) => ({
+            id: c.id,
+            name_ja: c.name_ja,
+            name_en: c.name_en,
+            distance_km: c.distance_km,
+            distance_type: c.distance_type,
+          }))}
+          entryPeriods={race.entry_periods
+            .filter((p) => p.start_date >= today)
+            .map((p) => ({
+              id: p.id,
+              label_ja: p.label_ja,
+              label_en: p.label_en,
+              start_date: p.start_date,
             }))}
-            entryPeriods={race.entry_periods
-              .filter((p) => p.start_date >= today)
-              .map((p) => ({
-                id: p.id,
-                label_ja: p.label_ja,
-                label_en: p.label_en,
-                start_date: p.start_date,
-              }))}
-            today={today}
-          />
-        </div>
-      )}
+          today={today}
+        />
+      </div>
 
       {/* ── Content ── */}
       <div

@@ -9,6 +9,7 @@ interface UserRaceRow {
   id: string;
   race_id: string;
   is_planning: boolean;
+  is_participated: boolean;
   planning_category_id: number | null;
   entry_reminder_period_ids: string; // JSON
   gcal_race_event_id: string | null;
@@ -86,7 +87,7 @@ function RaceItem({ row, raceMap }: { row: UserRaceRow; raceMap: Map<string, Rac
       </div>
       {race && (
         <div className="mt-2">
-          <RaceGearSection raceId={row.race_id} raceDate={race.date} />
+          <RaceGearSection raceId={row.race_id} raceDate={race.date} isParticipated={row.is_participated} />
         </div>
       )}
     </div>
@@ -134,18 +135,32 @@ export default function UserRaceList() {
     );
   }
 
-  const planning = rows.filter((r) => r.is_planning);
-  const reminders = rows.filter((r) => {
-    const ids: number[] = (() => { try { return JSON.parse(r.entry_reminder_period_ids ?? '[]'); } catch { return []; } })();
-    return ids.length > 0 && !r.is_planning;
-  });
+  function sortByDate(list: UserRaceRow[]): UserRaceRow[] {
+    return [...list].sort((a, b) => {
+      const da = raceMap.get(a.race_id)?.date ?? '';
+      const db = raceMap.get(b.race_id)?.date ?? '';
+      return da < db ? -1 : da > db ? 1 : 0;
+    });
+  }
 
-  if (rows.length === 0) {
-    return (
-      <p className="text-sm" style={{ color: 'var(--color-mid)' }}>
-        登録している大会はありません。
-      </p>
-    );
+  const participated = sortByDate(rows.filter((r) => r.is_participated));
+  const planning = sortByDate(rows.filter((r) => r.is_planning && !r.is_participated));
+  const reminders = sortByDate(rows.filter((r) => {
+    const ids: number[] = (() => { try { return JSON.parse(r.entry_reminder_period_ids ?? '[]'); } catch { return []; } })();
+    return ids.length > 0 && !r.is_planning && !r.is_participated;
+  }));
+
+  const totalVisible = participated.length + planning.length + reminders.length;
+
+  if (rows.length === 0 || totalVisible === 0) {
+    if (rows.length === 0) {
+      return (
+        <p className="text-sm" style={{ color: 'var(--color-mid)' }}>
+          登録している大会はありません。
+        </p>
+      );
+    }
+    return <div className="space-y-6" />;
   }
 
   return (
@@ -159,7 +174,6 @@ export default function UserRaceList() {
             {planning.map((row) => (
               <RaceItem key={row.id} row={row} raceMap={raceMap} />
             ))}
-
           </div>
         </div>
       )}
@@ -171,6 +185,19 @@ export default function UserRaceList() {
           </p>
           <div>
             {reminders.map((row) => (
+              <RaceItem key={row.id} row={row} raceMap={raceMap} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {participated.length > 0 && (
+        <div>
+          <p className="text-xs font-semibold mb-2" style={{ color: 'var(--color-mid)' }}>
+            参加済み
+          </p>
+          <div>
+            {participated.map((row) => (
               <RaceItem key={row.id} row={row} raceMap={raceMap} />
             ))}
           </div>

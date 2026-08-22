@@ -7,7 +7,7 @@
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { createAuth } from '@/lib/auth';
 import { drizzle } from 'drizzle-orm/d1';
-import { eq, and, ne, asc, inArray } from 'drizzle-orm';
+import { eq, and, ne, asc, inArray, desc } from 'drizzle-orm';
 import * as schema from '@/lib/db/schema';
 import { validatePutBody, validatePatchBody } from '@/lib/race-gear-validation';
 
@@ -50,19 +50,22 @@ export async function GET(request: Request, { params }: Params) {
       .select({
         user_race_id: schema.user_race_gear.user_race_id,
         race_id: schema.user_races.race_id,
+        race_name_ja: schema.races.name_ja,
+        race_date: schema.races.date,
       })
       .from(schema.user_race_gear)
       .innerJoin(schema.user_races, eq(schema.user_race_gear.user_race_id, schema.user_races.id))
+      .innerJoin(schema.races, eq(schema.user_races.race_id, schema.races.id))
       .where(and(eq(schema.user_races.user_id, session.user.id), ne(schema.user_races.race_id, raceId)));
 
     // JS側でdeduplicateしてgear_countを集計
-    const countMap = new Map<string, { race_id: string; gear_count: number }>();
+    const countMap = new Map<string, { race_id: string; race_name_ja: string; race_date: string; gear_count: number }>();
     for (const row of rows) {
       const entry = countMap.get(row.user_race_id);
       if (entry) {
         entry.gear_count++;
       } else {
-        countMap.set(row.user_race_id, { race_id: row.race_id, gear_count: 1 });
+        countMap.set(row.user_race_id, { race_id: row.race_id, race_name_ja: row.race_name_ja, race_date: row.race_date, gear_count: 1 });
       }
     }
 

@@ -24,6 +24,8 @@ interface RaceGearRow {
 interface Candidate {
   user_race_id: string;
   race_id: string;
+  race_name_ja: string;
+  race_date: string;
   gear_count: number;
 }
 
@@ -450,7 +452,7 @@ export default function RaceGearSection({ raceId, raceDate, isParticipated = fal
                   >
                     {candidates.map((c) => (
                       <option key={c.user_race_id} value={c.race_id}>
-                        {c.race_id} ({c.gear_count})
+                        {c.race_name_ja} ({c.race_date}) — {c.gear_count}点
                       </option>
                     ))}
                   </select>

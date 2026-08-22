@@ -170,18 +170,20 @@ describe('GET /api/user/races/[raceId]/gear?source=candidates', () => {
     expect(res.status).toBe(401);
   });
 
-  it('コピー元候補を返す', async () => {
+  it('コピー元候補を返す（race_name_ja・race_date を含む）', async () => {
     mockGetSession.mockResolvedValue({ user: MOCK_USER });
-    // user_race_gear + user_races join → [{user_race_id, race_id}...]
+    // user_race_gear + user_races + races join → [{user_race_id, race_id, race_name_ja, race_date}...]
     mockSelectRows.mockResolvedValue([
-      { user_race_id: 'ur-other', race_id: 'tokyo-marathon-2026' },
-      { user_race_id: 'ur-other', race_id: 'tokyo-marathon-2026' }, // duplicate = 2 gear items
+      { user_race_id: 'ur-other', race_id: 'tokyo-marathon-2026', race_name_ja: '東京マラソン2026', race_date: '2026-03-01' },
+      { user_race_id: 'ur-other', race_id: 'tokyo-marathon-2026', race_name_ja: '東京マラソン2026', race_date: '2026-03-01' }, // duplicate = 2 gear items
     ]);
     const res = await GET(makeRequest('GET', undefined, '?source=candidates'), makeParams());
     expect(res.status).toBe(200);
     const body = await res.json();
     expect(body).toHaveLength(1);
     expect(body[0].race_id).toBe('tokyo-marathon-2026');
+    expect(body[0].race_name_ja).toBe('東京マラソン2026');
+    expect(body[0].race_date).toBe('2026-03-01');
     expect(body[0].gear_count).toBe(2);
   });
 

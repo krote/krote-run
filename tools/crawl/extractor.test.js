@@ -2,6 +2,9 @@
 
 const { test, describe } = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
 const { buildExtractionPrompt, parseClaudeResponse, buildDiff, applyAndSave, buildNewEditionRace } = require('./extractor');
 
 // ── buildExtractionPrompt ─────────────────────────────────────────
@@ -311,37 +314,51 @@ describe('applyAndSave - 年度不一致チェック', () => {
     assert.equal(result.suggestedFile, 'test-marathon-2027.json');
   });
 
-  test('extractedにdateがない場合はyearMismatchにならない', () => {
-    const extracted = { entry_fee: 17000 };
-    // ファイル書き込みが起きるため、実在しないidで呼ぶとエラーになる可能性あり
-    // → yearMismatch のパスに入らないことだけを確認
-    // (ファイル書き込みエラーは無視、yearMismatchプロパティがないことを確認)
+  test('extractedにdateがない場合はyearMismatchにならない（一時ディレクトリに保存）', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawl-test-'));
     try {
-      const result = applyAndSave(race, extracted);
+      const extracted = { entry_fee: 17000 };
+      const result = applyAndSave(race, extracted, { racesDir: tmpDir });
       assert.ok(!result.yearMismatch);
-    } catch {
-      // fs書き込みエラーは許容（年度チェックはパスした証拠）
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
     }
   });
 
-  test('extractedの年度がrace.dateと同じ場合はyearMismatchにならない', () => {
-    const extracted = { date: '2026-09-01' };
+  test('extractedの年度がrace.dateと同じ場合はyearMismatchにならない（一時ディレクトリに保存）', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawl-test-'));
     try {
-      const result = applyAndSave(race, extracted);
+      const extracted = { date: '2026-09-01' };
+      const result = applyAndSave(race, extracted, { racesDir: tmpDir });
       assert.ok(!result.yearMismatch);
-    } catch {
-      // fs書き込みエラーは許容
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
     }
   });
 
-  test('race.dateがnullの場合はyearMismatchにならない', () => {
-    const raceNoDate = { ...race, date: null };
-    const extracted = { date: '2027-03-01' };
+  test('race.dateがnullの場合はyearMismatchにならない（一時ディレクトリに保存）', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawl-test-'));
     try {
-      const result = applyAndSave(raceNoDate, extracted);
+      const raceNoDate = { ...race, date: null };
+      const extracted = { date: '2027-03-01' };
+      const result = applyAndSave(raceNoDate, extracted, { racesDir: tmpDir });
       assert.ok(!result.yearMismatch);
-    } catch {
-      // fs書き込みエラーは許容
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
+  test('racesDirを指定した場合、実際のsrc/data/races/ではなく指定先に保存する', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawl-test-'));
+    try {
+      const extracted = { entry_fee: 17000 };
+      applyAndSave(race, extracted, { racesDir: tmpDir });
+      assert.ok(fs.existsSync(path.join(tmpDir, `${race.id}.json`)), '指定した一時ディレクトリに保存される');
+
+      const realPath = path.join(__dirname, '../../src/data/races', `${race.id}.json`);
+      assert.ok(!fs.existsSync(realPath), '本物のsrc/data/races/には書き込まれない');
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
     }
   });
 });
@@ -606,6 +623,72 @@ describe('callClaudeP - Messages API フォールバック', () => {
     } finally {
       if (originalEnv !== undefined) process.env.ANTHROPIC_API_KEY = originalEnv;
     }
+  });
+});
+
+// ── Step 6: callClaudeP CLI 経路（Windows spawnSync ENOENT対策） ──────────
+
+describe('callClaudeP - CLI経路（spawnFn注入）', () => {
+  test('spawnSync に shell: true を渡す（Windowsで claude.cmd を解決するため）', async () => {
+    let receivedOpts = null;
+    const mockSpawnFn = (command, args, opts) => {
+      receivedOpts = opts;
+      return { error: null, status: 0, stdout: 'ok', stderr: '' };
+    };
+
+    await callClaudeP('test prompt', { useCli: true, spawnFn: mockSpawnFn });
+    assert.equal(receivedOpts.shell, true, 'shell: true が渡される');
+  });
+
+  test('timeoutは60秒より長い（実crawlで複数URL分のページテキストを含むpromptが60秒で頻繁にタイムアウトしたため）', async () => {
+    let receivedOpts = null;
+    const mockSpawnFn = (command, args, opts) => {
+      receivedOpts = opts;
+      return { error: null, status: 0, stdout: 'ok', stderr: '' };
+    };
+
+    await callClaudeP('test prompt', { useCli: true, spawnFn: mockSpawnFn });
+    assert.ok(receivedOpts.timeout > 60000, `timeout(${receivedOpts.timeout})は60000msより大きい`);
+  });
+
+  test('promptはコマンドライン引数ではなくstdin経由で渡す（Windowsのcmd.exeコマンドライン長制限を回避するため）', async () => {
+    let receivedArgs = null;
+    let receivedOpts = null;
+    const longPrompt = 'x'.repeat(20000);
+    const mockSpawnFn = (command, args, opts) => {
+      receivedArgs = args;
+      receivedOpts = opts;
+      return { error: null, status: 0, stdout: 'ok', stderr: '' };
+    };
+
+    await callClaudeP(longPrompt, { useCli: true, spawnFn: mockSpawnFn });
+    assert.ok(!receivedArgs.some((a) => a.includes(longPrompt)), 'promptはargsに含まれない');
+    assert.equal(receivedOpts.input, longPrompt, 'promptはinput（stdin）として渡される');
+  });
+
+  test('spawnFn の結果を返す', async () => {
+    const mockSpawnFn = () => ({ error: null, status: 0, stdout: '  結果テキスト  ', stderr: '' });
+
+    const result = await callClaudeP('test prompt', { useCli: true, spawnFn: mockSpawnFn });
+    assert.equal(result, '結果テキスト');
+  });
+
+  test('spawnFn が error を返した場合（ENOENT等）は Error をスローする', async () => {
+    const mockSpawnFn = () => ({ error: new Error('spawnSync claude ENOENT') });
+
+    await assert.rejects(
+      () => callClaudeP('test prompt', { useCli: true, spawnFn: mockSpawnFn }),
+      /ENOENT/
+    );
+  });
+
+  test('spawnFn が非ゼロ status を返した場合は Error をスローする', async () => {
+    const mockSpawnFn = () => ({ error: null, status: 1, stdout: '', stderr: 'claude command failed' });
+
+    await assert.rejects(
+      () => callClaudeP('test prompt', { useCli: true, spawnFn: mockSpawnFn }),
+      /claude command failed|失敗/
+    );
   });
 });
 

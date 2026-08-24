@@ -190,19 +190,29 @@ function buildDiff(current, extracted) {
  * claude -p でプロンプトを実行して結果テキストを返す
  * ANTHROPIC_API_KEY が設定されている場合は Messages API を直接呼び出す（CI 対応）
  * @param {string} prompt
- * @param {{ useCli?: boolean, fetchFn?: Function }} opts
+ * @param {{ useCli?: boolean, fetchFn?: Function, spawnFn?: Function }} opts
  * @returns {Promise<string>}
  */
 async function callClaudeP(prompt, opts = {}) {
   const useCli = opts.useCli ?? true;
   const fetchFn = opts.fetchFn ?? fetch;
+  const spawnFn = opts.spawnFn ?? spawnSync;
 
   // CLI を使う場合
   if (useCli) {
-    const result = spawnSync('claude', ['-p', prompt], {
+    // shell: true が必須。Windows では claude は .cmd シムのため、
+    // shell 経由でないと spawnSync が ENOENT で失敗する。
+    // prompt はコマンドライン引数ではなく stdin 経由で渡す。
+    // 引数で渡すと Windows の cmd.exe コマンドライン長制限（約8191文字）を
+    // 超えるプロンプト（複数URL分のページテキストを含む）で
+    // 「The command line is too long.」により失敗するため。
+    const result = spawnFn('claude', ['-p'], {
+      input: prompt,
       encoding: 'utf-8',
-      timeout: 60000,
+      // 60秒だと複数URL分のページテキストを含む長いpromptで頻繁にタイムアウトしたため180秒に延長
+      timeout: 180000,
       maxBuffer: 4 * 1024 * 1024,
+      shell: true,
     });
 
     if (result.error) throw result.error;
@@ -269,7 +279,9 @@ async function extractFromPages(race, pageTexts, opts = {}) {
  */
 const ALLOWED_KEYS = new Set(DIFF_FIELDS.map(f => f.key));
 
-function applyAndSave(race, extracted) {
+function applyAndSave(race, extracted, opts = {}) {
+  const racesDir = opts.racesDir ?? RACES_DIR;
+
   // 年度不一致チェック: 抽出された開催日の年が現在のファイルの年と異なる場合は保存しない
   if (extracted.date && race.date) {
     const currentYear = race.date.slice(0, 4);
@@ -280,7 +292,7 @@ function applyAndSave(race, extracted) {
     }
   }
 
-  const filePath = path.join(RACES_DIR, `${race.id}.json`);
+  const filePath = path.join(racesDir, `${race.id}.json`);
   const updated = {
     ...race,
     ...Object.fromEntries(
@@ -353,9 +365,10 @@ function buildNewEditionRace(race, extracted) {
  * @param {object} extracted
  * @returns {{ created: boolean, skipped: boolean, newId: string, filePath: string }}
  */
-function createNewEditionFile(race, extracted) {
+function createNewEditionFile(race, extracted, opts = {}) {
+  const racesDir = opts.racesDir ?? RACES_DIR;
   const newRace = buildNewEditionRace(race, extracted);
-  const filePath = path.join(RACES_DIR, `${newRace.id}.json`);
+  const filePath = path.join(racesDir, `${newRace.id}.json`);
 
   if (fs.existsSync(filePath)) {
     return { created: false, skipped: true, newId: newRace.id, filePath };

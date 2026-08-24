@@ -45,7 +45,13 @@ pnpm run db:studio               # Drizzle Studio GUI を起動
 
 # Cloudflare プレビュー / デプロイ
 pnpm run cf:preview              # ビルド + wrangler pages dev（localhost:8788）
-pnpm run cf:deploy               # ビルド + wrangler pages deploy
+pnpm run cf:deploy               # ビルド + wrangler pages deploy（本番: main扱い）
+pnpm run cf:deploy:stg           # ビルド + wrangler pages deploy --branch=staging（stg環境）
+
+# stg環境（Cloudflare Pages Preview + 専用D1/R2）
+pnpm run db:migrate:stg          # stg用D1（krote-run-stg-db）にマイグレーションを適用
+pnpm run db:seed:stg             # stg用D1にマスターデータをシード
+pnpm run db:seed-races:stg       # stg用D1にレースデータをシード
 ```
 
 > **Windowsの注意**: Node.js コマンドはPowerShell経由で実行する必要があります。bashから呼び出す場合は `powershell -Command "Set-Location 'C:\Dev\krote-run'; pnpm run build"` を使用してください。
@@ -78,7 +84,16 @@ Next.js 16 は `middleware.ts` を非推奨とし `proxy.ts` への移行を推�
 ERROR Node.js middleware is not currently supported. Consider switching to Edge Middleware.
 ```
 
-`opennextjs-cloudflare` が `proxy.ts` に対応するまでは `middleware.ts` + `export const runtime = 'edge'` を維持すること。Next.js のビルド警告（`⚠ The "middleware" file convention is deprecated`）は承知の上で無視する。
+`opennextjs-cloudflare` が `proxy.ts` に対応するまでは `middleware.ts` を維持すること。Next.js のビルド警告（`⚠ The "middleware" file convention is deprecated`）は承知の上で無視する。
+
+**`runtime` の値は `'edge'` ではなく `'experimental-edge'` にすること**（2026-08-23 Next.js 16.2.10で確認）。`'edge'` のままだと `next build`（＝`cf:build`/`cf:deploy`）が次のエラーで失敗する:
+```
+Error: Page /src/middleware provided runtime 'edge', the edge runtime for rendering is currently experimental. Use runtime 'experimental-edge' instead.
+```
+
+**注意**: Next.js本体の型定義（`route segment config`向けのTSプラグイン）では逆に `'experimental-edge'` を非推奨・`'edge'` を正としている。一般的な感覚に反するので「非推奨警告が出ているから」といって `'edge'` に戻さないこと。`middleware.ts`（`get-page-static-info.js` 内の `isProxyFile` 判定を通るファイル）はこの route segment config の非推奨ルールとは別の検証ロジックが適用され、`next build` 時に限り `'edge'` だと逆にエラーになる（`pnpm run dev` では警告止まり）。この食い違いはNext.js 16.2.10時点の実際の挙動であり、cf:buildが通ることで実証済み。
+
+なお `pnpm run dev` では `experimental-edge` でも `initOpenNextCloudflareForDev()` 経由の実行時に `ReferenceError: self is not defined` が出ることがある。これはNext.js 16の新Proxyアーキテクチャと`@opennextjs/cloudflare`の互換性問題（[cloudflare/workers-sdk#13755](https://github.com/cloudflare/workers-sdk/issues/13755)、未解決）が原因で、`cf:build`/本番・stgデプロイには影響しない（実際にstg環境で動作確認済み）。`next dev` でmypage等が500になる場合はこれが原因と考えてよい。
 
 ### データフロー
 ```
@@ -166,6 +181,40 @@ Cloudflare D1 (SQLite)
 
 - **一時SQLファイルは `migrations/` に置かない** — wrangler が自動認識して管理対象になってしまう。回避用の一時SQLは `scripts/` 以下に置くこと
 - **リモート適用は `pnpm run db:migrate:remote`** — 累積マイグレーション等でエラーになる場合は `wrangler d1 execute --remote --file=...` で直接実行し、`d1_migrations` テーブルに手動でレコードを INSERT して適用済みとしてマークする
+- **新規D1データベースに対して `wrangler d1 migrations apply` を素朴に実行しない**（2026-08-23 stg環境構築時に遭遇）: `migrations/` 内の全SQLファイル（`seed-*.sql` も含む）をファイル名のアルファベット順で実行するため、番号の重複や過去の手動INSERTで管理してきた実際の適用順とズレて `table already exists` 等で失敗する。新規DBを本番と同じスキーマにする場合は次の手順を使う:
+  1. `wrangler d1 export krote-run-db --remote --no-data --output=<path>` で本番のスキーマのみエクスポート
+  2. `wrangler d1 execute <新DB名> --remote --file=<path>` でスキーマを投入
+  3. 本番の `d1_migrations` テーブルの内容（`SELECT name FROM d1_migrations ORDER BY id`）をそのまま新DBの `d1_migrations` にINSERTし、「全マイグレーション適用済み」の状態に揃える（以降の `migrations apply` が正しく差分だけを検知するようになる）
+
+### stg環境
+
+Cloudflare Pages の Preview 環境を使い、本番と別のD1/R2で動作確認する。
+
+- Pagesプロジェクト `krote-run` はGit連携なし（`wrangler pages deploy` をCLIから直接実行）。過去のデプロイは全て `main` ブランチ扱い＝Production
+- `pnpm run cf:deploy:stg` は `--branch=staging` を明示することでPreview扱いになり、`staging.krote-run.pages.dev` にデプロイされる
+- `wrangler.jsonc` の `env.preview` セクションでstg専用のD1（`krote-run-stg-db`）・R2（`krote-run-assets-stg`）にバインドしている（本番の `d1_databases`/`r2_buckets` とは完全に別リソース。Cloudflare Pagesの `env.<ENVIRONMENT>` は `production`/`preview` の2つのみ）
+- 無料枠（Workers 100,000リクエスト/日、D1 読み取り5,000,000行/日・書き込み100,000行/日、ストレージ5GB）は**アカウント単位で本番と共有**。stgとprdでリソースを分けても枠は増えない点に注意
+- `db:migrate:stg` にだけ `--env preview` が付いているのは意図的: `wrangler d1 migrations apply` はDB名を `wrangler.jsonc` の設定（`env.preview.d1_databases`）経由で解決するため必須。一方 `db:seed:stg` / `db:seed-races:stg` が使う `wrangler d1 execute` はDB名をアカウント上のD1一覧から直接解決するため `--env` 不要（`db:seed:remote` 等の既存スクリプトと同じ挙動）
+
+**⚠️ `db:seed-races:stg`（＝`migrations/seed-races-all.sql`）だけでは本番と同じレースデータにならない**（2026-08-24 確認）。`scripts/generate-seed-races.js` は `ALREADY_SEEDED`（`nagano-marathon-2026`, `challenge-fuji5lakes-2026`）をハードコードで除外しており、この2件はレガシーファイル `migrations/seed-races.sql`（`-all`と別物、npm scriptなし）にのみ含まれる。本番はこの2ファイルを両方投入して構築されているため、新規DBを本番相当にする場合は `db:seed-races:stg` に加えて次も実行すること:
+```bash
+npx wrangler d1 execute krote-run-stg-db --remote --file=./migrations/seed-races.sql
+```
+なお `matsumoto-marathon-2026` は本番DBにのみ存在し、対応するJSON/seedファイルがどこにも無い孤立データ（2026-03-31のコミットでJSON削除時に本番DBの削除が漏れたもの）。stgに再現する必要はない。
+
+#### 認証（Google OAuth）をstgで使う場合
+
+Cloudflare Pagesダッシュボード → Settings → Environment variables and secrets → **Preview**タブで以下を設定する（Production同様に必要。`env.preview`のD1/R2バインディングとは別管理）:
+
+| 変数名 | 値 |
+|---|---|
+| `BETTER_AUTH_URL` | `https://staging.krote-run.pages.dev` |
+| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | 本番と同じGCP OAuthクライアントの値でよい |
+| `BETTER_AUTH_SECRET` | 本番と別の値を推奨 |
+
+GCPコンソールの当該OAuthクライアントの「承認済みのリダイレクトURI」に `https://staging.krote-run.pages.dev/api/auth/callback/google` を追加する（既存クライアントへの追記でよく、別クライアントを作る必要はない）。
+
+**⚠️ secretsを設定・変更した後は `pnpm run cf:deploy:stg` で再デプロイが必要**（2026-08-24 確認）。Cloudflare Pagesのsecretsはダッシュボードで保存しても既存のデプロイ済みPreviewには即時反映されず、次のデプロイから有効になる。設定直後にログインを試して `INVALID_ORIGIN` 等のエラーが出る場合はこれが原因の可能性が高い。
 
 ### seed-races の更新フロー
 

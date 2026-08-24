@@ -233,6 +233,32 @@ describe('UserRaceList — 参加済みセクション', () => {
   });
 });
 
+describe('UserRaceList — 結果記録セクション', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    mockUseSession.mockReturnValue({ data: MOCK_SESSION });
+  });
+
+  it('参加済みの大会には結果記録ボタンが表示される', async () => {
+    setupFetch([makeRow({ is_participated: true, race_id: 'tokyo-2026' })]);
+
+    render(<UserRaceList />);
+    await waitFor(() => {
+      expect(screen.getByText('raceResultButton')).toBeInTheDocument();
+    });
+  });
+
+  it('参加予定のみ（未参加）の大会には結果記録ボタンが表示されない', async () => {
+    setupFetch([makeRow({ is_planning: true, is_participated: false, race_id: 'tokyo-2026' })]);
+
+    render(<UserRaceList />);
+    await waitFor(() => {
+      expect(screen.getByText('東京マラソン2026')).toBeInTheDocument();
+    });
+    expect(screen.queryByText('raceResultButton')).not.toBeInTheDocument();
+  });
+});
+
 describe('UserRaceList — 時系列ソート', () => {
   beforeEach(() => {
     vi.clearAllMocks();

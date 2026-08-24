@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSession } from '@/lib/auth-client';
 import { Link } from '@/i18n/navigation';
 import RaceGearSection from './RaceGearSection';
+import RaceResultSection from './RaceResultSection';
 
 interface UserRaceRow {
   id: string;
@@ -86,8 +87,15 @@ function RaceItem({ row, raceMap }: { row: UserRaceRow; raceMap: Map<string, Rac
         </div>
       </div>
       {race && (
-        <div className="mt-2">
+        <div className="mt-2 flex flex-wrap items-start gap-2">
           <RaceGearSection raceId={row.race_id} raceDate={race.date} isParticipated={row.is_participated} />
+          {row.is_participated && (
+            <RaceResultSection
+              raceId={row.race_id}
+              raceDate={race.date}
+              categories={race.categories.map((c) => ({ ...c, name_ja: getCatLabel(c) }))}
+            />
+          )}
         </div>
       )}
     </div>

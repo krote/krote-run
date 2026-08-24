@@ -947,3 +947,27 @@ APIの調査中にGoogle Routes API v2がTRANSITモードで日本に非対応�
   - `screen.getByRole` を毎回呼び直すよう変更（`!open`→`open`のDOM再構築でボタンがリマウントされるため）
   - close後に `waitFor` でパネル消滅を確認してから2回目オープンする手順に変更
   - 全22テスト通過
+
+## 2026-08-22 大会結果の自己記録機能（Issue #125）
+
+- `src/lib/result-validation.ts`（新規）: PUT リクエストボディのバリデーション（status/finish_time_sec/category_id/note）
+- `src/lib/__tests__/result-validation.test.ts`（新規）: バリデーション関数のテスト（正常系・異常系20件）
+- `src/app/api/user/races/[raceId]/result/route.ts`（新規）: GET（結果取得）/PUT（upsert）/DELETE（削除）
+- `src/app/api/user/races/[raceId]/result/__tests__/route.test.ts`（新規）: 各エンドポイントのテスト（未認証・404・400・正常系）
+- `src/components/mypage/RaceResultSection.tsx`（新規）: 開催済み大会の結果（完走/DNF/DNS・タイム・カテゴリ・メモ）を記録・編集・削除するUI。走力帯（`derivePerformanceBucket`）を算出し翻訳済みラベルで表示
+- `src/components/mypage/__tests__/RaceResultSection.test.tsx`（新規）: 表示・入力・保存・走力帯ラベル翻訳のテスト
+- `src/components/mypage/UserRaceList.tsx`（変更）: 「参加済み」大会に `RaceResultSection` を組み込み（`is_participated=true` の場合のみ表示）
+- `src/components/mypage/__tests__/UserRaceList.test.tsx`（変更）: 結果記録ボタンの表示条件（参加済みのみ）のテスト追加
+- `src/messages/ja.json` / `src/messages/en.json`（変更）: `gear` 名前空間に raceResult* キーを追加
+
+## 2026-08-22 大会結果記録機能のコードレビュー指摘修正（Issue #125）
+
+`/code-review` で検出した5件を修正:
+
+- `src/app/api/user/races/[raceId]/result/route.ts`（変更）: PUTのcheck-then-actがUNIQUE制約と非atomicで、同時リクエストで未捕捉の500になる問題を修正。insertがUNIQUE制約違反で失敗した場合はupdateにフォールバック
+- `src/components/mypage/RaceResultSection.tsx`（変更）:
+  - noteを空文字に編集して保存すると`if (note)`のfalsy判定で送信されず既存値が残る問題を修正（常に送信するよう変更）
+  - 走力帯計算のカテゴリ未指定時フォールバックが`categories[0]`（並び順で先頭）だった問題を修正。`pickMainCategory()`を追加しフルマラソン優先・なければ最長距離を選択
+  - `raceDate >= today`により大会当日は非表示になっていたオフバイワンを修正（`raceDate > today`に変更、当日から記録可能に）
+  - `parseTimeToSec`が小数秒を許容し、サーバー側の整数チェックで弾かれた際に汎用エラーメッセージになる問題を修正（`Number.isInteger`で厳密化）
+- `src/app/api/user/races/[raceId]/result/__tests__/route.test.ts` / `src/components/mypage/__tests__/RaceResultSection.test.tsx`（変更）: 上記5件に対応するテストを追加（TDD: Red確認後に実装）

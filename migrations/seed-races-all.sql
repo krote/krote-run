@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-08-24T16:49:50.370Z
--- 対象ファイル数: 107 件（既存 2 件はskip）
+-- 生成日時: 2026-08-24T21:10:41.316Z
+-- 対象ファイル数: 108 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -2744,6 +2744,157 @@ INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja
   ('fukui-sakura-marathon-2026', NULL, NULL, '桜並木', 'Cherry blossom trees', NULL, NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('fukui-sakura-marathon-2026', NULL, NULL, '足羽川', 'Asuwa River', NULL, NULL, 1);
+
+-- ==================
+-- ふくい桜マラソン (fukui-sakura-marathon-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM race_categories WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM aid_stations WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM checkpoints WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM access_points WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM nearby_spots WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM weather_history WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM participation_gifts WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM completion_gifts WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM race_entry_links WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM reception_sessions WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM race_travel_times WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM race_results WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM race_gallery WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM race_voices WHERE race_id = 'fukui-sakura-marathon-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'fukui-sakura-marathon-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'fukui-sakura-marathon-2027',
+  'ふくい桜マラソン',
+  'Fukui Sakura Marathon',
+  '2027-03-28',
+  '18',
+  '福井市',
+  'Fukui City',
+  '2024年に始まった福井県のフルマラソン。桜並木と恐竜博物館で知られる福井を走る。制限時間7時間。',
+  'Fukui Prefecture''s marathon started in 2024. Run through Fukui known for cherry blossoms and the Dinosaur Museum. 7-hour time limit.',
+  'https://www.fukui-sakura-marathon.jp',
+  14000,
+  1,
+  13200,
+  '2026-09-20',
+  '2026-11-09',
+  0,
+  'pre_day',
+  '',
+  '',
+  '["初心者おすすめ","桜"]',
+  NULL,
+  0,
+  0,
+  15,
+  'road',
+  '[]',
+  'さくら通り、新九頭竜橋、丸岡城周辺',
+  'Sakura-dori Ave, Shin-Kuzuryu Bridge, Marukoka Castle area',
+  '高低差15mのフラットなコース',
+  'Flat course with 15m elevation difference',
+  '桜',
+  '#f9c1cc',
+  'Sakura',
+  '福井の桜回廊を巡る、春の42km',
+  'A spring 42km through Fukui''s cherry blossom corridors',
+  NULL,
+  NULL,
+  NULL,
+  '大名町交差点付近',
+  'Near Daimyocho Intersection',
+  '福井県福井市大名町（福井駅から徒歩約7分）',
+  NULL,
+  NULL,
+  '2026-08-25T00:00:00Z',
+  '2026-08-25T00:00:00Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fukui-sakura-marathon-2027', 'full', 42.195, 420, '08:30', 13200, 14000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fukui-sakura-marathon-2027', '5k', 5, 45, '09:15', 1300, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fukui-sakura-marathon-2027', 'other', 1.5, 30, '09:30', 500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('fukui-sakura-marathon-2027', '観光地', '永平寺', 'Eiheiji Temple', '曹洞宗の大本山。荘厳な修行道場。福井市から車約30分。', 'The head temple of Soto Zen. A solemn training monastery. About 30 min by car from Fukui city.', '福井市から車約30分', NULL, 36.0833, 136.35);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('fukui-sakura-marathon-2027', 'グルメ', '越前おろしそば', 'Echizen Oroshi Soba', '大根おろしとだしで食べる福井名物のそば。レース後のエネルギー補給に。', 'Fukui''s specialty soba with grated radish and broth. For post-race energy.', '福井市内', NULL, 36.0652, 136.2199);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('fukui-sakura-marathon-2027', '["tshirt","towel"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('fukui-sakura-marathon-2027', '["medal"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('fukui-sakura-marathon-2027', NULL, '先行エントリー（県民・グループ割）', 'Early Entry (Fukui Residents / Group Discount)', '2026-09-20', '2026-09-24', 12000, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('fukui-sakura-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-09-26', '2026-11-09', NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukui-sakura-marathon-2027', NULL, NULL, 'さくら通り', 'Sakura-dori Avenue', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukui-sakura-marathon-2027', NULL, NULL, '新九頭竜橋', 'Shin-Kuzuryu Bridge', NULL, NULL, 1);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('fukui-sakura-marathon-2027', NULL, NULL, '丸岡城周辺', 'Marukoka Castle area', NULL, NULL, 2);
 
 -- ==================
 -- 福岡国際マラソン (fukuoka-international-marathon-2026)

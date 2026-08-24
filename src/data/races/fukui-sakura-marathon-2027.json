@@ -1,11 +1,11 @@
 {
-  "id": "fukui-sakura-marathon-2026",
+  "id": "fukui-sakura-marathon-2027",
   "name_ja": "ふくい桜マラソン",
   "name_en": "Fukui Sakura Marathon",
-  "full_name_ja": "ふくい桜マラソン 2026",
-  "full_name_en": "Fukui Sakura Marathon",
+  "full_name_ja": "ふくい桜マラソン 2027",
+  "full_name_en": "Fukui Sakura Marathon 2027",
   "edition": null,
-  "date": "2026-03-29",
+  "date": "2027-03-28",
   "prefecture": "18",
   "city_ja": "福井市",
   "city_en": "Fukui City",
@@ -15,8 +15,8 @@
   "entry_fee": 14000,
   "entry_fee_by_category": true,
   "entry_capacity": 13200,
-  "entry_start_date": "2025-09-25",
-  "entry_end_date": "2025-11-10",
+  "entry_start_date": "2026-09-20",
+  "entry_end_date": "2026-11-09",
   "reception_type": "pre_day",
   "reception_note_ja": "",
   "reception_note_en": "",
@@ -28,13 +28,13 @@
   "course_info": {
     "max_elevation_m": null,
     "min_elevation_m": null,
-    "elevation_diff_m": null,
+    "elevation_diff_m": 15,
     "surface": "road",
     "certification": [],
-    "highlights_ja": "桜並木、足羽川",
-    "highlights_en": "Cherry blossom trees, Asuwa River",
-    "notes_ja": null,
-    "notes_en": null
+    "highlights_ja": "さくら通り、新九頭竜橋、丸岡城周辺",
+    "highlights_en": "Sakura-dori Ave, Shin-Kuzuryu Bridge, Marukoka Castle area",
+    "notes_ja": "高低差15mのフラットなコース",
+    "notes_en": "Flat course with 15m elevation difference"
   },
   "categories": [
     {
@@ -48,7 +48,7 @@
     {
       "distance_type": "5k",
       "distance_km": 5,
-      "time_limit_minutes": 0,
+      "time_limit_minutes": 45,
       "start_time": "09:15",
       "capacity": 1300,
       "entry_fee": null
@@ -56,7 +56,7 @@
     {
       "distance_type": "other",
       "distance_km": 1.5,
-      "time_limit_minutes": 0,
+      "time_limit_minutes": 30,
       "start_time": "09:30",
       "capacity": 500,
       "entry_fee": null
@@ -102,22 +102,30 @@
     }
   ],
   "result": null,
-  "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-05-25T01:18:51.816Z",
+  "created_at": "2026-08-25T00:00:00Z",
+  "updated_at": "2026-08-25T00:00:00Z",
   "_metadata": {
-    "data_source": "公式サイト等の公開情報から転記",
+    "data_source": "公式サイト（fukui-sakura-marathon.jp）およびふくい桜マラソン公式ニュースリリース、福井新聞ONLINE報道から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-05-25: 自動クロールで更新",
-      "2026-08-25: info_urls全件が404/403。本大会（2026-03-29開催）は終了済みで、公式サイトは既に「ふくい桜マラソン2027」に切り替わっている。2027年版のレースJSON（fukui-sakura-marathon-2027.json）を新規作成済み"
+      "2026-08-25: fukui-sakura-marathon-2026を元に2027年大会ファイルを新規作成。開催概要（開催日・種目・参加費・定員・エントリー期間）は公式ニュースリリース（fukui-sakura-marathon.jp/news/news/3270/）に基づく",
+      "2026-08-25: 公式サイトはボット対策（403/404）により本crawlツールでは自動取得不可。info_urlsには現在の正しいURL構成を登録したが、自動更新は効かないため今後は手動確認が必要",
+      "エントリー期間は先行枠（県民・グループ割、9/20-9/24）と一般枠（9/26-11/9）の2区分。entry_start_date/entry_end_dateは全体の範囲"
     ],
-    "last_verified": "2026-05-25",
+    "last_verified": "2026-08-25",
     "detail_level": "medium"
   },
   "entry_periods": [
     {
-      "start_date": "2025-09-25",
-      "end_date": "2025-11-10",
+      "start_date": "2026-09-20",
+      "end_date": "2026-09-24",
+      "entry_fee": 12000,
+      "label_ja": "先行エントリー（県民・グループ割）",
+      "label_en": "Early Entry (Fukui Residents / Group Discount)"
+    },
+    {
+      "start_date": "2026-09-26",
+      "end_date": "2026-11-09",
       "entry_fee": null,
       "label_ja": "一般エントリー",
       "label_en": "General Entry"
@@ -136,14 +144,20 @@
   "time_buckets": [],
   "course_highlights": [
     {
-      "name_ja": "桜並木",
-      "name_en": "Cherry blossom trees",
+      "name_ja": "さくら通り",
+      "name_en": "Sakura-dori Avenue",
       "description_ja": null,
       "description_en": null
     },
     {
-      "name_ja": "足羽川",
-      "name_en": "Asuwa River",
+      "name_ja": "新九頭竜橋",
+      "name_en": "Shin-Kuzuryu Bridge",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "丸岡城周辺",
+      "name_en": "Marukoka Castle area",
       "description_ja": null,
       "description_en": null
     }
@@ -151,23 +165,23 @@
   "info_urls": [
     {
       "url": "https://www.fukui-sakura-marathon.jp/about/",
-      "label": "大会要項"
+      "label": "大会情報"
     },
     {
-      "url": "https://www.fukui-sakura-marathon.jp/about/course/",
-      "label": "コース情報"
-    },
-    {
-      "url": "https://www.fukui-sakura-marathon.jp/about/concept/",
-      "label": "大会の特色"
+      "url": "https://www.fukui-sakura-marathon.jp/information/course/",
+      "label": "ランニングコース"
     },
     {
       "url": "https://www.fukui-sakura-marathon.jp/runner/",
-      "label": "エントリー"
+      "label": "ランナー（エントリー）"
     },
     {
-      "url": "https://www.fukui-sakura-marathon.jp/stay/",
-      "label": "アクセス"
+      "url": "https://www.fukui-sakura-marathon.jp/access/",
+      "label": "宿泊・交通"
+    },
+    {
+      "url": "https://www.fukui-sakura-marathon.jp/faq/",
+      "label": "Q&A"
     }
   ],
   "completion_gifts": [
@@ -180,9 +194,9 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
+  "venue_name_ja": "大名町交差点付近",
+  "venue_name_en": "Near Daimyocho Intersection",
+  "venue_address": "福井県福井市大名町（福井駅から徒歩約7分）",
   "start_lat": null,
   "start_lng": null
 }

@@ -72,7 +72,28 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "大磯駅",
+      "station_name_en": "Oiso Station",
+      "station_code": "",
+      "transport_to_venue_ja": "大会当日は無料シャトルバスを運行",
+      "transport_to_venue_en": "Free shuttle bus available on race day",
+      "latitude": 0,
+      "longitude": 0,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "二宮駅",
+      "station_name_en": "Ninomiya Station",
+      "station_code": "",
+      "transport_to_venue_ja": "大会当日は無料シャトルバスを運行",
+      "transport_to_venue_en": "Free shuttle bus available on race day",
+      "latitude": 0,
+      "longitude": 0,
+      "is_primary": false
+    }
+  ],
   "nearby_spots": [
     {
       "type": "観光地",
@@ -99,16 +120,17 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-07-27T14:32:56.841Z",
+  "updated_at": "2026-08-24T16:16:36.520Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
       "2026-06-08: 自動クロールで更新",
-      "2026-07-27: 自動クロールで更新"
+      "2026-07-27: 自動クロールで更新",
+      "2026-08-24: 自動クロールで更新"
     ],
-    "last_verified": "2026-07-27",
+    "last_verified": "2026-08-24",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -167,8 +189,8 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "大磯プリンスホテル",
+  "venue_name_en": "Oiso Prince Hotel",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

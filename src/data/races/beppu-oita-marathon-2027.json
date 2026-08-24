@@ -1,0 +1,189 @@
+{
+  "id": "beppu-oita-marathon-2027",
+  "name_ja": "別府大分毎日マラソン",
+  "name_en": "Beppu-Oita Mainichi Marathon",
+  "full_name_ja": "第74回 別府大分毎日マラソン",
+  "full_name_en": "Beppu-Oita Mainichi Marathon",
+  "edition": null,
+  "date": "2027-02-07",
+  "prefecture": "44",
+  "city_ja": "大分市・別府市",
+  "city_en": "Oita & Beppu City",
+  "description_ja": "大分県で開催される歴史あるエリートマラソン。MGCシリーズG1大会。別府温泉から大分を結ぶ海岸沿いの高速コース。",
+  "description_en": "A prestigious elite marathon in Oita Prefecture. MGC Series G1 event. A fast coastal course connecting Beppu Onsen to Oita.",
+  "official_url": "https://www.betsudai.com",
+  "entry_fee": 18000,
+  "entry_fee_by_category": true,
+  "entry_capacity": 4000,
+  "entry_start_date": "2026-08-28",
+  "entry_end_date": "2026-12-07",
+  "reception_type": "pre_day",
+  "reception_note_ja": "2027年2月6日（土）13:00〜18:00、別府国際コンベンションセンター（B-con Plaza、大分県別府市山の手町12-1）にて競技者受付。時間外・代理受付は不可。",
+  "reception_note_en": "Athlete reception: Feb 6, 2027 (Sat) 13:00-18:00 at Beppu International Convention Center (B-con Plaza). No reception outside these hours; proxy reception not allowed.",
+  "tags": [
+    "エリート大会",
+    "フラット",
+    "日本陸連公認",
+    "温泉",
+    "記録狙い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF",
+      "WA",
+      "AIMS"
+    ],
+    "highlights_ja": "別府温泉街、別大国道の海岸線",
+    "highlights_en": "Beppu hot spring town, Betsudai coastal road",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 0,
+      "start_time": "12:00",
+      "capacity": 4000,
+      "entry_fee": 15000
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [
+    {
+      "station_name_ja": "JR大分駅",
+      "station_name_en": "JR Oita Station",
+      "station_code": "",
+      "transport_to_venue_ja": "専用シャトルバス",
+      "transport_to_venue_en": "Dedicated shuttle bus",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": null,
+      "is_primary": true
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "温泉",
+      "name_ja": "別府温泉",
+      "name_en": "Beppu Onsen",
+      "description_ja": "日本一の湧出量を誇る温泉地。地獄めぐりが有名。レース後に様々な泉質の温泉を楽しめる。",
+      "description_en": "Japan's top hot spring area by water output. Famous for 'Hell Tours'. Enjoy various hot spring types after the race.",
+      "distance_from_venue": "スタート地点付近",
+      "url": null,
+      "latitude": 33.2847,
+      "longitude": 131.5006
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "別府冷麺・とり天",
+      "name_en": "Beppu Cold Noodles & Chicken Tempura",
+      "description_ja": "別府のご当地グルメ。冷麺ととり天は名物。",
+      "description_en": "Beppu's local specialties. Cold noodles and chicken tempura.",
+      "distance_from_venue": "別府市内",
+      "url": null,
+      "latitude": 33.2847,
+      "longitude": 131.5006
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会Tシャツ",
+      "description_en": "Race T-shirt",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-24T15:45:47.419Z",
+  "updated_at": "2026-08-24T15:45:47.419Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "2026-08-24: 自動クロールで beppu-oita-marathon-2026 を元に2027年大会ファイルを新規作成"
+    ],
+    "last_verified": "2026-08-24",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "カテゴリー1（男子）",
+      "label_en": "Category 1 (Men)",
+      "start_date": "2026-08-28",
+      "end_date": "2026-12-07",
+      "entry_fee": 18000,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "カテゴリー2〜4",
+      "label_en": "Category 2-4",
+      "start_date": "2026-08-28",
+      "end_date": "2026-09-10",
+      "entry_fee": 18000,
+      "category_id": null,
+      "sort_order": 1
+    }
+  ],
+  "motif": "温泉",
+  "motif_color": "#fed7aa",
+  "motif_romaji": "Onsen",
+  "tagline_ja": "湯けむりの街から、大分へ。歴史ある42.195km",
+  "tagline_en": "From the city of hot springs to Oita — a storied 42.195km",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "別府温泉街",
+      "name_en": "Beppu hot spring town",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "別大国道の海岸線",
+      "name_en": "Betsudai coastal road",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.betsudai.com/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.betsudai.com/outline/flow/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://www.betsudai.com/outline/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.betsudai.com/question/",
+      "label": "FAQ"
+    },
+    {
+      "url": "https://www.betsudai.com/wp-content/themes/betsudai/pdf/74/kou.pdf",
+      "label": "アクセス"
+    }
+  ],
+  "venue_name_ja": "うみたまご前（高崎山）",
+  "venue_name_en": "Umitamago / Takasakiyama",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

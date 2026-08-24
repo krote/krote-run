@@ -12,7 +12,7 @@
   "description_ja": "神戸の港町を走る大規模フルマラソン。明石海峡大橋の折り返しが見どころ。「感謝と友情」がテーマ。",
   "description_en": "A large-scale marathon through the port city of Kobe. The turnaround point near Akashi Kaikyo Bridge is a highlight. Theme: Gratitude and Friendship.",
   "official_url": "https://www.kobe-marathon.net",
-  "entry_fee": null,
+  "entry_fee": 18000,
   "entry_fee_by_category": true,
   "entry_capacity": 20000,
   "entry_start_date": "2026-04-17",
@@ -122,7 +122,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-07-27T14:19:45.923Z",
+  "updated_at": "2026-08-24T16:31:09.438Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -131,9 +131,10 @@
       "2026-05-30: 自動クロールで更新",
       "2026-06-22: 自動クロールで更新",
       "2026-06-27: 自動クロールで更新",
-      "2026-07-27: 自動クロールで更新"
+      "2026-07-27: 自動クロールで更新",
+      "2026-08-24: 自動クロールで更新"
     ],
-    "last_verified": "2026-07-27",
+    "last_verified": "2026-08-24",
     "detail_level": "medium"
   },
   "entry_periods": [

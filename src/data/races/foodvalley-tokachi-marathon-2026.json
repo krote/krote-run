@@ -1,0 +1,165 @@
+{
+  "id": "foodvalley-tokachi-marathon-2026",
+  "name_ja": "フードバレーとかちマラソン",
+  "name_en": "Food Valley Tokachi Marathon",
+  "full_name_ja": "2026フードバレーとかちマラソン",
+  "full_name_en": "2026 Food Valley Tokachi Marathon",
+  "edition": null,
+  "date": "2026-10-25",
+  "prefecture": "01",
+  "city_ja": "帯広市",
+  "city_en": "Obihiro City",
+  "description_ja": "北海道シーズン最後を飾るハーフマラソン。参加者全員に十勝の味覚を楽しめる「まんぷくクーポン」が贈られる。",
+  "description_en": "The last half marathon of Hokkaido's road race season. All finishers receive a food coupon to enjoy Tokachi's local cuisine.",
+  "official_url": "https://www.foodvalley-marathon.com/",
+  "entry_fee": 6500,
+  "entry_fee_by_category": true,
+  "entry_capacity": 4000,
+  "entry_start_date": "2026-06-22",
+  "entry_end_date": "2026-09-06",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "アスリートビブス・計測チップ等は10月中旬頃までに事前送付される。当日忘れた場合はゴール会場の総合窓口で再発行可（ナンバーカード1,000円、計測チップ2,000円）。",
+  "reception_note_en": "Athlete bibs and timing chips are mailed in advance by mid-October. Reissue available at the finish venue reception desk if forgotten (bib: ¥1,000, chip: ¥2,000).",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.1,
+      "time_limit_minutes": 180,
+      "start_time": "08:30",
+      "capacity": 4000,
+      "entry_fee": 6500,
+      "entry_fee_u25": 5900,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "高校生5,900円",
+      "description_en": "High school student: ¥5,900",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 50,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": 3950,
+      "entry_fee_u25": 1900,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": "中学生1,900円",
+      "description_en": "Junior high school student: ¥1,900",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2.5,
+      "time_limit_minutes": 30,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": 2950,
+      "entry_fee_u25": 1900,
+      "name_ja": "2.5km",
+      "name_en": "2.5km",
+      "description_ja": "小学生1,200円",
+      "description_en": "Elementary school student: ¥1,200",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [
+    {
+      "station_name_ja": "帯広駅",
+      "station_name_en": "Obihiro Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約10分",
+      "transport_to_venue_en": "About 10 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 10,
+      "is_primary": true
+    }
+  ],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [],
+      "description_ja": "参加賞、大会オリジナルタオル、会場内の飲食・物販ブースで使用できる食券（550円分）",
+      "description_en": "Finisher gift, original towel, and food voucher (¥550) usable at venue food stalls",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-25T00:00:00Z",
+  "updated_at": "2026-08-24T16:24:36.251Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。コース詳細・気象データ等は未入力",
+      "2026-08-25: runnet.jp紹介記事を起点に新規登録",
+      "2026-08-24: 自動クロールで更新"
+    ],
+    "last_verified": "2026-08-24",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-06-22",
+      "end_date": "2026-09-06",
+      "entry_fee": null
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": "北海道シーズン最後を飾る、十勝の味覚めぐりハーフ",
+  "tagline_en": "Hokkaido's season-closing half marathon through Tokachi's food culture",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.foodvalley-marathon.com/about/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.foodvalley-marathon.com/course/",
+      "label": "コースマップ"
+    },
+    {
+      "url": "https://www.foodvalley-marathon.com/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://www.foodvalley-marathon.com/faq/",
+      "label": "Q&A"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "帯広市",
+  "venue_name_en": "Obihiro City",
+  "venue_address": "北海道帯広市西2条南8丁目",
+  "start_lat": null,
+  "start_lng": null
+}

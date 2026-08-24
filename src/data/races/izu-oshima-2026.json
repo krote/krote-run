@@ -12,7 +12,7 @@
   "description_ja": "絶景の海沿い　緑深い椿のトンネル　三原山裏砂漠沿い\n\n三原山を仰ぐ醍醐味のあるアップダウンなど、変化に富んだハードな挑戦コースを走る「伊豆大島マラソン」!\n16回目となる今大会も、豊かな大自然のなか初心者からベテランランナーまで、島民の声援を受けて楽しく島ランしよう!\n海風！山風！最大標高差365m！に、伊豆大島からの挑戦状です！",
   "description_en": "Stunning coastal views, lush camellia tunnels, and the desert landscape behind Mt. Mihara\nThe “Izu Oshima Marathon” takes you on a challenging, varied course featuring thrilling ups and downs as you gaze up at Mt. Mihara!\nNow in its 16th year, this event invites everyone—from beginners to seasoned runners—to enjoy a fun run around the island amidst rich natural scenery, cheered on by the islanders!\nSea breezes! Mountain breezes! A maximum elevation gain of 365 meters! This is Izu Oshima’s challenge to you!\n\nTranslated with DeepL.com (free version)",
   "official_url": "https://www.shining-foundation.org/izu-oshima-run",
-  "entry_fee": null,
+  "entry_fee": 9400,
   "entry_fee_by_category": true,
   "entry_capacity": 750,
   "entry_start_date": "2026-06-06",
@@ -91,17 +91,54 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
-  "nearby_spots": [],
+  "access_points": [
+    {
+      "station_name_ja": "元町港",
+      "station_name_en": "Motomachi Port",
+      "station_code": "",
+      "transport_to_venue_ja": "下船後、桟橋を歩いてすぐ（会場）",
+      "transport_to_venue_en": "Short walk from the pier after disembarking (venue)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 0,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "岡田港",
+      "station_name_en": "Okada Port",
+      "station_code": "",
+      "transport_to_venue_ja": "路線バスで約17分（370円）またはタクシー",
+      "transport_to_venue_en": "About 17 min by local bus (JPY 370) or taxi",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 0,
+      "is_primary": false
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "温泉",
+      "name_ja": "浜の湯",
+      "name_en": "Hamanoyu",
+      "description_ja": "海を一望できる絶景露天温泉。大会参加者は入浴券が無料サービスされる（水着着用）",
+      "description_en": "Open-air hot spring with ocean views; free admission ticket for participants (swimwear required)",
+      "distance_from_venue": "徒歩4分",
+      "url": "http://www.izu-oshima.or.jp/work/look/hamanoyu.html",
+      "latitude": 0,
+      "longitude": 0
+    }
+  ],
   "result": null,
   "created_at": "2026-06-06T08:43:10.814Z",
-  "updated_at": "2026-06-06T00:00:00.000Z",
+  "updated_at": "2026-08-24T16:28:34.477Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "2026-06-06: 公式サイトより手動入力"
+      "2026-06-06: 公式サイトより手動入力",
+      "2026-08-24: 自動クロールで更新",
+      "2026-08-24: 自動クロールで更新"
     ],
-    "last_verified": "2026-06-06",
+    "last_verified": "2026-08-24",
     "detail_level": "medium"
   },
   "info_urls": [
@@ -128,11 +165,31 @@
   ],
   "entry_periods": [
     {
+      "label_ja": "フルマラソン",
+      "label_en": "Full Marathon",
       "start_date": "2026-06-06",
       "end_date": "2026-11-15",
-      "entry_fee": null,
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry"
+      "entry_fee": 9400,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "ハーフマラソン",
+      "label_en": "Half Marathon",
+      "start_date": "2026-06-06",
+      "end_date": "2026-11-15",
+      "entry_fee": 7400,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "10km",
+      "label_en": "10km",
+      "start_date": "2026-06-06",
+      "end_date": "2026-11-15",
+      "entry_fee": 5400,
+      "category_id": null,
+      "sort_order": 2
     }
   ],
   "entry_closed": false,
@@ -153,10 +210,18 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "medal"
+        "coupon"
       ],
-      "description_ja": "オリジナル完走メダル",
-      "description_en": "",
+      "description_ja": "フィニッシュ時、島民ブースで使える金券プレゼント",
+      "description_en": "Voucher usable at resident booths upon finishing",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "food"
+      ],
+      "description_ja": "フィニッシュ時、大島名物あったか「あら汁」の無料サービス",
+      "description_en": "Free serving of Oshima's famous warm fish soup (arajiru) at the finish",
       "image": null
     }
   ],
@@ -181,9 +246,9 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
+  "venue_name_ja": "元町港船客待合所",
+  "venue_name_en": "Motomachi Port Passenger Waiting Hall",
+  "venue_address": "東京都大島町元町",
   "start_lat": null,
   "start_lng": null
 }

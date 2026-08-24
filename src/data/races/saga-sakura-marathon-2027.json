@@ -1,0 +1,186 @@
+{
+  "id": "saga-sakura-marathon-2027",
+  "name_ja": "さが桜マラソン",
+  "name_en": "Saga Sakura Marathon",
+  "full_name_ja": null,
+  "full_name_en": null,
+  "edition": null,
+  "date": "2027-03-21",
+  "prefecture": "41",
+  "city_ja": "佐賀市",
+  "city_en": "Saga City",
+  "description_ja": "桜の季節に開催される佐賀のフルマラソン。佐賀平野を駆け抜ける。",
+  "description_en": "A full marathon in Saga during cherry blossom season. Run across the Saga Plain.",
+  "official_url": "https://sagasakura-marathon.jp",
+  "entry_fee": 14500,
+  "entry_fee_by_category": false,
+  "entry_capacity": 8500,
+  "entry_start_date": "2026-10-01",
+  "entry_end_date": "2026-10-21",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "会場での選手受付はありません（海外在住者を除く）。アスリートビブス・計測チップ・参加賞Tシャツ等を事前に発送します（2027年2月下旬予定、ファンランは計測チップなし）。エントリー時の住所に発送するため、エントリー後の住所変更は必ずエントリーセンターへご連絡ください。当日アスリートビブス・計測チップを忘れると出走できません（ヘルプデスクにて有料で再発行可能）。",
+  "reception_note_en": "No on-site runner reception (except overseas residents). Athlete bibs, timing chips, and participation gift T-shirts etc. will be shipped in advance (planned late Feb 2027; Fun Run entrants receive no timing chip). Items are shipped to your entry address, so any address change after entry must be reported to the Entry Center. Forgetting your bib/chip on race day means you cannot start (paid re-issue available at the help desk).",
+  "tags": [
+    "桜"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": 10,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "桜並木、佐賀平野",
+    "highlights_en": "Cherry blossom trees, Saga Plain",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "吉野ヶ里遺跡",
+      "name_en": "Yoshinogari Ruins",
+      "description_ja": "弥生時代の大規模環濠集落遺跡。国の特別史跡。佐賀市から近い。",
+      "description_en": "A large-scale Yayoi period moated settlement. National Special Historic Site. Close to Saga city.",
+      "distance_from_venue": "佐賀市から車約20分",
+      "url": null,
+      "latitude": 33.3167,
+      "longitude": 130.3833
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会オリジナルTシャツ（選択制）",
+      "description_en": "Original event T-shirt (selectable)",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "local_product"
+      ],
+      "description_ja": "特産品：新撰佐賀のり焼きのり6枚（選択制）",
+      "description_en": "Local specialty: Saga roasted nori seaweed, 6 sheets (selectable)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-24T16:15:46.106Z",
+  "updated_at": "2026-08-24T16:38:10.166Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "2026-08-24: 自動クロールで saga-sakura-marathon-2026 を元に2027年大会ファイルを新規作成",
+      "2026-08-24: 自動クロールで更新",
+      "2026-08-25: info_urlsのエントリー・開催概要URLが404だったため、公式サイトの現在のページ構成を確認し最新情報・ゲストランナーページに修正"
+    ],
+    "last_verified": "2026-08-25",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "マラソン",
+      "label_en": "Marathon",
+      "start_date": "2026-10-01",
+      "end_date": "2026-10-21",
+      "entry_fee": 14500,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "ファンラン",
+      "label_en": "Fun Run",
+      "start_date": "2026-10-01",
+      "end_date": "2026-10-21",
+      "entry_fee": 6000,
+      "category_id": null,
+      "sort_order": 1
+    }
+  ],
+  "motif": "桜",
+  "motif_color": "#f9c1cc",
+  "motif_romaji": "Sakura",
+  "tagline_ja": "佐賀城址の桜を愛でながら走る、春の42km",
+  "tagline_en": "Run beneath cherry blossoms at Saga Castle in spring",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "桜並木",
+      "name_en": "Cherry blossom trees",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "佐賀平野",
+      "name_en": "Saga Plain",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://sagasakura-marathon.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://sagasakura-marathon.jp/info/",
+      "label": "最新情報"
+    },
+    {
+      "url": "https://sagasakura-marathon.jp/guest/",
+      "label": "ゲストランナー"
+    },
+    {
+      "url": "https://sagasakura-marathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://sagasakura-marathon.jp/traffic/",
+      "label": "アクセス"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "完走メダル",
+      "description_en": "Finisher medal",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "SAGAサンライズパーク",
+  "venue_name_en": "SAGA Sunrise Park",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

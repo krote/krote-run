@@ -14,9 +14,9 @@
   "official_url": "https://www.ohtawara-marathon.com/",
   "entry_fee": null,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
-  "entry_start_date": null,
-  "entry_end_date": null,
+  "entry_capacity": 4000,
+  "entry_start_date": "2026-06-06",
+  "entry_end_date": "2026-08-17",
   "reception_type": "pre_mail",
   "reception_note_ja": "当日受付の必要はありません。\n事前に送付（申込時の住所）するアスリートビブス、計測チップを装着し、号砲時刻20分前までにスタート地点に整列してください。",
   "reception_note_en": "",
@@ -40,7 +40,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-06-08T14:04:29.954Z",
-  "updated_at": "2026-06-08T14:04:29.954Z",
+  "updated_at": "2026-08-24T16:36:49.451Z",
   "info_urls": [
     {
       "url": "https://www.ohtawara-marathon.com/outline/",
@@ -63,7 +63,35 @@
       "label": "FAQ"
     }
   ],
-  "entry_periods": [],
+  "entry_periods": [
+    {
+      "label_ja": "マラソンの部エントリー",
+      "label_en": "Marathon Entry",
+      "start_date": "2026-06-06",
+      "end_date": "2026-07-07",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "10kmの部エントリー",
+      "label_en": "10km Entry",
+      "start_date": "2026-06-06",
+      "end_date": "2026-08-17",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "ふるさと納税エントリー",
+      "label_en": "Furusato Nozei Entry",
+      "start_date": "2026-06-06",
+      "end_date": "2026-08-08",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 2
+    }
+  ],
   "entry_closed": false,
   "entry_links": [],
   "participation_gifts": [],
@@ -83,5 +111,11 @@
   "venue_name_en": null,
   "venue_address": null,
   "start_lat": null,
-  "start_lng": null
+  "start_lng": null,
+  "_metadata": {
+    "last_verified": "2026-08-24",
+    "data_accuracy_notes": [
+      "2026-08-24: 自動クロールで更新"
+    ]
+  }
 }

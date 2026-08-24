@@ -12,14 +12,14 @@
   "description_ja": "愛媛県松山市で開催されるフルマラソン。松山城や道後温泉など、歴史ある街並みを走る。レース後は道後温泉でリカバリー。",
   "description_en": "A full marathon in Matsuyama, Ehime. Run through historic streets past Matsuyama Castle and Dogo Onsen. Recover at Dogo Onsen after the race.",
   "official_url": "https://ehimemarathon.jp",
-  "entry_fee": 0,
+  "entry_fee": 12900,
   "entry_fee_by_category": true,
   "entry_capacity": 10000,
   "entry_start_date": "2026-07-13",
   "entry_end_date": "2026-07-31",
-  "reception_type": "pre_day",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "reception_type": "both",
+  "reception_note_ja": "2027年2月6日（土）13:00〜18:00、2月7日（日）7:30〜9:00に城山公園にて受付。アスリートビブス引換QRコード（参加票）の提示が必要（本人来場のみ、代理受付不可）。",
+  "reception_note_en": "Reception at Shiroyama Park on Sat, Feb 6, 2027 (13:00-18:00) and Sun, Feb 7, 2027 (7:30-9:00). Athlete bib exchange QR code (entry pass) required; participants must attend in person (no proxy).",
   "tags": [
     "城下町",
     "景色が良い",
@@ -59,7 +59,19 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "JR松山駅",
+      "station_name_en": "JR Matsuyama Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約15分",
+      "transport_to_venue_en": "About 15 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 15,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [
     {
       "type": "温泉",
@@ -97,16 +109,17 @@
   ],
   "result": null,
   "created_at": "2026-06-27T00:00:00Z",
-  "updated_at": "2026-06-29T14:12:11.705Z",
+  "updated_at": "2026-08-24T16:11:44.326Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "2026-06-27: 自動クロールで取得した2027年大会情報を元に新規作成",
       "開催日は例年パターン（2月第1日曜）からの推定。正式発表後に要更新",
-      "2026-06-29: 自動クロールで更新"
+      "2026-06-29: 自動クロールで更新",
+      "2026-08-24: 自動クロールで更新"
     ],
-    "last_verified": "2026-06-29",
+    "last_verified": "2026-08-24",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -136,6 +149,24 @@
       "entry_fee": null,
       "category_id": null,
       "sort_order": 2
+    },
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-08-03",
+      "end_date": "2026-08-20",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 3
+    },
+    {
+      "label_ja": "ふるさと納税枠",
+      "label_en": "Furusato Nozei Entry",
+      "start_date": "2026-08-03",
+      "end_date": "2026-09-14",
+      "entry_fee": 50000,
+      "category_id": null,
+      "sort_order": 4
     }
   ],
   "motif": "みかん",
@@ -196,9 +227,9 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
+  "venue_name_ja": "城山公園",
+  "venue_name_en": "Shiroyama Park",
+  "venue_address": "愛媛県松山市堀之内",
   "start_lat": null,
   "start_lng": null
 }

@@ -71,14 +71,15 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-06-27T00:00:00Z",
-  "updated_at": "2026-06-27T13:33:20.980Z",
+  "updated_at": "2026-08-24T16:39:03.577Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-06-27: 自動クロールで取得した2027年大会情報を元に新規作成"
+      "2026-06-27: 自動クロールで取得した2027年大会情報を元に新規作成",
+      "2026-08-24: 自動クロールで更新"
     ],
-    "last_verified": "2026-06-27",
+    "last_verified": "2026-08-24",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -99,6 +100,15 @@
       "entry_fee": 15000,
       "category_id": null,
       "sort_order": 1
+    },
+    {
+      "label_ja": "8kmの部エントリー",
+      "label_en": "8km Race Entry",
+      "start_date": "2026-07-15",
+      "end_date": null,
+      "entry_fee": 4400,
+      "category_id": null,
+      "sort_order": 2
     }
   ],
   "motif": "荒川",
@@ -132,8 +142,8 @@
     }
   ],
   "completion_gifts": [],
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "GMOアリーナさいたま（さいたまスーパーアリーナ）",
+  "venue_name_en": "GMO Arena Saitama (Saitama Super Arena)",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

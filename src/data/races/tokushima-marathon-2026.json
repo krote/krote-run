@@ -27,11 +27,15 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [],
-    "highlights_ja": "吉野川",
-    "highlights_en": "Yoshino River",
-    "notes_ja": null,
-    "notes_en": null
+    "certification": [
+      "JAAF",
+      "AIMS",
+      "WA"
+    ],
+    "highlights_ja": "吉野川、眉山、吉野川に架かる橋群（吉野川大橋・吉野川橋・西条大橋等）",
+    "highlights_en": "Yoshino River, Mt. Bizan, bridges over the Yoshino River (Yoshinogawa Ohashi, Yoshinogawa Bridge, Saijo Ohashi, etc.)",
+    "notes_ja": "制限時間7時間。今大会よりウェーブスタートを廃止。",
+    "notes_en": "Time limit: 7 hours. Wave start has been discontinued for this event."
   },
   "categories": [
     {
@@ -78,17 +82,37 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-05-30T06:43:19.054Z",
+  "updated_at": "2026-08-24T16:43:11.778Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-08-24: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-08-24",
     "detail_level": "medium"
   },
-  "entry_periods": [],
+  "entry_periods": [
+    {
+      "label_ja": "マラソン",
+      "label_en": "Marathon",
+      "start_date": "2025-09-30",
+      "end_date": "2025-12-31",
+      "entry_fee": 11000,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "チャレンジラン",
+      "label_en": "Challenge Run",
+      "start_date": "2025-09-30",
+      "end_date": "2025-11-30",
+      "entry_fee": 0,
+      "category_id": null,
+      "sort_order": 1
+    }
+  ],
   "motif": "阿波おどり",
   "motif_color": "#ea580c",
   "motif_romaji": "Awa-Odori",
@@ -140,8 +164,8 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "ワークスタッフ陸上競技場（徳島市陸上競技場）",
+  "venue_name_en": "Workstaff Athletics Stadium (Tokushima City Athletics Stadium)",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

@@ -17,9 +17,9 @@
   "entry_capacity": 6000,
   "entry_start_date": "2026-05-01",
   "entry_end_date": "2026-05-31",
-  "reception_type": "pre_day",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "reception_type": "both",
+  "reception_note_ja": "参加賞受付：大会前日13:00〜17:00、当日7:00〜大会終了",
+  "reception_note_en": "Race pack pickup: Day before 13:00-17:00, Race day 7:00 until event ends",
   "tags": [
     "歴史ある大会"
   ],
@@ -29,7 +29,9 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [],
+    "certification": [
+      "JAAF"
+    ],
     "highlights_ja": "由良川沿い、福知山城周辺",
     "highlights_en": "Along Yura River, near Fukuchiyama Castle",
     "notes_ja": null,
@@ -57,7 +59,18 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "JR福知山駅",
+      "station_name_en": "JR Fukuchiyama Station",
+      "station_code": "",
+      "transport_to_venue_ja": "無料シャトルバスを利用",
+      "transport_to_venue_en": "Free shuttle bus",
+      "latitude": 0,
+      "longitude": 0,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [
     {
       "type": "観光地",
@@ -95,7 +108,7 @@
   ],
   "result": null,
   "created_at": "2026-04-30T00:00:00Z",
-  "updated_at": "2026-06-08T14:30:53.853Z",
+  "updated_at": "2026-08-24T16:26:12.525Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -104,9 +117,11 @@
       "レイト（9/1-9/20）・直前（11/1-11/15）申込は参加賞なし",
       "2026-05-25: 自動クロールで更新",
       "2026-05-30: 自動クロールで更新",
-      "2026-06-08: 自動クロールで更新"
+      "2026-06-08: 自動クロールで更新",
+      "2026-08-24: 自動クロールで更新",
+      "2026-08-25: info_urlsの開催概要URL（/2026/info/support-runners/）が404だったため/feature/に修正"
     ],
-    "last_verified": "2026-06-08",
+    "last_verified": "2026-08-25",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -159,8 +174,8 @@
       "label": "エントリー"
     },
     {
-      "url": "https://fukuchiyama-marathon.com/2026/info/support-runners/",
-      "label": "開催概要"
+      "url": "https://fukuchiyama-marathon.com/feature/",
+      "label": "大会の特徴"
     },
     {
       "url": "https://fukuchiyama-marathon.com/access/",
@@ -177,8 +192,8 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "三段池扶桑化学工業アリーナ",
+  "venue_name_en": "Sandanike Fuso Kagaku Kogyo Arena",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

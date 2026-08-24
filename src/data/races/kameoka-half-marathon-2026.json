@@ -1,0 +1,210 @@
+{
+  "id": "kameoka-half-marathon-2026",
+  "name_ja": "京都亀岡ハーフマラソン",
+  "name_en": "Kyoto Kameoka Half Marathon",
+  "full_name_ja": "第12回 京都亀岡ハーフマラソン",
+  "full_name_en": "12th Kyoto Kameoka Half Marathon",
+  "edition": 12,
+  "date": "2026-12-13",
+  "prefecture": "26",
+  "city_ja": "亀岡市",
+  "city_en": "Kameoka City",
+  "description_ja": "亀岡運動公園競技場発着で行われるハーフマラソン。好アクセスで自己ベストを狙いやすいコースが特徴。",
+  "description_en": "A half marathon starting and finishing at Kameoka Sports Park Stadium, known for its accessible, PB-friendly course.",
+  "official_url": "https://kameoka-half-marathon.jp/",
+  "entry_fee": 6000,
+  "entry_fee_by_category": true,
+  "entry_capacity": 4500,
+  "entry_start_date": "2026-07-01",
+  "entry_end_date": "2026-08-31",
+  "reception_type": "both",
+  "reception_note_ja": "参加賞・プログラムは大会前日13:00〜17:00、当日7:00〜14:00に亀岡運動公園体育館前で配布（参加賞引換券が必要）。",
+  "reception_note_en": "Participation gifts and program are handed out at Kameoka Sports Park Gymnasium from 13:00-17:00 the day before the race and 7:00-14:00 on race day (exchange voucher required).",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "自己ベストを狙いやすいコース",
+    "highlights_en": "PB-friendly course",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 160,
+      "start_time": "09:45",
+      "capacity": 3500,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "15歳以上（中学生除く）、制限時間2時間40分",
+      "description_en": "Age 15+ (excluding junior high school students), time limit 2h40m",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": 2500,
+      "entry_fee_u25": 1500,
+      "name_ja": "5kmロードレース",
+      "name_en": "5km Road Race",
+      "description_ja": "中学生1,500円",
+      "description_en": "Junior high school student: ¥1,500",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": 2500,
+      "entry_fee_u25": 1500,
+      "name_ja": "3kmロードレース",
+      "name_en": "3km Road Race",
+      "description_ja": "中学生・小学生1,500円",
+      "description_en": "Junior high & elementary school student: ¥1,500",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [
+    {
+      "station_name_ja": "JR亀岡駅",
+      "station_name_en": "JR Kameoka Station",
+      "station_code": "",
+      "transport_to_venue_ja": "無料シャトルバスを利用",
+      "transport_to_venue_en": "Free shuttle bus available",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": null,
+      "is_primary": true
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "温泉",
+      "name_ja": "湯の花温泉",
+      "name_en": "Yunohana Onsen",
+      "description_ja": "京の奥座敷と呼ばれる名湯。神経痛、冷え症、疲労回復などに効用があるとされ、戦国時代には武将が刀傷を癒したという伝説も残る。",
+      "description_en": "A renowned hot spring known as \"Kyoto's inner retreat,\" said to ease neuralgia, cold sensitivity, and fatigue.",
+      "distance_from_venue": "徒歩圏内",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "観光地",
+      "name_ja": "嵯峨野トロッコ列車",
+      "name_en": "Sagano Romantic Train",
+      "description_ja": "清流と峡谷を望む観光列車。保津川渓谷の四季折々の絶景を楽しめる。",
+      "description_en": "A scenic sightseeing train overlooking the Hozugawa River gorge.",
+      "distance_from_venue": "亀岡市内",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "観光地",
+      "name_ja": "保津川下り",
+      "name_en": "Hozugawa River Boat Ride",
+      "description_ja": "江戸時代から続く舟下り。亀岡から京都嵐山まで船頭のガイドで下る約2時間のコース。",
+      "description_en": "A boat trip dating back to the Edo period, running from Kameoka to Arashiyama in Kyoto.",
+      "distance_from_venue": "亀岡市内",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "観光地",
+      "name_ja": "丹波亀山城跡と城下町",
+      "name_en": "Tanba Kameyama Castle Ruins",
+      "description_ja": "明智光秀ゆかりの城跡。築100年を超える建物が残る城下町。",
+      "description_en": "The ruins of a castle associated with Akechi Mitsuhide, surrounded by a townscape with buildings over 100 years old.",
+      "distance_from_venue": "亀岡市内",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-08-25T00:00:00Z",
+  "updated_at": "2026-08-24T16:30:18.657Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。1.3kmファンラン・900mファンラン（車いす）はcategoriesに未収録",
+      "2026-08-25: runnet.jp紹介記事を起点に新規登録",
+      "2026-08-24: 自動クロールで更新"
+    ],
+    "last_verified": "2026-08-24",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-07-01",
+      "end_date": "2026-08-31",
+      "entry_fee": null
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": "好アクセス×自己ベストを狙いやすいコース",
+  "tagline_en": "Great access, PB-friendly course",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://kameoka-half-marathon.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://kameoka-half-marathon.jp/feature/",
+      "label": "大会の特徴"
+    },
+    {
+      "url": "https://kameoka-half-marathon.jp/course/",
+      "label": "コース&アクセス"
+    },
+    {
+      "url": "https://kameoka-half-marathon.jp/contact/",
+      "label": "Q&A・お問い合わせ"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "other"
+      ],
+      "description_ja": "ハーフマラソン完走者に、ランナーズチップと交換で完走記念品を贈呈",
+      "description_en": "Half marathon finishers receive a finisher gift in exchange for their runner's chip",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "亀岡運動公園競技場",
+  "venue_name_en": "Kameoka Sports Park Stadium",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

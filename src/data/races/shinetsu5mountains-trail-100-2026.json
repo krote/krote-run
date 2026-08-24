@@ -28,9 +28,9 @@
     "max_elevation_m": null,
     "min_elevation_m": null,
     "elevation_diff_m": null,
-    "surface": "road",
+    "surface": "trail",
     "certification": [],
-    "highlights_ja": "",
+    "highlights_ja": "100mile：エイドステーション9カ所、アシスタントポイント7カ所（赤池・大橋林道を除く）、ドロップバッグポイントはアパリゾート上越妙高（53km地点）と黒姫（99km地点）。110km：エイドステーション6カ所、アシスタントポイント4カ所（熊坂・大橋林道を除く）、ドロップバッグポイントは笹ヶ峰グリーンハウス（60km地点）。コースには矢印表示・注意表示・マーカーテープ・フラッシュライト等を設置し、誘導員・警備員を配置。トイレ・救護所は各エイドステーションに設置。",
     "highlights_en": "",
     "notes_ja": "",
     "notes_en": ""
@@ -59,7 +59,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-05T07:49:25.657Z",
-  "updated_at": "2026-05-30T06:42:15.502Z",
+  "updated_at": "2026-08-24T16:39:38.579Z",
   "entry_periods": [
     {
       "start_date": "2026-04-08",
@@ -116,9 +116,10 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-08-24",
     "data_accuracy_notes": [
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-08-24: 自動クロールで更新"
     ]
   },
   "venue_name_ja": null,

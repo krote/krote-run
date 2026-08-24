@@ -17,9 +17,9 @@
   "entry_capacity": 5550,
   "entry_start_date": "2026-04-01",
   "entry_end_date": "2026-05-27",
-  "reception_type": "pre_mail",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "reception_type": "pre_day",
+  "reception_note_ja": "大会前日エントリー（先着順、予約不可）：9月19日（土）13時30分～17時00分、田沢湖マラソン特設会場にて実施。各種目30人（3kmペアマラソンは15ペア）。エントリーと同時に参加料を現金で納付。前日エントリー者の氏名は大会プログラムに掲載不可。エントリー状況によっては前日エントリーを中止する場合あり。",
+  "reception_note_en": "Pre-day entry (first-come, first-served, no reservations): September 19 (Sat) 13:30-17:00 at the Tazawako Marathon special venue. Limited to 30 entrants per event (15 pairs for the 3km Pair Marathon). Entry fee must be paid in cash at the time of entry. Names of pre-day entrants will not appear in the event program. Pre-day entry may be canceled depending on entry status.",
   "tags": [],
   "course_gpx_file": null,
   "course_info": {
@@ -80,14 +80,43 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-03-29T11:30:29.091Z",
-  "updated_at": "2026-05-30T06:43:05.830Z",
+  "updated_at": "2026-08-24T16:41:07.705Z",
   "entry_periods": [
     {
+      "label_ja": "フルマラソン",
+      "label_en": "Full Marathon",
       "start_date": "2026-04-01",
       "end_date": "2026-05-27",
-      "entry_fee": null,
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry"
+      "entry_fee": 10000,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "20kmマラソン",
+      "label_en": "20km Marathon",
+      "start_date": "2026-04-01",
+      "end_date": "2026-05-27",
+      "entry_fee": 8000,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "10kmマラソン",
+      "label_en": "10km Marathon",
+      "start_date": "2026-04-01",
+      "end_date": "2026-05-27",
+      "entry_fee": 6000,
+      "category_id": null,
+      "sort_order": 2
+    },
+    {
+      "label_ja": "3kmペアマラソン",
+      "label_en": "3km Pair Marathon",
+      "start_date": "2026-04-01",
+      "end_date": "2026-05-27",
+      "entry_fee": 5000,
+      "category_id": null,
+      "sort_order": 3
     }
   ],
   "motif": "田沢湖",
@@ -132,9 +161,10 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-08-24",
     "data_accuracy_notes": [
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-08-24: 自動クロールで更新"
     ]
   },
   "venue_name_ja": null,

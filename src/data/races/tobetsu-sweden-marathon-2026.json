@@ -1,0 +1,166 @@
+{
+  "id": "tobetsu-sweden-marathon-2026",
+  "name_ja": "当別スウェーデンマラソン",
+  "name_en": "Tobetsu Sweden Marathon",
+  "full_name_ja": "当別スウェーデンマラソン2026",
+  "full_name_en": "Tobetsu Sweden Marathon 2026",
+  "edition": 1,
+  "date": "2026-10-18",
+  "prefecture": "01",
+  "city_ja": "石狩郡当別町",
+  "city_en": "Tobetsu, Ishikari District",
+  "description_ja": "北欧の街並みが広がるスウェーデンヒルズを駆け抜ける新設のマラソン大会。ハーフマラソンとスウェーデンヒルズコース（11.9km）を実施。",
+  "description_en": "A newly established race running through the Nordic-style townscape of Sweden Hills, featuring a half marathon and an 11.9km Sweden Hills course.",
+  "official_url": "https://www.tobetsu-sweden-marathon.com/",
+  "entry_fee": 7000,
+  "entry_fee_by_category": true,
+  "entry_capacity": 2300,
+  "entry_start_date": "2026-07-03",
+  "entry_end_date": "2026-09-03",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "ゼッケンは大会開催の2週間前を目途に事前発送されます。",
+  "reception_note_en": "Race bibs are shipped in advance, approximately two weeks before the event.",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "スウェーデンヒルズ（北欧の街並み）",
+    "highlights_en": "Sweden Hills (Nordic-style townscape)",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.1,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 2300,
+      "entry_fee": 7000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "当別町民は6,000円",
+      "description_en": "Tobetsu resident discount: ¥6,000",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 11.9,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 2300,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "スウェーデンヒルズコース",
+      "name_en": "Sweden Hills Course",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [
+    {
+      "station_name_ja": "JRロイズタウン駅",
+      "station_name_en": "JR Roystown Station",
+      "station_code": "",
+      "transport_to_venue_ja": "無料シャトルバス利用（運行時間7:00～9:00）",
+      "transport_to_venue_en": "Free shuttle bus (operating 7:00-9:00)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 0,
+      "is_primary": true
+    }
+  ],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "coupon"
+      ],
+      "description_ja": "当別町地域クーポン券1000円分（ハーフ・11.9kmの部）",
+      "description_en": "Tobetsu local coupon worth 1,000 yen (Half Marathon and 11.9km categories)",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "coupon"
+      ],
+      "description_ja": "当別町地域クーポン券500円分（ファンランの部）",
+      "description_en": "Tobetsu local coupon worth 500 yen (Fun Run categories)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-25T00:00:00Z",
+  "updated_at": "2026-08-24T16:41:57.446Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。制限時間・コース詳細は公式サイトで後日発表予定のため未入力",
+      "2026-08-25: runnet.jp紹介記事を起点に新規登録（第1回大会）",
+      "2026-08-24: 自動クロールで更新"
+    ],
+    "last_verified": "2026-08-24",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-07-03",
+      "end_date": "2026-09-03",
+      "entry_fee": null
+    }
+  ],
+  "motif": "スウェーデンヒルズ",
+  "motif_color": "#2563eb",
+  "motif_romaji": "Sweden Hills",
+  "tagline_ja": "北欧の街並みを駆け抜ける、北海道発の新大会",
+  "tagline_en": "A new Hokkaido race through a Nordic-style town",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "スウェーデンヒルズ",
+      "name_en": "Sweden Hills",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.tobetsu-sweden-marathon.com/recruit/",
+      "label": "募集要項"
+    },
+    {
+      "url": "https://www.tobetsu-sweden-marathon.com/course/",
+      "label": "コース"
+    },
+    {
+      "url": "https://www.tobetsu-sweden-marathon.com/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://www.tobetsu-sweden-marathon.com/question/",
+      "label": "よくある質問"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "スウェーデンヒルズ",
+  "venue_name_en": "Sweden Hills",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

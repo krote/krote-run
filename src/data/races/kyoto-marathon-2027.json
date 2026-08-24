@@ -108,15 +108,16 @@
   ],
   "result": null,
   "created_at": "2026-06-24T00:00:00Z",
-  "updated_at": "2026-06-22T15:04:24.950Z",
+  "updated_at": "2026-08-24T16:31:50.212Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "2026-06-22: 自動クロールで取得した2027年大会情報を元に新規作成",
-      "entry_start_date/entry_end_dateは2026年大会の日程から1年推定。正式発表後に要更新"
+      "entry_start_date/entry_end_dateは2026年大会の日程から1年推定。正式発表後に要更新",
+      "2026-08-24: 自動クロールで更新"
     ],
-    "last_verified": "2026-06-22",
+    "last_verified": "2026-08-24",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -203,8 +204,8 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "たけびしスタジアム京都（西京極総合運動公園内）",
+  "venue_name_en": "Takebishi Stadium Kyoto (Nishikyogoku Sports Park)",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

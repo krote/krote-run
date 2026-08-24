@@ -15,8 +15,8 @@
   "entry_fee": 14000,
   "entry_fee_by_category": true,
   "entry_capacity": 15000,
-  "entry_start_date": "2026-04-16",
-  "entry_end_date": "2026-05-18",
+  "entry_start_date": "2026-04-08",
+  "entry_end_date": "2026-06-23",
   "reception_type": "pre_day",
   "reception_note_ja": "LAWSON DO! SPORTS(ウェブ)\nLoppi端末(ローソン・ミニストップ店頭)",
   "reception_note_en": "",
@@ -30,7 +30,9 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [],
+    "certification": [
+      "JAAF"
+    ],
     "highlights_ja": "岡山城、後楽園",
     "highlights_en": "Okayama Castle, Korakuen Garden",
     "notes_ja": null,
@@ -54,7 +56,19 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "岡山駅",
+      "station_name_en": "Okayama Station",
+      "station_code": "",
+      "transport_to_venue_ja": "西口から北へ約1.5km、徒歩約20分",
+      "transport_to_venue_en": "About 1.5km north of the West Exit, approx. 20 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 20,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [
     {
       "type": "観光地",
@@ -81,24 +95,45 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-05-30T06:39:43.610Z",
+  "updated_at": "2026-08-24T16:14:48.368Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-08-24: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-08-24",
     "detail_level": "medium"
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
+      "label_ja": "岡山市民県民優先枠",
+      "label_en": "Okayama Resident Priority Entry",
+      "start_date": "2026-04-08",
+      "end_date": "2026-04-15",
+      "entry_fee": 14000,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "一般枠",
       "label_en": "General Entry",
       "start_date": "2026-04-16",
       "end_date": "2026-05-18",
-      "entry_fee": null
+      "entry_fee": 14000,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "ふるさと納税枠",
+      "label_en": "Furusato Nozei Entry",
+      "start_date": "2026-04-17",
+      "end_date": "2026-06-23",
+      "entry_fee": 14000,
+      "category_id": null,
+      "sort_order": 2
     }
   ],
   "motif": "桃",
@@ -158,9 +193,9 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
+  "venue_name_ja": "岡山県総合グラウンド",
+  "venue_name_en": "Okayama Prefectural General Ground",
+  "venue_address": "岡山県岡山市北区いずみ町2-1-1",
   "start_lat": null,
   "start_lng": null
 }

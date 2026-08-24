@@ -623,6 +623,17 @@ describe('callClaudeP - CLI経路（spawnFn注入）', () => {
     assert.equal(receivedOpts.shell, true, 'shell: true が渡される');
   });
 
+  test('timeoutは60秒より長い（実crawlで複数URL分のページテキストを含むpromptが60秒で頻繁にタイムアウトしたため）', async () => {
+    let receivedOpts = null;
+    const mockSpawnFn = (command, args, opts) => {
+      receivedOpts = opts;
+      return { error: null, status: 0, stdout: 'ok', stderr: '' };
+    };
+
+    await callClaudeP('test prompt', { useCli: true, spawnFn: mockSpawnFn });
+    assert.ok(receivedOpts.timeout > 60000, `timeout(${receivedOpts.timeout})は60000msより大きい`);
+  });
+
   test('promptはコマンドライン引数ではなくstdin経由で渡す（Windowsのcmd.exeコマンドライン長制限を回避するため）', async () => {
     let receivedArgs = null;
     let receivedOpts = null;

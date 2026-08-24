@@ -209,7 +209,8 @@ async function callClaudeP(prompt, opts = {}) {
     const result = spawnFn('claude', ['-p'], {
       input: prompt,
       encoding: 'utf-8',
-      timeout: 60000,
+      // 60秒だと複数URL分のページテキストを含む長いpromptで頻繁にタイムアウトしたため180秒に延長
+      timeout: 180000,
       maxBuffer: 4 * 1024 * 1024,
       shell: true,
     });

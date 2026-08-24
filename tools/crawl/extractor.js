@@ -190,19 +190,23 @@ function buildDiff(current, extracted) {
  * claude -p でプロンプトを実行して結果テキストを返す
  * ANTHROPIC_API_KEY が設定されている場合は Messages API を直接呼び出す（CI 対応）
  * @param {string} prompt
- * @param {{ useCli?: boolean, fetchFn?: Function }} opts
+ * @param {{ useCli?: boolean, fetchFn?: Function, spawnFn?: Function }} opts
  * @returns {Promise<string>}
  */
 async function callClaudeP(prompt, opts = {}) {
   const useCli = opts.useCli ?? true;
   const fetchFn = opts.fetchFn ?? fetch;
+  const spawnFn = opts.spawnFn ?? spawnSync;
 
   // CLI を使う場合
   if (useCli) {
-    const result = spawnSync('claude', ['-p', prompt], {
+    // shell: true が必須。Windows では claude は .cmd シムのため、
+    // shell 経由でないと spawnSync が ENOENT で失敗する。
+    const result = spawnFn('claude', ['-p', prompt], {
       encoding: 'utf-8',
       timeout: 60000,
       maxBuffer: 4 * 1024 * 1024,
+      shell: true,
     });
 
     if (result.error) throw result.error;

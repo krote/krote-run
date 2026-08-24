@@ -609,6 +609,46 @@ describe('callClaudeP - Messages API フォールバック', () => {
   });
 });
 
+// ── Step 6: callClaudeP CLI 経路（Windows spawnSync ENOENT対策） ──────────
+
+describe('callClaudeP - CLI経路（spawnFn注入）', () => {
+  test('spawnSync に shell: true を渡す（Windowsで claude.cmd を解決するため）', async () => {
+    let receivedOpts = null;
+    const mockSpawnFn = (command, args, opts) => {
+      receivedOpts = opts;
+      return { error: null, status: 0, stdout: 'ok', stderr: '' };
+    };
+
+    await callClaudeP('test prompt', { useCli: true, spawnFn: mockSpawnFn });
+    assert.equal(receivedOpts.shell, true, 'shell: true が渡される');
+  });
+
+  test('spawnFn の結果を返す', async () => {
+    const mockSpawnFn = () => ({ error: null, status: 0, stdout: '  結果テキスト  ', stderr: '' });
+
+    const result = await callClaudeP('test prompt', { useCli: true, spawnFn: mockSpawnFn });
+    assert.equal(result, '結果テキスト');
+  });
+
+  test('spawnFn が error を返した場合（ENOENT等）は Error をスローする', async () => {
+    const mockSpawnFn = () => ({ error: new Error('spawnSync claude ENOENT') });
+
+    await assert.rejects(
+      () => callClaudeP('test prompt', { useCli: true, spawnFn: mockSpawnFn }),
+      /ENOENT/
+    );
+  });
+
+  test('spawnFn が非ゼロ status を返した場合は Error をスローする', async () => {
+    const mockSpawnFn = () => ({ error: null, status: 1, stdout: '', stderr: 'claude command failed' });
+
+    await assert.rejects(
+      () => callClaudeP('test prompt', { useCli: true, spawnFn: mockSpawnFn }),
+      /claude command failed|失敗/
+    );
+  });
+});
+
 describe('buildDiff - venue / access_points / reception フィールド', () => {
   const current = {
     date: '2026-03-01',

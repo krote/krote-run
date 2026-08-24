@@ -90,6 +90,9 @@ ERROR Node.js middleware is not currently supported. Consider switching to Edge 
 ```
 Error: Page /src/middleware provided runtime 'edge', the edge runtime for rendering is currently experimental. Use runtime 'experimental-edge' instead.
 ```
+
+**注意**: Next.js本体の型定義（`route segment config`向けのTSプラグイン）では逆に `'experimental-edge'` を非推奨・`'edge'` を正としている。一般的な感覚に反するので「非推奨警告が出ているから」といって `'edge'` に戻さないこと。`middleware.ts`（`get-page-static-info.js` 内の `isProxyFile` 判定を通るファイル）はこの route segment config の非推奨ルールとは別の検証ロジックが適用され、`next build` 時に限り `'edge'` だと逆にエラーになる（`pnpm run dev` では警告止まり）。この食い違いはNext.js 16.2.10時点の実際の挙動であり、cf:buildが通ることで実証済み。
+
 なお `pnpm run dev` では `experimental-edge` でも `initOpenNextCloudflareForDev()` 経由の実行時に `ReferenceError: self is not defined` が出ることがある。これはNext.js 16の新Proxyアーキテクチャと`@opennextjs/cloudflare`の互換性問題（[cloudflare/workers-sdk#13755](https://github.com/cloudflare/workers-sdk/issues/13755)、未解決）が原因で、`cf:build`/本番・stgデプロイには影響しない（実際にstg環境で動作確認済み）。`next dev` でmypage等が500になる場合はこれが原因と考えてよい。
 
 ### データフロー
@@ -191,6 +194,7 @@ Cloudflare Pages の Preview 環境を使い、本番と別のD1/R2で動作確�
 - `pnpm run cf:deploy:stg` は `--branch=staging` を明示することでPreview扱いになり、`staging.krote-run.pages.dev` にデプロイされる
 - `wrangler.jsonc` の `env.preview` セクションでstg専用のD1（`krote-run-stg-db`）・R2（`krote-run-assets-stg`）にバインドしている（本番の `d1_databases`/`r2_buckets` とは完全に別リソース。Cloudflare Pagesの `env.<ENVIRONMENT>` は `production`/`preview` の2つのみ）
 - 無料枠（Workers 100,000リクエスト/日、D1 読み取り5,000,000行/日・書き込み100,000行/日、ストレージ5GB）は**アカウント単位で本番と共有**。stgとprdでリソースを分けても枠は増えない点に注意
+- `db:migrate:stg` にだけ `--env preview` が付いているのは意図的: `wrangler d1 migrations apply` はDB名を `wrangler.jsonc` の設定（`env.preview.d1_databases`）経由で解決するため必須。一方 `db:seed:stg` / `db:seed-races:stg` が使う `wrangler d1 execute` はDB名をアカウント上のD1一覧から直接解決するため `--env` 不要（`db:seed:remote` 等の既存スクリプトと同じ挙動）
 
 ### seed-races の更新フロー
 

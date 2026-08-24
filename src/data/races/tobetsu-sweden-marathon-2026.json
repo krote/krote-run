@@ -4,13 +4,13 @@
   "name_en": "Tobetsu Sweden Marathon",
   "full_name_ja": "当別スウェーデンマラソン2026",
   "full_name_en": "Tobetsu Sweden Marathon 2026",
-  "edition": 1,
+  "edition": 7,
   "date": "2026-10-18",
   "prefecture": "01",
   "city_ja": "石狩郡当別町",
   "city_en": "Tobetsu, Ishikari District",
-  "description_ja": "北欧の街並みが広がるスウェーデンヒルズを駆け抜ける新設のマラソン大会。ハーフマラソンとスウェーデンヒルズコース（11.9km）を実施。",
-  "description_en": "A newly established race running through the Nordic-style townscape of Sweden Hills, featuring a half marathon and an 11.9km Sweden Hills course.",
+  "description_ja": "北欧の街並みが広がるスウェーデンヒルズを駆け抜けるマラソン大会（2018年開始、2026年で第7回）。ハーフマラソンとスウェーデンヒルズコース（11.9km）を実施。",
+  "description_en": "A race running through the Nordic-style townscape of Sweden Hills, first held in 2018 (7th edition in 2026), featuring a half marathon and an 11.9km Sweden Hills course.",
   "official_url": "https://www.tobetsu-sweden-marathon.com/",
   "entry_fee": 7000,
   "entry_fee_by_category": true,
@@ -61,6 +61,34 @@
       "description_ja": null,
       "description_en": null,
       "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2.2,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": 2500,
+      "entry_fee_u25": null,
+      "name_ja": "ファンラン（ソロ）",
+      "name_en": "Fun Run (Solo)",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2.2,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": 3500,
+      "entry_fee_u25": null,
+      "name_ja": "ファンラン（ペア）",
+      "name_en": "Fun Run (Pair)",
+      "description_ja": "2人1組でエントリー",
+      "description_en": "Entry as a pair of two",
+      "waves": null
     }
   ],
   "aid_stations": [],
@@ -105,10 +133,11 @@
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。制限時間・コース詳細は公式サイトで後日発表予定のため未入力",
-      "2026-08-25: runnet.jp紹介記事を起点に新規登録（第1回大会）",
-      "2026-08-24: 自動クロールで更新"
+      "2026-08-25: runnet.jp紹介記事を起点に新規登録",
+      "2026-08-24: 自動クロールで更新",
+      "2026-08-25: editionを1（第1回）としていたが誤り。2018年開始で2026年は第7回と判明し修正。あわせてcategoriesに欠落していたファンラン（ソロ2,500円・ペア3,500円、距離約2.2km、定員は公式サイト未公開）を追加"
     ],
-    "last_verified": "2026-08-24",
+    "last_verified": "2026-08-25",
     "detail_level": "light"
   },
   "entry_periods": [

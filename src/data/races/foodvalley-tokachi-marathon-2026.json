@@ -74,8 +74,8 @@
       "entry_fee_u25": 1900,
       "name_ja": "2.5km",
       "name_en": "2.5km",
-      "description_ja": "小学生1,200円",
-      "description_en": "Elementary school student: ¥1,200",
+      "description_ja": "一般・高校生2,950円、中学生1,900円、小学生1,200円",
+      "description_en": "General/high school: ¥2,950, Middle school: ¥1,900, Elementary school: ¥1,200",
       "waves": null
     }
   ],
@@ -112,9 +112,10 @@
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。コース詳細・気象データ等は未入力",
       "2026-08-25: runnet.jp紹介記事を起点に新規登録",
-      "2026-08-24: 自動クロールで更新"
+      "2026-08-24: 自動クロールで更新",
+      "2026-08-25: 2.5km区分でentry_fee_u25（1,900円=中学生料金）とdescription（小学生1,200円と記載）が不一致だったため、descriptionを一般・中学生・小学生の3段階を明記する形に修正（スキーマがentry_fee/entry_fee_u25の2段階までのため、小学生料金はdescriptionのみに記載）"
     ],
-    "last_verified": "2026-08-24",
+    "last_verified": "2026-08-25",
     "detail_level": "medium"
   },
   "entry_periods": [

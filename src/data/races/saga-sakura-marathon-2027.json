@@ -41,15 +41,43 @@
     {
       "distance_type": "full",
       "distance_km": 42.195,
-      "time_limit_minutes": null,
-      "start_time": null,
-      "capacity": null,
-      "entry_fee": null,
+      "time_limit_minutes": 390,
+      "start_time": "09:00",
+      "capacity": 8500,
+      "entry_fee": 14500,
       "entry_fee_u25": null,
       "name_ja": null,
       "name_en": null,
       "description_ja": null,
       "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 1500,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "ファンラン",
+      "name_en": "Fun Run",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.5,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 120,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "親子ペアラン",
+      "name_en": "Parent-Child Pair Run",
+      "description_ja": "中学生以下とその保護者がペアで参加。定員60組120名予定。",
+      "description_en": "For pairs of a middle-school-age or younger child and their guardian. Capacity: approx. 60 pairs (120 people).",
       "waves": null
     }
   ],
@@ -96,7 +124,8 @@
     "data_accuracy_notes": [
       "2026-08-24: 自動クロールで saga-sakura-marathon-2026 を元に2027年大会ファイルを新規作成",
       "2026-08-24: 自動クロールで更新",
-      "2026-08-25: info_urlsのエントリー・開催概要URLが404だったため、公式サイトの現在のページ構成を確認し最新情報・ゲストランナーページに修正"
+      "2026-08-25: info_urlsのエントリー・開催概要URLが404だったため、公式サイトの現在のページ構成を確認し最新情報・ゲストランナーページに修正",
+      "2026-08-25: categoriesが自動更新対象外（DIFF_FIELDSに未収録）のため空欄のままだった。公式サイト確認でマラソン（制限時間6.5時間・定員8,500人・14,500円）、ファンラン10km（定員1,500人・6,000円）、親子ペアラン1.5km（定員60組120名）を追加"
     ],
     "last_verified": "2026-08-25",
     "detail_level": "medium"

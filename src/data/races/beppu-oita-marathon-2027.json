@@ -50,7 +50,7 @@
       "time_limit_minutes": 0,
       "start_time": "12:00",
       "capacity": 4000,
-      "entry_fee": 15000
+      "entry_fee": 18000
     }
   ],
   "aid_stations": [],
@@ -109,15 +109,16 @@
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "2026-08-24: 自動クロールで beppu-oita-marathon-2026 を元に2027年大会ファイルを新規作成"
+      "2026-08-24: 自動クロールで beppu-oita-marathon-2026 を元に2027年大会ファイルを新規作成",
+      "2026-08-25: categories[0].entry_feeが15,000円になっていたが公式サイト確認で全カテゴリー共通18,000円と判明し修正。entry_periodsのラベル「カテゴリー1（男子）」は公式に性別区分の記載がなく誤りのため「カテゴリー1」に修正"
     ],
-    "last_verified": "2026-08-24",
+    "last_verified": "2026-08-25",
     "detail_level": "medium"
   },
   "entry_periods": [
     {
-      "label_ja": "カテゴリー1（男子）",
-      "label_en": "Category 1 (Men)",
+      "label_ja": "カテゴリー1",
+      "label_en": "Category 1",
       "start_date": "2026-08-28",
       "end_date": "2026-12-07",
       "entry_fee": 18000,

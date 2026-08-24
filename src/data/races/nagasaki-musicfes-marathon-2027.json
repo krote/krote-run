@@ -14,7 +14,7 @@
   "official_url": "https://mf42195nagasaki.jp/",
   "entry_fee": 15000,
   "entry_fee_by_category": true,
-  "entry_capacity": 6950,
+  "entry_capacity": 10000,
   "entry_start_date": "2026-06-12",
   "entry_end_date": "2026-08-31",
   "reception_type": "pre_day",
@@ -39,7 +39,7 @@
       "distance_km": 42.195,
       "time_limit_minutes": null,
       "start_time": null,
-      "capacity": 6950,
+      "capacity": 10000,
       "entry_fee": 15000,
       "entry_fee_u25": null,
       "name_ja": "マラソン（一般枠）",
@@ -77,9 +77,10 @@
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。ふるさと納税枠・ツアー枠・チャリティー枠・長崎県民枠は別料金体系のためcategoriesには一般枠のみ収録",
       "2026-08-25: runnet.jp紹介記事を起点に新規登録（新設大会）",
-      "2026-08-24: 自動クロールで更新"
+      "2026-08-24: 自動クロールで更新",
+      "2026-08-25: 定員が6,950人になっていたが公式サイト確認でマラソン10,000人と判明し修正"
     ],
-    "last_verified": "2026-08-24",
+    "last_verified": "2026-08-25",
     "detail_level": "medium"
   },
   "entry_periods": [

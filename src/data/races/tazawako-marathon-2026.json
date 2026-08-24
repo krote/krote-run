@@ -17,9 +17,9 @@
   "entry_capacity": 5550,
   "entry_start_date": "2026-04-01",
   "entry_end_date": "2026-05-27",
-  "reception_type": "pre_day",
-  "reception_note_ja": "大会前日エントリー（先着順、予約不可）：9月19日（土）13時30分～17時00分、田沢湖マラソン特設会場にて実施。各種目30人（3kmペアマラソンは15ペア）。エントリーと同時に参加料を現金で納付。前日エントリー者の氏名は大会プログラムに掲載不可。エントリー状況によっては前日エントリーを中止する場合あり。",
-  "reception_note_en": "Pre-day entry (first-come, first-served, no reservations): September 19 (Sat) 13:30-17:00 at the Tazawako Marathon special venue. Limited to 30 entrants per event (15 pairs for the 3km Pair Marathon). Entry fee must be paid in cash at the time of entry. Names of pre-day entrants will not appear in the event program. Pre-day entry may be canceled depending on entry status.",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "",
+  "reception_note_en": "",
   "tags": [],
   "course_gpx_file": null,
   "course_info": {
@@ -164,7 +164,8 @@
     "last_verified": "2026-08-24",
     "data_accuracy_notes": [
       "2026-05-30: 自動クロールで更新",
-      "2026-08-24: 自動クロールで更新"
+      "2026-08-24: 自動クロールで更新",
+      "2026-08-25: reception_typeがpre_dayに変更されていたが、LLM抽出が「大会前日エントリー（先着順の遅れての申込受付）」と「ビブス受付（reception）」を混同した誤りと判明。公式サイト確認でビブスは事前郵送と分かり pre_mail に戻した。なお参加記念品の引換は前日9/19 13:30-17:00・当日9/20 6:30-15:00の両方で可能（現スキーマでは未モデル化）。前日エントリー（先着順、各種目30人程度・現金払い）という別枠の情報は今後entry_periods等で扱うか要検討"
     ]
   },
   "venue_name_ja": null,

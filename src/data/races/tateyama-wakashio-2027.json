@@ -42,14 +42,42 @@
       "distance_type": "full",
       "distance_km": 42.195,
       "time_limit_minutes": 360,
-      "start_time": null,
-      "capacity": null,
-      "entry_fee": null,
+      "start_time": "10:00",
+      "capacity": 5000,
+      "entry_fee": 9000,
       "entry_fee_u25": null,
       "name_ja": null,
       "name_en": null,
-      "description_ja": null,
-      "description_en": null,
+      "description_ja": "市民先行エントリーは8,000円",
+      "description_en": "Resident priority entry: ¥8,000",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 90,
+      "start_time": "10:50",
+      "capacity": 2000,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": "市民先行エントリーは4,000円",
+      "description_en": "Resident priority entry: ¥4,000",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2,
+      "time_limit_minutes": 20,
+      "start_time": "11:00",
+      "capacity": 400,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": "ファンラン",
+      "name_en": "Fun Run",
+      "description_ja": "定員400組。市民先行エントリーは3,000円",
+      "description_en": "Capacity: 400 groups. Resident priority entry: ¥3,000",
       "waves": null
     }
   ],
@@ -110,9 +138,10 @@
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "2026-08-24: 自動クロールで tateyama-wakashio-2026 を元に2027年大会ファイルを新規作成"
+      "2026-08-24: 自動クロールで tateyama-wakashio-2026 を元に2027年大会ファイルを新規作成",
+      "2026-08-25: categoriesが自動更新対象外（DIFF_FIELDSに未収録）のため10km・ファンランが欠落していた。公式サイト確認で3種目とも定員・参加料・スタート時刻・制限時間を追加。ふるさと納税エントリー終了日(10/2)は公式サイトで再確認し正しい値と確認済み"
     ],
-    "last_verified": "2026-08-24",
+    "last_verified": "2026-08-25",
     "detail_level": "medium"
   },
   "entry_periods": [

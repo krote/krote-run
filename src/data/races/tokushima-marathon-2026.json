@@ -16,7 +16,7 @@
   "entry_fee_by_category": false,
   "entry_capacity": null,
   "entry_start_date": "2025-09-30",
-  "entry_end_date": "2025-12-31",
+  "entry_end_date": "2025-11-30",
   "reception_type": null,
   "reception_note_ja": "",
   "reception_note_en": "",
@@ -88,9 +88,10 @@
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "2026-05-30: 自動クロールで更新",
-      "2026-08-24: 自動クロールで更新"
+      "2026-08-24: 自動クロールで更新",
+      "2026-08-25: マラソンの部の申込締切が2025-12-31になっていたが公式サイト確認で2025-11-30と判明し修正（LLM抽出の誤り）"
     ],
-    "last_verified": "2026-08-24",
+    "last_verified": "2026-08-25",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -98,7 +99,7 @@
       "label_ja": "マラソン",
       "label_en": "Marathon",
       "start_date": "2025-09-30",
-      "end_date": "2025-12-31",
+      "end_date": "2025-11-30",
       "entry_fee": 11000,
       "category_id": null,
       "sort_order": 0

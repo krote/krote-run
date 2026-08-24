@@ -202,7 +202,12 @@ async function callClaudeP(prompt, opts = {}) {
   if (useCli) {
     // shell: true が必須。Windows では claude は .cmd シムのため、
     // shell 経由でないと spawnSync が ENOENT で失敗する。
-    const result = spawnFn('claude', ['-p', prompt], {
+    // prompt はコマンドライン引数ではなく stdin 経由で渡す。
+    // 引数で渡すと Windows の cmd.exe コマンドライン長制限（約8191文字）を
+    // 超えるプロンプト（複数URL分のページテキストを含む）で
+    // 「The command line is too long.」により失敗するため。
+    const result = spawnFn('claude', ['-p'], {
+      input: prompt,
       encoding: 'utf-8',
       timeout: 60000,
       maxBuffer: 4 * 1024 * 1024,

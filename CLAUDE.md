@@ -196,6 +196,26 @@ Cloudflare Pages の Preview 環境を使い、本番と別のD1/R2で動作確�
 - 無料枠（Workers 100,000リクエスト/日、D1 読み取り5,000,000行/日・書き込み100,000行/日、ストレージ5GB）は**アカウント単位で本番と共有**。stgとprdでリソースを分けても枠は増えない点に注意
 - `db:migrate:stg` にだけ `--env preview` が付いているのは意図的: `wrangler d1 migrations apply` はDB名を `wrangler.jsonc` の設定（`env.preview.d1_databases`）経由で解決するため必須。一方 `db:seed:stg` / `db:seed-races:stg` が使う `wrangler d1 execute` はDB名をアカウント上のD1一覧から直接解決するため `--env` 不要（`db:seed:remote` 等の既存スクリプトと同じ挙動）
 
+**⚠️ `db:seed-races:stg`（＝`migrations/seed-races-all.sql`）だけでは本番と同じレースデータにならない**（2026-08-24 確認）。`scripts/generate-seed-races.js` は `ALREADY_SEEDED`（`nagano-marathon-2026`, `challenge-fuji5lakes-2026`）をハードコードで除外しており、この2件はレガシーファイル `migrations/seed-races.sql`（`-all`と別物、npm scriptなし）にのみ含まれる。本番はこの2ファイルを両方投入して構築されているため、新規DBを本番相当にする場合は `db:seed-races:stg` に加えて次も実行すること:
+```bash
+npx wrangler d1 execute krote-run-stg-db --remote --file=./migrations/seed-races.sql
+```
+なお `matsumoto-marathon-2026` は本番DBにのみ存在し、対応するJSON/seedファイルがどこにも無い孤立データ（2026-03-31のコミットでJSON削除時に本番DBの削除が漏れたもの）。stgに再現する必要はない。
+
+#### 認証（Google OAuth）をstgで使う場合
+
+Cloudflare Pagesダッシュボード → Settings → Environment variables and secrets → **Preview**タブで以下を設定する（Production同様に必要。`env.preview`のD1/R2バインディングとは別管理）:
+
+| 変数名 | 値 |
+|---|---|
+| `BETTER_AUTH_URL` | `https://staging.krote-run.pages.dev` |
+| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | 本番と同じGCP OAuthクライアントの値でよい |
+| `BETTER_AUTH_SECRET` | 本番と別の値を推奨 |
+
+GCPコンソールの当該OAuthクライアントの「承認済みのリダイレクトURI」に `https://staging.krote-run.pages.dev/api/auth/callback/google` を追加する（既存クライアントへの追記でよく、別クライアントを作る必要はない）。
+
+**⚠️ secretsを設定・変更した後は `pnpm run cf:deploy:stg` で再デプロイが必要**（2026-08-24 確認）。Cloudflare Pagesのsecretsはダッシュボードで保存しても既存のデプロイ済みPreviewには即時反映されず、次のデプロイから有効になる。設定直後にログインを試して `INVALID_ORIGIN` 等のエラーが出る場合はこれが原因の可能性が高い。
+
 ### seed-races の更新フロー
 
 レースJSONを追加・変更した場合:

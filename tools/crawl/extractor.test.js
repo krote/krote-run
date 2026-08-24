@@ -623,6 +623,21 @@ describe('callClaudeP - CLI経路（spawnFn注入）', () => {
     assert.equal(receivedOpts.shell, true, 'shell: true が渡される');
   });
 
+  test('promptはコマンドライン引数ではなくstdin経由で渡す（Windowsのcmd.exeコマンドライン長制限を回避するため）', async () => {
+    let receivedArgs = null;
+    let receivedOpts = null;
+    const longPrompt = 'x'.repeat(20000);
+    const mockSpawnFn = (command, args, opts) => {
+      receivedArgs = args;
+      receivedOpts = opts;
+      return { error: null, status: 0, stdout: 'ok', stderr: '' };
+    };
+
+    await callClaudeP(longPrompt, { useCli: true, spawnFn: mockSpawnFn });
+    assert.ok(!receivedArgs.some((a) => a.includes(longPrompt)), 'promptはargsに含まれない');
+    assert.equal(receivedOpts.input, longPrompt, 'promptはinput（stdin）として渡される');
+  });
+
   test('spawnFn の結果を返す', async () => {
     const mockSpawnFn = () => ({ error: null, status: 0, stdout: '  結果テキスト  ', stderr: '' });
 

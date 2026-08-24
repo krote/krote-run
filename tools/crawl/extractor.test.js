@@ -2,6 +2,9 @@
 
 const { test, describe } = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
 const { buildExtractionPrompt, parseClaudeResponse, buildDiff, applyAndSave, buildNewEditionRace } = require('./extractor');
 
 // ── buildExtractionPrompt ─────────────────────────────────────────
@@ -311,37 +314,51 @@ describe('applyAndSave - 年度不一致チェック', () => {
     assert.equal(result.suggestedFile, 'test-marathon-2027.json');
   });
 
-  test('extractedにdateがない場合はyearMismatchにならない', () => {
-    const extracted = { entry_fee: 17000 };
-    // ファイル書き込みが起きるため、実在しないidで呼ぶとエラーになる可能性あり
-    // → yearMismatch のパスに入らないことだけを確認
-    // (ファイル書き込みエラーは無視、yearMismatchプロパティがないことを確認)
+  test('extractedにdateがない場合はyearMismatchにならない（一時ディレクトリに保存）', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawl-test-'));
     try {
-      const result = applyAndSave(race, extracted);
+      const extracted = { entry_fee: 17000 };
+      const result = applyAndSave(race, extracted, { racesDir: tmpDir });
       assert.ok(!result.yearMismatch);
-    } catch {
-      // fs書き込みエラーは許容（年度チェックはパスした証拠）
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
     }
   });
 
-  test('extractedの年度がrace.dateと同じ場合はyearMismatchにならない', () => {
-    const extracted = { date: '2026-09-01' };
+  test('extractedの年度がrace.dateと同じ場合はyearMismatchにならない（一時ディレクトリに保存）', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawl-test-'));
     try {
-      const result = applyAndSave(race, extracted);
+      const extracted = { date: '2026-09-01' };
+      const result = applyAndSave(race, extracted, { racesDir: tmpDir });
       assert.ok(!result.yearMismatch);
-    } catch {
-      // fs書き込みエラーは許容
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
     }
   });
 
-  test('race.dateがnullの場合はyearMismatchにならない', () => {
-    const raceNoDate = { ...race, date: null };
-    const extracted = { date: '2027-03-01' };
+  test('race.dateがnullの場合はyearMismatchにならない（一時ディレクトリに保存）', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawl-test-'));
     try {
-      const result = applyAndSave(raceNoDate, extracted);
+      const raceNoDate = { ...race, date: null };
+      const extracted = { date: '2027-03-01' };
+      const result = applyAndSave(raceNoDate, extracted, { racesDir: tmpDir });
       assert.ok(!result.yearMismatch);
-    } catch {
-      // fs書き込みエラーは許容
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
+  test('racesDirを指定した場合、実際のsrc/data/races/ではなく指定先に保存する', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawl-test-'));
+    try {
+      const extracted = { entry_fee: 17000 };
+      applyAndSave(race, extracted, { racesDir: tmpDir });
+      assert.ok(fs.existsSync(path.join(tmpDir, `${race.id}.json`)), '指定した一時ディレクトリに保存される');
+
+      const realPath = path.join(__dirname, '../../src/data/races', `${race.id}.json`);
+      assert.ok(!fs.existsSync(realPath), '本物のsrc/data/races/には書き込まれない');
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
     }
   });
 });

@@ -32,5 +32,32 @@
 			"bucket_name": "krote-run-assets",
 			"binding": "krote_run_assets"
 		}
-	]
+	],
+	// stg環境（Pages Preview）: 本番と分離したD1/R2を使用
+	"env": {
+		"preview": {
+			"d1_databases": [
+				{
+					"binding": "DB",
+					"database_name": "krote-run-stg-db",
+					"database_id": "c7cecf0c-d936-459d-9302-04d11b718db1"
+				},
+				{
+					"binding": "krote_run_db",
+					"database_name": "krote-run-stg-db",
+					"database_id": "c7cecf0c-d936-459d-9302-04d11b718db1"
+				}
+			],
+			"r2_buckets": [
+				{
+					"binding": "R2",
+					"bucket_name": "krote-run-assets-stg"
+				},
+				{
+					"binding": "krote_run_assets",
+					"bucket_name": "krote-run-assets-stg"
+				}
+			]
+		}
+	}
 }

@@ -1,0 +1,91 @@
+{
+  "id": "vegetable-marathon-saiko-2026",
+  "name_ja": "ベジタブルマラソンin彩湖",
+  "name_en": "Vegetable Marathon in Saiko",
+  "full_name_ja": "第86回 ベジタブルマラソンin彩湖",
+  "full_name_en": "86th Vegetable Marathon in Saiko",
+  "edition": 86,
+  "date": "2026-09-26",
+  "prefecture": "11",
+  "city_ja": "戸田市",
+  "city_en": "Toda City",
+  "description_ja": "彩湖・道満グリーンパークを舞台に開催される市民マラソン。30km・ハーフ・10km・5km・親子1.5kmと幅広い種目が揃う。",
+  "description_en": "A citizens' marathon held at Saiko-Domanko Green Park, offering distances from a parent-child 1.5km fun run up to 30km.",
+  "official_url": "https://www.vege-mara.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": null,
+  "entry_start_date": "2026-05-29",
+  "entry_end_date": "2026-09-06",
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    { "distance_type": "other", "distance_km": 30, "time_limit_minutes": null, "start_time": null, "capacity": null, "entry_fee": null, "entry_fee_u25": null, "name_ja": "30km", "name_en": "30km", "description_ja": null, "description_en": null, "waves": null },
+    { "distance_type": "half", "distance_km": 21.0975, "time_limit_minutes": null, "start_time": null, "capacity": null, "entry_fee": null, "entry_fee_u25": null, "name_ja": null, "name_en": null, "description_ja": null, "description_en": null, "waves": null },
+    { "distance_type": "10k", "distance_km": 10, "time_limit_minutes": null, "start_time": null, "capacity": null, "entry_fee": null, "entry_fee_u25": null, "name_ja": null, "name_en": null, "description_ja": null, "description_en": null, "waves": null },
+    { "distance_type": "5k", "distance_km": 5, "time_limit_minutes": null, "start_time": null, "capacity": null, "entry_fee": null, "entry_fee_u25": null, "name_ja": null, "name_en": null, "description_ja": null, "description_en": null, "waves": null },
+    { "distance_type": "other", "distance_km": 1.5, "time_limit_minutes": null, "start_time": null, "capacity": null, "entry_fee": null, "entry_fee_u25": null, "name_ja": "親子1.5km", "name_en": "Parent-Child 1.5km", "description_ja": null, "description_en": null, "waves": null }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-08-25T00:00:00Z",
+  "updated_at": "2026-08-25T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。参加費・定員・制限時間は公式サイトに具体的な記載がなく未入力",
+      "2026-08-25: runnet.jp紹介記事を起点に新規登録"
+    ],
+    "last_verified": "2026-08-25",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-05-29",
+      "end_date": "2026-09-06",
+      "entry_fee": null
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    { "url": "https://www.vege-mara.com/", "label": "大会概要" }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "彩湖・道満グリーンパーク",
+  "venue_name_en": "Saiko-Domanko Green Park",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

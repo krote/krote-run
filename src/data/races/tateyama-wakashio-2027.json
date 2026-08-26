@@ -1,0 +1,228 @@
+{
+  "id": "tateyama-wakashio-2027",
+  "name_ja": "館山若潮マラソン",
+  "name_en": "Tateyama Wakashio Marathon",
+  "full_name_ja": null,
+  "full_name_en": null,
+  "edition": null,
+  "date": "2027-01-31",
+  "prefecture": "12",
+  "city_ja": "館山市",
+  "city_en": "Tateyama City",
+  "description_ja": "千葉県館山市の海沿いを走るフルマラソン。温暖な房総の海を眺めながら走れる冬の人気大会。",
+  "description_en": "A full marathon along the coast of Tateyama, Chiba. A popular winter race with views of the warm Boso coast.",
+  "official_url": "https://tateyama-wakasio.jp",
+  "entry_fee": 9000,
+  "entry_fee_by_category": false,
+  "entry_capacity": 5000,
+  "entry_start_date": "2026-08-18",
+  "entry_end_date": "2026-10-17",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "全ての参加者へアスリートビブス（ゼッケン）を事前送付するため、当日受付はなし",
+  "reception_note_en": "Athlete bibs are mailed to all participants in advance; there is no race-day reception",
+  "tags": [
+    "景色が良い",
+    "海沿い",
+    "アップダウン多い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "房総の海岸線",
+    "highlights_en": "Boso coastline",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 360,
+      "start_time": "10:00",
+      "capacity": 5000,
+      "entry_fee": 9000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": "市民先行エントリーは8,000円",
+      "description_en": "Resident priority entry: ¥8,000",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 90,
+      "start_time": "10:50",
+      "capacity": 2000,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": "市民先行エントリーは4,000円",
+      "description_en": "Resident priority entry: ¥4,000",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2,
+      "time_limit_minutes": 20,
+      "start_time": "11:00",
+      "capacity": 400,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": "ファンラン",
+      "name_en": "Fun Run",
+      "description_ja": "定員400組。市民先行エントリーは3,000円",
+      "description_en": "Capacity: 400 groups. Resident priority entry: ¥3,000",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [
+    {
+      "station_name_ja": "館山駅",
+      "station_name_en": "Tateyama Station",
+      "station_code": "",
+      "transport_to_venue_ja": "西口よりシャトルバス利用",
+      "transport_to_venue_en": "Shuttle bus from West Exit",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": null,
+      "is_primary": true
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "館山城",
+      "name_en": "Tateyama Castle",
+      "description_ja": "城山公園内の城。館山市街と東京湾を一望できる。",
+      "description_en": "A castle in Shiroyama Park with views of Tateyama city and Tokyo Bay.",
+      "distance_from_venue": "会場付近",
+      "url": null,
+      "latitude": 34.9956,
+      "longitude": 139.8622
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "房総の海鮮",
+      "name_en": "Boso Seafood",
+      "description_ja": "新鮮な海鮮が楽しめる。特に寿司や刺身がおすすめ。",
+      "description_en": "Fresh seafood. Sushi and sashimi are especially recommended.",
+      "distance_from_venue": "館山市内",
+      "url": null,
+      "latitude": 34.9997,
+      "longitude": 139.8697
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "towel",
+        "goods"
+      ],
+      "description_ja": "オリジナルタオル（ファンランの部は1組1枚）、資生堂ジャパン（株）提供の参加賞（ファンランの部は1組1袋）",
+      "description_en": "Original towel (one per group for Fun Run), participation gift provided by Shiseido Japan Co., Ltd. (one bag per group for Fun Run)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-24T16:18:08.658Z",
+  "updated_at": "2026-08-24T16:18:08.658Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "2026-08-24: 自動クロールで tateyama-wakashio-2026 を元に2027年大会ファイルを新規作成",
+      "2026-08-25: categoriesが自動更新対象外（DIFF_FIELDSに未収録）のため10km・ファンランが欠落していた。公式サイト確認で3種目とも定員・参加料・スタート時刻・制限時間を追加。ふるさと納税エントリー終了日(10/2)は公式サイトで再確認し正しい値と確認済み"
+    ],
+    "last_verified": "2026-08-25",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "市民先行エントリー",
+      "label_en": "Resident Priority Entry",
+      "start_date": "2026-08-18",
+      "end_date": "2026-08-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-01",
+      "end_date": "2026-10-17",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "ふるさと納税エントリー",
+      "label_en": "Furusato Nozei (Hometown Tax) Entry",
+      "start_date": "2026-09-01",
+      "end_date": "2026-10-02",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 2
+    }
+  ],
+  "motif": "若潮",
+  "motif_color": "#0369a1",
+  "motif_romaji": "Wakashio",
+  "tagline_ja": "太平洋に面した館山の若潮を感じながら走る",
+  "tagline_en": "Run Tateyama's Pacific coast on the fresh tides of spring",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "房総の海岸線",
+      "name_en": "Boso coastline",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://tateyama-wakasio.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://tateyama-wakasio.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://tateyama-wakasio.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://tateyama-wakasio.jp/faq/",
+      "label": "FAQ"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "オリジナルメダル（ファンランの部は1組1個）",
+      "description_en": "Original medal (one per group for Fun Run)",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "福原有信グラウンド館山（館山市営市民運動場）",
+  "venue_name_en": "Fukuhara Yushin Ground Tateyama (Tateyama Municipal Citizens' Athletic Field)",
+  "venue_address": "千葉県館山市正木4304-2",
+  "start_lat": null,
+  "start_lng": null
+}

@@ -18,8 +18,8 @@
   "entry_start_date": "2026-04-17",
   "entry_end_date": "2026-09-27",
   "reception_type": "pre_mail",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "reception_note_ja": "日本国内在住の方（RUNNET／ローソン DO! SPORTS）には、アスリートビブス・参加賞引換券等をお申し込み時の住所へ事前送付。海外在住の方（Run Japan）への事前送付はなし。大会当日、各種目スタート1時間前までに会場内の赤いテント「HELP DESK」でアスリートビブス等を受け取り。",
+  "reception_note_en": "Domestic entrants (RUNNET / LAWSON DO! SPORTS) will receive their athlete bib and participation gift voucher by mail in advance. Overseas entrants (Run Japan) will not receive advance mailing; please collect your bib etc. at the red \"HELP DESK\" tent on-site by one hour before your event's start time on race day.",
   "tags": [],
   "course_gpx_file": null,
   "course_info": {
@@ -65,7 +65,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-11T14:42:59.225Z",
-  "updated_at": "2026-07-31T14:34:51.766Z",
+  "updated_at": "2026-08-24T16:37:37.008Z",
   "entry_periods": [
     {
       "label_ja": "一般エントリー",
@@ -121,11 +121,12 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-07-31",
+    "last_verified": "2026-08-24",
     "data_accuracy_notes": [
       "2026-06-08: 自動クロールで更新",
       "2026-06-27: 自動クロールで更新",
-      "2026-07-31: 自動クロールで更新"
+      "2026-07-31: 自動クロールで更新",
+      "2026-08-24: 自動クロールで更新"
     ]
   },
   "venue_name_ja": null,

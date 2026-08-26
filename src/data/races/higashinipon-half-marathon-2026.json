@@ -67,9 +67,10 @@
   "_metadata": {
     "data_source": "公式サイト（https://www.runningkanagawa.com/half_marathon/）およびRunnet掲載情報",
     "data_accuracy_notes": [
-      "基本情報のみ。参加費は前回大会実績値。スタート時間は推定値。エイド、周辺スポット等は未入力"
+      "基本情報のみ。参加費は前回大会実績値。スタート時間は推定値。エイド、周辺スポット等は未入力",
+      "2026-08-25: info_urlsのFAQ・開催概要URLが404だったため、公式サイトの現在のページ構成を確認し大会情報・エントリーページに修正"
     ],
-    "last_verified": "2026-03-29",
+    "last_verified": "2026-08-25",
     "detail_level": "basic"
   },
   "entry_periods": [
@@ -108,12 +109,12 @@
   ],
   "info_urls": [
     {
-      "url": "https://www.runningkanagawa.com/faq/",
-      "label": "FAQ"
+      "url": "https://runningkanagawa.com/half_marathon/",
+      "label": "大会情報"
     },
     {
-      "url": "https://www.runningkanagawa.com/legal/",
-      "label": "開催概要"
+      "url": "https://runningkanagawa.com/race-half/",
+      "label": "エントリー"
     }
   ],
   "venue_name_ja": null,

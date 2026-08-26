@@ -18,8 +18,8 @@
   "entry_start_date": "2026-04-11",
   "entry_end_date": "2026-06-30",
   "reception_type": "pre_day",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "reception_note_ja": "マラソン・ジョギングの部は令和8年10月31日（土）9:30～19:00、YKK APアリーナ（富山市湊入船町12-1）にて受付。上記時間帯以外・大会当日の受付は行わない。車いすの部は大会当日7:00～7:30、スタート地点（高岡市役所前）周辺受付テントにて受付。",
+  "reception_note_en": "Marathon and Jogging entries: reception on Sat, Oct 31, 2026, 9:30-19:00 at YKK AP Arena (12-1 Minatoirifune-cho, Toyama City). No same-day reception. Wheelchair category: reception on race day 7:00-7:30 near the start (Takaoka City Hall).",
   "tags": [
     "景色が良い",
     "橋"
@@ -35,8 +35,8 @@
     ],
     "highlights_ja": "高岡古城公園、高岡大仏、山町筋、新湊漁港、新湊大橋、海王丸パーク、立山連峰、富岩運河環水公園",
     "highlights_en": "Takaoka Kojyo Park, Takaoka Daibutsu, Yamachosuji, Shinminato Port, Shinminato Bridge, Kaiomaru Park, Tateyama Mountains, Fugan Canal Kansui Park",
-    "notes_ja": null,
-    "notes_en": null
+    "notes_ja": "前回大会からコースの一部を変更：①赤祖父折り返し約260m短縮 ②射水高専折り返し約180m短縮 ③フィニッシュ位置約440m延伸",
+    "notes_en": "Course partially changed from the previous edition: (1) Akasoba turnaround shortened by approx. 260m, (2) Imizu National College turnaround shortened by approx. 180m, (3) finish location extended by approx. 440m."
   },
   "categories": [
     {
@@ -56,7 +56,30 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "新高岡駅",
+      "station_name_en": "Shin-Takaoka Station",
+      "station_code": "",
+      "transport_to_venue_ja": "南口からスタート会場直行の無料シャトルバス（約15分）",
+      "transport_to_venue_en": "Free shuttle bus from south exit directly to start venue (approx. 15 min)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 0,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "高岡駅",
+      "station_name_en": "Takaoka Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約20分",
+      "transport_to_venue_en": "Approx. 20 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 20,
+      "is_primary": false
+    }
+  ],
   "nearby_spots": [
     {
       "type": "観光地",
@@ -95,7 +118,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-07-31T14:37:23.223Z",
+  "updated_at": "2026-08-24T16:44:40.715Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -103,9 +126,10 @@
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
       "2026-05-30: 自動クロールで更新",
       "2026-06-08: 自動クロールで更新",
-      "2026-07-31: 自動クロールで更新"
+      "2026-07-31: 自動クロールで更新",
+      "2026-08-24: 自動クロールで更新"
     ],
-    "last_verified": "2026-07-31",
+    "last_verified": "2026-08-24",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -180,8 +204,8 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "高岡市役所前",
+  "venue_name_en": "Takaoka City Hall",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

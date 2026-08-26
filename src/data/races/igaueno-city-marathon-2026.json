@@ -1,0 +1,184 @@
+{
+  "id": "igaueno-city-marathon-2026",
+  "name_ja": "忍者の里伊賀上野シティマラソン",
+  "name_en": "Ninja no Sato Igaueno City Marathon",
+  "full_name_ja": "2026忍者の里伊賀上野シティマラソン",
+  "full_name_en": "2026 Ninja no Sato Igaueno City Marathon",
+  "edition": null,
+  "date": "2026-11-29",
+  "prefecture": "24",
+  "city_ja": "伊賀市",
+  "city_en": "Iga City",
+  "description_ja": "忍者の里として知られる伊賀市の城下町を駆け抜けるマラソン大会。ハーフ・クォーターマラソン・5km・ジョギングを実施。",
+  "description_en": "A race running through the castle town of Iga City, known as the home of the ninja. Features half marathon, quarter marathon, 5km, and jogging categories.",
+  "official_url": "https://igauenocity-marathon.net/",
+  "entry_fee": 5000,
+  "entry_fee_by_category": true,
+  "entry_capacity": 1000,
+  "entry_start_date": "2026-07-01",
+  "entry_end_date": "2026-08-31",
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "忍者の里、城下町",
+    "highlights_en": "Ninja heritage, castle town",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 140,
+      "start_time": null,
+      "capacity": 1000,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "高校生以上",
+      "description_en": "High school age and above",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 10.5,
+      "time_limit_minutes": 70,
+      "start_time": null,
+      "capacity": 1000,
+      "entry_fee": 4500,
+      "entry_fee_u25": null,
+      "name_ja": "クォーターマラソン",
+      "name_en": "Quarter Marathon",
+      "description_ja": "高校生以上",
+      "description_en": "High school age and above",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 40,
+      "start_time": null,
+      "capacity": 500,
+      "entry_fee": 3500,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": "高校生以上",
+      "description_en": "High school age and above",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2.7,
+      "time_limit_minutes": 30,
+      "start_time": null,
+      "capacity": 300,
+      "entry_fee": 2500,
+      "entry_fee_u25": null,
+      "name_ja": "ジョギング（一般）",
+      "name_en": "Jogging (General)",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2.7,
+      "time_limit_minutes": 30,
+      "start_time": null,
+      "capacity": 300,
+      "entry_fee": 2000,
+      "entry_fee_u25": null,
+      "name_ja": "ジョギング（小中学生）",
+      "name_en": "Jogging (Elementary & Junior High)",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "towel"
+      ],
+      "description_ja": "忍者デザインの特別仕様タオル",
+      "description_en": "Special ninja-design towel",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-25T00:00:00Z",
+  "updated_at": "2026-08-24T16:27:35.473Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。ジョギング（ファミリーの部）はcategoriesに未収録",
+      "2026-08-25: runnet.jp紹介記事を起点に新規登録",
+      "2026-08-24: 自動クロールで更新"
+    ],
+    "last_verified": "2026-08-24",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-07-01",
+      "end_date": "2026-08-31",
+      "entry_fee": null
+    }
+  ],
+  "motif": "忍者",
+  "motif_color": "#1e293b",
+  "motif_romaji": "Ninja",
+  "tagline_ja": "忍者の里、伊賀の城下町を駆け抜ける",
+  "tagline_en": "Run through the castle town of Iga, home of the ninja",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "伊賀上野城下町",
+      "name_en": "Igaueno castle town",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://igauenocity-marathon.net/tournament_requirements/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://igauenocity-marathon.net/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://igauenocity-marathon.net/event_course/",
+      "label": "種目/コース"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "伊賀市立上野西小学校",
+  "venue_name_en": "Iga City Ueno-Nishi Elementary School",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

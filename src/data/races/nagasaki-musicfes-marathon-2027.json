@@ -1,0 +1,142 @@
+{
+  "id": "nagasaki-musicfes-marathon-2027",
+  "name_ja": "長崎ミュージックフェスマラソン",
+  "name_en": "Nagasaki Music Fes Marathon",
+  "full_name_ja": "長崎ミュージックフェスマラソン2027",
+  "full_name_en": "Nagasaki Music Fes Marathon 2027",
+  "edition": null,
+  "date": "2027-01-31",
+  "prefecture": "42",
+  "city_ja": "諫早市",
+  "city_en": "Isahaya City",
+  "description_ja": "「ランニングと音楽が紡ぐ、平和でかけがえのない一日」をコンセプトに開催される新設のフルマラソン。東京マラソン財団のプロデュースを受け、県内初の日本陸連公認フルマラソン大会を目標とする。",
+  "description_en": "A newly established full marathon under the concept 'A peaceful, irreplaceable day woven by running and music,' produced with support from the Tokyo Marathon Foundation, aiming to be the prefecture's first JAAF-certified full marathon.",
+  "official_url": "https://mf42195nagasaki.jp/",
+  "entry_fee": 15000,
+  "entry_fee_by_category": true,
+  "entry_capacity": 10000,
+  "entry_start_date": "2026-06-12",
+  "entry_end_date": "2026-08-31",
+  "reception_type": "pre_day",
+  "reception_note_ja": "受付日時：2027年1月30日(土)9:00〜20:00、受付会場：諫早市中央体育館(内村記念アリーナ)。アスリートビブス・計測チップ等を受け取る。大会当日(1月31日)の受付は行わない。",
+  "reception_note_en": "Reception: January 30, 2027 (Sat) 9:00-20:00 at Isahaya City Central Gymnasium (Uchimura Memorial Arena), where athlete bibs and timing chips will be distributed. No reception will be held on race day (January 31).",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "トランスコスモススタジアム長崎を発着に、諫早湾干拓堤防道路の直線約7kmの海上区間を含む起伏の少ないコース。諫早平野や干拓地など長崎県特有の自然を望みながら走り、ゴール手前のアエル中央商店街では音楽と地域の応援でラストスパートを迎える。",
+    "highlights_en": "Starting and finishing at Trans Cosmos Stadium Nagasaki, the flat course includes an approximately 7km straight stretch along the Isahaya Bay reclamation seawall road, with views of the Isahaya plain and reclaimed land. Near the finish, runners pass through the Ael central shopping district for a music-fueled final push.",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 10000,
+      "entry_fee": 15000,
+      "entry_fee_u25": null,
+      "name_ja": "マラソン（一般枠）",
+      "name_en": "Marathon (General)",
+      "description_ja": "海外在住者28,000円。ほかに長崎県民枠・ふるさと納税枠・ツアー枠・チャリティー枠あり",
+      "description_en": "Overseas residents: ¥28,000. Additional frameworks: Nagasaki resident, furusato tax, tour, and charity entries",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 5.1,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 1000,
+      "entry_fee": 5500,
+      "entry_fee_u25": 3500,
+      "name_ja": "ファンラン",
+      "name_en": "Fun Run",
+      "description_ja": "高校生3,500円",
+      "description_en": "High school student: ¥3,500",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-08-25T00:00:00Z",
+  "updated_at": "2026-08-24T16:34:40.511Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。ふるさと納税枠・ツアー枠・チャリティー枠・長崎県民枠は別料金体系のためcategoriesには一般枠のみ収録",
+      "2026-08-25: runnet.jp紹介記事を起点に新規登録（新設大会）",
+      "2026-08-24: 自動クロールで更新",
+      "2026-08-25: 定員が6,950人になっていたが公式サイト確認でマラソン10,000人と判明し修正"
+    ],
+    "last_verified": "2026-08-25",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "マラソン",
+      "label_en": "Marathon",
+      "start_date": "2026-06-12",
+      "end_date": "2026-08-31",
+      "entry_fee": 15000,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "ファンラン",
+      "label_en": "Fun Run",
+      "start_date": "2026-06-12",
+      "end_date": "2026-08-31",
+      "entry_fee": 5500,
+      "category_id": null,
+      "sort_order": 1
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": "ランニングと音楽が紡ぐ、平和でかけがえのない一日",
+  "tagline_en": "A peaceful, irreplaceable day woven by running and music",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://mf42195nagasaki.jp/essentials",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://mf42195nagasaki.jp/course",
+      "label": "コースマップ"
+    },
+    {
+      "url": "https://mf42195nagasaki.jp/guide",
+      "label": "参加案内"
+    },
+    {
+      "url": "https://mf42195nagasaki.jp/entry",
+      "label": "エントリー"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "トランスコスモススタジアム長崎",
+  "venue_name_en": "Trans Cosmos Stadium Nagasaki",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

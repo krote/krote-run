@@ -1,0 +1,270 @@
+{
+  "id": "bando-masakado-half-marathon-2026",
+  "name_ja": "坂東市将門ハーフマラソン",
+  "name_en": "Bando Masakado Half Marathon",
+  "full_name_ja": "第36回 坂東市将門ハーフマラソン",
+  "full_name_en": "36th Bando Masakado Half Marathon",
+  "edition": 36,
+  "date": "2026-11-08",
+  "prefecture": "08",
+  "city_ja": "坂東市",
+  "city_en": "Bando City",
+  "description_ja": "平将門ゆかりの地、坂東市を舞台に開催されるハーフマラソン。ハーフ・10km・5kmを実施。",
+  "description_en": "A half marathon held in Bando City, a place associated with the historical figure Taira no Masakado. Half marathon, 10km, and 5km distances.",
+  "official_url": "http://www.masakadomarathon.jp/",
+  "entry_fee": 5000,
+  "entry_fee_by_category": true,
+  "entry_capacity": 5100,
+  "entry_start_date": "2026-07-01",
+  "entry_end_date": "2026-08-31",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "当日受付はなし。ゼッケン・参加賞は10月下旬から11月上旬に事前発送される。",
+  "reception_note_en": "No same-day reception; bib numbers and participation gifts are shipped in advance from late October to early November.",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 150,
+      "start_time": "10:00",
+      "capacity": 3100,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": "2時間30分以内で完走できる方が対象",
+      "description_en": "For runners able to finish within 2 hours 30 minutes",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": "10:10",
+      "capacity": 1000,
+      "entry_fee": 4500,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "10:20",
+      "capacity": 1000,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [
+    {
+      "station_name_ja": "守谷駅",
+      "station_name_en": "Moriya Station",
+      "station_code": "",
+      "transport_to_venue_ja": "大会専用直通バス（有料・往復1,500円）",
+      "transport_to_venue_en": "Event shuttle bus (fee, round trip 1,500 yen)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 0,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "愛宕駅",
+      "station_name_en": "Atago Station",
+      "station_code": "",
+      "transport_to_venue_ja": "路線バス（茨城急行バス）約40分",
+      "transport_to_venue_en": "Local bus (Ibaraki Kyuko Bus) approx. 40 min",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 0,
+      "is_primary": false
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "宿泊",
+      "name_ja": "旅館あづま",
+      "name_en": "Ryokan Azuma",
+      "description_ja": "会場周辺の宿泊施設",
+      "description_en": "Lodging near the venue",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "宿泊",
+      "name_ja": "さつき旅館",
+      "name_en": "Satsuki Ryokan",
+      "description_ja": "会場周辺の宿泊施設",
+      "description_en": "Lodging near the venue",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "宿泊",
+      "name_ja": "グリーンコア坂東",
+      "name_en": "Green Core Bando",
+      "description_ja": "会場周辺の宿泊施設",
+      "description_en": "Lodging near the venue",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "参加者全員に大会オリジナルTシャツを贈呈",
+      "description_en": "Original event T-shirt for all participants",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "local_product"
+      ],
+      "description_ja": "当日参加者に坂東市特産野菜を贈呈",
+      "description_en": "Local specialty vegetables for same-day participants",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-25T00:00:00Z",
+  "updated_at": "2026-08-24T16:23:11.997Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ",
+      "2026-08-25: runnet.jp紹介記事を起点に新規登録",
+      "2026-08-24: 自動クロールで更新",
+      "2026-08-25: 参加費・定員が「公式サイトに記載なし」となっていたが、guidelines.htmlに具体的な記載があったため転記して修正（ハーフ5,000円/3,100人、10km 4,500円/1,000人、5km 4,000円/1,000人）"
+    ],
+    "last_verified": "2026-08-25",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "ハーフの部",
+      "label_en": "Half Marathon",
+      "start_date": "2026-07-01",
+      "end_date": "2026-08-31",
+      "entry_fee": 5000,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "10kmの部",
+      "label_en": "10km",
+      "start_date": "2026-07-01",
+      "end_date": "2026-08-31",
+      "entry_fee": 4500,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "5kmの部",
+      "label_en": "5km",
+      "start_date": "2026-07-01",
+      "end_date": "2026-08-31",
+      "entry_fee": 4000,
+      "category_id": null,
+      "sort_order": 2
+    },
+    {
+      "label_ja": "中学生の部",
+      "label_en": "Junior High School",
+      "start_date": "2026-07-01",
+      "end_date": "2026-08-31",
+      "entry_fee": 1000,
+      "category_id": null,
+      "sort_order": 3
+    },
+    {
+      "label_ja": "小学5・6年生の部（3km）",
+      "label_en": "Elementary 5th-6th Grade (3km)",
+      "start_date": "2026-07-01",
+      "end_date": "2026-08-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 4
+    },
+    {
+      "label_ja": "小学3・4年生の部（1km）",
+      "label_en": "Elementary 3rd-4th Grade (1km)",
+      "start_date": "2026-07-01",
+      "end_date": "2026-08-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 5
+    },
+    {
+      "label_ja": "親子ペアの部",
+      "label_en": "Parent-Child Pair",
+      "start_date": "2026-07-01",
+      "end_date": "2026-08-31",
+      "entry_fee": 2000,
+      "category_id": null,
+      "sort_order": 6
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "http://www.masakadomarathon.jp/entry.html",
+      "label": "エントリー方法"
+    },
+    {
+      "url": "http://www.masakadomarathon.jp/guidelines.html",
+      "label": "大会要項"
+    },
+    {
+      "url": "http://www.masakadomarathon.jp/access.html",
+      "label": "アクセス"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "坂東市八坂総合公園陸上競技場",
+  "venue_name_en": "Bando City Yasaka General Park Athletics Stadium",
+  "venue_address": "茨城県坂東市岩井3086",
+  "start_lat": null,
+  "start_lng": null
+}

@@ -1,0 +1,264 @@
+{
+  "id": "itabashi-city-marathon-2027",
+  "name_ja": "板橋Cityマラソン",
+  "name_en": "Itabashi City Marathon",
+  "full_name_ja": "2027 板橋Cityマラソン",
+  "full_name_en": "Itabashi City Marathon",
+  "edition": null,
+  "date": "2027-03-21",
+  "prefecture": "13",
+  "city_ja": "板橋区",
+  "city_en": "Itabashi Ward",
+  "description_ja": "荒川河川敷を走るフラットなフルマラソン。記録を狙いやすいコースとして人気。制限時間7時間で初心者にも優しい。",
+  "description_en": "A flat full marathon along the Arakawa River. Popular for record attempts. 7-hour time limit is beginner-friendly.",
+  "official_url": "https://i-c-m.jp",
+  "entry_fee": 11550,
+  "entry_fee_by_category": true,
+  "entry_capacity": 10000,
+  "entry_start_date": "2026-09-01",
+  "entry_end_date": "2026-12-04",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "アスリートビブス・記録計測用チップ等を大会前（2027年3月上旬予定）に事前郵送するため、当日受付はなし。",
+  "reception_note_en": "Bibs and timing chips are mailed in advance (early March 2027); there is no on-site reception on race day.",
+  "tags": [
+    "フラット",
+    "初心者おすすめ",
+    "記録狙い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF",
+      "WA"
+    ],
+    "highlights_ja": "荒川河川敷",
+    "highlights_en": "Arakawa Riverbank",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 420,
+      "start_time": "09:00",
+      "capacity": 10000,
+      "entry_fee": 11550,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "entry_fee": 3000,
+      "capacity": 1000,
+      "time_limit_minutes": 60,
+      "start_time": ""
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [
+    {
+      "station_name_ja": "浮間舟渡駅",
+      "station_name_en": "Ukima-Funado Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩15分",
+      "transport_to_venue_en": "15 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 15,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "蓮根駅",
+      "station_name_en": "Hasune Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩15分",
+      "transport_to_venue_en": "15 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 15,
+      "is_primary": false
+    },
+    {
+      "station_name_ja": "舟渡小学校（バス停）",
+      "station_name_en": "Funado Elementary School (bus stop)",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩5分",
+      "transport_to_venue_en": "5 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 5,
+      "is_primary": false
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "荒川河川敷",
+      "name_en": "Arakawa Riverbank",
+      "description_ja": "フラットな河川敷コース。記録を狙うランナーに人気の定番コース。",
+      "description_en": "A flat riverbank course. A classic course popular with runners aiming for personal records.",
+      "distance_from_venue": "コース上",
+      "url": null,
+      "latitude": 35.7917,
+      "longitude": 139.675
+    },
+    {
+      "type": "宿泊",
+      "name_ja": "板橋センターホテル",
+      "name_en": "Itabashi Center Hotel",
+      "description_ja": "会場周辺の宿泊施設。",
+      "description_en": "Accommodation near the venue.",
+      "distance_from_venue": "近隣",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "宿泊",
+      "name_ja": "東横INN埼玉戸田公園駅西口",
+      "name_en": "Toyoko Inn Saitama Toda-koen Station West Exit",
+      "description_ja": "会場周辺の宿泊施設。",
+      "description_en": "Accommodation near the venue.",
+      "distance_from_venue": "近隣",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-24T16:12:57.026Z",
+  "updated_at": "2026-08-24T16:12:57.026Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "2026-08-24: 自動クロールで itabashi-city-marathon-2026 を元に2027年大会ファイルを新規作成"
+    ],
+    "last_verified": "2026-08-24",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "マラソン 一般枠",
+      "label_en": "Marathon General Entry",
+      "start_date": "2026-09-01",
+      "end_date": "2026-12-04",
+      "entry_fee": 11550
+    },
+    {
+      "label_ja": "マラソン プレミアムエントリー",
+      "label_en": "Marathon Premium Entry",
+      "start_date": "2026-09-01",
+      "end_date": "2026-12-04",
+      "entry_fee": 33000
+    },
+    {
+      "label_ja": "5km 一般の部",
+      "label_en": "5km General",
+      "start_date": "2026-09-01",
+      "end_date": "2026-12-04",
+      "entry_fee": 3000
+    },
+    {
+      "label_ja": "5km 高校生の部",
+      "label_en": "5km High School",
+      "start_date": "2026-09-01",
+      "end_date": "2026-12-04",
+      "entry_fee": 2000
+    },
+    {
+      "label_ja": "ジュニア(3km)",
+      "label_en": "Junior (3km)",
+      "start_date": "2026-09-01",
+      "end_date": "2026-12-04",
+      "entry_fee": 1000
+    },
+    {
+      "label_ja": "ファミリーラン(1km)",
+      "label_en": "Family Run (1km)",
+      "start_date": "2026-09-01",
+      "end_date": "2026-12-04",
+      "entry_fee": 1000
+    },
+    {
+      "label_ja": "車いす(1km)",
+      "label_en": "Wheelchair (1km)",
+      "start_date": "2026-09-01",
+      "end_date": "2026-12-04",
+      "entry_fee": 0
+    }
+  ],
+  "motif": "荒川",
+  "motif_color": "#6b7280",
+  "motif_romaji": "Arakawa",
+  "tagline_ja": "荒川河川敷を駆ける、春の板橋シティマラソン",
+  "tagline_en": "Run the Arakawa riverside in spring",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "荒川河川敷",
+      "name_en": "Arakawa Riverbank",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://i-c-m.jp/guideline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://i-c-m.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://i-c-m.jp/access/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://i-c-m.jp/faq/",
+      "label": "FAQ"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "荒川戸田橋野球場",
+  "venue_name_en": "Arakawa Todabashi Baseball Stadium",
+  "venue_address": "東京都板橋区舟渡3-20先",
+  "start_lat": null,
+  "start_lng": null
+}

@@ -1,0 +1,139 @@
+{
+  "id": "myoko-trail-2026",
+  "name_ja": "妙高トレイル",
+  "name_en": "Myoko Trail",
+  "full_name_ja": "GOLDEN TRAIL WORLD SERIES MYOKO TRAIL",
+  "full_name_en": "Golden Trail World Series Myoko Trail",
+  "edition": null,
+  "date": "2026-09-20",
+  "prefecture": "15",
+  "city_ja": "妙高市",
+  "city_en": "Myoko City",
+  "description_ja": "世界的トレイルランニングシリーズ「ゴールデントレイルワールドシリーズ」の日本初開催大会。妙高杉ノ原スキー場・池ノ平スキー場を舞台に、妙高山麓の急峻な登り下りが連続するコースを走る。",
+  "description_en": "The Japan debut of the Golden Trail World Series, held at Myoko Sugonohara and Ikenotaira ski resorts. The course features consecutive steep climbs and descents on the slopes of Mt. Myoko.",
+  "official_url": "https://goldentrailseries.com/myoko-trail/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 400,
+  "entry_start_date": "2026-04-12",
+  "entry_end_date": "2026-08-03",
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": 1935,
+    "surface": "trail",
+    "certification": [],
+    "highlights_ja": "妙高山麓、急峻な登り下りが連続するコース",
+    "highlights_en": "Consecutive steep climbs and descents on the slopes of Mt. Myoko",
+    "notes_ja": "GTWSレース（23.6km）は9月20日、公開レース（11km/5km）は9月19日開催",
+    "notes_en": "The GTWS race (23.6km) is held on Sep 20; the open races (11km/5km) are held on Sep 19"
+  },
+  "categories": [
+    {
+      "distance_type": "other",
+      "distance_km": 23.6,
+      "time_limit_minutes": 300,
+      "start_time": "13:00",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "GTWSレース",
+      "name_en": "GTWS Race",
+      "description_ja": "獲得標高約1,935m。16歳以上。男性制限時間4時間40分・女性5時間",
+      "description_en": "~1,935m elevation gain. Age 16+. Time limit: 4h40m (male) / 5h (female)",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 11,
+      "time_limit_minutes": null,
+      "start_time": "13:00",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "妙高トレイル11km",
+      "name_en": "Myoko Trail 11km",
+      "description_ja": "中学生以上",
+      "description_en": "Junior high school age and above",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "14:00",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "妙高トレイル5km",
+      "name_en": "Myoko Trail 5km",
+      "description_ja": "中学生以上",
+      "description_en": "Junior high school age and above",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-08-25T00:00:00Z",
+  "updated_at": "2026-08-24T16:33:25.638Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。参加費は未入力（公式サイトに具体的な記載なし）",
+      "2026-08-25: runnet.jp紹介記事を起点に新規登録（Golden Trail World Series日本初開催）",
+      "2026-08-24: 自動クロールで更新"
+    ],
+    "last_verified": "2026-08-24",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-04-12",
+      "end_date": "2026-08-03",
+      "entry_fee": null
+    }
+  ],
+  "motif": "妙高山",
+  "motif_color": "#0f766e",
+  "motif_romaji": "Myoko-san",
+  "tagline_ja": "世界を転戦するゴールデントレイル、日本初上陸",
+  "tagline_en": "The Golden Trail World Series makes its Japan debut",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "妙高山",
+      "name_en": "Mt. Myoko",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://goldentrailseries.com/myoko-trail/",
+      "label": "大会概要（GTWS公式）"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "妙高杉ノ原スキー場",
+  "venue_name_en": "Myoko Sugonohara Ski Resort",
+  "venue_address": "新潟県妙高市",
+  "start_lat": null,
+  "start_lng": null
+}

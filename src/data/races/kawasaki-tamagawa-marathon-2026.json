@@ -1,0 +1,98 @@
+{
+  "id": "kawasaki-tamagawa-marathon-2026",
+  "name_ja": "かわさき多摩川マラソン",
+  "name_en": "Kawasaki Tamagawa Marathon",
+  "full_name_ja": "かわさき多摩川マラソン2026",
+  "full_name_en": "Kawasaki Tamagawa Marathon 2026",
+  "edition": null,
+  "date": "2026-11-15",
+  "prefecture": "14",
+  "city_ja": "川崎市",
+  "city_en": "Kawasaki City",
+  "description_ja": "Uvanceとどろきスタジアム by Fujitsu（等々力陸上競技場）発着で多摩川沿いを走る大会。車いすランやペアランニングなど誰もが楽しめるインクルーシブな種目が特徴。",
+  "description_en": "A race starting and finishing at Todoroki Athletics Stadium, running along the Tama River. Features inclusive categories including wheelchair racing and pair running.",
+  "official_url": "https://tamagawa-run.jp/marathon/",
+  "entry_fee": 5750,
+  "entry_fee_by_category": true,
+  "entry_capacity": 3500,
+  "entry_start_date": "2026-07-15",
+  "entry_end_date": "2026-08-31",
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "多摩川沿い",
+    "highlights_en": "Along the Tama River",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    { "distance_type": "half", "distance_km": 21.097, "time_limit_minutes": 168, "start_time": null, "capacity": 3500, "entry_fee": 5750, "entry_fee_u25": null, "name_ja": "ハーフマラソン", "name_en": "Half Marathon", "description_ja": null, "description_en": null, "waves": null },
+    { "distance_type": "10k", "distance_km": 10, "time_limit_minutes": 80, "start_time": null, "capacity": 2500, "entry_fee": 5250, "entry_fee_u25": 3250, "name_ja": "10km", "name_en": "10km", "description_ja": "高校生3,250円", "description_en": "High school student: ¥3,250", "waves": null },
+    { "distance_type": "other", "distance_km": 3, "time_limit_minutes": null, "start_time": null, "capacity": 500, "entry_fee": 3750, "entry_fee_u25": 3250, "name_ja": "3km", "name_en": "3km", "description_ja": "高校生3,250円、小中学生2,750円", "description_en": "High school ¥3,250 / elementary & junior high ¥2,750", "waves": null }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [ "tshirt" ],
+      "description_ja": "大会記念Tシャツ",
+      "description_en": "Commemorative race T-shirt",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-25T00:00:00Z",
+  "updated_at": "2026-08-25T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。ペアランニング・ファミリーファンランニング・車いすランはcategoriesに未収録（型定義上distance_typeの表現が難しいため）",
+      "2026-08-25: runnet.jp紹介記事を起点に新規登録"
+    ],
+    "last_verified": "2026-08-25",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-07-15",
+      "end_date": "2026-08-31",
+      "entry_fee": null
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": "多摩川沿いを走る、誰もが楽しめるインクルーシブな大会",
+  "tagline_en": "An inclusive race along the Tama River for everyone",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    { "name_ja": "多摩川", "name_en": "Tama River", "description_ja": null, "description_en": null }
+  ],
+  "info_urls": [
+    { "url": "https://tamagawa-run.jp/marathon/outline/", "label": "大会要項" }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "Uvanceとどろきスタジアム by Fujitsu（等々力陸上競技場）",
+  "venue_name_en": "Todoroki Athletics Stadium",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

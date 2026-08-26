@@ -80,14 +80,43 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-03-29T11:30:29.091Z",
-  "updated_at": "2026-05-30T06:43:05.830Z",
+  "updated_at": "2026-08-24T16:41:07.705Z",
   "entry_periods": [
     {
+      "label_ja": "フルマラソン",
+      "label_en": "Full Marathon",
       "start_date": "2026-04-01",
       "end_date": "2026-05-27",
-      "entry_fee": null,
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry"
+      "entry_fee": 10000,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "20kmマラソン",
+      "label_en": "20km Marathon",
+      "start_date": "2026-04-01",
+      "end_date": "2026-05-27",
+      "entry_fee": 8000,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "10kmマラソン",
+      "label_en": "10km Marathon",
+      "start_date": "2026-04-01",
+      "end_date": "2026-05-27",
+      "entry_fee": 6000,
+      "category_id": null,
+      "sort_order": 2
+    },
+    {
+      "label_ja": "3kmペアマラソン",
+      "label_en": "3km Pair Marathon",
+      "start_date": "2026-04-01",
+      "end_date": "2026-05-27",
+      "entry_fee": 5000,
+      "category_id": null,
+      "sort_order": 3
     }
   ],
   "motif": "田沢湖",
@@ -132,9 +161,11 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-08-24",
     "data_accuracy_notes": [
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-08-24: 自動クロールで更新",
+      "2026-08-25: reception_typeがpre_dayに変更されていたが、LLM抽出が「大会前日エントリー（先着順の遅れての申込受付）」と「ビブス受付（reception）」を混同した誤りと判明。公式サイト確認でビブスは事前郵送と分かり pre_mail に戻した。なお参加記念品の引換は前日9/19 13:30-17:00・当日9/20 6:30-15:00の両方で可能（現スキーマでは未モデル化）。前日エントリー（先着順、各種目30人程度・現金払い）という別枠の情報は今後entry_periods等で扱うか要検討"
     ]
   },
   "venue_name_ja": null,

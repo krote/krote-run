@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-08-24T21:24:32.368Z
+-- 生成日時: 2026-08-26T15:41:00.052Z
 -- 対象ファイル数: 108 件（既存 2 件はskip）
 
 -- ==================
@@ -3088,7 +3088,7 @@ INSERT INTO races (
   1,
   15000,
   '2026-04-20',
-  '2026-07-24',
+  '2026-05-20',
   0,
   'pre_day',
   '',
@@ -3186,7 +3186,7 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('fukuoka-marathon-2026', '["medal","towel"]', '完走メダル、スポーツタオル（マラソンの部のみ）', 'Finisher medal, sports towel (marathon only)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('fukuoka-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-20', '2026-07-24', 16000, 0);
+  ('fukuoka-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-20', '2026-05-20', 16000, 0);
 
 -- ==================
 -- ぐんまマラソン (gunma-marathon-2026)
@@ -13965,7 +13965,7 @@ INSERT INTO races (
   0,
   0,
   '2025-09-30',
-  '2025-11-30',
+  '2025-12-31',
   0,
   'race_day',
   '',
@@ -14049,7 +14049,7 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('tokushima-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル', 'Race T-shirt, Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('tokushima-marathon-2026', NULL, 'マラソン', 'Marathon', '2025-09-30', '2025-11-30', 11000, 0);
+  ('tokushima-marathon-2026', NULL, 'マラソン', 'Marathon', '2025-09-30', '2025-12-31', 11000, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('tokushima-marathon-2026', NULL, 'チャレンジラン', 'Challenge Run', '2025-09-30', '2025-11-30', 0, 1);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES

@@ -16,7 +16,7 @@
   "entry_fee_by_category": true,
   "entry_capacity": 15000,
   "entry_start_date": "2026-04-20",
-  "entry_end_date": "2026-07-24",
+  "entry_end_date": "2026-05-20",
   "reception_type": "pre_day",
   "reception_note_ja": "",
   "reception_note_en": "",
@@ -153,9 +153,10 @@
       "2026-05-25: 自動クロールで更新",
       "2026-06-08: 自動クロールで更新",
       "2026-06-29: 自動クロールで更新",
-      "2026-08-24: 自動クロールで更新"
+      "2026-08-24: 自動クロールで更新",
+      "2026-08-26: entry_end_dateが2026-07-24に変更されていたが、PRレビューで指摘の通り誤り。7/24は優先枠（障がい者枠・ふくおかスポーツ応援ランナー枠等）の締切で、一般エントリーの締切は5/20が正しいため2026-05-20に修正"
     ],
-    "last_verified": "2026-08-24",
+    "last_verified": "2026-08-26",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -163,7 +164,7 @@
       "label_ja": "一般エントリー",
       "label_en": "General Entry",
       "start_date": "2026-04-20",
-      "end_date": "2026-07-24",
+      "end_date": "2026-05-20",
       "entry_fee": 16000,
       "category_id": null,
       "sort_order": 0

@@ -33,6 +33,19 @@ async function getUserRace(
   return row ?? null;
 }
 
+async function getRaceCategory(
+  db: ReturnType<typeof drizzle>,
+  raceId: string,
+  categoryId: number,
+) {
+  const [row] = await db
+    .select()
+    .from(schema.race_categories)
+    .where(and(eq(schema.race_categories.id, categoryId), eq(schema.race_categories.race_id, raceId)))
+    .limit(1);
+  return row ?? null;
+}
+
 async function getResult(
   db: ReturnType<typeof drizzle>,
   userRaceId: string,
@@ -81,6 +94,12 @@ export async function PUT(request: Request, { params }: Params) {
   if ('error' in validation) return Response.json({ error: validation.error }, { status: 400 });
 
   const { status, finish_time_sec, category_id, note } = validation.data;
+
+  if (category_id !== undefined) {
+    const category = await getRaceCategory(db, raceId, category_id);
+    if (!category) return Response.json({ error: 'category_id が不正です' }, { status: 400 });
+  }
+
   const now = new Date().toISOString();
 
   const existing = await getResult(db, userRace.id);

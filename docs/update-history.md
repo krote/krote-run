@@ -971,3 +971,20 @@ APIの調査中にGoogle Routes API v2がTRANSITモードで日本に非対応�
   - `raceDate >= today`により大会当日は非表示になっていたオフバイワンを修正（`raceDate > today`に変更、当日から記録可能に）
   - `parseTimeToSec`が小数秒を許容し、サーバー側の整数チェックで弾かれた際に汎用エラーメッセージになる問題を修正（`Number.isInteger`で厳密化）
 - `src/app/api/user/races/[raceId]/result/__tests__/route.test.ts` / `src/components/mypage/__tests__/RaceResultSection.test.tsx`（変更）: 上記5件に対応するテストを追加（TDD: Red確認後に実装）
+
+## 2026-08-28 装備公開設定・みんなの装備集計・アソシエイト表記（Issue #126）
+
+- `src/lib/gear-stats.ts`（新規）: 走力帯（フィニッシュタイム）別の装備集計を行う純粋関数群。`deriveResultBucket()`（result+categoriesから走力帯を算出）、`normalizeGearKey()`（ASINまたはbrand+nameで同一製品を判定）、`buildGearStats()`（走力帯×カテゴリ別にTOP5製品を集計。3人未満の走力帯は非表示、結果未記録は「未分類」バケットに集計）
+- `src/lib/__tests__/gear-stats.test.ts`（新規）: 上記関数群のテスト（23件）
+- `src/lib/data.ts`（変更）: `getRaceGearStats(raceId)` を追加。`user_races.gear_is_public=true` の行のみを対象に、装備・結果・カテゴリを取得し `buildGearStats()` に渡す
+- `src/app/api/user/races/[raceId]/route.ts`（変更）: PATCHボディに `gear_is_public` を追加（既存値へのフォールバック付き）
+- `src/app/api/user/races/[raceId]/__tests__/route.test.ts`（変更）: `gear_is_public` 更新のテストを3件追加。あわせて `update().set()` の実引数を検証しないモックの穴を修正（TDDが機能していなかった箇所）
+- `src/components/mypage/RaceGearSection.tsx`（変更）: 参加済み大会の装備欄に「装備を公開する」トグルを追加。ON/OFFをPATCHで即時保存（失敗時はロールバック）
+- `src/components/mypage/__tests__/RaceGearSection.test.tsx`（変更）: 公開トグルの表示条件・初期状態・PATCH呼び出しのテストを5件追加
+- `src/components/mypage/UserRaceList.tsx`（変更）: `UserRaceRow` に `gear_is_public` を追加し `RaceGearSection` に伝播
+- `src/components/races/detail/GearStatsTabs.tsx`（新規、Client Component）: 走力帯タブ切り替え＋カテゴリ別製品リスト（使用率バー・Amazonリンク）
+- `src/components/races/detail/GearStatsSection.tsx`（新規、Server Component）: `getRaceGearStats()` の結果をラベル付け（走力帯・カテゴリの翻訳、Amazon URL生成）して `GearStatsTabs` に渡す
+- `src/app/[locale]/races/[id]/page.tsx`（変更）: 「みんなの装備」セクションを追加（常時表示。データ0件時は案内メッセージ）、アンカーバーに項目追加
+- `src/components/layout/Footer.tsx`（変更）: `NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG` 設定時のみAmazonアソシエイト表記を表示
+- `src/components/__tests__/Footer.test.tsx`（新規）: 環境変数の有無による表記の表示切り替えテスト（2件）
+- `src/messages/ja.json` / `src/messages/en.json`（変更）: `gear` 名前空間に `raceGearPublicToggle` / `raceGearPublicDescription` / `raceGearPublicUnclassifiedNote`、`home.footer` 名前空間に `amazonAssociateDisclosure` を追加

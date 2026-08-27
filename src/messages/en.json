@@ -94,7 +94,8 @@
       "about": "About HASHIRU",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
-      "sitemap": "Sitemap"
+      "sitemap": "Sitemap",
+      "amazonAssociateDisclosure": "As an Amazon Associate, this site earns from qualifying purchases."
     },
     "card": {
       "distance": "Distance",
@@ -383,6 +384,9 @@
     "raceGearAdd": "Add",
     "raceGearCancel": "Cancel",
     "raceGearPatchError": "Failed to save",
+    "raceGearPublicToggle": "Share this gear",
+    "raceGearPublicDescription": "When shared, your gear is anonymously aggregated by finish-time bracket in the \"Gear Used by Runners\" section on the race detail page. No personally identifiable information is shown.",
+    "raceGearPublicUnclassifiedNote": "If no result is recorded, this is aggregated under \"Unclassified\".",
     "raceResultButton": "Record Result",
     "raceResultStatus": "Status",
     "raceResultFinished": "Finished",

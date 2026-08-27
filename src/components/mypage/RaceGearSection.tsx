@@ -41,11 +41,12 @@ interface Props {
   raceId: string;
   raceDate: string; // YYYY-MM-DD
   isParticipated?: boolean;
+  gearIsPublic?: boolean;
 }
 
 // ─── Component ─────────────────────────────────────────────────────────────
 
-export default function RaceGearSection({ raceId, raceDate, isParticipated = false }: Props) {
+export default function RaceGearSection({ raceId, raceDate, isParticipated = false, gearIsPublic = false }: Props) {
   const t = useTranslations('gear');
 
   const [open, setOpen] = useState(false);
@@ -61,6 +62,7 @@ export default function RaceGearSection({ raceId, raceDate, isParticipated = fal
   const [draft, setDraft] = useState<DraftItem[]>([]);
   const [addSelected, setAddSelected] = useState<Set<string>>(new Set());
   const [patchError, setPatchError] = useState<string | null>(null);
+  const [isPublic, setIsPublic] = useState(gearIsPublic);
 
   const today = new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Asia/Tokyo',
@@ -177,6 +179,23 @@ export default function RaceGearSection({ raceId, raceDate, isParticipated = fal
       );
     } catch {
       setPatchError(t('raceGearPatchError'));
+    }
+  };
+
+  // ─── Public toggle ──────────────────────────────────────────────────────
+
+  const handleTogglePublic = async () => {
+    const next = !isPublic;
+    setIsPublic(next);
+    try {
+      const res = await fetch(`/api/user/races/${raceId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ gear_is_public: next }),
+      });
+      if (!res.ok) setIsPublic(!next);
+    } catch {
+      setIsPublic(!next);
     }
   };
 
@@ -508,6 +527,29 @@ export default function RaceGearSection({ raceId, raceDate, isParticipated = fal
           background: 'var(--color-cream)',
         }}
       >
+        {/* 参加済み: 公開設定 */}
+        {isParticipated && (
+          <div className="mb-3 pb-3" style={{ borderBottom: '1px solid var(--color-border)' }}>
+            <label className="flex items-center gap-2 text-xs cursor-pointer mb-1">
+              <input
+                type="checkbox"
+                checked={isPublic}
+                onChange={handleTogglePublic}
+                aria-label={t('raceGearPublicToggle')}
+              />
+              <span className="font-medium">{t('raceGearPublicToggle')}</span>
+            </label>
+            <p className="text-[11px] leading-relaxed" style={{ color: 'var(--color-mid)' }}>
+              {t('raceGearPublicDescription')}
+            </p>
+            {isPublic && (
+              <p className="text-[11px] leading-relaxed mt-0.5" style={{ color: 'var(--color-mid)' }}>
+                {t('raceGearPublicUnclassifiedNote')}
+              </p>
+            )}
+          </div>
+        )}
+
         {/* 参加済み: ギア追加・保存 UI */}
         {isParticipated && (
           <>

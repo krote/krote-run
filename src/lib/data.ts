@@ -1,8 +1,9 @@
-import { eq, gte, asc, sql } from "drizzle-orm";
+import { eq, and, gte, asc, sql, inArray } from "drizzle-orm";
 import { getDatabase } from "./db/client";
 import * as schema from "./db/schema";
 import type { Race, Prefecture, GiftCategory, GiftCategoryId, RaceSeries } from "./types";
 import { assembleRace, toSeriesId } from "./data-mappers";
+import { buildGearStats, deriveResultBucket, type GearStatsRow, type GearStatsBucketResult } from "./gear-stats";
 
 // ==================
 // Race data
@@ -80,6 +81,55 @@ export async function getRaceById(id: string): Promise<Race | null> {
     receptionSessionRows: receptionSessionRows,
     travelTimeRows:       travelTimeRows,
   });
+}
+
+/**
+ * レースの「みんなの装備」走力帯別集計を取得する。
+ * gear_is_public=true のユーザーのみ対象。getRaceById() には含めない（一覧クエリを重くしないため）。
+ */
+export async function getRaceGearStats(raceId: string): Promise<GearStatsBucketResult[]> {
+  const db = getDatabase();
+
+  const publicUserRaces = await db
+    .select()
+    .from(schema.user_races)
+    .where(and(eq(schema.user_races.race_id, raceId), eq(schema.user_races.gear_is_public, true)));
+
+  if (publicUserRaces.length === 0) return [];
+
+  const userRaceIds = publicUserRaces.map((ur) => ur.id);
+
+  const [raceGearRows, gearRows, resultRows, categoryRows] = await db.batch([
+    db.select().from(schema.user_race_gear).where(inArray(schema.user_race_gear.user_race_id, userRaceIds)),
+    db.select().from(schema.user_gear),
+    db.select().from(schema.user_race_results).where(inArray(schema.user_race_results.user_race_id, userRaceIds)),
+    db.select().from(schema.race_categories).where(eq(schema.race_categories.race_id, raceId)),
+  ]);
+
+  const gearById = new Map(gearRows.map((g) => [g.id, g]));
+  const resultByUserRaceId = new Map(resultRows.map((r) => [r.user_race_id, r]));
+  const bucketByUserRaceId = new Map(
+    userRaceIds.map((id) => [id, deriveResultBucket(resultByUserRaceId.get(id) ?? null, categoryRows)]),
+  );
+
+  const rows: GearStatsRow[] = raceGearRows
+    .map((rg): GearStatsRow | null => {
+      const gear = gearById.get(rg.gear_id);
+      if (!gear) return null;
+      return {
+        userRaceId: rg.user_race_id,
+        bucket: bucketByUserRaceId.get(rg.user_race_id) ?? null,
+        gearId: gear.id,
+        category: gear.category as GearStatsRow["category"],
+        brand: gear.brand,
+        name: gear.name,
+        asin: gear.asin,
+        used: rg.used,
+      };
+    })
+    .filter((r): r is GearStatsRow => r !== null);
+
+  return buildGearStats(rows);
 }
 
 export async function getRacesByPrefecture(prefecture: string): Promise<Race[]> {

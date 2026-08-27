@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { getRaceById, getGiftCategories } from '@/lib/data';
+import { getRaceById, getGiftCategories, getRaceGearStats } from '@/lib/data';
 import { formatDate, formatCurrency, getMainCategory, getRaceName, getRaceDescription, getRaceCity, getCategoryLabel } from '@/lib/utils';
 import { toSeriesId, getSeriesById, getSeriesRaces } from '@/lib/data';
 import { Link } from '@/i18n/navigation';
@@ -16,6 +16,7 @@ import OverviewSection from '@/components/races/detail/OverviewSection';
 import EntrySection from '@/components/races/detail/EntrySection';
 import LastEditionSection from '@/components/races/detail/LastEditionSection';
 import GallerySection from '@/components/races/detail/GallerySection';
+import GearStatsSection from '@/components/races/detail/GearStatsSection';
 
 export async function generateMetadata({
   params,
@@ -107,12 +108,15 @@ export default async function RaceDetailPage({
   const from = sp.from ?? null;
   const locale = rawLocale as Locale;
   const seriesId = toSeriesId(id);
-  const [race, giftCategories, t, series, seriesRaces] = await Promise.all([
+  const [race, giftCategories, t, tGear, tPerf, series, seriesRaces, gearStats] = await Promise.all([
     getRaceById(id),
     getGiftCategories(),
     getTranslations({ locale, namespace: 'races.detail' }),
+    getTranslations({ locale, namespace: 'gear' }),
+    getTranslations({ locale }),
     getSeriesById(seriesId),
     getSeriesRaces(seriesId, id),
+    getRaceGearStats(id),
   ]);
 
   if (!race) notFound();
@@ -143,6 +147,7 @@ export default async function RaceDetailPage({
     ...(race.time_buckets.length > 0 ? [{ id: 'result', label: locale === 'ja' ? 'リザルト' : 'Result' }] : []),
     ...(race.result ? [{ id: 'last-edition', label: locale === 'ja' ? '前回大会' : 'Last Edition' }] : []),
     ...(race.gallery.length > 0 || race.voices.length > 0 ? [{ id: 'gallery', label: locale === 'ja' ? 'ギャラリー' : 'Gallery' }] : []),
+    { id: 'gear-stats', label: locale === 'ja' ? 'みんなの装備' : 'Gear' },
   ];
 
   const jsonLd = {
@@ -885,6 +890,16 @@ export default async function RaceDetailPage({
             </Card>
           </section>
         )}
+
+        {/* みんなの装備 */}
+        <section id="gear-stats" style={{ scrollMarginTop: '3.5rem' }}>
+          <SectionHeading
+            num="11"
+            title={locale === 'ja' ? 'みんなの装備' : 'Gear Used by Runners'}
+            subtitle={locale === 'ja' ? 'Community Gear' : 'みんなの装備'}
+          />
+          <GearStatsSection stats={gearStats} locale={locale} tGear={tGear} tPerf={tPerf} />
+        </section>
       </div>
     </>
   );

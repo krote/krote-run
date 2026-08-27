@@ -230,6 +230,36 @@ describe('PUT /api/user/races/[raceId]/result', () => {
     expect(mockInsertValues).toHaveBeenCalledOnce();
     expect(mockUpdateWhere).toHaveBeenCalledOnce();
   });
+
+  it('category_id が指定したレースのカテゴリに属していない場合は400', async () => {
+    mockGetSession.mockResolvedValue({ user: MOCK_USER });
+    mockSelectRows
+      .mockResolvedValueOnce([MOCK_USER_RACE])   // user_races lookup
+      .mockResolvedValueOnce([]);                 // race_categories lookup: 見つからない
+    const res = await PUT(
+      makeRequest('PUT', { status: 'finished', finish_time_sec: 14400, category_id: 999 }),
+      makeParams(),
+    );
+    expect(res.status).toBe(400);
+    expect(mockInsertValues).not.toHaveBeenCalled();
+    expect(mockUpdateWhere).not.toHaveBeenCalled();
+  });
+
+  it('category_id が指定したレースのカテゴリに属している場合は保存できる', async () => {
+    mockGetSession.mockResolvedValue({ user: MOCK_USER });
+    mockSelectRows
+      .mockResolvedValueOnce([MOCK_USER_RACE])              // user_races lookup
+      .mockResolvedValueOnce([{ id: 42, race_id: RACE_ID }]) // race_categories lookup: 見つかる
+      .mockResolvedValueOnce([])                             // 既存result なし
+      .mockResolvedValueOnce([{ ...MOCK_RESULT, category_id: 42 }]); // upsert後の取得
+    const res = await PUT(
+      makeRequest('PUT', { status: 'finished', finish_time_sec: 14400, category_id: 42 }),
+      makeParams(),
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.category_id).toBe(42);
+  });
 });
 
 // ─── DELETE ────────────────────────────────────────────────────────────────

@@ -200,6 +200,22 @@ describe('buildGearStats', () => {
     expect(stats[0].categories[0].products.length).toBeLessThanOrEqual(5);
   });
 
+  it('minUsersPerBucket を指定すると、そのしきい値で判定する', () => {
+    const rows = [
+      row({ userRaceId: 'ur-1' }),
+    ];
+    expect(buildGearStats(rows, 1)).toHaveLength(1);
+    expect(buildGearStats(rows, 1)[0].userCount).toBe(1);
+  });
+
+  it('minUsersPerBucket 未指定時はデフォルト（3人）で判定する', () => {
+    const rows = [
+      row({ userRaceId: 'ur-1' }),
+      row({ userRaceId: 'ur-2' }),
+    ];
+    expect(buildGearStats(rows)).toEqual([]);
+  });
+
   it('走力帯ごとに独立して集計される', () => {
     const rows = [
       row({ userRaceId: 'ur-1', bucket: 'sub4' }),

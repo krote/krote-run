@@ -1,7 +1,8 @@
 import type { GearCategory, PerformanceBucketId } from './types';
 import { derivePerformanceBucket } from './performance';
 
-const MIN_USERS_PER_BUCKET = 3;
+/** 個人特定防止のためのデフォルトしきい値。運用側で GEAR_STATS_MIN_USERS 環境変数により上書き可能 */
+export const DEFAULT_MIN_USERS_PER_BUCKET = 3;
 const MAX_PRODUCTS_PER_CATEGORY = 5;
 
 /** 走力帯集計における「未分類」バケットのID（結果未記録・タイム無し） */
@@ -84,9 +85,12 @@ export function normalizeGearKey(asin: string | null, brand: string, name: strin
 
 /**
  * レース装備の公開データから、走力帯 × カテゴリ × 製品の匿名集計を組み立てる。
- * 公開ユーザー数が3人未満の走力帯は個人特定防止のため結果から除外する。
+ * 公開ユーザー数が minUsersPerBucket 未満の走力帯は個人特定防止のため結果から除外する。
  */
-export function buildGearStats(rows: GearStatsRow[]): GearStatsBucketResult[] {
+export function buildGearStats(
+  rows: GearStatsRow[],
+  minUsersPerBucket: number = DEFAULT_MIN_USERS_PER_BUCKET,
+): GearStatsBucketResult[] {
   const bucketOf = (r: GearStatsRow): GearStatsBucketId => r.bucket ?? UNCLASSIFIED_BUCKET;
 
   const bucketIds = [...new Set(rows.map(bucketOf))];
@@ -96,7 +100,7 @@ export function buildGearStats(rows: GearStatsRow[]): GearStatsBucketResult[] {
   for (const bucket of bucketIds) {
     const bucketRows = rows.filter((r) => bucketOf(r) === bucket);
     const userCount = new Set(bucketRows.map((r) => r.userRaceId)).size;
-    if (userCount < MIN_USERS_PER_BUCKET) continue;
+    if (userCount < minUsersPerBucket) continue;
 
     const categoryMap = new Map<GearCategory, Map<string, GearStatsProduct>>();
 

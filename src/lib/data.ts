@@ -1,9 +1,22 @@
 import { eq, and, gte, asc, sql, inArray } from "drizzle-orm";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { getDatabase } from "./db/client";
 import * as schema from "./db/schema";
 import type { Race, Prefecture, GiftCategory, GiftCategoryId, RaceSeries } from "./types";
 import { assembleRace, toSeriesId } from "./data-mappers";
-import { buildGearStats, deriveResultBucket, type GearStatsRow, type GearStatsBucketResult } from "./gear-stats";
+import { buildGearStats, deriveResultBucket, DEFAULT_MIN_USERS_PER_BUCKET, type GearStatsRow, type GearStatsBucketResult } from "./gear-stats";
+
+/**
+ * 「みんなの装備」の匿名集計しきい値（走力帯あたりの最低公開ユーザー数）。
+ * GEAR_STATS_MIN_USERS 環境変数で運用側から上書き可能（未設定・不正値時はデフォルトの3人）。
+ * getCloudflareContext().env はCloudflareバインディング用、process.env はローカルdevのフォールバック。
+ */
+function getGearStatsMinUsers(): number {
+  const { env } = getCloudflareContext();
+  const raw = (env as unknown as Record<string, string>).GEAR_STATS_MIN_USERS ?? process.env.GEAR_STATS_MIN_USERS;
+  const parsed = raw ? Number(raw) : NaN;
+  return Number.isInteger(parsed) && parsed >= 0 ? parsed : DEFAULT_MIN_USERS_PER_BUCKET;
+}
 
 // ==================
 // Race data
@@ -129,7 +142,7 @@ export async function getRaceGearStats(raceId: string): Promise<GearStatsBucketR
     })
     .filter((r): r is GearStatsRow => r !== null);
 
-  return buildGearStats(rows);
+  return buildGearStats(rows, getGearStatsMinUsers());
 }
 
 export async function getRacesByPrefecture(prefecture: string): Promise<Race[]> {

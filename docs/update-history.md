@@ -971,3 +971,41 @@ APIの調査中にGoogle Routes API v2がTRANSITモードで日本に非対応�
   - `raceDate >= today`により大会当日は非表示になっていたオフバイワンを修正（`raceDate > today`に変更、当日から記録可能に）
   - `parseTimeToSec`が小数秒を許容し、サーバー側の整数チェックで弾かれた際に汎用エラーメッセージになる問題を修正（`Number.isInteger`で厳密化）
 - `src/app/api/user/races/[raceId]/result/__tests__/route.test.ts` / `src/components/mypage/__tests__/RaceResultSection.test.tsx`（変更）: 上記5件に対応するテストを追加（TDD: Red確認後に実装）
+
+## 2026-08-28 装備公開設定・みんなの装備集計・アソシエイト表記（Issue #126）
+
+- `src/lib/gear-stats.ts`（新規）: 走力帯（フィニッシュタイム）別の装備集計を行う純粋関数群。`deriveResultBucket()`（result+categoriesから走力帯を算出）、`normalizeGearKey()`（ASINまたはbrand+nameで同一製品を判定）、`buildGearStats()`（走力帯×カテゴリ別にTOP5製品を集計。3人未満の走力帯は非表示、結果未記録は「未分類」バケットに集計）
+- `src/lib/__tests__/gear-stats.test.ts`（新規）: 上記関数群のテスト（23件）
+- `src/lib/data.ts`（変更）: `getRaceGearStats(raceId)` を追加。`user_races.gear_is_public=true` の行のみを対象に、装備・結果・カテゴリを取得し `buildGearStats()` に渡す
+- `src/app/api/user/races/[raceId]/route.ts`（変更）: PATCHボディに `gear_is_public` を追加（既存値へのフォールバック付き）
+- `src/app/api/user/races/[raceId]/__tests__/route.test.ts`（変更）: `gear_is_public` 更新のテストを3件追加。あわせて `update().set()` の実引数を検証しないモックの穴を修正（TDDが機能していなかった箇所）
+- `src/components/mypage/RaceGearSection.tsx`（変更）: 参加済み大会の装備欄に「装備を公開する」トグルを追加。ON/OFFをPATCHで即時保存（失敗時はロールバック）
+- `src/components/mypage/__tests__/RaceGearSection.test.tsx`（変更）: 公開トグルの表示条件・初期状態・PATCH呼び出しのテストを5件追加
+- `src/components/mypage/UserRaceList.tsx`（変更）: `UserRaceRow` に `gear_is_public` を追加し `RaceGearSection` に伝播
+- `src/components/races/detail/GearStatsTabs.tsx`（新規、Client Component）: 走力帯タブ切り替え＋カテゴリ別製品リスト（使用率バー・Amazonリンク）
+- `src/components/races/detail/GearStatsSection.tsx`（新規、Server Component）: `getRaceGearStats()` の結果をラベル付け（走力帯・カテゴリの翻訳、Amazon URL生成）して `GearStatsTabs` に渡す
+- `src/app/[locale]/races/[id]/page.tsx`（変更）: 「みんなの装備」セクションを追加（常時表示。データ0件時は案内メッセージ）、アンカーバーに項目追加
+- `src/components/layout/Footer.tsx`（変更）: `NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG` 設定時のみAmazonアソシエイト表記を表示
+- `src/components/__tests__/Footer.test.tsx`（新規）: 環境変数の有無による表記の表示切り替えテスト（2件）
+- `src/messages/ja.json` / `src/messages/en.json`（変更）: `gear` 名前空間に `raceGearPublicToggle` / `raceGearPublicDescription` / `raceGearPublicUnclassifiedNote`、`home.footer` 名前空間に `amazonAssociateDisclosure` を追加
+
+## 2026-08-29 「みんなの装備」しきい値の環境変数化・Amazonアソシエイトタグ環境変数の一本化
+
+Issue #126のstg動作確認中に発見した2件の追加対応。
+
+**しきい値の可変化:**
+- `src/lib/gear-stats.ts`（変更）: `buildGearStats(rows, minUsersPerBucket)` にしきい値パラメータを追加（デフォルト3人 = `DEFAULT_MIN_USERS_PER_BUCKET`としてexport）
+- `src/lib/data.ts`（変更）: `getGearStatsMinUsers()` を追加。`GEAR_STATS_MIN_USERS` 環境変数（Cloudflareバインディング優先、`process.env` フォールバック）から読み取り、未設定・不正値時はデフォルト3人
+- `wrangler.jsonc`（変更）: `env.preview.vars.GEAR_STATS_MIN_USERS` を `"1"` に設定（stgのみ動作確認しやすくする。本番はデフォルト3人を維持）
+- `src/lib/__tests__/gear-stats.test.ts`（変更）: しきい値可変のテストを2件追加
+
+**Amazonアソシエイトタグ環境変数の一本化（バグ修正含む）:**
+- 発見した既存バグ: `NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG` はローカルの `next build`（`pnpm run cf:deploy`）実行時に値が存在しないため、クライアントバンドルへのビルド時埋め込みが行われず、マイページの「Amazonで見る」リンク（`GearList.tsx`、Client Component）にアフィリエイトタグが本番含め一度も付与されていなかった
+- `src/lib/amazon.ts`（変更）: `buildAmazonUrl(asin, tag)` を純粋関数化（`process.env` 直接参照を廃止し、呼び出し側でタグを解決させる）
+- `src/app/api/user/gear/route.ts` / `src/app/api/user/gear/[gearId]/route.ts`（変更）: サーバー側（`env.AMAZON_PARTNER_TAG`、`process.env` フォールバック）でタグ付き購入URLを計算し、レスポンスに `purchase_url` フィールドとして追加
+- `src/lib/types.ts`（変更）: `UserGear` に `purchase_url: string | null` を追加
+- `src/components/mypage/GearList.tsx`（変更）: `buildAmazonUrl` の直接呼び出しをやめ、APIレスポンスの `purchase_url` を使用（既存の `NEXT_PUBLIC_` 依存バグを解消）
+- `src/components/races/detail/GearStatsSection.tsx`（変更）: `buildAmazonUrl` 呼び出しに `AMAZON_PARTNER_TAG`（サーバー側 `process.env`）を明示的に渡すよう変更
+- `src/components/layout/Footer.tsx`（変更）: アソシエイト表記の判定を `NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG` → `AMAZON_PARTNER_TAG` に変更（サーバー側実行のため`process.env`で確実に取得可能）
+- テスト5ファイル（変更）: `amazon.test.ts` / `Footer.test.tsx` / `route.test.ts`（`gear`・`gear/[gearId]`）/ `GearList.test.tsx` / `gear-types.test.ts` を新シグネチャ・新フィールドに合わせて修正
+- Cloudflare Pages: `NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG` のsecretは本番・stgとも今後不要（`AMAZON_PARTNER_TAG` に一本化。secret自体の削除は未実施、動作に影響なし）

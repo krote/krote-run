@@ -28,6 +28,9 @@ const TRANSLATION_MAP: Record<string, string> = {
   raceGearAdd: '追加',
   raceGearCancel: 'キャンセル',
   raceGearPatchError: '保存に失敗しました',
+  raceGearPublicToggle: '装備を公開する',
+  raceGearPublicDescription: '公開される: カテゴリ・ブランド・製品名・使用有無・走力帯／公開されない: メモ・タイム・名前',
+  raceGearPublicUnclassifiedNote: '結果未記録の場合は「未分類」として集計されます',
 };
 
 vi.mock('next-intl', () => ({
@@ -99,6 +102,7 @@ function setupFetch(opts: {
   candidates?: unknown[];
   putResponse?: unknown[];
   patchResponse?: unknown;
+  gearIsPublicPatchResponse?: unknown;
 } = {}) {
   vi.stubGlobal(
     'fetch',
@@ -119,6 +123,9 @@ function setupFetch(opts: {
       }
       if (url.includes('/gear') && method === 'PATCH') {
         return Promise.resolve({ ok: true, json: async () => opts.patchResponse ?? (opts.raceGear ?? [])[0] ?? {} });
+      }
+      if (!url.includes('/gear') && method === 'PATCH') {
+        return Promise.resolve({ ok: true, json: async () => opts.gearIsPublicPatchResponse ?? { gear_is_public: true } });
       }
       return Promise.resolve({ ok: false, json: async () => ({}) });
     }),
@@ -395,6 +402,68 @@ describe('RaceGearSection — 参加済みレース後（post-race + isParticipa
         ([url, init]) => String(url).includes('/gear') && (init as RequestInit)?.method === 'PUT',
       );
       expect(putCall).toBeDefined();
+    });
+  });
+});
+
+describe('RaceGearSection — 装備の公開設定（post-race + isParticipated）', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    setupFetch({ myGear: MOCK_MY_GEAR, raceGear: MOCK_RACE_GEAR });
+  });
+
+  it('参加済みレース後のみ公開トグルが表示される', async () => {
+    render(<RaceGearSection raceId={RACE_ID} raceDate={PAST_DATE} isParticipated={true} />);
+    fireEvent.click(screen.getByRole('button', { name: '装備' }));
+
+    await waitFor(() => {
+      expect(screen.getByRole('checkbox', { name: '装備を公開する' })).toBeInTheDocument();
+    });
+  });
+
+  it('参加済みでない場合は公開トグルが表示されない', async () => {
+    render(<RaceGearSection raceId={RACE_ID} raceDate={PAST_DATE} isParticipated={false} />);
+    fireEvent.click(screen.getByRole('button', { name: '装備' }));
+
+    await waitFor(() => screen.getByText(/Vaporfly/));
+    expect(screen.queryByRole('checkbox', { name: '装備を公開する' })).not.toBeInTheDocument();
+  });
+
+  it('gearIsPublic=true で初期表示するとトグルがONになっている', async () => {
+    render(<RaceGearSection raceId={RACE_ID} raceDate={PAST_DATE} isParticipated={true} gearIsPublic={true} />);
+    fireEvent.click(screen.getByRole('button', { name: '装備' }));
+
+    await waitFor(() => {
+      expect(screen.getByRole('checkbox', { name: '装備を公開する' })).toBeChecked();
+    });
+  });
+
+  it('トグルをクリックすると PATCH /api/user/races/[raceId] を呼ぶ', async () => {
+    render(<RaceGearSection raceId={RACE_ID} raceDate={PAST_DATE} isParticipated={true} gearIsPublic={false} />);
+    fireEvent.click(screen.getByRole('button', { name: '装備' }));
+
+    await waitFor(() => screen.getByRole('checkbox', { name: '装備を公開する' }));
+    fireEvent.click(screen.getByRole('checkbox', { name: '装備を公開する' }));
+
+    await waitFor(() => {
+      const fetchMock = vi.mocked(fetch);
+      const patchCall = fetchMock.mock.calls.find(
+        ([url, init]) =>
+          String(url) === `/api/user/races/${RACE_ID}` && (init as RequestInit)?.method === 'PATCH',
+      );
+      expect(patchCall).toBeDefined();
+      const body = JSON.parse((patchCall![1] as RequestInit).body as string);
+      expect(body).toEqual({ gear_is_public: true });
+    });
+  });
+
+  it('公開される内容・公開されない内容の説明文が表示される', async () => {
+    render(<RaceGearSection raceId={RACE_ID} raceDate={PAST_DATE} isParticipated={true} />);
+    fireEvent.click(screen.getByRole('button', { name: '装備' }));
+
+    await waitFor(() => {
+      expect(screen.getByText(/公開される/)).toBeInTheDocument();
+      expect(screen.getByText(/公開されない/)).toBeInTheDocument();
     });
   });
 });

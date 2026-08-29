@@ -5,17 +5,20 @@ const {
   mockGetSession,
   mockSelectRows,
   mockInsertValues,
+  mockUpdateSet,
   mockUpdateWhere,
   mockDeleteWhere,
 } = vi.hoisted(() => {
   const mockSelectRows = vi.fn<[], Promise<unknown[]>>().mockResolvedValue([]);
   const mockInsertValues = vi.fn().mockResolvedValue(undefined);
+  const mockUpdateSet = vi.fn();
   const mockUpdateWhere = vi.fn().mockResolvedValue(undefined);
   const mockDeleteWhere = vi.fn().mockResolvedValue(undefined);
   return {
     mockGetSession: vi.fn(),
     mockSelectRows,
     mockInsertValues,
+    mockUpdateSet,
     mockUpdateWhere,
     mockDeleteWhere,
   };
@@ -48,9 +51,10 @@ vi.mock('drizzle-orm/d1', () => ({
       values: mockInsertValues,
     })),
     update: vi.fn(() => ({
-      set: vi.fn(() => ({
-        where: mockUpdateWhere,
-      })),
+      set: vi.fn((values: unknown) => {
+        mockUpdateSet(values);
+        return { where: mockUpdateWhere };
+      }),
     })),
     delete: vi.fn(() => ({
       where: mockDeleteWhere,
@@ -183,6 +187,50 @@ describe('PATCH /api/user/races/[raceId]', () => {
     expect(res.status).toBe(200);
     const body = await res.json();
     expect(body.entry_reminder_period_ids).toBe('[10,20]');
+  });
+
+  it('gear_is_public の更新が機能する', async () => {
+    mockGetSession.mockResolvedValue({ user: MOCK_USER });
+    const updated = { ...MOCK_ROW, gear_is_public: true };
+    mockSelectRows
+      .mockResolvedValueOnce([MOCK_ROW])
+      .mockResolvedValueOnce([updated]);
+
+    const res = await PATCH(
+      makeRequest('PATCH', { gear_is_public: true }),
+      makeParams(),
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.gear_is_public).toBe(true);
+    expect(mockUpdateSet).toHaveBeenCalledWith(expect.objectContaining({ gear_is_public: true }));
+  });
+
+  it('gear_is_public を指定しない場合は既存値が維持される', async () => {
+    mockGetSession.mockResolvedValue({ user: MOCK_USER });
+    const existingPublic = { ...MOCK_ROW, gear_is_public: true };
+    mockSelectRows
+      .mockResolvedValueOnce([existingPublic])
+      .mockResolvedValueOnce([existingPublic]);
+
+    const res = await PATCH(makeRequest('PATCH', { is_planning: true }), makeParams());
+    expect(res.status).toBe(200);
+    expect(mockUpdateSet).toHaveBeenCalledWith(expect.objectContaining({ gear_is_public: true }));
+  });
+
+  it('新規登録時に gear_is_public を指定できる', async () => {
+    mockGetSession.mockResolvedValue({ user: MOCK_USER });
+    const inserted = { ...MOCK_ROW, gear_is_public: true };
+    mockSelectRows
+      .mockResolvedValueOnce([])
+      .mockResolvedValueOnce([inserted]);
+
+    const res = await PATCH(
+      makeRequest('PATCH', { is_planning: true, gear_is_public: true }),
+      makeParams(),
+    );
+    expect(res.status).toBe(200);
+    expect(mockInsertValues).toHaveBeenCalledWith(expect.objectContaining({ gear_is_public: true }));
   });
 });
 

@@ -8,6 +8,7 @@ import { drizzle } from 'drizzle-orm/d1';
 import { eq, and } from 'drizzle-orm';
 import * as schema from '@/lib/db/schema';
 import { validateUpdateBody } from '@/lib/gear-validation';
+import { buildAmazonUrl } from '@/lib/amazon';
 
 type Params = { params: Promise<{ gearId: string }> };
 
@@ -16,14 +17,19 @@ async function getContext(request: Request) {
   const auth = createAuth(env.DB);
   const session = await auth.api.getSession({ headers: request.headers });
   const db = drizzle(env.DB, { schema });
-  return { session, db };
+  const amazonTag = (env as unknown as Record<string, string>).AMAZON_PARTNER_TAG ?? process.env.AMAZON_PARTNER_TAG;
+  return { session, db, amazonTag };
+}
+
+function withPurchaseUrl<T extends { asin: string | null }>(row: T, amazonTag: string | undefined) {
+  return { ...row, purchase_url: row.asin ? buildAmazonUrl(row.asin, amazonTag) : null };
 }
 
 // ─── PATCH ─────────────────────────────────────────────────────────────────
 
 export async function PATCH(request: Request, { params }: Params) {
   const { gearId } = await params;
-  const { session, db } = await getContext(request);
+  const { session, db, amazonTag } = await getContext(request);
 
   if (!session) return Response.json({ error: 'Unauthorized' }, { status: 401 });
 
@@ -53,7 +59,7 @@ export async function PATCH(request: Request, { params }: Params) {
     .where(and(eq(schema.user_gear.id, gearId), eq(schema.user_gear.user_id, session.user.id)))
     .limit(1);
 
-  return Response.json(updated);
+  return Response.json(withPurchaseUrl(updated, amazonTag));
 }
 
 // ─── DELETE ────────────────────────────────────────────────────────────────

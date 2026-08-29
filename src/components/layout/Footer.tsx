@@ -50,6 +50,12 @@ export default function Footer() {
           </div>
         </div>
 
+        {process.env.AMAZON_PARTNER_TAG && (
+          <p className="mt-6 text-[0.68rem] text-[#666]">
+            {t('amazonAssociateDisclosure')}
+          </p>
+        )}
+
         <div className="mt-7 pt-[18px] border-t border-[#2d2d2d] flex justify-between text-[0.72rem] text-[#777] flex-wrap gap-2">
           <span>© {year} HASHIRU. All rights reserved.</span>
           <span>{t('madeFor')}</span>

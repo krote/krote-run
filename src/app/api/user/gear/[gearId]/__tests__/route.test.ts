@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 // ─── モック定義 ────────────────────────────────────────────────────────────
-const { mockGetSession, mockSelectRows, mockSetFn, mockUpdateSet, mockDeleteWhere } = vi.hoisted(() => {
+const { mockGetSession, mockSelectRows, mockSetFn, mockUpdateSet, mockDeleteWhere, mockEnv } = vi.hoisted(() => {
   const mockSelectRows = vi.fn<[], Promise<unknown[]>>().mockResolvedValue([]);
   const mockUpdateSet = vi.fn().mockResolvedValue(undefined);
   const mockSetFn = vi.fn(() => ({ where: mockUpdateSet }));
@@ -12,11 +12,12 @@ const { mockGetSession, mockSelectRows, mockSetFn, mockUpdateSet, mockDeleteWher
     mockSetFn,
     mockUpdateSet,
     mockDeleteWhere,
+    mockEnv: { DB: {} } as Record<string, unknown>,
   };
 });
 
 vi.mock('@opennextjs/cloudflare', () => ({
-  getCloudflareContext: vi.fn(() => ({ env: { DB: {} } })),
+  getCloudflareContext: vi.fn(() => ({ env: mockEnv })),
 }));
 
 vi.mock('@/lib/auth', () => ({
@@ -88,7 +89,10 @@ function makeParams(gearId = 'gear-1') {
 
 // ─── PATCH /api/user/gear/[gearId] ────────────────────────────────────────
 describe('PATCH /api/user/gear/[gearId]', () => {
-  beforeEach(() => vi.clearAllMocks());
+  beforeEach(() => {
+    vi.clearAllMocks();
+    delete mockEnv.AMAZON_PARTNER_TAG;
+  });
 
   it('未認証: 401 を返す', async () => {
     mockGetSession.mockResolvedValue(null);
@@ -158,6 +162,19 @@ describe('PATCH /api/user/gear/[gearId]', () => {
     expect(res.status).toBe(200);
     const setCall = mockSetFn.mock.calls[0][0];
     expect(setCall.asin).toBe('B0ZZZZZZZZ');
+  });
+
+  it('AMAZON_PARTNER_TAG 設定時: レスポンスにタグ付きpurchase_urlを含む', async () => {
+    mockGetSession.mockResolvedValue({ user: MOCK_USER });
+    mockEnv.AMAZON_PARTNER_TAG = 'hashiru-22';
+    const updatedGear = { ...MOCK_GEAR, asin: 'B0ZZZZZZZZ' };
+    mockSelectRows
+      .mockResolvedValueOnce([MOCK_GEAR])
+      .mockResolvedValueOnce([updatedGear]);
+    mockUpdateSet.mockResolvedValue(undefined);
+    const res = await PATCH(makeRequest('PATCH', { name: '新しい名前' }), makeParams());
+    const body = await res.json();
+    expect(body.purchase_url).toBe('https://www.amazon.co.jp/dp/B0ZZZZZZZZ?tag=hashiru-22');
   });
 });
 

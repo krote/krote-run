@@ -1,18 +1,19 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 // ─── モック定義 ────────────────────────────────────────────────────────────
-const { mockGetSession, mockSelectRows, mockInsertValues } = vi.hoisted(() => {
+const { mockGetSession, mockSelectRows, mockInsertValues, mockEnv } = vi.hoisted(() => {
   const mockSelectRows = vi.fn<[], Promise<unknown[]>>().mockResolvedValue([]);
   const mockInsertValues = vi.fn().mockResolvedValue(undefined);
   return {
     mockGetSession: vi.fn(),
     mockSelectRows,
     mockInsertValues,
+    mockEnv: { DB: {} } as Record<string, unknown>,
   };
 });
 
 vi.mock('@opennextjs/cloudflare', () => ({
-  getCloudflareContext: vi.fn(() => ({ env: { DB: {} } })),
+  getCloudflareContext: vi.fn(() => ({ env: mockEnv })),
 }));
 
 vi.mock('@/lib/auth', () => ({
@@ -80,7 +81,10 @@ function makeRequest(method: string, body?: unknown, search?: string): Request {
 
 // ─── GET /api/user/gear ────────────────────────────────────────────────────
 describe('GET /api/user/gear', () => {
-  beforeEach(() => vi.clearAllMocks());
+  beforeEach(() => {
+    vi.clearAllMocks();
+    delete mockEnv.AMAZON_PARTNER_TAG;
+  });
 
   it('未認証: 401 を返す', async () => {
     mockGetSession.mockResolvedValue(null);
@@ -107,6 +111,32 @@ describe('GET /api/user/gear', () => {
     expect(res.status).toBe(200);
     const body = await res.json();
     expect(body).toEqual([]);
+  });
+
+  it('AMAZON_PARTNER_TAG 設定時: asin付きギアにタグ付きpurchase_urlを付与する', async () => {
+    mockGetSession.mockResolvedValue({ user: MOCK_USER });
+    mockEnv.AMAZON_PARTNER_TAG = 'hashiru-22';
+    mockSelectRows.mockResolvedValue([{ ...MOCK_GEAR, asin: 'B0CXX12345' }]);
+    const res = await GET(makeRequest('GET'));
+    const body = await res.json();
+    expect(body[0].purchase_url).toBe('https://www.amazon.co.jp/dp/B0CXX12345?tag=hashiru-22');
+  });
+
+  it('AMAZON_PARTNER_TAG 未設定時: purchase_urlはタグなしURLになる', async () => {
+    mockGetSession.mockResolvedValue({ user: MOCK_USER });
+    mockSelectRows.mockResolvedValue([{ ...MOCK_GEAR, asin: 'B0CXX12345' }]);
+    const res = await GET(makeRequest('GET'));
+    const body = await res.json();
+    expect(body[0].purchase_url).toBe('https://www.amazon.co.jp/dp/B0CXX12345');
+  });
+
+  it('asinが無いギアはpurchase_urlがnull', async () => {
+    mockGetSession.mockResolvedValue({ user: MOCK_USER });
+    mockEnv.AMAZON_PARTNER_TAG = 'hashiru-22';
+    mockSelectRows.mockResolvedValue([{ ...MOCK_GEAR, asin: null }]);
+    const res = await GET(makeRequest('GET'));
+    const body = await res.json();
+    expect(body[0].purchase_url).toBeNull();
   });
 });
 

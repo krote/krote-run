@@ -36,6 +36,10 @@
 	// stg環境（Pages Preview）: 本番と分離したD1/R2を使用
 	"env": {
 		"preview": {
+			// stgでは動作確認しやすいよう「みんなの装備」集計のしきい値を下げる（本番はコード側デフォルトの3人のまま）
+			"vars": {
+				"GEAR_STATS_MIN_USERS": "1"
+			},
 			"d1_databases": [
 				{
 					"binding": "DB",

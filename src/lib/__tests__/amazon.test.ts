@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, afterEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { extractAsin, buildAmazonUrl } from '../amazon';
 
 // ── extractAsin ───────────────────────────────────────────────
@@ -74,22 +74,19 @@ describe('extractAsin - 異常系', () => {
 // ── buildAmazonUrl ────────────────────────────────────────────
 
 describe('buildAmazonUrl', () => {
-  afterEach(() => {
-    vi.unstubAllEnvs();
-  });
-
-  it('タグ未設定の場合はタグなし URL を返す', () => {
-    vi.stubEnv('NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG', '');
+  it('tag未指定の場合はタグなし URL を返す', () => {
     expect(buildAmazonUrl('B0CXX12345')).toBe('https://www.amazon.co.jp/dp/B0CXX12345');
   });
 
-  it('タグが設定されている場合は ?tag= を付与する', () => {
-    vi.stubEnv('NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG', 'hashiru-22');
-    expect(buildAmazonUrl('B0CXX12345')).toBe('https://www.amazon.co.jp/dp/B0CXX12345?tag=hashiru-22');
+  it('tag が空文字の場合はタグなし URL を返す', () => {
+    expect(buildAmazonUrl('B0CXX12345', '')).toBe('https://www.amazon.co.jp/dp/B0CXX12345');
   });
 
-  it('環境変数が undefined の場合もタグなし URL を返す', () => {
-    vi.stubEnv('NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG', undefined as unknown as string);
-    expect(buildAmazonUrl('B0CXX12345')).toBe('https://www.amazon.co.jp/dp/B0CXX12345');
+  it('tag が null の場合はタグなし URL を返す', () => {
+    expect(buildAmazonUrl('B0CXX12345', null)).toBe('https://www.amazon.co.jp/dp/B0CXX12345');
+  });
+
+  it('tag が指定されている場合は ?tag= を付与する', () => {
+    expect(buildAmazonUrl('B0CXX12345', 'hashiru-22')).toBe('https://www.amazon.co.jp/dp/B0CXX12345?tag=hashiru-22');
   });
 });

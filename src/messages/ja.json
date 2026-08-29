@@ -94,7 +94,8 @@
       "about": "HASHIRUについて",
       "privacy": "プライバシーポリシー",
       "terms": "利用規約",
-      "sitemap": "サイトマップ"
+      "sitemap": "サイトマップ",
+      "amazonAssociateDisclosure": "Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。"
     },
     "card": {
       "distance": "距離",
@@ -383,6 +384,9 @@
     "raceGearAdd": "追加",
     "raceGearCancel": "キャンセル",
     "raceGearPatchError": "保存に失敗しました",
+    "raceGearPublicToggle": "装備を公開する",
+    "raceGearPublicDescription": "公開すると、大会詳細ページの「みんなの装備」であなたの走力帯（フィニッシュタイム）別に匿名で集計・表示されます。個人を特定できる情報は表示されません。",
+    "raceGearPublicUnclassifiedNote": "結果が未記録の場合は「未分類」として集計されます。",
     "raceResultButton": "結果を記録",
     "raceResultStatus": "完走状態",
     "raceResultFinished": "完走",

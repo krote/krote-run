@@ -56,6 +56,7 @@ describe('UserGear 型の形状', () => {
       name: 'Speedgoat 5',
       amazon_url: null,
       asin: null,
+      purchase_url: null,
       usage_tag: 'race',
       memo: '',
       is_retired: false,

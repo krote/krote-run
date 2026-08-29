@@ -11,6 +11,7 @@ interface UserRaceRow {
   race_id: string;
   is_planning: boolean;
   is_participated: boolean;
+  gear_is_public: boolean;
   planning_category_id: number | null;
   entry_reminder_period_ids: string; // JSON
   gcal_race_event_id: string | null;
@@ -88,7 +89,7 @@ function RaceItem({ row, raceMap }: { row: UserRaceRow; raceMap: Map<string, Rac
       </div>
       {race && (
         <div className="mt-2 flex flex-wrap items-start gap-2">
-          <RaceGearSection raceId={row.race_id} raceDate={race.date} isParticipated={row.is_participated} />
+          <RaceGearSection raceId={row.race_id} raceDate={race.date} isParticipated={row.is_participated} gearIsPublic={row.gear_is_public} />
           {row.is_participated && (
             <RaceResultSection
               raceId={row.race_id}

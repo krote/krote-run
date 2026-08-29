@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSession } from '@/lib/auth-client';
 import { useTranslations } from 'next-intl';
-import { buildAmazonUrl, extractAsin } from '@/lib/amazon';
+import { extractAsin } from '@/lib/amazon';
 import { GEAR_CATEGORIES, GEAR_USAGE_TAGS, type GearCategory, type GearUsageTag, type UserGear } from '@/lib/types';
 
 // カテゴリの表示順
@@ -466,7 +466,7 @@ interface GearRowProps {
 }
 
 function GearRow({ gear, t, getUsageLabel, onEdit, onRetireToggle, onDeleteRequest }: GearRowProps) {
-  const amazonUrl = gear.asin ? buildAmazonUrl(gear.asin) : null;
+  const amazonUrl = gear.purchase_url;
 
   return (
     <div

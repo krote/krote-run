@@ -53,10 +53,6 @@ vi.mock('@/lib/auth-client', () => ({
   useSession: () => mockUseSession(),
 }));
 
-vi.mock('@/lib/amazon', () => ({
-  buildAmazonUrl: (asin: string) => `https://www.amazon.co.jp/dp/${asin}?tag=test-22`,
-}));
-
 // ─── テストデータ ──────────────────────────────────────────────────────────────
 const MOCK_SESSION = { user: { id: 'user-1', name: 'テスト', email: 'test@example.com' } };
 
@@ -68,13 +64,14 @@ function makeGear(overrides: Partial<{
   name: string;
   amazon_url: string | null;
   asin: string | null;
+  purchase_url: string | null;
   usage_tag: string;
   memo: string;
   is_retired: boolean;
   created_at: string;
   updated_at: string;
 }> = {}) {
-  return {
+  const base = {
     id: 'gear-1',
     user_id: 'user-1',
     category: 'shoes',
@@ -82,13 +79,15 @@ function makeGear(overrides: Partial<{
     name: 'テストシューズ',
     amazon_url: null,
     asin: null,
+    // 実APIはサーバー側でAMAZON_PARTNER_TAGを付与して返す。テストではasin指定時のみ模擬的に付与
+    purchase_url: overrides.asin ? `https://www.amazon.co.jp/dp/${overrides.asin}?tag=test-22` : null,
     usage_tag: 'both',
     memo: '',
     is_retired: false,
     created_at: '2026-01-01T00:00:00Z',
     updated_at: '2026-01-01T00:00:00Z',
-    ...overrides,
   };
+  return { ...base, ...overrides };
 }
 
 function setupFetch(gears: unknown[]) {

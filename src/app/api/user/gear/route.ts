@@ -9,19 +9,25 @@ import { eq, and, asc } from 'drizzle-orm';
 import * as schema from '@/lib/db/schema';
 import { type GearCategory } from '@/lib/types';
 import { validateCreateBody } from '@/lib/gear-validation';
+import { buildAmazonUrl } from '@/lib/amazon';
 
 async function getContext(request: Request) {
   const { env } = getCloudflareContext();
   const auth = createAuth(env.DB);
   const session = await auth.api.getSession({ headers: request.headers });
   const db = drizzle(env.DB, { schema });
-  return { session, db };
+  const amazonTag = (env as unknown as Record<string, string>).AMAZON_PARTNER_TAG ?? process.env.AMAZON_PARTNER_TAG;
+  return { session, db, amazonTag };
+}
+
+function withPurchaseUrl<T extends { asin: string | null }>(row: T, amazonTag: string | undefined) {
+  return { ...row, purchase_url: row.asin ? buildAmazonUrl(row.asin, amazonTag) : null };
 }
 
 // ─── GET ───────────────────────────────────────────────────────────────────
 
 export async function GET(request: Request) {
-  const { session, db } = await getContext(request);
+  const { session, db, amazonTag } = await getContext(request);
 
   if (!session) return Response.json({ error: 'Unauthorized' }, { status: 401 });
 
@@ -38,13 +44,13 @@ export async function GET(request: Request) {
     .where(condition)
     .orderBy(asc(schema.user_gear.created_at));
 
-  return Response.json(rows);
+  return Response.json(rows.map((row) => withPurchaseUrl(row, amazonTag)));
 }
 
 // ─── POST ──────────────────────────────────────────────────────────────────
 
 export async function POST(request: Request) {
-  const { session, db } = await getContext(request);
+  const { session, db, amazonTag } = await getContext(request);
 
   if (!session) return Response.json({ error: 'Unauthorized' }, { status: 401 });
 
@@ -78,5 +84,5 @@ export async function POST(request: Request) {
     .where(eq(schema.user_gear.id, id))
     .limit(1);
 
-  return Response.json(inserted, { status: 201 });
+  return Response.json(withPurchaseUrl(inserted, amazonTag), { status: 201 });
 }

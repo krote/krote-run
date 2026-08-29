@@ -28,10 +28,9 @@ export function extractAsin(url: string): string | null {
 
 /**
  * ASIN から amazon.co.jp の購入 URL を生成する。
- * NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG が設定されている場合は ?tag= を付与する。
+ * tag が指定されている場合は ?tag= を付与する（純粋関数。呼び出し側でタグを解決すること）。
  */
-export function buildAmazonUrl(asin: string): string {
-  const tag = process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG;
+export function buildAmazonUrl(asin: string, tag?: string | null): string {
   const base = `https://www.amazon.co.jp/dp/${asin}`;
   return tag ? `${base}?tag=${tag}` : base;
 }

@@ -26,6 +26,7 @@ function categoryLabelKey(category: string): string {
 }
 
 export default function GearStatsSection({ stats, locale, tGear, tPerf }: Props) {
+  const amazonTag = process.env.AMAZON_PARTNER_TAG;
   const sorted = [...stats].sort(
     (a, b) => BUCKET_ORDER.indexOf(a.bucket as (typeof BUCKET_ORDER)[number]) - BUCKET_ORDER.indexOf(b.bucket as (typeof BUCKET_ORDER)[number]),
   );
@@ -44,7 +45,7 @@ export default function GearStatsSection({ stats, locale, tGear, tPerf }: Props)
         label: p.brand ? `${p.brand} ${p.name}` : p.name,
         usedCount: p.usedCount,
         packedCount: p.packedCount,
-        url: p.asin ? buildAmazonUrl(p.asin) : null,
+        url: p.asin ? buildAmazonUrl(p.asin, amazonTag) : null,
       })),
     })),
   }));

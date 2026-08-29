@@ -31,22 +31,22 @@ vi.mock('@/i18n/navigation', () => ({
 }));
 
 describe('Footer — Amazonアソシエイト表記', () => {
-  const originalTag = process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG;
+  const originalTag = process.env.AMAZON_PARTNER_TAG;
 
   beforeEach(() => vi.clearAllMocks());
   afterEach(() => {
-    if (originalTag === undefined) delete process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG;
-    else process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG = originalTag;
+    if (originalTag === undefined) delete process.env.AMAZON_PARTNER_TAG;
+    else process.env.AMAZON_PARTNER_TAG = originalTag;
   });
 
-  it('NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG が設定されている場合は表記を表示する', () => {
-    process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG = 'hashiru-22';
+  it('AMAZON_PARTNER_TAG が設定されている場合は表記を表示する', () => {
+    process.env.AMAZON_PARTNER_TAG = 'hashiru-22';
     render(<Footer />);
     expect(screen.getByText(/Amazonのアソシエイトとして/)).toBeInTheDocument();
   });
 
-  it('NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG が未設定の場合は表記を表示しない', () => {
-    delete process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG;
+  it('AMAZON_PARTNER_TAG が未設定の場合は表記を表示しない', () => {
+    delete process.env.AMAZON_PARTNER_TAG;
     render(<Footer />);
     expect(screen.queryByText(/Amazonのアソシエイトとして/)).not.toBeInTheDocument();
   });

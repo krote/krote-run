@@ -475,6 +475,8 @@ export interface UserGear {
   name: string;
   amazon_url: string | null;
   asin: string | null;
+  /** アソシエイトタグ付き購入URL。サーバー側で算出してAPIレスポンスに含める（asinが無ければnull） */
+  purchase_url: string | null;
   usage_tag: GearUsageTag;
   memo: string;
   is_retired: boolean;

@@ -50,7 +50,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG && (
+        {process.env.AMAZON_PARTNER_TAG && (
           <p className="mt-6 text-[0.68rem] text-[#666]">
             {t('amazonAssociateDisclosure')}
           </p>

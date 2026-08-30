@@ -38,6 +38,7 @@ export default function Footer() {
                 {t('info')}
               </h4>
               <ul className="space-y-[9px]">
+                <li><Link href="/news" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('news')}</Link></li>
                 <li><Link href="/guide" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('guide')}</Link></li>
                 <li><Link href="/about" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('about')}</Link></li>
                 <li><Link href="/privacy" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('privacy')}</Link></li>

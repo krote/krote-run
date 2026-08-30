@@ -10,6 +10,7 @@ vi.mock('next-intl', () => ({
     const map: Record<string, string> = {
       'races': '大会一覧',
       'calendar': 'カレンダー',
+      'news': 'お知らせ',
       'mypage': 'マイページ',
       'login': 'ログイン',
       'logout': 'ログアウト',
@@ -60,6 +61,13 @@ describe('Header - 未ログイン状態', () => {
     render(<Header />);
     expect(screen.getAllByText('大会一覧').length).toBeGreaterThan(0);
     expect(screen.getAllByText('カレンダー').length).toBeGreaterThan(0);
+  });
+
+  it('お知らせへのナビゲーションリンクが表示される', () => {
+    render(<Header />);
+    const links = screen.getAllByText('お知らせ');
+    expect(links.length).toBeGreaterThan(0);
+    expect(links[0].closest('a')).toHaveAttribute('href', '/news');
   });
 
   it('ログインボタンをクリックするとドロップダウンが開く', async () => {

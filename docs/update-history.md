@@ -1021,10 +1021,19 @@ Issue #126のstg動作確認中に発見した2件の追加対応。
 - `src/lib/__tests__/announcements.test.ts`（新規）: ソート・必須フィールド・slug重複チェックのテスト
 - `src/app/[locale]/news/page.tsx`（新規）: お知らせ一覧ページ（ja/en対応、日付・タイトル・本文・任意リンクを表示）
 - `src/app/[locale]/news/__tests__/page.test.ts`（新規）: generateMetadataのテスト
-- `src/components/layout/Footer.tsx`（変更）: 「お知らせ」リンクを追加（大会を探すセクション先頭）
+- `src/components/layout/Footer.tsx`（変更）: 「お知らせ」リンクを追加（サイト情報セクション先頭）
 - `src/components/__tests__/Footer.test.tsx`（変更）: `news` 翻訳キーをモックに追加
 - `src/app/sitemap.ts`（変更）: `/news` を STATIC_PAGES に追加（優先度0.6、weekly）
 - `src/app/__tests__/sitemap.test.ts`（変更）: STATIC_PAGE_COUNT を 9→10 に更新
 - `src/app/[locale]/sitemap/page.tsx`（変更）: HTMLサイトマップの「メインページ」に「お知らせ」を追加
 - `src/messages/ja.json` / `src/messages/en.json`（変更）: `news` 名前空間（title/eyebrow/empty）、`home.footer.news` キーを追加
 - Xアカウントのプロフィールアイコンを設定（藍地に生成りの「走」、canvas生成→PNG書き出し）
+
+## 2026-08-31 お知らせをHeaderナビに追加・お知らせページ自体の告知を追加
+
+「フッターだけだと気づかれにくい」というフィードバックを受けて、お知らせへの導線を格上げ。あわせて複数件表示の動作確認を兼ねて2件目のお知らせを登録した。
+
+- `src/components/layout/Header.tsx`（変更）: `NAV_LINKS` に「お知らせ」を追加（大会一覧・カレンダーの後、マイページの前）
+- `src/components/__tests__/Header.test.tsx`（変更）: お知らせナビリンクの表示・href確認テストを追加
+- `src/messages/ja.json` / `src/messages/en.json`（変更）: `nav.news` キーを追加
+- `src/data/announcements.json`（変更）: 「お知らせページ追加」の告知を2件目として登録（`link_href: null` の例を兼ねる）

@@ -60,7 +60,7 @@ const MOCK_RACES = [
   makeRace('osaka-marathon-2026', '2026-11-29'),
 ];
 
-const STATIC_PAGE_COUNT = 9; // STATIC_PAGES の件数
+const STATIC_PAGE_COUNT = 10; // STATIC_PAGES の件数
 const LOCALE_COUNT = 2;      // ['ja', 'en']
 
 // ─── sitemap() ──────────────────────────────────────────────────────────────

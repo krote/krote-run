@@ -10,6 +10,7 @@ const STATIC_PAGES = [
   { path: '',          priority: 1.0, changeFrequency: 'weekly'  as const },
   { path: '/races',    priority: 0.9, changeFrequency: 'daily'   as const },
   { path: '/calendar', priority: 0.8, changeFrequency: 'weekly'  as const },
+  { path: '/news',     priority: 0.6, changeFrequency: 'weekly'  as const },
   { path: '/guide',    priority: 0.7, changeFrequency: 'monthly' as const },
   { path: '/about',    priority: 0.6, changeFrequency: 'monthly' as const },
   { path: '/terms',    priority: 0.5, changeFrequency: 'yearly'  as const },

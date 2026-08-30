@@ -90,6 +90,7 @@
       "byDistance": "By Distance",
       "bySeason": "By Season",
       "howToEnter": "How to Enter",
+      "news": "News",
       "guide": "Getting Started",
       "about": "About HASHIRU",
       "privacy": "Privacy Policy",
@@ -301,6 +302,11 @@
     "sectionMain": "Main Pages",
     "sectionInfo": "Site Information",
     "sectionRaces": "Races"
+  },
+  "news": {
+    "title": "News",
+    "eyebrow": "News",
+    "empty": "No news yet."
   },
   "performance": {
     "sub3": "Sub 3",

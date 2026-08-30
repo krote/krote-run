@@ -1,0 +1,13 @@
+[
+  {
+    "slug": "2026-08-29-gear-sharing",
+    "date": "2026-08-29",
+    "title_ja": "「みんなの装備」を公開しました",
+    "title_en": "New: Gear Used by Runners",
+    "body_ja": "マイページで自分の装備を公開できるようになりました。公開すると、大会詳細ページの「みんなの装備」で走力帯（フィニッシュタイム）別に匿名集計・表示されます。個人が特定できる情報は表示されません。\n参加した大会の装備を、マイページの「装備」欄から公開してみてください。",
+    "body_en": "You can now share your race gear from My Page. Once shared, it's anonymously aggregated by finish-time bracket in the \"Gear Used by Runners\" section on each race's detail page — no personally identifiable information is shown.\nTry sharing your gear from the Gear section on My Page.",
+    "link_href": "/mypage",
+    "link_label_ja": "マイページで装備を公開する",
+    "link_label_en": "Share your gear on My Page"
+  }
+]

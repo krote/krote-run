@@ -40,6 +40,7 @@ export default async function SitemapPage({
     { href: '/',         label: isJa ? 'ホーム' : 'Home' },
     { href: '/races',    label: isJa ? '大会一覧' : 'Race List' },
     { href: '/calendar', label: isJa ? '大会カレンダー' : 'Calendar' },
+    { href: '/news',     label: isJa ? 'お知らせ' : 'News' },
   ];
 
   const infoPages = [

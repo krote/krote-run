@@ -12,6 +12,7 @@ vi.mock('next-intl', () => ({
       byDistance: '距離から',
       bySeason: '季節から',
       info: '情報',
+      news: 'お知らせ',
       guide: 'ガイド',
       about: 'このサイトについて',
       privacy: 'プライバシー',

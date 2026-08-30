@@ -520,3 +520,19 @@ export type PerformanceBucketId =
   | typeof PERFORMANCE_BUCKETS_HALF[number]
   | typeof PERFORMANCE_BUCKETS_ULTRA[number]
   | typeof PERFORMANCE_BUCKET_ALL[number];
+
+// ==================
+// お知らせ
+// ==================
+
+export interface Announcement {
+  slug: string;
+  date: string;
+  title_ja: string;
+  title_en: string;
+  body_ja: string;
+  body_en: string;
+  link_href: string | null;
+  link_label_ja: string | null;
+  link_label_en: string | null;
+}

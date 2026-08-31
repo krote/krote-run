@@ -1,0 +1,176 @@
+{
+  "id": "ohme-marathon-2027",
+  "name_ja": "青梅マラソン",
+  "name_en": "Ohme Marathon",
+  "full_name_ja": "第59回青梅マラソン",
+  "full_name_en": "59th Ohme Marathon (THE OHME 30 & 10 km ROAD RACE)",
+  "edition": 59,
+  "date": "2027-02-21",
+  "prefecture": "13",
+  "city_ja": "青梅市",
+  "city_en": "Ome City",
+  "description_ja": "東京都青梅市で開催される日本陸上競技連盟公認の30km・10kmロードレース。半世紀以上続く歴史ある市民マラソン（2027年で第59回）。",
+  "description_en": "JAAF-certified 30km and 10km road race held in Ome City, Tokyo. A historic citizen marathon spanning over half a century, reaching its 59th edition in 2027.",
+  "official_url": "https://www.ohme-marathon.jp/",
+  "entry_fee": 12000,
+  "entry_fee_by_category": true,
+  "entry_capacity": 16500,
+  "entry_start_date": "2026-08-01",
+  "entry_end_date": "2026-11-03",
+  "entry_closed": false,
+  "reception_type": "",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [
+    "東京",
+    "歴史ある大会"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "奥多摩の玄関口・青梅市街を走る30km・10kmの2部構成。両コースとも日本陸上競技連盟公認",
+    "highlights_en": "Two-category race (30km/10km) through Ome City, gateway to the Okutama mountains. Both courses are JAAF-certified.",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "other",
+      "distance_km": 30,
+      "time_limit_minutes": 240,
+      "start_time": "11:30",
+      "capacity": 12500,
+      "entry_fee": 12000,
+      "entry_fee_u25": null,
+      "name_ja": "30kmの部",
+      "name_en": "30km Race",
+      "description_ja": "満18歳以上対象。男女別・年代別（40歳未満／40歳代／50歳代／60歳以上）カテゴリーで表彰",
+      "description_en": "For ages 18 and above. Awards by gender and age group (under 40 / 40s / 50s / 60+).",
+      "eligibility_ja": "満18歳以上",
+      "eligibility_en": "Age 18 and above",
+      "course_gpx_file": null,
+      "waves": null,
+      "course_highlights": []
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 80,
+      "start_time": "09:30",
+      "capacity": 4000,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "10kmの部",
+      "name_en": "10km Race",
+      "description_ja": "高校生から70歳以上まで対象。高校生の参加費は3,000円",
+      "description_en": "For high school students through ages 70+. High school entry fee is ¥3,000.",
+      "eligibility_ja": "高校生以上",
+      "eligibility_en": "High school age and above",
+      "course_gpx_file": null,
+      "waves": null,
+      "course_highlights": []
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-08-31T14:52:20.077Z",
+  "updated_at": "2026-08-31T14:52:20.077Z",
+  "_metadata": {
+    "data_source": "公式サイト（ohme-marathon.jp）、日本陸上競技連盟公式サイト、sportsentry.ne.jp等の公開情報から作成（2026-08-31）",
+    "data_accuracy_notes": [
+      "開催日2027-02-21（第59回）はohme-marathon.jp「第59回エントリー概要」ページ、sportsentry.ne.jp、jaaf.or.jpの複数ソースで確認済み。公式サイトのトップページ自体には日付の明記なし",
+      "エントリー区分・期間・定員・参加費はohme-marathon.jp「第59回エントリー概要」（2026年7月7日掲載）に基づく",
+      "ゼッケン受付方法（前日／当日／郵送の別）は公式サイト内で確認できず未入力（reception_type, reception_note を空にした）",
+      "参加賞・完走賞の詳細は公式サイトで確認できず未入力のため空配列",
+      "エイドステーション、周辺スポット、気象データ、コース高低差、会場座標（venue_address, start_lat/lng）は未確認のため空/null"
+    ],
+    "last_verified": "2026-08-31",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "青梅市民優先枠",
+      "label_en": "Ome Resident Priority Entry",
+      "start_date": "2026-08-01",
+      "end_date": "2026-08-12",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "チャリティープレミアム枠",
+      "label_en": "Charity Premium Entry",
+      "start_date": "2026-08-01",
+      "end_date": "2026-11-03",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "ふるさと納税枠",
+      "label_en": "Hometown Tax Entry",
+      "start_date": "2026-08-01",
+      "end_date": "2026-11-03",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 2
+    },
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-08-15",
+      "end_date": "2026-11-03",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 3
+    }
+  ],
+  "motif": "梅",
+  "motif_color": "#be123c",
+  "motif_romaji": "Ume",
+  "tagline_ja": "奥多摩の玄関口を駆ける、日本最古級の市民ロードレース",
+  "tagline_en": "Race through the gateway to Okutama in one of Japan's oldest citizen road races",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.ohme-marathon.jp/about/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.ohme-marathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.ohme-marathon.jp/news/jimukyoku/2026/07/07/9367",
+      "label": "第59回エントリー概要"
+    },
+    {
+      "url": "https://www.ohme-marathon.jp/faq/",
+      "label": "よくあるご質問"
+    }
+  ],
+  "entry_links": [],
+  "completion_gifts": [],
+  "venue_name_ja": "住友金属鉱山アリーナ青梅（30kmフィニッシュ）",
+  "venue_name_en": "Sumitomo Metal Mining Arena Ome (30km Finish)",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

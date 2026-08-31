@@ -1063,3 +1063,21 @@ Issue #126のstg動作確認中に発見した2件の追加対応。
 - `shizuoka-marathon-2026`（Nuxt.js製SPA、JS描画のためcrawlツールでは本文取得不可）・`sapporo-marathon-2026`（satumara.sapporo-sport.jp）・`nagoya-womens-marathon-2027`の一部URLエラーは実URLが生存していることを直接確認済み（一時的な取得失敗・クロールツールの既知の限界のため対応不要）
 - `scripts/generate-seed-races.js` でシード再生成 → `migrations/seed-races-all.sql` 更新 → `pnpm run db:seed-races:local` でローカルD1に反映・件数確認
 - `node scripts/validate-races.js`（エラー0件）、`pnpm run test:tools`（213件）、`pnpm vitest run`（767件）すべてパス
+
+## 2026-08-31 妙高トレイルの距離データ修正（ユーザー指摘対応）
+
+上記crawlで`myoko-trail-2026.json`がGTWS本部サイト（goldentrailseries.com、24.7km/2,020m）を情報源に誤って更新され、`categories[]`（23.6km）と`course_info.notes`（24.7km）で数値が矛盾していることをユーザーから指摘され調査。
+
+- `src/data/races/myoko-trail-2026.json`（変更）: 大会主催者公式サイト（nature-scene.net/gtws/about/）で距離23.5km・定員500/400/300名・参加費18,000円（学割13,000円）を確認し修正。獲得標高は主催者サイトに記載が無いため従来値（約1,935m）を維持
+- `info_urls`をGTWS本部サイトから主催者公式サイトの各ページ（大会概要・コースマップ・エントリー・FAQ）に差し替え、以後の自動クロールが同じ誤りを繰り返さないようにした
+- `scripts/generate-seed-races.js` でシード再生成 → ローカル/stg/本番のD1すべてに反映・実機確認済み
+
+## 2026-08-31 大会データ4件を新規追加（おきなわ・青梅・天草・横浜ノースドック）
+
+ユーザー指定の4URLを調査し、いずれも未登録だったため新規登録。
+
+- `src/data/races/okinawa-marathon-2027.json`（新規）: おきなわマラソン（2027-02-21、沖縄県総合運動公園、フル/10km、JAAF公認）。開催日は公式サイトのトップページに記載が無く、sportsentry.ne.jp・琉球新報等の複数ソースで裏付け
+- `src/data/races/ohme-marathon-2027.json`（新規）: 青梅マラソン THE OHME 30&10km ROAD RACE（2027-02-21、東京都青梅市、第59回、JAAF公認）。市民優先・チャリティプレミアム・ふるさと納税・一般の4エントリー区分を記載
+- `src/data/races/amakusa-marathon-2026.json`（新規）: 第21回天草マラソン大会（2026-11-15、熊本県天草市、ハーフ個人/団体・5km/3km）
+- `src/data/races/yokohama-northdock-run-2026.json`（新規）: 横浜ノースドックラン2026（2026-11-07、神奈川県横浜市神奈川区、5km/10km/ハーフ〈5.275km×4周〉）
+- `scripts/generate-seed-races.js` でシード再生成、`node scripts/validate-races.js`（エラー0件、127ファイル）、`pnpm run test:tools`（213件）パス、ローカルD1に反映確認

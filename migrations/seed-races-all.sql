@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-08-31T14:20:49.203Z
--- 対象ファイル数: 121 件（既存 2 件はskip）
+-- 生成日時: 2026-08-31T14:54:37.731Z
+-- 対象ファイル数: 125 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -579,6 +579,145 @@ INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja
   ('akita-nairiku-ultra-2026', NULL, NULL, '田沢湖高原', 'Tazawako Highland', NULL, NULL, 1);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('akita-nairiku-ultra-2026', NULL, NULL, '最大高低差531m', '531m elevation difference', NULL, NULL, 2);
+
+-- ==================
+-- 天草マラソン大会 (amakusa-marathon-2026)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM race_categories WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM aid_stations WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM checkpoints WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM access_points WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM nearby_spots WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM weather_history WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM participation_gifts WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM completion_gifts WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM race_entry_links WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM reception_sessions WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM race_travel_times WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM race_results WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM race_gallery WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM race_voices WHERE race_id = 'amakusa-marathon-2026';
+DELETE FROM race_time_buckets WHERE race_id = 'amakusa-marathon-2026';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'amakusa-marathon-2026',
+  '天草マラソン大会',
+  'Amakusa Marathon',
+  '2026-11-15',
+  '43',
+  '天草市',
+  'Amakusa City',
+  '熊本県天草市で開催されるハーフマラソン・5km・3kmの大会。ハーフマラソンには団体戦部門もある。',
+  'A half marathon, 5km, and 3km event held in Amakusa City, Kumamoto Prefecture. The half marathon also has a team competition division.',
+  'https://ama-spo.net/marathon/',
+  NULL,
+  1,
+  2800,
+  '2026-07-06',
+  '2026-09-11',
+  0,
+  'race_day',
+  '',
+  '',
+  '["団体戦"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '',
+  '',
+  NULL,
+  NULL,
+  '天草五橋',
+  '#0e7490',
+  'Amakusa Gokyo',
+  '橋と海に抱かれた天草の島々を駆ける',
+  'Run through the islands of Amakusa, embraced by bridges and sea',
+  NULL,
+  NULL,
+  NULL,
+  'あましんスタジアム',
+  'Amashin Stadium',
+  '熊本県天草市東町3番地（天草市民センター内）',
+  NULL,
+  NULL,
+  '2026-08-31T23:51:21.157Z',
+  '2026-08-31T23:51:21.157Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('amakusa-marathon-2026', 'half', 21.0975, 210, '', 2000, 6000, NULL, 'ハーフマラソン', 'Half Marathon', 'スタート地点閉鎖9時5分、折返し関門10時50分（制限時間3時間30分）', 'Start line closes at 9:05, turnaround checkpoint closes at 10:50 (3h30m time limit)', NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('amakusa-marathon-2026', 'half', 21.0975, 210, '', 0, 6000, NULL, 'ハーフマラソン団体戦', 'Half Marathon Team Competition', '3〜6人でチーム編成。上位3人の合計タイムで順位を競う（定員はハーフマラソン個人の部と併算・計2,000人）', 'Teams of 3-6 members; ranked by the combined time of the top 3 finishers (capacity shared with the individual half marathon, 2,000 total)', NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('amakusa-marathon-2026', '5k', 5, 0, '', 400, 3000, NULL, '5km', '5km', '小中高生で参加賞なしを選択の場合は1,000円', '1,000 yen for elementary/junior high/high school students who opt out of the participation gift', NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('amakusa-marathon-2026', 'other', 3, 0, '', 400, 3000, NULL, '3km', '3km', '小中高生で参加賞なしを選択の場合は1,000円', '1,000 yen for elementary/junior high/high school students who opt out of the participation gift', NULL, NULL, NULL, '[]', 3);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('amakusa-marathon-2026', '["local_product"]', '地元特産品、サービス券（予定）', 'Local specialty products, service vouchers (planned)', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('amakusa-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-07-06', '2026-09-11', NULL, 0);
 
 -- ==================
 -- あおもり桜マラソン (aomori-sakura-marathon-2026)
@@ -12151,6 +12290,145 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('nishio-marathon-2026', '["tshirt","local_product"]', '大会Tシャツ、抹茶関連の特産品', 'Race T-shirt, Matcha-related local products', NULL, 0);
 
 -- ==================
+-- 青梅マラソン (ohme-marathon-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM race_categories WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM aid_stations WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM checkpoints WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM access_points WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM nearby_spots WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM weather_history WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM participation_gifts WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM completion_gifts WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM race_entry_links WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM reception_sessions WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM race_travel_times WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM race_results WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM race_gallery WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM race_voices WHERE race_id = 'ohme-marathon-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'ohme-marathon-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'ohme-marathon-2027',
+  '青梅マラソン',
+  'Ohme Marathon',
+  '2027-02-21',
+  '13',
+  '青梅市',
+  'Ome City',
+  '東京都青梅市で開催される日本陸上競技連盟公認の30km・10kmロードレース。半世紀以上続く歴史ある市民マラソン（2027年で第59回）。',
+  'JAAF-certified 30km and 10km road race held in Ome City, Tokyo. A historic citizen marathon spanning over half a century, reaching its 59th edition in 2027.',
+  'https://www.ohme-marathon.jp/',
+  12000,
+  1,
+  16500,
+  '2026-08-01',
+  '2026-11-03',
+  0,
+  'race_day',
+  '',
+  '',
+  '["東京","歴史ある大会"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '["JAAF"]',
+  '奥多摩の玄関口・青梅市街を走る30km・10kmの2部構成。両コースとも日本陸上競技連盟公認',
+  'Two-category race (30km/10km) through Ome City, gateway to the Okutama mountains. Both courses are JAAF-certified.',
+  NULL,
+  NULL,
+  '梅',
+  '#be123c',
+  'Ume',
+  '奥多摩の玄関口を駆ける、日本最古級の市民ロードレース',
+  'Race through the gateway to Okutama in one of Japan''s oldest citizen road races',
+  NULL,
+  NULL,
+  NULL,
+  '住友金属鉱山アリーナ青梅（30kmフィニッシュ）',
+  'Sumitomo Metal Mining Arena Ome (30km Finish)',
+  NULL,
+  NULL,
+  NULL,
+  '2026-08-31T14:52:20.077Z',
+  '2026-08-31T14:52:20.077Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ohme-marathon-2027', 'other', 30, 240, '11:30', 12500, 12000, NULL, '30kmの部', '30km Race', '満18歳以上対象。男女別・年代別（40歳未満／40歳代／50歳代／60歳以上）カテゴリーで表彰', 'For ages 18 and above. Awards by gender and age group (under 40 / 40s / 50s / 60+).', '満18歳以上', 'Age 18 and above', NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ohme-marathon-2027', '10k', 10, 80, '09:30', 4000, 6000, NULL, '10kmの部', '10km Race', '高校生から70歳以上まで対象。高校生の参加費は3,000円', 'For high school students through ages 70+. High school entry fee is ¥3,000.', '高校生以上', 'High school age and above', NULL, '[]', 1);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('ohme-marathon-2027', NULL, '青梅市民優先枠', 'Ome Resident Priority Entry', '2026-08-01', '2026-08-12', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('ohme-marathon-2027', NULL, 'チャリティープレミアム枠', 'Charity Premium Entry', '2026-08-01', '2026-11-03', NULL, 1);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('ohme-marathon-2027', NULL, 'ふるさと納税枠', 'Hometown Tax Entry', '2026-08-01', '2026-11-03', NULL, 2);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('ohme-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-08-15', '2026-11-03', NULL, 3);
+
+-- ==================
 -- 大田原マラソン (ohtawara-marathon-2026)
 -- ==================
 DELETE FROM race_course_highlights WHERE race_id = 'ohtawara-marathon-2026';
@@ -12431,6 +12709,143 @@ INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja
   ('okayama-marathon-2026', NULL, NULL, '岡山城', 'Okayama Castle', NULL, NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('okayama-marathon-2026', NULL, NULL, '後楽園', 'Korakuen Garden', NULL, NULL, 1);
+
+-- ==================
+-- おきなわマラソン (okinawa-marathon-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM race_categories WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM aid_stations WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM checkpoints WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM access_points WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM nearby_spots WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM weather_history WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM participation_gifts WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM completion_gifts WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM race_entry_links WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM reception_sessions WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM race_travel_times WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM race_results WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM race_gallery WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM race_voices WHERE race_id = 'okinawa-marathon-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'okinawa-marathon-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'okinawa-marathon-2027',
+  'おきなわマラソン',
+  'Okinawa Marathon',
+  '2027-02-21',
+  '47',
+  '沖縄市',
+  'Okinawa City',
+  '沖縄県沖縄市の沖縄県総合運動公園を発着点とするフルマラソン・10kmロードレース。日本陸上競技連盟公認コース。制限時間6時間15分。雨天決行。',
+  'Full marathon and 10km road race starting and finishing at Okinawa Prefectural General Sports Park in Okinawa City. JAAF-certified course with a 6 hour 15 minute time limit. Held rain or shine.',
+  'https://okinawa-marathon.com/',
+  10000,
+  1,
+  16500,
+  '2026-08-01',
+  '2026-12-13',
+  0,
+  'pre_day',
+  '10月31日までのエントリー者はスポーツデポ3店舗（1月29日〜2月14日）または大会前日受付（2月20日）でゼッケンを受け取り。有料500円で大会2〜3週間前の事前発送も選択可。11月1日以降のエントリー者・海外参加者は2月20日（土）9:00〜18:00の指定会場でのみ受け取り可。',
+  'Entrants who registered by Oct 31 can pick up their bib at 3 Sports Depo stores (Jan 29 - Feb 14) or at pre-race reception on Feb 20. Optional paid (¥500) mail delivery 2-3 weeks before the race is also available. Entrants from Nov 1 onward and overseas participants can only pick up bibs at the designated venue on Feb 20 (Sat) 9:00-18:00.',
+  '["沖縄","南国"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '["JAAF"]',
+  '沖縄市の沖縄県総合運動公園を発着点とするコース。日本陸上競技連盟公認',
+  'Course starts and finishes at Okinawa Prefectural General Sports Park in Okinawa City. JAAF-certified.',
+  '前日の2月20日には別イベント「おきなわミニマラソン」（4.2195km）も開催される（本データの categories には含めていない）',
+  'A separate "Okinawa Mini Marathon" (4.2195km) is also held the day before, Feb 20 (not included in this entry''s categories).',
+  'シーサー',
+  '#c2410c',
+  'Shisa',
+  '常夏の沖縄を駆け抜ける、太陽と海のフルマラソン',
+  'Run across subtropical Okinawa under the sun and sea breeze',
+  NULL,
+  NULL,
+  NULL,
+  '沖縄県総合運動公園',
+  'Okinawa Prefectural General Sports Park',
+  '沖縄県沖縄市比屋根',
+  NULL,
+  NULL,
+  '2026-08-31T14:52:20.077Z',
+  '2026-08-31T14:52:20.077Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('okinawa-marathon-2027', 'full', 42.195, 375, '09:00', 13500, 10000, NULL, 'フルマラソン', 'Full Marathon', '一般10,000円（〜64歳）、高校生・65歳以上8,000円', 'General ¥10,000 (up to age 64); ¥8,000 for high school students and ages 65+', NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('okinawa-marathon-2027', '10k', 10, 80, '09:40', 3000, 6500, NULL, '10kmロードレース', '10km Road Race', '一般6,500円、高校生4,500円', 'General ¥6,500; ¥4,500 for high school students', NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('okinawa-marathon-2027', NULL, '一般エントリー（インターネット）', 'General Entry (Online)', '2026-08-01', '2026-12-13', 10000, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('okinawa-marathon-2027', NULL, 'ふるさと納税エントリー', 'Hometown Tax Entry', '2026-08-10', '2026-09-30', NULL, 1);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('okinawa-marathon-2027', NULL, '窓口受付エントリー', 'Counter Registration', '2026-08-01', '2026-11-27', NULL, 2);
 
 -- ==================
 -- 奥信濃100トレイルランニングレース (okushinano100-2026)
@@ -17711,4 +18126,151 @@ INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja
   ('yokohama-marathon-2026', NULL, NULL, '首都高速湾岸線', 'Bayshore Expressway', NULL, NULL, 2);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('yokohama-marathon-2026', NULL, NULL, '山下公園', 'Yamashita Park', NULL, NULL, 3);
+
+-- ==================
+-- 横浜ノースドックラン (yokohama-northdock-run-2026)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM race_categories WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM aid_stations WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM checkpoints WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM access_points WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM nearby_spots WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM weather_history WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM participation_gifts WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM completion_gifts WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM race_entry_links WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM race_entry_periods WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM reception_sessions WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM race_travel_times WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM race_results WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM race_gallery WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM race_voices WHERE race_id = 'yokohama-northdock-run-2026';
+DELETE FROM race_time_buckets WHERE race_id = 'yokohama-northdock-run-2026';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'yokohama-northdock-run-2026',
+  '横浜ノースドックラン',
+  'Yokohama North Dock Run',
+  '2026-11-07',
+  '14',
+  '横浜市神奈川区',
+  'Kanagawa Ward, Yokohama City',
+  '在日米陸軍基地・横浜ノース・ドックを走る大会。普段は立ち入れない基地内を、みなとみらいの景色とともに駆け抜ける。ハーフマラソン・10km・5kmの3種目。',
+  'A race held inside Yokohama North Dock, a U.S. Army installation normally off-limits to the public, with views of Minato Mirai. Half marathon, 10km, and 5km divisions.',
+  'https://pia-running.jp/northdock/',
+  NULL,
+  1,
+  6000,
+  '2026-04-11',
+  '2026-09-27',
+  0,
+  'race_day',
+  '開催1週間前までに「基地入場証兼ビブス引換証のはがき」と参加案内メールを送付。当日ははがきと引き換えでビブスを受け取る',
+  'A postcard serving as both base entry pass and bib exchange voucher is mailed about a week before the event; bibs are exchanged for it on race day',
+  '["米軍基地"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '在日米陸軍横浜ノース・ドック基地内を走る、普段は立ち入れない特別なコース。みなとみらいの景色を望む',
+  'A special course inside the normally off-limits Yokohama North Dock U.S. Army base, with views of Minato Mirai',
+  '5kmコース×周回（5km=1周、10km=2周、ハーフマラソン=5.275kmコース×4周）。コース上に距離表示なし',
+  'Laps of a course loop (5km = 1 lap, 10km = 2 laps, half marathon = 5.275km course x4 laps). No distance markers on course',
+  '横浜ノース・ドック',
+  '#b91c1c',
+  'Yokohama North Dock',
+  '普段は入れない米軍基地を、みなとみらいの絶景とともに走る',
+  'Run inside a U.S. military base normally off-limits to the public, with Minato Mirai views',
+  NULL,
+  NULL,
+  NULL,
+  '横浜ノース・ドック（在日米陸軍基地）',
+  'Yokohama North Dock (U.S. Army Installation)',
+  '神奈川県横浜市神奈川区瑞穂埠頭（千若町、瑞穂町、鈴繁町）',
+  NULL,
+  NULL,
+  '2026-08-31T23:51:21.157Z',
+  '2026-08-31T23:51:21.157Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('yokohama-northdock-run-2026', '5k', 5, 60, '12:35', 1500, 5000, NULL, '5km', '5km', '中学生以上、男女別。Tシャツ付きエントリーは10,000円', 'Junior high school age and above, men''s/women''s divisions. Entry with T-shirt: 10,000 yen', NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('yokohama-northdock-run-2026', '10k', 10, 90, '12:30', 1500, 6000, NULL, '10km', '10km', '高校生以上、男女別。Tシャツ付きエントリーは11,000円', 'High school age and above, men''s/women''s divisions. Entry with T-shirt: 11,000 yen', NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('yokohama-northdock-run-2026', 'half', 21.1, 150, '10:20', 0, 7000, NULL, 'ハーフマラソン', 'Half Marathon', '5.275kmコース×4周。年代別（18〜39歳/40歳代/50歳代/60歳以上）・男女別。Tシャツ付きエントリーは12,000円', '5.275km course x4 laps. Divided by age group (18-39/40s/50s/60+) and gender. Entry with T-shirt: 12,000 yen', NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('yokohama-northdock-run-2026', '東神奈川駅（JR横浜線）', 'Higashi-Kanagawa Station (JR Yokohama Line)', '', '徒歩14分', '14 min walk', 0, 0, 14, 1, 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('yokohama-northdock-run-2026', '東神奈川駅（京急線）', 'Higashi-Kanagawa Station (Keikyu Line)', '', '徒歩13分', '13 min walk', 0, 0, 13, 0, 1);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('yokohama-northdock-run-2026', '["towel"]', '米軍ロゴ入りオリジナルタオル（予定）', 'Original towel with U.S. military logo (planned)', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('yokohama-northdock-run-2026', '["certificate"]', 'WEB完走証発行', 'Digital (web) finisher certificate', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('yokohama-northdock-run-2026', NULL, '一般エントリー', 'General Entry', '2026-04-11', '2026-09-27', NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('yokohama-northdock-run-2026', NULL, NULL, '横浜ノース・ドック（米軍基地）', 'Yokohama North Dock (U.S. Army base)', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('yokohama-northdock-run-2026', NULL, NULL, 'みなとみらいの景色', 'Minato Mirai skyline views', NULL, NULL, 1);
 

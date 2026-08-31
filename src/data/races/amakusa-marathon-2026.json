@@ -1,0 +1,169 @@
+{
+  "id": "amakusa-marathon-2026",
+  "name_ja": "天草マラソン大会",
+  "name_en": "Amakusa Marathon",
+  "full_name_ja": "第21回天草マラソン大会",
+  "full_name_en": "21st Amakusa Marathon",
+  "edition": 21,
+  "date": "2026-11-15",
+  "prefecture": "43",
+  "city_ja": "天草市",
+  "city_en": "Amakusa City",
+  "description_ja": "熊本県天草市で開催されるハーフマラソン・5km・3kmの大会。ハーフマラソンには団体戦部門もある。",
+  "description_en": "A half marathon, 5km, and 3km event held in Amakusa City, Kumamoto Prefecture. The half marathon also has a team competition division.",
+  "official_url": "https://ama-spo.net/marathon/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 2800,
+  "entry_start_date": "2026-07-06",
+  "entry_end_date": "2026-09-11",
+  "reception_type": null,
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [
+    "団体戦"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 210,
+      "start_time": null,
+      "capacity": 2000,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "スタート地点閉鎖9時5分、折返し関門10時50分（制限時間3時間30分）",
+      "description_en": "Start line closes at 9:05, turnaround checkpoint closes at 10:50 (3h30m time limit)",
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 210,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン団体戦",
+      "name_en": "Half Marathon Team Competition",
+      "description_ja": "3〜6人でチーム編成。上位3人の合計タイムで順位を競う（定員はハーフマラソン個人の部と併算・計2,000人）",
+      "description_en": "Teams of 3-6 members; ranked by the combined time of the top 3 finishers (capacity shared with the individual half marathon, 2,000 total)",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 400,
+      "entry_fee": 3000,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": "小中高生で参加賞なしを選択の場合は1,000円",
+      "description_en": "1,000 yen for elementary/junior high/high school students who opt out of the participation gift",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 400,
+      "entry_fee": 3000,
+      "entry_fee_u25": null,
+      "name_ja": "3km",
+      "name_en": "3km",
+      "description_ja": "小中高生で参加賞なしを選択の場合は1,000円",
+      "description_en": "1,000 yen for elementary/junior high/high school students who opt out of the participation gift",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "local_product"
+      ],
+      "description_ja": "地元特産品、サービス券（予定）",
+      "description_en": "Local specialty products, service vouchers (planned)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-31T23:51:21.157Z",
+  "updated_at": "2026-08-31T23:51:21.157Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://ama-spo.net/marathon/）の公開情報から作成（2026-08-31）",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。コース詳細・アクセス情報・エイドステーション・周辺スポットは公式サイトに掲載がなく未入力",
+      "スタート時刻は要項に明記なし（ハーフマラソンはスタート地点閉鎖9時5分・折返し関門10時50分のみ記載）。正式発表後に要確認",
+      "認証情報（JAAF等）は公式サイトに記載なし",
+      "2026-08-20付お知らせでエントリー期間が延長（締切2026-09-11）されたことを反映",
+      "entry_capacityはハーフマラソン（団体戦併算）2,000人+5km 400人+3km 400人の合計"
+    ],
+    "last_verified": "2026-08-31",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-07-06",
+      "end_date": "2026-09-11",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": "天草五橋",
+  "motif_color": "#0e7490",
+  "motif_romaji": "Amakusa Gokyo",
+  "tagline_ja": "橋と海に抱かれた天草の島々を駆ける",
+  "tagline_en": "Run through the islands of Amakusa, embraced by bridges and sea",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://ama-spo.net/marathon/",
+      "label": "公式サイト"
+    },
+    {
+      "url": "https://ama-spo.net/marathon/summary/",
+      "label": "大会要項"
+    },
+    {
+      "url": "http://i.spoen.net/105639",
+      "label": "エントリー"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "あましんスタジアム",
+  "venue_name_en": "Amashin Stadium",
+  "venue_address": "熊本県天草市東町3番地（天草市民センター内）",
+  "start_lat": null,
+  "start_lng": null
+}

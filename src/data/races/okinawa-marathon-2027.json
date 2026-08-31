@@ -1,0 +1,162 @@
+{
+  "id": "okinawa-marathon-2027",
+  "name_ja": "おきなわマラソン",
+  "name_en": "Okinawa Marathon",
+  "full_name_ja": "第31回2027おきなわマラソン",
+  "full_name_en": "31st Okinawa Marathon 2027",
+  "edition": 31,
+  "date": "2027-02-21",
+  "prefecture": "47",
+  "city_ja": "沖縄市",
+  "city_en": "Okinawa City",
+  "description_ja": "沖縄県沖縄市の沖縄県総合運動公園を発着点とするフルマラソン・10kmロードレース。日本陸上競技連盟公認コース。制限時間6時間15分。雨天決行。",
+  "description_en": "Full marathon and 10km road race starting and finishing at Okinawa Prefectural General Sports Park in Okinawa City. JAAF-certified course with a 6 hour 15 minute time limit. Held rain or shine.",
+  "official_url": "https://okinawa-marathon.com/",
+  "entry_fee": 10000,
+  "entry_fee_by_category": true,
+  "entry_capacity": 16500,
+  "entry_start_date": "2026-08-01",
+  "entry_end_date": "2026-12-13",
+  "entry_closed": false,
+  "reception_type": "pre_day",
+  "reception_note_ja": "10月31日までのエントリー者はスポーツデポ3店舗（1月29日〜2月14日）または大会前日受付（2月20日）でゼッケンを受け取り。有料500円で大会2〜3週間前の事前発送も選択可。11月1日以降のエントリー者・海外参加者は2月20日（土）9:00〜18:00の指定会場でのみ受け取り可。",
+  "reception_note_en": "Entrants who registered by Oct 31 can pick up their bib at 3 Sports Depo stores (Jan 29 - Feb 14) or at pre-race reception on Feb 20. Optional paid (¥500) mail delivery 2-3 weeks before the race is also available. Entrants from Nov 1 onward and overseas participants can only pick up bibs at the designated venue on Feb 20 (Sat) 9:00-18:00.",
+  "tags": [
+    "沖縄",
+    "南国"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "沖縄市の沖縄県総合運動公園を発着点とするコース。日本陸上競技連盟公認",
+    "highlights_en": "Course starts and finishes at Okinawa Prefectural General Sports Park in Okinawa City. JAAF-certified.",
+    "notes_ja": "前日の2月20日には別イベント「おきなわミニマラソン」（4.2195km）も開催される（本データの categories には含めていない）",
+    "notes_en": "A separate \"Okinawa Mini Marathon\" (4.2195km) is also held the day before, Feb 20 (not included in this entry's categories)."
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 375,
+      "start_time": "09:00",
+      "capacity": 13500,
+      "entry_fee": 10000,
+      "entry_fee_u25": null,
+      "name_ja": "フルマラソン",
+      "name_en": "Full Marathon",
+      "description_ja": "一般10,000円（〜64歳）、高校生・65歳以上8,000円",
+      "description_en": "General ¥10,000 (up to age 64); ¥8,000 for high school students and ages 65+",
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "waves": null,
+      "course_highlights": []
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 80,
+      "start_time": "09:40",
+      "capacity": 3000,
+      "entry_fee": 6500,
+      "entry_fee_u25": null,
+      "name_ja": "10kmロードレース",
+      "name_en": "10km Road Race",
+      "description_ja": "一般6,500円、高校生4,500円",
+      "description_en": "General ¥6,500; ¥4,500 for high school students",
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "waves": null,
+      "course_highlights": []
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-08-31T14:52:20.077Z",
+  "updated_at": "2026-08-31T14:52:20.077Z",
+  "_metadata": {
+    "data_source": "公式サイト（okinawa-marathon.com）およびsportsentry.ne.jp等の公開情報から作成（2026-08-31）",
+    "data_accuracy_notes": [
+      "開催日2027-02-21は公式サイトのトップページには明記が無かったが、sportsentry.ne.jp・jaaf.or.jp・琉球新報の複数ソースで確認済み。第31回大会（2026年7月21日に開催決定発表）",
+      "おきなわミニマラソン（4.2195km、前日2/20開催）は本データのcategoriesには含めていない",
+      "エイドステーション、周辺スポット、気象データ、コース高低差、会場座標（venue_address, start_lat/lng）は公式サイトで確認できず未入力・null",
+      "参加賞の詳細は未確認のため空配列。完走賞は公式サイトに明記なく確認できず空配列とした（完走メダル・web完走証の授与は言及あり）"
+    ],
+    "last_verified": "2026-08-31",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー（インターネット）",
+      "label_en": "General Entry (Online)",
+      "start_date": "2026-08-01",
+      "end_date": "2026-12-13",
+      "entry_fee": 10000,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "ふるさと納税エントリー",
+      "label_en": "Hometown Tax Entry",
+      "start_date": "2026-08-10",
+      "end_date": "2026-09-30",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "窓口受付エントリー",
+      "label_en": "Counter Registration",
+      "start_date": "2026-08-01",
+      "end_date": "2026-11-27",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 2
+    }
+  ],
+  "motif": "シーサー",
+  "motif_color": "#c2410c",
+  "motif_romaji": "Shisa",
+  "tagline_ja": "常夏の沖縄を駆け抜ける、太陽と海のフルマラソン",
+  "tagline_en": "Run across subtropical Okinawa under the sun and sea breeze",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://okinawa-marathon.com/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://okinawa-marathon.com/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://okinawa-marathon.com/course/",
+      "label": "コース情報"
+    }
+  ],
+  "entry_links": [],
+  "completion_gifts": [],
+  "venue_name_ja": "沖縄県総合運動公園",
+  "venue_name_en": "Okinawa Prefectural General Sports Park",
+  "venue_address": "沖縄県沖縄市比屋根",
+  "start_lat": null,
+  "start_lng": null
+}

@@ -1,0 +1,205 @@
+{
+  "id": "yokohama-northdock-run-2026",
+  "name_ja": "横浜ノースドックラン",
+  "name_en": "Yokohama North Dock Run",
+  "full_name_ja": "横浜ノースドックラン2026",
+  "full_name_en": "Yokohama North Dock Run 2026",
+  "edition": null,
+  "date": "2026-11-07",
+  "prefecture": "14",
+  "city_ja": "横浜市神奈川区",
+  "city_en": "Kanagawa Ward, Yokohama City",
+  "description_ja": "在日米陸軍基地・横浜ノース・ドックを走る大会。普段は立ち入れない基地内を、みなとみらいの景色とともに駆け抜ける。ハーフマラソン・10km・5kmの3種目。",
+  "description_en": "A race held inside Yokohama North Dock, a U.S. Army installation normally off-limits to the public, with views of Minato Mirai. Half marathon, 10km, and 5km divisions.",
+  "official_url": "https://pia-running.jp/northdock/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 6000,
+  "entry_start_date": "2026-04-11",
+  "entry_end_date": "2026-09-27",
+  "reception_type": "race_day",
+  "reception_note_ja": "開催1週間前までに「基地入場証兼ビブス引換証のはがき」と参加案内メールを送付。当日ははがきと引き換えでビブスを受け取る",
+  "reception_note_en": "A postcard serving as both base entry pass and bib exchange voucher is mailed about a week before the event; bibs are exchanged for it on race day",
+  "tags": [
+    "米軍基地"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "在日米陸軍横浜ノース・ドック基地内を走る、普段は立ち入れない特別なコース。みなとみらいの景色を望む",
+    "highlights_en": "A special course inside the normally off-limits Yokohama North Dock U.S. Army base, with views of Minato Mirai",
+    "notes_ja": "5kmコース×周回（5km=1周、10km=2周、ハーフマラソン=5.275kmコース×4周）。コース上に距離表示なし",
+    "notes_en": "Laps of a course loop (5km = 1 lap, 10km = 2 laps, half marathon = 5.275km course x4 laps). No distance markers on course"
+  },
+  "categories": [
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 60,
+      "start_time": "12:35",
+      "capacity": 1500,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": "中学生以上、男女別。Tシャツ付きエントリーは10,000円",
+      "description_en": "Junior high school age and above, men's/women's divisions. Entry with T-shirt: 10,000 yen",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 90,
+      "start_time": "12:30",
+      "capacity": 1500,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10km",
+      "description_ja": "高校生以上、男女別。Tシャツ付きエントリーは11,000円",
+      "description_en": "High school age and above, men's/women's divisions. Entry with T-shirt: 11,000 yen",
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.1,
+      "time_limit_minutes": 150,
+      "start_time": "10:20",
+      "capacity": null,
+      "entry_fee": 7000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "5.275kmコース×4周。年代別（18〜39歳/40歳代/50歳代/60歳以上）・男女別。Tシャツ付きエントリーは12,000円",
+      "description_en": "5.275km course x4 laps. Divided by age group (18-39/40s/50s/60+) and gender. Entry with T-shirt: 12,000 yen",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [
+    {
+      "station_name_ja": "東神奈川駅（JR横浜線）",
+      "station_name_en": "Higashi-Kanagawa Station (JR Yokohama Line)",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩14分",
+      "transport_to_venue_en": "14 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 14,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "東神奈川駅（京急線）",
+      "station_name_en": "Higashi-Kanagawa Station (Keikyu Line)",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩13分",
+      "transport_to_venue_en": "13 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 13,
+      "is_primary": false
+    }
+  ],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "towel"
+      ],
+      "description_ja": "米軍ロゴ入りオリジナルタオル（予定）",
+      "description_en": "Original towel with U.S. military logo (planned)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-31T23:51:21.157Z",
+  "updated_at": "2026-08-31T23:51:21.157Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://pia-running.jp/northdock/）の公開情報から作成（2026-08-31）",
+    "data_accuracy_notes": [
+      "在日米陸軍基地内で開催される特殊な大会のため、当日持参する身分証明書等の参加資格要件が多数ある（詳細は公式サイト参照）",
+      "ハーフマラソンは年代別・男女別に組分けされるが、部門ごとの定員内訳は非公開。全体定員6,000名のみ判明",
+      "ハーフマラソンの実測距離は5.275km×4周=約21.1km。公認（JAAF等）の記載は公式サイトになし",
+      "給水はコース上1ヶ所・待機エリア1ヶ所の予定のみ判明。正確な距離地点は非公開のためaid_stationsは未入力",
+      "コースマップ・GPXデータは公式サイトに未掲載",
+      "車両送迎・車両でのアクセス不可（公共交通機関のみ）"
+    ],
+    "last_verified": "2026-08-31",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-04-11",
+      "end_date": "2026-09-27",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": "横浜ノース・ドック",
+  "motif_color": "#b91c1c",
+  "motif_romaji": "Yokohama North Dock",
+  "tagline_ja": "普段は入れない米軍基地を、みなとみらいの絶景とともに走る",
+  "tagline_en": "Run inside a U.S. military base normally off-limits to the public, with Minato Mirai views",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "横浜ノース・ドック（米軍基地）",
+      "name_en": "Yokohama North Dock (U.S. Army base)",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "みなとみらいの景色",
+      "name_en": "Minato Mirai skyline views",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://pia-running.jp/northdock/",
+      "label": "公式サイト・大会要項"
+    },
+    {
+      "url": "https://w.pia.jp/t/northdockrun/",
+      "label": "エントリー（チケットぴあ）"
+    },
+    {
+      "url": "https://runnet.jp/cgi-bin/?id=388734",
+      "label": "エントリー（RUNNET）"
+    },
+    {
+      "url": "https://www.sportsentry.ne.jp/event/t/105068",
+      "label": "エントリー（スポーツエントリー）"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "certificate"
+      ],
+      "description_ja": "WEB完走証発行",
+      "description_en": "Digital (web) finisher certificate",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "横浜ノース・ドック（在日米陸軍基地）",
+  "venue_name_en": "Yokohama North Dock (U.S. Army Installation)",
+  "venue_address": "神奈川県横浜市神奈川区瑞穂埠頭（千若町、瑞穂町、鈴繁町）",
+  "start_lat": null,
+  "start_lng": null
+}

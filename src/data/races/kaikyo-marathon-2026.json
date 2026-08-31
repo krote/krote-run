@@ -32,7 +32,9 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [],
+    "certification": [
+      "JAAF"
+    ],
     "highlights_ja": "関門海峡、関門大橋、巌流島",
     "highlights_en": "Kanmon Strait, Kanmon Bridge, Ganryujima Island",
     "notes_ja": null,
@@ -60,6 +62,50 @@
   "nearby_spots": [
     {
       "type": "観光地",
+      "name_ja": "海峡メッセ下関",
+      "name_en": "Kaikyo Messe Shimonoseki",
+      "description_ja": "スタート・フィニッシュ地点。隣接するオーヴィジョン海峡ゆめ広場も見どころ。",
+      "description_en": "Start and finish venue, adjacent to the Ovision Kaikyo Yume Plaza.",
+      "distance_from_venue": "スタート・フィニッシュ地点",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "観光地",
+      "name_ja": "赤間神宮",
+      "name_en": "Akama Shrine",
+      "description_ja": "平清盛の孫・安徳帝を祀る神社。コース沿いに位置する。",
+      "description_en": "Shrine dedicated to Emperor Antoku, grandson of Taira no Kiyomori, located along the course.",
+      "distance_from_venue": "コース沿い",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "観光地",
+      "name_ja": "串崎城跡",
+      "name_en": "Kushizaki Castle Ruins",
+      "description_ja": "天守台から折り返し地点を望むことができる城跡。",
+      "description_en": "Castle ruins where the keep platform overlooks the course turnaround point.",
+      "distance_from_venue": "コース沿い",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "観光地",
+      "name_ja": "みもすそ川公園",
+      "name_en": "Mimosusogawa Park",
+      "description_ja": "源義経・平知盛像がある公園。コース沿いに位置する。",
+      "description_en": "Park featuring statues of Minamoto no Yoshitsune and Taira no Tomomori, located along the course.",
+      "distance_from_venue": "コース沿い",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "観光地",
       "name_ja": "唐戸市場",
       "name_en": "Karato Market",
       "description_ja": "新鮮な海産物が揃う市場。ふぐやかまぼこなど下関名物を堪能できる。",
@@ -68,6 +114,28 @@
       "url": null,
       "latitude": 33.9533,
       "longitude": 130.9408
+    },
+    {
+      "type": "グルメ",
+      "name_ja": "カモンワーフ",
+      "name_en": "Kamon Wharf",
+      "description_ja": "グルメやお土産が揃うシーサイドモール。コース沿いに位置する。",
+      "description_en": "Seaside mall with local food and souvenirs, located along the course.",
+      "distance_from_venue": "コース沿い",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "観光地",
+      "name_ja": "海響館",
+      "name_en": "Kaikyokan Aquarium",
+      "description_ja": "フグの展示種類数が世界一を誇る水族館。",
+      "description_en": "Aquarium boasting the world's largest number of pufferfish species on display.",
+      "distance_from_venue": "コース周辺",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
     },
     {
       "type": "観光地",
@@ -82,14 +150,14 @@
     },
     {
       "type": "グルメ",
-      "name_ja": "ふくの里",
-      "name_en": "Fuku no Sato",
-      "description_ja": "下関名物のふぐ料理を堪能できるエリア。レース後のご褒美食事に最適。",
-      "description_en": "Area to enjoy Shimonoseki's famous fugu cuisine. Perfect post-race reward.",
-      "distance_from_venue": "下関市内",
+      "name_ja": "南風泊市場",
+      "name_en": "Haetomari Market",
+      "description_ja": "全国で唯一のふく（ふぐ）専門の卸売市場。",
+      "description_en": "Japan's only wholesale market specializing in fugu (pufferfish).",
+      "distance_from_venue": "コース周辺",
       "url": null,
-      "latitude": 33.955,
-      "longitude": 130.945
+      "latitude": 0,
+      "longitude": 0
     }
   ],
   "weather_history": [],
@@ -105,16 +173,17 @@
   ],
   "result": null,
   "created_at": "2026-04-30T00:00:00Z",
-  "updated_at": "2026-07-27T14:17:08.917Z",
+  "updated_at": "2026-08-31T13:30:21.913Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、気象データ等は未入力",
       "参加費は2025年実績からの推定。正式発表後に要更新",
       "2026-05-30: 自動クロールで更新",
-      "2026-07-27: 自動クロールで更新"
+      "2026-07-27: 自動クロールで更新",
+      "2026-08-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-07-27",
+    "last_verified": "2026-08-31",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -189,8 +258,8 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "海峡メッセ下関",
+  "venue_name_en": "Kaikyo Messe Shimonoseki",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

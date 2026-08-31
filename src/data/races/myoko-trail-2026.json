@@ -25,13 +25,13 @@
   "course_info": {
     "max_elevation_m": null,
     "min_elevation_m": null,
-    "elevation_diff_m": 1935,
+    "elevation_diff_m": 2020,
     "surface": "trail",
     "certification": [],
     "highlights_ja": "妙高山麓、急峻な登り下りが連続するコース",
     "highlights_en": "Consecutive steep climbs and descents on the slopes of Mt. Myoko",
-    "notes_ja": "GTWSレース（23.6km）は9月20日、公開レース（11km/5km）は9月19日開催",
-    "notes_en": "The GTWS race (23.6km) is held on Sep 20; the open races (11km/5km) are held on Sep 19"
+    "notes_ja": "GTWSレース（24.7km）は9月20日、公開レース（11km/5km）は9月19日開催",
+    "notes_en": "The GTWS race (24.7km) is held on Sep 20; the open races (11km/5km) are held on Sep 19"
   },
   "categories": [
     {
@@ -85,15 +85,16 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-08-24T16:33:25.638Z",
+  "updated_at": "2026-08-31T13:35:24.613Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。参加費は未入力（公式サイトに具体的な記載なし）",
       "2026-08-25: runnet.jp紹介記事を起点に新規登録（Golden Trail World Series日本初開催）",
-      "2026-08-24: 自動クロールで更新"
+      "2026-08-24: 自動クロールで更新",
+      "2026-08-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-24",
+    "last_verified": "2026-08-31",
     "detail_level": "medium"
   },
   "entry_periods": [

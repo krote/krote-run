@@ -1,0 +1,213 @@
+{
+  "id": "sakai-kojo-marathon-2026",
+  "name_ja": "坂井市古城マラソン",
+  "name_en": "Sakai Kojo Marathon",
+  "full_name_ja": "第19回坂井市古城マラソン",
+  "full_name_en": "19th Sakai Kojo Marathon",
+  "edition": 19,
+  "date": "2026-11-08",
+  "prefecture": "18",
+  "city_ja": "坂井市",
+  "city_en": "Sakai City",
+  "description_ja": "福井県坂井市の丸岡体育館周辺を発着とするマラソン大会。ハーフ・10km・5km・3km・2kmなど幅広い種目を設定。テーマは「城下走愛」。ゲストランナーに野口みずき、AYAを迎える。",
+  "description_en": "A marathon event based around Maruoka Gymnasium in Sakai, Fukui, offering a wide range of distances from half marathon down to 2km. Themed 'Jokasoai' (castle-town running love), with guest runners Mizuki Noguchi and AYA.",
+  "official_url": "https://www.s-taikyo.jp/marathon.html",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-07-24",
+  "entry_end_date": "2026-09-11",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "ナンバーカード（ビブス）は事前郵送。当日受付なし。",
+  "reception_note_en": "Bib numbers are mailed in advance; there is no same-day registration.",
+  "tags": [
+    "フラット",
+    "ゲストランナー"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "「城下走愛」をテーマに、丸岡城下町周辺を巡るコース。高低差が少なく走りやすいコース設計で、初心者からベテランランナーまで対応。",
+    "highlights_en": "Themed 'Jokasoai,' the course winds through the Maruoka castle-town area. Designed with minimal elevation change, suitable for both beginners and experienced runners.",
+    "notes_ja": "ニコニコランニング（記録計測なし、参加費1,000円）も併催。",
+    "notes_en": "A non-competitive 'Niko-Niko Running' fun run (no time recording, 1,000 yen entry) is also held alongside the main events."
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 150,
+      "start_time": "08:30",
+      "capacity": 0,
+      "entry_fee": 3000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "ゴール制限時刻11:00（8:30スタート）。",
+      "description_en": "Finish cutoff 11:00 AM (8:30 AM start).",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 0,
+      "start_time": "",
+      "capacity": 0,
+      "entry_fee": 3000,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10K",
+      "description_ja": "高校生以上男女。ゲストランナー野口みずき参加予定。",
+      "description_en": "High school age and above. Guest runner Mizuki Noguchi is scheduled to participate.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 0,
+      "start_time": "",
+      "capacity": 0,
+      "entry_fee": 2500,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5K",
+      "description_ja": "高校生以上男女他。ゲストランナーAYA参加予定。",
+      "description_en": "High school age and above. Guest runner AYA is scheduled to participate.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": 0,
+      "start_time": "",
+      "capacity": 0,
+      "entry_fee": 2500,
+      "entry_fee_u25": null,
+      "name_ja": "3km",
+      "name_en": "3K",
+      "description_ja": "一般男女・中学生。",
+      "description_en": "Adults and junior high school students.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2.26,
+      "time_limit_minutes": 0,
+      "start_time": "",
+      "capacity": 0,
+      "entry_fee": 2500,
+      "entry_fee_u25": null,
+      "name_ja": "2kmの部",
+      "name_en": "2K",
+      "description_ja": "小学生他。実距離2.26km（第14回大会より変更）。",
+      "description_en": "Elementary school students and others. Actual distance is 2.26km (changed from the 14th edition).",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [
+    {
+      "distance_km": 18.1,
+      "closing_time": "10:40"
+    },
+    {
+      "distance_km": 21.0975,
+      "closing_time": "11:00"
+    }
+  ],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "goods"
+      ],
+      "description_ja": "一般の部は選べる参加賞（今治製スポーツタオル／スポーツリュック／ランドリーリュック／ウォータープルーフバッグ）＋ドリンク。小中学生は別柄のスポーツタオル。",
+      "description_en": "Adult entrants choose from a participation gift (Imabari sports towel / sports backpack / laundry backpack / waterproof bag) plus a drink. Elementary/junior high students receive a different sports towel.",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-31T13:29:34.000Z",
+  "updated_at": "2026-08-31T13:29:34.000Z",
+  "_metadata": {
+    "data_source": "公式サイト（s-taikyo.jp）および坂井市公式サイトの公開情報から作成（2026-08-31）",
+    "data_accuracy_notes": [
+      "ライト版：各種目の募集定員は公式サイトに記載がなく0（未公表）としている",
+      "ハーフ以外（10km/5km/3km/2km）のスタート時刻・制限時間は公式サイトに明記がなく未入力",
+      "コースの公認情報（JAAF公認等）は公式サイトで確認できず空配列",
+      "ニコニコランニングは正確な距離が不明なためcategoriesに含めずnotes_jaに記載のみ",
+      "checkpointsのdistance_km 18.1kmは「ゴールまで3km地点」の記述から逆算した推定値"
+    ],
+    "last_verified": "2026-08-31",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-07-24",
+      "end_date": "2026-09-11",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": "城下走愛",
+  "tagline_en": "Jokasoai: castle-town running love",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "丸岡城下町",
+      "name_en": "Maruoka castle town",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.s-taikyo.jp/marathon.html",
+      "label": "大会情報"
+    },
+    {
+      "url": "https://www.s-taikyo.jp/marathon/course.html",
+      "label": "コース"
+    },
+    {
+      "url": "https://www.s-taikyo.jp/marathon/entry.html",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.s-taikyo.jp/marathon/sanka.html",
+      "label": "参加賞"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "certificate"
+      ],
+      "description_ja": "完走者全員にWEB完走記録証",
+      "description_en": "All finishers receive a web-based finisher certificate",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "丸岡体育館",
+  "venue_name_en": "Maruoka Gymnasium",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

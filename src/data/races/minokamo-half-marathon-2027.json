@@ -1,0 +1,193 @@
+{
+  "id": "minokamo-half-marathon-2027",
+  "name_ja": "みのかもハーフマラソン",
+  "name_en": "Minokamo Half Marathon",
+  "full_name_ja": "第21回みのかもハーフマラソン大会",
+  "full_name_en": "21st Minokamo Half Marathon",
+  "edition": 21,
+  "date": "2027-01-10",
+  "prefecture": "21",
+  "city_ja": "美濃加茂市",
+  "city_en": "Minokamo City",
+  "description_ja": "岐阜県美濃加茂市のぎふ清流里山公園を舞台に開催されるハーフマラソン。里山の景観の中を走るコースが特徴で、名物「かも丸鍋」がランナー全員に振る舞われる。",
+  "description_en": "A half marathon held at Gifu Seiryu Satoyama Park in Minokamo, Gifu, running through scenic satoyama (rural hillside) landscapes. All runners receive a bowl of the local specialty \"Kamo-maru Nabe\" hot pot.",
+  "official_url": "https://minokamo-halfmarathon.net/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 3000,
+  "entry_start_date": "2026-09-01",
+  "entry_end_date": "2026-10-31",
+  "reception_type": "race_day",
+  "reception_note_ja": "大会当日午前7時〜8時（8時30分終了）に受付",
+  "reception_note_en": "Same-day check-in from 7:00-8:00 AM (closes 8:30 AM)",
+  "tags": [
+    "里山コース"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": 100,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "美濃加茂市北部の里山を疾走する「山紫水明」のコース。3〜7km地点は下り、7〜9km・14〜15km・18km〜ゴールにそれぞれ上り坂があり、高低差は約100m",
+    "highlights_en": "A scenic course through the satoyama hills of northern Minokamo. The route descends from km 3-7, then climbs at km 7-9, km 14-15, and km 18 to the finish, with roughly 100m of elevation change overall.",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 150,
+      "start_time": "",
+      "capacity": 0,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソンの部",
+      "name_en": "Half Marathon",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 0,
+      "start_time": "",
+      "capacity": 0,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "10kmの部",
+      "name_en": "10km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": 0,
+      "start_time": "",
+      "capacity": 0,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "3kmの部",
+      "name_en": "3km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2,
+      "time_limit_minutes": 0,
+      "start_time": "",
+      "capacity": 0,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "2kmの部",
+      "name_en": "2km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "food"
+      ],
+      "description_ja": "ランナー全員に美濃加茂名物「かも丸鍋」を提供予定",
+      "description_en": "All runners receive a bowl of Kamo-maru Nabe, a Minokamo specialty hot pot dish",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-31T00:00:00Z",
+  "updated_at": "2026-08-31T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://minokamo-halfmarathon.net/）の公開情報から作成（2026-08-31）",
+    "data_accuracy_notes": [
+      "種目別の参加費・定員は公式サイト上で画像（category-21.png）として掲載されており、テキスト抽出不可のため未入力",
+      "エイドステーション位置、周辺スポット、気象データ、コース証明（JAAF公認等）の記載は公式サイトになし",
+      "受付方法は「参加者受付：午前7時〜8時」の記載から当日受付（race_day）と判断",
+      "エントリー方法はRUNNET経由（外部サイト）。エントリー受付開始前のため詳細未公開",
+      "3km・2kmの部は公園内コースのファンラン扱いの可能性があり、distance_typeは'other'とした"
+    ],
+    "last_verified": "2026-08-31",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-01",
+      "end_date": "2026-10-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": "かも丸鍋",
+  "motif_color": "#b45309",
+  "motif_romaji": "Kamo-maru Nabe",
+  "tagline_ja": "里山を駆け抜け、かも丸鍋で締めくくる",
+  "tagline_en": "Run the satoyama hills, finish with Kamo-maru Nabe",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "ぎふ清流里山公園の里山コース",
+      "name_en": "Satoyama course through Gifu Seiryu Satoyama Park",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://minokamo-halfmarathon.net/info/",
+      "label": "大会概要"
+    },
+    {
+      "url": "https://minokamo-halfmarathon.net/course/",
+      "label": "コースマップ"
+    },
+    {
+      "url": "https://minokamo-halfmarathon.net/guide/",
+      "label": "コースガイド"
+    },
+    {
+      "url": "https://minokamo-halfmarathon.net/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://minokamo-halfmarathon.net/acsess/",
+      "label": "アクセス"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "certificate"
+      ],
+      "description_ja": "記録証（計測種目のみ）",
+      "description_en": "Finisher time certificate (timed events only)",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "ぎふ清流里山公園",
+  "venue_name_en": "Gifu Seiryu Satoyama Park",
+  "venue_address": "岐阜県美濃加茂市山之上町2292-1",
+  "start_lat": null,
+  "start_lng": null
+}

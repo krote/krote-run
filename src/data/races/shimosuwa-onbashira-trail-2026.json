@@ -1,0 +1,137 @@
+{
+  "id": "shimosuwa-onbashira-trail-2026",
+  "name_ja": "下諏訪御柱街道トレイル",
+  "name_en": "Shimosuwa Onbashira Kaido Trail",
+  "full_name_ja": "下諏訪御柱街道トレイル2026",
+  "full_name_en": "Shimosuwa Onbashira Kaido Trail 2026",
+  "edition": null,
+  "date": "2026-10-03",
+  "prefecture": "20",
+  "city_ja": "下諏訪町",
+  "city_en": "Shimosuwa Town",
+  "description_ja": "長野県下諏訪町で開催されるトレイルランニング大会。ロング43km・ショート14.5kmの2部門があり、御柱街道や八島湿原など自然保護に配慮したコースを走る。",
+  "description_en": "A trail running event in Shimosuwa, Nagano, with Long (43km) and Short (14.5km) courses that pass through the Onbashira-kaido road and Yashima Marsh, run with careful attention to nature conservation.",
+  "official_url": "https://www.nature-scene.net/shimosuwa/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 900,
+  "entry_start_date": "2026-05-17",
+  "entry_end_date": "2026-09-01",
+  "reception_type": "race_day",
+  "reception_note_ja": "ロングは6:00～7:00、ショートは7:00～8:00に当日受付（会場で受付・スタート）",
+  "reception_note_en": "Same-day check-in only: Long course 6:00–7:00 AM, Short course 7:00–8:00 AM.",
+  "tags": [
+    "トレイルラン",
+    "自然保護"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": 2300,
+    "surface": "trail",
+    "certification": [],
+    "highlights_ja": "諏訪大社下社秋宮周辺をスタートし、御柱街道や八島湿原を経由するトレイルコース。ロングは累積標高2,300m・エイド3箇所、ショートは累積標高550m・エイド1箇所。",
+    "highlights_en": "A trail course starting near Suwa Taisha Shimosha Akimiya shrine, passing through the Onbashira-kaido road and Yashima Marsh. Long course: ~2,300m elevation gain, 3 aid stations. Short course: ~550m elevation gain, 1 aid station.",
+    "notes_ja": "八島湿原区間は歩行区間に指定されており、試走時も含めて走行不可。",
+    "notes_en": "The Yashima Marsh section is designated as a walking-only zone; running is prohibited there, even during course recon."
+  },
+  "categories": [
+    {
+      "distance_type": "ultra",
+      "distance_km": 43,
+      "time_limit_minutes": 0,
+      "start_time": "07:30",
+      "capacity": 600,
+      "entry_fee": 11800,
+      "entry_fee_u25": null,
+      "name_ja": "ロング43km",
+      "name_en": "Long 43km",
+      "description_ja": "18歳以上。累積標高2,300m、エイド3箇所。参加費はエコ割適用で10,300円。",
+      "description_en": "Age 18+. ~2,300m elevation gain, 3 aid stations. Eco discount rate: 10,300 yen.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 14.5,
+      "time_limit_minutes": 0,
+      "start_time": "08:30",
+      "capacity": 300,
+      "entry_fee": 8500,
+      "entry_fee_u25": null,
+      "name_ja": "ショート14.5km",
+      "name_en": "Short 14.5km",
+      "description_ja": "中学生以上。累積標高550m、エイド1箇所。参加費はエコ割適用で7,000円。",
+      "description_en": "Junior high school age and above. ~550m elevation gain, 1 aid station. Eco discount rate: 7,000 yen.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-08-31T13:29:34.000Z",
+  "updated_at": "2026-08-31T13:29:34.000Z",
+  "_metadata": {
+    "data_source": "公式サイト（nature-scene.net/shimosuwa）および長野日報記事（2025年開催分の報道）の公開情報から作成（2026-08-31）",
+    "data_accuracy_notes": [
+      "ライト版：フィニッシュ地点の具体的な場所は公式サイトに明記がなく不明",
+      "スタート地点（諏訪大社下社秋宮）は2025年（初開催）の新聞報道に基づく推定。2026年大会での正式発表を要確認",
+      "「第◯回」という回次表記は公式サイトで確認できず、editionは未入力",
+      "参加賞・完走賞の情報は公式サイトに記載がなく空欄",
+      "関門通過時刻（第2エイド14:00、第3エイド16:45、ゴール制限18:00）はスケジュールページに記載があるが、ロング/ショートどちらに適用されるか明確でないためcategoriesのtime_limit_minutesには反映せず"
+    ],
+    "last_verified": "2026-08-31",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-05-17",
+      "end_date": "2026-09-01",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.nature-scene.net/shimosuwa/about/",
+      "label": "大会概要"
+    },
+    {
+      "url": "https://www.nature-scene.net/shimosuwa/coursemap/",
+      "label": "コースマップ"
+    },
+    {
+      "url": "https://www.nature-scene.net/shimosuwa/schedule/",
+      "label": "スケジュール"
+    },
+    {
+      "url": "https://www.nature-scene.net/shimosuwa/entry/",
+      "label": "エントリー"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "諏訪大社下社秋宮周辺",
+  "venue_name_en": "Near Suwa Taisha Shimosha Akimiya",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

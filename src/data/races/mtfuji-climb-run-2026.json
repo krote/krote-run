@@ -30,8 +30,8 @@
     "certification": [],
     "highlights_ja": "富士北麓公園 富士山GXスタジアムをスタートし、吉田口登山道を経て五合目フィニッシュまで約12km・標高差約1,200m。補助具（ストック・杖等）使用禁止。関門：馬返し12:12、三合目12:34、ゴール制限13:00。",
     "highlights_en": "Approx. 12km from Fuji Hokuroku Park Fujisan GX Stadium via the Yoshida Trail to the 5th station finish, with approx. 1,200m elevation gain. Poles and walking sticks are prohibited. Cutoffs: Umagaeshi 12:12, 3rd station 12:34, finish 13:00.",
-    "notes_ja": "",
-    "notes_en": ""
+    "notes_ja": "給水所は計4箇所（スタート前、約3.7km地点、約7.4km地点、約9.5km地点）に設置。約7.4km・9.5km地点では塩タブレットやようかんも提供。仮設トイレは約3.7km地点（中の茶屋）に3基、約7.4km地点（馬返し）に3基、約9.5km地点（三合目）に1基。コース上にキロ表示はなし。フィニッシュ（吉田口五合目）から富士スバルライン五合目のシャトルバス乗車場所までは徒歩約2.4km。記録証はWEB記録証のみで、紙での当日配布・後日郵送はなし。足場の悪い登山道のため伴走者を伴う参加は不可。",
+    "notes_en": "Four aid stations are set up along the course (before the start, and at approx. 3.7km, 7.4km, and 9.5km), with salt tablets and yokan also offered at the 7.4km and 9.5km stations. Portable toilets are located at approx. 3.7km (Naka-no-chaya, 3 units), 7.4km (Umagaeshi, 3 units), and 9.5km (3rd station, 1 unit). There are no kilometer markers on the course. From the finish (Yoshida Trail 5th station) it is about a 2.4km walk to the shuttle bus pickup point at the Fuji Subaru Line 5th station. Only a web-based finisher certificate is available — no paper certificate is distributed on the day or mailed later. Runners requiring a pacer/companion cannot participate due to narrow, steep terrain on the trail."
   },
   "categories": [
     {
@@ -61,7 +61,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-28T13:53:53.451Z",
-  "updated_at": "2026-07-31T14:33:27.699Z",
+  "updated_at": "2026-08-31T13:35:01.898Z",
   "entry_periods": [
     {
       "start_date": "2026-04-24",
@@ -116,11 +116,12 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-07-31",
+    "last_verified": "2026-08-31",
     "data_accuracy_notes": [
       "2026-05-30: 自動クロールで更新",
       "2026-07-27: 自動クロールで更新",
-      "2026-07-31: 自動クロールで更新"
+      "2026-07-31: 自動クロールで更新",
+      "2026-08-31: 自動クロールで更新"
     ]
   },
   "venue_name_ja": "富士北麓公園 富士山GXスタジアム",

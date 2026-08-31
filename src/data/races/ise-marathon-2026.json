@@ -1,0 +1,207 @@
+{
+  "id": "ise-marathon-2026",
+  "name_ja": "中日三重お伊勢さんマラソン",
+  "name_en": "Chunichi Mie Ise Marathon",
+  "full_name_ja": "野口みずき杯2026中日三重お伊勢さんマラソン",
+  "full_name_en": "Noguchi Mizuki Cup 2026 Chunichi Mie Ise Marathon",
+  "edition": null,
+  "date": "2026-12-06",
+  "prefecture": "24",
+  "city_ja": "伊勢市",
+  "city_en": "Ise City",
+  "description_ja": "三重県営サンアリーナ発着で開催される2日制の大会。12月5日にウォーク・バリアフリーラン、12月6日にハーフマラソン・5kmを実施。ハーフマラソンは日本陸連公認コースで、三重交通Gスポーツの杜 伊勢陸上競技場のトラックを走る区間がある。",
+  "description_en": "A two-day event based at Mie Prefectural Sun Arena: a walk and barrier-free run on December 5, followed by a JAAF-certified half marathon and 5K on December 6. The half marathon course includes a lap on the track at Mie Kotsu G Sports no Mori Ise.",
+  "official_url": "https://www.city.ise.mie.jp/marathon/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 11080,
+  "entry_start_date": "2026-07-01",
+  "entry_end_date": "2026-09-07",
+  "reception_type": "none",
+  "reception_note_ja": "SDGs推進の一環として、ランニング参加者への参加案内書類の郵送を中止（Web案内等に移行）。",
+  "reception_note_en": "As part of SDGs efforts, physical mailing of participant guides to running entrants has been discontinued in favor of online guidance.",
+  "tags": [
+    "日本陸連公認",
+    "ゲストランナー",
+    "大規模"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "三重県営サンアリーナを発着し、朝熊東IC・伊勢IC・おはらい町・宇治橋前などを経由。2025年大会よりハーフマラソンで三重交通Gスポーツの杜 伊勢陸上競技場のトラックを実際に走れる。メインスタンドの大型スクリーンや地元中学校の吹奏楽応援も予定。",
+    "highlights_en": "Starts and finishes at Mie Prefectural Sun Arena, passing Asama-higashi IC, Ise IC, Oharai-machi, and the approach to Uji Bridge. Since 2025, the half marathon route includes a lap on the actual track at Mie Kotsu G Sports no Mori Ise, with a large screen and brass band cheering from a local junior high school planned at the main stand.",
+    "notes_ja": "12月5日はウォーク・バリアフリーランのみ開催。ランニング（ハーフ・5km）は12月6日。",
+    "notes_en": "December 5 is Walk and Barrier-Free Run only; the running events (Half Marathon, 5K) are held on December 6."
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 160,
+      "start_time": "09:00",
+      "capacity": 5500,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "制限時間2時間40分。日本陸連公認コース。駐車整理料別途1,000円。",
+      "description_en": "Time limit 2h40m. JAAF-certified course. Parking fee of 1,000 yen charged separately.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 50,
+      "start_time": "09:10",
+      "capacity": 2500,
+      "entry_fee": 4500,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5K",
+      "description_ja": "制限時間50分。駐車整理料別途1,000円。",
+      "description_en": "Time limit 50 minutes. Parking fee of 1,000 yen charged separately.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [
+    {
+      "distance_km": 4.1,
+      "offerings_ja": "給水（イオン伊勢店前）",
+      "offerings_en": "Water station (in front of AEON Ise)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 6.8,
+      "offerings_ja": "給水（三重交通Gスポーツの杜 伊勢陸上競技場）",
+      "offerings_en": "Water station (Mie Kotsu G Sports no Mori Ise Athletic Stadium)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 12.9,
+      "offerings_ja": "給水（ダイムスタジアム伊勢）",
+      "offerings_en": "Water station (Daim Stadium Ise)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 18.9,
+      "offerings_ja": "給水（朝熊東IC）",
+      "offerings_en": "Water station (Asama-higashi IC)",
+      "is_featured": false
+    }
+  ],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "towel",
+        "coupon",
+        "goods",
+        "food"
+      ],
+      "description_ja": "スポーツタオル、お伊勢さんチケット（500円分、12/5・6限定利用）、エコバッグ、赤福餅（2個入）、アクエリアス（500ml）をゴールで配布",
+      "description_en": "Distributed at the finish: a sports towel, an Ise Tourist Voucher worth 500 yen (usable Dec 5–6 only), an eco bag, Akafuku mochi (2 pieces), and a 500ml Aquarius drink",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-31T13:29:34.000Z",
+  "updated_at": "2026-08-31T13:29:34.000Z",
+  "_metadata": {
+    "data_source": "公式サイト（city.ise.mie.jp/marathon）の公開情報から作成（2026-08-31）",
+    "data_accuracy_notes": [
+      "ライト版：大会の「第◯回」表記は公式サイトのトップページ等で確認できず、editionは未入力",
+      "ウォーク・バリアフリーランは種目一覧に定員・参加費のみ確認できたが、距離が公式サイトに明記されていないためcategoriesには含めず、entry_capacityの合算にのみ反映",
+      "entry_capacityはハーフ5,500＋5km2,500＋ウォーク3,000＋バリアフリーラン80の合算値",
+      "dateは開催2日間（12/5・12/6）のうちランニング実施日の12/6を採用",
+      "会場（三重県営サンアリーナ）の住所・座標は未確認のためnull"
+    ],
+    "last_verified": "2026-08-31",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "伊勢市民先行申込",
+      "label_en": "Ise Resident Priority Entry",
+      "start_date": "2026-07-01",
+      "end_date": "2026-07-06",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-07-08",
+      "end_date": "2026-09-07",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    }
+  ],
+  "motif": "赤福餅",
+  "motif_color": "#c0392b",
+  "motif_romaji": "Akafuku Mochi",
+  "tagline_ja": "お伊勢さんの杜を駆け抜ける、日本一の呼び声高いマラソン",
+  "tagline_en": "Run through the sacred groves of Ise, a marathon acclaimed as Japan's best",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "おはらい町・宇治橋前",
+      "name_en": "Oharai-machi / Uji Bridge",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "三重交通Gスポーツの杜 伊勢陸上競技場トラック",
+      "name_en": "Mie Kotsu G Sports no Mori Ise track",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.city.ise.mie.jp/marathon/gaiyou/index.html",
+      "label": "大会概要"
+    },
+    {
+      "url": "https://www.city.ise.mie.jp/marathon/1017654.html",
+      "label": "コース紹介"
+    },
+    {
+      "url": "https://www.city.ise.mie.jp/marathon/1016526.html",
+      "label": "給水・エイド"
+    },
+    {
+      "url": "https://www.city.ise.mie.jp/marathon/1017719.html",
+      "label": "参加賞"
+    },
+    {
+      "url": "https://www.city.ise.mie.jp/marathon/1017897.html",
+      "label": "交通アクセス"
+    },
+    {
+      "url": "https://www.city.ise.mie.jp/marathon/1014316/index.html",
+      "label": "申し込み（エントリー）"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "三重県営サンアリーナ",
+  "venue_name_en": "Mie Prefectural Sun Arena",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

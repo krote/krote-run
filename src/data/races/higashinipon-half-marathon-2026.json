@@ -11,7 +11,7 @@
   "city_en": "Sagamihara City, Kanagawa",
   "description_ja": "米陸軍相模総合補給廠（相模デポ）内で開催される個性的なハーフマラソン。アメリカンムードあふれる広大な施設内のフラット周回コースを走り、アメリカンフードが提供される。ハーフ・8km・駅伝の3種目。",
   "description_en": "A unique half marathon held inside the US Army Sagami General Depot. Run on a flat lap course within the expansive American-styled facility, with American food provided. Three events: half marathon, 8km, and ekiden relay.",
-  "official_url": "https://www.runningkanagawa.com/half_marathon/",
+  "official_url": "https://www.runningkanagawa.com/race-half/",
   "entry_fee": 0,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
@@ -58,19 +58,33 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "相模原駅",
+      "station_name_en": "Sagamihara Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩圏内",
+      "transport_to_venue_en": "Within walking distance",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": null,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-03-29T00:00:00Z",
-  "updated_at": "2026-03-29T00:00:00Z",
+  "updated_at": "2026-08-31T13:27:30.974Z",
   "_metadata": {
-    "data_source": "公式サイト（https://www.runningkanagawa.com/half_marathon/）およびRunnet掲載情報",
+    "data_source": "公式サイト（https://runningkanagawa.com/race-half/）およびRunnet掲載情報",
     "data_accuracy_notes": [
       "基本情報のみ。参加費は前回大会実績値。スタート時間は推定値。エイド、周辺スポット等は未入力",
-      "2026-08-25: info_urlsのFAQ・開催概要URLが404だったため、公式サイトの現在のページ構成を確認し大会情報・エントリーページに修正"
+      "2026-08-25: info_urlsのFAQ・開催概要URLが404だったため、公式サイトの現在のページ構成を確認し大会情報・エントリーページに修正",
+      "2026-08-31: 自動クロールで更新",
+      "2026-08-31: info_urlsの「大会情報」URL（/half_marathon/）が404。ページ内容は/race-half/に統合されていたため、official_url・info_urlsとも/race-half/に一本化（重複していた「エントリー」エントリーは削除）"
     ],
-    "last_verified": "2026-08-25",
+    "last_verified": "2026-08-31",
     "detail_level": "basic"
   },
   "entry_periods": [
@@ -82,11 +96,11 @@
       "entry_fee": null
     }
   ],
-  "motif": "桜",
+  "motif": "宇宙",
   "motif_color": "#f9c1cc",
-  "motif_romaji": "Sakura",
-  "tagline_ja": "立川の春を駆け抜ける東日本ハーフ",
-  "tagline_en": "East Japan Half Marathon through spring Tachikawa",
+  "motif_romaji": "Uchu",
+  "tagline_ja": "重力の先へ。Plus Ultra.",
+  "tagline_en": "Beyond gravity. Plus Ultra.",
   "hero_image_url": null,
   "hero_caption_ja": null,
   "hero_caption_en": null,
@@ -109,17 +123,13 @@
   ],
   "info_urls": [
     {
-      "url": "https://runningkanagawa.com/half_marathon/",
-      "label": "大会情報"
-    },
-    {
       "url": "https://runningkanagawa.com/race-half/",
-      "label": "エントリー"
+      "label": "大会情報・エントリー"
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
+  "venue_name_ja": "相模原総合補給廠（米陸軍相模補給廠）",
+  "venue_name_en": "US Army Sagami General Depot",
+  "venue_address": "神奈川県相模原市中央区",
   "start_lat": null,
   "start_lng": null
 }

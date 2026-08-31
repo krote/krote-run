@@ -1,0 +1,178 @@
+{
+  "id": "makomanai-marathon-2026",
+  "name_ja": "真駒内マラソン",
+  "name_en": "Makomanai Marathon",
+  "full_name_ja": "第13回作.AC真駒内マラソン2026",
+  "full_name_en": "13th Saku.AC Makomanai Marathon 2026",
+  "edition": 13,
+  "date": "2026-11-08",
+  "prefecture": "01",
+  "city_ja": "札幌市南区",
+  "city_en": "Sapporo City, Minami Ward",
+  "description_ja": "北海道札幌市南区の真駒内公園周辺で開催されるマラソン大会。真駒内セキスイハイムスタジアムを発着点に、豊平川河川敷沿いを周回するコース。",
+  "description_en": "Held around Makomanai Park in Minami Ward, Sapporo, Hokkaido. Starts and finishes at Makomanai Sekisui Heim Stadium, looping along the Toyohira riverside.",
+  "official_url": "https://sakumara.jp/",
+  "entry_fee": 7000,
+  "entry_fee_by_category": true,
+  "entry_capacity": 2000,
+  "entry_start_date": "2026-07-18",
+  "entry_end_date": "2026-10-06",
+  "reception_type": "race_day",
+  "reception_note_ja": "ナンバーカードの受け取りは大会当日、真駒内セキスイハイムスタジアムにて実施。WEB引換証（RUN PASSPORT）を使用し、10月下旬にランネット登録アドレスへメール通知が届く。事前郵送は行われない。",
+  "reception_note_en": "Bib pickup is on race day only, at Makomanai Sekisui Heim Stadium. A web exchange voucher (RUN PASSPORT) is used, with notification emailed via RUNNET in late October. No advance mailing.",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "真駒内セキスイハイムスタジアムをスタート・フィニッシュに、豊平川河川敷沿いを周回するコース。フルマラソンは1周10kmのコースを4周し、公園内の2.195kmを加えて42.195kmとなる。",
+    "highlights_en": "Starts and finishes at Makomanai Sekisui Heim Stadium, looping along the Toyohira riverside. The full marathon covers four 10km loops plus an additional 2.195km segment within the park.",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 900,
+      "start_time": "",
+      "capacity": 1300,
+      "entry_fee": 7000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 90,
+      "start_time": "",
+      "capacity": 500,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2.8,
+      "time_limit_minutes": 0,
+      "start_time": "",
+      "capacity": 200,
+      "entry_fee": 2000,
+      "entry_fee_u25": null,
+      "name_ja": "2.8kmファンラン",
+      "name_en": "2.8km Fun Run",
+      "description_ja": "制限時間なし",
+      "description_en": "No time limit",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": ["tshirt"],
+      "description_ja": "オリジナルTシャツ（フルマラソン部門）",
+      "description_en": "Original T-shirt (Full Marathon category)",
+      "image": null
+    },
+    {
+      "gift_categories": ["other"],
+      "description_ja": "ドリンク（2.8kmファンラン部門）",
+      "description_en": "Drink (2.8km Fun Run category)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-31T00:00:00Z",
+  "updated_at": "2026-08-31T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（sakumara.jp）の公開情報から作成（2026-08-31）",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ、コース標高等は未入力",
+      "依頼時の「第12回」ではなく、公式サイト（2026年8月時点）記載の「第13回」を採用",
+      "10kmの部の参加賞は公式サイトで「未定」と記載されており未確定",
+      "参加料は1次・2次エントリーで異なる（フル: 7,000〜8,500円、10km: 4,000〜5,000円、2.8km: 2,000〜4,000円）。JSON上のentry_fee・カテゴリ別entry_feeは1次（早期）料金を代表値として記載",
+      "アクセス方法・コース標高差・コース認証は公式サイトに詳細記載なし（アクセスは外部サイト http://www.makomanai.com/openstadium/access/ を参照するよう案内あり）",
+      "2.8km部門の制限時間は「制限なし」のためtime_limit_minutesを0としている"
+    ],
+    "last_verified": "2026-08-31",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "1次エントリー",
+      "label_en": "First-Round Entry",
+      "start_date": "2026-07-18",
+      "end_date": "2026-08-29",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "2次エントリー",
+      "label_en": "Second-Round Entry",
+      "start_date": "2026-08-31",
+      "end_date": "2026-10-06",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": "札幌・真駒内公園を駆け抜ける、豊平川河畔のマラソン",
+  "tagline_en": "Race through Makomanai Park along the Toyohira riverside in Sapporo",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "豊平川河川敷",
+      "name_en": "Toyohira River embankment",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://sakumara.jp/outline/",
+      "label": "大会概要"
+    },
+    {
+      "url": "https://sakumara.jp/course/",
+      "label": "コース＆アクセス"
+    },
+    {
+      "url": "https://sakumara.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://sakumara.jp/faq/",
+      "label": "よくある質問"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "真駒内セキスイハイムスタジアム",
+  "venue_name_en": "Makomanai Sekisui Heim Stadium",
+  "venue_address": "北海道札幌市南区真駒内公園3-1",
+  "start_lat": null,
+  "start_lng": null
+}

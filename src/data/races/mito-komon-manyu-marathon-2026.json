@@ -93,14 +93,14 @@
       "gift_categories": [
         "tshirt"
       ],
-      "description_ja": "参加賞Tシャツ（事前発送）",
-      "description_en": "Race T-shirt (pre-mailed)",
+      "description_ja": "参加賞Tシャツ（アンドエスティプロデュース、事前発送）。水戸の歴史と誇りを大胆なタイポグラフィに落とし込んだデザイン。MITOの「O」に水戸芸術館の塔を象徴的に配し、朝焼けのようなイエローで走る高揚感を表現。",
+      "description_en": "Race T-shirt (produced by &ST, pre-mailed). Bold typography design reflecting Mito's history and pride, symbolically placing the Art Tower Mito in the 'O' of MITO, with a sunrise-yellow color expressing the excitement of running.",
       "image": null
     }
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-07-27T14:22:40.297Z",
+  "updated_at": "2026-08-31T13:34:28.564Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -109,9 +109,10 @@
       "2026-05-30: 自動クロールで更新",
       "2026-06-08: 自動クロールで更新",
       "2026-06-12: 自動クロールで更新",
-      "2026-07-27: 自動クロールで更新"
+      "2026-07-27: 自動クロールで更新",
+      "2026-08-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-07-27",
+    "last_verified": "2026-08-31",
     "detail_level": "medium"
   },
   "entry_periods": [

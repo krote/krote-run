@@ -1,0 +1,184 @@
+{
+  "id": "kawaguchi-marathon-2026",
+  "name_ja": "川口マラソン",
+  "name_en": "Kawaguchi Marathon",
+  "full_name_ja": "第44回川口マラソン大会",
+  "full_name_en": "44th Kawaguchi Marathon",
+  "edition": 44,
+  "date": "2026-12-06",
+  "prefecture": "11",
+  "city_ja": "川口市",
+  "city_en": "Kawaguchi City",
+  "description_ja": "埼玉県川口市の青木町公園総合運動場を発着点に市内を走るマラソン大会。ハーフマラソン・10km・3km等の部門がある。",
+  "description_en": "Held in Kawaguchi, Saitama, starting and finishing at Aoki-cho Park Sports Ground. Features half marathon, 10km, and 3km divisions among others.",
+  "official_url": "https://kawaspo.jp/",
+  "entry_fee": 5500,
+  "entry_fee_by_category": true,
+  "entry_capacity": 4000,
+  "entry_start_date": "2026-08-18",
+  "entry_end_date": "2026-09-18",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "ゼッケン・計測チップ等は11月下旬頃、登録住所へ郵送予定。大会当日は必ずゼッケン・計測チップを持参すること。",
+  "reception_note_en": "Bib numbers and timing chips are mailed to the registered address around late November. Participants must bring their bib and timing chip on race day.",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "青木町公園総合運動場の陸上競技場を発着点に川口市内を巡るコース。",
+    "highlights_en": "A course through Kawaguchi city starting and finishing at the Aoki-cho Park Sports Ground athletics stadium.",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 0,
+      "start_time": "08:30",
+      "capacity": 2000,
+      "entry_fee": 5500,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 0,
+      "start_time": "08:45",
+      "capacity": 2000,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": 0,
+      "start_time": "08:50",
+      "capacity": 0,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": "3kmコース",
+      "name_en": "3km Course",
+      "description_ja": "定員なし",
+      "description_en": "No capacity limit",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": ["tshirt"],
+      "description_ja": "オリジナルTシャツ（全参加者）",
+      "description_en": "Original T-shirt (all participants)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-31T00:00:00Z",
+  "updated_at": "2026-08-31T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（kawaspo.jp）の公開情報から作成（2026-08-31）",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ、コース標高等は未入力",
+      "ハーフ・10km・3km以外に小学生・中学生の部（1,500円）、高校生の部（2,000円）、ファミリーの部（5,000円）も設定されているが、依頼範囲外のためJSON上は主要3種目のみ収録",
+      "コース認証（JAAF/AIMS等）の記載は確認できず未入力",
+      "ハーフマラソンの正式な制限時間の記載なし（18.6km地点を午前11時前後に通過という目安記載のみ）",
+      "アクセス（JR京浜東北線西川口駅から徒歩12分、会場に駐車場なし）は確認済みだが緯度経度が未確定のためaccess_pointsは未入力"
+    ],
+    "last_verified": "2026-08-31",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "市民優先申込",
+      "label_en": "Kawaguchi Resident Priority Entry",
+      "start_date": "2026-08-18",
+      "end_date": "2026-08-25",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "一般申込",
+      "label_en": "General Entry",
+      "start_date": "2026-09-01",
+      "end_date": "2026-09-18",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": "埼玉・川口、青木町公園を発着する師走のシティマラソン",
+  "tagline_en": "A December city marathon starting and finishing at Aoki-cho Park in Kawaguchi, Saitama",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "青木町公園総合運動場",
+      "name_en": "Aoki-cho Park Sports Ground",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://kawaspo.jp/",
+      "label": "大会トップ"
+    },
+    {
+      "url": "https://kawaspo.jp/pages/39/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://kawaspo.jp/pages/18/",
+      "label": "大会申込"
+    },
+    {
+      "url": "https://kawaspo.jp/pages/55/",
+      "label": "歴代優勝者記録"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": ["other"],
+      "description_ja": "ドリンク（完走者）",
+      "description_en": "Drink (finishers)",
+      "image": null
+    },
+    {
+      "gift_categories": ["certificate"],
+      "description_ja": "WEB完走証",
+      "description_en": "Web finisher certificate",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "青木町公園総合運動場",
+  "venue_name_en": "Aoki-cho Park Sports Ground",
+  "venue_address": "埼玉県川口市西青木4-8-1",
+  "start_lat": null,
+  "start_lng": null
+}

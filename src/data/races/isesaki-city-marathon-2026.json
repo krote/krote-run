@@ -1,0 +1,187 @@
+{
+  "id": "isesaki-city-marathon-2026",
+  "name_ja": "伊勢崎シティマラソン",
+  "name_en": "Isesaki City Marathon",
+  "full_name_ja": "第22回伊勢崎シティマラソン",
+  "full_name_en": "22nd Isesaki City Marathon",
+  "edition": 22,
+  "date": "2026-12-06",
+  "prefecture": "10",
+  "city_ja": "伊勢崎市",
+  "city_en": "Isesaki City",
+  "description_ja": "群馬県伊勢崎市の華蔵寺公園運動施設で開催されるマラソン大会。陸上競技場発着の周回コースでハーフマラソン・10km・5km・1.5kmを実施。",
+  "description_en": "Held at Kezoji Park Sports Facility in Isesaki, Gunma. A loop course starting and finishing at the athletics stadium, featuring half marathon, 10km, 5km, and 1.5km races.",
+  "official_url": "https://sports-isesaki.jp/citymarathon.html",
+  "entry_fee": 3500,
+  "entry_fee_by_category": true,
+  "entry_capacity": 2000,
+  "entry_start_date": "2026-09-01",
+  "entry_end_date": "2026-10-01",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "ナンバーカード（計測用タグ付）は大会プログラム等とともに11月中旬頃、登録住所へ郵送予定。大会2週間前までに届かない場合は実行委員会事務局へ連絡。紛失時は当日会場のトラブルコーナーで再発行可（手数料2,000円）。",
+  "reception_note_en": "Bib numbers (with timing tag) are mailed with the race program to the registered address around mid-November. Contact the organizing committee if not received two weeks before the race. Reissue is available at the trouble corner on race day for a 2,000 yen fee.",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": ["JAAF"],
+    "highlights_ja": "伊勢崎市華蔵寺公園運動施設の陸上競技場をスタート・フィニッシュとする周回コース。ハーフマラソンはトラックと場外コースを組み合わせた2周回。",
+    "highlights_en": "A loop course starting and finishing at the athletics stadium in Kezoji Park. The half marathon combines the track and an out-of-stadium loop, run twice.",
+    "notes_ja": "JAAF公認はハーフマラソン・10kmコースのみ（5km・1.5kmは対象外）",
+    "notes_en": "JAAF certification applies only to the half marathon and 10km courses (not the 5km or 1.5km)."
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 0,
+      "start_time": "09:00",
+      "capacity": 700,
+      "entry_fee": 3500,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 0,
+      "start_time": "09:15",
+      "capacity": 700,
+      "entry_fee": 3000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 0,
+      "start_time": "09:25",
+      "capacity": 400,
+      "entry_fee": 2500,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.5,
+      "time_limit_minutes": 0,
+      "start_time": "08:30",
+      "capacity": 200,
+      "entry_fee": 500,
+      "entry_fee_u25": null,
+      "name_ja": "1.5kmコース",
+      "name_en": "1.5km Course",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": ["other"],
+      "description_ja": "参加者全員に参加賞。各部門1〜6位に賞状、1〜3位に記念品。ラッキー賞も多数用意。",
+      "description_en": "Participation gift for all entrants. Certificates for 1st-6th place and commemorative items for 1st-3rd place in each category, plus various lucky draw prizes.",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-31T00:00:00Z",
+  "updated_at": "2026-08-31T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（sports-isesaki.jp）の公開情報から作成（2026-08-31）",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ、コース標高等は未入力",
+      "参加料は種目・年齢区分（高校生割引等）により異なる。JSON上のentry_fee・カテゴリ別entry_feeは一般成人の代表値",
+      "JAAF公認はハーフマラソン・10kmコースのみ。5km・1.5kmは対象外",
+      "ハーフマラソン等の個別制限時間の記載なし（午前11:30に交通規制解除・計測終了という全体記載のみ）",
+      "アクセス（無料駐車場約1,600台、伊勢崎駅北口からの無料シャトルバス）は確認済みだが緯度経度が未確定のためaccess_pointsは未入力"
+    ],
+    "last_verified": "2026-08-31",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-01",
+      "end_date": "2026-10-01",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": "群馬・伊勢崎、華蔵寺公園を駆けるファミリーマラソン",
+  "tagline_en": "A family-friendly marathon through Kezoji Park in Isesaki, Gunma",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "華蔵寺公園運動施設",
+      "name_en": "Kezoji Park Sports Facility",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://sports-isesaki.jp/citymarathon.html",
+      "label": "大会トップ"
+    },
+    {
+      "url": "https://sports-isesaki.jp/citymarathon_outline.html",
+      "label": "大会概要"
+    },
+    {
+      "url": "https://sports-isesaki.jp/citymarathon_course.html",
+      "label": "コース紹介"
+    },
+    {
+      "url": "https://sports-isesaki.jp/citymarathon_faq.html",
+      "label": "よくある質問"
+    },
+    {
+      "url": "https://sports-isesaki.jp/citymarathon_result.html",
+      "label": "大会結果"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": ["certificate"],
+      "description_ja": "WEB完走証（記録証）を大会ホームページからダウンロード可能",
+      "description_en": "Downloadable WEB finisher certificate (results record) available from the official website",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "伊勢崎市華蔵寺公園運動施設",
+  "venue_name_en": "Kezoji Park Sports Facility",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

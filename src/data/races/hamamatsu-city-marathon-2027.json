@@ -1,0 +1,199 @@
+{
+  "id": "hamamatsu-city-marathon-2027",
+  "name_ja": "浜松シティマラソン",
+  "name_en": "Hamamatsu City Marathon",
+  "full_name_ja": "第23回浜松シティマラソン",
+  "full_name_en": "23rd Hamamatsu City Marathon",
+  "edition": 23,
+  "date": "2027-02-14",
+  "prefecture": "22",
+  "city_ja": "浜松市",
+  "city_en": "Hamamatsu City",
+  "description_ja": "浜松市役所と四ツ池公園を会場に開催される市民マラソン。ハーフマラソン（日本陸連公認）、5km、1.5km（小学生・ファミリー）の3種目を実施する。",
+  "description_en": "A citizens' marathon held at Hamamatsu City Hall and Yotsuike Park, featuring a JAAF-certified half marathon along with 5km and 1.5km (elementary school / family) events.",
+  "official_url": "https://www.hamamatsu-city-marathon.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 8500,
+  "entry_start_date": "2026-09-01",
+  "entry_end_date": "2026-11-15",
+  "reception_type": "none",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [
+    "日本陸連公認"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "ハーフマラソンは浜松市役所南側をスタートし四ツ池公園陸上競技場がフィニッシュ。5km・1.5kmは四ツ池公園陸上競技場発着。ハーフマラソン参加者の荷物は市役所会場から四ツ池公園会場へ輸送される。",
+    "highlights_en": "The half marathon starts near Hamamatsu City Hall and finishes at Yotsuike Park Athletic Stadium. The 5km and 1.5km events start and finish at Yotsuike Park. Baggage for half marathon runners is transported from the City Hall venue to the Yotsuike Park venue.",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 150,
+      "start_time": "09:00",
+      "capacity": 5000,
+      "entry_fee": 7500,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "高校生以上。日本陸連公認コース。",
+      "description_en": "High school age and above. JAAF-certified course.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 40,
+      "start_time": "",
+      "capacity": 1500,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "5kmの部",
+      "name_en": "5K",
+      "description_ja": "中学生以上。参加費は年代区分により2,500円～4,000円。",
+      "description_en": "Junior high school age and above. Entry fee ranges from 2,500 to 4,000 yen depending on age category.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.5,
+      "time_limit_minutes": 15,
+      "start_time": "",
+      "capacity": 2000,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "1.5kmの部（小学生・ファミリー）",
+      "name_en": "1.5K (Elementary School / Family)",
+      "description_ja": "小学生の部（小学3～6年、参加費2,000円、制限時間10分）とファミリーの部（2～4名、参加費4,500円～、制限時間15分）を設定。",
+      "description_en": "Includes an Elementary School division (grades 3–6, 2,000 yen, 10-minute limit) and a Family division (2–4 members, from 4,500 yen, 15-minute limit).",
+      "waves": null
+    }
+  ],
+  "aid_stations": [
+    {
+      "distance_km": 5.0,
+      "offerings_ja": "水、スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 8.2,
+      "offerings_ja": "水、スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 12.5,
+      "offerings_ja": "水、スポーツドリンク、給食",
+      "offerings_en": "Water, sports drink, food",
+      "is_featured": true
+    },
+    {
+      "distance_km": 14.5,
+      "offerings_ja": "水、スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 19.0,
+      "offerings_ja": "水、スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    }
+  ],
+  "checkpoints": [
+    {
+      "distance_km": 13.6,
+      "closing_time": "10:35"
+    },
+    {
+      "distance_km": 19.0,
+      "closing_time": "11:10"
+    }
+  ],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "浜松シティマラソンオリジナルTシャツ（前面プリント、サイズ130・150・XS～XLの7種類）",
+      "description_en": "Original Hamamatsu City Marathon T-shirt (front print, 7 sizes from 130/150 to XS–XL)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-31T13:29:34.000Z",
+  "updated_at": "2026-08-31T13:29:34.000Z",
+  "_metadata": {
+    "data_source": "公式サイト（hamamatsu-city-marathon.com）の公開情報から作成（2026-08-31）",
+    "data_accuracy_notes": [
+      "ライト版：5km・1.5kmの参加費詳細（年代・区分別内訳）、完走賞の有無、受付方法（当日/事前）は公式サイトに明記がなく未入力",
+      "エイドステーション・関門情報はハーフマラソンコースのもの",
+      "浜松市役所・四ツ池公園の住所・座標は未確認のためnull"
+    ],
+    "last_verified": "2026-08-31",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-01",
+      "end_date": "2026-11-15",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.hamamatsu-city-marathon.com/info",
+      "label": "大会情報"
+    },
+    {
+      "url": "https://www.hamamatsu-city-marathon.com/course01",
+      "label": "コース情報（ハーフマラソン）"
+    },
+    {
+      "url": "https://www.hamamatsu-city-marathon.com/entry",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://www.hamamatsu-city-marathon.com/volunteer",
+      "label": "ボランティア"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "浜松市役所（ハーフマラソン）／四ツ池公園陸上競技場（5km・1.5km）",
+  "venue_name_en": "Hamamatsu City Hall (Half Marathon) / Yotsuike Park Athletic Stadium (5km, 1.5km)",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

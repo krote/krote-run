@@ -41,6 +41,14 @@
   "result": null,
   "created_at": "2026-06-12T13:47:30.815Z",
   "updated_at": "2026-06-12T13:47:30.815Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "2026-08-31: 更新チェックツールでwww.aotai.gr.jp配下の全info_urlsがfetch failedを検出。調査の結果サイト自体は稼働中（ブラウザでは正常表示、curl/WebFetchでも200）で、URLも現行のまま正しい。原因はサーバー側のTLS証明書チェーン不備（中間証明書未送出、openssl s_clientでverify error 21: unable to verify the first certificateを確認）。Node.js標準fetch等の厳格な検証を行うクライアントのみ失敗する。URL変更は不要。次回要再確認"
+    ],
+    "last_verified": "2026-08-31",
+    "detail_level": "medium"
+  },
   "info_urls": [
     {
       "url": "https://www.aotai.gr.jp/about/index.html",

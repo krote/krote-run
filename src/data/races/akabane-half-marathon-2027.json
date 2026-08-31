@@ -1,0 +1,195 @@
+{
+  "id": "akabane-half-marathon-2027",
+  "name_ja": "東京・赤羽ハーフマラソン",
+  "name_en": "Tokyo Akabane Half Marathon",
+  "full_name_ja": "第18回東京・赤羽ハーフマラソン",
+  "full_name_en": "18th Tokyo Akabane Half Marathon",
+  "edition": 18,
+  "date": "2027-01-17",
+  "prefecture": "13",
+  "city_ja": "北区",
+  "city_en": "Kita City",
+  "description_ja": "東京都北区赤羽の荒川河川敷を走る、日本陸連公認のフラットなハーフマラソン。ナンバーカード・計測チップは事前郵送され、当日受付は不要。",
+  "description_en": "A JAAF-certified, flat half marathon along the Arakawa riverbed in Akabane, Kita City, Tokyo. Race bibs and timing chips are mailed in advance, so no day-of check-in is required.",
+  "official_url": "https://akabane-hm.tokyo/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 0,
+  "entry_start_date": "2026-08-21",
+  "entry_end_date": "2026-11-23",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "ナンバーカード・計測チップは大会前に自宅へ郵送。当日受付は不要",
+  "reception_note_en": "Race bibs and timing chips are mailed to participants before the event; no day-of check-in required",
+  "tags": [
+    "フラットコース"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "荒川河川敷を走るフラットな日本陸連公認コース。見通しの良い一本道で、自己ベスト更新を狙うランナーに人気",
+    "highlights_en": "A flat, JAAF-certified course along the Arakawa riverbed. The long, straight, unobstructed route makes it popular among runners chasing a personal best.",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 140,
+      "start_time": "10:50",
+      "capacity": 0,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "参加費 5,700円〜6,200円（申込時期により変動）",
+      "description_en": "Entry fee: ¥5,700-¥6,200 (varies by registration timing)",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 70,
+      "start_time": "09:20",
+      "capacity": 0,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10km",
+      "description_ja": "参加費 3,800円〜5,000円（申込時期により変動）",
+      "description_en": "Entry fee: ¥3,800-¥5,000 (varies by registration timing)",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": 0,
+      "start_time": "11:10",
+      "capacity": 0,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "3km",
+      "name_en": "3km",
+      "description_ja": "参加費 2,700円〜3,800円（申込時期により変動）。時間制限なし",
+      "description_en": "Entry fee: ¥2,700-¥3,800 (varies by registration timing). No time limit.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2,
+      "time_limit_minutes": 0,
+      "start_time": "09:25",
+      "capacity": 0,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "2km（親子ラン）",
+      "name_en": "2km (Parent-Child Run)",
+      "description_ja": "参加費 2,500円〜4,000円（申込時期により変動）。時間制限なし",
+      "description_en": "Entry fee: ¥2,500-¥4,000 (varies by registration timing). No time limit.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "goods"
+      ],
+      "description_ja": "大会オリジナルグッズ（親子ランは2名分）",
+      "description_en": "Original event goods (2 sets for parent-child pairs)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-31T00:00:00Z",
+  "updated_at": "2026-08-31T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://akabane-hm.tokyo/）の公開情報から作成（2026-08-31）",
+    "data_accuracy_notes": [
+      "エントリー開始日は公式サイトの「8月下旬」表記のため、慣例に従い21日と推定",
+      "参加費は種目ごとに早期割引等による幅があり、範囲をdescriptionに記載。entry_feeは単一値でないためnull",
+      "定員（entry_capacity）は公式サイトに総数の記載なし。0として扱う（先着順・定員到達次第締切とのみ記載）",
+      "コース高低差の具体的数値は公式サイトに記載なし（「ほとんどアップダウンがなくフラット」との定性的記載のみ）",
+      "完走メダルの記載は公式サイトになし。完走証はダウンロード形式のみで、郵送・当日発行はなし"
+    ],
+    "last_verified": "2026-08-31",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-08-21",
+      "end_date": "2026-11-23",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": "荒川河川敷を駆ける、自己ベスト更新のフラットコース",
+  "tagline_en": "Chase a personal best on the flat Arakawa riverside course",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "荒川河川敷のフラットコース",
+      "name_en": "Flat course along the Arakawa riverbed",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://akabane-hm.tokyo/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://akabane-hm.tokyo/feature/",
+      "label": "大会の特徴"
+    },
+    {
+      "url": "https://akabane-hm.tokyo/course/",
+      "label": "コース&アクセス"
+    },
+    {
+      "url": "https://akabane-hm.tokyo/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://akabane-hm.tokyo/contact/",
+      "label": "Q&A"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "certificate"
+      ],
+      "description_ja": "完走証（ダウンロード形式。当日発行・後日郵送なし）",
+      "description_en": "Finisher certificate (download only; not issued on-site or mailed)",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "新荒川大橋区営野球場",
+  "venue_name_en": "Shin-Arakawa Ohashi Ward Baseball Ground",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

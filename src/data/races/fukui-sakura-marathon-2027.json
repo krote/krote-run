@@ -17,7 +17,7 @@
   "entry_capacity": 13200,
   "entry_start_date": "2026-09-20",
   "entry_end_date": "2026-11-09",
-  "reception_type": "pre_day",
+  "reception_type": "pre_mail",
   "reception_note_ja": "",
   "reception_note_en": "",
   "tags": [
@@ -30,7 +30,10 @@
     "min_elevation_m": null,
     "elevation_diff_m": 15,
     "surface": "road",
-    "certification": [],
+    "certification": [
+      "JAAF",
+      "AIMS"
+    ],
     "highlights_ja": "さくら通り、新九頭竜橋、丸岡城周辺",
     "highlights_en": "Sakura-dori Ave, Shin-Kuzuryu Bridge, Marukoka Castle area",
     "notes_ja": "高低差15mのフラットなコース",
@@ -103,7 +106,7 @@
   ],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-08-25T00:00:00Z",
+  "updated_at": "2026-08-31T13:25:38.211Z",
   "_metadata": {
     "data_source": "公式サイト（fukui-sakura-marathon.jp）およびふくい桜マラソン公式ニュースリリース、福井新聞ONLINE報道から転記",
     "data_accuracy_notes": [
@@ -111,9 +114,11 @@
       "2026-08-25: fukui-sakura-marathon-2026を元に2027年大会ファイルを新規作成。開催概要（開催日・種目・参加費・定員・エントリー期間）は公式ニュースリリース（fukui-sakura-marathon.jp/news/news/3270/）に基づく",
       "2026-08-25: 公式サイトはボット対策（403/404）により本crawlツールでは自動取得不可。info_urlsには現在の正しいURL構成を登録したが、自動更新は効かないため今後は手動確認が必要",
       "エントリー期間は県民先行枠（9/20-9/24、通常価格14,000円+ノベルティ特典）・グループ割枠（同期間、12,000円/人・3人1組）・一般枠（9/26-11/9）の3区分。entry_start_date/entry_end_dateは全体の範囲",
-      "2026-08-25: 先行エントリーを1区分（12,000円）としていたが、実際は県民先行枠（通常価格・早期特典のみ）とグループ割枠（12,000円の割引価格）という別々の枠だったため分離。県民先行枠の正確な参加料は8月下旬発表予定だった情報のため通常価格14,000円を暫定値として設定"
+      "2026-08-25: 先行エントリーを1区分（12,000円）としていたが、実際は県民先行枠（通常価格・早期特典のみ）とグループ割枠（12,000円の割引価格）という別々の枠だったため分離。県民先行枠の正確な参加料は8月下旬発表予定だった情報のため通常価格14,000円を暫定値として設定",
+      "2026-08-31: 自動クロールで更新",
+      "2026-08-31: info_urlsの宿泊・交通URL（/access/）が404。/access/ページは存在せず該当情報は/stay/に統合されていたためURLを修正"
     ],
-    "last_verified": "2026-08-25",
+    "last_verified": "2026-08-31",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -134,7 +139,7 @@
     {
       "start_date": "2026-09-26",
       "end_date": "2026-11-09",
-      "entry_fee": null,
+      "entry_fee": 14000,
       "label_ja": "一般エントリー",
       "label_en": "General Entry"
     }
@@ -184,7 +189,7 @@
       "label": "ランナー（エントリー）"
     },
     {
-      "url": "https://www.fukui-sakura-marathon.jp/access/",
+      "url": "https://www.fukui-sakura-marathon.jp/stay/",
       "label": "宿泊・交通"
     },
     {

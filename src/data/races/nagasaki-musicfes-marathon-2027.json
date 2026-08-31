@@ -71,16 +71,17 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-08-24T16:34:40.511Z",
+  "updated_at": "2026-08-31T13:36:45.940Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。ふるさと納税枠・ツアー枠・チャリティー枠・長崎県民枠は別料金体系のためcategoriesには一般枠のみ収録",
       "2026-08-25: runnet.jp紹介記事を起点に新規登録（新設大会）",
       "2026-08-24: 自動クロールで更新",
-      "2026-08-25: 定員が6,950人になっていたが公式サイト確認でマラソン10,000人と判明し修正"
+      "2026-08-25: 定員が6,950人になっていたが公式サイト確認でマラソン10,000人と判明し修正",
+      "2026-08-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-25",
+    "last_verified": "2026-08-31",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -97,7 +98,7 @@
       "label_ja": "ファンラン",
       "label_en": "Fun Run",
       "start_date": "2026-06-12",
-      "end_date": "2026-08-31",
+      "end_date": "2026-10-16",
       "entry_fee": 5500,
       "category_id": null,
       "sort_order": 1

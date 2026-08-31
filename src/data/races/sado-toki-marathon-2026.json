@@ -101,9 +101,10 @@
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
+      "2026-08-31: 更新チェックツールでwww.scsf.jp配下の全info_urlsがfetch failedを検出。調査の結果サイト自体は稼働中（ブラウザでは正常表示、curl/WebFetchでも200）で、URLも現行のまま正しい。原因はサーバー側のTLS証明書チェーン不備（中間証明書未送出、openssl s_clientでverify error 21: unable to verify the first certificateを確認）。Node.js標準fetch等の厳格な検証を行うクライアントのみ失敗する。URL変更は不要。次回要再確認"
     ],
-    "last_verified": "2026-03-15",
+    "last_verified": "2026-08-31",
     "detail_level": "medium"
   },
   "entry_periods": [

@@ -1,0 +1,206 @@
+{
+  "id": "ishioka-tsukubane-half-marathon-2027",
+  "name_ja": "石岡つくばねハーフマラソン",
+  "name_en": "Ishioka Tsukubane Half Marathon",
+  "full_name_ja": "SKYMARKpresents第4回石岡つくばねハーフマラソン",
+  "full_name_en": "SKYMARK presents 4th Ishioka Tsukubane Half Marathon",
+  "edition": 4,
+  "date": "2027-02-14",
+  "prefecture": "08",
+  "city_ja": "石岡市",
+  "city_en": "Ishioka City",
+  "description_ja": "茨城県石岡市で開催されるハーフマラソン。筑波山系「つくばね」の自然を感じられるコースが特徴。",
+  "description_en": "A half marathon held in Ishioka, Ibaraki, running a course that showcases the natural scenery of the Tsukubane area of the Mt. Tsukuba range.",
+  "official_url": "https://ishioka-half.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 5200,
+  "entry_start_date": "2026-09-01",
+  "entry_end_date": "2026-11-30",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "ビブス（ゼッケン）は主催者側で事前に用意し郵送",
+  "reception_note_en": "Race bibs are prepared and mailed to participants in advance by the organizer",
+  "tags": [
+    "ふるさと納税エントリー対応"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "筑波山系「つくばね」の自然を感じられるコース",
+    "highlights_en": "A course that lets runners experience the natural beauty of the Tsukubane area of the Mt. Tsukuba range",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 180,
+      "start_time": "09:30",
+      "capacity": 3000,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": 30,
+      "start_time": "10:15",
+      "capacity": 1000,
+      "entry_fee": 3000,
+      "entry_fee_u25": null,
+      "name_ja": "一般3kmの部",
+      "name_en": "General 3km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": 30,
+      "start_time": "10:30",
+      "capacity": 500,
+      "entry_fee": 1000,
+      "entry_fee_u25": null,
+      "name_ja": "中学生3kmの部",
+      "name_en": "Junior High School 3km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2.2,
+      "time_limit_minutes": 25,
+      "start_time": "10:50",
+      "capacity": 500,
+      "entry_fee": 1000,
+      "entry_fee_u25": null,
+      "name_ja": "小学生2.2kmの部",
+      "name_en": "Elementary School 2.2km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2.2,
+      "time_limit_minutes": 25,
+      "start_time": "10:55",
+      "capacity": 200,
+      "entry_fee": 2000,
+      "entry_fee_u25": null,
+      "name_ja": "親子2.2kmの部",
+      "name_en": "Parent-Child 2.2km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "参加賞Tシャツ（ハーフマラソンのみ）",
+      "description_en": "Participation T-shirt (half marathon only)",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "towel"
+      ],
+      "description_ja": "参加賞ハンドタオル（ハーフマラソン以外の種目）",
+      "description_en": "Participation hand towel (all events except the half marathon)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-08-31T00:00:00Z",
+  "updated_at": "2026-08-31T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://ishioka-half.com/）の公開情報から作成（2026-08-31）",
+    "data_accuracy_notes": [
+      "コース高低差、JAAF公認等のコース証明情報は公式サイトに記載なし",
+      "完走メダルの記載は公式サイトになし（確認できたのは参加賞のみ）",
+      "会場の緯度経度は未確認のためnull",
+      "entry_capacity（5,200）は種目別定員（3000+1000+500+500+200）の合計値",
+      "エントリー方法はふるさと納税・シンコーネット・ランネットの3経路"
+    ],
+    "last_verified": "2026-08-31",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-01",
+      "end_date": "2026-11-30",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": "筑波山麓・つくばねの自然を駆ける",
+  "tagline_en": "Run through the natural beauty of Tsukubane at the foot of Mt. Tsukuba",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "つくばねの自然",
+      "name_en": "The natural scenery of Tsukubane",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://ishioka-half.com/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://ishioka-half.com/course/",
+      "label": "コース"
+    },
+    {
+      "url": "https://ishioka-half.com/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://ishioka-half.com/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://ishioka-half.com/schedule/",
+      "label": "スケジュール"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "いしおかイベント広場",
+  "venue_name_en": "Ishioka Event Plaza",
+  "venue_address": "茨城県石岡市若宮3丁目1-1",
+  "start_lat": null,
+  "start_lng": null
+}

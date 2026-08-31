@@ -16,7 +16,7 @@
   "entry_fee_by_category": true,
   "entry_capacity": 1000,
   "entry_start_date": "2026-07-01",
-  "entry_end_date": "2026-08-31",
+  "entry_end_date": "2026-09-11",
   "reception_type": null,
   "reception_note_ja": null,
   "reception_note_en": null,
@@ -122,23 +122,38 @@
   ],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-08-24T16:27:35.473Z",
+  "updated_at": "2026-08-31T13:28:35.599Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。ジョギング（ファミリーの部）はcategoriesに未収録",
       "2026-08-25: runnet.jp紹介記事を起点に新規登録",
-      "2026-08-24: 自動クロールで更新"
+      "2026-08-24: 自動クロールで更新",
+      "2026-08-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-24",
+    "last_verified": "2026-08-31",
     "detail_level": "medium"
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
+      "label_ja": "ランネット（インターネット）",
+      "label_en": "RUNNET (Online)",
+      "start_date": "2026-07-01",
+      "end_date": "2026-09-11",
+      "entry_fee": null
+    },
+    {
+      "label_ja": "伊賀市ふるさと納税",
+      "label_en": "Iga City Furusato Nozei (Hometown Tax)",
       "start_date": "2026-07-01",
       "end_date": "2026-08-31",
+      "entry_fee": null
+    },
+    {
+      "label_ja": "郵便振替・実行委員会事務局持参",
+      "label_en": "Postal Transfer / In-person at Committee Office",
+      "start_date": "2026-07-01",
+      "end_date": "2026-09-11",
       "entry_fee": null
     }
   ],
@@ -175,7 +190,16 @@
       "label": "種目/コース"
     }
   ],
-  "completion_gifts": [],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "certificate"
+      ],
+      "description_ja": "Web完走証（完走者全員、大会当日から30日間ダウンロード可）",
+      "description_en": "Web finisher certificate for all finishers (downloadable for 30 days from race day)",
+      "image": null
+    }
+  ],
   "venue_name_ja": "伊賀市立上野西小学校",
   "venue_name_en": "Iga City Ueno-Nishi Elementary School",
   "venue_address": null,

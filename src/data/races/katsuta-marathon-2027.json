@@ -1,23 +1,23 @@
 {
-  "id": "katsuta-marathon-2026",
+  "id": "katsuta-marathon-2027",
   "name_ja": "勝田全国マラソン",
   "name_en": "Katsuta National Marathon",
   "full_name_ja": "第73回勝田全国マラソン",
   "full_name_en": "Katsuta National Marathon",
   "edition": 73,
-  "date": "2026-01-25",
+  "date": "2027-01-31",
   "prefecture": "08",
   "city_ja": "ひたちなか市",
   "city_en": "Hitachinaka City",
   "description_ja": "茨城県ひたちなか市で開催される歴史ある市民マラソン。1953年からの長い歴史を持つ伝統大会。",
   "description_en": "A historic citizens' marathon held in Hitachinaka City, Ibaraki. A traditional race with a long history since 1953.",
   "official_url": "https://katsutamarathon.jp",
-  "entry_fee": 8000,
+  "entry_fee": 9000,
   "entry_fee_by_category": true,
   "entry_capacity": 12000,
-  "entry_start_date": "2025-09-26",
-  "entry_end_date": "2025-10-31",
-  "reception_type": "none",
+  "entry_start_date": "2026-09-11",
+  "entry_end_date": "2026-10-31",
+  "reception_type": "pre_mail",
   "reception_note_ja": "事前郵送。大会当日の受付なし。",
   "reception_note_en": "Pre-mailed. No on-site registration on race day.",
   "tags": [
@@ -75,8 +75,19 @@
       "transport_to_venue_en": "About 10 min walk from JR Katsuta Station East Exit. Free shuttle bus available.",
       "latitude": 36.3933,
       "longitude": 140.4756,
-      "walk_minutes": null,
+      "walk_minutes": 10,
       "is_primary": true
+    },
+    {
+      "station_name_ja": "工機前駅",
+      "station_name_en": "Kokimae Station",
+      "station_code": "",
+      "transport_to_venue_ja": "ひたちなか海浜鉄道工機前駅より石川運動ひろばまで徒歩6分。",
+      "transport_to_venue_en": "About 6 min walk from Kokimae Station (Hitachinaka Seaside Railway) to Ishikawa Undo Hiroba.",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 6,
+      "is_primary": false
     }
   ],
   "nearby_spots": [
@@ -104,13 +115,12 @@
     }
   ],
   "result": null,
-  "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-05-30T06:37:19.558Z",
+  "created_at": "2026-08-31T13:33:14.228Z",
+  "updated_at": "2026-08-31T13:33:14.228Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-05-30: 自動クロールで更新",
+      "2026-08-31: 自動クロールで katsuta-marathon-2026 を元に2027年大会ファイルを新規作成",
       "2026-08-31: info_urlsの/info/abbott/がHTTP 404だったため、公式サイトの現在のページ構成を確認し/abbott/（AbbottWMM年代別世界ランキング大会加盟についてのページ）に修正。ラベルも実態に合わせて「AbbottWMM加盟情報」に変更"
     ],
     "last_verified": "2026-08-31",
@@ -118,11 +128,31 @@
   },
   "entry_periods": [
     {
+      "label_ja": "先行申込み（ひたちなか市・東海村民対象）",
+      "label_en": "Early Entry (Hitachinaka/Tokai Residents Only)",
+      "start_date": "2026-09-11",
+      "end_date": "2026-09-23",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
       "label_ja": "一般エントリー",
       "label_en": "General Entry",
-      "start_date": "2025-09-26",
-      "end_date": "2025-10-31",
-      "entry_fee": null
+      "start_date": "2026-09-25",
+      "end_date": "2026-10-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "ふるさと納税エントリー",
+      "label_en": "Furusato Nozei (Hometown Tax) Entry",
+      "start_date": "2026-09-11",
+      "end_date": "2026-10-14",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 2
     }
   ],
   "motif": "百里",
@@ -155,9 +185,9 @@
       "label": "コース情報"
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
+  "venue_name_ja": "石川運動ひろば",
+  "venue_name_en": "Ishikawa Undo Hiroba",
+  "venue_address": "茨城県ひたちなか市石川町地内",
   "start_lat": null,
   "start_lng": null
 }

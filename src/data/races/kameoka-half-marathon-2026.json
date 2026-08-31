@@ -16,7 +16,7 @@
   "entry_fee_by_category": true,
   "entry_capacity": 4500,
   "entry_start_date": "2026-07-01",
-  "entry_end_date": "2026-08-31",
+  "entry_end_date": "2026-09-20",
   "reception_type": "both",
   "reception_note_ja": "参加賞・プログラムは大会前日13:00〜17:00、当日7:00〜14:00に亀岡運動公園体育館前で配布（参加賞引換券が必要）。",
   "reception_note_en": "Participation gifts and program are handed out at Kameoka Sports Park Gymnasium from 13:00-17:00 the day before the race and 7:00-14:00 on race day (exchange voucher required).",
@@ -142,15 +142,16 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-08-24T16:30:18.657Z",
+  "updated_at": "2026-08-31T13:30:35.844Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。1.3kmファンラン・900mファンラン（車いす）はcategoriesに未収録",
       "2026-08-25: runnet.jp紹介記事を起点に新規登録",
-      "2026-08-24: 自動クロールで更新"
+      "2026-08-24: 自動クロールで更新",
+      "2026-08-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-24",
+    "last_verified": "2026-08-31",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -158,7 +159,7 @@
       "label_ja": "一般エントリー",
       "label_en": "General Entry",
       "start_date": "2026-07-01",
-      "end_date": "2026-08-31",
+      "end_date": "2026-09-20",
       "entry_fee": null
     }
   ],

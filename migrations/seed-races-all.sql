@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-08-31T13:46:40.178Z
+-- 生成日時: 2026-08-31T14:20:49.203Z
 -- 対象ファイル数: 121 件（既存 2 件はskip）
 
 -- ==================
@@ -10716,10 +10716,10 @@ INSERT INTO races (
   'Myoko City',
   '世界的トレイルランニングシリーズ「ゴールデントレイルワールドシリーズ」の日本初開催大会。妙高杉ノ原スキー場・池ノ平スキー場を舞台に、妙高山麓の急峻な登り下りが連続するコースを走る。',
   'The Japan debut of the Golden Trail World Series, held at Myoko Sugonohara and Ikenotaira ski resorts. The course features consecutive steep climbs and descents on the slopes of Mt. Myoko.',
-  'https://goldentrailseries.com/myoko-trail/',
-  NULL,
+  'https://www.nature-scene.net/gtws/',
+  18000,
   1,
-  400,
+  1200,
   '2026-04-12',
   '2026-08-03',
   0,
@@ -10730,13 +10730,13 @@ INSERT INTO races (
   NULL,
   0,
   0,
-  2020,
+  1935,
   'trail',
   '[]',
   '妙高山麓、急峻な登り下りが連続するコース',
   'Consecutive steep climbs and descents on the slopes of Mt. Myoko',
-  'GTWSレース（24.7km）は9月20日、公開レース（11km/5km）は9月19日開催',
-  'The GTWS race (24.7km) is held on Sep 20; the open races (11km/5km) are held on Sep 19',
+  'GTWSレース（23.5km）は9月20日、公開レース（11km/5km）は9月19日開催',
+  'The GTWS race (23.5km) is held on Sep 20; the open races (11km/5km) are held on Sep 19',
   '妙高山',
   '#0f766e',
   'Myoko-san',
@@ -10797,13 +10797,13 @@ INSERT INTO races (
   start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('myoko-trail-2026', 'other', 23.6, 300, '13:00', 0, NULL, NULL, 'GTWSレース', 'GTWS Race', '獲得標高約1,935m。16歳以上。男性制限時間4時間40分・女性5時間', '~1,935m elevation gain. Age 16+. Time limit: 4h40m (male) / 5h (female)', NULL, NULL, NULL, '[]', 0);
+  ('myoko-trail-2026', 'other', 23.5, 300, '13:00', 500, 18000, 13000, 'GTWSレース', 'GTWS Race', '獲得標高約1,935m。16歳以上。男性制限時間4時間40分・女性5時間', '~1,935m elevation gain. Age 16+. Time limit: 4h40m (male) / 5h (female)', NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('myoko-trail-2026', 'other', 11, 0, '13:00', 0, NULL, NULL, '妙高トレイル11km', 'Myoko Trail 11km', '中学生以上', 'Junior high school age and above', NULL, NULL, NULL, '[]', 1);
+  ('myoko-trail-2026', 'other', 11, 0, '13:00', 400, NULL, NULL, '妙高トレイル11km', 'Myoko Trail 11km', '中学生以上', 'Junior high school age and above', NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('myoko-trail-2026', '5k', 5, 0, '14:00', 0, NULL, NULL, '妙高トレイル5km', 'Myoko Trail 5km', '中学生以上', 'Junior high school age and above', NULL, NULL, NULL, '[]', 2);
+  ('myoko-trail-2026', '5k', 5, 0, '14:00', 300, NULL, NULL, '妙高トレイル5km', 'Myoko Trail 5km', '中学生以上', 'Junior high school age and above', NULL, NULL, NULL, '[]', 2);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('myoko-trail-2026', NULL, '一般エントリー', 'General Entry', '2026-04-12', '2026-08-03', NULL, 0);
+  ('myoko-trail-2026', NULL, '一般エントリー', 'General Entry', '2026-04-12', '2026-08-03', 18000, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('myoko-trail-2026', NULL, NULL, '妙高山', 'Mt. Myoko', NULL, NULL, 0);
 

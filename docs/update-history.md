@@ -1037,3 +1037,29 @@ Issue #126のstg動作確認中に発見した2件の追加対応。
 - `src/components/__tests__/Header.test.tsx`（変更）: お知らせナビリンクの表示・href確認テストを追加
 - `src/messages/ja.json` / `src/messages/en.json`（変更）: `nav.news` キーを追加
 - `src/data/announcements.json`（変更）: 「お知らせページ追加」の告知を2件目として登録（`link_href: null` の例を兼ねる）
+
+## 2026-08-31 定期crawl反映・新規大会10件追加・エラーURL修正
+
+`pnpm run crawl` を実行し、あわせてユーザー指定のrunnet.jp掲載大会一覧（週間エントリー開始・エントリー終了間近の2ページ、計16件）を既存データと照合。
+
+- 自動クロールで21大会のデータを更新（LLM抽出15件）。次年度大会を自動検出し新規ファイルを3件作成:
+  - `katsuta-marathon-2027.json` / `nagano-marathon-2027.json` / `nagoya-womens-marathon-2027.json`
+- runnet.jp掲載大会のうち未登録だった10大会を新規追加（`src/data/races/*.json`）:
+  - `makomanai-marathon-2026.json`（真駒内マラソン。依頼時「第12回」表記だが公式サイト最新の「第13回」を採用、metadataに記録）
+  - `isesaki-city-marathon-2026.json`（伊勢崎シティマラソン）
+  - `kawaguchi-marathon-2026.json`（川口マラソン）
+  - `minokamo-half-marathon-2027.json`（みのかもハーフマラソン）
+  - `akabane-half-marathon-2027.json`（東京・赤羽ハーフマラソン）
+  - `ishioka-tsukubane-half-marathon-2027.json`（石岡つくばねハーフマラソン）
+  - `hamamatsu-city-marathon-2027.json`（浜松シティマラソン）
+  - `shimosuwa-onbashira-trail-2026.json`（下諏訪御柱街道トレイル、43km/14.5km）
+  - `sakai-kojo-marathon-2026.json`（坂井市古城マラソン）
+  - `ise-marathon-2026.json`（中日三重お伊勢さんマラソン。既存の`mie-matsusaka-marathon-2026`とは別大会）
+- crawlでエラーとなった参照URLを調査・修正:
+  - `fukui-sakura-marathon-2027.json` / `higashinipon-half-marathon-2026.json`: サイトリニューアルで移動したページへURL修正
+  - `saga-sakura-marathon-2027.json` / `katsuta-marathon-2026.json` / `katsuta-marathon-2027.json`: 廃止されたページのURLを現行ページへ修正
+  - `aoshima-taiheyo-marathon-2026.json` / `sado-toki-marathon-2026.json`: URL自体は生存していたが、サーバーがTLS中間証明書を送出せずNode.jsの`fetch`のみが検証エラーになることを`openssl s_client`で確認。URLは変更せず原因を`_metadata`に記録
+  - `tamba-sasayama-abc-marathon-2026.json` / `tokushima-marathon-2026.json`: 次回大会向けサイトが未公開（ティザーページのみ）のため現状維持、再確認時期を`_metadata`に記録
+- `shizuoka-marathon-2026`（Nuxt.js製SPA、JS描画のためcrawlツールでは本文取得不可）・`sapporo-marathon-2026`（satumara.sapporo-sport.jp）・`nagoya-womens-marathon-2027`の一部URLエラーは実URLが生存していることを直接確認済み（一時的な取得失敗・クロールツールの既知の限界のため対応不要）
+- `scripts/generate-seed-races.js` でシード再生成 → `migrations/seed-races-all.sql` 更新 → `pnpm run db:seed-races:local` でローカルD1に反映・件数確認
+- `node scripts/validate-races.js`（エラー0件）、`pnpm run test:tools`（213件）、`pnpm vitest run`（767件）すべてパス

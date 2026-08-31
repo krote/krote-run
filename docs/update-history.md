@@ -1081,3 +1081,12 @@ Issue #126のstg動作確認中に発見した2件の追加対応。
 - `src/data/races/amakusa-marathon-2026.json`（新規）: 第21回天草マラソン大会（2026-11-15、熊本県天草市、ハーフ個人/団体・5km/3km）
 - `src/data/races/yokohama-northdock-run-2026.json`（新規）: 横浜ノースドックラン2026（2026-11-07、神奈川県横浜市神奈川区、5km/10km/ハーフ〈5.275km×4周〉）
 - `scripts/generate-seed-races.js` でシード再生成、`node scripts/validate-races.js`（エラー0件、127ファイル）、`pnpm run test:tools`（213件）パス、ローカルD1に反映確認
+
+## 2026-09-01 松本マラソン（中止）の孤立データを削除
+
+`matsumoto-marathon-2026` は2026-03-31のコミットでJSON削除時に本番DBの削除が漏れていた孤立データ（CLAUDE.md記載の既知事項）。ユーザーより「実際には大会が中止になった」との確認があり削除を実施。
+
+- 対象は本番D1（`krote-run-db`）とローカルD1のみ（stgには元々存在せず対応不要）
+- `races`本体および関連13テーブル（`race_categories`・`participation_gifts`等、`user_races`経由の子テーブル含む）から削除。`user_races`は0件（実ユーザーの参加予定登録なし）で影響なし
+- 削除後、本番で `/ja/races/matsumoto-marathon-2026` が404になることを確認
+- 一時SQL（`scripts/delete-matsumoto-marathon.sql`）は実行後に削除。ファイルベースのレースデータ（`src/data/races/`）には元々このIDのファイルが存在しないため、コード変更・PRは無し（DB操作のみ）

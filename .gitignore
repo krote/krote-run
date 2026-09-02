@@ -49,3 +49,6 @@ next-env.d.ts
 
 # Claude Code local settings
 .claude/settings.local.json
+
+# OTP graph build (OSM pbf / GTFS zip / graph.obj) - Issue #82
+/.otp-build/

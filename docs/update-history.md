@@ -1090,3 +1090,19 @@ Issue #126のstg動作確認中に発見した2件の追加対応。
 - `races`本体および関連13テーブル（`race_categories`・`participation_gifts`等、`user_races`経由の子テーブル含む）から削除。`user_races`は0件（実ユーザーの参加予定登録なし）で影響なし
 - 削除後、本番で `/ja/races/matsumoto-marathon-2026` が404になることを確認
 - 一時SQL（`scripts/delete-matsumoto-marathon.sql`）は実行後に削除。ファイルベースのレースデータ（`src/data/races/`）には元々このIDのファイルが存在しないため、コード変更・PRは無し（DB操作のみ）
+
+## 2026-09-03 前泊判定UIの復元・設定ページ新設（Issue #82 一部）
+
+2026年7月に一度実装され（`2ca35f7`/`1c710bd`）、Google Routes APIの日本非対応を理由に削除された（`977a051`）前泊判定UIを、現行コードベース（`calcDayTripStatus`の新シグネチャ・`DayTripStatus`型・`reception.ts`ヘルパー）に合わせて手動移植。ロジック層（`src/lib/travel.ts`・`src/lib/hubs.ts`）とDBスキーマ・`data.ts`のバッチ取得は既に実装済みだったため変更不要だった。
+
+- `src/lib/types.ts`: `RaceFilter.dayTrip: boolean` を復元
+- `src/lib/utils/filter.ts`: `filterRaces`に`travelSettings`引数、`defaultFilter`/`emptyFilter`/`isDefaultFilter`/`isFilterEmpty`/`filterToSearchParams`/`searchParamsToFilter`のdayTrip対応を復元
+- `src/lib/hooks/useTravelSettings.ts`（新規）: localStorage経由でTravelSettings（`hub_id`/`nearest_station`/`offset_minutes`/`first_train_time`）を読み書きするフック。`useState`+`useEffect`ではなく`useSyncExternalStore`で実装（`react-hooks/set-state-in-effect`エラー回避、SSR時は`getServerSnapshot`でnullを返す）
+- `src/app/[locale]/settings/page.tsx`（新規）: 独立した前泊判定設定ページ。ハブ選択・最寄り駅・余裕時間・始発時刻を設定可能（旧mypage実装では最寄り駅の入力欄が欠落していたため追加）
+- `src/components/layout/Header.tsx`: 未使用だった`nav.settings`翻訳キーを使い、`/settings`へのナビゲーションリンクを追加
+- `src/components/races/DayTripBadge.tsx`（新規）: カード・詳細ページ共通の前泊ステータスバッジ。`DayTripStatus`の`unknown/no_start_time`は非表示（判定不能のため）、`unknown/no_travel_time`は「移動時間不明」を表示
+- `src/components/races/RaceFilter.tsx` / `RaceList.tsx` / `RaceCard.tsx` / `RaceCardExp.tsx`: 「日帰り可能のみ」トグル・前泊必須/推奨/日帰り可バッジを復元。travelSettings未設定ユーザーには一切UIが表示されないことを確認
+- `src/components/races/detail/TravelStatusSection.tsx`（新規）: 大会詳細ページ用の前泊ステータス表示。Googleマップ経路ディープリンク（`https://www.google.com/maps/dir/?api=1&origin=...&destination=...&arrival_time=...`、API不使用）を`venue_address`/`start_lat`+`start_lng`宛に生成
+- `src/app/[locale]/races/[id]/page.tsx`: アクセスセクション直後に`TravelStatusSection`を追加
+- テスト: `utils.filter-state.test.ts`/`utils.filter.test.ts`にdayTripケース復元、`useTravelSettings.test.ts`/`DayTripBadge.test.tsx`/`TravelStatusSection.test.tsx`/`settings/page.test.tsx`を新規作成、`RaceFilter.test.tsx`/`RaceCard.test.tsx`/`RaceCardExp.test.tsx`/`RaceList.test.tsx`/`Header.test.tsx`にケース追加
+- `pnpm vitest run`（820件）全パス、`pnpm exec tsc --noEmit`は既存の124件のエラーのみ（新規追加分ゼロ）、`pnpm run lint`はエラー0件（既存の5件の警告のみ）

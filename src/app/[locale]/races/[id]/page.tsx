@@ -17,6 +17,7 @@ import EntrySection from '@/components/races/detail/EntrySection';
 import LastEditionSection from '@/components/races/detail/LastEditionSection';
 import GallerySection from '@/components/races/detail/GallerySection';
 import GearStatsSection from '@/components/races/detail/GearStatsSection';
+import TravelStatusSection from '@/components/races/detail/TravelStatusSection';
 
 export async function generateMetadata({
   params,
@@ -566,6 +567,10 @@ export default async function RaceDetailPage({
             </div>
           </section>
         )}
+
+        {/* Travel status（前泊判定・Googleマップ経路リンク） */}
+        {/* travelSettings（localStorage）未設定のユーザーには何も表示されない */}
+        <TravelStatusSection race={race} locale={locale} />
 
         {/* Participation Gift / Completion Gift */}
         {(race.participation_gifts.length > 0 || race.completion_gifts.length > 0) && (

@@ -3,7 +3,10 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import RaceList from '../races/RaceList';
-import { makeRace, makeCategory, makeEntryPeriod } from '../../lib/__tests__/fixtures';
+import { makeRace, makeCategory, makeEntryPeriod, makeRaceTravelTime } from '../../lib/__tests__/fixtures';
+import type { TravelSettings } from '../../lib/travel';
+
+const STORAGE_KEY = 'hashiru_travel_settings';
 
 vi.mock('next-intl', () => ({
   useTranslations: () => (key: string, params?: Record<string, unknown>) => {
@@ -43,6 +46,7 @@ vi.mock('@/data/prefectures.json', () => ({
 const TODAY = '2026-04-03';
 
 beforeEach(() => {
+  localStorage.clear();
   // Date のみ fake にする（setTimeout/Promise は real のまま → userEvent が正常動作）
   vi.useFakeTimers({ toFake: ['Date'] });
   vi.setSystemTime(new Date(`${TODAY}T12:00:00.000Z`));
@@ -136,5 +140,66 @@ describe('RaceList - ビュー切り替え', () => {
     render(<RaceList {...baseProps} races={makeRaces()} />);
     await user.click(screen.getByText('体験で探す'));
     expect(screen.getAllByRole('article').length).toBeGreaterThan(0);
+  });
+});
+
+describe('RaceList - 日帰りフィルタ（travelSettings 連携）', () => {
+  it('travelSettings 未設定時は日帰りトグルが表示されない', () => {
+    render(<RaceList {...baseProps} races={makeRaces()} />);
+    expect(screen.queryByText('日帰り可能のみ')).not.toBeInTheDocument();
+  });
+
+  it('localStorage に travelSettings があれば日帰りトグルが表示される', async () => {
+    const settings: TravelSettings = {
+      hubId: 'tokyo',
+      nearestStation: '東京駅',
+      offsetMinutes: 0,
+      firstTrainTime: '05:00',
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+
+    render(<RaceList {...baseProps} races={makeRaces()} />);
+    expect(await screen.findByText('日帰り可能のみ')).toBeInTheDocument();
+  });
+
+  it('日帰りトグルをONにすると day_trip でない大会が除外される', async () => {
+    const settings: TravelSettings = {
+      hubId: 'tokyo',
+      nearestStation: '東京駅',
+      offsetMinutes: 0,
+      firstTrainTime: '05:00',
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+
+    const races = [
+      makeRace({
+        id: 'day-trip-race',
+        name_ja: '日帰り大会',
+        date: '2026-10-01',
+        reception_type: 'race_day',
+        entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30' })],
+        categories: [makeCategory({ start_time: '09:00' })],
+        travel_times: [makeRaceTravelTime({ hub_id: 'tokyo', duration_minutes: 60 })],
+      }),
+      makeRace({
+        id: 'overnight-race',
+        name_ja: '前泊必須大会',
+        date: '2026-10-01',
+        reception_type: 'pre_day',
+        entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30' })],
+        categories: [makeCategory({ start_time: '09:00' })],
+        travel_times: [makeRaceTravelTime({ hub_id: 'tokyo', duration_minutes: 60 })],
+      }),
+    ];
+
+    render(<RaceList {...baseProps} races={races} />);
+    await screen.findByText('日帰り可能のみ');
+    expect(screen.getByText('日帰り大会')).toBeInTheDocument();
+    expect(screen.getByText('前泊必須大会')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('switch'));
+
+    expect(screen.getByText('日帰り大会')).toBeInTheDocument();
+    expect(screen.queryByText('前泊必須大会')).not.toBeInTheDocument();
   });
 });

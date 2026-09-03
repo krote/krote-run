@@ -1090,3 +1090,18 @@ Issue #126のstg動作確認中に発見した2件の追加対応。
 - `races`本体および関連13テーブル（`race_categories`・`participation_gifts`等、`user_races`経由の子テーブル含む）から削除。`user_races`は0件（実ユーザーの参加予定登録なし）で影響なし
 - 削除後、本番で `/ja/races/matsumoto-marathon-2026` が404になることを確認
 - 一時SQL（`scripts/delete-matsumoto-marathon.sql`）は実行後に削除。ファイルベースのレースデータ（`src/data/races/`）には元々このIDのファイルが存在しないため、コード変更・PRは無し（DB操作のみ）
+
+## 2026-09-02 calc-travel-times.js を Google Maps Routes API から OpenTripPlanner (OTP) に全面書き換え（Issue #82 一部）
+
+GoogleのtransitモードはAPI経由で日本を対象外としているため使えないことが判明（Issue #82参照）。代わりにOTP（GraphQLサーバー、ローカルDocker等で使い捨て起動する想定）に問い合わせる実装に切り替えた。
+
+- `scripts/calc-travel-times.js`: 全面書き換え。`buildRoutesApiUrl` 等のGoogle固有コードは削除
+  - OTPの `plan` クエリ（`arriveBy: true` + `date`/`time`）で到着期限までに間に合う経路を問い合わせ、`itineraries` の最短 `duration`（秒）を分に変換
+  - 到着期限は `src/lib/reception.ts` の `getArrivalDeadline()` と同等ロジックをJSに複製して算出（scripts/ はCommonJSでTSを直接requireできないため）。`start_time` 未整備で期限が計算できないレース、`start_lat`/`start_lng` 未設定のレースはスキップ
+  - OTPが経路を見つけられない場合（`itineraries` 空・`plan` null・`errors` あり）は「不明」として扱い、該当レース×ハブの行を出力しない（誤った数値を出さない）
+  - 出力先をレースJSON直接更新からSQLファイル生成に変更: `migrations/seed-travel-times.sql`（`race_travel_times` への `INSERT ... ON CONFLICT(race_id, hub_id) DO UPDATE` 形式）。DBには直接書き込まない
+  - OTPサーバーURLは環境変数 `OTP_URL`（デフォルト `http://localhost:8080`）で設定可能
+- `scripts/calc-travel-times.test.js`: TDDで先にRed → Green。`fetch` をモックしてOTPレスポンス形式（正常・経路なし・HTTPエラー・ハブ単位のエラー継続）と `getArrivalDeadline` の主要ケースをテスト
+- `package.json` の `test:tools` に `scripts/calc-travel-times.test.js` を追加
+- `pnpm run test:tools` 全249件パス確認
+- 本Issueの残タスク（UI復元・`scripts/build-otp-graph.sh`・GitHub Actionsワークフロー）は未着手

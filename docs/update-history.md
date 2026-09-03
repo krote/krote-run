@@ -1091,18 +1091,17 @@ Issue #126のstg動作確認中に発見した2件の追加対応。
 - 削除後、本番で `/ja/races/matsumoto-marathon-2026` が404になることを確認
 - 一時SQL（`scripts/delete-matsumoto-marathon.sql`）は実行後に削除。ファイルベースのレースデータ（`src/data/races/`）には元々このIDのファイルが存在しないため、コード変更・PRは無し（DB操作のみ）
 
-## 2026-09-03 前泊判定UIの復元・設定ページ新設（Issue #82 一部）
+## 2026-09-02 calc-travel-times.js を Google Maps Routes API から OpenTripPlanner (OTP) に全面書き換え（Issue #82 一部）
 
-2026年7月に一度実装され（`2ca35f7`/`1c710bd`）、Google Routes APIの日本非対応を理由に削除された（`977a051`）前泊判定UIを、現行コードベース（`calcDayTripStatus`の新シグネチャ・`DayTripStatus`型・`reception.ts`ヘルパー）に合わせて手動移植。ロジック層（`src/lib/travel.ts`・`src/lib/hubs.ts`）とDBスキーマ・`data.ts`のバッチ取得は既に実装済みだったため変更不要だった。
+GoogleのtransitモードはAPI経由で日本を対象外としているため使えないことが判明（Issue #82参照）。代わりにOTP（GraphQLサーバー、ローカルDocker等で使い捨て起動する想定）に問い合わせる実装に切り替えた。
 
-- `src/lib/types.ts`: `RaceFilter.dayTrip: boolean` を復元
-- `src/lib/utils/filter.ts`: `filterRaces`に`travelSettings`引数、`defaultFilter`/`emptyFilter`/`isDefaultFilter`/`isFilterEmpty`/`filterToSearchParams`/`searchParamsToFilter`のdayTrip対応を復元
-- `src/lib/hooks/useTravelSettings.ts`（新規）: localStorage経由でTravelSettings（`hub_id`/`nearest_station`/`offset_minutes`/`first_train_time`）を読み書きするフック。`useState`+`useEffect`ではなく`useSyncExternalStore`で実装（`react-hooks/set-state-in-effect`エラー回避、SSR時は`getServerSnapshot`でnullを返す）
-- `src/app/[locale]/settings/page.tsx`（新規）: 独立した前泊判定設定ページ。ハブ選択・最寄り駅・余裕時間・始発時刻を設定可能（旧mypage実装では最寄り駅の入力欄が欠落していたため追加）
-- `src/components/layout/Header.tsx`: 未使用だった`nav.settings`翻訳キーを使い、`/settings`へのナビゲーションリンクを追加
-- `src/components/races/DayTripBadge.tsx`（新規）: カード・詳細ページ共通の前泊ステータスバッジ。`DayTripStatus`の`unknown/no_start_time`は非表示（判定不能のため）、`unknown/no_travel_time`は「移動時間不明」を表示
-- `src/components/races/RaceFilter.tsx` / `RaceList.tsx` / `RaceCard.tsx` / `RaceCardExp.tsx`: 「日帰り可能のみ」トグル・前泊必須/推奨/日帰り可バッジを復元。travelSettings未設定ユーザーには一切UIが表示されないことを確認
-- `src/components/races/detail/TravelStatusSection.tsx`（新規）: 大会詳細ページ用の前泊ステータス表示。Googleマップ経路ディープリンク（`https://www.google.com/maps/dir/?api=1&origin=...&destination=...&arrival_time=...`、API不使用）を`venue_address`/`start_lat`+`start_lng`宛に生成
-- `src/app/[locale]/races/[id]/page.tsx`: アクセスセクション直後に`TravelStatusSection`を追加
-- テスト: `utils.filter-state.test.ts`/`utils.filter.test.ts`にdayTripケース復元、`useTravelSettings.test.ts`/`DayTripBadge.test.tsx`/`TravelStatusSection.test.tsx`/`settings/page.test.tsx`を新規作成、`RaceFilter.test.tsx`/`RaceCard.test.tsx`/`RaceCardExp.test.tsx`/`RaceList.test.tsx`/`Header.test.tsx`にケース追加
-- `pnpm vitest run`（820件）全パス、`pnpm exec tsc --noEmit`は既存の124件のエラーのみ（新規追加分ゼロ）、`pnpm run lint`はエラー0件（既存の5件の警告のみ）
+- `scripts/calc-travel-times.js`: 全面書き換え。`buildRoutesApiUrl` 等のGoogle固有コードは削除
+  - OTPの `plan` クエリ（`arriveBy: true` + `date`/`time`）で到着期限までに間に合う経路を問い合わせ、`itineraries` の最短 `duration`（秒）を分に変換
+  - 到着期限は `src/lib/reception.ts` の `getArrivalDeadline()` と同等ロジックをJSに複製して算出（scripts/ はCommonJSでTSを直接requireできないため）。`start_time` 未整備で期限が計算できないレース、`start_lat`/`start_lng` 未設定のレースはスキップ
+  - OTPが経路を見つけられない場合（`itineraries` 空・`plan` null・`errors` あり）は「不明」として扱い、該当レース×ハブの行を出力しない（誤った数値を出さない）
+  - 出力先をレースJSON直接更新からSQLファイル生成に変更: `migrations/seed-travel-times.sql`（`race_travel_times` への `INSERT ... ON CONFLICT(race_id, hub_id) DO UPDATE` 形式）。DBには直接書き込まない
+  - OTPサーバーURLは環境変数 `OTP_URL`（デフォルト `http://localhost:8080`）で設定可能
+- `scripts/calc-travel-times.test.js`: TDDで先にRed → Green。`fetch` をモックしてOTPレスポンス形式（正常・経路なし・HTTPエラー・ハブ単位のエラー継続）と `getArrivalDeadline` の主要ケースをテスト
+- `package.json` の `test:tools` に `scripts/calc-travel-times.test.js` を追加
+- `pnpm run test:tools` 全249件パス確認
+- 本Issueの残タスク（UI復元・`scripts/build-otp-graph.sh`・GitHub Actionsワークフロー）は未着手

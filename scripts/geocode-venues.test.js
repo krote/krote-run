@@ -130,4 +130,11 @@ describe('geocodeAll', () => {
       () => geocodeAll({ dryRun: true, fetchFn: async () => { throw new Error('API error'); }, _delayMs: 0 })
     );
   });
+
+  test('{ processed, skipped, failed } の統計オブジェクトを返す', async () => {
+    const stats = await geocodeAll({ dryRun: true, fetchFn: async () => null, _delayMs: 0 });
+    assert.equal(typeof stats.processed, 'number');
+    assert.equal(typeof stats.skipped, 'number');
+    assert.equal(typeof stats.failed, 'number');
+  });
 });

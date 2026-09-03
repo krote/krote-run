@@ -137,6 +137,8 @@ async function geocodeAll({ dryRun = false, fetchFn = geocodeAddress, _delayMs =
 
   console.log(`\n処理: ${processed}件  スキップ: ${skipped}件  エラー/範囲外: ${failed}件`);
   if (dryRun) console.log('（--dry-run のため実際の書き込みは行っていません）');
+
+  return { processed, skipped, failed };
 }
 
 // ── CLI 実行 ─────────────────────────────────────────────────────────

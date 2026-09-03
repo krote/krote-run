@@ -85,7 +85,7 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-08-31T13:35:24.613Z",
+  "updated_at": "2026-09-03T14:52:12.045Z",
   "_metadata": {
     "data_source": "大会主催者公式サイト（nature-scene.net/gtws/）の公開情報から作成",
     "data_accuracy_notes": [
@@ -152,6 +152,6 @@
   "venue_name_ja": "妙高杉ノ原スキー場",
   "venue_name_en": "Myoko Sugonohara Ski Resort",
   "venue_address": "新潟県妙高市",
-  "start_lat": null,
-  "start_lng": null
+  "start_lat": 37.025269,
+  "start_lng": 138.253342
 }

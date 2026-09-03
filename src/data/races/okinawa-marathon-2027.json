@@ -85,7 +85,7 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-08-31T14:52:20.077Z",
-  "updated_at": "2026-08-31T14:52:20.077Z",
+  "updated_at": "2026-09-03T14:52:13.638Z",
   "_metadata": {
     "data_source": "公式サイト（okinawa-marathon.com）およびsportsentry.ne.jp等の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -157,6 +157,6 @@
   "venue_name_ja": "沖縄県総合運動公園",
   "venue_name_en": "Okinawa Prefectural General Sports Park",
   "venue_address": "沖縄県沖縄市比屋根",
-  "start_lat": null,
-  "start_lng": null
+  "start_lat": 26.316263,
+  "start_lng": 127.823021
 }

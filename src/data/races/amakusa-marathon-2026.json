@@ -110,7 +110,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T23:51:21.157Z",
-  "updated_at": "2026-08-31T23:51:21.157Z",
+  "updated_at": "2026-09-03T14:51:52.345Z",
   "_metadata": {
     "data_source": "公式サイト（https://ama-spo.net/marathon/）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -164,6 +164,6 @@
   "venue_name_ja": "あましんスタジアム",
   "venue_name_en": "Amashin Stadium",
   "venue_address": "熊本県天草市東町3番地（天草市民センター内）",
-  "start_lat": null,
-  "start_lng": null
+  "start_lat": 32.452171,
+  "start_lng": 130.199707
 }

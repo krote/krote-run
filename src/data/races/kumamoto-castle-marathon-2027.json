@@ -94,7 +94,7 @@
   ],
   "result": null,
   "created_at": "2026-07-27T14:20:33.431Z",
-  "updated_at": "2026-07-27T14:20:33.431Z",
+  "updated_at": "2026-09-03T14:52:09.901Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -166,6 +166,6 @@
   "venue_name_ja": "花畑広場（くまもと街なか広場）",
   "venue_name_en": "Hanabata Plaza (Kumamoto City Center Square)",
   "venue_address": "熊本市中央区花畑町",
-  "start_lat": null,
-  "start_lng": null
+  "start_lat": 32.801342,
+  "start_lng": 130.705902
 }

@@ -113,7 +113,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-08-31T13:32:03.663Z",
+  "updated_at": "2026-09-03T14:52:07.219Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -187,6 +187,6 @@
   "venue_name_ja": "川口運動公園J:COMフィールド土浦",
   "venue_name_en": "Kawaguchi Sports Park J:COM Field Tsuchiura",
   "venue_address": "茨城県土浦市川口2丁目12-75",
-  "start_lat": null,
-  "start_lng": null
+  "start_lat": 36.080097,
+  "start_lng": 140.210587
 }

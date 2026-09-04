@@ -108,7 +108,7 @@
   ],
   "result": null,
   "created_at": "2026-06-29T14:13:35.752Z",
-  "updated_at": "2026-07-31T14:32:35.280Z",
+  "updated_at": "2026-09-03T14:52:09.354Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -204,6 +204,6 @@
   "venue_name_ja": "高知県庁前（スタート）／高知県立春野総合運動公園（フィニッシュ）",
   "venue_name_en": "Kochi Prefectural Office (Start) / Haruno Sogo Undo Koen (Finish)",
   "venue_address": "高知県高知市丸ノ内1-2-20",
-  "start_lat": null,
-  "start_lng": null
+  "start_lat": 33.561375,
+  "start_lng": 133.529541
 }

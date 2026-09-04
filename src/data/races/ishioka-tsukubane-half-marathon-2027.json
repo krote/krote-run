@@ -132,7 +132,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T00:00:00Z",
-  "updated_at": "2026-08-31T00:00:00Z",
+  "updated_at": "2026-09-03T14:52:01.930Z",
   "_metadata": {
     "data_source": "公式サイト（https://ishioka-half.com/）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -201,6 +201,6 @@
   "venue_name_ja": "いしおかイベント広場",
   "venue_name_en": "Ishioka Event Plaza",
   "venue_address": "茨城県石岡市若宮3丁目1-1",
-  "start_lat": null,
-  "start_lng": null
+  "start_lat": 36.193573,
+  "start_lng": 140.272461
 }

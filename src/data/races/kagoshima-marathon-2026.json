@@ -92,7 +92,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-07-27T14:16:44.298Z",
+  "updated_at": "2026-09-03T14:52:05.592Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -172,6 +172,6 @@
   "venue_name_ja": "中央公園（おもてなし広場）",
   "venue_name_en": "Chuo Park (Omotenashi Hiroba)",
   "venue_address": "鹿児島市山下町4-1",
-  "start_lat": null,
-  "start_lng": null
+  "start_lat": 31.593269,
+  "start_lng": 130.553879
 }

@@ -134,7 +134,7 @@
   ],
   "result": null,
   "created_at": "2026-08-24T16:18:08.658Z",
-  "updated_at": "2026-08-24T16:18:08.658Z",
+  "updated_at": "2026-09-03T14:52:16.338Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -223,6 +223,6 @@
   "venue_name_ja": "福原有信グラウンド館山（館山市営市民運動場）",
   "venue_name_en": "Fukuhara Yushin Ground Tateyama (Tateyama Municipal Citizens' Athletic Field)",
   "venue_address": "千葉県館山市正木4304-2",
-  "start_lat": null,
-  "start_lng": null
+  "start_lat": 35.01247,
+  "start_lng": 139.858475
 }

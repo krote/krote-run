@@ -3,10 +3,14 @@ import { formatDate, getRaceName } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import prefecturesData from '@/data/prefectures.json';
+import type { TravelSettings } from '@/lib/travel';
+import { calcDayTripStatus } from '@/lib/travel';
+import DayTripBadge from './DayTripBadge';
 interface RaceCardProps {
   race: Race;
   locale: Locale;
   from?: string;
+  travelSettings?: TravelSettings | null;
 }
 
 const PREF_MAP = new Map(
@@ -67,7 +71,7 @@ function getSeason(dateStr: string): { en: string; ja: string } {
   return { en: 'WINTER', ja: '冬' };
 }
 
-export default function RaceCard({ race, locale, from }: RaceCardProps) {
+export default function RaceCard({ race, locale, from, travelSettings }: RaceCardProps) {
   const t = useTranslations('races.detail');
   const today = new Date().toISOString().split('T')[0];
   const isPast = race.date < today;
@@ -133,6 +137,13 @@ export default function RaceCard({ race, locale, from }: RaceCardProps) {
   const prefLabel = locale === 'ja' ? pref?.ja ?? '' : pref?.en ?? '';
 
   const season = getSeason(race.date);
+
+  // Day-trip status
+  const dayTripStatus = (() => {
+    if (!travelSettings) return null;
+    const mins = race.travel_times?.find((t) => t.hub_id === travelSettings.hubId)?.duration_minutes ?? null;
+    return calcDayTripStatus(race, mins, travelSettings);
+  })();
 
   // Status badge styles
   let badgeBg = 'transparent';
@@ -411,6 +422,13 @@ export default function RaceCard({ race, locale, from }: RaceCardProps) {
               </div>
             </div>
           </div>
+
+          {/* Day-trip status */}
+          {dayTripStatus && !(dayTripStatus.status === 'unknown' && dayTripStatus.reason === 'no_start_time') && (
+            <div className="pt-2" style={{ borderTop: '1px solid var(--color-border-soft)' }}>
+              <DayTripBadge status={dayTripStatus} locale={locale} />
+            </div>
+          )}
         </div>
       </article>
     </Link>

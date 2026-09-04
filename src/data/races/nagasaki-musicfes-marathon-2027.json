@@ -71,7 +71,7 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-08-31T13:36:45.940Z",
+  "updated_at": "2026-09-04T14:20:10.215Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -79,9 +79,10 @@
       "2026-08-25: runnet.jp紹介記事を起点に新規登録（新設大会）",
       "2026-08-24: 自動クロールで更新",
       "2026-08-25: 定員が6,950人になっていたが公式サイト確認でマラソン10,000人と判明し修正",
-      "2026-08-31: 自動クロールで更新"
+      "2026-08-31: 自動クロールで更新",
+      "2026-09-04: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-09-04",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -134,7 +135,16 @@
       "label": "エントリー"
     }
   ],
-  "completion_gifts": [],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "完走者にはフィニッシュ時にメダルをお贈りします（マラソンのみ）",
+      "description_en": "Finishers receive a medal at the finish line (marathon only)",
+      "image": null
+    }
+  ],
   "venue_name_ja": "トランスコスモススタジアム長崎",
   "venue_name_en": "Trans Cosmos Stadium Nagasaki",
   "venue_address": null,

@@ -12,7 +12,7 @@
   "description_ja": "茨城県石岡市で開催されるハーフマラソン。筑波山系「つくばね」の自然を感じられるコースが特徴。",
   "description_en": "A half marathon held in Ishioka, Ibaraki, running a course that showcases the natural scenery of the Tsukubane area of the Mt. Tsukuba range.",
   "official_url": "https://ishioka-half.com/",
-  "entry_fee": null,
+  "entry_fee": 6000,
   "entry_fee_by_category": true,
   "entry_capacity": 5200,
   "entry_start_date": "2026-09-01",
@@ -109,7 +109,19 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "石岡駅",
+      "station_name_en": "Ishioka Station",
+      "station_code": "",
+      "transport_to_venue_ja": "常磐線石岡駅下車徒歩約10分",
+      "transport_to_venue_en": "About 10 min walk from Ishioka Station on the Joban Line",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 10,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [
@@ -132,7 +144,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T00:00:00Z",
-  "updated_at": "2026-09-03T14:52:01.930Z",
+  "updated_at": "2026-09-04T14:11:44.209Z",
   "_metadata": {
     "data_source": "公式サイト（https://ishioka-half.com/）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -140,20 +152,57 @@
       "完走メダルの記載は公式サイトになし（確認できたのは参加賞のみ）",
       "会場の緯度経度は未確認のためnull",
       "entry_capacity（5,200）は種目別定員（3000+1000+500+500+200）の合計値",
-      "エントリー方法はふるさと納税・シンコーネット・ランネットの3経路"
+      "エントリー方法はふるさと納税・シンコーネット・ランネットの3経路",
+      "2026-09-04: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-09-04",
     "detail_level": "light"
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
+      "label_ja": "ハーフマラソン",
+      "label_en": "Half Marathon",
       "start_date": "2026-09-01",
       "end_date": "2026-11-30",
-      "entry_fee": null,
+      "entry_fee": 6000,
       "category_id": null,
       "sort_order": 0
+    },
+    {
+      "label_ja": "一般3km",
+      "label_en": "General 3km",
+      "start_date": "2026-09-01",
+      "end_date": "2026-11-30",
+      "entry_fee": 3000,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "中学生3km",
+      "label_en": "Junior High School 3km",
+      "start_date": "2026-09-01",
+      "end_date": "2026-11-30",
+      "entry_fee": 1000,
+      "category_id": null,
+      "sort_order": 2
+    },
+    {
+      "label_ja": "小学生2.2km",
+      "label_en": "Elementary School 2.2km",
+      "start_date": "2026-09-01",
+      "end_date": "2026-11-30",
+      "entry_fee": 1000,
+      "category_id": null,
+      "sort_order": 3
+    },
+    {
+      "label_ja": "親子2.2km",
+      "label_en": "Parent-Child 2.2km",
+      "start_date": "2026-09-01",
+      "end_date": "2026-11-30",
+      "entry_fee": 2000,
+      "category_id": null,
+      "sort_order": 4
     }
   ],
   "motif": null,

@@ -85,7 +85,7 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-08-31T14:52:20.077Z",
-  "updated_at": "2026-08-31T14:52:20.077Z",
+  "updated_at": "2026-09-04T14:28:37.862Z",
   "_metadata": {
     "data_source": "公式サイト（ohme-marathon.jp）、日本陸上競技連盟公式サイト、sportsentry.ne.jp等の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -93,9 +93,10 @@
       "エントリー区分・期間・定員・参加費はohme-marathon.jp「第59回エントリー概要」（2026年7月7日掲載）に基づく",
       "ゼッケン受付方法（前日／当日／郵送の別）は公式サイト内で確認できず未入力（reception_type, reception_note を空にした）",
       "参加賞・完走賞の詳細は公式サイトで確認できず未入力のため空配列",
-      "エイドステーション、周辺スポット、気象データ、コース高低差、会場座標（venue_address, start_lat/lng）は未確認のため空/null"
+      "エイドステーション、周辺スポット、気象データ、コース高低差、会場座標（venue_address, start_lat/lng）は未確認のため空/null",
+      "2026-09-04: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-09-04",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -170,7 +171,7 @@
   "completion_gifts": [],
   "venue_name_ja": "住友金属鉱山アリーナ青梅（30kmフィニッシュ）",
   "venue_name_en": "Sumitomo Metal Mining Arena Ome (30km Finish)",
-  "venue_address": null,
-  "start_lat": null,
-  "start_lng": null
+  "venue_address": "東京都青梅市河辺町4-16-1",
+  "start_lat": 35.780708,
+  "start_lng": 139.2845
 }

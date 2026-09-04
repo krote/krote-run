@@ -1105,3 +1105,26 @@ GoogleのtransitモードはAPI経由で日本を対象外としているため�
 - `package.json` の `test:tools` に `scripts/calc-travel-times.test.js` を追加
 - `pnpm run test:tools` 全249件パス確認
 - 本Issueの残タスク（UI復元・`scripts/build-otp-graph.sh`・GitHub Actionsワークフロー）は未着手
+
+## 2026-09-03 OTPグラフビルドスクリプト・移動時間バッチワークフロー追加（Issue #82の一部）
+
+Issue #82（前泊判定と移動時間の事前計算）のうち、OpenTripPlanner（OTP）グラフビルドの自動化部分を実装。移動時間計算本体（`scripts/calc-travel-times.js` のOTP版）はPR #157で別途対応中で、本PRはそれと組み合わせて使う想定。
+
+- `scripts/build-otp-graph.sh`（新規）: OSM日本データ（Geofabrik、`--region` で指定可能・デフォルト `kanto`）とGTFS-JP zip（`GTFS_URLS` 環境変数 or `scripts/gtfs-sources.json`、0件でも可）をダウンロードし、OTP公式Dockerイメージで `--build --save` してグラフを構築する。`set -euo pipefail`、既存ファイルのスキップ、`--force` 再ダウンロード、ヘルプ表示に対応
+- `scripts/gtfs-sources.json`（新規）: GTFS zip URL一覧の設定ファイル雛形。ODPTのURLパターン例（プレースホルダー）とライセンス確認の注意書きを含む。`sources` は空配列がデフォルト
+- `.github/workflows/travel-times.yml`（新規）: `workflow_dispatch` 手動トリガーのみ（cronなし）。使い捨てランナー上で `build-otp-graph.sh` 実行 → OTPサーバーをDockerで起動 → GraphQL疎通確認 → `node scripts/calc-travel-times.js` 実行 → `migrations/seed-travel-times.sql` を `actions/upload-artifact` でアップロード（D1への直接適用は行わない）
+- `.gitignore` に `/.otp-build/`（OSM pbf・GTFS zip・graph.obj の作業ディレクトリ）を追加
+- ローカル動作確認（Windows + Docker Desktop、関東OSM・GTFS 0件）:
+  - OSMダウンロード（473MB）・GTFSスキップ（`jq` 未インストール環境でも警告のみで継続）・OTPグラフビルド（`JAVA_TOOL_OPTIONS=-Xmx6g` でOOMなし、3,891,498頂点・10,591,238辺のグラフ構築に成功）まで確認
+  - `graph.obj` の書き込みが開始され、エラーなく増加し続けることを確認。最終書き込み完了（数百MB、Windows Docker Desktopのバインドマウント書き込みが極端に遅い既知の問題により数時間規模）は本セッション内では完了を待ちきれず、増加が継続中であることの確認までとした。この遅さはCLAUDE.mdに既に記録済みの既知事象（GitHub Actions/Linux環境では発生しない想定）であり、スクリプト自体のロジック（ダウンロード・GTFS 0件対応・Docker起動・ヒープサイズ指定）は正常動作を確認済み
+  - この検証過程で、`docker run` の `-v` パス変換対策として設定した `MSYS_NO_PATHCONV=1` を誤ってスクリプト全体にグローバル export していたためcurlのダウンロードが壊れる不具合を発見・修正（`docker run` 呼び出し1行にのみ限定するよう変更）
+- `pnpm run test:tools`（213件）・`pnpm vitest run`（767件）とも既存テストに影響なし（本PRはシェルスクリプト・YAML・JSON設定のみで `src/` には触れていない）
+
+## 2026-09-05 ODPT APIキーの設定方法をローカル/CI両対応に整備（Issue #82の一部）
+
+ODPTの開発者登録が完了したため、取得したAPIキーの設定先を明確化した。専用のトークン欄は無く、GTFS-JPダウンロードURLに `?acl:consumerKey=<キー>` として埋め込む方式（既存設計のまま）。
+
+- `scripts/build-otp-graph.sh`（変更）: リポジトリ直下の `.env.local` が存在すれば自動読み込みするよう追加（`set -a`/`set +a` で環境変数としてexport。CI環境には `.env.local` が無いため何もしない）。ヘッダーコメントに設定方法（ローカル: `.env.local`、CI: GitHub Secrets）を明記
+- `.env.local`（変更、gitignore対象・非コミット）: `GTFS_URLS=` のプレースホルダー行を追加
+- `.github/workflows/travel-times.yml`（変更）: `Build OTP graph` ステップに `GTFS_URLS: ${{ secrets.GTFS_URLS }}` を追加。ヘッダーコメントに `gh secret set GTFS_URLS` での設定手順を追記。PR #157マージ済みにより古くなっていた「calc-travel-times.jsはまだGoogle版」の注記を削除
+- `pnpm run test:tools`（249件）全パス確認

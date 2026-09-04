@@ -1,0 +1,11 @@
+{
+  "_notes": [
+    "scripts/build-otp-graph.sh が読み込むGTFS-JP zipのURL一覧。jqが利用できる環境でのみ読み込まれる。",
+    "sourcesが空でもOSMのみでグラフビルドは可能（本ファイルは無くても動作する）。",
+    "ODPT（公共交通オープンデータセンター, https://developer.odpt.org/）は無料APIキー登録制。",
+    "URLパターン例（プレースホルダー、キー取得後に使う想定）: https://api.odpt.org/api/v4/files/<事業者>/data/<ファイル名>.zip?acl:consumerKey=<APIキー>",
+    "ODPTに無い事業者（JR西日本・四国・九州、関西・中部・九州の一部私鉄、地方バス等）は各事業者が個別公開しているGTFS-JPをhttps://www.gtfs.jp/ 等のリストから収集して補完する。",
+    "追加する前に必ずフィードごとのライセンス（利用条件・商用利用可否・クレジット表記義務）を確認すること。"
+  ],
+  "sources": []
+}

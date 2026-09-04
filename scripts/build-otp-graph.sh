@@ -32,12 +32,23 @@
 #
 # ── GTFS-JPデータについて ──────────────────────────────────────────────
 #   日本の公共交通GTFS-JPは主に公共交通オープンデータセンター（ODPT,
-#   https://developer.odpt.org/）が提供。無料APIキー登録制で、本スクリプト作成時点では
-#   申請中・未取得（このタスクの範囲外）。よってGTFS_URLS / gtfs-sources.json が
-#   空でもOSMのみでグラフビルドできる設計にしている。
+#   https://developer.odpt.org/）が提供。無料APIキー登録制。GTFS_URLS /
+#   gtfs-sources.json が空でもOSMのみでグラフビルドできる設計にしているため、
+#   キー未取得の環境でも本スクリプト自体は動く。
 #
-#   ODPTのURLパターン例（参考、キー取得後に使う想定。プレースホルダー）:
-#     https://api.odpt.org/api/v4/files/<事業者>/data/<ファイル名>.zip?acl:consumerKey=<APIキー>
+#   ODPT APIキー取得後の設定方法（アクセストークンを直接置く専用欄は無く、
+#   ダウンロードURLにクエリパラメータとして埋め込む）:
+#     - ローカル: リポジトリ直下の .env.local に
+#         GTFS_URLS=https://api.odpt.org/api/v4/files/<事業者>/data/<ファイル名>.zip?acl:consumerKey=<APIキー>
+#       を追加する（本スクリプトが自動で読み込む。.env.local は .gitignore 対象）
+#     - GitHub Actions: リポジトリの Secrets に GTFS_URLS を登録し、
+#       .github/workflows/travel-times.yml から渡す（同ファイル参照）
+#     - 複数事業者を使う場合はカンマ区切り、または scripts/gtfs-sources.json の
+#       sources 配列に { "name": ..., "url": "...?acl:consumerKey=..." } を追加する
+#       （gtfs-sources.json はコミット対象なので、APIキーを含む値は書かないこと。
+#        キーを含むURLは常に .env.local か GitHub Secrets 側に置く）
+#
+#   ODPTのURLパターン: https://api.odpt.org/api/v4/files/<事業者>/data/<ファイル名>.zip?acl:consumerKey=<APIキー>
 #
 #   ODPTに無い事業者（JR西日本・四国・九州、関西・中部・九州の一部私鉄、地方バス路線等）は
 #   各事業者が個別公開しているGTFS-JPを https://www.gtfs.jp/ 等のリストから収集して補完する。
@@ -66,6 +77,15 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
+# ローカル実行時、.env.local があれば読み込む（GTFS_URLS 等）。
+# CI では .env.local は存在しないため何もしない（Secrets 経由の環境変数をそのまま使う）。
+if [ -f "${REPO_ROOT}/.env.local" ]; then
+  set -a
+  # shellcheck disable=SC1091
+  source "${REPO_ROOT}/.env.local"
+  set +a
+fi
+
 OSM_REGION="${OSM_REGION:-kanto}"
 OTP_BUILD_DIR="${OTP_BUILD_DIR:-${REPO_ROOT}/.otp-build}"
 JAVA_XMX="${JAVA_XMX:-6g}"
@@ -75,7 +95,7 @@ GTFS_SOURCES_FILE="${GTFS_SOURCES_FILE:-${SCRIPT_DIR}/gtfs-sources.json}"
 FORCE_DOWNLOAD="${FORCE_DOWNLOAD:-0}"
 
 print_help() {
-  sed -n '2,68p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'
+  sed -n '2,74p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'
 }
 
 while [ $# -gt 0 ]; do

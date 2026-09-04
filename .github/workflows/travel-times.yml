@@ -6,9 +6,11 @@ name: Travel Times Batch (OTP)
 # 生成された SQL はワークフロー成果物としてアップロードするのみで、D1への適用は行わない
 # （人間が生成物をレビューした上で手動 `wrangler d1 execute` を実行する運用）。
 #
-# NOTE: scripts/calc-travel-times.js は OTP 版への差し替えが別PR (#157) で進行中で、
-#       このブランチ時点ではまだ旧 Google Maps Routes API 版のまま。
-#       #157 がマージされ次第、このワークフローはそのまま OTP 版を実行できる想定。
+# GTFS-JP（公共交通オープンデータセンター ODPT 提供）を使う場合は、
+# リポジトリの Secrets に GTFS_URLS（ダウンロードURL、acl:consumerKey込み。
+# 複数事業者はカンマ区切り）を登録すること:
+#   gh secret set GTFS_URLS --repo <owner>/<repo>
+# 未設定でも OSM のみでグラフビルドされる（GTFS無しの場合は徒歩経路のみ計算）。
 on:
   workflow_dispatch:
     inputs:
@@ -54,8 +56,8 @@ jobs:
         env:
           OSM_REGION: ${{ inputs.osm_region }}
           JAVA_XMX: ${{ inputs.java_xmx }}
-          # GTFS_URLS: カンマ区切りでGTFS zip URLを渡す場合はここに設定
-          # （現時点ではODPTのAPIキー未取得のため空 = OSMのみでビルドされる）
+          # Secrets未設定の場合は空文字になり、OSMのみでビルドされる
+          GTFS_URLS: ${{ secrets.GTFS_URLS }}
         run: bash scripts/build-otp-graph.sh
 
       - name: Start OTP server

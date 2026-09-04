@@ -1119,3 +1119,12 @@ Issue #82（前泊判定と移動時間の事前計算）のうち、OpenTripPla
   - `graph.obj` の書き込みが開始され、エラーなく増加し続けることを確認。最終書き込み完了（数百MB、Windows Docker Desktopのバインドマウント書き込みが極端に遅い既知の問題により数時間規模）は本セッション内では完了を待ちきれず、増加が継続中であることの確認までとした。この遅さはCLAUDE.mdに既に記録済みの既知事象（GitHub Actions/Linux環境では発生しない想定）であり、スクリプト自体のロジック（ダウンロード・GTFS 0件対応・Docker起動・ヒープサイズ指定）は正常動作を確認済み
   - この検証過程で、`docker run` の `-v` パス変換対策として設定した `MSYS_NO_PATHCONV=1` を誤ってスクリプト全体にグローバル export していたためcurlのダウンロードが壊れる不具合を発見・修正（`docker run` 呼び出し1行にのみ限定するよう変更）
 - `pnpm run test:tools`（213件）・`pnpm vitest run`（767件）とも既存テストに影響なし（本PRはシェルスクリプト・YAML・JSON設定のみで `src/` には触れていない）
+
+## 2026-09-05 ODPT APIキーの設定方法をローカル/CI両対応に整備（Issue #82の一部）
+
+ODPTの開発者登録が完了したため、取得したAPIキーの設定先を明確化した。専用のトークン欄は無く、GTFS-JPダウンロードURLに `?acl:consumerKey=<キー>` として埋め込む方式（既存設計のまま）。
+
+- `scripts/build-otp-graph.sh`（変更）: リポジトリ直下の `.env.local` が存在すれば自動読み込みするよう追加（`set -a`/`set +a` で環境変数としてexport。CI環境には `.env.local` が無いため何もしない）。ヘッダーコメントに設定方法（ローカル: `.env.local`、CI: GitHub Secrets）を明記
+- `.env.local`（変更、gitignore対象・非コミット）: `GTFS_URLS=` のプレースホルダー行を追加
+- `.github/workflows/travel-times.yml`（変更）: `Build OTP graph` ステップに `GTFS_URLS: ${{ secrets.GTFS_URLS }}` を追加。ヘッダーコメントに `gh secret set GTFS_URLS` での設定手順を追記。PR #157マージ済みにより古くなっていた「calc-travel-times.jsはまだGoogle版」の注記を削除
+- `pnpm run test:tools`（249件）全パス確認

@@ -16,16 +16,14 @@
   "entry_fee_by_category": true,
   "entry_capacity": 1200,
   "entry_start_date": "2026-04-12",
-  "entry_end_date": "2026-08-03",
+  "entry_end_date": "2026-08-31",
   "reception_type": null,
   "reception_note_ja": null,
   "reception_note_en": null,
   "tags": [],
   "course_gpx_file": null,
   "course_info": {
-    "max_elevation_m": null,
-    "min_elevation_m": null,
-    "elevation_diff_m": 1935,
+    "elevation_diff_m": 1783,
     "surface": "trail",
     "certification": [],
     "highlights_ja": "妙高山麓、急峻な登り下りが連続するコース",
@@ -79,13 +77,34 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "妙高高原駅",
+      "station_name_en": "Myokokogen Station",
+      "station_code": "",
+      "transport_to_venue_ja": "送迎バス約12分",
+      "transport_to_venue_en": "About 12 min by shuttle bus",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 0,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会オリジナルTシャツ",
+      "description_en": "Original event T-shirt",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-09-03T14:52:12.045Z",
+  "updated_at": "2026-09-04T14:18:57.737Z",
   "_metadata": {
     "data_source": "大会主催者公式サイト（nature-scene.net/gtws/）の公開情報から作成",
     "data_accuracy_notes": [
@@ -93,9 +112,10 @@
       "2026-08-25: runnet.jp紹介記事を起点に新規登録（Golden Trail World Series日本初開催）",
       "2026-08-24: 自動クロールで更新",
       "2026-08-31: 自動クロールでGTWS本部サイト（goldentrailseries.com）から距離24.7km/獲得標高2,020mに誤って更新されたが、大会主催者公式サイト（nature-scene.net/gtws/about/）で23.5km/定員500名/参加費18,000円（学割13,000円）を確認し修正。獲得標高は主催者サイトに記載が無いため従来値（約1,935m）を維持。以後の自動クロールは主催者サイトを参照する",
-      "2026-08-31: ユーザー指摘により修正"
+      "2026-08-31: ユーザー指摘により修正",
+      "2026-09-04: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-09-04",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -103,7 +123,7 @@
       "label_ja": "一般エントリー",
       "label_en": "General Entry",
       "start_date": "2026-04-12",
-      "end_date": "2026-08-03",
+      "end_date": "2026-08-31",
       "entry_fee": 18000
     }
   ],

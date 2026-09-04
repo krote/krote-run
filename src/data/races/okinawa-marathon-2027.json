@@ -82,19 +82,29 @@
   "access_points": [],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "参加者全員にオリジナルTシャツを進呈（記念品の記入漏れがあった場合はLサイズになる）",
+      "description_en": "All participants receive an original T-shirt (defaults to size L if not specified at entry)",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-08-31T14:52:20.077Z",
-  "updated_at": "2026-09-03T14:52:13.638Z",
+  "updated_at": "2026-09-04T14:22:12.768Z",
   "_metadata": {
     "data_source": "公式サイト（okinawa-marathon.com）およびsportsentry.ne.jp等の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
       "開催日2027-02-21は公式サイトのトップページには明記が無かったが、sportsentry.ne.jp・jaaf.or.jp・琉球新報の複数ソースで確認済み。第31回大会（2026年7月21日に開催決定発表）",
       "おきなわミニマラソン（4.2195km、前日2/20開催）は本データのcategoriesには含めていない",
       "エイドステーション、周辺スポット、気象データ、コース高低差、会場座標（venue_address, start_lat/lng）は公式サイトで確認できず未入力・null",
-      "参加賞の詳細は未確認のため空配列。完走賞は公式サイトに明記なく確認できず空配列とした（完走メダル・web完走証の授与は言及あり）"
+      "参加賞の詳細は未確認のため空配列。完走賞は公式サイトに明記なく確認できず空配列とした（完走メダル・web完走証の授与は言及あり）",
+      "2026-09-04: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-09-04",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -153,7 +163,16 @@
     }
   ],
   "entry_links": [],
-  "completion_gifts": [],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "フルマラソン・10kmロードレースとも制限時間内の完走者へ完走メダルを授与し、web完走証を発行（紙の完走証はなし）",
+      "description_en": "Finishers of both the full marathon and 10km road race within the time limit receive a finisher medal and a web finisher certificate (no paper certificate)",
+      "image": null
+    }
+  ],
   "venue_name_ja": "沖縄県総合運動公園",
   "venue_name_en": "Okinawa Prefectural General Sports Park",
   "venue_address": "沖縄県沖縄市比屋根",

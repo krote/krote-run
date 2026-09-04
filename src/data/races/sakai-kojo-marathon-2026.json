@@ -12,7 +12,7 @@
   "description_ja": "福井県坂井市の丸岡体育館周辺を発着とするマラソン大会。ハーフ・10km・5km・3km・2kmなど幅広い種目を設定。テーマは「城下走愛」。ゲストランナーに野口みずき、AYAを迎える。",
   "description_en": "A marathon event based around Maruoka Gymnasium in Sakai, Fukui, offering a wide range of distances from half marathon down to 2km. Themed 'Jokasoai' (castle-town running love), with guest runners Mizuki Noguchi and AYA.",
   "official_url": "https://www.s-taikyo.jp/marathon.html",
-  "entry_fee": null,
+  "entry_fee": 3000,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
   "entry_start_date": "2026-07-24",
@@ -120,7 +120,52 @@
     }
   ],
   "access_points": [],
-  "nearby_spots": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "丸岡城",
+      "name_en": "Maruoka Castle",
+      "description_ja": "現存12天守の一つとされる歴史的な城。会場周辺の観光名所。",
+      "description_en": "A historic castle, said to be one of Japan's 12 surviving original castle keeps. A sightseeing spot near the venue.",
+      "distance_from_venue": "会場周辺",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "観光地",
+      "name_ja": "一筆啓上 日本一短い手紙の館",
+      "name_en": "Ippitsu Keijo Museum (Japan's Shortest Letter)",
+      "description_ja": "日本一短い手紙で知られる資料館。会場周辺。",
+      "description_en": "A museum known for Japan's shortest-letter writing contest, near the venue.",
+      "distance_from_venue": "会場周辺",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "観光地",
+      "name_ja": "丸岡城観光情報センター「丸岡城マチヨリマーケット」",
+      "name_en": "Maruoka Castle Tourist Information Center \"Machiyori Market\"",
+      "description_ja": "丸岡城周辺の観光情報センター兼マーケット。",
+      "description_en": "A tourist information center and market near Maruoka Castle.",
+      "distance_from_venue": "会場周辺",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "温泉",
+      "name_ja": "いきいきプラザ霞の郷温泉",
+      "name_en": "Ikiiki Plaza Kasuminosato Onsen",
+      "description_ja": "営業時間10:00～23:00（最終受付22:30）の日帰り温泉施設。",
+      "description_en": "A day-use hot spring facility open 10:00–23:00 (last entry 22:30).",
+      "distance_from_venue": "会場周辺",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    }
+  ],
   "weather_history": [],
   "participation_gifts": [
     {
@@ -134,7 +179,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T13:29:34.000Z",
-  "updated_at": "2026-08-31T13:29:34.000Z",
+  "updated_at": "2026-09-04T14:24:55.863Z",
   "_metadata": {
     "data_source": "公式サイト（s-taikyo.jp）および坂井市公式サイトの公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -142,25 +187,62 @@
       "ハーフ以外（10km/5km/3km/2km）のスタート時刻・制限時間は公式サイトに明記がなく未入力",
       "コースの公認情報（JAAF公認等）は公式サイトで確認できず空配列",
       "ニコニコランニングは正確な距離が不明なためcategoriesに含めずnotes_jaに記載のみ",
-      "checkpointsのdistance_km 18.1kmは「ゴールまで3km地点」の記述から逆算した推定値"
+      "checkpointsのdistance_km 18.1kmは「ゴールまで3km地点」の記述から逆算した推定値",
+      "2026-09-04: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-09-04",
     "detail_level": "medium"
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
+      "label_ja": "ハーフ・10km",
+      "label_en": "Half Marathon / 10km",
       "start_date": "2026-07-24",
       "end_date": "2026-09-11",
-      "entry_fee": null,
+      "entry_fee": 3000,
       "category_id": null,
       "sort_order": 0
+    },
+    {
+      "label_ja": "5km・3km（一般）・ファミリー",
+      "label_en": "5km / 3km (General) / Family",
+      "start_date": "2026-07-24",
+      "end_date": "2026-09-11",
+      "entry_fee": 2500,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "小中学生",
+      "label_en": "Elementary / Junior High School Students",
+      "start_date": "2026-07-24",
+      "end_date": "2026-09-11",
+      "entry_fee": 500,
+      "category_id": null,
+      "sort_order": 2
+    },
+    {
+      "label_ja": "ニコニコランニング・車イスの部（一般）",
+      "label_en": "Niko-Niko Fun Run / Wheelchair Division (General)",
+      "start_date": "2026-07-24",
+      "end_date": "2026-09-11",
+      "entry_fee": 1000,
+      "category_id": null,
+      "sort_order": 3
+    },
+    {
+      "label_ja": "ニコニコランニング・車イスの部（小中学生）",
+      "label_en": "Niko-Niko Fun Run / Wheelchair Division (Elementary/JHS)",
+      "start_date": "2026-07-24",
+      "end_date": "2026-09-11",
+      "entry_fee": 500,
+      "category_id": null,
+      "sort_order": 4
     }
   ],
-  "motif": null,
-  "motif_color": null,
-  "motif_romaji": null,
+  "motif": "丸岡城",
+  "motif_color": "#6b4f3a",
+  "motif_romaji": "Maruoka-jo",
   "tagline_ja": "城下走愛",
   "tagline_en": "Jokasoai: castle-town running love",
   "hero_image_url": null,

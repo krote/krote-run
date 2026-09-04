@@ -53,11 +53,23 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "島田駅",
+      "station_name_en": "Shimada Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩10分",
+      "transport_to_venue_en": "10 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 10,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-25T04:12:54.667Z",
-  "updated_at": "2026-04-25T04:12:54.667Z",
+  "updated_at": "2026-09-04T14:28:38.943Z",
   "entry_periods": [
     {
       "start_date": "2026-05-01",
@@ -108,9 +120,15 @@
       "label": "FAQ"
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
-  "start_lat": null,
-  "start_lng": null
+  "venue_name_ja": "島田市役所",
+  "venue_name_en": "Shimada City Hall",
+  "venue_address": "静岡県島田市中央町1-1",
+  "start_lat": 34.836468,
+  "start_lng": 138.17511,
+  "_metadata": {
+    "last_verified": "2026-09-04",
+    "data_accuracy_notes": [
+      "2026-09-04: 自動クロールで更新"
+    ]
+  }
 }

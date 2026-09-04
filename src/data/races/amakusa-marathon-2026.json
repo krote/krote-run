@@ -12,7 +12,7 @@
   "description_ja": "熊本県天草市で開催されるハーフマラソン・5km・3kmの大会。ハーフマラソンには団体戦部門もある。",
   "description_en": "A half marathon, 5km, and 3km event held in Amakusa City, Kumamoto Prefecture. The half marathon also has a team competition division.",
   "official_url": "https://ama-spo.net/marathon/",
-  "entry_fee": null,
+  "entry_fee": 6000,
   "entry_fee_by_category": true,
   "entry_capacity": 2800,
   "entry_start_date": "2026-07-06",
@@ -110,7 +110,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T23:51:21.157Z",
-  "updated_at": "2026-09-03T14:51:52.345Z",
+  "updated_at": "2026-09-04T14:06:22.717Z",
   "_metadata": {
     "data_source": "公式サイト（https://ama-spo.net/marathon/）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -118,20 +118,39 @@
       "スタート時刻は要項に明記なし（ハーフマラソンはスタート地点閉鎖9時5分・折返し関門10時50分のみ記載）。正式発表後に要確認",
       "認証情報（JAAF等）は公式サイトに記載なし",
       "2026-08-20付お知らせでエントリー期間が延長（締切2026-09-11）されたことを反映",
-      "entry_capacityはハーフマラソン（団体戦併算）2,000人+5km 400人+3km 400人の合計"
+      "entry_capacityはハーフマラソン（団体戦併算）2,000人+5km 400人+3km 400人の合計",
+      "2026-09-04: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-09-04",
     "detail_level": "light"
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
+      "label_ja": "ハーフマラソン",
+      "label_en": "Half Marathon",
       "start_date": "2026-07-06",
       "end_date": "2026-09-11",
-      "entry_fee": null,
+      "entry_fee": 6000,
       "category_id": null,
       "sort_order": 0
+    },
+    {
+      "label_ja": "5km",
+      "label_en": "5km",
+      "start_date": "2026-07-06",
+      "end_date": "2026-09-11",
+      "entry_fee": 3000,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "3km",
+      "label_en": "3km",
+      "start_date": "2026-07-06",
+      "end_date": "2026-09-11",
+      "entry_fee": 3000,
+      "category_id": null,
+      "sort_order": 2
     }
   ],
   "motif": "天草五橋",

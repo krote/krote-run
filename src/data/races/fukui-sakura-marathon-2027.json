@@ -32,6 +32,7 @@
     "surface": "road",
     "certification": [
       "JAAF",
+      "WA",
       "AIMS"
     ],
     "highlights_ja": "さくら通り、新九頭竜橋、丸岡城周辺",
@@ -67,7 +68,19 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "福井駅",
+      "station_name_en": "Fukui Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約7分",
+      "transport_to_venue_en": "About 7 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 7,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [
     {
       "type": "観光地",
@@ -106,7 +119,7 @@
   ],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-09-03T14:51:57.665Z",
+  "updated_at": "2026-09-04T14:07:54.924Z",
   "_metadata": {
     "data_source": "公式サイト（fukui-sakura-marathon.jp）およびふくい桜マラソン公式ニュースリリース、福井新聞ONLINE報道から転記",
     "data_accuracy_notes": [
@@ -116,32 +129,93 @@
       "エントリー期間は県民先行枠（9/20-9/24、通常価格14,000円+ノベルティ特典）・グループ割枠（同期間、12,000円/人・3人1組）・一般枠（9/26-11/9）の3区分。entry_start_date/entry_end_dateは全体の範囲",
       "2026-08-25: 先行エントリーを1区分（12,000円）としていたが、実際は県民先行枠（通常価格・早期特典のみ）とグループ割枠（12,000円の割引価格）という別々の枠だったため分離。県民先行枠の正確な参加料は8月下旬発表予定だった情報のため通常価格14,000円を暫定値として設定",
       "2026-08-31: 自動クロールで更新",
-      "2026-08-31: info_urlsの宿泊・交通URL（/access/）が404。/access/ページは存在せず該当情報は/stay/に統合されていたためURLを修正"
+      "2026-08-31: info_urlsの宿泊・交通URL（/access/）が404。/access/ページは存在せず該当情報は/stay/に統合されていたためURLを修正",
+      "2026-09-04: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-09-04",
     "detail_level": "medium"
   },
   "entry_periods": [
     {
+      "label_ja": "福井県民先行枠",
+      "label_en": "Fukui Resident Priority Entry",
       "start_date": "2026-09-20",
       "end_date": "2026-09-24",
       "entry_fee": 14000,
-      "label_ja": "県民先行エントリー",
-      "label_en": "Fukui Resident Priority Entry"
+      "category_id": null,
+      "sort_order": 0
     },
     {
+      "label_ja": "福井県民グループ割枠",
+      "label_en": "Fukui Resident Group Discount Entry",
       "start_date": "2026-09-20",
       "end_date": "2026-09-24",
       "entry_fee": 12000,
-      "label_ja": "グループ割エントリー",
-      "label_en": "Group Discount Entry"
+      "category_id": null,
+      "sort_order": 1
     },
     {
+      "label_ja": "福井県民U-22学割枠",
+      "label_en": "Fukui Resident U-22 Student Discount Entry",
+      "start_date": "2026-09-20",
+      "end_date": "2026-09-24",
+      "entry_fee": 9900,
+      "category_id": null,
+      "sort_order": 2
+    },
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
       "start_date": "2026-09-26",
       "end_date": "2026-11-09",
       "entry_fee": 14000,
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry"
+      "category_id": null,
+      "sort_order": 3
+    },
+    {
+      "label_ja": "「The Fst」応援枠",
+      "label_en": "\"The Fst\" Supporter Entry",
+      "start_date": "2026-09-26",
+      "end_date": "2026-11-09",
+      "entry_fee": 19000,
+      "category_id": null,
+      "sort_order": 4
+    },
+    {
+      "label_ja": "ふるさと納税枠",
+      "label_en": "Furusato Nozei (Hometown Tax) Entry",
+      "start_date": "2026-09-26",
+      "end_date": "2026-10-30",
+      "entry_fee": 0,
+      "category_id": null,
+      "sort_order": 5
+    },
+    {
+      "label_ja": "出走権付き宿泊枠",
+      "label_en": "Entry with Accommodation Package",
+      "start_date": "2026-09-26",
+      "end_date": "2026-10-30",
+      "entry_fee": 14000,
+      "category_id": null,
+      "sort_order": 6
+    },
+    {
+      "label_ja": "5kmエントリー",
+      "label_en": "5km Entry",
+      "start_date": "2026-09-26",
+      "end_date": "2026-11-09",
+      "entry_fee": 4000,
+      "category_id": null,
+      "sort_order": 7
+    },
+    {
+      "label_ja": "1.5kmエントリー",
+      "label_en": "1.5km Entry",
+      "start_date": "2026-09-26",
+      "end_date": "2026-11-09",
+      "entry_fee": 1500,
+      "category_id": null,
+      "sort_order": 8
     }
   ],
   "motif": "桜",

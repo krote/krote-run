@@ -668,7 +668,7 @@ function addGiftRow(gift = {}) {
   row.querySelector('.btn-remove-gift').addEventListener('click', () => {
     row.remove();
     // 番号を振り直す
-    document.querySelectorAll('.gift-row-label').forEach((el, i) => {
+    container.querySelectorAll('.gift-row-label').forEach((el, i) => {
       el.textContent = `参加賞 ${i + 1}`;
     });
     markDirty();
@@ -679,7 +679,7 @@ function addGiftRow(gift = {}) {
 }
 
 function collectGifts() {
-  return [...document.querySelectorAll('.gift-row')].map(row => ({
+  return [...document.querySelectorAll('#gifts-container .gift-row')].map(row => ({
     gift_categories: [...row.querySelectorAll('.gift-cat-item input:checked')].map(cb => cb.value),
     description_ja: row.querySelector('.gift-desc-ja').value,
     description_en: row.querySelector('.gift-desc-en').value,
@@ -1007,7 +1007,7 @@ function addNearbySpotRow(spot = {}) {
   // 削除ボタン
   row.querySelector('.btn-remove-spot').addEventListener('click', () => {
     row.remove();
-    document.querySelectorAll('.nearby-spot-row .gift-row-label').forEach((el, i) => {
+    container.querySelectorAll('.nearby-spot-row .gift-row-label').forEach((el, i) => {
       el.textContent = `スポット ${i + 1}`;
     });
     markDirty();
@@ -1018,7 +1018,7 @@ function addNearbySpotRow(spot = {}) {
 }
 
 function collectNearbySpots() {
-  return [...document.querySelectorAll('.nearby-spot-row')].map(row => ({
+  return [...document.querySelectorAll('#nearby-spots-container .nearby-spot-row')].map(row => ({
     type: row.querySelector('.spot-type').value,
     name_ja: row.querySelector('.spot-name-ja').value,
     name_en: row.querySelector('.spot-name-en').value,

@@ -241,7 +241,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T13:36:05.739Z",
-  "updated_at": "2026-08-31T13:36:05.739Z",
+  "updated_at": "2026-09-03T14:52:12.564Z",
   "_metadata": {
     "data_source": "公式サイト (naganomarathon.gr.jp) および公開情報から手動転記",
     "data_accuracy_notes": [
@@ -355,6 +355,6 @@
   "venue_name_ja": "長野運動公園",
   "venue_name_en": "Nagano Athletic Park",
   "venue_address": "長野県長野市吉田",
-  "start_lat": null,
-  "start_lng": null
+  "start_lat": 36.668114,
+  "start_lng": 138.213303
 }

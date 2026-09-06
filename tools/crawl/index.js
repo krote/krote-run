@@ -20,6 +20,7 @@ const RACES_DIR = path.join(ROOT, 'src/data/races');
 const CHECKSUMS_FILE = path.join(__dirname, 'checksums.json');
 
 const { extractFromPages, applyAndSave, buildDiff, createNewEditionFile } = require('./extractor');
+const { geocodeAll } = require('../../scripts/geocode-venues');
 
 const FETCH_OPTS = {
   headers: {
@@ -244,6 +245,7 @@ async function run(options = {}) {
     errors: [],        // { race_id, url, error }
     extracted: [],     // { race_id, diff } LLM抽出で変更が見つかったもの
     new_editions: [],  // { race_id, new_race_id } 次年度ファイルを自動作成したもの
+    geocoded: { processed: 0, skipped: 0, failed: 0 }, // venue_address からの座標補完
   };
 
   // 変更が検出されたレースを収集（LLM抽出用）
@@ -341,6 +343,11 @@ async function run(options = {}) {
     }
   }
 
+  // ── ジオコーディングフェーズ ──────────────────────────────────
+  // クロールで venue_address が新規に埋まったレース等、座標が未設定のものを一括補完する
+  console.log('\n[geocode] venue_address から座標を補完中...\n');
+  summary.geocoded = await geocodeAll({ dryRun });
+
   console.log('\n=== チェック完了 ===');
   console.log(`変更あり : ${summary.changed.length}件`);
   console.log(`新規     : ${summary.new.length}件`);
@@ -349,6 +356,7 @@ async function run(options = {}) {
   console.log(`新年度作成: ${summary.new_editions.length}件`);
   console.log(`エラー   : ${summary.errors.length}件`);
   console.log(`スキップ : ${summary.skipped}件（URL未設定）`);
+  console.log(`座標補完 : ${summary.geocoded.processed}件（スキップ${summary.geocoded.skipped}件・失敗${summary.geocoded.failed}件）`);
 
   if (summary.extracted.length > 0) {
     console.log('\n--- 更新されたレース ---');

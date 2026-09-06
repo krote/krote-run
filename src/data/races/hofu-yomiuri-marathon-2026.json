@@ -17,9 +17,9 @@
   "entry_capacity": 3500,
   "entry_start_date": "2026-06-22",
   "entry_end_date": "2026-07-06",
-  "reception_type": "pre_mail",
-  "reception_note_ja": "11月下旬にアスリートビブス・計測チップを事前郵送",
-  "reception_note_en": "Athlete bibs and timing chips mailed in advance in late November",
+  "reception_type": "both",
+  "reception_note_ja": "大会2週間前を目途にアスリートビブス・計測用リグを事前郵送。当日はダイキョーニシカワ スクエア ソルトアリーナ防府にて7時30分〜10時00分、会場備え付けのQRコード読み取り機で受付QRコードの読み取りが必要。",
+  "reception_note_en": "Athlete bibs and timing devices are mailed in advance about two weeks before the race. On race day, athletes must scan their reception QR code at the QR code readers set up at Daikyo Nishikawa Square Salt Arena Hofu between 7:30 and 10:00 AM.",
   "tags": [
     "エリート大会",
     "日本陸連公認",
@@ -33,6 +33,7 @@
     "surface": "road",
     "certification": [
       "JAAF",
+      "WA",
       "AIMS"
     ],
     "highlights_ja": "防府天満宮付近",
@@ -70,7 +71,7 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-07-27T14:11:03.160Z",
+  "updated_at": "2026-09-04T14:10:39.204Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -78,9 +79,10 @@
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
       "2026-05-30: 自動クロールで更新",
       "2026-06-12: 自動クロールで更新",
-      "2026-07-27: 自動クロールで更新"
+      "2026-07-27: 自動クロールで更新",
+      "2026-09-04: 自動クロールで更新"
     ],
-    "last_verified": "2026-07-27",
+    "last_verified": "2026-09-04",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -164,8 +166,8 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "ダイキョーニシカワ スクエア ソルトアリーナ防府",
+  "venue_name_en": "Daikyo Nishikawa Square Salt Arena Hofu",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

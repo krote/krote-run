@@ -1105,3 +1105,12 @@ GoogleのtransitモードはAPI経由で日本を対象外としているため�
 - `package.json` の `test:tools` に `scripts/calc-travel-times.test.js` を追加
 - `pnpm run test:tools` 全249件パス確認
 - 本Issueの残タスク（UI復元・`scripts/build-otp-graph.sh`・GitHub Actionsワークフロー）は未着手
+
+## 2026-09-03 crawl実行時に会場座標の自動補完（ジオコーディング）を統合
+
+これまで `pnpm run geocode:venues` は `crawl` とは独立した別コマンドで、実行を忘れがちだった（実際、#80/#81でスキーマ・ツールが揃って以降、一度も実行されておらず全127件中0件しか座標が入っていなかった）。crawlの一部として自動実行されるようにした。
+
+- `scripts/geocode-venues.js`（変更）: `geocodeAll()` が `{ processed, skipped, failed }` の統計オブジェクトを返すよう変更（TDD: Red確認後に実装）
+- `tools/crawl/index.js`（変更）: LLM抽出フェーズの後に `geocodeAll({ dryRun })` を呼び出すジオコーディングフェーズを追加。`summary.geocoded` として結果を保持し、最終サマリー出力にも件数を表示
+- 既存の39件（`venue_address`はあるが座標未設定）に対して実際に実行し、全件座標を取得（エラー0件、日本国内bounding box範囲チェックも全件パス）。残り88件は`venue_address`自体が未取得のため、今後のcrawlで会場情報が抽出され次第、自動的に座標も埋まるようになる
+- `migrations/seed-races-all.sql` を再生成し、ローカルD1に反映・件数確認（`start_lat IS NOT NULL` = 39件）

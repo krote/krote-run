@@ -1099,3 +1099,15 @@ Issue #126のstg動作確認中に発見した2件の追加対応。
 - `tools/crawl/index.js`（変更）: LLM抽出フェーズの後に `geocodeAll({ dryRun })` を呼び出すジオコーディングフェーズを追加。`summary.geocoded` として結果を保持し、最終サマリー出力にも件数を表示
 - 既存の39件（`venue_address`はあるが座標未設定）に対して実際に実行し、全件座標を取得（エラー0件、日本国内bounding box範囲チェックも全件パス）。残り88件は`venue_address`自体が未取得のため、今後のcrawlで会場情報が抽出され次第、自動的に座標も埋まるようになる
 - `migrations/seed-races-all.sql` を再生成し、ローカルD1に反映・件数確認（`start_lat IS NOT NULL` = 39件）
+
+## 2026-09-06 crawlで会場情報未設定レースを強制的にLLM抽出対象にする
+
+会場座標が未設定の大会57件のうち55件（本番残数）は、実際には公式サイトのページ本文に会場情報が明記されているにもかかわらず、これまで一度もLLM抽出されていないことが判明。原因は`tools/crawl/index.js`の差分ゲート方式（ページのチェックサムが前回と一致すると無条件でLLM抽出をスキップする）にあり、`venue_name_ja`/`venue_address`等はIssue #80/81で後から追加されたフィールドのため、それ以前にチェックサムが確定済みの大会ページは、内容が変わらない限り永久にLLM抽出の対象から外れてしまっていた（実例: `abashiri-marathon-2026`の大会要項ページに「スタート（網走刑務所前）」と明記されているが、直近のクロールでもJSONが更新されていないことを確認）。
+
+- `tools/crawl/index.js`: `isMissingCriticalFields(race)`を追加（`venue_name_ja`・`venue_address`が両方とも未設定かを判定する純粋関数、TDD）
+- `run()`のクロールループで、対象レースが`isMissingCriticalFields`に該当する場合、ページが無変更（チェックサム一致）でもそのページのテキストをLLM抽出対象に強制的に含めるよう変更
+- `crawlRace()`: これまで無変更時は`text`を破棄していたが、強制抽出で使うため常に保持するよう変更
+- `summary.forced`を追加し、「無変更だが会場情報未設定のため強制抽出した」件数をサマリー出力に表示
+- `pnpm run test:tools` 全219件パス
+- 実際のクロール実行は`claude -p`呼び出し（課金対象）を伴うため未実施。次回の手動クロール実行時に効果を確認する
+- 会場情報が既存の`info_urls`にも載っていないケース（`discoverInfoLinks()`のrun()統合）は別対応として保留

@@ -86,6 +86,37 @@ describe('buildUrlsToCheck', () => {
   });
 });
 
+// ── isMissingCriticalFields ────────────────────────────────────────
+
+const { isMissingCriticalFields } = require('./index');
+
+describe('isMissingCriticalFields', () => {
+  test('venue_name_ja も venue_address もなければ true', () => {
+    const race = { id: 'test-2026', venue_name_ja: null, venue_address: null };
+    assert.equal(isMissingCriticalFields(race), true);
+  });
+
+  test('venue_name_ja があれば false', () => {
+    const race = { id: 'test-2026', venue_name_ja: '会場名', venue_address: null };
+    assert.equal(isMissingCriticalFields(race), false);
+  });
+
+  test('venue_address があれば false', () => {
+    const race = { id: 'test-2026', venue_name_ja: null, venue_address: '東京都千代田区' };
+    assert.equal(isMissingCriticalFields(race), false);
+  });
+
+  test('両方空文字でも true（未設定扱い）', () => {
+    const race = { id: 'test-2026', venue_name_ja: '', venue_address: '' };
+    assert.equal(isMissingCriticalFields(race), true);
+  });
+
+  test('両方フィールド自体が存在しない場合も true', () => {
+    const race = { id: 'test-2026' };
+    assert.equal(isMissingCriticalFields(race), true);
+  });
+});
+
 // ── getLatestFilesPerSeries ───────────────────────────────────────
 
 describe('getLatestFilesPerSeries', () => {

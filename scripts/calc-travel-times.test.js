@@ -246,6 +246,73 @@ describe('fetchTravelMinutes', () => {
     assert.equal(calledHeaders['X-RapidAPI-Key'], 'test-api-key');
     assert.equal(calledHeaders['X-RapidAPI-Host'], NAVITIME_HOST);
   });
+
+  test('429（レート制限）→ sleepしてリトライし、成功すれば結果を返す', async () => {
+    let callCount = 0;
+    const fetchFn = async () => {
+      callCount++;
+      if (callCount === 1) {
+        return { ok: false, status: 429, text: async () => 'rate limited' };
+      }
+      return { ok: true, json: async () => ({ items: [{ summary: { move: { time: 100 } } }] }) };
+    };
+    const sleepCalls = [];
+    const sleepFn = async (ms) => { sleepCalls.push(ms); };
+    const minutes = await fetchTravelMinutes(
+      { lat: 35.6812, lng: 139.7671 },
+      { lat: 35.8079, lng: 139.6782 },
+      '2026-10-01',
+      '08:30:00',
+      'test-api-key',
+      fetchFn,
+      sleepFn
+    );
+    assert.equal(minutes, 100);
+    assert.equal(callCount, 2);
+    assert.equal(sleepCalls.length, 1);
+  });
+
+  test('429が最大リトライ回数を超えて続く場合は例外を投げる', async () => {
+    let callCount = 0;
+    const fetchFn = async () => {
+      callCount++;
+      return { ok: false, status: 429, text: async () => 'rate limited' };
+    };
+    const sleepFn = async () => {};
+    await assert.rejects(() =>
+      fetchTravelMinutes(
+        { lat: 35.6812, lng: 139.7671 },
+        { lat: 35.8079, lng: 139.6782 },
+        '2026-10-01',
+        '08:30:00',
+        'test-api-key',
+        fetchFn,
+        sleepFn
+      )
+    );
+    assert.ok(callCount > 1);
+  });
+
+  test('レスポンスボディの読み取りがハングしてもタイムアウトで例外を投げる（AbortSignalがjson()にも効く）', async () => {
+    const fetchFn = async (url, opts) => ({
+      ok: true,
+      json: () => new Promise((resolve, reject) => {
+        opts.signal.addEventListener('abort', () => reject(new Error('aborted')));
+      }),
+    });
+    await assert.rejects(() =>
+      fetchTravelMinutes(
+        { lat: 35.6812, lng: 139.7671 },
+        { lat: 35.8079, lng: 139.6782 },
+        '2026-10-01',
+        '08:30:00',
+        'test-api-key',
+        fetchFn,
+        async () => {},
+        50
+      )
+    );
+  });
 });
 
 // ── buildUpsertSQL ──────────────────────────────────────────────────

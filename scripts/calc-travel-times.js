@@ -144,43 +144,73 @@ function extractShortestDurationMinutes(navitimeResponse) {
 
 // ── API 呼び出し ─────────────────────────────────────────────────────────
 
+// RapidAPI BASICプランは分単位のレート制限があるため、429時は待ってリトライする
+const RATE_LIMIT_RETRY_DELAY_MS = 65000;
+const MAX_RATE_LIMIT_RETRIES = 3;
+const DEFAULT_TIMEOUT_MS = 30000;
+
+function defaultSleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 /**
  * NAVITIME API を呼び出して移動時間（分）を返す。
  * 経路が見つからない場合は null（不明扱い）、HTTPエラーは例外を投げる。
+ * 429（レート制限）の場合は sleepFn で待機してリトライする（最大 MAX_RATE_LIMIT_RETRIES 回）。
+ * タイムアウトはレスポンスボディの読み取り（json()）完了まで有効（ヘッダー受信後の
+ * ボディ読み取りがハングするケースを防ぐため、fetch呼び出し直後には clearTimeout しない）。
  * @param {{ lat: number, lng: number }} origin
  * @param {{ lat: number, lng: number }} destination
  * @param {string} date YYYY-MM-DD
  * @param {string} time HH:MM:SS（到着期限）
  * @param {string} apiKey RapidAPIキー（X-RapidAPI-Key）
  * @param {typeof fetch} [fetchFn]
+ * @param {(ms: number) => Promise<void>} [sleepFn]
+ * @param {number} [timeoutMs]
  * @returns {Promise<number | null>}
  */
-async function fetchTravelMinutes(origin, destination, date, time, apiKey, fetchFn = fetch) {
+async function fetchTravelMinutes(
+  origin,
+  destination,
+  date,
+  time,
+  apiKey,
+  fetchFn = fetch,
+  sleepFn = defaultSleep,
+  timeoutMs = DEFAULT_TIMEOUT_MS
+) {
   const url = buildNavitimeUrl(origin, destination, { date, time });
 
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 30000);
-  let res;
-  try {
-    res = await fetchFn(url, {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Key': apiKey,
-        'X-RapidAPI-Host': NAVITIME_HOST,
-      },
-      signal: controller.signal,
-    });
-  } finally {
-    clearTimeout(timer);
-  }
+  for (let attempt = 0; attempt <= MAX_RATE_LIMIT_RETRIES; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetchFn(url, {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': apiKey,
+          'X-RapidAPI-Host': NAVITIME_HOST,
+        },
+        signal: controller.signal,
+      });
 
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`NAVITIME API error ${res.status}: ${text}`);
-  }
+      if (res.status === 429 && attempt < MAX_RATE_LIMIT_RETRIES) {
+        clearTimeout(timer);
+        await sleepFn(RATE_LIMIT_RETRY_DELAY_MS);
+        continue;
+      }
 
-  const data = await res.json();
-  return extractShortestDurationMinutes(data);
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`NAVITIME API error ${res.status}: ${text}`);
+      }
+
+      const data = await res.json();
+      return extractShortestDurationMinutes(data);
+    } finally {
+      clearTimeout(timer);
+    }
+  }
 }
 
 // ── SQL 生成 ─────────────────────────────────────────────────────────────
@@ -291,7 +321,16 @@ async function main() {
     process.exit(1);
   }
 
-  const allRows = [];
+  // 途中でハング・クラッシュしても収集済みの行を失わないよう、レース単位で逐次追記する
+  fs.writeFileSync(OUTPUT_FILE, `-- 自動生成: calc-travel-times.js（レース単位で逐次追記）
+-- 生成開始: ${new Date().toISOString()}
+--
+-- レビュー後、手動で適用すること:
+--   wrangler d1 execute <DB名> --local/--remote --file=migrations/seed-travel-times.sql
+
+`, 'utf-8');
+
+  let totalRows = 0;
   for (const file of files) {
     const race = JSON.parse(fs.readFileSync(path.join(RACES_DIR, file), 'utf-8'));
 
@@ -305,12 +344,14 @@ async function main() {
     }
 
     const rows = await calcTravelTimesForRace(race, { apiKey });
-    allRows.push(...rows);
+    if (rows.length > 0) {
+      const sql = rows.map((row) => buildUpsertSQL(row) + '\n').join('\n');
+      fs.appendFileSync(OUTPUT_FILE, sql + '\n', 'utf-8');
+      totalRows += rows.length;
+    }
   }
 
-  const sql = generateSeedSQL(allRows);
-  fs.writeFileSync(OUTPUT_FILE, sql, 'utf-8');
-  console.log(`\n✅ 生成完了: ${OUTPUT_FILE} (${allRows.length}行)`);
+  console.log(`\n✅ 生成完了: ${OUTPUT_FILE} (${totalRows}行)`);
 }
 
 if (require.main === module) {

@@ -1128,3 +1128,14 @@ OTP + オープンデータ（ODPT等）による自前ホスト経路計算を�
 - `scripts/calc-travel-times.test.js`: TDDで先にRed → Green。NAVITIMEレスポンス形式（正常・経路なし・HTTPエラー・ハブ単位のエラー継続・RapidAPIヘッダー）に合わせて全面書き換え
 - `pnpm run test:tools` 全242件パス確認
 - RapidAPIの`navitime-route-totalnavi`はNAVITIMEが公開する12種類のAPI（route-walk/route-car/route-bicycle/transport/reachable等）のうち、公共交通＋徒歩のドアtoドア経路検索に対応する唯一のもの。BASICプラン無料（500リクエスト/月）
+
+## 2026-09-06 calc-travel-times.js のレート制限リトライ・ハング対策、および本番バッチ実行
+
+実際のRAPIDAPI_KEYで全レース分（44件中、座標・スタート時刻とも整備済みの39件）をバッチ実行したところ2つの問題が発覚し、修正した上で再実行した。
+
+- **レート制限（429）対応**: RapidAPI BASICプランの分間レート制限に、スロットリング無しの連続リクエストで抵触（312リクエスト中262件が429）。`fetchTravelMinutes` に429時は`sleepFn`で65秒待機してリトライする処理を追加（最大3回）。TDDでRed→Green
+  - 429自体は月間クォータ（500件/月）を消費しないことをレスポンスヘッダー（`X-RateLimit-Requests-Remaining`）で確認
+- **ハング対策**: `fetchTravelMinutes`の`AbortController`によるタイムアウト（30秒）が、`fetchFn()`が返った直後（レスポンスヘッダー受信時点）に`clearTimeout`されており、その後の`res.json()`（ボディ読み取り）には一切効いていなかったバグを発見。実際にバッチ実行中に1件のリクエストでボディ読み取りが無限にハングし、プロセスを手動で強制終了する事態が発生した。`clearTimeout`をレスポンスボディ読み取り完了後に移動し、タイムアウトがボディ読み取りにも及ぶよう修正。TDDでRed（ハングして`node --test`がタイムアウトすることを確認）→Green
+- 上記バグにより最初の本番実行では全データを失う（`main()`が全レース処理完了後に一括でSQLファイル書き込みしていたため）。途中でハング・クラッシュしても収集済みデータを失わないよう、レース単位で `migrations/seed-travel-times.sql` に逐次追記（`fs.appendFileSync`）する方式に変更
+- 修正後に再実行し、39レース×8ハブ＝312行すべて成功（エラー0件・経路不明0件）。`migrations/seed-travel-times.sql`を生成（未適用、レビュー待ち）
+- 残り85件（129件中）は`start_lat`/`start_lng`未設定、または`categories[].start_time`未整備のためスキップ（会場情報のcrawl・ジオコーディングが進み次第、対象が増える）

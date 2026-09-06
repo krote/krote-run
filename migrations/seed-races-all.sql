@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-08-31T14:54:37.731Z
+-- 生成日時: 2026-09-03T14:53:17.885Z
 -- 対象ファイル数: 125 件（既存 2 件はskip）
 
 -- ==================
@@ -217,10 +217,10 @@ INSERT INTO races (
   '土山体育施設',
   'Tsuchiyama Athletic Facilities',
   '滋賀県甲賀市土山町北土山414-2',
-  NULL,
-  NULL,
+  34.932648,
+  136.294037,
   '2026-08-03T14:37:07.156Z',
-  '2026-08-24T16:10:27.473Z'
+  '2026-09-03T14:51:51.286Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -658,10 +658,10 @@ INSERT INTO races (
   'あましんスタジアム',
   'Amashin Stadium',
   '熊本県天草市東町3番地（天草市民センター内）',
-  NULL,
-  NULL,
+  32.452171,
+  130.199707,
   '2026-08-31T23:51:21.157Z',
-  '2026-08-31T23:51:21.157Z'
+  '2026-09-03T14:51:52.345Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -797,10 +797,10 @@ INSERT INTO races (
   '野木和公園',
   'Nogiwa Park',
   '青森県青森市羽白字野木和58',
-  NULL,
-  NULL,
+  40.853733,
+  140.668381,
   '2026-03-15T00:00:00Z',
-  '2026-08-24T16:21:38.825Z'
+  '2026-09-03T14:51:53.408Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -1206,10 +1206,10 @@ INSERT INTO races (
   '坂東市八坂総合公園陸上競技場',
   'Bando City Yasaka General Park Athletics Stadium',
   '茨城県坂東市岩井3086',
-  NULL,
-  NULL,
+  36.049282,
+  139.879501,
   '2026-08-25T00:00:00Z',
-  '2026-08-24T16:23:11.997Z'
+  '2026-09-03T14:51:54.466Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -2233,10 +2233,10 @@ INSERT INTO races (
   '城山公園',
   'Shiroyama Park',
   '愛媛県松山市堀之内',
-  NULL,
-  NULL,
+  33.842175,
+  132.761261,
   '2026-06-27T00:00:00Z',
-  '2026-08-24T16:11:44.326Z'
+  '2026-09-03T14:51:55.530Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -2386,10 +2386,10 @@ INSERT INTO races (
   '帯広市',
   'Obihiro City',
   '北海道帯広市西2条南8丁目',
-  NULL,
-  NULL,
+  42.923115,
+  143.201981,
   '2026-08-25T00:00:00Z',
-  '2026-08-31T13:24:16.479Z'
+  '2026-09-03T14:51:56.603Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -3107,10 +3107,10 @@ INSERT INTO races (
   '大名町交差点付近',
   'Near Daimyocho Intersection',
   '福井県福井市大名町（福井駅から徒歩約7分）',
-  NULL,
-  NULL,
+  36.082733,
+  136.231293,
   '2026-08-25T00:00:00Z',
-  '2026-08-31T13:25:38.211Z'
+  '2026-09-03T14:51:57.665Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -4011,10 +4011,10 @@ INSERT INTO races (
   '相模原総合補給廠（米陸軍相模補給廠）',
   'US Army Sagami General Depot',
   '神奈川県相模原市中央区',
-  NULL,
-  NULL,
+  35.571388,
+  139.373337,
   '2026-03-29T00:00:00Z',
-  '2026-08-31T13:27:30.974Z'
+  '2026-09-03T14:51:58.726Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -4573,10 +4573,10 @@ INSERT INTO races (
   '大通公園（大通西4丁目）',
   'Odori Park (Odori West 4-chome)',
   '北海道札幌市中央区大通西4丁目',
-  NULL,
-  NULL,
+  43.060387,
+  141.351257,
   '2026-03-15T00:00:00Z',
-  '2026-07-31T14:29:42.206Z'
+  '2026-09-03T14:51:59.809Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -4865,10 +4865,10 @@ INSERT INTO races (
   '一関ヒロセユードーム',
   'Ichinoseki Hirose U-Dome',
   '岩手県一関市狐禅寺字石ノ瀬25-3',
-  NULL,
-  NULL,
+  38.940575,
+  141.155426,
   '2026-03-29T00:00:00Z',
-  '2026-07-27T14:13:53.576Z'
+  '2026-09-03T14:52:00.876Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -5578,10 +5578,10 @@ INSERT INTO races (
   'いしおかイベント広場',
   'Ishioka Event Plaza',
   '茨城県石岡市若宮3丁目1-1',
-  NULL,
-  NULL,
+  36.193573,
+  140.272461,
   '2026-08-31T00:00:00Z',
-  '2026-08-31T00:00:00Z'
+  '2026-09-03T14:52:01.930Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -5864,10 +5864,10 @@ INSERT INTO races (
   '荒川戸田橋野球場',
   'Arakawa Todabashi Baseball Stadium',
   '東京都板橋区舟渡3-20先',
-  NULL,
-  NULL,
+  35.795273,
+  139.681686,
   '2026-08-24T16:12:57.026Z',
-  '2026-08-24T16:12:57.026Z'
+  '2026-09-03T14:52:02.992Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -6347,10 +6347,10 @@ Translated with DeepL.com (free version)',
   'きたぎんボールパーク',
   'Kitagin Ballpark',
   '岩手県盛岡市永井7地割16番地2',
-  NULL,
-  NULL,
+  39.647106,
+  141.138245,
   '2026-04-16T15:23:52.019Z',
-  '2026-07-27T14:14:28.754Z'
+  '2026-09-03T14:52:04.054Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -6646,10 +6646,10 @@ Translated with DeepL.com (free version)',
   '元町港船客待合所',
   'Motomachi Port Passenger Waiting Hall',
   '東京都大島町元町',
-  NULL,
-  NULL,
+  34.76556,
+  139.367477,
   '2026-06-06T08:43:10.814Z',
-  '2026-08-24T16:28:34.477Z'
+  '2026-09-03T14:52:04.528Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -6944,10 +6944,10 @@ INSERT INTO races (
   'あなぶきアリーナ香川',
   'Anabuki Arena Kagawa',
   '香川県高松市サンポート',
-  NULL,
-  NULL,
+  34.354435,
+  134.046402,
   '2026-07-27T14:15:58.429Z',
-  '2026-08-24T16:28:54.592Z'
+  '2026-09-03T14:52:05.122Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -7087,10 +7087,10 @@ INSERT INTO races (
   '中央公園（おもてなし広場）',
   'Chuo Park (Omotenashi Hiroba)',
   '鹿児島市山下町4-1',
-  NULL,
-  NULL,
+  31.593269,
+  130.553879,
   '2026-03-15T00:00:00Z',
-  '2026-07-27T14:16:44.298Z'
+  '2026-09-03T14:52:05.592Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -7230,10 +7230,10 @@ INSERT INTO races (
   '中央公園（おもてなし広場）',
   'Chuo Park (Omotenashi Hiroba)',
   '鹿児島市山下町4-1',
-  NULL,
-  NULL,
+  31.593269,
+  130.553879,
   '2026-08-25T00:00:00Z',
-  '2026-08-25T00:00:00Z'
+  '2026-09-03T14:52:06.142Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -7979,10 +7979,10 @@ INSERT INTO races (
   '笠間芸術の森公園',
   'Kasama Art Forest Park',
   '茨城県笠間市笠間2345番地',
-  NULL,
-  NULL,
+  36.372448,
+  140.261612,
   '2026-07-27T14:17:55.973Z',
-  '2026-07-27T14:17:55.973Z'
+  '2026-09-03T14:52:06.657Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -8126,10 +8126,10 @@ INSERT INTO races (
   '川口運動公園J:COMフィールド土浦',
   'Kawaguchi Sports Park J:COM Field Tsuchiura',
   '茨城県土浦市川口2丁目12-75',
-  NULL,
-  NULL,
+  36.080097,
+  140.210587,
   '2026-03-15T00:00:00Z',
-  '2026-08-31T13:32:03.663Z'
+  '2026-09-03T14:52:07.219Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -8410,10 +8410,10 @@ INSERT INTO races (
   '石川運動ひろば',
   'Ishikawa Undo Hiroba',
   '茨城県ひたちなか市石川町地内',
-  NULL,
-  NULL,
+  36.390934,
+  140.52951,
   '2026-08-31T13:33:14.228Z',
-  '2026-08-31T13:33:14.228Z'
+  '2026-09-03T14:52:07.730Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -8555,10 +8555,10 @@ INSERT INTO races (
   '青木町公園総合運動場',
   'Aoki-cho Park Sports Ground',
   '埼玉県川口市西青木4-8-1',
-  NULL,
-  NULL,
+  35.820686,
+  139.709641,
   '2026-08-31T00:00:00Z',
-  '2026-08-31T00:00:00Z'
+  '2026-09-03T14:52:08.292Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -9137,10 +9137,10 @@ For relay runs, both runners must register together. Registration by one person,
   '神戸市役所前',
   'Kobe City Hall',
   '兵庫県神戸市中央区加納町6-5-1',
-  NULL,
-  NULL,
+  34.69009,
+  135.195206,
   '2026-03-15T00:00:00Z',
-  '2026-08-24T16:31:09.438Z'
+  '2026-09-03T14:52:08.805Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -9425,10 +9425,10 @@ INSERT INTO races (
   '高知県庁前（スタート）／高知県立春野総合運動公園（フィニッシュ）',
   'Kochi Prefectural Office (Start) / Haruno Sogo Undo Koen (Finish)',
   '高知県高知市丸ノ内1-2-20',
-  NULL,
-  NULL,
+  33.561375,
+  133.529541,
   '2026-06-29T14:13:35.752Z',
-  '2026-07-31T14:32:35.280Z'
+  '2026-09-03T14:52:09.354Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -9715,10 +9715,10 @@ INSERT INTO races (
   '花畑広場（くまもと街なか広場）',
   'Hanabata Plaza (Kumamoto City Center Square)',
   '熊本市中央区花畑町',
-  NULL,
-  NULL,
+  32.801342,
+  130.705902,
   '2026-07-27T14:20:33.431Z',
-  '2026-07-27T14:20:33.431Z'
+  '2026-09-03T14:52:09.901Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -10158,10 +10158,10 @@ INSERT INTO races (
   '真駒内セキスイハイムスタジアム',
   'Makomanai Sekisui Heim Stadium',
   '北海道札幌市南区真駒内公園3-1',
-  NULL,
-  NULL,
+  42.996368,
+  141.34285,
   '2026-08-31T00:00:00Z',
-  '2026-08-31T00:00:00Z'
+  '2026-09-03T14:52:10.419Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -10448,10 +10448,10 @@ INSERT INTO races (
   'ぎふ清流里山公園',
   'Gifu Seiryu Satoyama Park',
   '岐阜県美濃加茂市山之上町2292-1',
-  NULL,
-  NULL,
+  35.474476,
+  137.031143,
   '2026-08-31T00:00:00Z',
-  '2026-08-31T00:00:00Z'
+  '2026-09-03T14:52:10.966Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -10591,10 +10591,10 @@ INSERT INTO races (
   '茨城県三の丸庁舎広場',
   'Ibaraki Prefectural Sanno-maru Building Square',
   '茨城県水戸市三の丸1丁目',
-  NULL,
-  NULL,
+  36.374908,
+  140.475891,
   '2026-03-15T00:00:00Z',
-  '2026-08-31T13:34:28.564Z'
+  '2026-09-03T14:52:11.490Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -10887,10 +10887,10 @@ INSERT INTO races (
   '妙高杉ノ原スキー場',
   'Myoko Sugonohara Ski Resort',
   '新潟県妙高市',
-  NULL,
-  NULL,
+  37.025269,
+  138.253342,
   '2026-08-25T00:00:00Z',
-  '2026-08-31T13:35:24.613Z'
+  '2026-09-03T14:52:12.045Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -11165,10 +11165,10 @@ INSERT INTO races (
   '長野運動公園',
   'Nagano Athletic Park',
   '長野県長野市吉田',
-  NULL,
-  NULL,
+  36.668114,
+  138.213303,
   '2026-08-31T13:36:05.739Z',
-  '2026-08-31T13:36:05.739Z'
+  '2026-09-03T14:52:12.564Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -12641,10 +12641,10 @@ Loppi端末(ローソン・ミニストップ店頭)',
   '岡山県総合グラウンド',
   'Okayama Prefectural General Ground',
   '岡山県岡山市北区いずみ町2-1-1',
-  NULL,
-  NULL,
+  34.680832,
+  133.918564,
   '2026-03-15T00:00:00Z',
-  '2026-08-24T16:14:48.368Z'
+  '2026-09-03T14:52:13.118Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -12788,10 +12788,10 @@ INSERT INTO races (
   '沖縄県総合運動公園',
   'Okinawa Prefectural General Sports Park',
   '沖縄県沖縄市比屋根',
-  NULL,
-  NULL,
+  26.316263,
+  127.823021,
   '2026-08-31T14:52:20.077Z',
-  '2026-08-31T14:52:20.077Z'
+  '2026-09-03T14:52:13.638Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -13387,10 +13387,10 @@ INSERT INTO races (
   '松原スポーツ公園',
   'Matsubara Sports Park',
   '長野県木曽郡王滝村',
-  NULL,
-  NULL,
+  35.809395,
+  137.550903,
   '2026-03-30T00:00:00Z',
-  '2026-07-27T14:29:48.574Z'
+  '2026-09-03T14:52:14.193Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -14378,10 +14378,10 @@ INSERT INTO races (
   '真駒内セキスイハイムスタジアム',
   'Makomanai Sekisui Heim Stadium',
   '札幌市南区真駒内公園3番1号',
-  NULL,
-  NULL,
+  42.996368,
+  141.34285,
   '2026-05-15T14:40:14.753Z',
-  '2026-07-31T14:36:22.238Z'
+  '2026-09-03T14:52:14.716Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -14531,10 +14531,10 @@ INSERT INTO races (
   '志賀高原 サンバレー',
   'Shiga Kogen Sun Valley',
   '長野県下高井郡山ノ内町平穏7149',
-  NULL,
-  NULL,
+  36.679581,
+  138.51355,
   '2026-04-05T06:01:54.559Z',
-  '2026-07-27T14:32:24.164Z'
+  '2026-09-03T14:52:15.257Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -15523,10 +15523,10 @@ Therefore, there is no registration required.',
   '総社商工会館東交差点（発着）・総社市スポーツセンター',
   'Soja Chamber of Commerce East Intersection (Start/Finish) / Soja Sports Center',
   '岡山県総社市',
-  NULL,
-  NULL,
+  34.67255,
+  133.746735,
   '2026-07-27T14:33:45.113Z',
-  '2026-07-27T14:33:45.113Z'
+  '2026-09-03T14:52:15.821Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -15944,10 +15944,10 @@ INSERT INTO races (
   '福原有信グラウンド館山（館山市営市民運動場）',
   'Fukuhara Yushin Ground Tateyama (Tateyama Municipal Citizens'' Athletic Field)',
   '千葉県館山市正木4304-2',
-  NULL,
-  NULL,
+  35.01247,
+  139.858475,
   '2026-08-24T16:18:08.658Z',
-  '2026-08-24T16:18:08.658Z'
+  '2026-09-03T14:52:16.338Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -16537,10 +16537,10 @@ MUFG Stadium (National Stadium): 10-1 Kasumigaoka-cho, Shinjuku-ku, Tokyo',
   'MUFGスタジアム（国立競技場）',
   'MUFG Stadium (National Stadium)',
   '東京都新宿区霞ヶ丘町10-1',
-  NULL,
-  NULL,
+  35.678047,
+  139.714859,
   '2026-05-14T14:47:07.523Z',
-  '2026-07-27T14:34:07.789Z'
+  '2026-09-03T14:52:16.894Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -16890,10 +16890,10 @@ INSERT INTO races (
   '東京都庁前',
   'Tokyo Metropolitan Government Plaza',
   '東京都新宿区西新宿2丁目8-1',
-  NULL,
-  NULL,
+  35.689629,
+  139.691772,
   '2026-06-24T00:00:00Z',
-  '2026-07-27T14:34:48.172Z'
+  '2026-09-03T14:52:17.410Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -18205,10 +18205,10 @@ INSERT INTO races (
   '横浜ノース・ドック（在日米陸軍基地）',
   'Yokohama North Dock (U.S. Army Installation)',
   '神奈川県横浜市神奈川区瑞穂埠頭（千若町、瑞穂町、鈴繁町）',
-  NULL,
-  NULL,
+  35.468506,
+  139.648621,
   '2026-08-31T23:51:21.157Z',
-  '2026-08-31T23:51:21.157Z'
+  '2026-09-03T14:52:17.959Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,

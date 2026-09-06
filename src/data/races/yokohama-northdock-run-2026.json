@@ -119,7 +119,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T23:51:21.157Z",
-  "updated_at": "2026-08-31T23:51:21.157Z",
+  "updated_at": "2026-09-03T14:52:17.959Z",
   "_metadata": {
     "data_source": "公式サイト（https://pia-running.jp/northdock/）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -200,6 +200,6 @@
   "venue_name_ja": "横浜ノース・ドック（在日米陸軍基地）",
   "venue_name_en": "Yokohama North Dock (U.S. Army Installation)",
   "venue_address": "神奈川県横浜市神奈川区瑞穂埠頭（千若町、瑞穂町、鈴繁町）",
-  "start_lat": null,
-  "start_lng": null
+  "start_lat": 35.468506,
+  "start_lng": 139.648621
 }

@@ -95,7 +95,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-08-24T16:14:48.368Z",
+  "updated_at": "2026-09-03T14:52:13.118Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -197,6 +197,6 @@
   "venue_name_ja": "岡山県総合グラウンド",
   "venue_name_en": "Okayama Prefectural General Ground",
   "venue_address": "岡山県岡山市北区いずみ町2-1-1",
-  "start_lat": null,
-  "start_lng": null
+  "start_lat": 34.680832,
+  "start_lng": 133.918564
 }

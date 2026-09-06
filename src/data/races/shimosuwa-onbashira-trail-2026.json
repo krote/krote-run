@@ -71,10 +71,19 @@
   "access_points": [],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会オリジナルTシャツ",
+      "description_en": "Original event T-shirt",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-08-31T13:29:34.000Z",
-  "updated_at": "2026-08-31T13:29:34.000Z",
+  "updated_at": "2026-09-04T14:28:40.017Z",
   "_metadata": {
     "data_source": "公式サイト（nature-scene.net/shimosuwa）および長野日報記事（2025年開催分の報道）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -82,20 +91,30 @@
       "スタート地点（諏訪大社下社秋宮）は2025年（初開催）の新聞報道に基づく推定。2026年大会での正式発表を要確認",
       "「第◯回」という回次表記は公式サイトで確認できず、editionは未入力",
       "参加賞・完走賞の情報は公式サイトに記載がなく空欄",
-      "関門通過時刻（第2エイド14:00、第3エイド16:45、ゴール制限18:00）はスケジュールページに記載があるが、ロング/ショートどちらに適用されるか明確でないためcategoriesのtime_limit_minutesには反映せず"
+      "関門通過時刻（第2エイド14:00、第3エイド16:45、ゴール制限18:00）はスケジュールページに記載があるが、ロング/ショートどちらに適用されるか明確でないためcategoriesのtime_limit_minutesには反映せず",
+      "2026-09-04: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-09-04",
     "detail_level": "light"
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
+      "label_ja": "ロング43km",
+      "label_en": "Long 43km",
       "start_date": "2026-05-17",
       "end_date": "2026-09-01",
-      "entry_fee": null,
+      "entry_fee": 11800,
       "category_id": null,
       "sort_order": 0
+    },
+    {
+      "label_ja": "ショート14.5km",
+      "label_en": "Short 14.5km",
+      "start_date": "2026-05-17",
+      "end_date": "2026-09-01",
+      "entry_fee": 8500,
+      "category_id": null,
+      "sort_order": 1
     }
   ],
   "motif": null,
@@ -131,7 +150,7 @@
   "completion_gifts": [],
   "venue_name_ja": "諏訪大社下社秋宮周辺",
   "venue_name_en": "Near Suwa Taisha Shimosha Akimiya",
-  "venue_address": null,
-  "start_lat": null,
-  "start_lng": null
+  "venue_address": "長野県諏訪郡下諏訪町大社通3202",
+  "start_lat": 36.074589,
+  "start_lng": 138.087677
 }

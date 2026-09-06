@@ -12,7 +12,7 @@
   "description_ja": "みなとみらいを発着点とする横浜の大規模フルマラソン。首都高速湾岸線を走れる貴重な大会。",
   "description_en": "A large-scale marathon starting and finishing in Minato Mirai, Yokohama. A rare opportunity to run on the Metropolitan Expressway Bayshore Route.",
   "official_url": "https://yokohamamarathon.jp",
-  "entry_fee": 0,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
   "entry_start_date": "2026-04-08",
@@ -50,12 +50,41 @@
       "name_en": null,
       "description_ja": null,
       "description_en": null,
-      "waves": null
+      "waves": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": []
     }
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "みなとみらい",
+      "station_name_en": "",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩3分",
+      "transport_to_venue_en": "",
+      "walk_minutes": 3,
+      "latitude": null,
+      "longitude": null,
+      "is_primary": false,
+      "sort_order": 0
+    },
+    {
+      "station_name_ja": "桜木町",
+      "station_name_en": "",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩5分",
+      "transport_to_venue_en": "",
+      "walk_minutes": 5,
+      "latitude": null,
+      "longitude": null,
+      "is_primary": false,
+      "sort_order": 1
+    }
+  ],
   "nearby_spots": [
     {
       "type": "観光地",
@@ -107,11 +136,11 @@
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
       "start_date": "2026-04-08",
       "end_date": "2026-05-17",
-      "entry_fee": null
+      "entry_fee": null,
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry"
     }
   ],
   "motif": "港",
@@ -125,32 +154,6 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": [
-    {
-      "name_ja": "みなとみらい",
-      "name_en": "Minato Mirai",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "赤レンガ倉庫",
-      "name_en": "Red Brick Warehouse",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "首都高速湾岸線",
-      "name_en": "Bayshore Expressway",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "山下公園",
-      "name_en": "Yamashita Park",
-      "description_ja": null,
-      "description_en": null
-    }
-  ],
   "info_urls": [
     {
       "url": "https://yokohamamarathon.jp/outline/",
@@ -175,9 +178,11 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
+  "venue_name_ja": "横浜ランドマークタワー前",
   "venue_name_en": null,
-  "venue_address": null,
+  "venue_address": "〒220-0012 神奈川県横浜市西区みなとみらい2丁目2-1",
   "start_lat": null,
-  "start_lng": null
+  "start_lng": null,
+  "entry_closed": false,
+  "entry_links": []
 }

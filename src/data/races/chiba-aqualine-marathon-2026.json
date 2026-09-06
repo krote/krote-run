@@ -12,7 +12,7 @@
   "description_ja": "東京湾アクアライン（木更津金田IC〜海ほたる）を往復走行する国内唯一の大会。海抜40.85mの橋梁から見渡す東京湾の絶景が最大の魅力。後半は袖ケ浦の田園地帯を走る。強風時は短縮コースに変更される場合あり。",
   "description_en": "Japan's only marathon traversing the Tokyo Bay Aqualine. Run across the iconic bridge with panoramic views of Tokyo Bay at 40.85m elevation. The course continues through Sodegaura's farmlands. May switch to a shortened course in strong winds.",
   "official_url": "https://chiba-aqualine-marathon.com/",
-  "entry_fee": 16500,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 12000,
   "entry_start_date": "2026-03-22",
@@ -48,7 +48,12 @@
       "entry_fee": 16500,
       "capacity": 12000,
       "time_limit_minutes": 375,
-      "start_time": "09:45"
+      "start_time": "09:45",
+      "name_ja": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": []
     },
     {
       "distance_type": "half",
@@ -56,12 +61,30 @@
       "entry_fee": 13500,
       "capacity": 5000,
       "time_limit_minutes": 205,
-      "start_time": "09:45"
+      "start_time": "09:45",
+      "name_ja": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": []
     }
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "木更津",
+      "station_name_en": "",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩20分",
+      "transport_to_venue_en": "",
+      "walk_minutes": 20,
+      "latitude": null,
+      "longitude": null,
+      "is_primary": false,
+      "sort_order": 0
+    }
+  ],
   "nearby_spots": [],
   "participation_gifts": [
     {
@@ -113,26 +136,6 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": [
-    {
-      "name_ja": "東京湾アクアライン",
-      "name_en": "Tokyo Bay Aqualine",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "海ほたる",
-      "name_en": "Umihotaru PA",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "袖ケ浦の田園地帯",
-      "name_en": "Sodegaura farmlands",
-      "description_ja": null,
-      "description_en": null
-    }
-  ],
   "info_urls": [
     {
       "url": "https://chiba-aqualine-marathon.com/tournament/",
@@ -161,9 +164,11 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
+  "venue_name_ja": "潮浜公園前（木更津市）",
   "venue_name_en": null,
-  "venue_address": null,
+  "venue_address": "千葉県木更津市潮浜1-12",
   "start_lat": null,
-  "start_lng": null
+  "start_lng": null,
+  "entry_closed": false,
+  "entry_links": []
 }

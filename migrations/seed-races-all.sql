@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-09-06T08:42:39.162Z
+-- 生成日時: 2026-09-06T13:47:42.724Z
 -- 対象ファイル数: 126 件（既存 2 件はskip）
 
 -- ==================
@@ -1922,7 +1922,7 @@ INSERT INTO races (
   '東京湾アクアライン（木更津金田IC〜海ほたる）を往復走行する国内唯一の大会。海抜40.85mの橋梁から見渡す東京湾の絶景が最大の魅力。後半は袖ケ浦の田園地帯を走る。強風時は短縮コースに変更される場合あり。',
   'Japan''s only marathon traversing the Tokyo Bay Aqualine. Run across the iconic bridge with panoramic views of Tokyo Bay at 40.85m elevation. The course continues through Sodegaura''s farmlands. May switch to a shortened course in strong winds.',
   'https://chiba-aqualine-marathon.com/',
-  16500,
+  NULL,
   1,
   12000,
   '2026-03-22',
@@ -1950,9 +1950,9 @@ INSERT INTO races (
   NULL,
   NULL,
   NULL,
+  '潮浜公園前（木更津市）',
   NULL,
-  NULL,
-  NULL,
+  '千葉県木更津市潮浜1-12',
   NULL,
   NULL,
   '2026-03-30T00:00:00Z',
@@ -2005,6 +2005,8 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('chiba-aqualine-marathon-2026', 'full', 42.195, 375, '09:45', 12000, 16500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('chiba-aqualine-marathon-2026', 'half', 21.0975, 205, '09:45', 5000, 13500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('chiba-aqualine-marathon-2026', '木更津', '', '', '徒歩20分', '', 0, 0, 20, 0, 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('chiba-aqualine-marathon-2026', '["tshirt"]', '参加賞Tシャツ、完走メダル', '', NULL, 0);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -2013,12 +2015,6 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
   ('chiba-aqualine-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-03-22', '2026-04-12', 16500, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('chiba-aqualine-marathon-2026', NULL, 'レイトエントリー', 'Late Entry', '2026-05-31', '2026-06-08', 16500, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('chiba-aqualine-marathon-2026', NULL, NULL, '東京湾アクアライン', 'Tokyo Bay Aqualine', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('chiba-aqualine-marathon-2026', NULL, NULL, '海ほたる', 'Umihotaru PA', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('chiba-aqualine-marathon-2026', NULL, NULL, '袖ケ浦の田園地帯', 'Sodegaura farmlands', NULL, NULL, 2);
 
 -- ==================
 -- 愛媛マラソン (ehime-marathon-2026)
@@ -18254,7 +18250,7 @@ INSERT INTO races (
   'みなとみらいを発着点とする横浜の大規模フルマラソン。首都高速湾岸線を走れる貴重な大会。',
   'A large-scale marathon starting and finishing in Minato Mirai, Yokohama. A rare opportunity to run on the Metropolitan Expressway Bayshore Route.',
   'https://yokohamamarathon.jp',
-  0,
+  NULL,
   1,
   0,
   '2026-04-08',
@@ -18282,9 +18278,9 @@ INSERT INTO races (
   NULL,
   NULL,
   NULL,
+  '横浜ランドマークタワー前',
   NULL,
-  NULL,
-  NULL,
+  '〒220-0012 神奈川県横浜市西区みなとみらい2丁目2-1',
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
@@ -18335,6 +18331,10 @@ INSERT INTO races (
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('yokohama-marathon-2026', 'full', 42.195, 390, '08:30', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('yokohama-marathon-2026', 'みなとみらい', '', '', '徒歩3分', '', 0, 0, 3, 0, 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('yokohama-marathon-2026', '桜木町', '', '', '徒歩5分', '', 0, 0, 5, 0, 1);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('yokohama-marathon-2026', '観光地', 'みなとみらい・赤レンガ倉庫', 'Minato Mirai & Red Brick Warehouse', 'スタート・フィニッシュエリア周辺。横浜を代表する観光スポット。ショッピングやグルメも充実。', 'Around the start/finish area. Yokohama''s iconic landmark. Shopping and dining.', 'スタート・フィニッシュ付近', NULL, 35.4537, 139.6429);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -18345,14 +18345,6 @@ INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_j
   ('yokohama-marathon-2026', '["medal"]', '大会Tシャツ、完走メダル、フィニッシャータオル', 'Race T-shirt, Finisher medal, Finisher towel', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('yokohama-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-08', '2026-05-17', NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('yokohama-marathon-2026', NULL, NULL, 'みなとみらい', 'Minato Mirai', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('yokohama-marathon-2026', NULL, NULL, '赤レンガ倉庫', 'Red Brick Warehouse', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('yokohama-marathon-2026', NULL, NULL, '首都高速湾岸線', 'Bayshore Expressway', NULL, NULL, 2);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('yokohama-marathon-2026', NULL, NULL, '山下公園', 'Yamashita Park', NULL, NULL, 3);
 
 -- ==================
 -- 横浜ノースドックラン (yokohama-northdock-run-2026)

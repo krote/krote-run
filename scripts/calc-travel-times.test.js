@@ -10,10 +10,9 @@ const assert = require('node:assert/strict');
 const {
   HUBS,
   getArrivalDeadline,
-  buildOtpEndpoint,
-  buildPlanQuery,
-  extractShortestDurationSeconds,
-  secondsToMinutes,
+  NAVITIME_HOST,
+  buildNavitimeUrl,
+  extractShortestDurationMinutes,
   fetchTravelMinutes,
   buildUpsertSQL,
   calcTravelTimesForRace,
@@ -102,164 +101,111 @@ describe('HUBS', () => {
   });
 });
 
-// ── buildOtpEndpoint ────────────────────────────────────────────────
+// ── buildNavitimeUrl ────────────────────────────────────────────────
 
-describe('buildOtpEndpoint', () => {
-  test('デフォルト URL からエンドポイントを組み立てる', () => {
-    assert.equal(
-      buildOtpEndpoint('http://localhost:8080'),
-      'http://localhost:8080/otp/routers/default/index/graphql'
+describe('buildNavitimeUrl', () => {
+  test('start/goal の座標を "lat,lng" 形式で含む', () => {
+    const url = buildNavitimeUrl(
+      { lat: 35.6812, lng: 139.7671 },
+      { lat: 35.8079, lng: 139.6782 },
+      { date: '2026-10-01', time: '08:30:00' }
     );
+    assert.ok(url.includes('start=35.6812%2C139.7671'));
+    assert.ok(url.includes('goal=35.8079%2C139.6782'));
   });
 
-  test('末尾スラッシュがあっても正しく組み立てる', () => {
-    assert.equal(
-      buildOtpEndpoint('http://localhost:8080/'),
-      'http://localhost:8080/otp/routers/default/index/graphql'
+  test('goal_time に date と time を結合したISO形式を含む（arrive-by相当）', () => {
+    const url = buildNavitimeUrl(
+      { lat: 35.6812, lng: 139.7671 },
+      { lat: 35.8079, lng: 139.6782 },
+      { date: '2026-10-01', time: '08:30:00' }
     );
+    assert.ok(url.includes(encodeURIComponent('2026-10-01T08:30:00')));
+  });
+
+  test('NAVITIME_HOST を含むエンドポイントを組み立てる', () => {
+    const url = buildNavitimeUrl(
+      { lat: 35.6812, lng: 139.7671 },
+      { lat: 35.8079, lng: 139.6782 },
+      { date: '2026-10-01', time: '08:30:00' }
+    );
+    assert.ok(url.startsWith(`https://${NAVITIME_HOST}/route_transit?`));
   });
 });
 
-// ── buildPlanQuery ──────────────────────────────────────────────────
+// ── extractShortestDurationMinutes ──────────────────────────────────
 
-describe('buildPlanQuery', () => {
-  test('from/to の座標を含む', () => {
-    const query = buildPlanQuery(
-      { lat: 35.6812, lng: 139.7671 },
-      { lat: 35.8079, lng: 139.6782 },
-      { date: '2026-10-01', time: '08:30:00' }
-    );
-    assert.ok(query.includes('35.6812'));
-    assert.ok(query.includes('139.7671'));
-    assert.ok(query.includes('35.8079'));
-    assert.ok(query.includes('139.6782'));
+describe('extractShortestDurationMinutes', () => {
+  test('items が1件 → summary.move.time（分）を返す', () => {
+    const res = { items: [{ summary: { move: { time: 236 } } }] };
+    assert.equal(extractShortestDurationMinutes(res), 236);
   });
 
-  test('arriveBy: true と date/time を含む', () => {
-    const query = buildPlanQuery(
-      { lat: 35.6812, lng: 139.7671 },
-      { lat: 35.8079, lng: 139.6782 },
-      { date: '2026-10-01', time: '08:30:00' }
-    );
-    assert.ok(query.includes('arriveBy: true'));
-    assert.ok(query.includes('date: "2026-10-01"'));
-    assert.ok(query.includes('time: "08:30:00"'));
-  });
-
-  test('TRANSIT と WALK の transportModes を含む', () => {
-    const query = buildPlanQuery(
-      { lat: 35.6812, lng: 139.7671 },
-      { lat: 35.8079, lng: 139.6782 },
-      { date: '2026-10-01', time: '08:30:00' }
-    );
-    assert.ok(query.includes('mode: TRANSIT'));
-    assert.ok(query.includes('mode: WALK'));
-  });
-
-  test('itineraries { duration legs { mode distance } } を含む', () => {
-    const query = buildPlanQuery(
-      { lat: 35.6812, lng: 139.7671 },
-      { lat: 35.8079, lng: 139.6782 },
-      { date: '2026-10-01', time: '08:30:00' }
-    );
-    assert.ok(query.includes('duration'));
-    assert.ok(query.includes('legs'));
-  });
-});
-
-// ── extractShortestDurationSeconds ──────────────────────────────────
-
-describe('extractShortestDurationSeconds', () => {
-  test('itineraries が1件 → その duration を返す', () => {
-    const res = { data: { plan: { itineraries: [{ duration: 14124, legs: [] }] } } };
-    assert.equal(extractShortestDurationSeconds(res), 14124);
-  });
-
-  test('複数 itineraries → 最短の duration を返す', () => {
+  test('複数 items → 最短の summary.move.time を返す', () => {
     const res = {
-      data: {
-        plan: {
-          itineraries: [
-            { duration: 3600, legs: [] },
-            { duration: 1800, legs: [] },
-            { duration: 5400, legs: [] },
-          ],
-        },
-      },
+      items: [
+        { summary: { move: { time: 180 } } },
+        { summary: { move: { time: 60 } } },
+        { summary: { move: { time: 300 } } },
+      ],
     };
-    assert.equal(extractShortestDurationSeconds(res), 1800);
+    assert.equal(extractShortestDurationMinutes(res), 60);
   });
 
-  test('itineraries が空配列 → null（経路なし）', () => {
-    const res = { data: { plan: { itineraries: [] } } };
-    assert.equal(extractShortestDurationSeconds(res), null);
+  test('items が空配列 → null（経路なし）', () => {
+    assert.equal(extractShortestDurationMinutes({ items: [] }), null);
   });
 
-  test('plan が null → null', () => {
-    const res = { data: { plan: null } };
-    assert.equal(extractShortestDurationSeconds(res), null);
+  test('items が欠落 → null', () => {
+    assert.equal(extractShortestDurationMinutes({}), null);
   });
 
-  test('data が欠落 → null', () => {
-    assert.equal(extractShortestDurationSeconds({}), null);
+  test('summary.move.time が数値でない items は除外し、残りから最短を返す', () => {
+    const res = {
+      items: [
+        { summary: {} },
+        { summary: { move: { time: 90 } } },
+      ],
+    };
+    assert.equal(extractShortestDurationMinutes(res), 90);
   });
 
-  test('errors フィールドがある場合は null', () => {
-    const res = { errors: [{ message: 'boom' }], data: null };
-    assert.equal(extractShortestDurationSeconds(res), null);
-  });
-});
-
-// ── secondsToMinutes ────────────────────────────────────────────────
-
-describe('secondsToMinutes', () => {
-  test('3600秒 → 60分', () => {
-    assert.equal(secondsToMinutes(3600), 60);
-  });
-
-  test('3660秒 → 61分（切り上げ）', () => {
-    assert.equal(secondsToMinutes(3660), 61);
-  });
-
-  test('14124秒 → 236分', () => {
-    assert.equal(secondsToMinutes(14124), 236);
-  });
-
-  test('0秒 → 0分', () => {
-    assert.equal(secondsToMinutes(0), 0);
+  test('全itemsにtimeが無い → null', () => {
+    const res = { items: [{ summary: {} }] };
+    assert.equal(extractShortestDurationMinutes(res), null);
   });
 });
 
 // ── fetchTravelMinutes ──────────────────────────────────────────────
 
 describe('fetchTravelMinutes', () => {
-  test('正常レスポンス → 分に変換して返す', async () => {
+  test('正常レスポンス → 分をそのまま返す', async () => {
     const fetchFn = async () => ({
       ok: true,
-      json: async () => ({ data: { plan: { itineraries: [{ duration: 14124, legs: [] }] } } }),
+      json: async () => ({ items: [{ summary: { move: { time: 236 } } }] }),
     });
     const minutes = await fetchTravelMinutes(
       { lat: 35.6812, lng: 139.7671 },
       { lat: 35.8079, lng: 139.6782 },
       '2026-10-01',
       '08:30:00',
-      'http://localhost:8080',
+      'test-api-key',
       fetchFn
     );
     assert.equal(minutes, 236);
   });
 
-  test('itineraries が空 → null を返す（不明扱い）', async () => {
+  test('items が空 → null を返す（不明扱い）', async () => {
     const fetchFn = async () => ({
       ok: true,
-      json: async () => ({ data: { plan: { itineraries: [] } } }),
+      json: async () => ({ items: [] }),
     });
     const minutes = await fetchTravelMinutes(
       { lat: 35.6812, lng: 139.7671 },
       { lat: 35.8079, lng: 139.6782 },
       '2026-10-01',
       '08:30:00',
-      'http://localhost:8080',
+      'test-api-key',
       fetchFn
     );
     assert.equal(minutes, null);
@@ -277,27 +223,28 @@ describe('fetchTravelMinutes', () => {
         { lat: 35.8079, lng: 139.6782 },
         '2026-10-01',
         '08:30:00',
-        'http://localhost:8080',
+        'test-api-key',
         fetchFn
       )
     );
   });
 
-  test('fetchFn に組み立てたエンドポイント URL が渡される', async () => {
-    let calledUrl = null;
-    const fetchFn = async (url) => {
-      calledUrl = url;
-      return { ok: true, json: async () => ({ data: { plan: { itineraries: [{ duration: 60, legs: [] }] } } }) };
+  test('X-RapidAPI-Key / X-RapidAPI-Host ヘッダーが正しく渡される', async () => {
+    let calledHeaders = null;
+    const fetchFn = async (url, opts) => {
+      calledHeaders = opts.headers;
+      return { ok: true, json: async () => ({ items: [{ summary: { move: { time: 60 } } }] }) };
     };
     await fetchTravelMinutes(
       { lat: 35.6812, lng: 139.7671 },
       { lat: 35.8079, lng: 139.6782 },
       '2026-10-01',
       '08:30:00',
-      'http://localhost:8080',
+      'test-api-key',
       fetchFn
     );
-    assert.equal(calledUrl, 'http://localhost:8080/otp/routers/default/index/graphql');
+    assert.equal(calledHeaders['X-RapidAPI-Key'], 'test-api-key');
+    assert.equal(calledHeaders['X-RapidAPI-Host'], NAVITIME_HOST);
   });
 });
 
@@ -338,7 +285,7 @@ describe('calcTravelTimesForRace', () => {
     const race = makeRace({ start_lat: null, start_lng: null });
     let called = false;
     const fetchFn = async () => { called = true; return { ok: true, json: async () => ({}) }; };
-    const rows = await calcTravelTimesForRace(race, { otpUrl: 'http://localhost:8080', fetchFn });
+    const rows = await calcTravelTimesForRace(race, { apiKey: 'test-api-key', fetchFn });
     assert.deepEqual(rows, []);
     assert.equal(called, false);
   });
@@ -347,7 +294,7 @@ describe('calcTravelTimesForRace', () => {
     const race = makeRace({ categories: [] });
     let called = false;
     const fetchFn = async () => { called = true; return { ok: true, json: async () => ({}) }; };
-    const rows = await calcTravelTimesForRace(race, { otpUrl: 'http://localhost:8080', fetchFn });
+    const rows = await calcTravelTimesForRace(race, { apiKey: 'test-api-key', fetchFn });
     assert.deepEqual(rows, []);
     assert.equal(called, false);
   });
@@ -359,11 +306,11 @@ describe('calcTravelTimesForRace', () => {
       callCount++;
       // fukuoka（8番目）だけ経路なし
       if (callCount === 8) {
-        return { ok: true, json: async () => ({ data: { plan: { itineraries: [] } } }) };
+        return { ok: true, json: async () => ({ items: [] }) };
       }
-      return { ok: true, json: async () => ({ data: { plan: { itineraries: [{ duration: 3600, legs: [] }] } } }) };
+      return { ok: true, json: async () => ({ items: [{ summary: { move: { time: 60 } } }] }) };
     };
-    const rows = await calcTravelTimesForRace(race, { otpUrl: 'http://localhost:8080', fetchFn });
+    const rows = await calcTravelTimesForRace(race, { apiKey: 'test-api-key', fetchFn });
     assert.equal(callCount, 8);
     assert.equal(rows.length, 7);
     assert.equal(rows[0].race_id, 'test-race-2026');
@@ -376,9 +323,9 @@ describe('calcTravelTimesForRace', () => {
     const fetchFn = async () => {
       callCount++;
       if (callCount === 1) throw new Error('network error');
-      return { ok: true, json: async () => ({ data: { plan: { itineraries: [{ duration: 1800, legs: [] }] } } }) };
+      return { ok: true, json: async () => ({ items: [{ summary: { move: { time: 30 } } }] }) };
     };
-    const rows = await calcTravelTimesForRace(race, { otpUrl: 'http://localhost:8080', fetchFn });
+    const rows = await calcTravelTimesForRace(race, { apiKey: 'test-api-key', fetchFn });
     assert.equal(callCount, 8);
     assert.equal(rows.length, 7);
   });

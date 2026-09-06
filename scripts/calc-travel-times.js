@@ -3,17 +3,24 @@
 /**
  * scripts/calc-travel-times.js
  *
- * OpenTripPlanner（OTP）の GraphQL API に問い合わせて、主要都市8ハブ→各大会会場の
+ * NAVITIME API（totalnavi、RapidAPI経由）に問い合わせて、主要都市8ハブ→各大会会場の
  * 公共交通機関での移動時間を計算し、race_travel_times テーブルへの
  * INSERT ... ON CONFLICT SQL を migrations/seed-travel-times.sql として出力する。
  *
- * OTP は常設サーバーを持たない前提（Issue #82）。事前に Docker 等でローカルに
- * OTP サーバーを起動しておくこと（デフォルト http://localhost:8080）。
+ * 経路計算自体はNAVITIME側のサーバーで行われるため、OpenTripPlanner等の自前ホストは
+ * 不要（過去にOTP + ODPTオープンデータでの自前計算を検討したが、日本の主要鉄道
+ * （JR各社）のGTFSデータを無料で入手する手段が実質無いことが判明し断念した。
+ * 詳細: docs/blog-transit-api-japan-investigation.md）。
  *
  * 使い方:
- *   node scripts/calc-travel-times.js              # start_lat/start_lng が設定済みの全レースを処理
- *   node scripts/calc-travel-times.js <race-id>     # 対象レースのみ処理
- *   OTP_URL=http://localhost:9080 node scripts/calc-travel-times.js   # OTPサーバーURLを変更
+ *   RAPIDAPI_KEY=xxx node scripts/calc-travel-times.js              # start_lat/start_lng が設定済みの全レースを処理
+ *   RAPIDAPI_KEY=xxx node scripts/calc-travel-times.js <race-id>     # 対象レースのみ処理
+ *
+ * RAPIDAPI_KEY は RapidAPI で navitime-route-totalnavi をサブスクライブして取得する
+ * （BASICプランは無料、500リクエスト/月）。ローカル実行時は .env.local に
+ *   RAPIDAPI_KEY=...
+ * を設定しておけば自動では読み込まれない点に注意（scripts/ 以下はNext.jsの
+ * dotenv読み込みの対象外）。実行前に環境変数として渡すこと。
  *
  * DBへは直接書き込まない。生成された migrations/seed-travel-times.sql を
  * レビューした上で `wrangler d1 execute --local/--remote --file=...` で手動適用する。
@@ -37,7 +44,8 @@ const HUBS = {
 
 const RACES_DIR = path.join(__dirname, '..', 'src', 'data', 'races');
 const OUTPUT_FILE = path.join(__dirname, '..', 'migrations', 'seed-travel-times.sql');
-const DEFAULT_OTP_URL = 'http://localhost:8080';
+const NAVITIME_HOST = 'navitime-route-totalnavi.p.rapidapi.com';
+const NAVITIME_BASE_URL = `https://${NAVITIME_HOST}/route_transit`;
 
 // ── 到着期限の計算（src/lib/reception.ts の getArrivalDeadline と同等ロジック） ──
 //
@@ -96,76 +104,70 @@ function getArrivalDeadline(race) {
   return fromMinutes(Math.min(deadlineFromStart, deadlineFromReception));
 }
 
-// ── OTP GraphQL クエリ ────────────────────────────────────────────────
+// ── NAVITIME API ─────────────────────────────────────────────────────
 
 /**
- * OTP サーバーのベースURLから GraphQL エンドポイントを組み立てる。
- * @param {string} otpUrl
- * @returns {string}
- */
-function buildOtpEndpoint(otpUrl) {
-  return `${otpUrl.replace(/\/$/, '')}/otp/routers/default/index/graphql`;
-}
-
-/**
- * OTP の plan クエリ（GraphQL）を組み立てる。
- * arriveBy: true で「date/time までに到着する経路」を問い合わせる。
+ * NAVITIME route_transit のリクエストURLを組み立てる。
+ * goal_time で「到着期限までに到着する経路」を問い合わせる（arrive-by相当）。
  * @param {{ lat: number, lng: number }} origin
  * @param {{ lat: number, lng: number }} destination
  * @param {{ date: string, time: string }} arrival date: YYYY-MM-DD, time: HH:MM:SS
  * @returns {string}
  */
-function buildPlanQuery(origin, destination, { date, time }) {
-  return `{ plan(from: {lat: ${origin.lat}, lon: ${origin.lng}}, to: {lat: ${destination.lat}, lon: ${destination.lng}}, transportModes: [{mode: TRANSIT}, {mode: WALK}], arriveBy: true, date: "${date}", time: "${time}") { itineraries { duration legs { mode distance } } } }`;
+function buildNavitimeUrl(origin, destination, { date, time }) {
+  const params = new URLSearchParams({
+    start: `${origin.lat},${origin.lng}`,
+    goal: `${destination.lat},${destination.lng}`,
+    goal_time: `${date}T${time}`,
+  });
+  return `${NAVITIME_BASE_URL}?${params.toString()}`;
 }
 
 /**
- * OTP レスポンスから最短の duration（秒）を取り出す。
- * itineraries が空・plan が null・errors がある場合は経路なしとして null を返す。
- * @param {object} otpResponse
+ * NAVITIME レスポンスから最短の所要時間（分）を取り出す。
+ * items が空・欠落、または summary.move.time が数値の item が1つも無い場合は
+ * 経路なしとして null を返す。
+ * @param {object} navitimeResponse
  * @returns {number | null}
  */
-function extractShortestDurationSeconds(otpResponse) {
-  if (!otpResponse || otpResponse.errors) return null;
-  const itineraries = otpResponse.data?.plan?.itineraries;
-  if (!itineraries || itineraries.length === 0) return null;
-  return itineraries.reduce((min, it) => (it.duration < min ? it.duration : min), itineraries[0].duration);
-}
+function extractShortestDurationMinutes(navitimeResponse) {
+  const items = navitimeResponse?.items;
+  if (!items || items.length === 0) return null;
 
-/**
- * 秒を分に変換する（切り上げ）。
- * @param {number} seconds
- * @returns {number}
- */
-function secondsToMinutes(seconds) {
-  return Math.ceil(seconds / 60);
+  const times = items
+    .map((item) => item?.summary?.move?.time)
+    .filter((t) => typeof t === 'number');
+  if (times.length === 0) return null;
+
+  return Math.min(...times);
 }
 
 // ── API 呼び出し ─────────────────────────────────────────────────────────
 
 /**
- * OTP GraphQL API を呼び出して移動時間（分）を返す。
- * itineraries が見つからない場合は null（不明扱い）、HTTPエラーは例外を投げる。
+ * NAVITIME API を呼び出して移動時間（分）を返す。
+ * 経路が見つからない場合は null（不明扱い）、HTTPエラーは例外を投げる。
  * @param {{ lat: number, lng: number }} origin
  * @param {{ lat: number, lng: number }} destination
  * @param {string} date YYYY-MM-DD
  * @param {string} time HH:MM:SS（到着期限）
- * @param {string} otpUrl
+ * @param {string} apiKey RapidAPIキー（X-RapidAPI-Key）
  * @param {typeof fetch} [fetchFn]
  * @returns {Promise<number | null>}
  */
-async function fetchTravelMinutes(origin, destination, date, time, otpUrl, fetchFn = fetch) {
-  const endpoint = buildOtpEndpoint(otpUrl);
-  const query = buildPlanQuery(origin, destination, { date, time });
+async function fetchTravelMinutes(origin, destination, date, time, apiKey, fetchFn = fetch) {
+  const url = buildNavitimeUrl(origin, destination, { date, time });
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 30000);
   let res;
   try {
-    res = await fetchFn(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query }),
+    res = await fetchFn(url, {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': apiKey,
+        'X-RapidAPI-Host': NAVITIME_HOST,
+      },
       signal: controller.signal,
     });
   } finally {
@@ -174,13 +176,11 @@ async function fetchTravelMinutes(origin, destination, date, time, otpUrl, fetch
 
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`OTP API error ${res.status}: ${text}`);
+    throw new Error(`NAVITIME API error ${res.status}: ${text}`);
   }
 
   const data = await res.json();
-  const seconds = extractShortestDurationSeconds(data);
-  if (seconds === null) return null;
-  return secondsToMinutes(seconds);
+  return extractShortestDurationMinutes(data);
 }
 
 // ── SQL 生成 ─────────────────────────────────────────────────────────────
@@ -213,7 +213,7 @@ ON CONFLICT(race_id, hub_id) DO UPDATE SET
 function generateSeedSQL(rows) {
   let sql = `-- 自動生成: calc-travel-times.js
 -- 生成日時: ${new Date().toISOString()}
--- 対象行数: ${rows.length} 件（OTPで経路が見つからなかったレース×ハブの組は除外）
+-- 対象行数: ${rows.length} 件（NAVITIMEで経路が見つからなかったレース×ハブの組は除外）
 --
 -- レビュー後、手動で適用すること:
 --   wrangler d1 execute <DB名> --local/--remote --file=migrations/seed-travel-times.sql
@@ -230,12 +230,12 @@ function generateSeedSQL(rows) {
 /**
  * 1レース分の移動時間を8ハブ分計算する。
  * start_lat/start_lng が無い、または到着期限が計算できないレースは空配列を返す。
- * ハブ単位のエラー（OTP側の失敗等）は当該ハブをスキップして処理を継続する。
+ * ハブ単位のエラー（NAVITIME側の失敗等）は当該ハブをスキップして処理を継続する。
  * @param {object} race レース JSON
- * @param {{ otpUrl: string, fetchFn?: typeof fetch }} opts
+ * @param {{ apiKey: string, fetchFn?: typeof fetch }} opts
  * @returns {Promise<Array<{race_id: string, hub_id: string, duration_minutes: number, departure_time: null, calculated_at: string}>>}
  */
-async function calcTravelTimesForRace(race, { otpUrl, fetchFn = fetch } = {}) {
+async function calcTravelTimesForRace(race, { apiKey, fetchFn = fetch } = {}) {
   if (race.start_lat == null || race.start_lng == null) {
     return [];
   }
@@ -252,7 +252,7 @@ async function calcTravelTimesForRace(race, { otpUrl, fetchFn = fetch } = {}) {
   for (const hub of Object.values(HUBS)) {
     process.stdout.write(`  [${race.id}] ${hub.id} ... `);
     try {
-      const minutes = await fetchTravelMinutes(hub, destination, race.date, time, otpUrl, fetchFn);
+      const minutes = await fetchTravelMinutes(hub, destination, race.date, time, apiKey, fetchFn);
       if (minutes === null) {
         console.log('不明（経路なし）');
         continue;
@@ -274,7 +274,11 @@ async function calcTravelTimesForRace(race, { otpUrl, fetchFn = fetch } = {}) {
 }
 
 async function main() {
-  const otpUrl = process.env.OTP_URL || DEFAULT_OTP_URL;
+  const apiKey = process.env.RAPIDAPI_KEY;
+  if (!apiKey) {
+    console.error('環境変数 RAPIDAPI_KEY が未設定です（RapidAPIでnavitime-route-totalnaviをサブスクライブして取得）');
+    process.exit(1);
+  }
   const targetId = process.argv[2];
 
   const files = fs.readdirSync(RACES_DIR)
@@ -286,8 +290,6 @@ async function main() {
     console.error(`File not found: ${path.join(RACES_DIR, `${targetId}.json`)}`);
     process.exit(1);
   }
-
-  console.log(`OTP URL: ${otpUrl}`);
 
   const allRows = [];
   for (const file of files) {
@@ -302,7 +304,7 @@ async function main() {
       continue;
     }
 
-    const rows = await calcTravelTimesForRace(race, { otpUrl });
+    const rows = await calcTravelTimesForRace(race, { apiKey });
     allRows.push(...rows);
   }
 
@@ -321,10 +323,9 @@ if (require.main === module) {
 module.exports = {
   HUBS,
   getArrivalDeadline,
-  buildOtpEndpoint,
-  buildPlanQuery,
-  extractShortestDurationSeconds,
-  secondsToMinutes,
+  NAVITIME_HOST,
+  buildNavitimeUrl,
+  extractShortestDurationMinutes,
   fetchTravelMinutes,
   buildUpsertSQL,
   generateSeedSQL,

@@ -1105,3 +1105,17 @@ GoogleのtransitモードはAPI経由で日本を対象外としているため�
 - `package.json` の `test:tools` に `scripts/calc-travel-times.test.js` を追加
 - `pnpm run test:tools` 全249件パス確認
 - 本Issueの残タスク（UI復元・`scripts/build-otp-graph.sh`・GitHub Actionsワークフロー）は未着手
+
+## 2026-09-06 calc-travel-times.js を OpenTripPlanner から NAVITIME API に全面書き換え（Issue #82 一部）
+
+OTP + オープンデータ（ODPT等）による自前ホスト経路計算を検証したが、日本の主要鉄道（JR各社）のGTFSデータを無料で入手する手段が実質無いことが判明し断念（詳細: `docs/blog-transit-api-japan-investigation.md`）。代わりにNAVITIME API（`totalnavi`、RapidAPI経由）を採用する。経路計算自体をNAVITIME側で行うため、自前ホストのインフラ（OTPグラフビルド・GTFS収集）が丸ごと不要になった。
+
+- OTPグラフビルドスクリプト・GitHub Actionsワークフローを追加していたPR #159はクローズ（マージせず破棄）
+- `scripts/calc-travel-times.js`: OTP版から全面書き換え
+  - NAVITIME `route_transit` エンドポイント（`https://navitime-route-totalnavi.p.rapidapi.com/route_transit`）に `start`/`goal`（`lat,lng`）・`goal_time`（到着期限、arrive-by相当）でGETリクエスト
+  - レスポンスの `items[].summary.move.time`（分）から最短値を抽出。`items` が空・`summary.move.time` が無い場合は「不明」として扱い、該当レース×ハブの行を出力しない
+  - 認証は `X-RapidAPI-Key` / `X-RapidAPI-Host` ヘッダー。環境変数 `RAPIDAPI_KEY`（未設定時はエラー終了）
+  - 到着期限計算ロジック（`getArrivalDeadline`）・SQL生成（`migrations/seed-travel-times.sql` への出力、DB直接書き込みなし）は変更なし
+- `scripts/calc-travel-times.test.js`: TDDで先にRed → Green。NAVITIMEレスポンス形式（正常・経路なし・HTTPエラー・ハブ単位のエラー継続・RapidAPIヘッダー）に合わせて全面書き換え
+- `pnpm run test:tools` 全242件パス確認
+- RapidAPIの`navitime-route-totalnavi`はNAVITIMEが公開する12種類のAPI（route-walk/route-car/route-bicycle/transport/reachable等）のうち、公共交通＋徒歩のドアtoドア経路検索に対応する唯一のもの。BASICプラン無料（500リクエスト/月）

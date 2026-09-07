@@ -17,9 +17,9 @@
   "entry_capacity": 1000,
   "entry_start_date": "2026-04-01",
   "entry_end_date": "2026-06-30",
-  "reception_type": "race_day",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "reception_type": "both",
+  "reception_note_ja": "大会前日（9月5日）13:00～18:00、大会当日（9月6日）6:00～16:00に稚内港北防波堤ドーム公園の総合案内所にて受付。荷物預かり・更衣所は稚内港北防波堤ドーム公園（6:00～16:00）および宗谷岬（当日7:30～9:00）で利用可能。",
+  "reception_note_en": "Reception at the general information desk in Wakkanai Port Northern Breakwater Dome Park: race eve (Sep 5) 13:00-18:00 and race day (Sep 6) 6:00-16:00. Baggage check and changing areas also available at Wakkanai Port Northern Breakwater Dome Park (6:00-16:00) and Cape Soya (7:30-9:00 on race day).",
   "tags": [
     "日本最北端",
     "絶景",
@@ -94,14 +94,15 @@
   ],
   "result": null,
   "created_at": "2026-04-30T00:00:00Z",
-  "updated_at": "2026-04-30T00:00:00Z",
+  "updated_at": "2026-09-06T14:36:38.494Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、気象データ等は未入力",
-      "参加費・定員は公式サイト掲載情報。正式発表後に要確認"
+      "参加費・定員は公式サイト掲載情報。正式発表後に要確認",
+      "2026-09-06: 自動クロールで更新"
     ],
-    "last_verified": "2026-04-30",
+    "last_verified": "2026-09-06",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -168,8 +169,8 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "稚内港北防波堤ドーム公園",
+  "venue_name_en": "Wakkanai Port Northern Breakwater Dome Park",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

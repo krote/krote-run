@@ -18,8 +18,8 @@
   "entry_start_date": "2026-04-01",
   "entry_end_date": "2026-07-26",
   "reception_type": "pre_day",
-  "reception_note_ja": "託児サービスあり（未就学児、先着20名、大会当日7:30〜13:00、無料、事前に事務局へ電話申込）",
-  "reception_note_en": "Childcare service available (preschool children, first-come 20 spots, 7:30-13:00 on race day, free, advance phone reservation required)",
+  "reception_note_ja": "託児サービスあり",
+  "reception_note_en": "Childcare service available",
   "tags": [
     "北海道",
     "景色が良い",
@@ -60,35 +60,17 @@
   "checkpoints": [],
   "access_points": [],
   "nearby_spots": [],
-  "participation_gifts": [
-    {
-      "gift_categories": [
-        "tshirt"
-      ],
-      "description_ja": "ハーフ・10km・2km参加者にオリジナルTシャツを進呈",
-      "description_en": "Original T-shirt for Half, 10km, and 2km participants",
-      "image": null
-    },
-    {
-      "gift_categories": [
-        "goods"
-      ],
-      "description_ja": "ファミリーラン参加者に巾着バッグを進呈",
-      "description_en": "Drawstring bag for Family Run participants",
-      "image": null
-    }
-  ],
+  "participation_gifts": [],
   "result": null,
   "created_at": "2026-03-29T00:00:00Z",
-  "updated_at": "2026-09-06T14:37:11.964Z",
+  "updated_at": "2026-05-25T01:17:00.049Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.asahikawa-half-marathon.jp/）およびRunnet掲載情報",
     "data_accuracy_notes": [
       "基本情報のみ。10km制限時間は未公表のためnull。エイド、周辺スポット等は未入力",
-      "2026-05-25: 自動クロールで更新",
-      "2026-09-06: 自動クロールで更新"
+      "2026-05-25: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-05-25",
     "detail_level": "basic"
   },
   "entry_periods": [
@@ -133,19 +115,9 @@
       "label": "エントリー"
     }
   ],
-  "venue_name_ja": "道北アークス大雪アリーナ周辺",
-  "venue_name_en": "Around Dohoku Arcs Taisetsu Arena",
-  "venue_address": "北海道旭川市神楽4条7丁目",
-  "start_lat": 43.757969,
-  "start_lng": 142.349915,
-  "completion_gifts": [
-    {
-      "gift_categories": [
-        "towel"
-      ],
-      "description_ja": "完走者にオリジナルフィニッシャータオルを進呈",
-      "description_en": "Original finisher towel for finishers",
-      "image": null
-    }
-  ]
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

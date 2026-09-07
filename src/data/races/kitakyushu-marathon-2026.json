@@ -18,8 +18,8 @@
   "entry_start_date": "2025-08-08",
   "entry_end_date": "2025-09-25",
   "reception_type": "pre_day",
-  "reception_note_ja": "前日受付のみ（北九州メッセ EXPO会場）。大会前々日・当日の受付は行いません。代理受付可。",
-  "reception_note_en": "Reception is held the day before only, at the Kitakyushu Messe (EXPO) venue. No reception two days before or on race day. Proxy reception is allowed.",
+  "reception_note_ja": "",
+  "reception_note_en": "",
   "tags": [
     "景色が良い"
   ],
@@ -29,10 +29,7 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [
-      "JAAF",
-      "AIMS"
-    ],
+    "certification": [],
     "highlights_ja": "小倉市街地、関門海峡",
     "highlights_en": "Kokura city center, Kanmon Strait",
     "notes_ja": null,
@@ -64,63 +61,7 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [
-    {
-      "station_name_ja": "JR小倉駅（小倉新幹線口）",
-      "station_name_en": "JR Kokura Station (Shinkansen Exit)",
-      "station_code": "",
-      "transport_to_venue_ja": "徒歩5分",
-      "transport_to_venue_en": "5 min walk",
-      "latitude": 0,
-      "longitude": 0,
-      "walk_minutes": 5,
-      "is_primary": true
-    },
-    {
-      "station_name_ja": "JR小倉駅（小倉城口）",
-      "station_name_en": "JR Kokura Station (Kokura Castle Exit)",
-      "station_code": "",
-      "transport_to_venue_ja": "徒歩15分",
-      "transport_to_venue_en": "15 min walk",
-      "latitude": 0,
-      "longitude": 0,
-      "walk_minutes": 15,
-      "is_primary": false
-    },
-    {
-      "station_name_ja": "JR西小倉駅（南口）",
-      "station_name_en": "JR Nishi-Kokura Station (South Exit)",
-      "station_code": "",
-      "transport_to_venue_ja": "徒歩10分",
-      "transport_to_venue_en": "10 min walk",
-      "latitude": 0,
-      "longitude": 0,
-      "walk_minutes": 10,
-      "is_primary": false
-    },
-    {
-      "station_name_ja": "北九州モノレール平和通駅",
-      "station_name_en": "Kitakyushu Monorail Heiwadori Station",
-      "station_code": "",
-      "transport_to_venue_ja": "徒歩10分",
-      "transport_to_venue_en": "10 min walk",
-      "latitude": 0,
-      "longitude": 0,
-      "walk_minutes": 10,
-      "is_primary": false
-    },
-    {
-      "station_name_ja": "北九州モノレール旦過駅",
-      "station_name_en": "Kitakyushu Monorail Tanga Station",
-      "station_code": "",
-      "transport_to_venue_ja": "徒歩10分",
-      "transport_to_venue_en": "10 min walk",
-      "latitude": 0,
-      "longitude": 0,
-      "walk_minutes": 10,
-      "is_primary": false
-    }
-  ],
+  "access_points": [],
   "nearby_spots": [
     {
       "type": "観光地",
@@ -148,15 +89,14 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-09-06T14:37:17.265Z",
+  "updated_at": "2026-05-30T06:37:31.465Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-05-30: 自動クロールで更新",
-      "2026-09-06: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-05-30",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -225,9 +165,9 @@
       "image": null
     }
   ],
-  "venue_name_ja": "北九州国際会議場",
-  "venue_name_en": "Kitakyushu International Conference Center",
-  "venue_address": "福岡県北九州市小倉北区浅野3丁目9-30",
-  "start_lat": 33.890312,
-  "start_lng": 130.887833
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

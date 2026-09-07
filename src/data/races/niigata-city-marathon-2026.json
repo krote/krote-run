@@ -14,12 +14,12 @@
   "official_url": "https://runfes-niigata.com/",
   "entry_fee": null,
   "entry_fee_by_category": true,
-  "entry_capacity": 12000,
+  "entry_capacity": 0,
   "entry_start_date": "2026-04-08",
   "entry_end_date": "2026-06-30",
-  "reception_type": "pre_mail",
-  "reception_note_ja": "アスリートビブス、計測チップ、参加案内、参加賞、手荷物預かり袋等を9月下旬に参加者へ郵送",
-  "reception_note_en": "Athlete bibs, timing chips, participant guide, participation gifts, and baggage bags will be mailed to participants in late September",
+  "reception_type": "pre_day",
+  "reception_note_ja": "",
+  "reception_note_en": "",
   "tags": [],
   "course_gpx_file": null,
   "course_info": {
@@ -27,10 +27,7 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [
-      "WA",
-      "JAAF"
-    ],
+    "certification": [],
     "highlights_ja": "",
     "highlights_en": "",
     "notes_ja": "",
@@ -52,7 +49,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-05T07:57:29.198Z",
-  "updated_at": "2026-09-06T14:26:59.897Z",
+  "updated_at": "2026-08-31T13:38:26.544Z",
   "entry_periods": [
     {
       "label_ja": "一般枠",
@@ -73,11 +70,10 @@
     {
       "gift_categories": [
         "bag",
-        "cap",
-        "bottle"
+        "cap"
       ],
-      "description_ja": "オリジナルサコッシュ・オリジナルランニングキャップ・オリジナルシリコンボトルの3種類から1つお選びいただけます。数量限定のため、定数に達した参加賞より順次締め切ります。",
-      "description_en": "Choose one of three original goods: sacoche, running cap, or silicone bottle. Quantities are limited and each option closes once its quota is reached.",
+      "description_ja": "新潟が誇るアウトドアメーカー「キャプテンスタッグ」製の大会オリジナルグッズ2種類の中からお好きなグッズをお選びください。\nA. オリジナルサコッシュ（幅25cm×高さ20cm、カラー：ブラック）\nB. オリジナルランニングキャップ",
+      "description_en": "Choose one of two original goods made by Niigata outdoor brand CAPTAIN STAG: A. Original sacoche (W25cm×H20cm, black), B. Original running cap",
       "image": null
     }
   ],
@@ -115,13 +111,12 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-08-31",
     "data_accuracy_notes": [
       "2026-06-22: 自動クロールで更新",
       "2026-06-29: 自動クロールで更新",
       "2026-07-27: 自動クロールで更新",
-      "2026-08-31: 自動クロールで更新",
-      "2026-09-06: 自動クロールで更新"
+      "2026-08-31: 自動クロールで更新"
     ]
   },
   "venue_name_ja": null,

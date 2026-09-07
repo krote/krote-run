@@ -59,7 +59,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-05T07:49:25.657Z",
-  "updated_at": "2026-09-06T14:37:22.603Z",
+  "updated_at": "2026-08-24T16:39:38.579Z",
   "entry_periods": [
     {
       "start_date": "2026-04-08",
@@ -76,7 +76,7 @@
         "food",
         "goods"
       ],
-      "description_ja": "パタゴニア製大会記念Tシャツ （キャプリーン･クール･デイリー・シャツ）\nあおばずんだ本舗 ずんだだんご\nマッハコーヒー コーヒーバッグ\nハニーアクション　トレイルピーナッツ\n快腸走　スタンバイ・リロード\nMAGMA アスリートバーリィ\nANDO_塩入り",
+      "description_ja": "パタゴニア製大会記念Tシャツ （キャプリーン･クール･デイリー・シャツ）\nあおばずんだ本舗 ずんだだんご\nマッハコーヒー コーヒーバッグ\nハニーアクション　トレイルピーナッツ\n快腸走　スタンバイ・リロード\nMAGMA アスリートバーリィ\nANDO_塩入り\n\n各種目完走者には完走証（名前、タイムを彫った木製楯）を贈呈し、加えて100mile完走者には記念バックルを贈呈します。",
       "description_en": "",
       "image": null
     }
@@ -116,27 +116,15 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-08-24",
     "data_accuracy_notes": [
       "2026-05-30: 自動クロールで更新",
-      "2026-08-24: 自動クロールで更新",
-      "2026-09-06: 自動クロールで更新"
+      "2026-08-24: 自動クロールで更新"
     ]
   },
-  "venue_name_ja": "斑尾高原",
-  "venue_name_en": "Madarao Kogen",
-  "venue_address": "長野県飯山市斑尾高原",
-  "start_lat": 36.851665,
-  "start_lng": 138.365555,
-  "completion_gifts": [
-    {
-      "gift_categories": [
-        "certificate",
-        "medal"
-      ],
-      "description_ja": "各種目完走者には完走証（名前、タイムを彫った木製楯）を贈呈し、加えて100mile完走者には記念バックルを贈呈します。",
-      "description_en": "",
-      "image": null
-    }
-  ]
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

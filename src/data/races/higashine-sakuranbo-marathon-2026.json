@@ -17,9 +17,9 @@
   "entry_capacity": 10000,
   "entry_start_date": "2026-02-01",
   "entry_end_date": "2026-03-31",
-  "reception_type": "pre_mail",
-  "reception_note_ja": "当日受付は行いません。ナンバーカードは5月中旬〜下旬にお申込み時登録住所へ事前発送します。",
-  "reception_note_en": "No same-day registration. Race bibs are mailed in advance to registered addresses in mid-to-late May.",
+  "reception_type": "pre_day",
+  "reception_note_ja": "エントリー期間：2026年2月1日〜3月31日。",
+  "reception_note_en": "Entry period: Feb 1 – Mar 31, 2026.",
   "tags": [
     "ご当地グルメ",
     "初心者おすすめ",
@@ -66,28 +66,7 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [
-    {
-      "station_name_ja": "さくらんぼ東根駅",
-      "station_name_en": "Sakuranbo Higashine Station",
-      "station_code": "",
-      "transport_to_venue_ja": "無料シャトルバス約10分",
-      "transport_to_venue_en": "Free shuttle bus, about 10 min",
-      "latitude": 0,
-      "longitude": 0,
-      "is_primary": true
-    },
-    {
-      "station_name_ja": "JR神町駅",
-      "station_name_en": "JR Kanmachi Station",
-      "station_code": "",
-      "transport_to_venue_ja": "シャトルバスなし、徒歩約1時間（非推奨）",
-      "transport_to_venue_en": "No shuttle bus, about 1 hour walk (not recommended)",
-      "latitude": 0,
-      "longitude": 0,
-      "is_primary": false
-    }
-  ],
+  "access_points": [],
   "nearby_spots": [],
   "participation_gifts": [
     {
@@ -103,15 +82,14 @@
   ],
   "result": null,
   "created_at": "2026-03-30T00:00:00Z",
-  "updated_at": "2026-09-06T14:37:15.143Z",
+  "updated_at": "2026-05-27T14:55:48.396Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.sakuranbo-m.jp/）・大会概要ページ",
     "data_accuracy_notes": [
       "基本情報のみ。エイド、周辺スポット等は未入力",
-      "2026-05-27: 自動クロールで更新",
-      "2026-09-06: 自動クロールで更新"
+      "2026-05-27: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-05-27",
     "detail_level": "basic"
   },
   "entry_periods": [
@@ -170,9 +148,9 @@
       "label": "FAQ"
     }
   ],
-  "venue_name_ja": "陸上自衛隊神町駐屯地",
-  "venue_name_en": "JGSDF Kanomachi Garrison",
-  "venue_address": "山形県東根市神町南三丁目１－１",
-  "start_lat": 38.403603,
-  "start_lng": 140.386368
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

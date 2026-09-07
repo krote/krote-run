@@ -16,7 +16,7 @@
   "entry_fee_by_category": true,
   "entry_capacity": 3000,
   "entry_start_date": "2025-11-28",
-  "entry_end_date": "2026-04-08",
+  "entry_end_date": "2026-02-28",
   "reception_type": "pre_day",
   "reception_note_ja": "",
   "reception_note_en": "",
@@ -61,30 +61,7 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [
-    {
-      "station_name_ja": "水沢江刺駅",
-      "station_name_en": "Mizusawa-Esashi Station",
-      "station_code": "",
-      "transport_to_venue_ja": "シャトルバスで15分",
-      "transport_to_venue_en": "15 min by shuttle bus",
-      "latitude": 0,
-      "longitude": 0,
-      "walk_minutes": 15,
-      "is_primary": true
-    },
-    {
-      "station_name_ja": "水沢駅",
-      "station_name_en": "Mizusawa Station",
-      "station_code": "",
-      "transport_to_venue_ja": "シャトルバスで20分",
-      "transport_to_venue_en": "20 min by shuttle bus",
-      "latitude": 0,
-      "longitude": 0,
-      "walk_minutes": 20,
-      "is_primary": false
-    }
-  ],
+  "access_points": [],
   "nearby_spots": [
     {
       "type": "観光地",
@@ -111,17 +88,16 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-09-06T14:21:52.234Z",
+  "updated_at": "2026-06-22T15:03:07.746Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
       "2026-05-30: 自動クロールで更新",
-      "2026-06-22: 自動クロールで更新",
-      "2026-09-06: 自動クロールで更新"
+      "2026-06-22: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-06-22",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -130,13 +106,6 @@
       "label_en": "General Entry",
       "start_date": "2025-11-28",
       "end_date": "2026-02-28",
-      "entry_fee": null
-    },
-    {
-      "label_ja": "レイトエントリー",
-      "label_en": "Late Entry",
-      "start_date": "2026-03-13",
-      "end_date": "2026-04-08",
       "entry_fee": null
     }
   ],
@@ -180,8 +149,8 @@
       "image": null
     }
   ],
-  "venue_name_ja": "奥州市役所江刺総合支所",
-  "venue_name_en": "Oshu City Esashi General Branch Office",
+  "venue_name_ja": null,
+  "venue_name_en": null,
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

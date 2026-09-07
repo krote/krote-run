@@ -18,8 +18,8 @@
   "entry_start_date": "2026-04-01",
   "entry_end_date": "2026-05-27",
   "reception_type": "pre_mail",
-  "reception_note_ja": "大会前日エントリー: 9月19日（土）13時30分～17時00分、田沢湖マラソン特設会場にて実施。各種目30人（15ペア）先着順・予約不可。現金のみで参加料納付（各種目通常料金より1,000円増）。ナンバーカード・参加賞引換証は大会前に事前郵送。",
-  "reception_note_en": "Pre-race-day entry: Sept 19 (Sat) 13:30-17:00 at the Tazawako Marathon special venue. Limited to 30 people (15 pairs) per event, first-come first-served, no reservations. Cash only; entry fee is 1,000 yen higher than advance registration. Bib numbers and gift vouchers are mailed in advance of the race.",
+  "reception_note_ja": "",
+  "reception_note_en": "",
   "tags": [],
   "course_gpx_file": null,
   "course_info": {
@@ -28,8 +28,8 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [],
-    "highlights_ja": "日本一深い神秘の田沢湖を周回する、国内でも屈指の難コースとして知られる",
-    "highlights_en": "Circles Lake Tazawa, Japan's deepest and most mysterious lake, known as one of the most challenging courses in Japan",
+    "highlights_ja": "",
+    "highlights_en": "",
     "notes_ja": "",
     "notes_en": ""
   },
@@ -80,7 +80,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-03-29T11:30:29.091Z",
-  "updated_at": "2026-09-06T14:32:25.749Z",
+  "updated_at": "2026-08-24T16:41:07.705Z",
   "entry_periods": [
     {
       "label_ja": "フルマラソン",
@@ -137,16 +137,7 @@
       "url": "https://runnet.jp/entry/runtes/user/pc/competitionDetailAction.do?raceId=388457&div=1"
     }
   ],
-  "participation_gifts": [
-    {
-      "gift_categories": [
-        "tshirt"
-      ],
-      "description_ja": "参加賞Tシャツ",
-      "description_en": "Participation T-shirt",
-      "image": null
-    }
-  ],
+  "participation_gifts": [],
   "info_urls": [
     {
       "url": "https://tazawako-marathon.com/info/",
@@ -170,16 +161,15 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-08-24",
     "data_accuracy_notes": [
       "2026-05-30: 自動クロールで更新",
       "2026-08-24: 自動クロールで更新",
-      "2026-08-25: reception_typeがpre_dayに変更されていたが、LLM抽出が「大会前日エントリー（先着順の遅れての申込受付）」と「ビブス受付（reception）」を混同した誤りと判明。公式サイト確認でビブスは事前郵送と分かり pre_mail に戻した。なお参加記念品の引換は前日9/19 13:30-17:00・当日9/20 6:30-15:00の両方で可能（現スキーマでは未モデル化）。前日エントリー（先着順、各種目30人程度・現金払い）という別枠の情報は今後entry_periods等で扱うか要検討",
-      "2026-09-06: 自動クロールで更新"
+      "2026-08-25: reception_typeがpre_dayに変更されていたが、LLM抽出が「大会前日エントリー（先着順の遅れての申込受付）」と「ビブス受付（reception）」を混同した誤りと判明。公式サイト確認でビブスは事前郵送と分かり pre_mail に戻した。なお参加記念品の引換は前日9/19 13:30-17:00・当日9/20 6:30-15:00の両方で可能（現スキーマでは未モデル化）。前日エントリー（先着順、各種目30人程度・現金払い）という別枠の情報は今後entry_periods等で扱うか要検討"
     ]
   },
-  "venue_name_ja": "田沢湖マラソン特設会場",
-  "venue_name_en": "Tazawako Marathon Special Venue",
+  "venue_name_ja": null,
+  "venue_name_en": null,
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

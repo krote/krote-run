@@ -59,7 +59,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-05T08:19:26.353Z",
-  "updated_at": "2026-09-06T14:19:56.062Z",
+  "updated_at": "2026-05-30T06:35:34.537Z",
   "entry_periods": [
     {
       "start_date": "2026-04-10",
@@ -114,25 +114,14 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-05-30",
     "data_accuracy_notes": [
-      "2026-05-30: 自動クロールで更新",
-      "2026-09-06: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新"
     ]
   },
-  "venue_name_ja": "壱岐の島ホール",
-  "venue_name_en": "Iki no Shima Hall",
+  "venue_name_ja": null,
+  "venue_name_en": null,
   "venue_address": null,
   "start_lat": null,
-  "start_lng": null,
-  "completion_gifts": [
-    {
-      "gift_categories": [
-        "medal"
-      ],
-      "description_ja": "完走証・完走メダル",
-      "description_en": "",
-      "image": null
-    }
-  ]
+  "start_lng": null
 }

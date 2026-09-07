@@ -104,15 +104,14 @@
   ],
   "result": null,
   "created_at": "2026-06-24T00:00:00Z",
-  "updated_at": "2026-09-06T14:20:54.544Z",
+  "updated_at": "2026-06-22T15:02:41.436Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-06-22: 自動クロールで取得した2027年大会情報を元に新規作成",
-      "2026-09-06: 自動クロールで更新"
+      "2026-06-22: 自動クロールで取得した2027年大会情報を元に新規作成"
     ],
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-06-22",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -175,8 +174,8 @@
       "image": null
     }
   ],
-  "venue_name_ja": "小名浜港アクアマリンパーク",
-  "venue_name_en": "Onahama Port Aquamarine Park",
+  "venue_name_ja": null,
+  "venue_name_en": null,
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

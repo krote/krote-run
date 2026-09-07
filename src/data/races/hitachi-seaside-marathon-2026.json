@@ -12,10 +12,10 @@
   "description_ja": "太平洋を望む日立シーサイドロードは、まるで海の上を走るような解放感を体感できます。\nコース中盤に位置する河原子海岸沿いでは、海を間近に感じながら走ることができます。\n景色と潮風が背中を押し、走る喜びを存分に味わえます。",
   "description_en": "The Hitachi Seaside Road, overlooking the Pacific Ocean, offers a sense of freedom as if you were running right on the water.\nAlong the Kawaragi Coast, located in the middle of the course, you can run while feeling the ocean up close.\nWith the scenery and the sea breeze pushing you forward, you can fully savor the joy of running.",
   "official_url": "https://hitachi-marathon.jp",
-  "entry_fee": 10000,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
-  "entry_start_date": "2026-04-05",
+  "entry_start_date": "2026-04-13",
   "entry_end_date": "2026-08-31",
   "reception_type": "pre_mail",
   "reception_note_ja": "大会当日の受付はありません。10月末（予定）にアスリートビブス・ランナーズチップ等を郵送いたしますので、忘れずにお持ちください",
@@ -27,9 +27,7 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [
-      "JAAF"
-    ],
+    "certification": [],
     "highlights_ja": "太平洋を望む日立シーサイドロードを走る非日常の絶景コース。河原子海岸沿いで海を間近に感じながら走れる。アップダウンのある走りごたえのあるコースで、マラソンシーズン初戦の脚試しに最適。",
     "highlights_en": "A spectacular course along Hitachi Seaside Road overlooking the Pacific Ocean. Runners can feel the ocean up close along Kawarago Beach. A challenging course with hills, ideal as a season opener.",
     "notes_ja": "",
@@ -51,28 +49,14 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-11T14:28:19.021Z",
-  "updated_at": "2026-09-06T14:37:16.200Z",
+  "updated_at": "2026-07-27T14:10:45.345Z",
   "entry_periods": [
     {
-      "label_ja": "先行エントリー",
-      "label_en": "Early Entry (Hitachi Residents / Sakura Road Race Participants)",
-      "start_date": "2026-04-05",
-      "end_date": "2026-04-12",
-      "entry_fee": 10000
-    },
-    {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
       "start_date": "2026-04-13",
       "end_date": "2026-08-31",
-      "entry_fee": 10000
-    },
-    {
-      "label_ja": "ふるさと納税エントリー",
-      "label_en": "Furusato Nozei (Hometown Tax) Entry",
-      "start_date": "2026-06-01",
-      "end_date": "2026-08-31",
-      "entry_fee": null
+      "entry_fee": 10000,
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry"
     }
   ],
   "participation_gifts": [
@@ -133,16 +117,15 @@
       "image": null
     }
   ],
-  "venue_name_ja": "日立市市民運動公園",
-  "venue_name_en": "Hitachi Civic Athletic Park",
-  "venue_address": "茨城県日立市東成沢町2-15-1",
-  "start_lat": 36.574886,
-  "start_lng": 140.643723,
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null,
   "_metadata": {
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-07-27",
     "data_accuracy_notes": [
-      "2026-07-27: 自動クロールで更新",
-      "2026-09-06: 自動クロールで更新"
+      "2026-07-27: 自動クロールで更新"
     ]
   }
 }

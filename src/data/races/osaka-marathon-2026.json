@@ -33,9 +33,7 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [
-      "JAAF",
-      "WA",
-      "AIMS"
+      "JAAF"
     ],
     "highlights_ja": "大阪城、御堂筋、通天閣、中之島",
     "highlights_en": "Osaka Castle, Midosuji, Tsutenkaku, Nakanoshima",
@@ -110,55 +108,17 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-09-06T14:37:21.531Z",
+  "updated_at": "2026-05-30T06:40:23.729Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-05-30: 自動クロールで更新",
-      "2026-09-06: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-05-30",
     "detail_level": "medium"
   },
-  "entry_periods": [
-    {
-      "label_ja": "一般ランナー",
-      "label_en": "General Runner",
-      "start_date": "2025-07-30",
-      "end_date": "2025-08-29",
-      "entry_fee": null,
-      "category_id": null,
-      "sort_order": 0
-    },
-    {
-      "label_ja": "障がい者ランナー",
-      "label_en": "Runners with Disabilities",
-      "start_date": "2025-07-30",
-      "end_date": "2025-08-29",
-      "entry_fee": null,
-      "category_id": null,
-      "sort_order": 1
-    },
-    {
-      "label_ja": "大阪スポーツ応援ランナー",
-      "label_en": "Osaka Sports Supporter Runner",
-      "start_date": "2025-07-30",
-      "end_date": "2025-10-06",
-      "entry_fee": null,
-      "category_id": null,
-      "sort_order": 2
-    },
-    {
-      "label_ja": "エリート部門",
-      "label_en": "Elite Category",
-      "start_date": "2025-12-01",
-      "end_date": "2026-01-16",
-      "entry_fee": null,
-      "category_id": null,
-      "sort_order": 3
-    }
-  ],
+  "entry_periods": [],
   "motif": "大阪城",
   "motif_color": "#92400e",
   "motif_romaji": "Osaka-jo",
@@ -228,9 +188,9 @@
       "image": null
     }
   ],
-  "venue_name_ja": "インテックス大阪",
-  "venue_name_en": "INTEX Osaka",
-  "venue_address": "大阪府大阪市住之江区南港北1-5-102",
-  "start_lat": 34.636971,
-  "start_lng": 135.41713
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

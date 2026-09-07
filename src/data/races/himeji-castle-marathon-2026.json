@@ -31,9 +31,7 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [
-      "JAAF"
-    ],
+    "certification": [],
     "highlights_ja": "姫路城",
     "highlights_en": "Himeji Castle",
     "notes_ja": null,
@@ -51,30 +49,7 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [
-    {
-      "station_name_ja": "JR姫路駅",
-      "station_name_en": "JR Himeji Station",
-      "station_code": "",
-      "transport_to_venue_ja": "徒歩約15分（約900m）",
-      "transport_to_venue_en": "About 15 min walk (approx. 900m)",
-      "latitude": 0,
-      "longitude": 0,
-      "walk_minutes": 15,
-      "is_primary": true
-    },
-    {
-      "station_name_ja": "山陽姫路駅",
-      "station_name_en": "Sanyo Himeji Station",
-      "station_code": "",
-      "transport_to_venue_ja": "徒歩約15分（約900m）",
-      "transport_to_venue_en": "About 15 min walk (approx. 900m)",
-      "latitude": 0,
-      "longitude": 0,
-      "walk_minutes": 15,
-      "is_primary": false
-    }
-  ],
+  "access_points": [],
   "nearby_spots": [
     {
       "type": "観光地",
@@ -92,24 +67,23 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "coupon",
-        "tshirt"
+        "tshirt",
+        "towel"
       ],
-      "description_ja": "姫路城無料入城券（大会前日から2027年2月末まで、1回限り有効）、オリジナルTシャツ",
-      "description_en": "Free Himeji Castle admission ticket (valid once, from the day before the race through the end of February 2027), original T-shirt",
+      "description_ja": "大会Tシャツ、完走メダル、フィニッシャータオル",
+      "description_en": "Race T-shirt, Finisher medal, Finisher towel",
       "image": null
     }
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-09-06T14:16:21.565Z",
+  "updated_at": "2026-03-15T00:00:00Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-09-06: 自動クロールで更新"
+      "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力"
     ],
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-03-15",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -172,8 +146,8 @@
       "image": null
     }
   ],
-  "venue_name_ja": "姫路城三の丸広場",
-  "venue_name_en": "Himeji Castle Ninomaru Plaza",
+  "venue_name_ja": null,
+  "venue_name_en": null,
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

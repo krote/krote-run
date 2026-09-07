@@ -12,7 +12,7 @@
   "description_ja": "在日米陸軍基地・横浜ノース・ドックを走る大会。普段は立ち入れない基地内を、みなとみらいの景色とともに駆け抜ける。ハーフマラソン・10km・5kmの3種目。",
   "description_en": "A race held inside Yokohama North Dock, a U.S. Army installation normally off-limits to the public, with views of Minato Mirai. Half marathon, 10km, and 5km divisions.",
   "official_url": "https://pia-running.jp/northdock/",
-  "entry_fee": 5000,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 6000,
   "entry_start_date": "2026-04-11",
@@ -119,7 +119,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T23:51:21.157Z",
-  "updated_at": "2026-09-06T14:37:10.704Z",
+  "updated_at": "2026-09-03T14:52:17.959Z",
   "_metadata": {
     "data_source": "公式サイト（https://pia-running.jp/northdock/）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -128,39 +128,20 @@
       "ハーフマラソンの実測距離は5.275km×4周=約21.1km。公認（JAAF等）の記載は公式サイトになし",
       "給水はコース上1ヶ所・待機エリア1ヶ所の予定のみ判明。正確な距離地点は非公開のためaid_stationsは未入力",
       "コースマップ・GPXデータは公式サイトに未掲載",
-      "車両送迎・車両でのアクセス不可（公共交通機関のみ）",
-      "2026-09-06: 自動クロールで更新"
+      "車両送迎・車両でのアクセス不可（公共交通機関のみ）"
     ],
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-08-31",
     "detail_level": "medium"
   },
   "entry_periods": [
     {
-      "label_ja": "5km",
-      "label_en": "5km",
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
       "start_date": "2026-04-11",
       "end_date": "2026-09-27",
-      "entry_fee": 5000,
+      "entry_fee": null,
       "category_id": null,
       "sort_order": 0
-    },
-    {
-      "label_ja": "10km",
-      "label_en": "10km",
-      "start_date": "2026-04-11",
-      "end_date": "2026-09-27",
-      "entry_fee": 6000,
-      "category_id": null,
-      "sort_order": 1
-    },
-    {
-      "label_ja": "ハーフマラソン",
-      "label_en": "Half Marathon",
-      "start_date": "2026-04-11",
-      "end_date": "2026-09-27",
-      "entry_fee": 7000,
-      "category_id": null,
-      "sort_order": 2
     }
   ],
   "motif": "横浜ノース・ドック",

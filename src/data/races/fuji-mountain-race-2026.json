@@ -14,7 +14,7 @@
   "official_url": "https://fujimountainrace.city.fujiyoshida.yamanashi.jp/",
   "entry_fee": null,
   "entry_fee_by_category": true,
-  "entry_capacity": 3776,
+  "entry_capacity": 0,
   "entry_start_date": "2026-03-28",
   "entry_end_date": "2026-04-06",
   "reception_type": "pre_mail",
@@ -25,11 +25,11 @@
   "course_info": {
     "max_elevation_m": null,
     "min_elevation_m": null,
-    "elevation_diff_m": 3000,
-    "surface": "mixed",
+    "elevation_diff_m": null,
+    "surface": "road",
     "certification": [],
-    "highlights_ja": "富士吉田市役所から吉田口登山道を経て山頂に至る山頂コース（約21km、標高差約3,000m）と、五合目に至る五合目コース（約15km、標高差約1,480m）の2コース制。",
-    "highlights_en": "Two courses: the Summit Course (approx. 21km, elevation gain approx. 3,000m) from Fujiyoshida City Hall via the Yoshidaguchi Trail to the summit, and the 5th Station Course (approx. 15km, elevation gain approx. 1,480m).",
+    "highlights_ja": "",
+    "highlights_en": "",
     "notes_ja": "",
     "notes_en": ""
   },
@@ -63,56 +63,11 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [
-    {
-      "station_name_ja": "新宿駅",
-      "station_name_en": "Shinjuku Station",
-      "station_code": "",
-      "transport_to_venue_ja": "JR中央本線で大月駅まで1時間40分、富士急行線で月江寺駅まで50分、徒歩15分",
-      "transport_to_venue_en": "1 hr 40 min by JR Chuo Line to Otsuki Sta., 50 min by Fujikyu Line to Gekkoji Sta., then 15 min walk",
-      "latitude": 0,
-      "longitude": 0,
-      "walk_minutes": 15,
-      "is_primary": true
-    },
-    {
-      "station_name_ja": "大月駅",
-      "station_name_en": "Otsuki Station",
-      "station_code": "",
-      "transport_to_venue_ja": "富士急行線で月江寺駅まで50分、徒歩15分",
-      "transport_to_venue_en": "50 min by Fujikyu Line to Gekkoji Sta., then 15 min walk",
-      "latitude": 0,
-      "longitude": 0,
-      "walk_minutes": 15,
-      "is_primary": false
-    },
-    {
-      "station_name_ja": "富士山駅",
-      "station_name_en": "Fujisan Station",
-      "station_code": "",
-      "transport_to_venue_ja": "富士急行線で月江寺駅まで5分、徒歩15分",
-      "transport_to_venue_en": "5 min by Fujikyu Line to Gekkoji Sta., then 15 min walk",
-      "latitude": 0,
-      "longitude": 0,
-      "walk_minutes": 15,
-      "is_primary": false
-    },
-    {
-      "station_name_ja": "月江寺駅",
-      "station_name_en": "Gekkoji Station",
-      "station_code": "",
-      "transport_to_venue_ja": "徒歩15分",
-      "transport_to_venue_en": "15 min walk",
-      "latitude": 0,
-      "longitude": 0,
-      "walk_minutes": 15,
-      "is_primary": false
-    }
-  ],
+  "access_points": [],
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-28T16:44:56.479Z",
-  "updated_at": "2026-09-06T14:12:35.244Z",
+  "updated_at": "2026-04-28T16:44:56.479Z",
   "entry_periods": [
     {
       "start_date": "2026-03-28",
@@ -163,15 +118,9 @@
       "label": "開催概要"
     }
   ],
-  "venue_name_ja": "富士吉田市役所",
-  "venue_name_en": "Fujiyoshida City Hall",
+  "venue_name_ja": null,
+  "venue_name_en": null,
   "venue_address": null,
   "start_lat": null,
-  "start_lng": null,
-  "_metadata": {
-    "last_verified": "2026-09-06",
-    "data_accuracy_notes": [
-      "2026-09-06: 自動クロールで更新"
-    ]
-  }
+  "start_lng": null
 }

@@ -98,7 +98,7 @@
   ],
   "result": null,
   "created_at": "2026-03-30T00:00:00Z",
-  "updated_at": "2026-09-06T14:37:14.081Z",
+  "updated_at": "2026-06-22T14:59:41.999Z",
   "_metadata": {
     "data_source": "公式サイト（https://chiba-aqualine-marathon.com/）・募集要項ページ",
     "data_accuracy_notes": [
@@ -167,8 +167,8 @@
   "venue_name_ja": "潮浜公園前（木更津市）",
   "venue_name_en": null,
   "venue_address": "千葉県木更津市潮浜1-12",
-  "start_lat": 35.379101,
-  "start_lng": 139.908676,
+  "start_lat": null,
+  "start_lng": null,
   "entry_closed": false,
   "entry_links": []
 }

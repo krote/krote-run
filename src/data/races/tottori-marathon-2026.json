@@ -17,9 +17,9 @@
   "entry_capacity": 4000,
   "entry_start_date": "2025-10-15",
   "entry_end_date": "2025-12-12",
-  "reception_type": "pre_mail",
-  "reception_note_ja": "前日・当日の受付は行いません。事前送付物に同梱の必要物をお持ちの上、スタートエリア（オアシス広場）へお越しください。",
-  "reception_note_en": "There is no reception the day before or on race day. Bring the items included in the pre-race mailing directly to the start area (Oasis Plaza).",
+  "reception_type": "pre_day",
+  "reception_note_ja": "",
+  "reception_note_en": "",
   "tags": [
     "景色が良い"
   ],
@@ -29,11 +29,9 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [
-      "JAAF"
-    ],
-    "highlights_ja": "鳥取砂丘オアシス広場をスタートし、鳥取城跡・仁風閣・万葉の里などの史跡名勝を巡ってヤマタスポーツパーク陸上競技場にフィニッシュするワンウェイコース。日本陸上競技連盟公認",
-    "highlights_en": "One-way course starting at Tottori Sand Dunes Oasis Plaza, passing historic sites such as Tottori Castle Ruins, Jinpukaku, and Manyo-no-Sato, finishing at Yamata Sports Park Athletics Stadium. JAAF-certified",
+    "certification": [],
+    "highlights_ja": "鳥取砂丘付近、日本海",
+    "highlights_en": "Near Tottori Sand Dunes, Sea of Japan",
     "notes_ja": null,
     "notes_en": null
   },
@@ -55,18 +53,7 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [
-    {
-      "station_name_ja": "JR鳥取駅",
-      "station_name_en": "JR Tottori Station",
-      "station_code": "",
-      "transport_to_venue_ja": "ランナー専用シャトルバスで約25分",
-      "transport_to_venue_en": "About 25 min by runner-only shuttle bus",
-      "latitude": 0,
-      "longitude": 0,
-      "is_primary": true
-    }
-  ],
+  "access_points": [],
   "nearby_spots": [
     {
       "type": "観光地",
@@ -85,24 +72,24 @@
     {
       "gift_categories": [
         "tshirt",
-        "goods"
+        "towel",
+        "local_product"
       ],
-      "description_ja": "オリジナルTシャツ・ランドリーバッグ（指定袋）\n鳥取マラソン2026大会オリジナルデザインの特製Tシャツ。透湿・吸汗性に優れ、ランニングに最適な生地を採用。",
-      "description_en": "Original T-shirt and designated laundry bag. Tottori Marathon 2026 original design T-shirt made of moisture-wicking, sweat-absorbent fabric ideal for running.",
+      "description_ja": "大会Tシャツ\n●完走賞\n・完走証\n・特別メダル\n・フィニッシャータオル\n・鳥取のお土産\n・スポンサードリンク\n",
+      "description_en": "Race T-shirt",
       "image": null
     }
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-09-06T14:37:24.726Z",
+  "updated_at": "2026-05-30T06:43:52.495Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-05-30: 自動クロールで更新",
-      "2026-09-06: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-05-30",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -111,18 +98,7 @@
       "label_en": "General Entry",
       "start_date": "2025-10-15",
       "end_date": "2025-12-12",
-      "entry_fee": 13000,
-      "category_id": null,
-      "sort_order": 0
-    },
-    {
-      "label_ja": "海外枠",
-      "label_en": "Overseas Entry",
-      "start_date": "2025-10-15",
-      "end_date": "2026-01-30",
-      "entry_fee": 20000,
-      "category_id": null,
-      "sort_order": 1
+      "entry_fee": null
     }
   ],
   "motif": "砂丘",
@@ -171,20 +147,16 @@
   "completion_gifts": [
     {
       "gift_categories": [
-        "certificate",
-        "medal",
-        "towel",
-        "local_product",
-        "food"
+        "medal"
       ],
-      "description_ja": "・完走証\n・特別メダル（鳥取砂丘の本物の砂を使用した手作りメダル）\n・フィニッシャータオル\n・鳥取のお土産、スポンサースイーツ・ドリンク\n・ラッキー賞（完走証裏面の当たり表記で豪華賞品）",
-      "description_en": "Finisher certificate, special medal handmade from real Tottori Sand Dunes sand, finisher towel, Tottori local souvenirs and sponsored sweets/drinks, plus a lucky-draw prize marked on the back of the finisher certificate.",
+      "description_ja": "大会Tシャツ\n●完走賞\n・完走証\n・特別メダル\n・フィニッシャータオル\n・鳥取のお土産\n・スポンサードリンク\n",
+      "description_en": "Race T-shirt",
       "image": null
     }
   ],
-  "venue_name_ja": "ヤマタスポーツパーク陸上競技場",
-  "venue_name_en": "Yamata Sports Park Athletics Stadium",
-  "venue_address": "鳥取県鳥取市布勢",
-  "start_lat": 35.501266,
-  "start_lng": 134.181396
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
 }

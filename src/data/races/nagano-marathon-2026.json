@@ -1,7 +1,7 @@
 {
   "id": "nagano-marathon-2026",
-  "name_ja": "第28回 長野マラソン",
-  "name_en": "28th Nagano Marathon",
+  "name_ja": "長野マラソン",
+  "name_en": "Nagano Marathon",
   "full_name_ja": "第28回 長野マラソン",
   "full_name_en": "28th Nagano Marathon",
   "edition": 28,
@@ -12,11 +12,11 @@
   "description_ja": "1998年長野冬季オリンピックの理念を継承し、1999年に初開催された歴史ある市民マラソン大会。エムウェーブ、ホワイトリング、ビッグハットなどのオリンピック施設を巡りながら、春の信濃路を駆け抜ける42.195km。日本陸連公認・AIMS公認コース。AbbottWMMワンダ・エイジグループワールドランキング予選大会。",
   "description_en": "A historic citizens' marathon inheriting the spirit of the 1998 Nagano Winter Olympics, first held in 1999. The 42.195km course passes through Olympic venues including M-Wave, White Ring, and Big Hat, running through the scenic spring landscape of Shinano. JAAF and AIMS certified course. AbbottWMM Wanda Age Group World Rankings qualifying event.",
   "official_url": "https://www.naganomarathon.gr.jp/",
-  "entry_fee": 14300,
+  "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 10000,
-  "entry_start_date": "2025-09-13",
-  "entry_end_date": "2025-11-03",
+  "entry_start_date": "2025-10-11",
+  "entry_end_date": "2025-10-31",
   "reception_type": "none",
   "reception_note_ja": "前日受付なし。アスリートビブス・参加賞は大会2週間〜10日前に事前郵送",
   "reception_note_en": "No on-site registration. Athlete bibs and participation gifts are mailed 10-14 days before the event.",
@@ -56,7 +56,11 @@
       "name_en": null,
       "description_ja": null,
       "description_en": null,
-      "waves": null
+      "waves": null,
+      "eligibility_ja": null,
+      "eligibility_en": null,
+      "course_gpx_file": null,
+      "course_highlights": []
     }
   ],
   "aid_stations": [
@@ -154,10 +158,11 @@
       "station_code": "nagano",
       "transport_to_venue_ja": "長野駅東口からスタート会場（長野運動公園）までシャトルバスで約15分。または北長野駅から徒歩約15分。",
       "transport_to_venue_en": "Shuttle bus from Nagano Station East Exit to the start venue (Nagano Athletic Park), approx. 15 min. Or 15 min walk from Kita-Nagano Station.",
+      "walk_minutes": null,
       "latitude": 36.6433,
       "longitude": 138.1889,
-      "walk_minutes": null,
-      "is_primary": false
+      "is_primary": false,
+      "sort_order": 0
     },
     {
       "station_name_ja": "北長野駅",
@@ -165,10 +170,11 @@
       "station_code": "kita-nagano",
       "transport_to_venue_ja": "徒歩約15分でスタート会場（長野運動公園）に到着",
       "transport_to_venue_en": "Approx. 15 min walk to the start venue (Nagano Athletic Park)",
+      "walk_minutes": null,
       "latitude": 36.6586,
       "longitude": 138.1932,
-      "walk_minutes": null,
-      "is_primary": false
+      "is_primary": false,
+      "sort_order": 1
     }
   ],
   "nearby_spots": [
@@ -304,11 +310,11 @@
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
       "start_date": "2025-10-11",
       "end_date": "2025-10-31",
-      "entry_fee": null
+      "entry_fee": null,
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry"
     }
   ],
   "motif": "善光寺",
@@ -322,44 +328,6 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "course_highlights": [
-    {
-      "name_ja": "善光寺表参道",
-      "name_en": "Zenkoji approach road",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "エムウェーブ（2026年は工事のためコース変更あり）",
-      "name_en": "M-Wave (course change in 2026 due to construction)",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "ビッグハット",
-      "name_en": "Big Hat",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "五輪大橋",
-      "name_en": "Olympic Bridge",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "ホワイトリング",
-      "name_en": "White Ring",
-      "description_ja": null,
-      "description_en": null
-    },
-    {
-      "name_ja": "長野オリンピックスタジアム（フィニッシュ）",
-      "name_en": "Nagano Olympic Stadium (finish)",
-      "description_ja": null,
-      "description_en": null
-    }
-  ],
   "info_urls": [
     {
       "url": "https://www.naganomarathon.gr.jp/information/",
@@ -396,5 +364,7 @@
   "venue_name_en": null,
   "venue_address": null,
   "start_lat": null,
-  "start_lng": null
+  "start_lng": null,
+  "entry_closed": false,
+  "entry_links": []
 }

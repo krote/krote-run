@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-09-06T13:47:42.724Z
+-- 生成日時: 2026-09-11T14:28:51.495Z
 -- 対象ファイル数: 126 件（既存 2 件はskip）
 
 -- ==================
@@ -11283,7 +11283,7 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
   ('nagai-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-05-14', '2026-08-18', NULL, 0);
 
 -- ==================
--- 第28回 長野マラソン (nagano-marathon-2027)
+-- 長野マラソン (nagano-marathon-2027)
 -- ==================
 DELETE FROM race_course_highlights WHERE race_id = 'nagano-marathon-2027';
 DELETE FROM race_categories WHERE race_id = 'nagano-marathon-2027';
@@ -11320,8 +11320,8 @@ INSERT INTO races (
   created_at, updated_at
 ) VALUES (
   'nagano-marathon-2027',
-  '第28回 長野マラソン',
-  '28th Nagano Marathon',
+  '長野マラソン',
+  'Nagano Marathon',
   '2027-04-18',
   '20',
   '長野市',
@@ -11329,11 +11329,11 @@ INSERT INTO races (
   '1998年長野冬季オリンピックの理念を継承し、1999年に初開催された歴史ある市民マラソン大会。エムウェーブ、ホワイトリング、ビッグハットなどのオリンピック施設を巡りながら、春の信濃路を駆け抜ける42.195km。日本陸連公認・AIMS公認コース。AbbottWMMワンダ・エイジグループワールドランキング予選大会。',
   'A historic citizens'' marathon inheriting the spirit of the 1998 Nagano Winter Olympics, first held in 1999. The 42.195km course passes through Olympic venues including M-Wave, White Ring, and Big Hat, running through the scenic spring landscape of Shinano. JAAF and AIMS certified course. AbbottWMM Wanda Age Group World Rankings qualifying event.',
   'https://www.naganomarathon.gr.jp/',
-  14300,
+  NULL,
   1,
   10000,
   '2026-09-05',
-  '2026-11-01',
+  '2026-09-11',
   0,
   'none',
   '前日受付なし。アスリートビブス・参加賞は大会2週間〜10日前に事前郵送',
@@ -11461,23 +11461,11 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('nagano-marathon-2027', '["tshirt"]', '大会オリジナルTシャツ', 'Official race T-shirt', NULL, 0);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('nagano-marathon-2027', '["towel","medal"]', 'フィニッシャータオル・完走メダル', 'Finisher towel and finisher medal', NULL, 0);
+  ('nagano-marathon-2027', '["medal","towel"]', 'フィニッシャータオル・完走メダル', 'Finisher towel and finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('nagano-marathon-2027', NULL, '出走権付き宿泊パック', 'Entry with Accommodation Package', '2026-09-05', '2026-09-11', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('nagano-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-09-12', '2026-11-01', 14300, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('nagano-marathon-2027', NULL, NULL, '善光寺表参道', 'Zenkoji approach road', NULL, NULL, 0);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('nagano-marathon-2027', NULL, NULL, 'エムウェーブ（2026年は工事のためコース変更あり）', 'M-Wave (course change in 2026 due to construction)', NULL, NULL, 1);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('nagano-marathon-2027', NULL, NULL, 'ビッグハット', 'Big Hat', NULL, NULL, 2);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('nagano-marathon-2027', NULL, NULL, '五輪大橋', 'Olympic Bridge', NULL, NULL, 3);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('nagano-marathon-2027', NULL, NULL, 'ホワイトリング', 'White Ring', NULL, NULL, 4);
-INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
-  ('nagano-marathon-2027', NULL, NULL, '長野オリンピックスタジアム（フィニッシュ）', 'Nagano Olympic Stadium (finish)', NULL, NULL, 5);
 
 -- ==================
 -- 長崎ミュージックフェスマラソン (nagasaki-musicfes-marathon-2027)

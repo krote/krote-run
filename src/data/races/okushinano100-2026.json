@@ -5,7 +5,7 @@
   "full_name_ja": "奥信濃100トレイルランニングレース2026",
   "full_name_en": "Okushinano 100 Trail Running Race 2026",
   "edition": null,
-  "date": "2026-06-05",
+  "date": "2026-06-06",
   "prefecture": "20",
   "city_ja": "長野県飯山市・木島平村ほか",
   "city_en": "Iiyama City / Kijimadaira Village, Nagano",
@@ -18,8 +18,8 @@
   "entry_start_date": "2025-12-14",
   "entry_end_date": "2026-05-10",
   "reception_type": "pre_day",
-  "reception_note_ja": "100km・50km：2025年12月14日〜2026年2月28日。25km・8km：2025年12月14日〜2026年5月10日。学割あり。",
-  "reception_note_en": "100km/50km: Dec 14, 2025 – Feb 28, 2026. 25km/8km: Dec 14, 2025 – May 10, 2026. Student discounts available.",
+  "reception_note_ja": "100km・50km：2025年12月14日〜2026年2月15日。25km・8km：2025年12月14日〜2026年5月10日。学割あり。",
+  "reception_note_en": "100km/50km: Dec 14, 2025 – Feb 15, 2026. 25km/8km: Dec 14, 2025 – May 10, 2026. Student discounts available.",
   "tags": [
     "アップダウン多い",
     "アルプス",
@@ -36,8 +36,8 @@
     "certification": [],
     "highlights_ja": "奥信濃の山岳トレイル、木島平村〜飯山市周辺",
     "highlights_en": "Mountain trails of Okushinano, Kijimadaira to Iiyama area",
-    "notes_ja": "3日間開催（6/5〜6/7）。登山道整備活動も実施。ITRA 4ポイント付与、Western States100 2026予選レース。",
-    "notes_en": "3-day event (Jun 5–7). Trail maintenance activities also conducted. ITRA 4 points, Western States100 2026 Qualifying race."
+    "notes_ja": "3日間開催（6/5〜6/7）。登山道整備活動も実施。ITRAポイント（100km:4pt、50km:3pt、25km:1pt）付与。Western States100 2026予選レース。UTMB World Series Qualifierに認定。",
+    "notes_en": "3-day event (Jun 5–7). Trail maintenance activities also conducted. ITRA points (100km: 4pt, 50km: 3pt, 25km: 1pt). Western States100 2026 Qualifying race. Certified as a UTMB World Series Qualifier."
   },
   "categories": [
     {
@@ -95,20 +95,33 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "飯山駅",
+      "station_name_en": "Iiyama Station",
+      "station_code": "",
+      "transport_to_venue_ja": "アクセスバスで約20分",
+      "transport_to_venue_en": "About 20 min by access bus",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 20,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-03-30T00:00:00Z",
-  "updated_at": "2026-06-29T14:15:52.190Z",
+  "updated_at": "2026-09-06T14:37:20.470Z",
   "_metadata": {
     "data_source": "公式サイト（https://okushinano100.com/）・大会概要ページ",
     "data_accuracy_notes": [
       "基本情報のみ。エントリー開始日は2025年12月。エイド、周辺スポット等は未入力",
       "2026-05-30: 自動クロールで更新",
-      "2026-06-29: 自動クロールで更新"
+      "2026-06-29: 自動クロールで更新",
+      "2026-09-06: 自動クロールで更新"
     ],
-    "last_verified": "2026-06-29",
+    "last_verified": "2026-09-06",
     "detail_level": "basic"
   },
   "entry_periods": [
@@ -116,7 +129,7 @@
       "label_ja": "100km",
       "label_en": "100km",
       "start_date": "2025-12-14",
-      "end_date": "2026-02-28",
+      "end_date": "2026-02-15",
       "entry_fee": 27500,
       "category_id": null,
       "sort_order": 0
@@ -125,7 +138,7 @@
       "label_ja": "50km",
       "label_en": "50km",
       "start_date": "2025-12-14",
-      "end_date": "2026-02-28",
+      "end_date": "2026-02-15",
       "entry_fee": 13200,
       "category_id": null,
       "sort_order": 1
@@ -198,9 +211,9 @@
       "label": "エントリー"
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
-  "start_lat": null,
-  "start_lng": null
+  "venue_name_ja": "スノーリゾート ロマンスの神様",
+  "venue_name_en": "Snow Resort Romance no Kamisama",
+  "venue_address": "長野県下高井郡木島平村上木島3876-2",
+  "start_lat": 36.826645,
+  "start_lng": 138.492676
 }

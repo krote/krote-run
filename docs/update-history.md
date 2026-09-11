@@ -1111,3 +1111,20 @@ Issue #126のstg動作確認中に発見した2件の追加対応。
 - `pnpm run test:tools` 全219件パス
 - 実際のクロール実行は`claude -p`呼び出し（課金対象）を伴うため未実施。次回の手動クロール実行時に効果を確認する
 - 会場情報が既存の`info_urls`にも載っていないケース（`discoverInfoLinks()`のrun()統合）は別対応として保留
+
+## 2026-09-12 crawlの抽出対象フィールドを棚卸しし、種目別start_time・エイドステーション・関門を追加
+
+未実施レースのうち時間算出不可（座標・start_time未設定）な47件を調査したところ、`categories[].start_time`（種目別スタート時刻）は`tools/crawl/extractor.js`の`DIFF_FIELDS`に一度も含まれておらず、crawlが何度実行されても対象外だったことが判明。全フィールドを棚卸しし、以下を追加した。
+
+- `categories`（種目別スタート時刻・定員・参加費）・`aid_stations`（エイドステーション）・`checkpoints`（関門）を`DIFF_FIELDS`に追加
+- **`categories`は丸ごと上書きではなく専用マージ処理**: `mergeCategoryUpdates(existing, extracted)`を新設（TDD）。`distance_type`でマッチした種目の`start_time`/`capacity`/`entry_fee`のみ上書きし、`name_ja`・`eligibility_ja`等の手動キュレーション済みフィールドは保持する。同じ`distance_type`の種目が複数存在する場合は曖昧なためマージしない（安全側）。新種目の追加は非対応
+  - 理由: `categories`を単純にDIFF_FIELDS化して丸ごと上書きすると、参加賞の複製バグ（PR #164）と同種の「サイレントなデータ消失」を招くため
+- `aid_stations`・`checkpoints`は現状ほぼ空（129件中8件・5件）でキュレーション済みデータを壊すリスクが低いため、既存の複合フィールドと同じ丸ごと上書き方式のまま追加
+- `buildExtractionPrompt`のプロンプト・出力スキーマ例を更新
+- 対象外と判断したフィールド（理由）:
+  - `course_gpx_file`: ファイル系データで、テキスト抽出とは異質。専用ツール（`course:generate`）が別途存在
+  - `tags`・`edition`・`full_name_ja/en`: 年度切替は`createNewEditionFile`で別処理済み、`tags`はキュレーション性が高くLLM自動更新に不向き
+  - `description_ja/en`: 優先度低（変化頻度が低く、文面の恣意的な書き換えリスクがある）
+  - `gallery`・`hero_image_url`等: 画像系は完全手動管理
+  - `course_highlights`: レース直下（過去の一括投入73件）と`categories[].course_highlights`（管理ツールの新仕様）に分裂している構造問題を発見。今回のcrawl拡張とは別にスキーマ統一を検討すべき（別Issue推奨、今回は対象外）
+- `pnpm run test:tools` 全231件パス

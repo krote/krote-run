@@ -744,3 +744,128 @@ describe('buildDiff - venue / access_points / reception フィールド', () => 
     assert.equal(entry.changed, true);
   });
 });
+
+// ── mergeCategoryUpdates ──────────────────────────────────────────
+
+const { mergeCategoryUpdates } = require('./extractor');
+
+describe('mergeCategoryUpdates', () => {
+  test('distance_typeが一致する種目のstart_timeのみ上書きする', () => {
+    const existing = [
+      { distance_type: 'full', capacity: 10000, entry_fee: 15000, name_ja: 'フル', eligibility_ja: '18歳以上', start_time: null },
+    ];
+    const extracted = [{ distance_type: 'full', start_time: '08:45' }];
+    const merged = mergeCategoryUpdates(existing, extracted);
+    assert.equal(merged[0].start_time, '08:45');
+    // 他のフィールドは保持される
+    assert.equal(merged[0].capacity, 10000);
+    assert.equal(merged[0].entry_fee, 15000);
+    assert.equal(merged[0].name_ja, 'フル');
+    assert.equal(merged[0].eligibility_ja, '18歳以上');
+  });
+
+  test('capacity・entry_feeも判明していれば上書きする', () => {
+    const existing = [{ distance_type: 'full', capacity: 0, entry_fee: null, start_time: null }];
+    const extracted = [{ distance_type: 'full', start_time: '08:45', capacity: 12000, entry_fee: 16000 }];
+    const merged = mergeCategoryUpdates(existing, extracted);
+    assert.equal(merged[0].capacity, 12000);
+    assert.equal(merged[0].entry_fee, 16000);
+  });
+
+  test('マッチしない種目（extracted側）は無視する（新種目追加は非対応）', () => {
+    const existing = [{ distance_type: 'full', start_time: null }];
+    const extracted = [{ distance_type: 'full', start_time: '08:45' }, { distance_type: '10km', start_time: '09:00' }];
+    const merged = mergeCategoryUpdates(existing, extracted);
+    assert.equal(merged.length, 1);
+    assert.equal(merged[0].start_time, '08:45');
+  });
+
+  test('existing側にマッチする種目が無い場合はそのまま維持する', () => {
+    const existing = [{ distance_type: 'full', start_time: null }];
+    const extracted = [{ distance_type: '10km', start_time: '09:00' }];
+    const merged = mergeCategoryUpdates(existing, extracted);
+    assert.equal(merged[0].start_time, null);
+  });
+
+  test('同じdistance_typeが複数存在する場合は曖昧なためマージしない（安全側）', () => {
+    const existing = [
+      { distance_type: 'half', name_ja: 'ハーフ個人', start_time: null },
+      { distance_type: 'half', name_ja: 'ハーフ団体', start_time: null },
+    ];
+    const extracted = [{ distance_type: 'half', start_time: '09:00' }];
+    const merged = mergeCategoryUpdates(existing, extracted);
+    assert.equal(merged[0].start_time, null);
+    assert.equal(merged[1].start_time, null);
+  });
+
+  test('extractedが空配列ならexistingをそのまま返す', () => {
+    const existing = [{ distance_type: 'full', start_time: null }];
+    const merged = mergeCategoryUpdates(existing, []);
+    assert.deepEqual(merged, existing);
+  });
+
+  test('extractedがnull/undefinedならexistingをそのまま返す', () => {
+    const existing = [{ distance_type: 'full', start_time: null }];
+    assert.deepEqual(mergeCategoryUpdates(existing, null), existing);
+    assert.deepEqual(mergeCategoryUpdates(existing, undefined), existing);
+  });
+
+  test('extracted側のstart_timeが空文字の場合は上書きしない', () => {
+    const existing = [{ distance_type: 'full', start_time: '08:00' }];
+    const extracted = [{ distance_type: 'full', start_time: '' }];
+    const merged = mergeCategoryUpdates(existing, extracted);
+    assert.equal(merged[0].start_time, '08:00');
+  });
+
+  test('existingが空配列の場合は空配列を返す', () => {
+    const merged = mergeCategoryUpdates([], [{ distance_type: 'full', start_time: '08:00' }]);
+    assert.deepEqual(merged, []);
+  });
+});
+
+// ── applyAndSave - categoriesの安全なマージ ──────────────────────────
+
+describe('applyAndSave - categoriesの安全なマージ', () => {
+  test('categoriesが抽出された場合、丸ごと上書きではなくmergeCategoryUpdatesでマージされる', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawl-test-'));
+    try {
+      const race = {
+        id: 'test-marathon-2026',
+        date: '2026-03-01',
+        categories: [
+          { distance_type: 'full', capacity: 10000, entry_fee: 15000, name_ja: 'フル', eligibility_ja: '18歳以上', start_time: null },
+        ],
+        _metadata: { data_accuracy_notes: [] },
+      };
+      const extracted = { categories: [{ distance_type: 'full', start_time: '08:45' }] };
+      const result = applyAndSave(race, extracted, { racesDir: tmpDir });
+      assert.equal(result.categories[0].start_time, '08:45');
+      assert.equal(result.categories[0].name_ja, 'フル', '手動キュレーション済みフィールドが保持される');
+      assert.equal(result.categories[0].eligibility_ja, '18歳以上', '手動キュレーション済みフィールドが保持される');
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+});
+
+// ── DIFF_FIELDS - aid_stations / checkpoints ─────────────────────────
+
+describe('buildDiff - aid_stations / checkpoints', () => {
+  const current = { date: '2026-03-01', aid_stations: [], checkpoints: [] };
+
+  test('aid_stations が変わったとき changed=true', () => {
+    const extracted = { aid_stations: [{ name_ja: '10km地点', distance_km: 10, water: true, sports_drink: true, food: false }] };
+    const diff = buildDiff(current, extracted);
+    const entry = diff.find(d => d.key === 'aid_stations');
+    assert.ok(entry);
+    assert.equal(entry.changed, true);
+  });
+
+  test('checkpoints が変わったとき changed=true', () => {
+    const extracted = { checkpoints: [{ name_ja: '20km関門', distance_km: 20, cutoff_time: '11:30' }] };
+    const diff = buildDiff(current, extracted);
+    const entry = diff.find(d => d.key === 'checkpoints');
+    assert.ok(entry);
+    assert.equal(entry.changed, true);
+  });
+});

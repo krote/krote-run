@@ -117,6 +117,58 @@ describe('isMissingCriticalFields', () => {
   });
 });
 
+// ── isPastRace ──────────────────────────────────────────────────────
+
+const { isPastRace } = require('./index');
+
+describe('isPastRace', () => {
+  test('開催日が今日より前なら true', () => {
+    const race = { id: 'test-2026', date: '2026-01-01' };
+    assert.equal(isPastRace(race, new Date('2026-09-12')), true);
+  });
+
+  test('開催日が今日より後なら false', () => {
+    const race = { id: 'test-2027', date: '2027-01-01' };
+    assert.equal(isPastRace(race, new Date('2026-09-12')), false);
+  });
+
+  test('開催日が今日と同日なら false（当日はまだ開催済みではない）', () => {
+    const race = { id: 'test-2026', date: '2026-09-12' };
+    assert.equal(isPastRace(race, new Date('2026-09-12')), false);
+  });
+
+  test('date が未設定なら false（判定不能なので更新をブロックしない）', () => {
+    const race = { id: 'test-2026', date: null };
+    assert.equal(isPastRace(race, new Date('2026-09-12')), false);
+  });
+});
+
+// ── isEditionTransition ─────────────────────────────────────────────
+
+const { isEditionTransition } = require('./index');
+
+describe('isEditionTransition', () => {
+  test('extracted.date の年が race.date の年と異なる場合は true（次年度への切り替わり）', () => {
+    const race = { date: '2026-03-01' };
+    assert.equal(isEditionTransition(race, { date: '2027-03-01' }), true);
+  });
+
+  test('extracted.date の年が race.date の年と同じ場合は false', () => {
+    const race = { date: '2026-03-01' };
+    assert.equal(isEditionTransition(race, { date: '2026-04-01' }), false);
+  });
+
+  test('extracted に date が含まれない場合は false', () => {
+    const race = { date: '2026-03-01' };
+    assert.equal(isEditionTransition(race, { venue_name_ja: '会場' }), false);
+  });
+
+  test('race.date が未設定の場合は false', () => {
+    const race = { date: null };
+    assert.equal(isEditionTransition(race, { date: '2027-03-01' }), false);
+  });
+});
+
 // ── getLatestFilesPerSeries ───────────────────────────────────────
 
 describe('getLatestFilesPerSeries', () => {

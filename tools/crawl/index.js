@@ -132,6 +132,30 @@ function isMissingCriticalFields(race) {
 }
 
 /**
+ * レースの開催日が既に過去かを判定する。
+ * date未設定の場合は判定不能として false（更新をブロックしない）を返す。
+ * @param {object} race
+ * @param {Date} [now]
+ * @returns {boolean}
+ */
+function isPastRace(race, now = new Date()) {
+  if (!race.date) return false;
+  return new Date(race.date) < now;
+}
+
+/**
+ * 抽出結果が次年度への切り替わりを示しているかを判定する。
+ * extractor.js の年度不一致チェック（applyAndSave）と同じ基準（年の文字列比較）。
+ * @param {object} race
+ * @param {object} extracted
+ * @returns {boolean}
+ */
+function isEditionTransition(race, extracted) {
+  if (!extracted.date || !race.date) return false;
+  return extracted.date.slice(0, 4) !== race.date.slice(0, 4);
+}
+
+/**
  * ファイルリストからシリーズごとに最新年のファイルのみ返す
  * 例: ['tokyo-marathon-2026.json', 'tokyo-marathon-2027.json'] → ['tokyo-marathon-2027.json']
  * @param {string[]} files - JSONファイル名の配列（index.json は除外済み前提）
@@ -259,6 +283,7 @@ async function run(options = {}) {
     extracted: [],     // { race_id, diff } LLM抽出で変更が見つかったもの
     new_editions: [],  // { race_id, new_race_id } 次年度ファイルを自動作成したもの
     forced: [],        // { race_id } 会場情報未設定のため無変更でも強制的にLLM抽出対象にしたもの
+    skipped_past: [],  // { race_id, diff } 開催済みのため更新をスキップしたもの（次年度切り替わりを除く）
     geocoded: { processed: 0, skipped: 0, failed: 0 }, // venue_address からの座標補完
   };
 
@@ -334,6 +359,14 @@ async function run(options = {}) {
           continue;
         }
 
+        // 開催済みレースは、次年度への切り替わり検出以外の更新（会場情報の修正等）を適用しない。
+        // ページ自体は引き続きチェックし続ける必要があるため、crawl・LLM抽出自体はスキップしない。
+        if (isPastRace(race) && !isEditionTransition(race, extracted)) {
+          console.log('開催済みのため更新をスキップ（次年度情報ではない）');
+          summary.skipped_past.push({ race_id: race.id, diff: updatedFields });
+          continue;
+        }
+
         console.log(`更新フィールド: ${updatedFields.map(d => d.label).join(', ')}`);
         for (const d of updatedFields) {
           const isComplex = Array.isArray(d.extracted) || (d.extracted && typeof d.extracted === 'object');
@@ -380,6 +413,7 @@ async function run(options = {}) {
   console.log(`変更なし : ${summary.unchanged}件`);
   console.log(`LLM更新  : ${summary.extracted.length}件`);
   console.log(`  うち強制抽出（会場情報未設定・ページ無変更）: ${summary.forced.length}件`);
+  console.log(`開催済みのため更新スキップ: ${summary.skipped_past.length}件`);
   console.log(`新年度作成: ${summary.new_editions.length}件`);
   console.log(`エラー   : ${summary.errors.length}件`);
   console.log(`スキップ : ${summary.skipped}件（URL未設定）`);
@@ -411,5 +445,5 @@ if (require.main === module) {
     process.exit(1);
   });
 } else {
-  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks, isMissingCriticalFields };
+  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks, isMissingCriticalFields, isPastRace, isEditionTransition };
 }

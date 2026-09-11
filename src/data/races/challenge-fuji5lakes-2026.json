@@ -17,9 +17,9 @@
   "entry_capacity": 4500,
   "entry_start_date": "2025-10-24",
   "entry_end_date": "2026-01-31",
-  "reception_type": "",
-  "reception_note_ja": "ゼッケン・計測タグは大会約3週間前に発送。参加案内はメールで配信。前日（4/18）に受付あり。",
-  "reception_note_en": "Race bibs and timing tags are mailed approximately 3 weeks before the event. Participation guide sent by email. On-site registration available the day before (4/18).",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "受付は行わない。ナンバーカード一式を事前に郵送。参加案内は大会の約3週間前にメールで配信。",
+  "reception_note_en": "No on-site reception. Number cards are mailed in advance. Participation guide is sent by email approximately 3 weeks before the event.",
   "tags": [
     "SPARTATHLON基準",
     "ウルトラマラソン",
@@ -137,12 +137,12 @@
       "station_name_ja": "富士山駅",
       "station_name_en": "Fujisan Station",
       "station_code": "fujisan",
-      "transport_to_venue_ja": "富士山駅から富士北麓公園までシャトルバス運行（大会当日早朝）。または徒歩約30分。",
-      "transport_to_venue_en": "Shuttle bus from Fujisan Station to Fuji Hokuroku Park (early morning on race day). Or approx. 30 min walk.",
+      "transport_to_venue_ja": "富士急行線富士山駅からタクシーで約15分",
+      "transport_to_venue_en": "Approx. 15 min by taxi from Fujisan Station (Fujikyuko Line)",
       "latitude": 35.4879,
       "longitude": 138.7948,
       "walk_minutes": null,
-      "is_primary": false
+      "is_primary": true
     },
     {
       "station_name_ja": "河口湖駅",
@@ -284,7 +284,7 @@
   ],
   "result": null,
   "created_at": "2026-03-10T00:00:00Z",
-  "updated_at": "2026-05-25T01:17:31.952Z",
+  "updated_at": "2026-09-06T14:37:13.023Z",
   "_metadata": {
     "data_source": "公式サイト (r-wellness.com/fuji5/) 、スポーツエントリー、PR TIMES プレスリリース等の公開情報から手動転記",
     "data_accuracy_notes": [
@@ -293,9 +293,10 @@
       "気象データは富士吉田市の4月中旬の概算値。標高が高いため長野市より低温。正式には気象庁データで要検証",
       "関門（checkpoints）情報は未取得。公式の最終案内で確認が必要",
       "WAVEの時刻は第36回大会の公式情報に基づく",
-      "2026-05-25: 自動クロールで更新"
+      "2026-05-25: 自動クロールで更新",
+      "2026-09-06: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-25",
+    "last_verified": "2026-09-06",
     "detail_level": "full"
   },
   "entry_periods": [
@@ -388,9 +389,9 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
-  "start_lat": null,
-  "start_lng": null
+  "venue_name_ja": "富士北麓公園",
+  "venue_name_en": "Fuji Hokuroku Park",
+  "venue_address": "山梨県富士吉田市上吉田立石5000",
+  "start_lat": 35.426395,
+  "start_lng": 138.753159
 }

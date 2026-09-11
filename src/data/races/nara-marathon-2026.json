@@ -58,7 +58,30 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "近鉄奈良駅",
+      "station_name_en": "Kintetsu Nara Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約20分（1.6km）",
+      "transport_to_venue_en": "About 20 min walk (1.6km)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 20,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "JR奈良駅",
+      "station_name_en": "JR Nara Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約30分（2.4km）",
+      "transport_to_venue_en": "About 30 min walk (2.4km)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 30,
+      "is_primary": false
+    }
+  ],
   "nearby_spots": [
     {
       "type": "観光地",
@@ -97,7 +120,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-07-27T14:25:12.645Z",
+  "updated_at": "2026-09-06T14:37:18.337Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -107,9 +130,10 @@
       "2026-06-08: 自動クロールで更新",
       "2026-06-12: 自動クロールで更新",
       "2026-06-29: 自動クロールで更新",
-      "2026-07-27: 自動クロールで更新"
+      "2026-07-27: 自動クロールで更新",
+      "2026-09-06: 自動クロールで更新"
     ],
-    "last_verified": "2026-07-27",
+    "last_verified": "2026-09-06",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -201,9 +225,9 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
-  "start_lat": null,
-  "start_lng": null
+  "venue_name_ja": "ロートフィールド奈良（奈良市鴻ノ池陸上競技場）",
+  "venue_name_en": "Roto Field Nara (Nara City Konoike Athletic Stadium)",
+  "venue_address": "奈良県奈良市法蓮佐保山４丁目５-１",
+  "start_lat": 34.697571,
+  "start_lng": 135.829163
 }

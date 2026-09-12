@@ -74,6 +74,21 @@ describe('isDefaultFilter', () => {
     expect(isDefaultFilter({ ...f })).toBe(true);
   });
 
+  it('dayTrip=true を指定すると false', () => {
+    expect(isDefaultFilter({ ...defaultFilter(), dayTrip: true })).toBe(false);
+  });
+});
+
+describe('defaultFilter - dayTrip', () => {
+  it('dayTrip は false', () => {
+    expect(defaultFilter().dayTrip).toBe(false);
+  });
+});
+
+describe('emptyFilter - dayTrip', () => {
+  it('dayTrip は false', () => {
+    expect(emptyFilter().dayTrip).toBe(false);
+  });
 });
 
 describe('isFilterEmpty', () => {
@@ -87,6 +102,10 @@ describe('isFilterEmpty', () => {
 
   it('何か値が設定されていると false', () => {
     expect(isFilterEmpty({ ...emptyFilter(), prefecture: '13' })).toBe(false);
+  });
+
+  it('dayTrip=true が設定されていると false', () => {
+    expect(isFilterEmpty({ ...emptyFilter(), dayTrip: true })).toBe(false);
   });
 });
 

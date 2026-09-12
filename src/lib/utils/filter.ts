@@ -1,4 +1,6 @@
 import type { Race, RaceFilter, RaceStatus, DistanceType, RaceSortKey, EntryPeriod } from '../types';
+import type { TravelSettings } from '../travel';
+import { calcDayTripStatus } from '../travel';
 import { getRaceStatus } from './race';
 import { getTodayJST } from './date';
 
@@ -15,6 +17,7 @@ export function defaultFilter(): RaceFilter {
     statuses: ['open_entry', 'entry_not_open', 'entry_closed'],
     sort: 'date_asc',
     view: 'mag',
+    dayTrip: false,
   };
 }
 
@@ -31,6 +34,7 @@ export function emptyFilter(): RaceFilter {
     statuses: [],
     sort: 'date_asc',
     view: 'mag',
+    dayTrip: false,
   };
 }
 
@@ -47,7 +51,8 @@ export function isDefaultFilter(filter: RaceFilter): boolean {
     filter.statuses.length === def.statuses.length &&
     def.statuses.every((s) => filter.statuses.includes(s)) &&
     filter.sort === def.sort &&
-    filter.view === def.view
+    filter.view === def.view &&
+    filter.dayTrip === false
   );
 }
 
@@ -60,11 +65,12 @@ export function isFilterEmpty(filter: RaceFilter): boolean {
     filter.timeLimitMin === null &&
     filter.tags.length === 0 &&
     filter.searchText === '' &&
-    filter.statuses.length === 0
+    filter.statuses.length === 0 &&
+    filter.dayTrip === false
   );
 }
 
-export function filterRaces(races: Race[], filter: RaceFilter): Race[] {
+export function filterRaces(races: Race[], filter: RaceFilter, travelSettings?: TravelSettings | null): Race[] {
   return races.filter((race) => {
     if (filter.statuses.length > 0) {
       const status = getRaceStatus(race);
@@ -106,6 +112,12 @@ export function filterRaces(races: Race[], filter: RaceFilter): Race[] {
       if (!race.name_ja.toLowerCase().includes(q) && !race.name_en.toLowerCase().includes(q)) {
         return false;
       }
+    }
+
+    if (filter.dayTrip && travelSettings) {
+      const travelMinutes = race.travel_times?.find((t) => t.hub_id === travelSettings.hubId)?.duration_minutes ?? null;
+      const status = calcDayTripStatus(race, travelMinutes, travelSettings);
+      if (status.status !== 'day_trip') return false;
     }
 
     return true;
@@ -200,6 +212,7 @@ export function filterToSearchParams(filter: RaceFilter): URLSearchParams {
   if (filter.statuses.length > 0) params.set('status', filter.statuses.join(','));
   if (filter.sort !== 'date_asc') params.set('sort', filter.sort);
   if (filter.view !== 'mag') params.set('view', filter.view);
+  if (filter.dayTrip) params.set('daytrip', '1');
   return params;
 }
 
@@ -230,5 +243,6 @@ export function searchParamsToFilter(params: URLSearchParams | Record<string, st
     statuses: statuses as RaceFilter['statuses'],
     sort: sort && VALID_SORTS.includes(sort as RaceSortKey) ? (sort as RaceSortKey) : 'date_asc',
     view: view === 'exp' ? 'exp' : 'mag',
+    dayTrip: get('daytrip') === '1',
   };
 }

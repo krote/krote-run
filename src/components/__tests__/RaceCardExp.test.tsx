@@ -2,7 +2,8 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import RaceCardExp from '../races/RaceCardExp';
-import { makeRace, makeCategory, makeEntryPeriod } from '../../lib/__tests__/fixtures';
+import { makeRace, makeCategory, makeEntryPeriod, makeRaceTravelTime } from '../../lib/__tests__/fixtures';
+import type { TravelSettings } from '../../lib/travel';
 
 vi.mock('next-intl', () => ({
   useTranslations: () => (key: string) => {
@@ -101,5 +102,46 @@ describe('RaceCardExp - エントリー状態', () => {
     });
     render(<RaceCardExp race={race} locale="ja" />);
     expect(screen.getByText('未発表')).toBeInTheDocument();
+  });
+});
+
+describe('RaceCardExp - 日帰りステータスバッジ', () => {
+  const baseSettings: TravelSettings = {
+    hubId: 'tokyo',
+    nearestStation: '東京駅',
+    offsetMinutes: 0,
+    firstTrainTime: '05:00',
+  };
+
+  it('travelSettings が未指定ならバッジは表示されない', () => {
+    const race = makeRace({
+      date: '2026-10-01',
+      reception_type: 'pre_day',
+      categories: [makeCategory({ start_time: '09:00' })],
+    });
+    render(<RaceCardExp race={race} locale="ja" />);
+    expect(screen.queryByText('前泊必須')).not.toBeInTheDocument();
+  });
+
+  it('前日受付のみ大会は「前泊必須」バッジが表示される', () => {
+    const race = makeRace({
+      date: '2026-10-01',
+      reception_type: 'pre_day',
+      categories: [makeCategory({ start_time: '09:00' })],
+      travel_times: [makeRaceTravelTime({ hub_id: 'tokyo', duration_minutes: 60 })],
+    });
+    render(<RaceCardExp race={race} locale="ja" travelSettings={baseSettings} />);
+    expect(screen.getByText('前泊必須')).toBeInTheDocument();
+  });
+
+  it('日帰り可能な大会は「日帰り可」バッジが表示される', () => {
+    const race = makeRace({
+      date: '2026-10-01',
+      reception_type: 'race_day',
+      categories: [makeCategory({ start_time: '09:00' })],
+      travel_times: [makeRaceTravelTime({ hub_id: 'tokyo', duration_minutes: 60 })],
+    });
+    render(<RaceCardExp race={race} locale="ja" travelSettings={baseSettings} />);
+    expect(screen.getByText(/日帰り可/)).toBeInTheDocument();
   });
 });

@@ -33,7 +33,15 @@ const defaultProps = {
   ],
   availableTags: ['フラット', '景色が良い'],
   locale: 'ja',
+  travelSettings: null,
   onChange: vi.fn(),
+};
+
+const baseTravelSettings = {
+  hubId: 'tokyo' as const,
+  nearestStation: '東京駅',
+  offsetMinutes: 10,
+  firstTrainTime: '05:00',
 };
 
 describe('RaceFilter - 基本レンダリング', () => {
@@ -122,5 +130,31 @@ describe('RaceFilter - インタラクション', () => {
     render(<RaceFilter {...defaultProps} onChange={onChange} />);
     await user.selectOptions(screen.getByRole('combobox'), '13');
     expect(onChange).toHaveBeenCalledWith(expect.objectContaining({ prefecture: '13' }));
+  });
+});
+
+describe('RaceFilter - 日帰りフィルタ（travelSettings 依存）', () => {
+  it('travelSettings が未設定なら日帰りトグルは表示されない', () => {
+    render(<RaceFilter {...defaultProps} travelSettings={null} />);
+    expect(screen.queryByText('日帰り可能のみ')).not.toBeInTheDocument();
+  });
+
+  it('travelSettings が設定済みなら日帰りトグルが表示される', () => {
+    render(<RaceFilter {...defaultProps} travelSettings={baseTravelSettings} />);
+    expect(screen.getByText('日帰り可能のみ')).toBeInTheDocument();
+  });
+
+  it('トグルクリックで onChange が dayTrip 反転値付きで呼ばれる', async () => {
+    const onChange = vi.fn();
+    render(<RaceFilter {...defaultProps} travelSettings={baseTravelSettings} onChange={onChange} />);
+    await user.click(screen.getByRole('switch'));
+    expect(onChange).toHaveBeenCalledWith(expect.objectContaining({ dayTrip: true }));
+  });
+
+  it('ラベルクリックでも onChange が呼ばれる', async () => {
+    const onChange = vi.fn();
+    render(<RaceFilter {...defaultProps} travelSettings={baseTravelSettings} onChange={onChange} />);
+    await user.click(screen.getByText('日帰り可能のみ'));
+    expect(onChange).toHaveBeenCalledWith(expect.objectContaining({ dayTrip: true }));
   });
 });

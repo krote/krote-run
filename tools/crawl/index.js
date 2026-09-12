@@ -120,6 +120,18 @@ function buildUrlsToCheck(race) {
 }
 
 /**
+ * 会場の重要フィールド（venue_name_ja / venue_address）が両方とも未設定かを判定する。
+ * 未設定の場合、ページが（チェックサム上）無変更でもLLM抽出を強制する対象になる。
+ * @param {object} race
+ * @returns {boolean}
+ */
+function isMissingCriticalFields(race) {
+  const name = (race.venue_name_ja || '').trim();
+  const addr = (race.venue_address || '').trim();
+  return !name && !addr;
+}
+
+/**
  * ファイルリストからシリーズごとに最新年のファイルのみ返す
  * 例: ['tokyo-marathon-2026.json', 'tokyo-marathon-2027.json'] → ['tokyo-marathon-2027.json']
  * @param {string[]} files - JSONファイル名の配列（index.json は除外済み前提）
@@ -200,9 +212,10 @@ async function crawlRace(race, checksums, dryRun = false) {
       const isNew = !checksums[url];
       const changed = hasChanged(url, newHash, checksums);
 
+      // text は変更の有無に関わらず保持する（不足フィールドの強制抽出で無変更ページも使うため）
+      text = fetchedText;
       if (changed) {
         status = isNew ? 'new' : 'changed';
-        text = fetchedText;
       } else {
         status = 'unchanged';
       }
@@ -245,6 +258,7 @@ async function run(options = {}) {
     errors: [],        // { race_id, url, error }
     extracted: [],     // { race_id, diff } LLM抽出で変更が見つかったもの
     new_editions: [],  // { race_id, new_race_id } 次年度ファイルを自動作成したもの
+    forced: [],        // { race_id } 会場情報未設定のため無変更でも強制的にLLM抽出対象にしたもの
     geocoded: { processed: 0, skipped: 0, failed: 0 }, // venue_address からの座標補完
   };
 
@@ -264,14 +278,18 @@ async function run(options = {}) {
 
     process.stdout.write(`[${race.id}] `);
     const results = await crawlRace(race, checksums, dryRun);
+    const forceExtract = isMissingCriticalFields(race);
 
     const changedTexts = [];
+    let hasRealChange = false;
     for (const r of results) {
       if (r.status === 'changed') {
+        hasRealChange = true;
         summary.changed.push({ race_id: race.id, url: r.url });
         changedTexts.push({ url: r.url, text: r.text });
         console.log(`変更あり: ${r.url}`);
       } else if (r.status === 'new') {
+        hasRealChange = true;
         summary.new.push({ race_id: race.id, url: r.url });
         changedTexts.push({ url: r.url, text: r.text });
         console.log(`新規登録: ${r.url}`);
@@ -280,11 +298,19 @@ async function run(options = {}) {
         console.log(`エラー: ${r.url} (${r.error})`);
       } else {
         summary.unchanged++;
-        console.log(`変更なし: ${r.url}`);
+        if (forceExtract && r.text) {
+          changedTexts.push({ url: r.url, text: r.text });
+          console.log(`変更なし（会場情報未設定のため強制抽出対象): ${r.url}`);
+        } else {
+          console.log(`変更なし: ${r.url}`);
+        }
       }
     }
 
     if (changedTexts.length > 0) {
+      if (forceExtract && !hasRealChange) {
+        summary.forced.push({ race_id: race.id });
+      }
       changedRaces.push({ race, changedTexts });
     }
   }
@@ -353,6 +379,7 @@ async function run(options = {}) {
   console.log(`新規     : ${summary.new.length}件`);
   console.log(`変更なし : ${summary.unchanged}件`);
   console.log(`LLM更新  : ${summary.extracted.length}件`);
+  console.log(`  うち強制抽出（会場情報未設定・ページ無変更）: ${summary.forced.length}件`);
   console.log(`新年度作成: ${summary.new_editions.length}件`);
   console.log(`エラー   : ${summary.errors.length}件`);
   console.log(`スキップ : ${summary.skipped}件（URL未設定）`);
@@ -384,5 +411,5 @@ if (require.main === module) {
     process.exit(1);
   });
 } else {
-  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks };
+  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks, isMissingCriticalFields };
 }

@@ -12,35 +12,57 @@
   "description_ja": "",
   "description_en": "",
   "official_url": "https://www.ohtawara-marathon.com/",
-  "entry_fee": null,
+  "entry_fee": 10000,
   "entry_fee_by_category": true,
   "entry_capacity": 4000,
   "entry_start_date": "2026-06-06",
   "entry_end_date": "2026-08-17",
   "reception_type": "pre_mail",
   "reception_note_ja": "当日受付の必要はありません。\n事前に送付（申込時の住所）するアスリートビブス、計測チップを装着し、号砲時刻20分前までにスタート地点に整列してください。",
-  "reception_note_en": "",
+  "reception_note_en": "No same-day reception is required. Wear the athlete bib and timing chip mailed to you in advance (to the address given at entry) and line up at the start area no later than 20 minutes before the gun.",
   "tags": [],
   "course_gpx_file": null,
   "course_info": {
-    "max_elevation_m": null,
-    "min_elevation_m": null,
-    "elevation_diff_m": null,
     "surface": "road",
-    "certification": [],
-    "highlights_ja": "",
-    "highlights_en": "",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "「すり鉢状」のコース。前半7kmは下り基調へ向かう緩やかな展開、8km過ぎから25km手前の最低地点まで下り基調が続く。25km手前から上り坂となり、傾斜自体は急ではないが「那須おろし」と呼ばれる向かい風に苦しめられる。33km地点を過ぎると上りは終わり、残り約7kmで市街地に入る。最高地点と最低地点の標高差は90m未満。",
+    "highlights_en": "A bowl-shaped course: a gentle first 7km, followed by a downhill stretch from around 8km to the lowest point near 25km, then an uphill section from 25km with the notorious 'Nasu-oroshi' headwind (though the grade itself is not steep). The uphill ends past 33km, leaving about 7km through the city to the finish. Elevation difference between the highest and lowest points is under 90m.",
     "notes_ja": "",
     "notes_en": ""
   },
   "categories": [],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "西那須野駅",
+      "station_name_en": "Nishi-Nasuno Station",
+      "station_code": "",
+      "transport_to_venue_ja": "大会当日は無料シャトルバス運行（タクシーで約10分）",
+      "transport_to_venue_en": "Free shuttle bus on race day (about 10 min by taxi)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": null,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "那須塩原駅",
+      "station_name_en": "Nasushiobara Station",
+      "station_code": "",
+      "transport_to_venue_ja": "大会当日は無料シャトルバス運行（タクシーで約20分、東京から新幹線で70分）",
+      "transport_to_venue_en": "Free shuttle bus on race day (about 20 min by taxi, 70 min by shinkansen from Tokyo)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": null,
+      "is_primary": false
+    }
+  ],
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-06-08T14:04:29.954Z",
-  "updated_at": "2026-08-24T16:36:49.451Z",
+  "updated_at": "2026-09-06T14:37:19.405Z",
   "info_urls": [
     {
       "url": "https://www.ohtawara-marathon.com/outline/",
@@ -69,7 +91,7 @@
       "label_en": "Marathon Entry",
       "start_date": "2026-06-06",
       "end_date": "2026-07-07",
-      "entry_fee": null,
+      "entry_fee": 10000,
       "category_id": null,
       "sort_order": 0
     },
@@ -78,7 +100,7 @@
       "label_en": "10km Entry",
       "start_date": "2026-06-06",
       "end_date": "2026-08-17",
-      "entry_fee": null,
+      "entry_fee": 5500,
       "category_id": null,
       "sort_order": 1
     },
@@ -94,8 +116,26 @@
   ],
   "entry_closed": false,
   "entry_links": [],
-  "participation_gifts": [],
-  "completion_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "other"
+      ],
+      "description_ja": "大会オリジナル参加賞（参加者全員）",
+      "description_en": "Original event participation gift (all participants)",
+      "image": null
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "other"
+      ],
+      "description_ja": "完走記念品（マラソンの部・制限時間内完走者のみ）",
+      "description_en": "Finisher commemorative gift (Marathon only, within time limit)",
+      "image": null
+    }
+  ],
   "motif": null,
   "motif_romaji": null,
   "motif_color": null,
@@ -107,15 +147,16 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
-  "start_lat": null,
-  "start_lng": null,
+  "venue_name_ja": "DI STADIUM（美原公園陸上競技場）",
+  "venue_name_en": "DI Stadium (Mihara Park Athletic Stadium)",
+  "venue_address": "栃木県大田原市美原3丁目2番62号",
+  "start_lat": 36.860409,
+  "start_lng": 140.003372,
   "_metadata": {
-    "last_verified": "2026-08-24",
+    "last_verified": "2026-09-06",
     "data_accuracy_notes": [
-      "2026-08-24: 自動クロールで更新"
+      "2026-08-24: 自動クロールで更新",
+      "2026-09-06: 自動クロールで更新"
     ]
   }
 }

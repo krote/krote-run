@@ -1139,3 +1139,32 @@ OTP + オープンデータ（ODPT等）による自前ホスト経路計算を�
 - 上記バグにより最初の本番実行では全データを失う（`main()`が全レース処理完了後に一括でSQLファイル書き込みしていたため）。途中でハング・クラッシュしても収集済みデータを失わないよう、レース単位で `migrations/seed-travel-times.sql` に逐次追記（`fs.appendFileSync`）する方式に変更
 - 修正後に再実行し、39レース×8ハブ＝312行すべて成功（エラー0件・経路不明0件）。`migrations/seed-travel-times.sql`を生成（未適用、レビュー待ち）
 - 残り85件（129件中）は`start_lat`/`start_lng`未設定、または`categories[].start_time`未整備のためスキップ（会場情報のcrawl・ジオコーディングが進み次第、対象が増える）
+
+## 2026-09-06 crawlで会場情報未設定レースを強制的にLLM抽出対象にする
+
+会場座標が未設定の大会57件のうち55件（本番残数）は、実際には公式サイトのページ本文に会場情報が明記されているにもかかわらず、これまで一度もLLM抽出されていないことが判明。原因は`tools/crawl/index.js`の差分ゲート方式（ページのチェックサムが前回と一致すると無条件でLLM抽出をスキップする）にあり、`venue_name_ja`/`venue_address`等はIssue #80/81で後から追加されたフィールドのため、それ以前にチェックサムが確定済みの大会ページは、内容が変わらない限り永久にLLM抽出の対象から外れてしまっていた（実例: `abashiri-marathon-2026`の大会要項ページに「スタート（網走刑務所前）」と明記されているが、直近のクロールでもJSONが更新されていないことを確認）。
+
+- `tools/crawl/index.js`: `isMissingCriticalFields(race)`を追加（`venue_name_ja`・`venue_address`が両方とも未設定かを判定する純粋関数、TDD）
+- `run()`のクロールループで、対象レースが`isMissingCriticalFields`に該当する場合、ページが無変更（チェックサム一致）でもそのページのテキストをLLM抽出対象に強制的に含めるよう変更
+- `crawlRace()`: これまで無変更時は`text`を破棄していたが、強制抽出で使うため常に保持するよう変更
+- `summary.forced`を追加し、「無変更だが会場情報未設定のため強制抽出した」件数をサマリー出力に表示
+- `pnpm run test:tools` 全219件パス
+- 実際のクロール実行は`claude -p`呼び出し（課金対象）を伴うため未実施。次回の手動クロール実行時に効果を確認する
+- 会場情報が既存の`info_urls`にも載っていないケース（`discoverInfoLinks()`のrun()統合）は別対応として保留
+
+## 2026-09-12 crawlの抽出対象フィールドを棚卸しし、種目別start_time・エイドステーション・関門を追加
+
+未実施レースのうち時間算出不可（座標・start_time未設定）な47件を調査したところ、`categories[].start_time`（種目別スタート時刻）は`tools/crawl/extractor.js`の`DIFF_FIELDS`に一度も含まれておらず、crawlが何度実行されても対象外だったことが判明。全フィールドを棚卸しし、以下を追加した。
+
+- `categories`（種目別スタート時刻・定員・参加費）・`aid_stations`（エイドステーション）・`checkpoints`（関門）を`DIFF_FIELDS`に追加
+- **`categories`は丸ごと上書きではなく専用マージ処理**: `mergeCategoryUpdates(existing, extracted)`を新設（TDD）。`distance_type`でマッチした種目の`start_time`/`capacity`/`entry_fee`のみ上書きし、`name_ja`・`eligibility_ja`等の手動キュレーション済みフィールドは保持する。同じ`distance_type`の種目が複数存在する場合は曖昧なためマージしない（安全側）。新種目の追加は非対応
+  - 理由: `categories`を単純にDIFF_FIELDS化して丸ごと上書きすると、参加賞の複製バグ（PR #164）と同種の「サイレントなデータ消失」を招くため
+- `aid_stations`・`checkpoints`は現状ほぼ空（129件中8件・5件）でキュレーション済みデータを壊すリスクが低いため、既存の複合フィールドと同じ丸ごと上書き方式のまま追加
+- `buildExtractionPrompt`のプロンプト・出力スキーマ例を更新
+- 対象外と判断したフィールド（理由）:
+  - `course_gpx_file`: ファイル系データで、テキスト抽出とは異質。専用ツール（`course:generate`）が別途存在
+  - `tags`・`edition`・`full_name_ja/en`: 年度切替は`createNewEditionFile`で別処理済み、`tags`はキュレーション性が高くLLM自動更新に不向き
+  - `description_ja/en`: 優先度低（変化頻度が低く、文面の恣意的な書き換えリスクがある）
+  - `gallery`・`hero_image_url`等: 画像系は完全手動管理
+  - `course_highlights`: レース直下（過去の一括投入73件）と`categories[].course_highlights`（管理ツールの新仕様）に分裂している構造問題を発見。今回のcrawl拡張とは別にスキーマ統一を検討すべき（別Issue推奨、今回は対象外）
+- `pnpm run test:tools` 全231件パス

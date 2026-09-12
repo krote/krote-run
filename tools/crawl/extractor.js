@@ -36,6 +36,10 @@ const DIFF_FIELDS = [
   { key: 'reception_type',      label: '受付種別',            type: 'scalar' },
   { key: 'reception_note_ja',   label: '受付メモ（日）',      type: 'scalar' },
   { key: 'reception_note_en',   label: '受付メモ（英）',      type: 'scalar' },
+  // Issue #86: 種目別スタート時刻・エイドステーション・関門
+  { key: 'categories',          label: '種目別情報',          type: 'category_merge' },
+  { key: 'aid_stations',        label: 'エイドステーション',  type: 'array'  },
+  { key: 'checkpoints',         label: '関門',                type: 'array'  },
 ];
 
 // ── 純粋関数（テスト対象） ────────────────────────────────────────
@@ -73,6 +77,9 @@ function buildExtractionPrompt(race, pageTexts) {
     `  completion_gifts: ${JSON.stringify(race.completion_gifts ?? [])}`,
     `  nearby_spots: ${JSON.stringify(race.nearby_spots ?? [])}`,
     `  access_points: ${JSON.stringify(race.access_points ?? [])}`,
+    `  categories（distance_typeのみ表示。start_time/capacity/entry_feeを判明した種目のみ返すこと）: ${JSON.stringify((race.categories ?? []).map(c => ({ distance_type: c.distance_type, start_time: c.start_time, capacity: c.capacity, entry_fee: c.entry_fee })))}`,
+    `  aid_stations: ${JSON.stringify(race.aid_stations ?? [])}`,
+    `  checkpoints: ${JSON.stringify(race.checkpoints ?? [])}`,
   ].join('\n');
 
   const pages = pageTexts
@@ -109,6 +116,9 @@ ${pages}
   - ナンバーカード事前郵送 → "pre_mail"
 - access_points の lat/lng は不明な場合 0 を使用（後でジオコーディングで補完）
 - access_points[].is_primary: 最もアクセスしやすい代表駅を true にする（複数の場合は1件のみ）
+- categories は既存の distance_type と一致する種目のみ、判明した start_time/capacity/entry_fee を返すこと。name_ja・eligibility_ja 等の他フィールドは返さない（既存値を保持するため）。既存に同じ distance_type が複数ある場合は出力しない（曖昧なため）。新しい種目の追加は不可
+- aid_stations[].distance_km は数値（km）。water/sports_drink/food は true/false（不明ならfalse）
+- checkpoints[].cutoff_time は HH:MM 形式（関門通過の制限時刻）
 
 【出力スキーマ例】
 {
@@ -133,7 +143,10 @@ ${pages}
   "access_points": [{"station_name_ja":"駅名","station_name_en":"Station Name","station_code":"","transport_to_venue_ja":"徒歩15分","transport_to_venue_en":"15 min walk","latitude":0,"longitude":0,"walk_minutes":15,"is_primary":true}],
   "reception_type": "pre_day|race_day|both|pre_mail|none",
   "reception_note_ja": "受付の詳細（日本語）",
-  "reception_note_en": "Reception details (English)"
+  "reception_note_en": "Reception details (English)",
+  "categories": [{"distance_type":"full","start_time":"08:45","capacity":10000,"entry_fee":15000}],
+  "aid_stations": [{"name_ja":"10km地点","distance_km":10,"water":true,"sports_drink":true,"food":false}],
+  "checkpoints": [{"name_ja":"20km関門","distance_km":20,"cutoff_time":"11:30"}]
 }`;
 }
 
@@ -273,6 +286,35 @@ async function extractFromPages(race, pageTexts, opts = {}) {
 }
 
 /**
+ * categories配列を安全にマージする。distance_typeでマッチした種目の
+ * start_time/capacity/entry_feeのみ上書きし、name_ja/eligibility_ja等の
+ * 手動キュレーション済みフィールドは保持する（丸ごと上書きしない）。
+ * - 同じdistance_typeの種目が複数存在する場合は曖昧なためマージしない（安全側）
+ * - extracted側に対応するexisting種目が無い場合（新種目追加）は無視する
+ * @param {Array<object>} existing
+ * @param {Array<object>} extracted
+ * @returns {Array<object>}
+ */
+function mergeCategoryUpdates(existing, extracted) {
+  const existingArr = Array.isArray(existing) ? existing : [];
+  if (!Array.isArray(extracted) || extracted.length === 0) return existingArr;
+
+  return existingArr.map((cat) => {
+    const sameType = existingArr.filter((c) => c.distance_type === cat.distance_type);
+    if (sameType.length > 1) return cat; // 曖昧なためマージしない
+
+    const match = extracted.find((e) => e.distance_type === cat.distance_type);
+    if (!match) return cat;
+
+    const merged = { ...cat };
+    if (match.start_time != null && match.start_time !== '') merged.start_time = match.start_time;
+    if (match.capacity != null) merged.capacity = match.capacity;
+    if (match.entry_fee != null) merged.entry_fee = match.entry_fee;
+    return merged;
+  });
+}
+
+/**
  * diffを race JSON に適用して保存する
  * @param {object} race
  * @param {object} extracted
@@ -296,8 +338,10 @@ function applyAndSave(race, extracted, opts = {}) {
   const updated = {
     ...race,
     ...Object.fromEntries(
-      Object.entries(extracted).filter(([k, v]) => v != null && ALLOWED_KEYS.has(k))
+      Object.entries(extracted).filter(([k, v]) => v != null && ALLOWED_KEYS.has(k) && k !== 'categories')
     ),
+    // categoriesは丸ごと上書きせず、既存の手動キュレーション済みフィールドを保持するマージを行う
+    ...(extracted.categories != null && { categories: mergeCategoryUpdates(race.categories, extracted.categories) }),
     updated_at: new Date().toISOString(),
     _metadata: {
       ...race._metadata,
@@ -327,7 +371,7 @@ function buildNewEditionRace(race, extracted) {
   const today = now.slice(0, 10);
 
   const extractedFiltered = Object.fromEntries(
-    Object.entries(extracted).filter(([k, v]) => v != null && ALLOWED_KEYS.has(k))
+    Object.entries(extracted).filter(([k, v]) => v != null && ALLOWED_KEYS.has(k) && k !== 'categories')
   );
 
   return {
@@ -347,6 +391,8 @@ function buildNewEditionRace(race, extracted) {
     time_buckets: [],
     // 抽出フィールドを適用（entry_start_date 等もここで復元される）
     ...extractedFiltered,
+    // categoriesは丸ごと上書きせず、前年の手動キュレーション済みフィールドを保持するマージを行う
+    ...(extracted.categories != null && { categories: mergeCategoryUpdates(race.categories, extracted.categories) }),
     created_at: now,
     updated_at: now,
     _metadata: {
@@ -389,4 +435,5 @@ module.exports = {
   applyAndSave,
   buildNewEditionRace,
   createNewEditionFile,
+  mergeCategoryUpdates,
 };

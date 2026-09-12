@@ -17,9 +17,9 @@
   "entry_capacity": 4500,
   "entry_start_date": "2026-02-01",
   "entry_end_date": "2026-03-08",
-  "reception_type": "pre_day",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "reception_type": "both",
+  "reception_note_ja": "前日: 5/16(土) 14:00〜18:00 洞爺湖文化センター（ロビー）で参加賞引換／当日: 5/17(日) 6:30〜15:30 湖畔遊歩道広場（総合案内所）、洞爺湖観光情報センター前（テント・参加賞引換）",
+  "reception_note_en": "Pre-day: May 16 (Sat) 14:00-18:00 at Toyako Culture Center (Lobby)／Race day: May 17 (Sun) 6:30-15:30 at Lakeside Promenade Plaza (info desk) and in front of Lake Toya Tourist Information Center (gift exchange)",
   "tags": [
     "北海道",
     "景色が良い",
@@ -86,21 +86,22 @@
       "gift_categories": [
         "tshirt"
       ],
-      "description_ja": "大会Tシャツとトートバッグ及びフェイスタオル、完走メダル",
-      "description_en": "Race T-shirt, Finisher medal",
+      "description_ja": "オリジナルTシャツ、トートバッグ、フェイスタオル、温泉無料入浴券",
+      "description_en": "Original T-shirt, tote bag, face towel, free onsen bath voucher",
       "image": null
     }
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-05-30T06:44:01.797Z",
+  "updated_at": "2026-09-06T14:35:59.327Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
-      "2026-05-30: 自動クロールで更新"
+      "2026-05-30: 自動クロールで更新",
+      "2026-09-06: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-30",
+    "last_verified": "2026-09-06",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -156,13 +157,13 @@
       "gift_categories": [
         "medal"
       ],
-      "description_ja": "大会Tシャツとトートバッグ及びフェイスタオル、完走メダル",
-      "description_en": "Race T-shirt, Finisher medal",
+      "description_ja": "完走メダル（フルマラソン制限時間内完走者のみ）、WEB完走証",
+      "description_en": "Finisher medal (sub-cutoff finishers only), web finisher certificate",
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "洞爺湖畔遊歩道広場",
+  "venue_name_en": "Lake Toya Lakeside Promenade Plaza",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

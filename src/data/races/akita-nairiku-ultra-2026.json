@@ -68,28 +68,64 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "角館駅",
+      "station_name_en": "Kakunodate Station",
+      "station_code": "",
+      "transport_to_venue_ja": "100キロの部スタート会場（仙北市角館交流センター）の最寄り駅",
+      "transport_to_venue_en": "Nearest station to the 100km start venue (Kakunodate Exchange Center)",
+      "latitude": 0,
+      "longitude": 0,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "鷹ノ巣駅",
+      "station_name_en": "Takanosu Station",
+      "station_code": "",
+      "transport_to_venue_ja": "ゴール会場（北秋田市交流センター）の最寄り駅",
+      "transport_to_venue_en": "Nearest station to the finish venue (Kitaakita City Exchange Center)",
+      "latitude": 0,
+      "longitude": 0,
+      "is_primary": false
+    }
+  ],
   "nearby_spots": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-03-29T00:00:00Z",
-  "updated_at": "2026-05-25T10:40:47.866Z",
+  "updated_at": "2026-09-06T14:37:10.899Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.kumagera.ne.jp/a100km/）およびRunnet掲載情報",
     "data_accuracy_notes": [
       "基本情報のみ。スタート時間は推定値。エイド、周辺スポット等は未入力",
-      "2026-05-25: 自動クロールで更新"
+      "2026-05-25: 自動クロールで更新",
+      "2026-09-06: 自動クロールで更新"
     ],
-    "last_verified": "2026-05-25",
+    "last_verified": "2026-09-06",
     "detail_level": "basic"
   },
   "entry_periods": [
     {
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry",
+      "label_ja": "100キロの部",
+      "label_en": "100km Category",
       "start_date": "2026-04-01",
       "end_date": "2026-06-30",
-      "entry_fee": null
+      "entry_fee": 22000
+    },
+    {
+      "label_ja": "70キロの部（プレ開催）",
+      "label_en": "70km Category (Pre-event)",
+      "start_date": "2026-04-01",
+      "end_date": "2026-06-30",
+      "entry_fee": 19000
+    },
+    {
+      "label_ja": "50キロの部",
+      "label_en": "50km Category",
+      "start_date": "2026-04-01",
+      "end_date": "2026-06-30",
+      "entry_fee": 18000
     }
   ],
   "motif": "紅葉",
@@ -145,9 +181,9 @@
       "label": "FAQ"
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
-  "start_lat": null,
-  "start_lng": null
+  "venue_name_ja": "仙北市角館交流センター",
+  "venue_name_en": "Semboku Kakunodate Exchange Center",
+  "venue_address": "秋田県仙北市角館",
+  "start_lat": 39.593983,
+  "start_lng": 140.576614
 }

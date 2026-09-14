@@ -1128,3 +1128,13 @@ Issue #126のstg動作確認中に発見した2件の追加対応。
   - `gallery`・`hero_image_url`等: 画像系は完全手動管理
   - `course_highlights`: レース直下（過去の一括投入73件）と`categories[].course_highlights`（管理ツールの新仕様）に分裂している構造問題を発見。今回のcrawl拡張とは別にスキーマ統一を検討すべき（別Issue推奨、今回は対象外）
 - `pnpm run test:tools` 全231件パス
+
+## 2026-09-12 crawlが開催済み大会も無期限にチェック・更新し続けていた問題を修正
+
+crawl対象107件（`getLatestFilesPerSeries`適用後）のうち22件が既に開催済みであることが判明。次年度ファイルが作られるまでは開催が終わった後もずっとcrawl・LLM抽出（`claude -p`呼び出し、課金対象）の対象に残り続ける仕様だった。
+
+- 単純に開催済み大会を除外すると、次年度の情報に公式サイトが切り替わったこと（年度遷移）を検知できなくなるため、除外はせずページ取得・LLM抽出自体は継続する
+- `isPastRace(race, now)`・`isEditionTransition(race, extracted)`を追加（TDD、純粋関数）
+- `run()`のLLM抽出フェーズで、開催済みレース（`isPastRace`）かつ抽出結果が次年度への切り替わりでない（`isEditionTransition`が false）場合は、`applyAndSave`を呼ばず更新をスキップするよう変更。次年度への切り替わりを検出した場合（`isEditionTransition`が true）は従来通り`createNewEditionFile`のフローに進む
+- `summary.skipped_past`を追加し、サマリー出力に件数を表示
+- `pnpm run test:tools` 全239件パス

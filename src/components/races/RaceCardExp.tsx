@@ -2,13 +2,17 @@ import type { Race, Locale } from '@/lib/types';
 import { formatDate, getMainCategory, getRaceName, getRaceCity, getRaceDescription } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
+import type { TravelSettings } from '@/lib/travel';
+import { calcDayTripStatus } from '@/lib/travel';
+import DayTripBadge from './DayTripBadge';
 interface RaceCardExpProps {
   race: Race;
   locale: Locale;
   from?: string;
+  travelSettings?: TravelSettings | null;
 }
 
-export default function RaceCardExp({ race, locale, from }: RaceCardExpProps) {
+export default function RaceCardExp({ race, locale, from, travelSettings }: RaceCardExpProps) {
   const t = useTranslations('home.card');
   const mainCategory = getMainCategory(race.categories);
   const today = new Date().toISOString().split('T')[0];
@@ -49,6 +53,12 @@ export default function RaceCardExp({ race, locale, from }: RaceCardExpProps) {
   if (highlights.length < 2 && race.tags.length > 0) {
     highlights.push(race.tags[0]);
   }
+
+  const dayTripStatus = (() => {
+    if (!travelSettings) return null;
+    const mins = race.travel_times?.find((t) => t.hub_id === travelSettings.hubId)?.duration_minutes ?? null;
+    return calcDayTripStatus(race, mins, travelSettings);
+  })();
 
   const cityLabel = getRaceCity(race, locale);
 
@@ -163,6 +173,13 @@ export default function RaceCardExp({ race, locale, from }: RaceCardExpProps) {
               </li>
             ))}
           </ul>
+        )}
+
+        {/* Day-trip status */}
+        {dayTripStatus && !(dayTripStatus.status === 'unknown' && dayTripStatus.reason === 'no_start_time') && (
+          <div className="mb-2.5">
+            <DayTripBadge status={dayTripStatus} locale={locale} />
+          </div>
         )}
 
         <div className="flex gap-2">

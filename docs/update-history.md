@@ -1091,6 +1091,21 @@ Issue #126のstg動作確認中に発見した2件の追加対応。
 - 削除後、本番で `/ja/races/matsumoto-marathon-2026` が404になることを確認
 - 一時SQL（`scripts/delete-matsumoto-marathon.sql`）は実行後に削除。ファイルベースのレースデータ（`src/data/races/`）には元々このIDのファイルが存在しないため、コード変更・PRは無し（DB操作のみ）
 
+## 2026-09-02 calc-travel-times.js を Google Maps Routes API から OpenTripPlanner (OTP) に全面書き換え（Issue #82 一部）
+
+GoogleのtransitモードはAPI経由で日本を対象外としているため使えないことが判明（Issue #82参照）。代わりにOTP（GraphQLサーバー、ローカルDocker等で使い捨て起動する想定）に問い合わせる実装に切り替えた。
+
+- `scripts/calc-travel-times.js`: 全面書き換え。`buildRoutesApiUrl` 等のGoogle固有コードは削除
+  - OTPの `plan` クエリ（`arriveBy: true` + `date`/`time`）で到着期限までに間に合う経路を問い合わせ、`itineraries` の最短 `duration`（秒）を分に変換
+  - 到着期限は `src/lib/reception.ts` の `getArrivalDeadline()` と同等ロジックをJSに複製して算出（scripts/ はCommonJSでTSを直接requireできないため）。`start_time` 未整備で期限が計算できないレース、`start_lat`/`start_lng` 未設定のレースはスキップ
+  - OTPが経路を見つけられない場合（`itineraries` 空・`plan` null・`errors` あり）は「不明」として扱い、該当レース×ハブの行を出力しない（誤った数値を出さない）
+  - 出力先をレースJSON直接更新からSQLファイル生成に変更: `migrations/seed-travel-times.sql`（`race_travel_times` への `INSERT ... ON CONFLICT(race_id, hub_id) DO UPDATE` 形式）。DBには直接書き込まない
+  - OTPサーバーURLは環境変数 `OTP_URL`（デフォルト `http://localhost:8080`）で設定可能
+- `scripts/calc-travel-times.test.js`: TDDで先にRed → Green。`fetch` をモックしてOTPレスポンス形式（正常・経路なし・HTTPエラー・ハブ単位のエラー継続）と `getArrivalDeadline` の主要ケースをテスト
+- `package.json` の `test:tools` に `scripts/calc-travel-times.test.js` を追加
+- `pnpm run test:tools` 全249件パス確認
+- 本Issueの残タスク（UI復元・`scripts/build-otp-graph.sh`・GitHub Actionsワークフロー）は未着手
+
 ## 2026-09-03 crawl実行時に会場座標の自動補完（ジオコーディング）を統合
 
 これまで `pnpm run geocode:venues` は `crawl` とは独立した別コマンドで、実行を忘れがちだった（実際、#80/#81でスキーマ・ツールが揃って以降、一度も実行されておらず全127件中0件しか座標が入っていなかった）。crawlの一部として自動実行されるようにした。
@@ -1099,6 +1114,31 @@ Issue #126のstg動作確認中に発見した2件の追加対応。
 - `tools/crawl/index.js`（変更）: LLM抽出フェーズの後に `geocodeAll({ dryRun })` を呼び出すジオコーディングフェーズを追加。`summary.geocoded` として結果を保持し、最終サマリー出力にも件数を表示
 - 既存の39件（`venue_address`はあるが座標未設定）に対して実際に実行し、全件座標を取得（エラー0件、日本国内bounding box範囲チェックも全件パス）。残り88件は`venue_address`自体が未取得のため、今後のcrawlで会場情報が抽出され次第、自動的に座標も埋まるようになる
 - `migrations/seed-races-all.sql` を再生成し、ローカルD1に反映・件数確認（`start_lat IS NOT NULL` = 39件）
+
+## 2026-09-06 calc-travel-times.js を OpenTripPlanner から NAVITIME API に全面書き換え（Issue #82 一部）
+
+OTP + オープンデータ（ODPT等）による自前ホスト経路計算を検証したが、日本の主要鉄道（JR各社）のGTFSデータを無料で入手する手段が実質無いことが判明し断念（詳細: `docs/blog-transit-api-japan-investigation.md`）。代わりにNAVITIME API（`totalnavi`、RapidAPI経由）を採用する。経路計算自体をNAVITIME側で行うため、自前ホストのインフラ（OTPグラフビルド・GTFS収集）が丸ごと不要になった。
+
+- OTPグラフビルドスクリプト・GitHub Actionsワークフローを追加していたPR #159はクローズ（マージせず破棄）
+- `scripts/calc-travel-times.js`: OTP版から全面書き換え
+  - NAVITIME `route_transit` エンドポイント（`https://navitime-route-totalnavi.p.rapidapi.com/route_transit`）に `start`/`goal`（`lat,lng`）・`goal_time`（到着期限、arrive-by相当）でGETリクエスト
+  - レスポンスの `items[].summary.move.time`（分）から最短値を抽出。`items` が空・`summary.move.time` が無い場合は「不明」として扱い、該当レース×ハブの行を出力しない
+  - 認証は `X-RapidAPI-Key` / `X-RapidAPI-Host` ヘッダー。環境変数 `RAPIDAPI_KEY`（未設定時はエラー終了）
+  - 到着期限計算ロジック（`getArrivalDeadline`）・SQL生成（`migrations/seed-travel-times.sql` への出力、DB直接書き込みなし）は変更なし
+- `scripts/calc-travel-times.test.js`: TDDで先にRed → Green。NAVITIMEレスポンス形式（正常・経路なし・HTTPエラー・ハブ単位のエラー継続・RapidAPIヘッダー）に合わせて全面書き換え
+- `pnpm run test:tools` 全242件パス確認
+- RapidAPIの`navitime-route-totalnavi`はNAVITIMEが公開する12種類のAPI（route-walk/route-car/route-bicycle/transport/reachable等）のうち、公共交通＋徒歩のドアtoドア経路検索に対応する唯一のもの。BASICプラン無料（500リクエスト/月）
+
+## 2026-09-06 calc-travel-times.js のレート制限リトライ・ハング対策、および本番バッチ実行
+
+実際のRAPIDAPI_KEYで全レース分（44件中、座標・スタート時刻とも整備済みの39件）をバッチ実行したところ2つの問題が発覚し、修正した上で再実行した。
+
+- **レート制限（429）対応**: RapidAPI BASICプランの分間レート制限に、スロットリング無しの連続リクエストで抵触（312リクエスト中262件が429）。`fetchTravelMinutes` に429時は`sleepFn`で65秒待機してリトライする処理を追加（最大3回）。TDDでRed→Green
+  - 429自体は月間クォータ（500件/月）を消費しないことをレスポンスヘッダー（`X-RateLimit-Requests-Remaining`）で確認
+- **ハング対策**: `fetchTravelMinutes`の`AbortController`によるタイムアウト（30秒）が、`fetchFn()`が返った直後（レスポンスヘッダー受信時点）に`clearTimeout`されており、その後の`res.json()`（ボディ読み取り）には一切効いていなかったバグを発見。実際にバッチ実行中に1件のリクエストでボディ読み取りが無限にハングし、プロセスを手動で強制終了する事態が発生した。`clearTimeout`をレスポンスボディ読み取り完了後に移動し、タイムアウトがボディ読み取りにも及ぶよう修正。TDDでRed（ハングして`node --test`がタイムアウトすることを確認）→Green
+- 上記バグにより最初の本番実行では全データを失う（`main()`が全レース処理完了後に一括でSQLファイル書き込みしていたため）。途中でハング・クラッシュしても収集済みデータを失わないよう、レース単位で `migrations/seed-travel-times.sql` に逐次追記（`fs.appendFileSync`）する方式に変更
+- 修正後に再実行し、39レース×8ハブ＝312行すべて成功（エラー0件・経路不明0件）。`migrations/seed-travel-times.sql`を生成（未適用、レビュー待ち）
+- 残り85件（129件中）は`start_lat`/`start_lng`未設定、または`categories[].start_time`未整備のためスキップ（会場情報のcrawl・ジオコーディングが進み次第、対象が増える）
 
 ## 2026-09-06 crawlで会場情報未設定レースを強制的にLLM抽出対象にする
 

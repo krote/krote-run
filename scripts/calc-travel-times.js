@@ -1,13 +1,29 @@
 'use strict';
 
 /**
- * Google Maps Routes API を使って主要都市→会場の移動時間を計算し、
- * race JSON の travel_times フィールドを更新するスクリプト。
+ * scripts/calc-travel-times.js
+ *
+ * NAVITIME API（totalnavi、RapidAPI経由）に問い合わせて、主要都市8ハブ→各大会会場の
+ * 公共交通機関での移動時間を計算し、race_travel_times テーブルへの
+ * INSERT ... ON CONFLICT SQL を migrations/seed-travel-times.sql として出力する。
+ *
+ * 経路計算自体はNAVITIME側のサーバーで行われるため、OpenTripPlanner等の自前ホストは
+ * 不要（過去にOTP + ODPTオープンデータでの自前計算を検討したが、日本の主要鉄道
+ * （JR各社）のGTFSデータを無料で入手する手段が実質無いことが判明し断念した。
+ * 詳細: docs/blog-transit-api-japan-investigation.md）。
  *
  * 使い方:
- *   GOOGLE_MAPS_API_KEY=xxx node scripts/calc-travel-times.js [race-id]
+ *   RAPIDAPI_KEY=xxx node scripts/calc-travel-times.js              # start_lat/start_lng が設定済みの全レースを処理
+ *   RAPIDAPI_KEY=xxx node scripts/calc-travel-times.js <race-id>     # 対象レースのみ処理
  *
- * race-id を省略すると start_lat/start_lng が設定済みの全レースを処理する。
+ * RAPIDAPI_KEY は RapidAPI で navitime-route-totalnavi をサブスクライブして取得する
+ * （BASICプランは無料、500リクエスト/月）。ローカル実行時は .env.local に
+ *   RAPIDAPI_KEY=...
+ * を設定しておけば自動では読み込まれない点に注意（scripts/ 以下はNext.jsの
+ * dotenv読み込みの対象外）。実行前に環境変数として渡すこと。
+ *
+ * DBへは直接書き込まない。生成された migrations/seed-travel-times.sql を
+ * レビューした上で `wrangler d1 execute --local/--remote --file=...` で手動適用する。
  */
 
 const fs = require('fs');
@@ -27,157 +43,252 @@ const HUBS = {
 };
 
 const RACES_DIR = path.join(__dirname, '..', 'src', 'data', 'races');
-const PREFECTURES_FILE = path.join(__dirname, '..', 'src', 'data', 'prefectures.json');
+const OUTPUT_FILE = path.join(__dirname, '..', 'migrations', 'seed-travel-times.sql');
+const NAVITIME_HOST = 'navitime-route-totalnavi.p.rapidapi.com';
+const NAVITIME_BASE_URL = `https://${NAVITIME_HOST}/route_transit`;
 
-/** @type {Map<string, { lat: number, lng: number }>} */
-const prefectureCoords = (() => {
-  const list = JSON.parse(fs.readFileSync(PREFECTURES_FILE, 'utf-8'));
-  return new Map(list.map((p) => [p.code, { lat: p.lat, lng: p.lng }]));
-})();
+// ── 到着期限の計算（src/lib/reception.ts の getArrivalDeadline と同等ロジック） ──
+//
+// scripts/ 以下は素の Node.js（CommonJS）で実行され TypeScript を直接 require
+// できないため、判定ロジックはここに複製する。仕様変更時は src/lib/reception.ts /
+// src/lib/__tests__/reception.test.ts と揃えること。
 
-// ── ユーティリティ ───────────────────────────────────────────────────────
+/** HH:MM 文字列を分に変換 */
+function toMinutes(time) {
+  const [h, m] = time.split(':').map(Number);
+  return h * 60 + m;
+}
+
+/** 分を HH:MM 文字列に変換（負値は24時間でラップ） */
+function fromMinutes(minutes) {
+  const normalized = ((minutes % 1440) + 1440) % 1440;
+  const h = Math.floor(normalized / 60);
+  const m = normalized % 60;
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+}
+
+/** 大会当日（race.date）の reception_session を返す */
+function findRaceDaySession(race) {
+  return (race.reception_sessions || []).find((s) => s.date === race.date);
+}
+
+/** 大会当日受付の締切時刻を返す（無ければ null） */
+function getRaceDayReceptionClose(race) {
+  const session = findRaceDaySession(race);
+  return session?.close_time ?? null;
+}
 
 /**
- * Google Maps Routes API の URL を生成する。
+ * 到着期限を返す。
+ * = min(最早スタート時刻 - 30分バッファ, 当日受付締切時刻)
+ * start_time が未設定の場合は null。
+ * @param {object} race
+ * @returns {string | null} HH:MM
+ */
+function getArrivalDeadline(race) {
+  const startTimes = (race.categories || [])
+    .map((c) => c.start_time)
+    .filter((t) => !!t);
+
+  if (startTimes.length === 0) return null;
+
+  const earliestStart = startTimes.reduce((a, b) => (toMinutes(a) <= toMinutes(b) ? a : b));
+  const deadlineFromStart = toMinutes(earliestStart) - 30;
+
+  const receptionClose = getRaceDayReceptionClose(race);
+  if (receptionClose === null) {
+    return fromMinutes(deadlineFromStart);
+  }
+
+  const deadlineFromReception = toMinutes(receptionClose);
+  return fromMinutes(Math.min(deadlineFromStart, deadlineFromReception));
+}
+
+// ── NAVITIME API ─────────────────────────────────────────────────────
+
+/**
+ * NAVITIME route_transit のリクエストURLを組み立てる。
+ * goal_time で「到着期限までに到着する経路」を問い合わせる（arrive-by相当）。
  * @param {{ lat: number, lng: number }} origin
  * @param {{ lat: number, lng: number }} destination
- * @param {string} arrivalTime ISO 8601 形式 (例: "2026-10-01T08:00:00+09:00")
+ * @param {{ date: string, time: string }} arrival date: YYYY-MM-DD, time: HH:MM:SS
  * @returns {string}
  */
-function buildRoutesApiUrl(origin, destination, arrivalTime) {
-  const base = 'https://routes.googleapis.com/directions/v2:computeRoutes';
+function buildNavitimeUrl(origin, destination, { date, time }) {
   const params = new URLSearchParams({
-    origin: `${origin.lat},${origin.lng}`,
-    destination: `${destination.lat},${destination.lng}`,
-    arrivalTime,
-    travelMode: 'TRANSIT',
+    start: `${origin.lat},${origin.lng}`,
+    goal: `${destination.lat},${destination.lng}`,
+    goal_time: `${date}T${time}`,
   });
-  return `${base}?${params.toString()}`;
+  return `${NAVITIME_BASE_URL}?${params.toString()}`;
 }
 
 /**
- * Google Routes API のレスポンス duration フィールド（例: "3600s"）を秒数に変換する。
- * @param {string} durationStr
- * @returns {number}
+ * NAVITIME レスポンスから最短の所要時間（分）を取り出す。
+ * items が空・欠落、または summary.move.time が数値の item が1つも無い場合は
+ * 経路なしとして null を返す。
+ * @param {object} navitimeResponse
+ * @returns {number | null}
  */
-function parseDurationSeconds(durationStr) {
-  return parseFloat(durationStr);
-}
+function extractShortestDurationMinutes(navitimeResponse) {
+  const items = navitimeResponse?.items;
+  if (!items || items.length === 0) return null;
 
-/**
- * 秒を分に変換する（切り上げ）。
- * @param {number} seconds
- * @returns {number}
- */
-function secondsToMinutes(seconds) {
-  return Math.ceil(seconds / 60);
+  const times = items
+    .map((item) => item?.summary?.move?.time)
+    .filter((t) => typeof t === 'number');
+  if (times.length === 0) return null;
+
+  return Math.min(...times);
 }
 
 // ── API 呼び出し ─────────────────────────────────────────────────────────
 
+// RapidAPI BASICプランは分単位のレート制限があるため、429時は待ってリトライする
+const RATE_LIMIT_RETRY_DELAY_MS = 65000;
+const MAX_RATE_LIMIT_RETRIES = 3;
+const DEFAULT_TIMEOUT_MS = 30000;
+
+function defaultSleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 /**
- * Google Maps Routes API を呼び出して移動時間（分）を返す。
+ * NAVITIME API を呼び出して移動時間（分）を返す。
+ * 経路が見つからない場合は null（不明扱い）、HTTPエラーは例外を投げる。
+ * 429（レート制限）の場合は sleepFn で待機してリトライする（最大 MAX_RATE_LIMIT_RETRIES 回）。
+ * タイムアウトはレスポンスボディの読み取り（json()）完了まで有効（ヘッダー受信後の
+ * ボディ読み取りがハングするケースを防ぐため、fetch呼び出し直後には clearTimeout しない）。
  * @param {{ lat: number, lng: number }} origin
  * @param {{ lat: number, lng: number }} destination
- * @param {string} arrivalTime ISO 8601
- * @param {string} apiKey
+ * @param {string} date YYYY-MM-DD
+ * @param {string} time HH:MM:SS（到着期限）
+ * @param {string} apiKey RapidAPIキー（X-RapidAPI-Key）
  * @param {typeof fetch} [fetchFn]
- * @returns {Promise<number | null>} 移動時間（分）、取得できない場合は null
+ * @param {(ms: number) => Promise<void>} [sleepFn]
+ * @param {number} [timeoutMs]
+ * @returns {Promise<number | null>}
  */
-async function fetchTravelMinutes(origin, destination, arrivalTime, apiKey, fetchFn = fetch) {
-  const url = 'https://routes.googleapis.com/directions/v2:computeRoutes';
-  const body = {
-    origin: {
-      location: { latLng: { latitude: origin.lat, longitude: origin.lng } },
-    },
-    destination: {
-      location: { latLng: { latitude: destination.lat, longitude: destination.lng } },
-    },
-    travelMode: 'TRANSIT',
-    arrivalTime,
-  };
+async function fetchTravelMinutes(
+  origin,
+  destination,
+  date,
+  time,
+  apiKey,
+  fetchFn = fetch,
+  sleepFn = defaultSleep,
+  timeoutMs = DEFAULT_TIMEOUT_MS
+) {
+  const url = buildNavitimeUrl(origin, destination, { date, time });
 
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 30000);
-  let res;
-  try {
-    res = await fetchFn(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Goog-Api-Key': apiKey,
-        'X-Goog-FieldMask': 'routes.duration',
-      },
-      body: JSON.stringify(body),
-      signal: controller.signal,
-    });
-  } finally {
-    clearTimeout(timer);
+  for (let attempt = 0; attempt <= MAX_RATE_LIMIT_RETRIES; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetchFn(url, {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': apiKey,
+          'X-RapidAPI-Host': NAVITIME_HOST,
+        },
+        signal: controller.signal,
+      });
+
+      if (res.status === 429 && attempt < MAX_RATE_LIMIT_RETRIES) {
+        clearTimeout(timer);
+        await sleepFn(RATE_LIMIT_RETRY_DELAY_MS);
+        continue;
+      }
+
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`NAVITIME API error ${res.status}: ${text}`);
+      }
+
+      const data = await res.json();
+      return extractShortestDurationMinutes(data);
+    } finally {
+      clearTimeout(timer);
+    }
   }
+}
 
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Routes API error ${res.status}: ${text}`);
+// ── SQL 生成 ─────────────────────────────────────────────────────────────
+
+function esc(val) {
+  if (val === null || val === undefined) return 'NULL';
+  if (typeof val === 'number') return String(val);
+  return `'${String(val).replace(/'/g, "''")}'`;
+}
+
+/**
+ * 1レコード分の INSERT ... ON CONFLICT SQL を生成する。
+ * @param {{ race_id: string, hub_id: string, duration_minutes: number, departure_time: string | null, calculated_at: string }} row
+ * @returns {string}
+ */
+function buildUpsertSQL(row) {
+  return `INSERT INTO race_travel_times (race_id, hub_id, duration_minutes, departure_time, calculated_at) VALUES
+  (${esc(row.race_id)}, ${esc(row.hub_id)}, ${esc(row.duration_minutes)}, ${esc(row.departure_time)}, ${esc(row.calculated_at)})
+ON CONFLICT(race_id, hub_id) DO UPDATE SET
+  duration_minutes = excluded.duration_minutes,
+  departure_time = excluded.departure_time,
+  calculated_at = excluded.calculated_at;`;
+}
+
+/**
+ * 全行分の SQL ファイル内容を生成する。
+ * @param {Array<{race_id: string, hub_id: string, duration_minutes: number, departure_time: string | null, calculated_at: string}>} rows
+ * @returns {string}
+ */
+function generateSeedSQL(rows) {
+  let sql = `-- 自動生成: calc-travel-times.js
+-- 生成日時: ${new Date().toISOString()}
+-- 対象行数: ${rows.length} 件（NAVITIMEで経路が見つからなかったレース×ハブの組は除外）
+--
+-- レビュー後、手動で適用すること:
+--   wrangler d1 execute <DB名> --local/--remote --file=migrations/seed-travel-times.sql
+
+`;
+  for (const row of rows) {
+    sql += buildUpsertSQL(row) + '\n\n';
   }
-
-  const data = await res.json();
-  const route = data.routes?.[0];
-  if (!route?.duration) return null;
-
-  const seconds = parseDurationSeconds(route.duration);
-  return secondsToMinutes(seconds);
+  return sql;
 }
 
 // ── メイン処理 ───────────────────────────────────────────────────────────
 
 /**
- * レース JSON の travel_times を計算して更新する。
- * @param {string} raceId
- * @param {string} apiKey
- * @param {typeof fetch} [fetchFn]
+ * 1レース分の移動時間を8ハブ分計算する。
+ * start_lat/start_lng が無い、または到着期限が計算できないレースは空配列を返す。
+ * ハブ単位のエラー（NAVITIME側の失敗等）は当該ハブをスキップして処理を継続する。
+ * @param {object} race レース JSON
+ * @param {{ apiKey: string, fetchFn?: typeof fetch }} opts
+ * @returns {Promise<Array<{race_id: string, hub_id: string, duration_minutes: number, departure_time: null, calculated_at: string}>>}
  */
-async function calcTravelTimesForRace(raceId, apiKey, fetchFn = fetch) {
-  const filePath = path.join(RACES_DIR, `${raceId}.json`);
-  if (!fs.existsSync(filePath)) {
-    console.error(`File not found: ${filePath}`);
-    return;
+async function calcTravelTimesForRace(race, { apiKey, fetchFn = fetch } = {}) {
+  if (race.start_lat == null || race.start_lng == null) {
+    return [];
   }
 
-  const race = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-
-  let destination;
-  if (race.start_lat && race.start_lng) {
-    destination = { lat: race.start_lat, lng: race.start_lng };
-  } else if (race.prefecture && prefectureCoords.has(race.prefecture)) {
-    const coords = prefectureCoords.get(race.prefecture);
-    destination = coords;
-    console.log(`[${raceId}] start_lat 未設定のため都道府県座標を使用 (${race.prefecture}: ${coords.lat},${coords.lng})`);
-  } else {
-    console.log(`[${raceId}] 座標が取得できないためスキップ`);
-    return;
+  const deadline = getArrivalDeadline(race);
+  if (!deadline) {
+    return [];
   }
 
-  // 大会の最も早いスタート時刻から arrival time を設定（デフォルト 08:00）
-  const startTimes = (race.categories ?? []).map((c) => c.start_time).filter(Boolean);
-  const earliestStart = startTimes.length > 0
-    ? startTimes.reduce((a, b) => (a <= b ? a : b))
-    : '08:00';
-  const arrivalTime = `${race.date}T${earliestStart}:00+09:00`;
-
-  const travelTimes = [];
-  let id = 1;
+  const destination = { lat: race.start_lat, lng: race.start_lng };
+  const time = `${deadline}:00`;
+  const rows = [];
 
   for (const hub of Object.values(HUBS)) {
-    process.stdout.write(`  ${hub.id} → ${raceId} ... `);
+    process.stdout.write(`  [${race.id}] ${hub.id} ... `);
     try {
-      const minutes = await fetchTravelMinutes(hub, destination, arrivalTime, apiKey, fetchFn);
+      const minutes = await fetchTravelMinutes(hub, destination, race.date, time, apiKey, fetchFn);
       if (minutes === null) {
-        console.log('ルートなし');
+        console.log('不明（経路なし）');
         continue;
       }
-      travelTimes.push({
-        id: id++,
-        race_id: raceId,
+      rows.push({
+        race_id: race.id,
         hub_id: hub.id,
         duration_minutes: minutes,
         departure_time: null,
@@ -187,35 +298,60 @@ async function calcTravelTimesForRace(raceId, apiKey, fetchFn = fetch) {
     } catch (err) {
       console.log(`エラー: ${err.message}`);
     }
-    // レート制限対策
-    await new Promise((resolve) => setTimeout(resolve, 500));
   }
 
-  race.travel_times = travelTimes;
-  fs.writeFileSync(filePath, JSON.stringify(race, null, 2) + '\n', 'utf-8');
-  console.log(`[${raceId}] travel_times を更新しました (${travelTimes.length}件)`);
+  return rows;
 }
 
 async function main() {
-  const apiKey = process.env.GOOGLE_MAPS_API_KEY;
+  const apiKey = process.env.RAPIDAPI_KEY;
   if (!apiKey) {
-    console.error('GOOGLE_MAPS_API_KEY 環境変数が設定されていません');
+    console.error('環境変数 RAPIDAPI_KEY が未設定です（RapidAPIでnavitime-route-totalnaviをサブスクライブして取得）');
+    process.exit(1);
+  }
+  const targetId = process.argv[2];
+
+  const files = fs.readdirSync(RACES_DIR)
+    .filter((f) => f.endsWith('.json') && f !== 'index.json')
+    .filter((f) => !targetId || f === `${targetId}.json`)
+    .sort();
+
+  if (targetId && files.length === 0) {
+    console.error(`File not found: ${path.join(RACES_DIR, `${targetId}.json`)}`);
     process.exit(1);
   }
 
-  const targetId = process.argv[2];
+  // 途中でハング・クラッシュしても収集済みの行を失わないよう、レース単位で逐次追記する
+  fs.writeFileSync(OUTPUT_FILE, `-- 自動生成: calc-travel-times.js（レース単位で逐次追記）
+-- 生成開始: ${new Date().toISOString()}
+--
+-- レビュー後、手動で適用すること:
+--   wrangler d1 execute <DB名> --local/--remote --file=migrations/seed-travel-times.sql
 
-  if (targetId) {
-    await calcTravelTimesForRace(targetId, apiKey);
-    return;
-  }
+`, 'utf-8');
 
-  // 全レースを処理
-  const files = fs.readdirSync(RACES_DIR).filter((f) => f.endsWith('.json') && f !== 'index.json');
+  let totalRows = 0;
   for (const file of files) {
-    const raceId = file.replace('.json', '');
-    await calcTravelTimesForRace(raceId, apiKey);
+    const race = JSON.parse(fs.readFileSync(path.join(RACES_DIR, file), 'utf-8'));
+
+    if (race.start_lat == null || race.start_lng == null) {
+      console.log(`[${race.id}] start_lat/start_lng 未設定のためスキップ`);
+      continue;
+    }
+    if (!getArrivalDeadline(race)) {
+      console.log(`[${race.id}] 到着期限を計算できないためスキップ（start_time 未整備）`);
+      continue;
+    }
+
+    const rows = await calcTravelTimesForRace(race, { apiKey });
+    if (rows.length > 0) {
+      const sql = rows.map((row) => buildUpsertSQL(row) + '\n').join('\n');
+      fs.appendFileSync(OUTPUT_FILE, sql + '\n', 'utf-8');
+      totalRows += rows.length;
+    }
   }
+
+  console.log(`\n✅ 生成完了: ${OUTPUT_FILE} (${totalRows}行)`);
 }
 
 if (require.main === module) {
@@ -225,4 +361,14 @@ if (require.main === module) {
   });
 }
 
-module.exports = { buildRoutesApiUrl, parseDurationSeconds, secondsToMinutes, fetchTravelMinutes };
+module.exports = {
+  HUBS,
+  getArrivalDeadline,
+  NAVITIME_HOST,
+  buildNavitimeUrl,
+  extractShortestDurationMinutes,
+  fetchTravelMinutes,
+  buildUpsertSQL,
+  generateSeedSQL,
+  calcTravelTimesForRace,
+};

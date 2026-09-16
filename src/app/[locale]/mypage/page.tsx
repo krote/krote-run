@@ -20,6 +20,8 @@ export default function MyPage() {
   const pathname = usePathname();
   const { data: session, isPending } = useSession();
   const { settings: travelSettings, updateSettings: updateTravelSettings } = useTravelSettings();
+  const [draftNearestStation, setDraftNearestStation] = useState('');
+  const [draftFirstTrainTime, setDraftFirstTrainTime] = useState('05:00');
 
   const [saved, setSaved] = useState(false);
   const [gcalAutoOpen, setGcalAutoOpen] = useState(() => {
@@ -131,8 +133,67 @@ export default function MyPage() {
             : 'Set your departure hub to use the day-trip filter on the race list, and see overnight-stay guidance on each race.'}
         </p>
 
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+          {/* Nearest station */}
+          <div>
+            <label
+              htmlFor="nearestStation"
+              className="block text-xs font-semibold mb-1"
+              style={{ color: 'var(--color-ink2)' }}
+            >
+              {locale === 'ja' ? '① 最寄り駅' : '① Nearest Station'}
+            </label>
+            <input
+              id="nearestStation"
+              type="text"
+              value={travelSettings?.nearestStation ?? draftNearestStation}
+              onChange={(e) => {
+                if (travelSettings) {
+                  updateTravelSettings({ ...travelSettings, nearestStation: e.target.value });
+                } else {
+                  setDraftNearestStation(e.target.value);
+                }
+              }}
+              placeholder={locale === 'ja' ? '例: 新宿駅' : 'e.g. Shinjuku Station'}
+              className="w-full px-3 py-2 text-sm rounded-[3px]"
+              style={{ border: '1px solid var(--color-border)', color: 'var(--color-ink)' }}
+            />
+          </div>
+
+          {/* First train */}
+          <div>
+            <label
+              htmlFor="firstTrainTime"
+              className="block text-xs font-semibold mb-1"
+              style={{ color: 'var(--color-ink2)' }}
+            >
+              {locale === 'ja' ? '② 始発時刻' : '② First Train'}
+            </label>
+            <input
+              id="firstTrainTime"
+              type="time"
+              value={travelSettings?.firstTrainTime ?? draftFirstTrainTime}
+              onChange={(e) => {
+                if (travelSettings) {
+                  updateTravelSettings({ ...travelSettings, firstTrainTime: e.target.value });
+                } else {
+                  setDraftFirstTrainTime(e.target.value);
+                }
+              }}
+              className="w-full px-3 py-2 text-sm rounded-[3px]"
+              style={{ border: '1px solid var(--color-border)', color: 'var(--color-ink)' }}
+            />
+          </div>
+        </div>
+
         {/* Hub */}
         <div className="mb-4">
+          <label
+            className="block text-xs font-semibold mb-2"
+            style={{ color: 'var(--color-ink2)' }}
+          >
+            {locale === 'ja' ? '③ ハブ駅の選択' : '③ Select Hub Station'}
+          </label>
           <div className="flex flex-wrap gap-2">
             {(Object.values(HUBS) as (typeof HUBS)[HubId][]).map((hub) => {
               const isActive = travelSettings?.hubId === hub.id;
@@ -142,9 +203,9 @@ export default function MyPage() {
                   onClick={() =>
                     updateTravelSettings({
                       hubId: hub.id,
-                      nearestStation: travelSettings?.nearestStation ?? '',
+                      nearestStation: travelSettings?.nearestStation ?? draftNearestStation,
                       offsetMinutes: travelSettings?.offsetMinutes ?? 10,
-                      firstTrainTime: travelSettings?.firstTrainTime ?? '05:00',
+                      firstTrainTime: travelSettings?.firstTrainTime ?? draftFirstTrainTime,
                     })
                   }
                   className="px-3.5 py-2 rounded-lg font-medium text-sm transition-colors"
@@ -160,7 +221,11 @@ export default function MyPage() {
             })}
             {travelSettings && (
               <button
-                onClick={() => updateTravelSettings(null)}
+                onClick={() => {
+                  setDraftNearestStation(travelSettings.nearestStation);
+                  setDraftFirstTrainTime(travelSettings.firstTrainTime);
+                  updateTravelSettings(null);
+                }}
                 className="px-3.5 py-2 rounded-lg text-sm transition-colors"
                 style={{ background: '#f5f5f5', color: 'var(--color-mid)' }}
               >
@@ -171,72 +236,31 @@ export default function MyPage() {
         </div>
 
         {travelSettings && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
-            {/* Nearest station */}
-            <div className="sm:col-span-2">
-              <label
-                htmlFor="nearestStation"
-                className="block text-xs font-semibold mb-1"
-                style={{ color: 'var(--color-ink2)' }}
-              >
-                {locale === 'ja' ? '最寄り駅' : 'Nearest Station'}
-              </label>
-              <input
-                id="nearestStation"
-                type="text"
-                value={travelSettings.nearestStation}
-                onChange={(e) =>
-                  updateTravelSettings({ ...travelSettings, nearestStation: e.target.value })
-                }
-                placeholder={locale === 'ja' ? '例: 新宿駅' : 'e.g. Shinjuku Station'}
-                className="w-full px-3 py-2 text-sm rounded-[3px]"
-                style={{ border: '1px solid var(--color-border)', color: 'var(--color-ink)' }}
-              />
-            </div>
-
-            {/* Offset minutes */}
-            <div>
-              <label
-                htmlFor="offsetMinutes"
-                className="block text-xs font-semibold mb-1"
-                style={{ color: 'var(--color-ink2)' }}
-              >
-                {locale === 'ja' ? '余裕時間（分）' : 'Buffer (min)'}
-              </label>
-              <input
-                id="offsetMinutes"
-                type="number"
-                min={0}
-                max={120}
-                value={travelSettings.offsetMinutes}
-                onChange={(e) =>
-                  updateTravelSettings({ ...travelSettings, offsetMinutes: Number(e.target.value) })
-                }
-                className="w-full px-3 py-2 text-sm rounded-[3px]"
-                style={{ border: '1px solid var(--color-border)', color: 'var(--color-ink)' }}
-              />
-            </div>
-
-            {/* First train */}
-            <div>
-              <label
-                htmlFor="firstTrainTime"
-                className="block text-xs font-semibold mb-1"
-                style={{ color: 'var(--color-ink2)' }}
-              >
-                {locale === 'ja' ? '始発時刻' : 'First Train'}
-              </label>
-              <input
-                id="firstTrainTime"
-                type="time"
-                value={travelSettings.firstTrainTime}
-                onChange={(e) =>
-                  updateTravelSettings({ ...travelSettings, firstTrainTime: e.target.value })
-                }
-                className="w-full px-3 py-2 text-sm rounded-[3px]"
-                style={{ border: '1px solid var(--color-border)', color: 'var(--color-ink)' }}
-              />
-            </div>
+          <div>
+            <label
+              htmlFor="offsetMinutes"
+              className="block text-xs font-semibold mb-1"
+              style={{ color: 'var(--color-ink2)' }}
+            >
+              {locale === 'ja' ? '④ ハブ駅までの移動時間＋余裕時間（分）' : '④ Time to hub + buffer (min)'}
+            </label>
+            <p className="text-xs mb-1.5" style={{ color: 'var(--color-mid)' }}>
+              {locale === 'ja'
+                ? '最寄り駅からハブ駅までの移動時間に、乗り換え等の余裕を加えた分数を入力してください。'
+                : 'Enter your travel time from the nearest station to the hub, plus a buffer for transfers.'}
+            </p>
+            <input
+              id="offsetMinutes"
+              type="number"
+              min={0}
+              max={180}
+              value={travelSettings.offsetMinutes}
+              onChange={(e) =>
+                updateTravelSettings({ ...travelSettings, offsetMinutes: Number(e.target.value) })
+              }
+              className="w-full sm:w-40 px-3 py-2 text-sm rounded-[3px]"
+              style={{ border: '1px solid var(--color-border)', color: 'var(--color-ink)' }}
+            />
           </div>
         )}
       </section>

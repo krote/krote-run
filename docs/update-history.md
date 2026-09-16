@@ -1189,3 +1189,15 @@ crawl対象107件（`getLatestFilesPerSeries`適用後）のうち22件が既に
 - `nav.settings`翻訳キー（ja/en）を削除（参照箇所が無くなったため）。`settings`名前空間（`settings.title`等、マイページの見出し等で使用）は維持
 - `pnpm vitest run` 全815件パス、`pnpm run lint`・`pnpm run build`ともエラー0件
 - `pnpm run test:tools` 全239件パス
+
+## 2026-09-17 前泊設定UIの入力順序変更・ガイドページに計算方法解説・お知らせ追加
+
+ユーザーから「余裕時間は最寄り駅→ハブ駅の移動時間なのか」との質問を受け、実装上は`offsetMinutes`が単なる固定バッファでしかなく最寄り駅→ハブ駅間の移動時間を一切考慮していないことが判明。設計をあらためる代わりに、入力順序と表現を変更してユーザーが手動でその分を含めて入力できるようにした。
+
+- `mypage/page.tsx`前泊設定セクションの入力順序を「①最寄り駅 → ②始発時刻 → ③ハブ駅選択 → ④ハブ駅までの移動時間＋余裕時間（分）」に変更。④のラベルを「余裕時間（分）」から改名し、最寄り駅からハブ駅までの移動時間を含めて入力する旨の説明文を追加
+  - `TravelSettings`型は`hubId`必須のため、①②はハブ未選択の間はローカルstate（下書き）に保持し、ハブ選択時にlocalStorageへ引き継ぐ実装（`draftNearestStation`/`draftFirstTrainTime`）。ハブを選ぶ前にページを離れると下書きは失われる制約は許容
+  - クリアボタンはハブ選択（と④の値）のみ解除。クリア時に①②の現在値を下書きへコピーしてから消すことで、クリア後も入力欄の表示が飛ばないようにした
+  - TDD: `mypage/__tests__/page.test.tsx`を新しい順序・ラベル・下書き挙動に合わせて全面書き換え（14件）
+- `guide/page.tsx`（ja/en）に「前泊要否の判定方法」セクションを新設。①〜⑥のステップをTailwindのタイムライン風UI（`TimelineStep`/`TimelineArrow`）で図解し、必要出発時刻の計算式と「前日受付のみの大会は前泊必須」という例外を明記
+- `src/data/announcements.json`に前泊判定・移動時間機能とマイページ統合についてのお知らせを1件追加（`2026-09-17-day-trip-status`）
+- `pnpm vitest run` 全823件パス、`pnpm run lint`・`pnpm run build`ともエラー0件

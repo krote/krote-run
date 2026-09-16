@@ -1214,3 +1214,12 @@ stg実機確認で、追加したお知らせ（`2026-09-17`）が「2026年9月
 - `src/components/races/RaceCard.tsx` / `RaceCardExp.tsx`: カード個別の「開催済み」バッジ判定を`getTodayJST()`に統一（一覧のフィルタリング`utils/filter.ts`は元々`getTodayJST()`を使っており正しかったため、修正前はフィルタとカード表示のバッジがJST朝9時まで矛盾しうる状態だった）
 - 全箇所とも新規ロジックではなく既存のテスト済みユーティリティ（`getTodayJST()`、`utils.date.test.ts`でJST境界を含め検証済み）への置き換え
 - `pnpm vitest run` 全825件パス、`pnpm run lint`・`pnpm run build`ともエラー0件
+
+## 2026-09-17 開催日を過ぎた「参加予定」大会を自動で「参加済み（未記録）」に遷移
+
+本番マイページで、開催日（2026-09-13）を過ぎた「富士山クライムラン」が「参加予定」のまま表示され続けている、とユーザーから指摘を受け調査。`UserRaceList.tsx`の「参加予定」/「参加済み」振り分けは`user_races.is_participated`フラグのみで判定しており、日付を一切見ていなかった（ユーザーが大会詳細ページで「＋参加済み」ボタンを押すまで、開催日がどれだけ過ぎても永遠に「参加予定」に残り続ける仕様）。ユーザーに3案（開催済み区分を新設／自動で参加済みにする／現状維持）を提示し、「自動で参加済みにする」を選択。
+
+- `GET /api/user/races`（`src/app/api/user/races/route.ts`）: レスポンス生成前に、`is_planning && !is_participated`な行を対象に`races.date`を照会し、`race.date < getTodayJST()`なら`user_races.is_participated`をDB上でも`true`に更新してから返すよう変更
+  - 表示側（`UserRaceList.tsx`）は無改修。既存の`is_participated`ベースの振り分けにそのまま追従し、「参加済み」区分内で`RaceResultSection`（結果記録UI）も自然に出るようになる
+  - TDD: `route.test.ts`に3件追加（開催日超過で更新される／未来の日付では更新しない／既に`is_participated=true`の行はraces照会自体を発生させない）。`vi.useFakeTimers`で「今日」を固定し検証
+- `pnpm vitest run` 全828件パス、`pnpm run lint`・`pnpm run build`ともエラー0件

@@ -71,13 +71,6 @@ describe('Header - 未ログイン状態', () => {
     expect(links[0].closest('a')).toHaveAttribute('href', '/news');
   });
 
-  it('設定ページへのナビゲーションリンクが表示される', () => {
-    render(<Header />);
-    const links = screen.getAllByText('設定');
-    expect(links.length).toBeGreaterThan(0);
-    expect(links[0].closest('a')).toHaveAttribute('href', '/settings');
-  });
-
   it('ログインボタンをクリックするとドロップダウンが開く', async () => {
     render(<Header />);
     await user.click(screen.getByText('ログイン'));

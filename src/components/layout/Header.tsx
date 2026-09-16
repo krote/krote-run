@@ -9,7 +9,6 @@ const NAV_LINKS = [
   { href: '/races',    labelKey: 'races',    en: 'Races'    },
   { href: '/calendar', labelKey: 'calendar', en: 'Calendar' },
   { href: '/news',     labelKey: 'news',     en: 'News'     },
-  { href: '/settings', labelKey: 'settings', en: 'Settings' },
   { href: '/mypage',   labelKey: 'mypage',   en: 'My Page'  },
 ] as const;
 

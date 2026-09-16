@@ -1177,7 +1177,30 @@ crawl対象107件（`getLatestFilesPerSeries`適用後）のうち22件が既に
 - `isPastRace(race, now)`・`isEditionTransition(race, extracted)`を追加（TDD、純粋関数）
 - `run()`のLLM抽出フェーズで、開催済みレース（`isPastRace`）かつ抽出結果が次年度への切り替わりでない（`isEditionTransition`が false）場合は、`applyAndSave`を呼ばず更新をスキップするよう変更。次年度への切り替わりを検出した場合（`isEditionTransition`が true）は従来通り`createNewEditionFile`のフローに進む
 - `summary.skipped_past`を追加し、サマリー出力に件数を表示
+
+## 2026-09-16 前泊判定の出発地設定を独立した`/settings`ページからマイページに統合
+
+`/settings`（Issue #82で新設）と`/mypage`がナビ上で別項目として並立し、後者に既にアカウント・言語・テーマ等の個人設定が集約されているため、ユーザーから「最寄り駅設定は本来マイページにあるべき」との指摘を受け統合した。
+
+- TDD: `src/app/[locale]/mypage/__tests__/page.test.tsx`を新規作成（`/settings`側のテストを移植）
+- `mypage/page.tsx`に前泊設定セクション（出発地ハブ・最寄り駅・余裕時間・始発時刻、`useTravelSettings`使用）を追加
+- `src/app/[locale]/settings/`（page.tsx・テスト）を削除
+- `Header.tsx`のナビリンクから`/settings`を削除、`Footer.tsx`の同リンクは`/mypage`に差し替え
+- `nav.settings`翻訳キー（ja/en）を削除（参照箇所が無くなったため）。`settings`名前空間（`settings.title`等、マイページの見出し等で使用）は維持
+- `pnpm vitest run` 全815件パス、`pnpm run lint`・`pnpm run build`ともエラー0件
 - `pnpm run test:tools` 全239件パス
+
+## 2026-09-17 前泊設定UIの入力順序変更・ガイドページに計算方法解説・お知らせ追加
+
+ユーザーから「余裕時間は最寄り駅→ハブ駅の移動時間なのか」との質問を受け、実装上は`offsetMinutes`が単なる固定バッファでしかなく最寄り駅→ハブ駅間の移動時間を一切考慮していないことが判明。設計をあらためる代わりに、入力順序と表現を変更してユーザーが手動でその分を含めて入力できるようにした。
+
+- `mypage/page.tsx`前泊設定セクションの入力順序を「①最寄り駅 → ②始発時刻 → ③ハブ駅選択 → ④ハブ駅までの移動時間＋余裕時間（分）」に変更。④のラベルを「余裕時間（分）」から改名し、最寄り駅からハブ駅までの移動時間を含めて入力する旨の説明文を追加
+  - `TravelSettings`型は`hubId`必須のため、①②はハブ未選択の間はローカルstate（下書き）に保持し、ハブ選択時にlocalStorageへ引き継ぐ実装（`draftNearestStation`/`draftFirstTrainTime`）。ハブを選ぶ前にページを離れると下書きは失われる制約は許容
+  - クリアボタンはハブ選択（と④の値）のみ解除。クリア時に①②の現在値を下書きへコピーしてから消すことで、クリア後も入力欄の表示が飛ばないようにした
+  - TDD: `mypage/__tests__/page.test.tsx`を新しい順序・ラベル・下書き挙動に合わせて全面書き換え（14件）
+- `guide/page.tsx`（ja/en）に「前泊要否の判定方法」セクションを新設。①〜⑥のステップをTailwindのタイムライン風UI（`TimelineStep`/`TimelineArrow`）で図解し、必要出発時刻の計算式と「前日受付のみの大会は前泊必須」という例外を明記
+- `src/data/announcements.json`に前泊判定・移動時間機能とマイページ統合についてのお知らせを1件追加（`2026-09-17-day-trip-status`）
+- `pnpm vitest run` 全823件パス、`pnpm run lint`・`pnpm run build`ともエラー0件
 
 ## 2026-09-17 「今日の日付」がUTC基準でズレるバグをまとめて修正
 

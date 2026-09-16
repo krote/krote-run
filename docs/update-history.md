@@ -1178,3 +1178,16 @@ crawl対象107件（`getLatestFilesPerSeries`適用後）のうち22件が既に
 - `run()`のLLM抽出フェーズで、開催済みレース（`isPastRace`）かつ抽出結果が次年度への切り替わりでない（`isEditionTransition`が false）場合は、`applyAndSave`を呼ばず更新をスキップするよう変更。次年度への切り替わりを検出した場合（`isEditionTransition`が true）は従来通り`createNewEditionFile`のフローに進む
 - `summary.skipped_past`を追加し、サマリー出力に件数を表示
 - `pnpm run test:tools` 全239件パス
+
+## 2026-09-17 「今日の日付」がUTC基準でズレるバグをまとめて修正
+
+stg実機確認で、追加したお知らせ（`2026-09-17`）が「2026年9月16日」と表示されていることに気づき調査。`new Date().toISOString().split('T')[0]`（UTC基準）で「今日」を求めている箇所が、JST 00:00〜08:59の9時間だけ前日の日付になってしまうバグと判明（Cloudflare Workersランタイムのデフォルトタイムゾーンが UTC のため）。同じパターンをコードベース全体から洗い出し、既存の正しい実装（`getTodayJST()` / `timeZone: 'Asia/Tokyo'`指定）に統一した。
+
+- `src/app/[locale]/news/page.tsx`: `formatDate()`を`src/app/[locale]/news/format-date.ts`に切り出し、`toLocaleDateString`に`timeZone: 'Asia/Tokyo'`を明示（Next.jsのpage.tsxは`generateMetadata`等の決められたexport以外を許可しないため、page.tsxから直接exportするとビルドエラーになることが判明し別ファイル化）
+  - TDD: `process.env.TZ = 'UTC'`でサーバーランタイムを再現し、修正前にRed（1日ズレる）→修正後にGreenを確認
+- `src/app/[locale]/races/[id]/page.tsx`: 大会詳細ページの`today`（`isPast`/`isEntryOpen`/`isNotYetOpen`および「過去の大会」一覧の`isPastRace`の基準）を`getTodayJST()`に統一
+- `src/lib/data.ts`: `getUpcomingRaces()`・`getOpenEntryRaces()`・`getSoonOpeningEntryRaces()`・`getOpenEntryCount()`のDBクエリで使う`today`を`getTodayJST()`に統一。`getSoonOpeningEntryRaces()`の`in30days`も`toLocaleDateString(..., { timeZone: 'Asia/Tokyo' })`に変更。特に`getOpenEntryRaces()`はJST朝9時まで「エントリー開始したばかりの大会が受付中に出てこない」「前日に締め切ったばかりの大会がまだ受付中に見える」という実害があった
+- `src/components/home/HomeSections.tsx`: ホーム「受付中」「まもなく受付開始」セクションの期間判定を`getTodayJST()`に統一
+- `src/components/races/RaceCard.tsx` / `RaceCardExp.tsx`: カード個別の「開催済み」バッジ判定を`getTodayJST()`に統一（一覧のフィルタリング`utils/filter.ts`は元々`getTodayJST()`を使っており正しかったため、修正前はフィルタとカード表示のバッジがJST朝9時まで矛盾しうる状態だった）
+- 全箇所とも新規ロジックではなく既存のテスト済みユーティリティ（`getTodayJST()`、`utils.date.test.ts`でJST境界を含め検証済み）への置き換え
+- `pnpm vitest run` 全825件パス、`pnpm run lint`・`pnpm run build`ともエラー0件

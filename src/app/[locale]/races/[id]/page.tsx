@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { getRaceById, getGiftCategories, getRaceGearStats } from '@/lib/data';
-import { formatDate, formatCurrency, getMainCategory, getRaceName, getRaceDescription, getRaceCity, getCategoryLabel } from '@/lib/utils';
+import { formatDate, formatCurrency, getMainCategory, getRaceName, getRaceDescription, getRaceCity, getCategoryLabel, getTodayJST } from '@/lib/utils';
 import { toSeriesId, getSeriesById, getSeriesRaces } from '@/lib/data';
 import { Link } from '@/i18n/navigation';
 import type { Locale, NearbySpotType } from '@/lib/types';
@@ -127,7 +127,7 @@ export default async function RaceDetailPage({
   const raceSeriesName = getRaceName(race, locale);
   const raceName = (locale === 'ja' ? race.full_name_ja : race.full_name_en) ?? raceSeriesName;
   const raceDesc = getRaceDescription(race, locale);
-  const today = new Date().toISOString().split('T')[0];
+  const today = getTodayJST();
   const isPast = race.date < today;
   const isEntryOpen =
     !race.entry_closed &&
@@ -784,7 +784,7 @@ export default async function RaceDetailPage({
                 {seriesRaces.map((r) => {
                   const rMainCat = getMainCategory(r.categories);
                   const rYear = r.date.slice(0, 4);
-                  const isPastRace = r.date < new Date().toISOString().split('T')[0];
+                  const isPastRace = r.date < today;
                   return (
                     <Link
                       key={r.id}

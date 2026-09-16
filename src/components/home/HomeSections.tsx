@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import type { Race, Locale } from '@/lib/types';
 import RaceCard from '@/components/races/RaceCard';
 import { Link } from '@/i18n/navigation';
-import { formatDate, getRaceName } from '@/lib/utils';
+import { formatDate, getRaceName, getTodayJST } from '@/lib/utils';
 
 interface Props {
   upcoming: Race[];
@@ -16,7 +16,7 @@ interface Props {
 // ─── 受付中セクション ──────────────────────────────
 function OpenSection({ races, locale }: { races: Race[]; locale: Locale }) {
   const t = useTranslations('home.sections');
-  const today = new Date().toISOString().split('T')[0];
+  const today = getTodayJST();
 
   if (races.length === 0) return null;
 
@@ -138,7 +138,7 @@ function OpenSection({ races, locale }: { races: Race[]; locale: Locale }) {
 // ─── まもなく受付セクション ────────────────────────
 function SoonSection({ races, locale }: { races: Race[]; locale: Locale }) {
   const t = useTranslations('home.sections');
-  const today = new Date().toISOString().split('T')[0];
+  const today = getTodayJST();
 
   if (races.length === 0) return null;
 

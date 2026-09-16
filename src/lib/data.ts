@@ -4,6 +4,7 @@ import { getDatabase } from "./db/client";
 import * as schema from "./db/schema";
 import type { Race, Prefecture, GiftCategory, GiftCategoryId, RaceSeries } from "./types";
 import { assembleRace, toSeriesId } from "./data-mappers";
+import { getTodayJST } from "./utils/date";
 import { buildGearStats, deriveResultBucket, DEFAULT_MIN_USERS_PER_BUCKET, type GearStatsRow, type GearStatsBucketResult } from "./gear-stats";
 
 /**
@@ -152,7 +153,7 @@ export async function getRacesByPrefecture(prefecture: string): Promise<Race[]> 
 
 export async function getUpcomingRaces(limit = 6): Promise<Race[]> {
   const db = getDatabase();
-  const today = new Date().toISOString().split("T")[0];
+  const today = getTodayJST();
 
   const [raceRows, categoryRows, giftRows, entryPeriodRows, completionGiftRows] = await db.batch([
     db.select().from(schema.races).where(gte(schema.races.date, today)).orderBy(asc(schema.races.date)),
@@ -176,7 +177,7 @@ export async function getUpcomingRaces(limit = 6): Promise<Race[]> {
 
 export async function getOpenEntryRaces(limit = 8): Promise<Race[]> {
   const db = getDatabase();
-  const today = new Date().toISOString().split("T")[0];
+  const today = getTodayJST();
 
   const [raceRows, categoryRows, giftRows, entryPeriodRows, completionGiftRows] = await db.batch([
     db.select().from(schema.races).where(
@@ -205,8 +206,8 @@ export async function getOpenEntryRaces(limit = 8): Promise<Race[]> {
 
 export async function getSoonOpeningEntryRaces(limit = 6): Promise<Race[]> {
   const db = getDatabase();
-  const today = new Date().toISOString().split("T")[0];
-  const in30days = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
+  const today = getTodayJST();
+  const in30days = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString('sv-SE', { timeZone: 'Asia/Tokyo' });
 
   const [raceRows, categoryRows, giftRows, entryPeriodRows, completionGiftRows] = await db.batch([
     db.select().from(schema.races).where(
@@ -374,7 +375,7 @@ export async function getTotalRaceCount(): Promise<number> {
 /** 現在エントリー受付中の大会数 */
 export async function getOpenEntryCount(): Promise<number> {
   const db = getDatabase();
-  const today = new Date().toISOString().split("T")[0];
+  const today = getTodayJST();
   const rows = await db.select({ count: sql<number>`count(*)` }).from(schema.races).where(
     sql`EXISTS (
       SELECT 1 FROM race_entry_periods rep

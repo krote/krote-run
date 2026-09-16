@@ -1,5 +1,5 @@
 import type { Race, Locale } from '@/lib/types';
-import { formatDate, getRaceName } from '@/lib/utils';
+import { formatDate, getRaceName, getTodayJST } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import prefecturesData from '@/data/prefectures.json';
@@ -73,7 +73,7 @@ function getSeason(dateStr: string): { en: string; ja: string } {
 
 export default function RaceCard({ race, locale, from, travelSettings }: RaceCardProps) {
   const t = useTranslations('races.detail');
-  const today = new Date().toISOString().split('T')[0];
+  const today = getTodayJST();
   const isPast = race.date < today;
 
   const periods = race.entry_periods ?? [];

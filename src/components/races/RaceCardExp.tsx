@@ -1,5 +1,5 @@
 import type { Race, Locale } from '@/lib/types';
-import { formatDate, getMainCategory, getRaceName, getRaceCity, getRaceDescription } from '@/lib/utils';
+import { formatDate, getMainCategory, getRaceName, getRaceCity, getRaceDescription, getTodayJST } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import type { TravelSettings } from '@/lib/travel';
@@ -15,7 +15,7 @@ interface RaceCardExpProps {
 export default function RaceCardExp({ race, locale, from, travelSettings }: RaceCardExpProps) {
   const t = useTranslations('home.card');
   const mainCategory = getMainCategory(race.categories);
-  const today = new Date().toISOString().split('T')[0];
+  const today = getTodayJST();
   const isPast = race.date < today;
   const periods = race.entry_periods ?? [];
   const isEntryOpen = periods.length > 0

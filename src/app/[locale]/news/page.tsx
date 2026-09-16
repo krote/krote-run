@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getAnnouncements } from '@/lib/announcements';
 import type { Locale } from '@/lib/types';
+import { formatDate } from './format-date';
 
 export async function generateMetadata({
   params,
@@ -35,14 +36,6 @@ export async function generateMetadata({
       siteName: 'HASHIRU',
     },
   };
-}
-
-function formatDate(date: string, locale: Locale): string {
-  return new Date(`${date}T00:00:00+09:00`).toLocaleDateString(locale === 'ja' ? 'ja-JP' : 'en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
 }
 
 export default async function NewsPage({

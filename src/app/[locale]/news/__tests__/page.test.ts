@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 
 vi.mock('@/i18n/navigation', () => ({
   Link: ({ href, children }: { href: string; children: React.ReactNode }) => ({ href, children }),
@@ -19,9 +19,28 @@ vi.mock('@/lib/announcements', () => ({
 }));
 
 import { generateMetadata } from '../page';
+import { formatDate } from '../format-date';
 
 const makeParams = (locale: string) => ({
   params: Promise.resolve({ locale }),
+});
+
+describe('news/page formatDate', () => {
+  const originalTz = process.env.TZ;
+
+  afterEach(() => {
+    process.env.TZ = originalTz;
+  });
+
+  it('サーバーランタイムがUTCでもJSTの日付のまま表示する（ja）', () => {
+    process.env.TZ = 'UTC';
+    expect(formatDate('2026-09-17', 'ja')).toBe('2026年9月17日');
+  });
+
+  it('サーバーランタイムがUTCでもJSTの日付のまま表示する（en）', () => {
+    process.env.TZ = 'UTC';
+    expect(formatDate('2026-09-17', 'en')).toBe('September 17, 2026');
+  });
 });
 
 describe('news/page generateMetadata', () => {

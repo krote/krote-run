@@ -1,0 +1,160 @@
+{
+  "id": "moriya-half-marathon-2027",
+  "name_ja": "守谷ハーフマラソン",
+  "name_en": "Moriya Half Marathon",
+  "full_name_ja": "第43回守谷ハーフマラソン",
+  "full_name_en": "43rd Moriya Half Marathon",
+  "edition": 43,
+  "date": "2027-02-07",
+  "prefecture": "08",
+  "city_ja": "守谷市",
+  "city_en": "Moriya City",
+  "description_ja": "つくばエクスプレス線沿いを走る開放感あふれるコースが特徴。ハーフマラソン・5km・1マイルを実施し、ハーフと5kmは日本陸連公認コース。",
+  "description_en": "A half marathon held in Moriya City, Ibaraki Prefecture, running an open course alongside the Tsukuba Express line. Half marathon, 5km, and 1-mile distances; the half and 5km courses are JAAF-certified.",
+  "official_url": "https://www.moriya-half.jp/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 5800,
+  "entry_start_date": "2026-09-21",
+  "entry_end_date": "2026-11-15",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "reception_sessions": [],
+  "travel_times": [],
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "つくばエクスプレス線沿いを走る開放感あふれるコース。ハーフマラソン・5kmは日本陸連公認。",
+    "highlights_en": "An open course running alongside the Tsukuba Express line. The half marathon and 5km distances are JAAF-certified.",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": null,
+      "start_time": "10:00",
+      "capacity": 4500,
+      "entry_fee": 6500,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "09:25",
+      "capacity": 600,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.609,
+      "time_limit_minutes": null,
+      "start_time": "10:25",
+      "capacity": 700,
+      "entry_fee": 2500,
+      "entry_fee_u25": null,
+      "name_ja": "1マイルの部",
+      "name_en": "1 Mile",
+      "description_ja": "部門により09:25～10:35の間で複数ウェーブに分けてスタート",
+      "description_en": "Multiple waves starting between 10:25 and 10:35 depending on the division",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "ハーフマラソン・5km参加者にオリジナルカラーTシャツを贈呈",
+      "description_en": "Original color T-shirt for half marathon and 5km participants",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "goods"
+      ],
+      "description_ja": "1マイル参加者にオリジナルナップサックを贈呈",
+      "description_en": "Original knapsack for 1-mile participants",
+      "image": null
+    }
+  ],
+  "completion_gifts": [],
+  "result": null,
+  "created_at": "2026-09-18T00:00:00Z",
+  "updated_at": "2026-09-18T14:38:36.941Z",
+  "_metadata": {
+    "data_source": "runnet.jp週刊ガイド・公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ",
+      "2026-09-18: runnet.jp週刊ガイド(260918.html)を起点に新規登録",
+      "会場住所は大会事務局所在地（守谷市役所）を暫定使用。スタート・フィニッシュの正確な地点住所は公式サイトに明記なし"
+    ],
+    "last_verified": "2026-09-18",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-21",
+      "end_date": "2026-11-15",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "entry_links": [],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.moriya-half.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.moriya-half.jp/course/",
+      "label": "コース＆アクセス"
+    }
+  ],
+  "venue_name_ja": "守谷市役所",
+  "venue_name_en": "Moriya City Hall",
+  "venue_address": "茨城県守谷市大柏950-1",
+  "start_lat": 35.951302,
+  "start_lng": 139.974594
+}

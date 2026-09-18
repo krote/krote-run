@@ -40,7 +40,7 @@
       "distance_type": "full",
       "distance_km": 42.195,
       "time_limit_minutes": 360,
-      "start_time": "",
+      "start_time": "09:00",
       "capacity": 14000,
       "entry_fee": 15000,
       "entry_fee_u25": null,
@@ -52,7 +52,44 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "distance_km": 2.9,
+      "closing_time": "09:46"
+    },
+    {
+      "distance_km": 7.1,
+      "closing_time": "10:20"
+    },
+    {
+      "distance_km": 12.4,
+      "closing_time": "11:02"
+    },
+    {
+      "distance_km": 17.2,
+      "closing_time": "11:40"
+    },
+    {
+      "distance_km": 23,
+      "closing_time": "12:27"
+    },
+    {
+      "distance_km": 28.2,
+      "closing_time": "13:08"
+    },
+    {
+      "distance_km": 35.4,
+      "closing_time": "14:06"
+    },
+    {
+      "distance_km": 37.5,
+      "closing_time": "14:23"
+    },
+    {
+      "distance_km": 39.9,
+      "closing_time": "14:42"
+    }
+  ],
   "access_points": [],
   "nearby_spots": [
     {
@@ -71,15 +108,16 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-06-27T00:00:00Z",
-  "updated_at": "2026-08-24T16:39:03.577Z",
+  "updated_at": "2026-09-18T14:33:23.667Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "2026-06-27: 自動クロールで取得した2027年大会情報を元に新規作成",
-      "2026-08-24: 自動クロールで更新"
+      "2026-08-24: 自動クロールで更新",
+      "2026-09-18: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-24",
+    "last_verified": "2026-09-18",
     "detail_level": "medium"
   },
   "entry_periods": [

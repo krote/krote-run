@@ -18,8 +18,8 @@
   "entry_start_date": "2026-04-10",
   "entry_end_date": "2026-07-17",
   "reception_type": "pre_mail",
-  "reception_note_ja": "ゼッケン・計測タグ・参加賞等を事前発送します。前日受付は行いません",
-  "reception_note_en": "Race bibs, timing tags, and participation prizes will be sent out in advance. There will be no registration the day before the event.",
+  "reception_note_ja": "ゼッケン・計測タグ・参加賞等を事前発送します。前日（10月16日）・当日（10月17日）とも受付は行いません",
+  "reception_note_en": "Race bibs, timing tags, and participation prizes will be sent out in advance. There will be no registration on either the day before or the day of the event.",
   "tags": [
     "ウルトラマラソン"
   ],
@@ -30,8 +30,8 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [],
-    "highlights_ja": "",
-    "highlights_en": "",
+    "highlights_ja": "猿岩、湯ノ本温泉、聖母宮、勝本浦町並み、串山海水浴場、イルカパーク、龍蛇神神社、清石浜、左京鼻、はらほげ地蔵、小島神社、原の辻ガイダンス、筒城浜、錦浜など壱岐島内の名所・パワースポットを巡るコース",
+    "highlights_en": "The course passes island landmarks and power spots including Saruiwa Rock, Yunomoto Onsen, Shoubo Shrine, the old townscape of Katsumoto, Kushiyama Beach, Dolphin Park, Sasekihama, Sakyo-bana, Harahoge Jizo, Kojima Shrine, and Tsutsukihama and Nishikihama beaches.",
     "notes_ja": "",
     "notes_en": ""
   },
@@ -59,7 +59,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-05T08:19:26.353Z",
-  "updated_at": "2026-09-06T14:19:56.062Z",
+  "updated_at": "2026-09-18T14:18:41.643Z",
   "entry_periods": [
     {
       "start_date": "2026-04-10",
@@ -114,10 +114,11 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-09-18",
     "data_accuracy_notes": [
       "2026-05-30: 自動クロールで更新",
-      "2026-09-06: 自動クロールで更新"
+      "2026-09-06: 自動クロールで更新",
+      "2026-09-18: 自動クロールで更新"
     ]
   },
   "venue_name_ja": "壱岐の島ホール",

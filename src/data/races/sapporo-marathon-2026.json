@@ -18,8 +18,8 @@
   "entry_start_date": "2026-05-15",
   "entry_end_date": "2026-07-11",
   "reception_type": "pre_mail",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "reception_note_ja": "アスリートビブスは事前受け取り。札幌市内在住者はスポーツデポ指定店舗で引取（9月11日～10月3日19:00、店舗営業時間に準ずる）。市外在住者はAlpenTOKYO選択で9月11日～9月17日、スポーツデポ光星店選択で9月11日～10月3日19:00に店舗引取。それ以外は9月中旬予定で事前発送。",
+  "reception_note_en": "Race bibs are distributed in advance. Sapporo residents pick up at a designated Sports Depot store (Sep 11–Oct 3, until 19:00, subject to store hours). Non-residents may pick up at AlpenTOKYO (Sep 11–17) or Sports Depot Kosei store (Sep 11–Oct 3, until 19:00); others receive bibs by mail in mid-September.",
   "tags": [],
   "course_gpx_file": null,
   "course_info": {
@@ -64,12 +64,25 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "distance_km": 5,
+      "closing_time": "10:10"
+    },
+    {
+      "distance_km": 8,
+      "closing_time": "10:34"
+    },
+    {
+      "distance_km": 10,
+      "closing_time": "10:50"
+    }
+  ],
   "access_points": [],
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-05-15T14:40:14.753Z",
-  "updated_at": "2026-09-03T14:52:14.716Z",
+  "updated_at": "2026-09-18T14:34:24.132Z",
   "entry_periods": [
     {
       "label_ja": "JPHS優先エントリー",
@@ -167,12 +180,13 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-07-31",
+    "last_verified": "2026-09-18",
     "data_accuracy_notes": [
       "2026-05-30: 自動クロールで更新",
       "2026-06-08: 自動クロールで更新",
       "2026-07-27: 自動クロールで更新",
-      "2026-07-31: 自動クロールで更新"
+      "2026-07-31: 自動クロールで更新",
+      "2026-09-18: 自動クロールで更新"
     ]
   },
   "venue_name_ja": "真駒内セキスイハイムスタジアム",

@@ -1223,3 +1223,31 @@ stg実機確認で、追加したお知らせ（`2026-09-17`）が「2026年9月
   - 表示側（`UserRaceList.tsx`）は無改修。既存の`is_participated`ベースの振り分けにそのまま追従し、「参加済み」区分内で`RaceResultSection`（結果記録UI）も自然に出るようになる
   - TDD: `route.test.ts`に3件追加（開催日超過で更新される／未来の日付では更新しない／既に`is_participated=true`の行はraces照会自体を発生させない）。`vi.useFakeTimers`で「今日」を固定し検証
 - `pnpm vitest run` 全828件パス、`pnpm run lint`・`pnpm run build`ともエラー0件
+
+## 2026-09-18 自動クロール実行・runnet週刊ガイドから新規大会3件追加・crawl抽出のスキーマ不整合バグを修正
+
+`pnpm run crawl`を実行し、あわせてrunnet.jp週刊ガイド（`260918.html`掲載5大会）を確認。未登録だった3大会を新規追加した。
+
+### crawl実行結果
+- 変更検知147件（うちLLM更新26件）、開催済みのため更新スキップ1件（`mtfuji-climb-run-2026`）、次年度ファイル自動作成1件（`kitakyushu-marathon-2026` → `kitakyushu-marathon-2027`）
+- エラー25件はいずれも対象サイト側のfetch失敗・404・空コンテンツ（`aotai.gr.jp`、`scsf.jp`、`tambasasayama-abc-marathon.jp`、`tokushima-marathon.jp`等）で本リポジトリ側の問題ではない。`tambasasayama-abc-marathon.jp`・`tokushima-marathon.jp`は全URLが404のためサイト構成が変わった可能性があり、次回要確認
+- `tools/crawl/checksums.json`を更新
+
+### crawl抽出のスキーマ不整合バグを修正（`tools/crawl/extractor.js`）
+LLM更新で`checkpoints`（関門）・`aid_stations`（エイドステーション）が抽出された13件で`pnpm run db:seed-races:local`が`NOT NULL constraint failed: checkpoints.closing_time`で失敗。原因は`extractor.js`の抽出プロンプトが実際のRace型・DBスキーマと異なるフィールド名（`checkpoints[].cutoff_time`＋`name_ja`、`aid_stations[].water/sports_drink/food`＋`name_ja`）をLLMに指示していたため（PR #168で機能追加された際に見落とされていたバグ）。
+- プロンプトを`checkpoints[].closing_time`／`aid_stations[].offerings_ja・offerings_en・is_featured`（`Checkpoint`/`AidStation`型と一致）に修正し、存在しない`name_ja`等は出力させないよう変更
+- 今回のクロールで誤スキーマのまま書き込まれていた13ファイル（`abashiri-marathon-2026`、`fujisan-marathon-2026`、`ibusuki-nanohana-2027`、`mito-komon-manyu-marathon-2026`、`kagawa-marathon-2027`、`nagasaki-musicfes-marathon-2027`、`okayama-marathon-2026`、`saga-sakura-marathon-2027`、`saitama-marathon-2027`、`sapporo-marathon-2026`、`shonan-international-marathon-2026`、`tazawako-marathon-2026`、`kitakyushu-marathon-2027`、`fukui-sakura-marathon-2027`）を正しい形式に変換（関門名・エイド名`name_ja`は現行DBスキーマに保存先カラムがないため削除。水/スポーツドリンク/補食の真偽値は`offerings_ja`/`offerings_en`の説明文に変換、`is_featured`は補食提供ありを`true`とみなす簡易ヒューリスティックで補完）
+- TDD: `tools/crawl/extractor.test.js`に`buildExtractionPrompt`がスキーマ一致フィールド名（`closing_time`/`offerings_ja`/`offerings_en`/`is_featured`）を指示し、廃止した`cutoff_time`を含まないことを確認する回帰テストを追加（Red→修正→Green）。既存の`buildDiff`テストも正しいフィールド名に更新
+
+### runnet週刊ガイド起点の新規大会3件追加（`src/data/races/`）
+`260918.html`掲載5大会のうち、勝田全国マラソン・ふくい桜マラソンは登録済み（`katsuta-marathon-2027`/`fukui-sakura-marathon-2027`）。以下3件は未登録のためライト版（`detail_level: "light"`）で新規追加:
+- `tatsuno-umeshio-marathon-2027`: 第55回たつの市 梅と潮の香マラソン（2027-01-31・兵庫県たつの市）
+- `moriya-half-marathon-2027`: 第43回守谷ハーフマラソン（2027-02-07・茨城県守谷市）
+- `tsuno-osuzu-marathon-2027`: 第59回都農尾鈴マラソン（2027-02-11・宮崎県都農町）
+
+いずれも公式サイト・runnet.jp大会詳細ページの公開情報から転記。`venue_address`からの座標補完（`scripts/geocode-venues.js`）はcrawl実行時に自動処理され3件とも成功。
+
+### 検証
+- `node scripts/validate-races.js`: エラー0件（警告8件、いずれも既存パターン`reception_type`関連）
+- `node scripts/generate-seed-races.js`で`seed-races-all.sql`再生成 → `pnpm run db:seed-races:local`成功
+- `pnpm run test:tools` 全273件パス、`pnpm vitest run` 全828件パス、`pnpm run lint`エラー0件（警告5件、いずれも既存）

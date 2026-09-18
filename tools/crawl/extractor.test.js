@@ -854,7 +854,7 @@ describe('buildDiff - aid_stations / checkpoints', () => {
   const current = { date: '2026-03-01', aid_stations: [], checkpoints: [] };
 
   test('aid_stations が変わったとき changed=true', () => {
-    const extracted = { aid_stations: [{ name_ja: '10km地点', distance_km: 10, water: true, sports_drink: true, food: false }] };
+    const extracted = { aid_stations: [{ distance_km: 10, offerings_ja: '水・スポーツドリンク', offerings_en: 'Water, sports drink', is_featured: false }] };
     const diff = buildDiff(current, extracted);
     const entry = diff.find(d => d.key === 'aid_stations');
     assert.ok(entry);
@@ -862,10 +862,33 @@ describe('buildDiff - aid_stations / checkpoints', () => {
   });
 
   test('checkpoints が変わったとき changed=true', () => {
-    const extracted = { checkpoints: [{ name_ja: '20km関門', distance_km: 20, cutoff_time: '11:30' }] };
+    const extracted = { checkpoints: [{ distance_km: 20, closing_time: '11:30' }] };
     const diff = buildDiff(current, extracted);
     const entry = diff.find(d => d.key === 'checkpoints');
     assert.ok(entry);
     assert.equal(entry.changed, true);
+  });
+});
+
+// ── buildExtractionPrompt - aid_stations / checkpoints スキーマ整合性 ──
+// Race型（src/lib/types.ts）・generate-seed-races.js の INSERT 文が期待する
+// フィールド名と、LLMに指示するプロンプトのスキーマ例が一致していることを保証する。
+// 不一致だと closing_time が NOT NULL 制約違反でシード投入時に落ちる。
+
+describe('buildExtractionPrompt - aid_stations / checkpoints スキーマ整合性', () => {
+  const race = { id: 'race-2026', name_ja: 'テスト大会', aid_stations: [], checkpoints: [] };
+  const pageTexts = [{ url: 'https://example.com/', text: 'dummy' }];
+
+  test('checkpoints は closing_time を使い、cutoff_time は使わない（Checkpoint型と一致させる）', () => {
+    const prompt = buildExtractionPrompt(race, pageTexts);
+    assert.ok(prompt.includes('closing_time'), 'closing_time の指示が必要');
+    assert.ok(!prompt.includes('cutoff_time'), 'cutoff_time はRace型に存在しないフィールドのため使用不可');
+  });
+
+  test('aid_stations は offerings_ja/offerings_en/is_featured を使う（AidStation型と一致させる）', () => {
+    const prompt = buildExtractionPrompt(race, pageTexts);
+    assert.ok(prompt.includes('offerings_ja'), 'offerings_ja の指示が必要');
+    assert.ok(prompt.includes('offerings_en'), 'offerings_en の指示が必要');
+    assert.ok(prompt.includes('is_featured'), 'is_featured の指示が必要');
   });
 });

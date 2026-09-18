@@ -43,13 +43,39 @@
       "start_time": "08:45"
     }
   ],
-  "aid_stations": [],
-  "checkpoints": [],
+  "aid_stations": [
+    {
+      "distance_km": 14.4,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    },
+    {
+      "distance_km": 29,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    }
+  ],
+  "checkpoints": [
+    {
+      "distance_km": 14.4,
+      "closing_time": "11:05"
+    },
+    {
+      "distance_km": 29,
+      "closing_time": "13:10"
+    },
+    {
+      "distance_km": 35,
+      "closing_time": "14:05"
+    }
+  ],
   "access_points": [],
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-03-29T11:38:18.538Z",
-  "updated_at": "2026-08-24T16:08:58.721Z",
+  "updated_at": "2026-09-18T14:12:55.981Z",
   "participation_gifts": [
     {
       "gift_categories": [
@@ -107,10 +133,11 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-08-24",
+    "last_verified": "2026-09-18",
     "data_accuracy_notes": [
       "2026-05-25: 自動クロールで更新",
-      "2026-08-24: 自動クロールで更新"
+      "2026-08-24: 自動クロールで更新",
+      "2026-09-18: 自動クロールで更新"
     ]
   },
   "completion_gifts": [
@@ -123,8 +150,8 @@
       "image": null
     }
   ],
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "網走刑務所前",
+  "venue_name_en": "Abashiri Prison",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

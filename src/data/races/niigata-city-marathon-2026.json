@@ -52,7 +52,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-05T07:57:29.198Z",
-  "updated_at": "2026-09-06T14:26:59.897Z",
+  "updated_at": "2026-09-18T14:30:42.048Z",
   "entry_periods": [
     {
       "label_ja": "一般枠",
@@ -115,17 +115,18 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-09-18",
     "data_accuracy_notes": [
       "2026-06-22: 自動クロールで更新",
       "2026-06-29: 自動クロールで更新",
       "2026-07-27: 自動クロールで更新",
       "2026-08-31: 自動クロールで更新",
-      "2026-09-06: 自動クロールで更新"
+      "2026-09-06: 自動クロールで更新",
+      "2026-09-18: 自動クロールで更新"
     ]
   },
-  "venue_name_ja": null,
-  "venue_name_en": null,
+  "venue_name_ja": "デンカビッグスワンスタジアム",
+  "venue_name_en": "Denka Big Swan Stadium",
   "venue_address": null,
   "start_lat": null,
   "start_lng": null

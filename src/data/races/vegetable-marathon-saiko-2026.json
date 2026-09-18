@@ -17,9 +17,9 @@
   "entry_capacity": null,
   "entry_start_date": "2026-05-29",
   "entry_end_date": "2026-09-06",
-  "reception_type": null,
-  "reception_note_ja": null,
-  "reception_note_en": null,
+  "reception_type": "race_day",
+  "reception_note_ja": "大会当日7時45分より彩湖多目的広場で受付を実施。参加通知ハガキは9月15日に発送されるが、届かない場合は当日受付横のトラブルコーナーで種目と氏名を伝えるとゼッケン等を受け取れる。",
+  "reception_note_en": "Race-day reception opens at 7:45 AM at Saiko Tamokuteki Hiroba (multi-purpose plaza). Participation notice postcards are mailed on September 15; if not received, go to the trouble corner next to reception and state your event and name to receive your bib number.",
   "tags": [],
   "course_gpx_file": null,
   "course_info": {
@@ -34,11 +34,76 @@
     "notes_en": null
   },
   "categories": [
-    { "distance_type": "other", "distance_km": 30, "time_limit_minutes": null, "start_time": null, "capacity": null, "entry_fee": null, "entry_fee_u25": null, "name_ja": "30km", "name_en": "30km", "description_ja": null, "description_en": null, "waves": null },
-    { "distance_type": "half", "distance_km": 21.0975, "time_limit_minutes": null, "start_time": null, "capacity": null, "entry_fee": null, "entry_fee_u25": null, "name_ja": null, "name_en": null, "description_ja": null, "description_en": null, "waves": null },
-    { "distance_type": "10k", "distance_km": 10, "time_limit_minutes": null, "start_time": null, "capacity": null, "entry_fee": null, "entry_fee_u25": null, "name_ja": null, "name_en": null, "description_ja": null, "description_en": null, "waves": null },
-    { "distance_type": "5k", "distance_km": 5, "time_limit_minutes": null, "start_time": null, "capacity": null, "entry_fee": null, "entry_fee_u25": null, "name_ja": null, "name_en": null, "description_ja": null, "description_en": null, "waves": null },
-    { "distance_type": "other", "distance_km": 1.5, "time_limit_minutes": null, "start_time": null, "capacity": null, "entry_fee": null, "entry_fee_u25": null, "name_ja": "親子1.5km", "name_en": "Parent-Child 1.5km", "description_ja": null, "description_en": null, "waves": null }
+    {
+      "distance_type": "other",
+      "distance_km": 30,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "30km",
+      "name_en": "30km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.5,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "親子1.5km",
+      "name_en": "Parent-Child 1.5km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
   ],
   "aid_stations": [],
   "checkpoints": [],
@@ -48,14 +113,15 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-08-25T00:00:00Z",
+  "updated_at": "2026-09-18T14:38:13.857Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。参加費・定員・制限時間は公式サイトに具体的な記載がなく未入力",
-      "2026-08-25: runnet.jp紹介記事を起点に新規登録"
+      "2026-08-25: runnet.jp紹介記事を起点に新規登録",
+      "2026-09-18: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-25",
+    "last_verified": "2026-09-18",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -80,7 +146,10 @@
   "time_buckets": [],
   "course_highlights": [],
   "info_urls": [
-    { "url": "https://www.vege-mara.com/", "label": "大会概要" }
+    {
+      "url": "https://www.vege-mara.com/",
+      "label": "大会概要"
+    }
   ],
   "completion_gifts": [],
   "venue_name_ja": "彩湖・道満グリーンパーク",

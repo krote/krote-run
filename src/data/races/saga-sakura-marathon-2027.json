@@ -18,8 +18,8 @@
   "entry_start_date": "2026-10-01",
   "entry_end_date": "2026-10-21",
   "reception_type": "pre_mail",
-  "reception_note_ja": "会場での選手受付はありません（海外在住者を除く）。アスリートビブス・計測チップ・参加賞Tシャツ等を事前に発送します（2027年2月下旬予定、ファンランは計測チップなし）。エントリー時の住所に発送するため、エントリー後の住所変更は必ずエントリーセンターへご連絡ください。当日アスリートビブス・計測チップを忘れると出走できません（ヘルプデスクにて有料で再発行可能）。",
-  "reception_note_en": "No on-site runner reception (except overseas residents). Athlete bibs, timing chips, and participation gift T-shirts etc. will be shipped in advance (planned late Feb 2027; Fun Run entrants receive no timing chip). Items are shipped to your entry address, so any address change after entry must be reported to the Entry Center. Forgetting your bib/chip on race day means you cannot start (paid re-issue available at the help desk).",
+  "reception_note_ja": "会場での選手受付はありません（海外在住者を除く）。アスリートビブス・計測チップ・参加賞Tシャツ等を事前に発送します（2027年2月下旬予定、ファンランは計測チップなし）。エントリー時の住所に発送するため、エントリー後の住所変更は必ずエントリーセンターへご連絡ください。お手元に届かない場合もエントリーセンターへご連絡ください。当日アスリートビブス・計測チップを忘れると出走できません（ヘルプデスクにて有料で再発行可能）。",
+  "reception_note_en": "No on-site runner reception (except overseas residents). Athlete bibs, timing chips, and participation gift T-shirts etc. will be shipped in advance (planned late Feb 2027; Fun Run entrants receive no timing chip). Items are shipped to your entry address, so any address change after entry must be reported to the Entry Center. If you do not receive your items, please also contact the Entry Center. Forgetting your bib/chip on race day means you cannot start (paid re-issue available at the help desk).",
   "tags": [
     "桜"
   ],
@@ -82,7 +82,44 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "distance_km": 4.3,
+      "closing_time": "09:55"
+    },
+    {
+      "distance_km": 8.7,
+      "closing_time": "10:30"
+    },
+    {
+      "distance_km": 10.5,
+      "closing_time": "10:45"
+    },
+    {
+      "distance_km": 14.5,
+      "closing_time": "11:20"
+    },
+    {
+      "distance_km": 24,
+      "closing_time": "12:43"
+    },
+    {
+      "distance_km": 27.4,
+      "closing_time": "13:13"
+    },
+    {
+      "distance_km": 33,
+      "closing_time": "14:04"
+    },
+    {
+      "distance_km": 37,
+      "closing_time": "14:41"
+    },
+    {
+      "distance_km": 40.6,
+      "closing_time": "15:15"
+    }
+  ],
   "access_points": [],
   "nearby_spots": [
     {
@@ -118,7 +155,7 @@
   ],
   "result": null,
   "created_at": "2026-08-24T16:15:46.106Z",
-  "updated_at": "2026-08-24T16:38:10.166Z",
+  "updated_at": "2026-09-18T14:32:52.454Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -126,9 +163,10 @@
       "2026-08-24: 自動クロールで更新",
       "2026-08-25: info_urlsのエントリー・開催概要URLが404だったため、公式サイトの現在のページ構成を確認し最新情報・ゲストランナーページに修正",
       "2026-08-25: categoriesが自動更新対象外（DIFF_FIELDSに未収録）のため空欄のままだった。公式サイト確認でマラソン（制限時間6.5時間・定員8,500人・14,500円）、ファンラン10km（定員1,500人・6,000円）、親子ペアラン1.5km（定員60組120名）を追加",
-      "2026-08-31: info_urlsの/traffic/がHTTP 404だったため、公式サイトの現在のページ構成を確認し/access/（アクセス）に修正"
+      "2026-08-31: info_urlsの/traffic/がHTTP 404だったため、公式サイトの現在のページ構成を確認し/access/（アクセス）に修正",
+      "2026-09-18: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-09-18",
     "detail_level": "medium"
   },
   "entry_periods": [

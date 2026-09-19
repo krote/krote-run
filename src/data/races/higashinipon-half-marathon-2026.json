@@ -14,12 +14,12 @@
   "official_url": "https://www.runningkanagawa.com/race-half/",
   "entry_fee": 0,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
+  "entry_capacity": 4000,
   "entry_start_date": "2026-04-01",
   "entry_end_date": "2026-08-17",
-  "reception_type": "pre_day",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "reception_type": "race_day",
+  "reception_note_ja": "ハーフ/8km出場者は7:15、駅伝出場者は10:45より会場入場・参加賞受付開始",
+  "reception_note_en": "Half/8km participants: venue entry and gift pickup from 7:15. Ekiden participants: from 10:45.",
   "tags": [
     "フラット",
     "初心者おすすめ",
@@ -45,7 +45,7 @@
       "entry_fee": 5500,
       "capacity": 4000,
       "time_limit_minutes": 180,
-      "start_time": "09:00"
+      "start_time": "09:45"
     },
     {
       "distance_type": "other",
@@ -75,16 +75,17 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-03-29T00:00:00Z",
-  "updated_at": "2026-09-03T14:51:58.726Z",
+  "updated_at": "2026-09-18T14:16:38.288Z",
   "_metadata": {
     "data_source": "公式サイト（https://runningkanagawa.com/race-half/）およびRunnet掲載情報",
     "data_accuracy_notes": [
       "基本情報のみ。参加費は前回大会実績値。スタート時間は推定値。エイド、周辺スポット等は未入力",
       "2026-08-25: info_urlsのFAQ・開催概要URLが404だったため、公式サイトの現在のページ構成を確認し大会情報・エントリーページに修正",
       "2026-08-31: 自動クロールで更新",
-      "2026-08-31: info_urlsの「大会情報」URL（/half_marathon/）が404。ページ内容は/race-half/に統合されていたため、official_url・info_urlsとも/race-half/に一本化（重複していた「エントリー」エントリーは削除）"
+      "2026-08-31: info_urlsの「大会情報」URL（/half_marathon/）が404。ページ内容は/race-half/に統合されていたため、official_url・info_urlsとも/race-half/に一本化（重複していた「エントリー」エントリーは削除）",
+      "2026-09-18: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-09-18",
     "detail_level": "basic"
   },
   "entry_periods": [

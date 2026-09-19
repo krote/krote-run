@@ -43,9 +43,9 @@
       "distance_type": "full",
       "distance_km": 42.195,
       "time_limit_minutes": 360,
-      "start_time": "",
-      "capacity": 0,
-      "entry_fee": null,
+      "start_time": "08:45",
+      "capacity": 15000,
+      "entry_fee": 14000,
       "entry_fee_u25": null,
       "name_ja": null,
       "name_en": null,
@@ -55,7 +55,12 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "distance_km": 41.8,
+      "closing_time": "14:45"
+    }
+  ],
   "access_points": [
     {
       "station_name_ja": "岡山駅",
@@ -80,6 +85,17 @@
       "url": null,
       "latitude": 34.6694,
       "longitude": 133.9356
+    },
+    {
+      "type": "観光地",
+      "name_ja": "岡山城",
+      "name_en": "Okayama Castle",
+      "description_ja": "烏城とも呼ばれる岡山のシンボル。コース沿いに位置する。",
+      "description_en": "Also known as Crow Castle, a symbol of Okayama located along the course.",
+      "distance_from_venue": "コース付近",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
     }
   ],
   "weather_history": [],
@@ -95,7 +111,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-09-03T14:52:13.118Z",
+  "updated_at": "2026-09-18T14:31:44.593Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -103,9 +119,10 @@
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
       "2026-05-30: 自動クロールで更新",
       "2026-08-24: 自動クロールで更新",
-      "2026-08-26: PRレビューで「トップレベルは一般枠（4/16〜5/18）を表すべき」との指摘があったが、CLAUDE.mdのルール（entry_start_dateは全entry_periods中の最速日付に合わせる）を優先し、優先枠〜ふるさと納税枠を含む4/8〜6/23のまま維持することとした（レビュー指摘への返信で経緯を共有済み）"
+      "2026-08-26: PRレビューで「トップレベルは一般枠（4/16〜5/18）を表すべき」との指摘があったが、CLAUDE.mdのルール（entry_start_dateは全entry_periods中の最速日付に合わせる）を優先し、優先枠〜ふるさと納税枠を含む4/8〜6/23のまま維持することとした（レビュー指摘への返信で経緯を共有済み）",
+      "2026-09-18: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-26",
+    "last_verified": "2026-09-18",
     "detail_level": "medium"
   },
   "entry_periods": [

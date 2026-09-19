@@ -108,7 +108,7 @@
   ],
   "result": null,
   "created_at": "2026-04-30T00:00:00Z",
-  "updated_at": "2026-08-24T16:26:12.525Z",
+  "updated_at": "2026-09-18T14:15:06.516Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -119,9 +119,10 @@
       "2026-05-30: 自動クロールで更新",
       "2026-06-08: 自動クロールで更新",
       "2026-08-24: 自動クロールで更新",
-      "2026-08-25: info_urlsの開催概要URL（/2026/info/support-runners/）が404だったため/feature/に修正"
+      "2026-08-25: info_urlsの開催概要URL（/2026/info/support-runners/）が404だったため/feature/に修正",
+      "2026-09-18: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-25",
+    "last_verified": "2026-09-18",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -138,13 +139,6 @@
       "entry_fee": 11000,
       "label_ja": "一般",
       "label_en": "General"
-    },
-    {
-      "start_date": "2026-11-01",
-      "end_date": "2026-11-15",
-      "entry_fee": 11000,
-      "label_ja": "直前（参加賞なし）",
-      "label_en": "Last-minute (no participation gift)"
     }
   ],
   "motif": "福知山城",

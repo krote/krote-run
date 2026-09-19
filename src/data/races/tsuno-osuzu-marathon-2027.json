@@ -1,0 +1,170 @@
+{
+  "id": "tsuno-osuzu-marathon-2027",
+  "name_ja": "都農尾鈴マラソン",
+  "name_en": "Tsuno Osuzu Marathon",
+  "full_name_ja": "第59回都農尾鈴マラソン",
+  "full_name_en": "59th Tsuno Osuzu Marathon",
+  "edition": 59,
+  "date": "2027-02-11",
+  "prefecture": "45",
+  "city_ja": "都農町",
+  "city_en": "Tsuno Town",
+  "description_ja": "都農神社前をスタート・ゴールとする日本陸連公認コース。参加者全員に都農ワイン（高校生以下は特産品）が贈呈される。",
+  "description_en": "A JAAF-certified course starting and finishing in front of Tsuno Shrine in Miyazaki Prefecture. All participants receive Tsuno wine (a local specialty for participants in high school or younger).",
+  "official_url": "https://tsuno-osuzu-marathon.jp/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 2000,
+  "entry_start_date": "2026-09-25",
+  "entry_end_date": "2026-11-25",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "reception_sessions": [],
+  "travel_times": [],
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "都農神社東鳥居前をスタート・ゴールとする日本陸連公認コース。",
+    "highlights_en": "A JAAF-certified course starting and finishing in front of the east torii gate of Tsuno Shrine.",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 155,
+      "start_time": "09:15",
+      "capacity": 1000,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 90,
+      "start_time": "09:55",
+      "capacity": 600,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 40,
+      "start_time": "10:15",
+      "capacity": 300,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": 20,
+      "start_time": "09:30",
+      "capacity": 100,
+      "entry_fee": 1500,
+      "entry_fee_u25": null,
+      "name_ja": "3km（小中学生）の部",
+      "name_en": "3km (Elementary/Junior High School)",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "local_product"
+      ],
+      "description_ja": "参加者全員に都農ワインを贈呈（高校生以下は特産品）",
+      "description_en": "Tsuno wine for all participants (a local specialty for those in high school or younger)",
+      "image": null
+    }
+  ],
+  "completion_gifts": [],
+  "result": null,
+  "created_at": "2026-09-18T00:00:00Z",
+  "updated_at": "2026-09-18T14:38:39.065Z",
+  "_metadata": {
+    "data_source": "runnet.jp週刊ガイド・公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "ライト版：基本情報のみ",
+      "2026-09-18: runnet.jp週刊ガイド(260918.html)を起点に新規登録",
+      "アクセス（JR都農駅から車約5分・徒歩25分、都農ICから車10分）はコース&アクセスページに記載あるが、access_pointsとしては未構造化"
+    ],
+    "last_verified": "2026-09-18",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-25",
+      "end_date": "2026-11-25",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "entry_links": [],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://tsuno-osuzu-marathon.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://tsuno-osuzu-marathon.jp/course/",
+      "label": "コース＆アクセス"
+    },
+    {
+      "url": "https://tsuno-osuzu-marathon.jp/entry/",
+      "label": "エントリー"
+    }
+  ],
+  "venue_name_ja": "都農神社",
+  "venue_name_en": "Tsuno Shrine",
+  "venue_address": "宮崎県児湯郡都農町大字川北4874番地2",
+  "start_lat": 32.25671,
+  "start_lng": 131.559662
+}

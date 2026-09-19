@@ -54,7 +54,7 @@
       "distance_type": "5k",
       "distance_km": 5,
       "time_limit_minutes": 50,
-      "start_time": null,
+      "start_time": "08:40",
       "capacity": null,
       "entry_fee": 3950,
       "entry_fee_u25": 1900,
@@ -68,7 +68,7 @@
       "distance_type": "other",
       "distance_km": 2.5,
       "time_limit_minutes": 30,
-      "start_time": null,
+      "start_time": "08:45",
       "capacity": null,
       "entry_fee": 2950,
       "entry_fee_u25": 1900,
@@ -106,7 +106,7 @@
   ],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-09-03T14:51:56.603Z",
+  "updated_at": "2026-09-18T14:13:48.450Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -114,9 +114,10 @@
       "2026-08-25: runnet.jp紹介記事を起点に新規登録",
       "2026-08-24: 自動クロールで更新",
       "2026-08-25: 2.5km区分でentry_fee_u25（1,900円=中学生料金）とdescription（小学生1,200円と記載）が不一致だったため、descriptionを一般・中学生・小学生の3段階を明記する形に修正（スキーマがentry_fee/entry_fee_u25の2段階までのため、小学生料金はdescriptionのみに記載）",
-      "2026-08-31: 自動クロールで更新"
+      "2026-08-31: 自動クロールで更新",
+      "2026-09-18: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-09-18",
     "detail_level": "medium"
   },
   "entry_periods": [

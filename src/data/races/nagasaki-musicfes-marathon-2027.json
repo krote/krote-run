@@ -38,7 +38,7 @@
       "distance_type": "full",
       "distance_km": 42.195,
       "time_limit_minutes": null,
-      "start_time": null,
+      "start_time": "09:00",
       "capacity": 10000,
       "entry_fee": 15000,
       "entry_fee_u25": null,
@@ -52,7 +52,7 @@
       "distance_type": "other",
       "distance_km": 5.1,
       "time_limit_minutes": null,
-      "start_time": null,
+      "start_time": "09:20",
       "capacity": 1000,
       "entry_fee": 5500,
       "entry_fee_u25": 3500,
@@ -63,15 +63,153 @@
       "waves": null
     }
   ],
-  "aid_stations": [],
-  "checkpoints": [],
+  "aid_stations": [
+    {
+      "distance_km": 5.3,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    },
+    {
+      "distance_km": 7.5,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    },
+    {
+      "distance_km": 10.6,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    },
+    {
+      "distance_km": 12.7,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    },
+    {
+      "distance_km": 15.5,
+      "offerings_ja": "水・補食",
+      "offerings_en": "Water, Food",
+      "is_featured": true
+    },
+    {
+      "distance_km": 17.4,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    },
+    {
+      "distance_km": 19.1,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    },
+    {
+      "distance_km": 23,
+      "offerings_ja": "水・補食",
+      "offerings_en": "Water, Food",
+      "is_featured": true
+    },
+    {
+      "distance_km": 26.1,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    },
+    {
+      "distance_km": 27.8,
+      "offerings_ja": "水・補食",
+      "offerings_en": "Water, Food",
+      "is_featured": true
+    },
+    {
+      "distance_km": 29.8,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    },
+    {
+      "distance_km": 32.8,
+      "offerings_ja": "水・補食",
+      "offerings_en": "Water, Food",
+      "is_featured": true
+    },
+    {
+      "distance_km": 36.1,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    },
+    {
+      "distance_km": 37.3,
+      "offerings_ja": "水・補食",
+      "offerings_en": "Water, Food",
+      "is_featured": true
+    },
+    {
+      "distance_km": 38.6,
+      "offerings_ja": "水・補食",
+      "offerings_en": "Water, Food",
+      "is_featured": true
+    },
+    {
+      "distance_km": 40.7,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    }
+  ],
+  "checkpoints": [
+    {
+      "distance_km": 5.3,
+      "closing_time": "10:01"
+    },
+    {
+      "distance_km": 8,
+      "closing_time": "10:24"
+    },
+    {
+      "distance_km": 13.6,
+      "closing_time": "11:14"
+    },
+    {
+      "distance_km": 18.6,
+      "closing_time": "11:59"
+    },
+    {
+      "distance_km": 23,
+      "closing_time": "12:39"
+    },
+    {
+      "distance_km": 26.1,
+      "closing_time": "13:06"
+    },
+    {
+      "distance_km": 29.4,
+      "closing_time": "13:36"
+    },
+    {
+      "distance_km": 31.3,
+      "closing_time": "13:53"
+    },
+    {
+      "distance_km": 36.1,
+      "closing_time": "14:36"
+    },
+    {
+      "distance_km": 40,
+      "closing_time": "15:11"
+    }
+  ],
   "access_points": [],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-09-04T14:20:10.215Z",
+  "updated_at": "2026-09-18T14:29:08.399Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -80,9 +218,10 @@
       "2026-08-24: 自動クロールで更新",
       "2026-08-25: 定員が6,950人になっていたが公式サイト確認でマラソン10,000人と判明し修正",
       "2026-08-31: 自動クロールで更新",
-      "2026-09-04: 自動クロールで更新"
+      "2026-09-04: 自動クロールで更新",
+      "2026-09-18: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-04",
+    "last_verified": "2026-09-18",
     "detail_level": "medium"
   },
   "entry_periods": [

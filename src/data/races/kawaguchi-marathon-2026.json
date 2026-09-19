@@ -79,7 +79,19 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "西川口駅",
+      "station_name_en": "Nishi-Kawaguchi Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩12分",
+      "transport_to_venue_en": "12 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 12,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [
@@ -94,7 +106,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T00:00:00Z",
-  "updated_at": "2026-09-03T14:52:08.292Z",
+  "updated_at": "2026-09-18T14:22:43.227Z",
   "_metadata": {
     "data_source": "公式サイト（kawaspo.jp）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -102,9 +114,10 @@
       "ハーフ・10km・3km以外に小学生・中学生の部（1,500円）、高校生の部（2,000円）、ファミリーの部（5,000円）も設定されているが、依頼範囲外のためJSON上は主要3種目のみ収録",
       "コース認証（JAAF/AIMS等）の記載は確認できず未入力",
       "ハーフマラソンの正式な制限時間の記載なし（18.6km地点を午前11時前後に通過という目安記載のみ）",
-      "アクセス（JR京浜東北線西川口駅から徒歩12分、会場に駐車場なし）は確認済みだが緯度経度が未確定のためaccess_pointsは未入力"
+      "アクセス（JR京浜東北線西川口駅から徒歩12分、会場に駐車場なし）は確認済みだが緯度経度が未確定のためaccess_pointsは未入力",
+      "2026-09-18: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-09-18",
     "detail_level": "light"
   },
   "entry_periods": [

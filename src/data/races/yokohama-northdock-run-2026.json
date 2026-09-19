@@ -69,7 +69,7 @@
       "distance_km": 21.1,
       "time_limit_minutes": 150,
       "start_time": "10:20",
-      "capacity": null,
+      "capacity": 3000,
       "entry_fee": 7000,
       "entry_fee_u25": null,
       "name_ja": "ハーフマラソン",
@@ -119,7 +119,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T23:51:21.157Z",
-  "updated_at": "2026-09-06T14:37:10.704Z",
+  "updated_at": "2026-09-18T14:38:36.828Z",
   "_metadata": {
     "data_source": "公式サイト（https://pia-running.jp/northdock/）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -129,9 +129,10 @@
       "給水はコース上1ヶ所・待機エリア1ヶ所の予定のみ判明。正確な距離地点は非公開のためaid_stationsは未入力",
       "コースマップ・GPXデータは公式サイトに未掲載",
       "車両送迎・車両でのアクセス不可（公共交通機関のみ）",
-      "2026-09-06: 自動クロールで更新"
+      "2026-09-06: 自動クロールで更新",
+      "2026-09-18: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-09-18",
     "detail_level": "medium"
   },
   "entry_periods": [

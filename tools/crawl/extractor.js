@@ -117,8 +117,8 @@ ${pages}
 - access_points の lat/lng は不明な場合 0 を使用（後でジオコーディングで補完）
 - access_points[].is_primary: 最もアクセスしやすい代表駅を true にする（複数の場合は1件のみ）
 - categories は既存の distance_type と一致する種目のみ、判明した start_time/capacity/entry_fee を返すこと。name_ja・eligibility_ja 等の他フィールドは返さない（既存値を保持するため）。既存に同じ distance_type が複数ある場合は出力しない（曖昧なため）。新しい種目の追加は不可
-- aid_stations[].distance_km は数値（km）。water/sports_drink/food は true/false（不明ならfalse）
-- checkpoints[].cutoff_time は HH:MM 形式（関門通過の制限時刻）
+- aid_stations[].distance_km は数値（km）。offerings_ja/offerings_en は提供物の説明文（例: "水・スポーツドリンク・バナナ"）。is_featured は特に充実したエイドなら true（不明ならfalse）
+- checkpoints[].closing_time は HH:MM 形式（関門通過の制限時刻）。name_ja 等の関門名は出力しない（スキーマに存在しないフィールドのため）
 
 【出力スキーマ例】
 {
@@ -145,8 +145,8 @@ ${pages}
   "reception_note_ja": "受付の詳細（日本語）",
   "reception_note_en": "Reception details (English)",
   "categories": [{"distance_type":"full","start_time":"08:45","capacity":10000,"entry_fee":15000}],
-  "aid_stations": [{"name_ja":"10km地点","distance_km":10,"water":true,"sports_drink":true,"food":false}],
-  "checkpoints": [{"name_ja":"20km関門","distance_km":20,"cutoff_time":"11:30"}]
+  "aid_stations": [{"distance_km":10,"offerings_ja":"水・スポーツドリンク","offerings_en":"Water, sports drink","is_featured":false}],
+  "checkpoints": [{"distance_km":20,"closing_time":"11:30"}]
 }`;
 }
 

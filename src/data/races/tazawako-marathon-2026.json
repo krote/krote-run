@@ -27,7 +27,9 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [],
+    "certification": [
+      "JAAF"
+    ],
     "highlights_ja": "日本一深い神秘の田沢湖を周回する、国内でも屈指の難コースとして知られる",
     "highlights_en": "Circles Lake Tazawa, Japan's deepest and most mysterious lake, known as one of the most challenging courses in Japan",
     "notes_ja": "",
@@ -75,12 +77,29 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "distance_km": 22,
+      "closing_time": "11:30"
+    },
+    {
+      "distance_km": 32,
+      "closing_time": "13:00"
+    },
+    {
+      "distance_km": 10,
+      "closing_time": "13:00"
+    },
+    {
+      "distance_km": 1.5,
+      "closing_time": "09:20"
+    }
+  ],
   "access_points": [],
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-03-29T11:30:29.091Z",
-  "updated_at": "2026-09-06T14:32:25.749Z",
+  "updated_at": "2026-09-18T14:36:26.558Z",
   "entry_periods": [
     {
       "label_ja": "フルマラソン",
@@ -170,12 +189,13 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-09-18",
     "data_accuracy_notes": [
       "2026-05-30: 自動クロールで更新",
       "2026-08-24: 自動クロールで更新",
       "2026-08-25: reception_typeがpre_dayに変更されていたが、LLM抽出が「大会前日エントリー（先着順の遅れての申込受付）」と「ビブス受付（reception）」を混同した誤りと判明。公式サイト確認でビブスは事前郵送と分かり pre_mail に戻した。なお参加記念品の引換は前日9/19 13:30-17:00・当日9/20 6:30-15:00の両方で可能（現スキーマでは未モデル化）。前日エントリー（先着順、各種目30人程度・現金払い）という別枠の情報は今後entry_periods等で扱うか要検討",
-      "2026-09-06: 自動クロールで更新"
+      "2026-09-06: 自動クロールで更新",
+      "2026-09-18: 自動クロールで更新"
     ]
   },
   "venue_name_ja": "田沢湖マラソン特設会場",

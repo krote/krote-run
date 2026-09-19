@@ -115,14 +115,14 @@
       "gift_categories": [
         "other"
       ],
-      "description_ja": "参加者全員に参加賞。各部門1〜6位に賞状、1〜3位に記念品。ラッキー賞も多数用意。",
-      "description_en": "Participation gift for all entrants. Certificates for 1st-6th place and commemorative items for 1st-3rd place in each category, plus various lucky draw prizes.",
+      "description_ja": "参加者全員に「群馬クレインサンダーズ」とコラボした参加賞サコッシュを配布。各部門1〜6位に賞状、1〜3位に記念品。ラッキー賞も多数用意。",
+      "description_en": "All participants receive a participation gift sacoche bag created in collaboration with the Gunma Crane Thunders. Certificates for 1st-6th place and commemorative items for 1st-3rd place in each category, plus various lucky draw prizes.",
       "image": null
     }
   ],
   "result": null,
   "created_at": "2026-08-31T00:00:00Z",
-  "updated_at": "2026-09-04T14:11:17.021Z",
+  "updated_at": "2026-09-18T14:19:18.384Z",
   "_metadata": {
     "data_source": "公式サイト（sports-isesaki.jp）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -131,9 +131,10 @@
       "JAAF公認はハーフマラソン・10kmコースのみ。5km・1.5kmは対象外",
       "ハーフマラソン等の個別制限時間の記載なし（午前11:30に交通規制解除・計測終了という全体記載のみ）",
       "アクセス（無料駐車場約1,600台、伊勢崎駅北口からの無料シャトルバス）は確認済みだが緯度経度が未確定のためaccess_pointsは未入力",
-      "2026-09-04: 自動クロールで更新"
+      "2026-09-04: 自動クロールで更新",
+      "2026-09-18: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-04",
+    "last_verified": "2026-09-18",
     "detail_level": "light"
   },
   "entry_periods": [

@@ -1,8 +1,9 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 // ─── モック定義（vi.hoisted でホイスト） ────────────────────────────────────
-const { mockBatch } = vi.hoisted(() => ({
-  mockBatch: vi.fn<[], Promise<unknown[][]>>(),
+const { mockBatch, orderBySpy } = vi.hoisted(() => ({
+  mockBatch: vi.fn<() => Promise<unknown[][]>>(),
+  orderBySpy: vi.fn(() => ({})),
 }));
 
 vi.mock('@opennextjs/cloudflare', () => ({
@@ -13,7 +14,7 @@ vi.mock('drizzle-orm/d1', () => ({
   drizzle: vi.fn(() => ({
     select: vi.fn(() => ({
       from: vi.fn(() => ({
-        orderBy: vi.fn(() => ({})),
+        orderBy: orderBySpy,
       })),
     })),
     batch: mockBatch,
@@ -44,6 +45,28 @@ const MOCK_CATEGORY_ROWS = [
 describe('GET /api/races/index', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+  });
+
+  it('race_categories の取得で ORDER BY を発行しない（ソート行も D1 の rows_read に計上されるため）', async () => {
+    mockBatch.mockResolvedValue([MOCK_RACE_ROWS, MOCK_CATEGORY_ROWS]);
+
+    await GET();
+
+    // ORDER BY はインデックスのある races.date の1本だけ
+    expect(orderBySpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('カテゴリは sort_order 昇順で並べ替えて返す', async () => {
+    const unsorted = [
+      { id: 'cat-b', race_id: 'tokyo-2026', name_ja: '10km', name_en: '10km', distance_km: 10, distance_type: '10k', sort_order: 2 },
+      { id: 'cat-a', race_id: 'tokyo-2026', name_ja: 'フル', name_en: 'Full', distance_km: 42.195, distance_type: 'full', sort_order: 1 },
+    ];
+    mockBatch.mockResolvedValue([[MOCK_RACE_ROWS[0]], unsorted]);
+
+    const res = await GET();
+    const body = (await res.json()) as { categories: { id: string }[] }[];
+
+    expect(body[0].categories.map((c) => c.id)).toEqual(['cat-a', 'cat-b']);
   });
 
   it('200 とレース一覧を返す', async () => {

@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import type { Race, Locale } from '@/lib/types';
 import RaceCard from '@/components/races/RaceCard';
 import { Link } from '@/i18n/navigation';
+import { linkPrefetch } from '@/lib/nav-prefetch';
 import { formatDate, getRaceName, getTodayJST } from '@/lib/utils';
 
 interface Props {
@@ -51,6 +52,7 @@ function OpenSection({ races, locale }: { races: Race[]; locale: Locale }) {
           </div>
           <Link
             href="/races"
+            prefetch={linkPrefetch('/races')}
             className="no-underline font-serif"
             style={{ fontSize: '0.82rem', color: 'var(--color-primary)', textDecoration: 'underline', textUnderlineOffset: 4 }}
           >
@@ -249,6 +251,7 @@ function SoonSection({ races, locale }: { races: Race[]; locale: Locale }) {
         <div className="text-right mt-4">
           <Link
             href="/races"
+            prefetch={linkPrefetch('/races')}
             className="no-underline font-serif"
             style={{ fontSize: '0.82rem', color: 'var(--color-primary)', textDecoration: 'underline', textUnderlineOffset: 4 }}
           >
@@ -361,6 +364,7 @@ function UpcomingSection({ races, locale }: { races: Race[]; locale: Locale }) {
           </div>
           <Link
             href="/races"
+            prefetch={linkPrefetch('/races')}
             className="no-underline font-serif"
             style={{ fontSize: '0.82rem', color: 'var(--color-primary)', textDecoration: 'underline', textUnderlineOffset: 4 }}
           >

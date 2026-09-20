@@ -1305,6 +1305,56 @@ Cloudflareから「D1 rows_read が1日上限5,000,000の90%に到達」の通�
 ### 検証
 - `pnpm vitest run` 全849件パス、`pnpm run lint` エラー0件（警告5件、いずれも既存）、`next build --webpack` 成功
 
+
+## 2026-09-20 重いページへのリンク先読みを停止（1ページビューあたりのレンダリング13回問題）
+
+D1の消費源を特定するため本番のアクセスログを実測したところ、当初疑っていたボット流入ではなく **Next.js `<Link>` の先読み（prefetch）による増幅**が主因と判明した。
+
+### 実測方法
+
+```bash
+npx wrangler pages deployment list --project-name krote-run
+npx wrangler pages deployment tail <本番デプロイID> --project-name krote-run --format json
+```
+
+26分間で162リクエストを採取し、`cf-connecting-ip` ごとに「実ページ / プリフェッチ / 静的アセット / API」に分類した（分類スクリプトは使い捨てのため未コミット）。
+
+| 送信元 | 件数 | 実ページ | プリフェッチ | 静的アセット |
+|---|---|---|---|---|
+| JP / AS2516 KDDI（Edge/Win） | 81 | 1 | 25 | 53 |
+| BE / AS5432 Proximus（Chrome/Android） | 57 | 1 | 13 | 42 |
+| US / AS714 Apple（Safari/Mac） | 14 | 1 | 0 | 13 |
+| bingbot / ClaudeBot / Baiduspider | 10 | 6 | 0 | 3 |
+
+- **ボットは全体の6%**（1日換算で約550件）。`robots.txt` の優先度は低い
+- 人間が実際に開いたページ3枚に対し、サーバーサイドレンダリングは41回（実ページ3 + プリフェッチ38）＝**1ページビューあたり約13回**
+- プリフェッチ先にヘッダー・フッターのナビリンク全12ページが含まれ、そのうち `/races` と `/calendar` は `getRaces()` で全レースを取得するため1ページビューあたり約3,400行を消費していた
+
+判別の決め手は3つ。`cf.asOrganization`（UAは詐称できるがネットワークの出自は出る）、`next-router-prefetch: 1` ヘッダ（これを分けないと「1人が81回アクセスしている」としか見えない）、IPごとの時間幅（32秒に81件なら人間の1ページ表示、274秒に3件ならクローラー巡回）。
+
+なお `wrangler pages deployment tail` は非対話環境ではデプロイIDの明示が必須で、出力はバッファされるため採取中は0件に見える点に注意。
+
+### 対応
+
+- **`src/lib/nav-prefetch.ts` を追加** — `linkPrefetch(href)` が `/races` `/calendar` に対してのみ `false` を返し、それ以外は `undefined`（Next.js の既定）を返す。対象パスを1か所にまとめ、理由をコメントで残した
+- **`src/components/layout/Header.tsx`** — デスクトップナビ・モバイルナビの `NAV_LINKS` に加え、言語切替リンク（`href={pathname}`）にも適用。現在地が重いページのとき、反対ロケール版を先読みするのを止める
+- **`src/components/layout/Footer.tsx`** — `/races` 4箇所（大会一覧・地域から・距離から・季節から）と `/calendar` 1箇所に適用
+
+軽いページ（`/news` `/guide` `/about` `/terms` `/privacy` `/contact` `/sitemap` `/mypage`）はD1をほとんど使わないため、体感速度を優先して先読みを維持した。
+
+### TDD
+
+- `src/lib/__tests__/nav-prefetch.test.ts`（5件）— 重いページは `false`、軽いページとレース詳細は `undefined`、対象は2パスのみ
+- `src/components/__tests__/Header.test.tsx` / `Footer.test.tsx` — `@/i18n/navigation` の Link モックを `data-prefetch` 属性を書き出す形に変更し、href 基準で「重いページは `false` / 軽いページは `auto`」を検証（Red→実装→Green）
+  - Red の段階で言語切替リンクの漏れを検出できた（`usePathname` のモックが `/races` を返すため）
+
+### 検証
+- `pnpm vitest run` 全871件パス、`pnpm run lint` エラー0件（警告5件、いずれも既存）、`next build --webpack` 成功
+
+### 補足: ブログ下書き
+
+一連の経緯を `docs/blog-d1-rows-read-1-cause.md`（前編・原因究明）と `docs/blog-d1-rows-read-2-cache.md`（後編・キャッシュ＋この先読みの発見）にまとめた。既存の `docs/blog-transit-api-japan-investigation.md` と同じく公開前の下書き。
+=======
 ## 2026-09-20 インクリメンタルキャッシュを有効化しD1アクセスを排除
 
 前項（rows_read削減）の残課題だった「キャッシュが完全に無効」への対応。`open-next.config.ts` が `incrementalCache: "dummy"` のため、全リクエストが毎回SSRしてD1に到達していた。

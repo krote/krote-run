@@ -31,6 +31,13 @@
 		{
 			"bucket_name": "krote-run-assets",
 			"binding": "krote_run_assets"
+		},
+		// OpenNext のインクリメンタルキャッシュ（unstable_cache の保存先）。
+		// バインディング名は @opennextjs/cloudflare 側の固定値なので変更しないこと。
+		// 公開アセット用バケットとは分離している。
+		{
+			"binding": "NEXT_INC_CACHE_R2_BUCKET",
+			"bucket_name": "krote-run-cache"
 		}
 	],
 	// stg環境（Pages Preview）: 本番と分離したD1/R2を使用
@@ -60,6 +67,10 @@
 				{
 					"binding": "krote_run_assets",
 					"bucket_name": "krote-run-assets-stg"
+				},
+				{
+					"binding": "NEXT_INC_CACHE_R2_BUCKET",
+					"bucket_name": "krote-run-cache-stg"
 				}
 			]
 		}

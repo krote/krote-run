@@ -1305,6 +1305,7 @@ Cloudflareから「D1 rows_read が1日上限5,000,000の90%に到達」の通�
 ### 検証
 - `pnpm vitest run` 全849件パス、`pnpm run lint` エラー0件（警告5件、いずれも既存）、`next build --webpack` 成功
 
+
 ## 2026-09-20 重いページへのリンク先読みを停止（1ページビューあたりのレンダリング13回問題）
 
 D1の消費源を特定するため本番のアクセスログを実測したところ、当初疑っていたボット流入ではなく **Next.js `<Link>` の先読み（prefetch）による増幅**が主因と判明した。
@@ -1353,3 +1354,63 @@ npx wrangler pages deployment tail <本番デプロイID> --project-name krote-r
 ### 補足: ブログ下書き
 
 一連の経緯を `docs/blog-d1-rows-read-1-cause.md`（前編・原因究明）と `docs/blog-d1-rows-read-2-cache.md`（後編・キャッシュ＋この先読みの発見）にまとめた。既存の `docs/blog-transit-api-japan-investigation.md` と同じく公開前の下書き。
+=======
+## 2026-09-20 インクリメンタルキャッシュを有効化しD1アクセスを排除
+
+前項（rows_read削減）の残課題だった「キャッシュが完全に無効」への対応。`open-next.config.ts` が `incrementalCache: "dummy"` のため、全リクエストが毎回SSRしてD1に到達していた。
+
+### 方針: ページ単位ISRではなくデータ単位キャッシュ
+
+事前調査の結果、ページ単位のISR（`export const revalidate`）は採用できないと判断した。
+
+- `revalidate` を付けるとNext.jsがビルド時プリレンダリングを試みるが、`getCloudflareContext()` はCloudflareバインディングが未初期化のビルド時には失敗する
+- `getCloudflareContext({ async: true })` はSSG中でもwrangler経由で解決できるが、参照先が**ローカルD1**になり本番と異なるデータがプリレンダリング結果に焼き込まれる
+- なお認証はISRの妨げにならない（`Header.tsx` はClient Componentで `useSession()` によるクライアント取得のため、HTMLは全ユーザー共通）
+
+代わりにページは動的のまま、`unstable_cache` でデータ取得だけをキャッシュする方式を採った。ビルド時にD1を触らないため上記の問題を回避しつつ、rows_read は狙い通り消える。Workersリクエスト数は削減されないが、1日約4,000件で無料枠10万件に対し余裕がある。
+
+### 変更内容
+
+- **`open-next.config.ts`** — `incrementalCache` を `withRegionalCache(r2IncrementalCache, { mode: "short-lived" })` に変更。`withRegionalCache` は各データセンターのCache APIを前段に挟むラッパーで、R2へのアクセス回数自体も抑える。`tagCache` / `queue` はISRを使わないため "dummy" のまま
+- **R2バケット** — `krote-run-cache`（本番）/ `krote-run-cache-stg`（stg）を新規作成。公開アセット用の `krote-run-assets` とは分離。`wrangler.jsonc` の本番・preview両方に `NEXT_INC_CACHE_R2_BUCKET` としてバインド（このバインディング名は `@opennextjs/cloudflare` 側の固定値）
+- **`src/lib/data.ts`** — 読み取り系を `cache(unstable_cache(...))` の二段構成に変更。React cache がリクエスト内重複を、unstable_cache がリクエスト間を担当。TTLは1時間
+  - `getTodayJST()` を使う4関数（`getUpcomingRaces` / `getOpenEntryRaces` / `getSoonOpeningEntryRaces` / `getOpenEntryCount`）は、JST日付を**キャッシュ対象関数の引数として渡す**。`unstable_cache` は引数をキャッシュキーに含めるため、日付が変われば自動的に別エントリになる。これをやらないと日付境界をまたいで古い「今日」で判定した結果が残り続ける
+  - `getRaceGearStats` は**キャッシュしない**（ユーザーが装備を公開した直後に反映されなくなるため）。`getAdminRaces` も同様
+- **`src/lib/utils/date.ts`** — `addDaysJST()` を追加。`getSoonOpeningEntryRaces` の「30日後」を現在時刻ではなく引数の日付から算出し、キャッシュキーと整合させるため
+
+デプロイすると `OPEN_NEXT_BUILD_ID` が変わりキャッシュキーごと入れ替わるため、レースデータ更新（クロール→JSONコミット→デプロイ）は即座に反映される。TTLが効くのはデプロイを伴わず `db:seed-races:remote` だけ実行した場合のみ。
+
+### stg環境での実測
+
+`pnpm run cf:deploy:stg` 相当でデプロイし、`wrangler d1 info krote-run-stg-db` の `rows_read_24h` の増分を計測。
+
+| 操作 | D1 rows_read 増分 | D1 クエリ増分 |
+|---|---|---|
+| ホームページ × 10回（1回目） | 1,251 | 17 |
+| ホームページ × 10回（2回目、数分後） | **0** | **0** |
+| レース詳細 3種 × 3回（計9回） | 552 | 89 |
+
+- ホーム10回で1回分のレンダリング相当（約1,250行 / 17クエリ）しか読んでいない
+- 数分あけた2回目の10回はD1アクセスが完全にゼロ
+- レース詳細は3種類とも初回のみ読み、2回目以降はゼロ（3種×約184行 = 552行）
+
+`withRegionalCache` の `short-lived` は取得後最大1分の再利用なので、数分あけても0だったことはR2側のストアから返っていることを示す。なお `wrangler r2 bucket info` の `object_count` はプローブ用オブジェクトを投入した直後でも0のままで、この指標は遅延反映のため書き込み確認には使えない。
+
+### TDD
+
+- `src/lib/__tests__/data.queries.test.ts` に `next/cache` の `unstable_cache` をメモ化スタブに差し替えるモックを追加し、リクエスト間キャッシュのテスト7件を追加（Red→実装→Green）
+  - 「2回目のリクエストでD1に到達しない」（`getRaces` / `getRaceById`）
+  - 「別IDならキャッシュを共有しない」
+  - 「同じJST日付のうちはキャッシュから返す」
+  - 「JST日付が変わると再取得する」（`getUpcomingRaces` / `getOpenEntryRaces` / `getSoonOpeningEntryRaces` / `getOpenEntryCount`）
+- `src/lib/__tests__/utils.date.test.ts` に `addDaysJST` のテスト5件を追加（月またぎ・うるう年・現在時刻非依存）
+
+### 残課題
+
+- `race_entry_periods(start_date, end_date)` の複合インデックス追加でEXISTSクエリをさらに削減可能。スキーマ変更のため別対応
+- `robots.txt` が未設置。ボット由来のレンダリング自体を抑える余地あり（Workersリクエスト数の削減にもなる）
+- キャッシュヒット率をさらに上げるなら `withRegionalCache` を `long-lived` に変更する選択肢がある。R2アクセスは減るがリージョン間で最大30分の不整合が出るため、現状は `short-lived` で様子を見る
+
+### 検証
+- `pnpm vitest run` 全862件パス、`pnpm run lint` エラー0件（警告5件、いずれも既存）、`node scripts/cf-build.js`（OpenNextビルド）成功
+- ビルド成果物 `.open-next/server-functions/default/handler.mjs` に `cf-r2-incremental-cache` / `NEXT_INC_CACHE_R2_BUCKET` / `RegionalCache` が含まれることを確認

@@ -1251,3 +1251,56 @@ LLM更新で`checkpoints`（関門）・`aid_stations`（エイドステーシ�
 - `node scripts/validate-races.js`: エラー0件（警告8件、いずれも既存パターン`reception_type`関連）
 - `node scripts/generate-seed-races.js`で`seed-races-all.sql`再生成 → `pnpm run db:seed-races:local`成功
 - `pnpm run test:tools` 全273件パス、`pnpm vitest run` 全828件パス、`pnpm run lint`エラー0件（警告5件、いずれも既存）
+
+## 2026-09-20 D1のrows_read削減（1日の無料枠90%到達への対応）
+
+Cloudflareから「D1 rows_read が1日上限5,000,000の90%に到達」の通知。`wrangler d1 info` で実測すると本番DB（913 kB・133レース）で **rows_read_24h = 4,438,892 / read_queries_24h = 38,919**。アクセス量ではなく「1リクエストあたりの読み取り行数」が原因だった。
+
+### 原因
+`wrangler d1 insights krote-run-db --timePeriod=1d` の上位5クエリで約342万行を占有していた。
+
+| クエリ | 実行回数/日 | 合計行数 | 1回あたり |
+|---|---|---|---|
+| `race_categories` 全件 + ORDER BY | 3,018 | 1,547,752 | 512 |
+| `race_entry_periods` 全件 + ORDER BY | 1,727 | 863,104 | 499 |
+| `participation_gifts` 全件 | 3,238 | 423,626 | 130 |
+| `races` EXISTS(30日以内にエントリー開始) | 704 | 340,712 | 483 |
+| `races` EXISTS(エントリー受付中) | 561 | 245,787 | 438 |
+
+1. **子テーブルの全件スキャン** — `getUpcomingRaces` / `getOpenEntryRaces` / `getSoonOpeningEntryRaces` / `getSeriesRaces` は表示するのが6〜8件なのに、子テーブルをWHERE句なしで全件取得してJS側で`filter()`していた。
+2. **ORDER BY による二重カウント** — `race_categories`は257行なのに1回あたり512行読まれていた。`sort_order`にインデックスが無く、D1はソート処理で走査した行も rows_read に計上するため実行数が2倍になる（実測: `SELECT * FROM race_categories ORDER BY sort_order` = 514行、`ORDER BY`なし = 257行）。
+3. **generateMetadata とページ本体の二重取得** — レース詳細で `getRaceById()` が1表示あたり2回（18クエリ×2）走っていた。
+
+### 対応（`src/lib/data.ts`）
+- 一覧系4関数を「レース本体をSQLで`LIMIT`まで絞る → そのIDだけ`inArray`で子テーブルを引く」の2段構えに変更。`loadListRelatedRows()` / `assembleListRaces()` に共通化
+- 全件取得する子テーブルクエリから`ORDER BY sort_order`を撤去し、`groupByRaceIdSorted()`でJS側整列に変更（`filter()`のO(n²)もMapのO(n)に改善）
+- `getOpenEntryRaces` / `getSoonOpeningEntryRaces` / `getOpenEntryCount` に `date >= today` を追加（開催後にエントリー受付中はありえないため。本番DBで該当0件を確認済みで挙動不変、`races_date_idx`で走査開始位置が絞れる）
+- `getSeriesRaces` は除外対象レースをSQL側（`ne`）で落とし、その子行を読まないよう変更
+- `getRaces` / `getRaceById` / `getRaceIndexEntries` / `getPrefectures` / `getGiftCategories` / `getSeriesById` / `getSeriesRaces` / 一覧系3関数を React `cache()` でラップし、同一リクエスト内の重複呼び出しを解消
+- サイトマップ用に `getRaceIndexEntries()`（`id`/`name_ja`/`name_en`/`date`のみ）を追加。`src/app/sitemap.ts` と `src/app/[locale]/sitemap/page.tsx` を `getRaces()` から切り替え
+- `src/app/api/races/index/route.ts` の`race_categories`全件+ORDER BYも撤去しJS側整列に変更
+
+### 効果（本番DBに対する実測値）
+
+| 対象 | 変更前 | 変更後 |
+|---|---|---|
+| ホームページ1表示 | 約5,257行 | 約1,247行（-76%） |
+| `race_categories` 全件 | 514行 | 257行 |
+| `race_entry_periods` 全件 | 500行 | 250行 |
+| `race_categories`（8レース分） | 514行 | 36行 |
+| エントリー受付中クエリ | 431行 | 196行 |
+| サイトマップ（races部分） | getRaces 約1,700行 | 133行 |
+| レース詳細1表示 | `getRaceById`×2 | ×1 |
+
+### TDD
+- `src/lib/__tests__/fake-d1.ts` を追加。better-sqlite3 を D1Database インターフェースでラップし、drizzleスキーマからCREATE TABLEを生成して実SQLを実行しつつ発行クエリを記録するテスト用スタブ
+- `src/lib/__tests__/data.queries.test.ts` を追加（19件）。「子テーブルを全件スキャンしない」「ORDER BYを発行しない」「LIMITを付ける」「sort_order昇順で組み立てる」「`getRaceById`の重複呼び出しが束ねられる」を記録済みSQLに対して検証（Red→実装→Green）
+- `src/app/__tests__/sitemap.test.ts` を `getRaceIndexEntries` 前提に更新、`src/app/api/races/index/__tests__/route.test.ts` にORDER BY抑止とJS側整列のテストを追加
+
+### 残課題（別PR）
+- **ISRキャッシュ無効** — `open-next.config.ts` が `incrementalCache: "dummy"` のため全リクエストが毎回SSRしD1に到達する。R2 incremental cache への切り替えが次の大きな削減（別PRで対応）
+- `race_entry_periods(start_date, end_date)` の複合インデックス追加でEXISTSクエリ（196行・343行）をさらに削減可能。スキーマ変更のため別対応
+- `robots.txt` が未設置。ボット由来のレンダリングを抑える余地あり
+
+### 検証
+- `pnpm vitest run` 全849件パス、`pnpm run lint` エラー0件（警告5件、いずれも既存）、`next build --webpack` 成功

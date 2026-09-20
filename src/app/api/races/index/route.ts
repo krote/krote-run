@@ -18,6 +18,7 @@ export async function GET() {
       full_name_ja: schema.races.full_name_ja,
       date: schema.races.date,
     }).from(schema.races).orderBy(asc(schema.races.date)),
+    // ORDER BY のソートで走査した行も D1 の rows_read に計上されるため、並べ替えはJS側で行う
     db.select({
       id: schema.race_categories.id,
       race_id: schema.race_categories.race_id,
@@ -25,7 +26,8 @@ export async function GET() {
       name_en: schema.race_categories.name_en,
       distance_km: schema.race_categories.distance_km,
       distance_type: schema.race_categories.distance_type,
-    }).from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
+      sort_order: schema.race_categories.sort_order,
+    }).from(schema.race_categories),
   ]);
 
   const catsByRace = new Map<string, typeof categoryRows>();
@@ -33,6 +35,7 @@ export async function GET() {
     if (!catsByRace.has(cat.race_id)) catsByRace.set(cat.race_id, []);
     catsByRace.get(cat.race_id)!.push(cat);
   }
+  for (const cats of catsByRace.values()) cats.sort((a, b) => a.sort_order - b.sort_order);
 
   const races = raceRows.map((r) => ({
     ...r,

@@ -1,58 +1,23 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import type { Race } from '@/lib/types';
 
 // ─── モック定義 ────────────────────────────────────────────────────────────
-const { mockGetRaces } = vi.hoisted(() => ({
-  mockGetRaces: vi.fn<[], Promise<Race[]>>(),
+type RaceIndexEntry = { id: string; name_ja: string; name_en: string; date: string };
+
+const { mockGetRaceIndexEntries } = vi.hoisted(() => ({
+  mockGetRaceIndexEntries: vi.fn<() => Promise<RaceIndexEntry[]>>(),
 }));
 
+// sitemap は id/date しか使わないため、子テーブルを引かない軽量クエリを使う
 vi.mock('@/lib/data', () => ({
-  getRaces: mockGetRaces,
+  getRaceIndexEntries: mockGetRaceIndexEntries,
 }));
 
 // ─── テスト対象インポート ─────────────────────────────────────────────────
 import sitemap from '../sitemap';
 
 // ─── テストデータ ──────────────────────────────────────────────────────────
-function makeRace(id: string, date: string): Race {
-  return {
-    id,
-    name_ja: `${id} ja`,
-    name_en: `${id} en`,
-    full_name_ja: null,
-    full_name_en: null,
-    date,
-    prefecture: 'tokyo',
-    city_ja: '東京都',
-    city_en: 'Tokyo',
-    description_ja: '',
-    description_en: '',
-    website_url: null,
-    image_url: null,
-    venue_ja: null,
-    venue_en: null,
-    categories: [],
-    participation_gifts: [],
-    completion_gifts: [],
-    tags: [],
-    entry_periods: [],
-    entry_start_date: null,
-    entry_end_date: null,
-    entry_closed: false,
-    course_info: null,
-    series_id: null,
-    entry_links: [],
-    access_points: [],
-    nearby_spots: [],
-    weather_info: [],
-    results: [],
-    gallery: [],
-    voices: [],
-    time_buckets: [],
-    course_highlights: [],
-    reception_sessions: [],
-    travel_times: [],
-  } as unknown as Race;
+function makeRace(id: string, date: string): RaceIndexEntry {
+  return { id, name_ja: `${id} ja`, name_en: `${id} en`, date };
 }
 
 const MOCK_RACES = [
@@ -70,7 +35,7 @@ describe('sitemap()', () => {
   });
 
   it('静的ページ × ロケール数のエントリを含む', async () => {
-    mockGetRaces.mockResolvedValue([]);
+    mockGetRaceIndexEntries.mockResolvedValue([]);
 
     const entries = await sitemap();
 
@@ -78,7 +43,7 @@ describe('sitemap()', () => {
   });
 
   it('レース × ロケール数のエントリを追加する', async () => {
-    mockGetRaces.mockResolvedValue(MOCK_RACES);
+    mockGetRaceIndexEntries.mockResolvedValue(MOCK_RACES);
 
     const entries = await sitemap();
 
@@ -86,7 +51,7 @@ describe('sitemap()', () => {
   });
 
   it('URLは BASE_URL/locale/... の形式', async () => {
-    mockGetRaces.mockResolvedValue([]);
+    mockGetRaceIndexEntries.mockResolvedValue([]);
 
     const entries = await sitemap();
     const urls = entries.map((e) => e.url);
@@ -98,7 +63,7 @@ describe('sitemap()', () => {
   });
 
   it('レースエントリのURLは /locale/races/:id 形式', async () => {
-    mockGetRaces.mockResolvedValue(MOCK_RACES);
+    mockGetRaceIndexEntries.mockResolvedValue(MOCK_RACES);
 
     const entries = await sitemap();
     const urls = entries.map((e) => e.url);
@@ -110,7 +75,7 @@ describe('sitemap()', () => {
   });
 
   it('各エントリに alternates.languages が含まれる', async () => {
-    mockGetRaces.mockResolvedValue([]);
+    mockGetRaceIndexEntries.mockResolvedValue([]);
 
     const entries = await sitemap();
     const home = entries.find((e) => e.url === 'https://hashiru.run/ja');
@@ -122,7 +87,7 @@ describe('sitemap()', () => {
   });
 
   it('レースエントリの lastModified は race.date から生成される', async () => {
-    mockGetRaces.mockResolvedValue([makeRace('test-race', '2026-03-01')]);
+    mockGetRaceIndexEntries.mockResolvedValue([makeRace('test-race', '2026-03-01')]);
 
     const entries = await sitemap();
     const raceEntry = entries.find((e) => e.url === 'https://hashiru.run/ja/races/test-race');
@@ -132,7 +97,7 @@ describe('sitemap()', () => {
   });
 
   it('トップページの priority は 1.0', async () => {
-    mockGetRaces.mockResolvedValue([]);
+    mockGetRaceIndexEntries.mockResolvedValue([]);
 
     const entries = await sitemap();
     const home = entries.find((e) => e.url === 'https://hashiru.run/ja');

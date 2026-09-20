@@ -1,6 +1,7 @@
-import { eq, and, gte, asc, sql, inArray } from "drizzle-orm";
+import { cache } from "react";
+import { eq, and, ne, gte, asc, sql, inArray } from "drizzle-orm";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
-import { getDatabase } from "./db/client";
+import { getDatabase, type DB } from "./db/client";
 import * as schema from "./db/schema";
 import type { Race, Prefecture, GiftCategory, GiftCategoryId, RaceSeries } from "./types";
 import { assembleRace, toSeriesId } from "./data-mappers";
@@ -20,35 +21,121 @@ function getGearStatsMinUsers(): number {
 }
 
 // ==================
-// Race data
+// rows_read 削減のための共通処理
 // ==================
+//
+// D1 の rows_read は「走査した行数」であり、ORDER BY のソート処理で読んだ行も加算される
+// （sort_order にインデックスが無いため、全件 + ソートで実テーブル行数の2倍が計上される）。
+// そのため一覧系クエリでは
+//   1. 子テーブルは表示対象のレースIDだけに絞る（inArray）
+//   2. ORDER BY はSQLで発行せず、JS側で整列する
+// の2点を徹底する。
 
-export async function getRaces(): Promise<Race[]> {
-  const db = getDatabase();
+/** race_id ごとに行をグループ化する */
+function groupByRaceId<T extends { race_id: string }>(rows: T[]): Map<string, T[]> {
+  const map = new Map<string, T[]>();
+  for (const row of rows) {
+    const bucket = map.get(row.race_id);
+    if (bucket) bucket.push(row);
+    else map.set(row.race_id, [row]);
+  }
+  return map;
+}
 
-  const [raceRows, categoryRows, giftRows, entryPeriodRows, completionGiftRows, receptionSessionRows, travelTimeRows] = await db.batch([
-    db.select().from(schema.races).orderBy(asc(schema.races.date)),
-    db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
-    db.select().from(schema.participation_gifts).orderBy(asc(schema.participation_gifts.sort_order)),
-    db.select().from(schema.race_entry_periods).orderBy(asc(schema.race_entry_periods.sort_order)),
-    db.select().from(schema.completion_gifts).orderBy(asc(schema.completion_gifts.sort_order)),
-    db.select().from(schema.reception_sessions).orderBy(asc(schema.reception_sessions.sort_order)),
-    db.select().from(schema.race_travel_times),
+/** race_id ごとにグループ化し、各グループを sort_order 昇順に整列する（安定ソートのため同順位は取得順を保つ） */
+function groupByRaceIdSorted<T extends { race_id: string; sort_order: number }>(rows: T[]): Map<string, T[]> {
+  const map = groupByRaceId(rows);
+  for (const bucket of map.values()) bucket.sort((a, b) => a.sort_order - b.sort_order);
+  return map;
+}
+
+type ListRelatedRows = {
+  categories:     Map<string, (typeof schema.race_categories.$inferSelect)[]>;
+  gifts:          Map<string, (typeof schema.participation_gifts.$inferSelect)[]>;
+  entryPeriods:   Map<string, (typeof schema.race_entry_periods.$inferSelect)[]>;
+  completionGifts:Map<string, (typeof schema.completion_gifts.$inferSelect)[]>;
+};
+
+const EMPTY_LIST_RELATED: ListRelatedRows = {
+  categories: new Map(), gifts: new Map(), entryPeriods: new Map(), completionGifts: new Map(),
+};
+
+/** 一覧表示に必要な子テーブルを、対象レースのIDだけに絞って取得する */
+async function loadListRelatedRows(db: DB, raceIds: string[]): Promise<ListRelatedRows> {
+  if (raceIds.length === 0) return EMPTY_LIST_RELATED;
+
+  const [categoryRows, giftRows, entryPeriodRows, completionGiftRows] = await db.batch([
+    db.select().from(schema.race_categories).where(inArray(schema.race_categories.race_id, raceIds)),
+    db.select().from(schema.participation_gifts).where(inArray(schema.participation_gifts.race_id, raceIds)),
+    db.select().from(schema.race_entry_periods).where(inArray(schema.race_entry_periods.race_id, raceIds)),
+    db.select().from(schema.completion_gifts).where(inArray(schema.completion_gifts.race_id, raceIds)),
   ]);
 
+  return {
+    categories:      groupByRaceIdSorted(categoryRows),
+    gifts:           groupByRaceIdSorted(giftRows),
+    entryPeriods:    groupByRaceIdSorted(entryPeriodRows),
+    completionGifts: groupByRaceIdSorted(completionGiftRows),
+  };
+}
+
+function assembleListRaces(raceRows: (typeof schema.races.$inferSelect)[], related: ListRelatedRows): Race[] {
   return raceRows.map((row) =>
     assembleRace(row, {
-      categories:            categoryRows.filter((c) => c.race_id === row.id),
-      giftRows:              giftRows.filter((g) => g.race_id === row.id),
-      entryPeriodRows:       entryPeriodRows.filter((p) => p.race_id === row.id),
-      completionGiftRows:    completionGiftRows.filter((g) => g.race_id === row.id),
-      receptionSessionRows:  receptionSessionRows.filter((s) => s.race_id === row.id),
-      travelTimeRows:        travelTimeRows.filter((t) => t.race_id === row.id),
+      categories:         related.categories.get(row.id) ?? [],
+      giftRows:           related.gifts.get(row.id) ?? [],
+      entryPeriodRows:    related.entryPeriods.get(row.id) ?? [],
+      completionGiftRows: related.completionGifts.get(row.id) ?? [],
     }),
   );
 }
 
-export async function getRaceById(id: string): Promise<Race | null> {
+// ==================
+// Race data
+// ==================
+
+export const getRaces = cache(async (): Promise<Race[]> => {
+  const db = getDatabase();
+
+  const [raceRows, categoryRows, giftRows, entryPeriodRows, completionGiftRows, receptionSessionRows, travelTimeRows] = await db.batch([
+    db.select().from(schema.races).orderBy(asc(schema.races.date)),
+    db.select().from(schema.race_categories),
+    db.select().from(schema.participation_gifts),
+    db.select().from(schema.race_entry_periods),
+    db.select().from(schema.completion_gifts),
+    db.select().from(schema.reception_sessions),
+    db.select().from(schema.race_travel_times),
+  ]);
+
+  const categories     = groupByRaceIdSorted(categoryRows);
+  const gifts          = groupByRaceIdSorted(giftRows);
+  const entryPeriods   = groupByRaceIdSorted(entryPeriodRows);
+  const completionGift = groupByRaceIdSorted(completionGiftRows);
+  const receptions     = groupByRaceIdSorted(receptionSessionRows);
+  const travelTimes    = groupByRaceId(travelTimeRows);
+
+  return raceRows.map((row) =>
+    assembleRace(row, {
+      categories:            categories.get(row.id) ?? [],
+      giftRows:              gifts.get(row.id) ?? [],
+      entryPeriodRows:       entryPeriods.get(row.id) ?? [],
+      completionGiftRows:    completionGift.get(row.id) ?? [],
+      receptionSessionRows:  receptions.get(row.id) ?? [],
+      travelTimeRows:        travelTimes.get(row.id) ?? [],
+    }),
+  );
+});
+
+/** サイトマップ用: レース一覧に必要な最小限の列だけを返す（子テーブルは引かない） */
+export const getRaceIndexEntries = cache(async (): Promise<{ id: string; name_ja: string; name_en: string; date: string }[]> => {
+  const db = getDatabase();
+  return db
+    .select({ id: schema.races.id, name_ja: schema.races.name_ja, name_en: schema.races.name_en, date: schema.races.date })
+    .from(schema.races)
+    .orderBy(asc(schema.races.date));
+});
+
+export const getRaceById = cache(async (id: string): Promise<Race | null> => {
   const db = getDatabase();
 
   const [raceRows, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows, galleryRows, voiceRows, timeBucketRows, courseHighlightRows, completionGiftRows, receptionSessionRows, travelTimeRows] =
@@ -95,7 +182,7 @@ export async function getRaceById(id: string): Promise<Race | null> {
     receptionSessionRows: receptionSessionRows,
     travelTimeRows:       travelTimeRows,
   });
-}
+});
 
 /**
  * レースの「みんなの装備」走力帯別集計を取得する。
@@ -151,94 +238,73 @@ export async function getRacesByPrefecture(prefecture: string): Promise<Race[]> 
   return races.filter((r) => r.prefecture === prefecture);
 }
 
-export async function getUpcomingRaces(limit = 6): Promise<Race[]> {
+export const getUpcomingRaces = cache(async (limit = 6): Promise<Race[]> => {
   const db = getDatabase();
   const today = getTodayJST();
 
-  const [raceRows, categoryRows, giftRows, entryPeriodRows, completionGiftRows] = await db.batch([
-    db.select().from(schema.races).where(gte(schema.races.date, today)).orderBy(asc(schema.races.date)),
-    db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
-    db.select().from(schema.participation_gifts),
-    db.select().from(schema.race_entry_periods).orderBy(asc(schema.race_entry_periods.sort_order)),
-    db.select().from(schema.completion_gifts),
-  ]);
+  const raceRows = await db
+    .select().from(schema.races)
+    .where(gte(schema.races.date, today))
+    .orderBy(asc(schema.races.date))
+    .limit(limit);
 
-  const limited = raceRows.slice(0, limit);
+  return assembleListRaces(raceRows, await loadListRelatedRows(db, raceRows.map((r) => r.id)));
+});
 
-  return limited.map((row) =>
-    assembleRace(row, {
-      categories:         categoryRows.filter((c) => c.race_id === row.id),
-      giftRows:           giftRows.filter((g) => g.race_id === row.id),
-      entryPeriodRows:    entryPeriodRows.filter((p) => p.race_id === row.id),
-      completionGiftRows: completionGiftRows.filter((g) => g.race_id === row.id),
-    }),
-  );
-}
-
-export async function getOpenEntryRaces(limit = 8): Promise<Race[]> {
+export const getOpenEntryRaces = cache(async (limit = 8): Promise<Race[]> => {
   const db = getDatabase();
   const today = getTodayJST();
 
-  const [raceRows, categoryRows, giftRows, entryPeriodRows, completionGiftRows] = await db.batch([
-    db.select().from(schema.races).where(
-      sql`EXISTS (
-        SELECT 1 FROM race_entry_periods rep
-        WHERE rep.race_id = ${schema.races.id}
-          AND rep.start_date <= ${today}
-          AND rep.end_date >= ${today}
-      )`
-    ).orderBy(asc(schema.races.date)),
-    db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
-    db.select().from(schema.participation_gifts),
-    db.select().from(schema.race_entry_periods).orderBy(asc(schema.race_entry_periods.sort_order)),
-    db.select().from(schema.completion_gifts),
-  ]);
+  // date の索引で走査開始位置を絞るため、開催済みのレースは先に除外する（開催後にエントリー受付中はありえない）
+  const raceRows = await db
+    .select().from(schema.races)
+    .where(
+      and(
+        gte(schema.races.date, today),
+        sql`EXISTS (
+          SELECT 1 FROM race_entry_periods rep
+          WHERE rep.race_id = ${schema.races.id}
+            AND rep.start_date <= ${today}
+            AND rep.end_date >= ${today}
+        )`,
+      )
+    )
+    .orderBy(asc(schema.races.date))
+    .limit(limit);
 
-  return raceRows.slice(0, limit).map((row) =>
-    assembleRace(row, {
-      categories:         categoryRows.filter((c) => c.race_id === row.id),
-      giftRows:           giftRows.filter((g) => g.race_id === row.id),
-      entryPeriodRows:    entryPeriodRows.filter((p) => p.race_id === row.id),
-      completionGiftRows: completionGiftRows.filter((g) => g.race_id === row.id),
-    }),
-  );
-}
+  return assembleListRaces(raceRows, await loadListRelatedRows(db, raceRows.map((r) => r.id)));
+});
 
-export async function getSoonOpeningEntryRaces(limit = 6): Promise<Race[]> {
+export const getSoonOpeningEntryRaces = cache(async (limit = 6): Promise<Race[]> => {
   const db = getDatabase();
   const today = getTodayJST();
   const in30days = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString('sv-SE', { timeZone: 'Asia/Tokyo' });
 
-  const [raceRows, categoryRows, giftRows, entryPeriodRows, completionGiftRows] = await db.batch([
-    db.select().from(schema.races).where(
-      sql`EXISTS (
-        SELECT 1 FROM race_entry_periods rep
-        WHERE rep.race_id = ${schema.races.id}
-          AND rep.start_date >= ${today}
-          AND rep.start_date <= ${in30days}
-      )`
-    ).orderBy(asc(schema.races.date)),
-    db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
-    db.select().from(schema.participation_gifts),
-    db.select().from(schema.race_entry_periods).orderBy(asc(schema.race_entry_periods.sort_order)),
-    db.select().from(schema.completion_gifts),
-  ]);
+  // 同上。エントリー開始がこれからのレースは必ず未来開催
+  const raceRows = await db
+    .select().from(schema.races)
+    .where(
+      and(
+        gte(schema.races.date, today),
+        sql`EXISTS (
+          SELECT 1 FROM race_entry_periods rep
+          WHERE rep.race_id = ${schema.races.id}
+            AND rep.start_date >= ${today}
+            AND rep.start_date <= ${in30days}
+        )`,
+      )
+    )
+    .orderBy(asc(schema.races.date))
+    .limit(limit);
 
-  return raceRows.slice(0, limit).map((row) =>
-    assembleRace(row, {
-      categories:         categoryRows.filter((c) => c.race_id === row.id),
-      giftRows:           giftRows.filter((g) => g.race_id === row.id),
-      entryPeriodRows:    entryPeriodRows.filter((p) => p.race_id === row.id),
-      completionGiftRows: completionGiftRows.filter((g) => g.race_id === row.id),
-    }),
-  );
-}
+  return assembleListRaces(raceRows, await loadListRelatedRows(db, raceRows.map((r) => r.id)));
+});
 
 // ==================
 // Prefecture data
 // ==================
 
-export async function getPrefectures(): Promise<Prefecture[]> {
+export const getPrefectures = cache(async (): Promise<Prefecture[]> => {
   const db = getDatabase();
   const rows = await db.select().from(schema.prefectures).all();
   return rows.map((r) => ({
@@ -250,7 +316,7 @@ export async function getPrefectures(): Promise<Prefecture[]> {
     lat: r.lat,
     lng: r.lng,
   }));
-}
+});
 
 export async function getPrefectureByCode(code: string): Promise<Prefecture | null> {
   const db = getDatabase();
@@ -272,7 +338,7 @@ export async function getPrefectureByCode(code: string): Promise<Prefecture | nu
 // Gift category data
 // ==================
 
-export async function getGiftCategories(): Promise<GiftCategory[]> {
+export const getGiftCategories = cache(async (): Promise<GiftCategory[]> => {
   const db = getDatabase();
   const rows = await db.select().from(schema.gift_categories).all();
   return rows.map((r) => ({
@@ -281,7 +347,7 @@ export async function getGiftCategories(): Promise<GiftCategory[]> {
     name_en: r.name_en,
     icon: r.icon,
   }));
-}
+});
 
 // ==================
 // Race series
@@ -289,7 +355,7 @@ export async function getGiftCategories(): Promise<GiftCategory[]> {
 
 export { toSeriesId };
 
-export async function getSeriesById(seriesId: string): Promise<RaceSeries | null> {
+export const getSeriesById = cache(async (seriesId: string): Promise<RaceSeries | null> => {
   const db = getDatabase();
   const rows = await db.select().from(schema.race_series).where(eq(schema.race_series.id, seriesId));
   const r = rows[0];
@@ -301,33 +367,42 @@ export async function getSeriesById(seriesId: string): Promise<RaceSeries | null
     first_held_year: r.first_held_year ?? null,
     website_url: r.website_url ?? null,
   };
-}
+});
 
-/** 同シリーズの全大会を日付降順で取得（自分自身を除く） */
-export async function getSeriesRaces(seriesId: string, excludeRaceId: string): Promise<Race[]> {
+/** 同シリーズの全大会を日付順で取得（自分自身を除く） */
+export const getSeriesRaces = cache(async (seriesId: string, excludeRaceId: string): Promise<Race[]> => {
   const db = getDatabase();
 
-  const [raceRows, categoryRows, giftRows, resultRows, completionGiftRows] = await db.batch([
-    db.select().from(schema.races)
-      .where(eq(schema.races.series_id, seriesId))
-      .orderBy(asc(schema.races.date)),
-    db.select().from(schema.race_categories).orderBy(asc(schema.race_categories.sort_order)),
-    db.select().from(schema.participation_gifts),
-    db.select().from(schema.race_results),
-    db.select().from(schema.completion_gifts),
+  // 除外対象はSQL側で落とし、その子行を読まないようにする
+  const raceRows = await db
+    .select().from(schema.races)
+    .where(and(eq(schema.races.series_id, seriesId), ne(schema.races.id, excludeRaceId)))
+    .orderBy(asc(schema.races.date));
+
+  const raceIds = raceRows.map((r) => r.id);
+  if (raceIds.length === 0) return [];
+
+  const [categoryRows, giftRows, resultRows, completionGiftRows] = await db.batch([
+    db.select().from(schema.race_categories).where(inArray(schema.race_categories.race_id, raceIds)),
+    db.select().from(schema.participation_gifts).where(inArray(schema.participation_gifts.race_id, raceIds)),
+    db.select().from(schema.race_results).where(inArray(schema.race_results.race_id, raceIds)),
+    db.select().from(schema.completion_gifts).where(inArray(schema.completion_gifts.race_id, raceIds)),
   ]);
 
-  return raceRows
-    .filter((row) => row.id !== excludeRaceId)
-    .map((row) =>
-      assembleRace(row, {
-        categories:         categoryRows.filter((c) => c.race_id === row.id),
-        giftRows:           giftRows.filter((g) => g.race_id === row.id),
-        resultRows:         resultRows.filter((r) => r.race_id === row.id),
-        completionGiftRows: completionGiftRows.filter((g) => g.race_id === row.id),
-      }),
-    );
-}
+  const categories     = groupByRaceIdSorted(categoryRows);
+  const gifts          = groupByRaceIdSorted(giftRows);
+  const results        = groupByRaceId(resultRows);
+  const completionGift = groupByRaceIdSorted(completionGiftRows);
+
+  return raceRows.map((row) =>
+    assembleRace(row, {
+      categories:         categories.get(row.id) ?? [],
+      giftRows:           gifts.get(row.id) ?? [],
+      resultRows:         results.get(row.id) ?? [],
+      completionGiftRows: completionGift.get(row.id) ?? [],
+    }),
+  );
+});
 
 export async function getAllSeries(): Promise<RaceSeries[]> {
   const db = getDatabase();
@@ -377,12 +452,15 @@ export async function getOpenEntryCount(): Promise<number> {
   const db = getDatabase();
   const today = getTodayJST();
   const rows = await db.select({ count: sql<number>`count(*)` }).from(schema.races).where(
-    sql`EXISTS (
-      SELECT 1 FROM race_entry_periods rep
-      WHERE rep.race_id = ${schema.races.id}
-        AND rep.start_date <= ${today}
-        AND rep.end_date >= ${today}
-    )`
+    and(
+      gte(schema.races.date, today),
+      sql`EXISTS (
+        SELECT 1 FROM race_entry_periods rep
+        WHERE rep.race_id = ${schema.races.id}
+          AND rep.start_date <= ${today}
+          AND rep.end_date >= ${today}
+      )`,
+    )
   );
   return rows[0]?.count ?? 0;
 }

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getRaces } from '@/lib/data';
+import { getRaceIndexEntries } from '@/lib/data';
 
 export const dynamic = 'force-dynamic';
 
@@ -20,7 +20,8 @@ const STATIC_PAGES = [
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const races = await getRaces();
+  // id と date しか使わないため、子テーブルを引かない軽量クエリを使う（D1 rows_read 削減）
+  const races = await getRaceIndexEntries();
 
   const staticEntries: MetadataRoute.Sitemap = STATIC_PAGES.flatMap(({ path, priority, changeFrequency }) =>
     LOCALES.map(locale => ({

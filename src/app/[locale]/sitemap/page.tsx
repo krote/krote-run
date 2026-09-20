@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { getRaces } from '@/lib/data';
+import { getRaceIndexEntries } from '@/lib/data';
 export async function generateMetadata({
   params,
 }: {
@@ -34,7 +34,8 @@ export default async function SitemapPage({
   const isJa = locale !== 'en';
   const t = await getTranslations({ locale, namespace: 'sitemap' });
 
-  const races = await getRaces();
+  // 大会名・日付しか使わないため、子テーブルを引かない軽量クエリを使う（D1 rows_read 削減）
+  const races = await getRaceIndexEntries();
 
   const mainPages = [
     { href: '/',         label: isJa ? 'ホーム' : 'Home' },

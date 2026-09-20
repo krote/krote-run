@@ -26,38 +26,52 @@ function pageViews() {
 }
 
 describe('PageViewTracker', () => {
-  it('初回表示でページビューを1件送る', () => {
+  it('着地ページでは送らない（gtag の config が送るため二重計上になる）', () => {
     render(<PageViewTracker />);
 
-    expect(pageViews()).toHaveLength(1);
+    expect(pageViews()).toHaveLength(0);
   });
 
-  it('現在のURLとタイトルを添えて送る', () => {
-    document.title = 'テストページ | HASHIRU';
-
-    render(<PageViewTracker />);
-
-    expect(pageViews()[0][2]).toMatchObject({
-      page_location: window.location.href,
-      page_title: 'テストページ | HASHIRU',
-    });
-  });
-
-  it('クライアントサイド遷移のたびに送る（App Router では自動送信されないため）', () => {
+  it('クライアントサイド遷移で送る（App Router では config が再実行されないため）', () => {
     const { rerender } = render(<PageViewTracker />);
-    expect(pageViews()).toHaveLength(1);
 
     mockPathname.mockReturnValue('/ja/news');
     window.history.replaceState({}, '', '/ja/news');
     rerender(<PageViewTracker />);
 
-    expect(pageViews()).toHaveLength(2);
-    expect(pageViews()[1][2]).toMatchObject({ page_location: expect.stringContaining('/ja/news') });
+    expect(pageViews()).toHaveLength(1);
+  });
+
+  it('遷移先のURLとタイトルを添えて送る', () => {
+    const { rerender } = render(<PageViewTracker />);
+
+    mockPathname.mockReturnValue('/ja/news');
+    window.history.replaceState({}, '', '/ja/news');
+    document.title = 'お知らせ | HASHIRU';
+    rerender(<PageViewTracker />);
+
+    expect(pageViews()[0][2]).toMatchObject({
+      page_location: expect.stringContaining('/ja/news'),
+      page_title: 'お知らせ | HASHIRU',
+    });
+  });
+
+  it('遷移するたびに送る', () => {
+    const { rerender } = render(<PageViewTracker />);
+
+    for (const p of ['/ja/news', '/ja/guide', '/ja/about']) {
+      mockPathname.mockReturnValue(p);
+      rerender(<PageViewTracker />);
+    }
+
+    expect(pageViews()).toHaveLength(3);
   });
 
   it('同じパスでの再レンダリングでは重複送信しない', () => {
     const { rerender } = render(<PageViewTracker />);
 
+    mockPathname.mockReturnValue('/ja/news');
+    rerender(<PageViewTracker />);
     rerender(<PageViewTracker />);
     rerender(<PageViewTracker />);
 

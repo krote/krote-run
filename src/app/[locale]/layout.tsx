@@ -9,7 +9,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CookieConsentBanner from '@/components/analytics/CookieConsentBanner';
 import PageViewTracker from '@/components/analytics/PageViewTracker';
-import { CONSENT_INIT_SCRIPT, GA_MEASUREMENT_ID, getCloudflareBeaconToken } from '@/lib/analytics';
+import { GA_INIT_SCRIPT, GA_MEASUREMENT_ID, getCloudflareBeaconToken } from '@/lib/analytics';
 import '../globals.css';
 
 const inter = Inter({ variable: '--font-inter', subsets: ['latin'], display: 'swap' });
@@ -48,16 +48,10 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)] font-sans antialiased">
-        <Script id="consent-init" strategy="beforeInteractive">{CONSENT_INIT_SCRIPT}</Script>
         <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
-        {/* page_view は PageViewTracker から送る。App Router のクライアント遷移では
-            config が再実行されず、自動送信だと着地した1ページしか計測されないため。 */}
-        <Script id="ga4-init" strategy="afterInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false });
-        `}</Script>
+        {/* 同意の既定値・config をまとめて設定する。着地ページの page_view は config が送り、
+            以降のクライアントサイド遷移は PageViewTracker が送る（config は再実行されないため）。 */}
+        <Script id="ga-init" strategy="afterInteractive">{GA_INIT_SCRIPT}</Script>
         {/* Cloudflare Web Analytics: Cookieを使わないため同意バナーの制約を受けず、
             全訪問者の素のアクセス数を把握できる。トークン未設定の環境では出力しない。 */}
         {beaconToken && (

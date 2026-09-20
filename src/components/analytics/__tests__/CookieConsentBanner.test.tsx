@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
+import { hydrateRoot } from 'react-dom/client';
 
 // next-intl モック
 vi.mock('next-intl', () => ({
@@ -102,6 +103,31 @@ describe('CookieConsentBanner', () => {
     render(<CookieConsentBanner />);
 
     expect(mockGtag).not.toHaveBeenCalled();
+  });
+
+  it('サーバーが何も描画しない状態からハイドレーションしても不一致にならない', async () => {
+    // サーバーでは localStorage を読めないためバナーは描画されない。
+    // クライアントの初期描画でも同じでないとハイドレーションが失敗する
+    // （React error #418 が全ページで出ていた原因）。
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+    const recoverable: unknown[] = [];
+    let root: ReturnType<typeof hydrateRoot> | undefined;
+
+    await act(async () => {
+      root = hydrateRoot(container, <CookieConsentBanner />, {
+        onRecoverableError: (error) => recoverable.push(error),
+      });
+    });
+
+    try {
+      expect(recoverable, 'ハイドレーション不一致が発生している').toEqual([]);
+      // 効果の実行後にはバナーが出る
+      expect(container.textContent).toContain('同意する');
+    } finally {
+      await act(async () => root?.unmount());
+      container.remove();
+    }
   });
 
   it('Cookie設定についてのリンクが /cookie-policy を指す', () => {

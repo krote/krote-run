@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useSyncExternalStore } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 
@@ -10,14 +10,30 @@ declare global {
   }
 }
 
+/** useSyncExternalStore 用: 購読先が無いので解除関数だけ返す */
+const subscribeNothing = () => () => {};
+
+/** 同意/拒否の選択がすでに保存されているか。localStorage が使えない環境では出さない（true 扱い） */
+function hasDecidedConsent(): boolean {
+  try {
+    return localStorage.getItem('cookie-consent') !== null;
+  } catch {
+    return true;
+  }
+}
+
 export default function CookieConsentBanner() {
   const t = useTranslations('cookieConsent');
-  const [visible, setVisible] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    return !localStorage.getItem('cookie-consent');
-  });
+  // localStorage はサーバーでは読めない。useState の初期化関数で読むと
+  // サーバー（非表示）とクライアント（表示）で初期描画が食い違い、全ページで
+  // ハイドレーションが失敗していた（React error #418）。
+  // useSyncExternalStore はサーバー用スナップショットを別に渡せるため、
+  // 不一致を起こさずにハイドレーション後の値へ切り替えられる。
+  const decided = useSyncExternalStore(subscribeNothing, hasDecidedConsent, () => true);
+  const [dismissed, setDismissed] = useState(false);
+  const visible = !decided && !dismissed;
 
-  // 再訪問時の同意状態の復元は src/lib/analytics.ts の CONSENT_INIT_SCRIPT が担う。
+  // 再訪問時の同意状態の復元は src/lib/analytics.ts の GA_INIT_SCRIPT が担う。
   // useEffect で復元すると gtag.js の初回 page_view に間に合わず、同意済みの再訪問者でも
   // 最初の1本だけ denied（gcs=G100）で送信されてしまうため、ここでは行わない。
 
@@ -29,12 +45,12 @@ export default function CookieConsentBanner() {
       ad_user_data: 'denied',
       ad_personalization: 'denied',
     });
-    setVisible(false);
+    setDismissed(true);
   };
 
   const decline = () => {
     localStorage.setItem('cookie-consent', 'declined');
-    setVisible(false);
+    setDismissed(true);
   };
 
   if (!visible) return null;

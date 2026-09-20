@@ -1479,7 +1479,7 @@ npx wrangler pages deployment tail <本番デプロイID> --project-name krote-r
 
 - **`src/components/analytics/PageViewTracker.tsx` を追加** — `usePathname()`（next/navigation。ロケールを含む実URLが要るので next-intl 版ではない）の変化を見て `page_view` を送るClient Component。`gtag('config', ..., { send_page_view: false })` と組み合わせ、初回もSPA遷移もここから送る
 - **`src/lib/analytics.ts` を追加** — GA4測定ID、同意初期化スクリプト、Cloudflare ビーコントークンの解決をまとめた
-- **同意状態の復元を初期化スクリプトに移動** — `localStorage` を `beforeInteractive` の同期スクリプト内で読み、`consent default` の時点で granted/denied を決める。同意済みの再訪問者は**最初の page_view から granted** になる。`CookieConsentBanner` の復元用 `useEffect` は不要になったので削除
+- **同意状態の復元を GA 初期化スクリプトに移動** — `localStorage` をスクリプト先頭で読み、`consent default` の時点で granted/denied を決める。同意済みの再訪問者は**最初の page_view から granted** になる。`CookieConsentBanner` の復元用 `useEffect` は不要になったので削除
 - **Cloudflare Web Analytics のビーコンを追加** — Cookieを使わず個人を識別しないため同意バナーの制約を受けず、全訪問者の素のアクセス数を把握できる。GA4（同意した人のイベント分析）との二本立て
 
 ### Cloudflare Web Analytics の有効化手順（未完了）
@@ -1492,16 +1492,45 @@ npx wrangler pages deployment tail <本番デプロイID> --project-name krote-r
 
 ### TDD
 
-- `src/lib/__tests__/analytics.test.ts`（10件）— 同意初期化スクリプトを `window.eval` で実際に評価し、未同意/同意済み/拒否済みで `analytics_storage` が正しく決まること、localStorage が使えない環境でも例外を投げないこと、`gtag` がグローバルに定義されることを検証。ビーコントークンの解決（バインディング優先・未設定はnull・空文字はnull扱い）も
+- `src/lib/__tests__/analytics.test.ts`（11件）— GA初期化スクリプトを `window.eval` で実際に評価し、未同意/同意済み/拒否済みで `analytics_storage` が正しく決まること、`consent default → js → config` の順に積まれること（順序が逆だと同意前に計測される）、localStorage が使えない環境でも例外を投げないこと、`gtag` がグローバルに定義されることを検証。ビーコントークンの解決も
   - 当初 `new Function` で評価していたが、それだと `function gtag(){}` がグローバルにならず本番と挙動が違うため `window.eval` に変更した
-- `src/components/analytics/__tests__/PageViewTracker.test.tsx`（6件）— 初回送信、URL・タイトルの付与、パス変化での再送信、同一パスでの重複送信なし、`gtag` 未定義でも落ちない、DOMに何も描画しない
-- `CookieConsentBanner.test.tsx` に「同意済みの再訪問では consent update を呼ばない」を追加（Red→削除→Green）
+- `src/components/analytics/__tests__/PageViewTracker.test.tsx`（6件）— 着地ページでは送らない、遷移で送る、URL・タイトルの付与、連続遷移、同一パスでの重複送信なし、`gtag` 未定義でも落ちない
+- `CookieConsentBanner.test.tsx`（12件）— 「同意済みの再訪問では consent update を呼ばない」と、**`hydrateRoot` で実際にハイドレーションして `onRecoverableError` が呼ばれないこと**を追加（Red→修正→Green）
 
 ### 検証
-- `pnpm vitest run` 全889件パス、`pnpm run lint` エラー0件（警告5件、いずれも既存）、`next build --webpack` 成功
+- `pnpm vitest run` 全892件パス、`pnpm run lint` エラー0件（警告5件、いずれも既存）、`next build --webpack` 成功
+- `next dev`（middleware一時退避）でエラーオーバーレイが出ないことを確認
+
+### あわせて修正: 全ページで出ていたハイドレーションエラー（React error #418）
+
+同じレイアウトを触るため同時に対応した。`next dev` は既知の middleware 問題（`ReferenceError: self is not defined`）で全ルート500になるので、`src/middleware.ts` を一時退避して開発サーバーを起動し、Next.js のエラーオーバーレイから発生源を特定した。原因は2つ。
+
+**1. `<Script strategy="beforeInteractive">` にインラインの children を渡していた**
+
+```
+src/app/[locale]/layout.tsx (50:9) @ LocaleLayout
+> 50 |  <Script id="consent-init" strategy="beforeInteractive">{`
+```
+
+`beforeInteractive` はSSRのHTMLに `<script>` を出力するが、React 19 はコンポーネントが描画する `<script>` を許容しない（`Encountered a script tag while rendering React component`）。`<head>` に素の `<script dangerouslySetInnerHTML>` として置き直しても、外部ファイル化して `beforeInteractive` + `src` にしても解消しなかった。
+
+最終的に **`beforeInteractive` の使用自体をやめ、`afterInteractive` のインラインスクリプト1本に集約**した。`afterInteractive` はクライアント側で注入されるためSSRのHTMLに現れず、この問題が起きない。同意の既定値・`js`・`config` を1つのスクリプトで順に積むので、順序も保証される。
+
+副作用として gtag.js の読み込みがハイドレーション後になるため、**着地ページの page_view は `config` に送らせ、`PageViewTracker` は2ページ目以降だけを送る**設計にした（初回も送ると二重計上になる）。
+
+**2. `CookieConsentBanner` が `useState` の初期化関数で `localStorage` を読んでいた**
+
+```
+src/components/analytics/CookieConsentBanner.tsx (43:5) @ CookieConsentBanner
+Client: <div className="fixed bottom-0 ..."> / Server: (なし)
+```
+
+サーバーは非表示、クライアントは表示で初期描画が食い違っていた。`useEffect` で `setState` する形に直すと今度は ESLint の「Calling setState synchronously within an effect can trigger cascading renders」に引っかかったため、この用途に適した **`useSyncExternalStore`**（サーバー用スナップショットを別に渡せる）に置き換えた。
+
+修正後、`next dev` のエラーオーバーレイが消えることを確認済み。
 
 ### 残課題
 
-- **ハイドレーションエラーが全ページで3件出ている**（React error #418）。`/ja/terms` のようなほぼ静的なページでも同数出るため共通レイアウト側が原因。Cookie同意済みでも消えるため同意バナーは無関係。別途調査する
 - 同意を「拒否」した場合に `consent update` で明示的に denied を送っていない（初期値のままなので動作は同じだが意図が読みにくい）
 - サーバー側での実ページビュー計測（プリフェッチを除外した分類）は未着手
+- 初回訪問でその場で同意した人の1ページ目は依然 denied で記録される（同意を押す前に `page_view` が飛ぶため）。再送すると二重計上になるのであえて送っていない

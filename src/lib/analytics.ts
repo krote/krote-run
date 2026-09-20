@@ -4,17 +4,23 @@ import { getCloudflareContext } from "@opennextjs/cloudflare";
 export const GA_MEASUREMENT_ID = "G-9975BX8LXR";
 
 /**
- * 同意モードの初期化スクリプト。gtag.js より先に同期実行する必要があるため、
- * `<Script strategy="beforeInteractive">` に文字列としてそのまま埋め込む。
+ * GA4 の初期化スクリプト。`<Script strategy="afterInteractive">` にインラインで埋め込む。
  *
- * 再訪問時に localStorage を**この時点で**読むのがポイント。
- * 以前は React の useEffect で `consent update` していたため、
- * 同意済みの再訪問者でも初回の page_view だけが denied 状態（gcs=G100）で
- * 送信されていた。同期的に既定値を決めることで最初の1本から granted になる。
+ * beforeInteractive を使っていない理由: beforeInteractive はSSRのHTMLに <script> を
+ * 出力するが、React 19 はコンポーネントが描画する <script> を許容しないため
+ * （Encountered a script tag while rendering React component）、全ページで
+ * ハイドレーションが失敗していた。afterInteractive はクライアント側で注入されるため
+ * SSRのHTMLに現れず、この問題が起きない。
  *
+ * 同意の既定値をこのスクリプトの先頭で localStorage から読むのがポイント。
+ * 以前は React の useEffect で consent update していたため間に合わず、同意済みの
+ * 再訪問者でも1本目の page_view だけ denied（gcs=G100）で送信されていた。
+ *
+ * 着地ページの page_view は config が送る。以降のクライアントサイド遷移は
+ * PageViewTracker が送る（App Router では config が再実行されないため）。
  * 広告関連は常に denied（このサイトでは広告計測をしない）。
  */
-export const CONSENT_INIT_SCRIPT = `
+export const GA_INIT_SCRIPT = `
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 var granted = false;
@@ -25,6 +31,8 @@ gtag('consent', 'default', {
   ad_user_data: 'denied',
   ad_personalization: 'denied',
 });
+gtag('js', new Date());
+gtag('config', '${GA_MEASUREMENT_ID}');
 `.trim();
 
 /**

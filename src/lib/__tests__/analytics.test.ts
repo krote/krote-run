@@ -7,7 +7,7 @@ vi.mock('@opennextjs/cloudflare', () => ({
   getCloudflareContext: () => ({ env: mockEnv }),
 }));
 
-import { CONSENT_INIT_SCRIPT, GA_MEASUREMENT_ID, getCloudflareBeaconToken } from '../analytics';
+import { GA_INIT_SCRIPT, GA_MEASUREMENT_ID, getCloudflareBeaconToken } from '../analytics';
 
 declare global {
   interface Window {
@@ -23,7 +23,7 @@ declare global {
 function runConsentScript(): unknown[][] {
   delete window.dataLayer;
   delete (window as unknown as { gtag?: unknown }).gtag;
-  window.eval(CONSENT_INIT_SCRIPT);
+  window.eval(GA_INIT_SCRIPT);
   return (window.dataLayer ?? []).map((a) => Array.from(a as ArrayLike<unknown>));
 }
 
@@ -32,7 +32,7 @@ beforeEach(() => {
   for (const key of Object.keys(mockEnv)) delete mockEnv[key];
 });
 
-describe('CONSENT_INIT_SCRIPT', () => {
+describe('GA_INIT_SCRIPT', () => {
   it('未同意なら analytics_storage を denied で初期化する', () => {
     const calls = runConsentScript();
 
@@ -86,9 +86,16 @@ describe('CONSENT_INIT_SCRIPT', () => {
     expect(typeof (window as unknown as { gtag?: unknown }).gtag).toBe('function');
   });
 
-  it('SPA遷移を自前で送るため、自動の page_view は送らせない', () => {
-    expect(CONSENT_INIT_SCRIPT).not.toContain('send_page_view');
-    expect(GA_MEASUREMENT_ID).toMatch(/^G-/);
+  it('consent default → config の順に積む（順序が逆だと同意前に計測されてしまう）', () => {
+    const calls = runConsentScript();
+    const kinds = calls.map((c) => `${c[0]}:${c[1]}`);
+
+    expect(kinds).toEqual(['consent:default', 'js:' + kinds[1].split(':').slice(1).join(':'), `config:${GA_MEASUREMENT_ID}`]);
+  });
+
+  it('着地ページの page_view は config に任せる（自前送信すると二重計上になる）', () => {
+    expect(GA_INIT_SCRIPT).not.toContain('send_page_view');
+    expect(GA_INIT_SCRIPT).not.toContain("'page_view'");
   });
 });
 

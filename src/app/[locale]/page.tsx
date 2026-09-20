@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { getUpcomingRaces, getOpenEntryRaces, getSoonOpeningEntryRaces, getTotalRaceCount, getOpenEntryCount } from '@/lib/data';
 import HomeSections from '@/components/home/HomeSections';
 import { Link } from '@/i18n/navigation';
+import { linkPrefetch } from '@/lib/nav-prefetch';
 import type { Locale } from '@/lib/types';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -90,6 +91,7 @@ function HeroSection({ raceCount, openEntryCount }: { raceCount: number; openEnt
           <div className="flex gap-3 flex-wrap">
             <Link
               href="/races"
+              prefetch={linkPrefetch('/races')}
               className="no-underline inline-block px-5 py-3 text-sm font-semibold rounded-[2px] transition-colors"
               style={{ background: 'var(--color-ink)', color: '#fff', letterSpacing: '0.06em' }}
             >

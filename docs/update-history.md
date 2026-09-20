@@ -1414,3 +1414,32 @@ npx wrangler pages deployment tail <本番デプロイID> --project-name krote-r
 ### 検証
 - `pnpm vitest run` 全862件パス、`pnpm run lint` エラー0件（警告5件、いずれも既存）、`node scripts/cf-build.js`（OpenNextビルド）成功
 - ビルド成果物 `.open-next/server-functions/default/handler.mjs` に `cf-r2-incremental-cache` / `NEXT_INC_CACHE_R2_BUCKET` / `RegionalCache` が含まれることを確認
+
+## 2026-09-20 先読み停止の漏れを修正（ヘッダー・フッター以外のリンク12箇所）
+
+本番デプロイ後にブラウザの実リクエストを確認したところ、`/ja/calendar` の先読みは止まっていたが **`/ja/races` は依然として先読みされていた**。前回の修正でヘッダー・フッターしか見ておらず、トップページの「大会一覧へ」など他の箇所が漏れていた。
+
+### 漏れていた箇所（12リンク）
+
+| ファイル | 対象 |
+|---|---|
+| `src/app/[locale]/page.tsx` | `/races`（ヒーローのCTA） |
+| `src/components/home/HomeRaceSection.tsx` | `/races`（セクションの「すべて見る」） |
+| `src/components/home/HomeSections.tsx` | `/races` × 3 |
+| `src/app/[locale]/about/page.tsx` | `/races` |
+| `src/app/[locale]/guide/page.tsx` | `/races` × 2 |
+| `src/app/[locale]/visitor/page.tsx` | `/races` × 2、`/calendar` × 2 |
+
+### 再発防止
+
+`src/lib/__tests__/nav-prefetch.test.ts` に**ソース走査によるリポジトリ全体の不変条件テスト**を追加した。`src/` 配下の `.tsx` から `<Link>` の開始タグを抽出し、`href="/races"` / `href="/calendar"` を持つものに `prefetch` 指定が無ければ失敗する。
+
+- アロー関数の `=>` が属性の走査を壊すため、`=>` を退避してから `<Link ...>` を切り出している
+- 走査対象が0件でも素通りしないよう、ファイル数自体も検証している（実装中に `\b` がバックスペース文字になり検出漏れが起きたため）
+
+### 検証
+- `pnpm vitest run` 全872件パス、`pnpm run lint` エラー0件（警告5件、いずれも既存）、`next build --webpack` 成功
+
+### 残課題: トップページのレースカードの先読み
+
+ブラウザで確認したところ、トップページは**表示中のレースカード全件の詳細ページを先読み**している（1カードあたり2リクエスト、計30件程度）。これはナビゲーションリンクとは別系統で、レースカードのクリックが主要導線であるため先読みの価値も高い。インクリメンタルキャッシュが入った今はD1への影響が限定的なため、今回は手を入れていない。Workersリクエスト数を詰める段で再検討する。

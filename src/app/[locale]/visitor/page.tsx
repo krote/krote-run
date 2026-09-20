@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Link } from '@/i18n/navigation';
+import { linkPrefetch } from '@/lib/nav-prefetch';
 
 export async function generateMetadata({
   params,
@@ -213,6 +214,7 @@ function EnPage() {
         <section className="pt-2 flex flex-wrap gap-4">
           <Link
             href="/races"
+            prefetch={linkPrefetch('/races')}
             className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white no-underline transition-opacity hover:opacity-85"
             style={{ background: 'var(--color-ink)', borderRadius: 2 }}
           >
@@ -220,6 +222,7 @@ function EnPage() {
           </Link>
           <Link
             href="/calendar"
+            prefetch={linkPrefetch('/calendar')}
             className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold border no-underline transition-opacity hover:opacity-85"
             style={{ borderColor: 'var(--color-border)', color: 'var(--color-ink)', borderRadius: 2 }}
           >
@@ -364,6 +367,7 @@ function JaPage() {
         <section className="pt-2 flex flex-wrap gap-4">
           <Link
             href="/races"
+            prefetch={linkPrefetch('/races')}
             className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white no-underline transition-opacity hover:opacity-85"
             style={{ background: 'var(--color-ink)', borderRadius: 2 }}
           >
@@ -371,6 +375,7 @@ function JaPage() {
           </Link>
           <Link
             href="/calendar"
+            prefetch={linkPrefetch('/calendar')}
             className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold border no-underline transition-opacity hover:opacity-85"
             style={{ borderColor: 'var(--color-border)', color: 'var(--color-ink)', borderRadius: 2 }}
           >

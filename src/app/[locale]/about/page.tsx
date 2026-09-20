@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Link } from '@/i18n/navigation';
+import { linkPrefetch } from '@/lib/nav-prefetch';
 
 export async function generateMetadata({
   params,
@@ -114,6 +115,7 @@ export default async function AboutPage({
           </Link>
           <Link
             href="/races"
+            prefetch={linkPrefetch('/races')}
             className="font-semibold hover:underline"
             style={{ color: 'var(--color-primary)' }}
           >

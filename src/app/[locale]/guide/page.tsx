@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Link } from '@/i18n/navigation';
+import { linkPrefetch } from '@/lib/nav-prefetch';
 
 export async function generateMetadata({
   params,
@@ -183,6 +184,7 @@ export default async function GuidePage({
           <section className="pt-2 flex flex-wrap gap-4">
             <Link
               href="/races"
+              prefetch={linkPrefetch('/races')}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white transition-opacity hover:opacity-85"
               style={{ background: 'var(--color-ink)' }}
             >
@@ -333,6 +335,7 @@ export default async function GuidePage({
         <section className="pt-2 flex flex-wrap gap-4">
           <Link
             href="/races"
+            prefetch={linkPrefetch('/races')}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white transition-opacity hover:opacity-85"
             style={{ background: 'var(--color-ink)' }}
           >

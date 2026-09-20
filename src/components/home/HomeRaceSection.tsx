@@ -6,6 +6,7 @@ import type { Race, Locale } from '@/lib/types';
 import RaceCard from '@/components/races/RaceCard';
 import RaceCardExp from '@/components/races/RaceCardExp';
 import { Link } from '@/i18n/navigation';
+import { linkPrefetch } from '@/lib/nav-prefetch';
 
 interface Props {
   races: Race[];
@@ -54,6 +55,7 @@ export default function HomeRaceSection({ races, locale }: Props) {
           </div>
           <Link
             href="/races"
+            prefetch={linkPrefetch('/races')}
             className="text-[0.73rem] font-semibold text-[var(--color-primary)] no-underline tracking-[0.07em] uppercase hover:underline"
           >
             {t('viewAll')}

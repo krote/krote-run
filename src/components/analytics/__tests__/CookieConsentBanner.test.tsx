@@ -96,6 +96,14 @@ describe('CookieConsentBanner', () => {
     expect(screen.queryByText('拒否する')).toBeNull();
   });
 
+  it('同意済みの再訪問では consent update を呼ばない（初期化スクリプトが同期的に granted にするため）', () => {
+    localStorage.setItem('cookie-consent', 'accepted');
+
+    render(<CookieConsentBanner />);
+
+    expect(mockGtag).not.toHaveBeenCalled();
+  });
+
   it('Cookie設定についてのリンクが /cookie-policy を指す', () => {
     render(<CookieConsentBanner />);
     const link = screen.getByText('Cookie設定について');

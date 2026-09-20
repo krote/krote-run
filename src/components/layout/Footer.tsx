@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { linkPrefetch } from '@/lib/nav-prefetch';
 
 export default function Footer() {
   const t = useTranslations('home.footer');
@@ -26,11 +27,11 @@ export default function Footer() {
                 {t('findRace')}
               </h4>
               <ul className="space-y-[9px]">
-                <li><Link href="/races" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{tNav('races')}</Link></li>
-                <li><Link href="/calendar" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{tNav('calendar')}</Link></li>
-                <li><Link href="/races" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('byRegion')}</Link></li>
-                <li><Link href="/races" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('byDistance')}</Link></li>
-                <li><Link href="/races" className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('bySeason')}</Link></li>
+                <li><Link href="/races" prefetch={linkPrefetch('/races')} className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{tNav('races')}</Link></li>
+                <li><Link href="/calendar" prefetch={linkPrefetch('/calendar')} className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{tNav('calendar')}</Link></li>
+                <li><Link href="/races" prefetch={linkPrefetch('/races')} className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('byRegion')}</Link></li>
+                <li><Link href="/races" prefetch={linkPrefetch('/races')} className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('byDistance')}</Link></li>
+                <li><Link href="/races" prefetch={linkPrefetch('/races')} className="text-[0.8rem] text-[#aaa] hover:text-white no-underline transition-colors">{t('bySeason')}</Link></li>
               </ul>
             </div>
             <div>

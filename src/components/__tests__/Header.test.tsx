@@ -26,9 +26,11 @@ vi.mock('next-intl', () => ({
 }));
 
 // @/i18n/navigation モック
+// prefetch は Next.js の Link のプロパティでDOMには現れないため、
+// テストから検証できるよう data-prefetch として書き出す
 vi.mock('@/i18n/navigation', () => ({
-  Link: ({ href, children, ...props }: { href: string; children: React.ReactNode; [key: string]: unknown }) => (
-    <a href={href} {...props}>{children}</a>
+  Link: ({ href, children, prefetch, ...props }: { href: string; children: React.ReactNode; prefetch?: boolean; [key: string]: unknown }) => (
+    <a href={href} data-prefetch={prefetch === false ? 'false' : 'auto'} {...props}>{children}</a>
   ),
   usePathname: () => '/races',
 }));
@@ -167,5 +169,41 @@ describe('Header - ログイン済み状態', () => {
     const img = document.querySelector('img');
     expect(img).toBeInTheDocument();
     expect(img?.src).toBe('https://example.com/avatar.jpg');
+  });
+});
+
+// ── リンクの先読み制御 ─────────────────────────────────────────────
+// Next.js の <Link> は既定で画面内のリンクを先読みする。ヘッダーは全ページに出るため、
+// 重いページへのリンクを放置すると1ページビューごとに余分なサーバーレンダリングが走る。
+describe('Header - リンクの先読み制御', () => {
+  beforeEach(() => {
+    mockUseSession.mockReturnValue({ data: null, isPending: false });
+  });
+
+  /** 指定した href を持つリンク要素をすべて取得する（リンク名はロケール表記が混ざるため href で引く） */
+  function linksTo(...hrefs: string[]) {
+    return screen.getAllByRole('link').filter((a) => hrefs.includes(a.getAttribute('href') ?? ''));
+  }
+
+  it('大会一覧とカレンダーは先読みしない（getRaces で全レースを読むため重い）', () => {
+    render(<Header />);
+
+    const heavy = linksTo('/races', '/calendar');
+
+    expect(heavy.length, '対象のリンクが見つからない').toBeGreaterThan(0);
+    for (const link of heavy) {
+      expect(link, `${link.getAttribute('href')} が先読みされたままになっている`).toHaveAttribute('data-prefetch', 'false');
+    }
+  });
+
+  it('軽いページの先読みは止めない', () => {
+    render(<Header />);
+
+    const light = linksTo('/news', '/mypage');
+
+    expect(light.length).toBeGreaterThan(0);
+    for (const link of light) {
+      expect(link).toHaveAttribute('data-prefetch', 'auto');
+    }
   });
 });

@@ -2,6 +2,7 @@
 
 import { useTranslations, useLocale } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
+import { linkPrefetch } from '@/lib/nav-prefetch';
 import { useState } from 'react';
 import { useSession, signIn, signOut } from '@/lib/auth-client';
 
@@ -159,6 +160,7 @@ export default function Header() {
               <Link
                 key={href}
                 href={href}
+                prefetch={linkPrefetch(href)}
                 className="flex flex-col items-center no-underline pb-[2px] transition-colors"
                 style={{
                   borderBottom: isActive ? '2px solid var(--color-primary)' : '2px solid transparent',
@@ -185,6 +187,7 @@ export default function Header() {
             <Link
               href={pathname}
               locale="ja"
+              prefetch={linkPrefetch(pathname)}
               className="no-underline transition-colors"
               style={{ color: locale === 'ja' ? 'var(--color-ink)' : 'var(--color-light)', fontWeight: locale === 'ja' ? 700 : 400 }}
             >
@@ -194,6 +197,7 @@ export default function Header() {
             <Link
               href={pathname}
               locale="en"
+              prefetch={linkPrefetch(pathname)}
               className="no-underline transition-colors"
               style={{ color: locale === 'en' ? 'var(--color-ink)' : 'var(--color-light)', fontWeight: locale === 'en' ? 700 : 400 }}
             >
@@ -226,6 +230,7 @@ export default function Header() {
             <Link
               key={href}
               href={href}
+              prefetch={linkPrefetch(href)}
               className="block py-2.5 text-sm font-medium no-underline"
               style={{ color: pathname === href ? 'var(--color-primary)' : 'var(--color-ink)' }}
               onClick={() => setMenuOpen(false)}
@@ -234,12 +239,12 @@ export default function Header() {
             </Link>
           ))}
           <div className="flex gap-3 pt-3 mt-2" style={{ borderTop: '1px solid var(--color-border-soft)' }}>
-            <Link href={pathname} locale="ja"
+            <Link href={pathname} locale="ja" prefetch={linkPrefetch(pathname)}
               className="no-underline"
               style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', letterSpacing: '0.2em', color: locale === 'ja' ? 'var(--color-ink)' : 'var(--color-light)', fontWeight: locale === 'ja' ? 700 : 400 }}
               onClick={() => setMenuOpen(false)}
             >JA</Link>
-            <Link href={pathname} locale="en"
+            <Link href={pathname} locale="en" prefetch={linkPrefetch(pathname)}
               className="no-underline"
               style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', letterSpacing: '0.2em', color: locale === 'en' ? 'var(--color-ink)' : 'var(--color-light)', fontWeight: locale === 'en' ? 700 : 400 }}
               onClick={() => setMenuOpen(false)}

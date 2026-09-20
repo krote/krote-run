@@ -51,6 +51,26 @@ vi.mock('react', async (importOriginal) => {
   };
 });
 
+// unstable_cache はリクエストをまたいで永続するデータキャッシュ。
+// テストでは実キーと同じ「keyParts + 引数」でメモ化するスタブに差し替える（TTLは検証対象外）。
+const { dataCache } = vi.hoisted(() => ({ dataCache: new Map<string, unknown>() }));
+
+vi.mock('next/cache', () => ({
+  unstable_cache: <A extends unknown[], R>(fn: (...args: A) => Promise<R>, keyParts: string[]) => {
+    return async (...args: A): Promise<R> => {
+      const key = JSON.stringify([keyParts, args]);
+      if (!dataCache.has(key)) dataCache.set(key, await fn(...args));
+      return dataCache.get(key) as R;
+    };
+  },
+}));
+
+/** 新しいリクエストが来た状態にする（リクエスト単位の React cache だけ破棄し、データキャッシュは残す） */
+function startNewRequest() {
+  for (const memo of memoCaches) memo.clear();
+  fake.reset();
+}
+
 /** 2026-10-01 12:00 JST に固定 */
 const NOW = new Date('2026-10-01T03:00:00Z');
 
@@ -158,6 +178,7 @@ beforeEach(() => {
   vi.setSystemTime(NOW);
   fake = createFakeD1();
   for (const memo of memoCaches) memo.clear();
+  dataCache.clear();
 });
 
 afterEach(() => {
@@ -350,5 +371,79 @@ describe('getRaceIndexEntries', () => {
     const entries = await getRaceIndexEntries();
 
     expect(entries.map((e) => e.date)).toEqual([...entries.map((e) => e.date)].sort());
+  });
+});
+
+// ── リクエストをまたぐデータキャッシュ（unstable_cache） ────────────
+
+describe('unstable_cache によるリクエスト間キャッシュ', () => {
+  it('getRaces は2回目のリクエストでD1に到達しない', async () => {
+    seedRaces(5);
+    await getRaces();
+
+    startNewRequest();
+    const races = await getRaces();
+
+    expect(races).toHaveLength(5);
+    expect(fake.queries, '2回目のリクエストでD1にクエリが飛んでいる').toHaveLength(0);
+  });
+
+  it('getRaceById は2回目のリクエストでD1に到達しない', async () => {
+    seedRaces(3);
+    await getRaceById('race-01');
+
+    startNewRequest();
+    const race = await getRaceById('race-01');
+
+    expect(race?.id).toBe('race-01');
+    expect(fake.queries).toHaveLength(0);
+  });
+
+  it('getRaceById は別IDならキャッシュを共有しない', async () => {
+    seedRaces(3);
+    await getRaceById('race-01');
+
+    startNewRequest();
+    const race = await getRaceById('race-02');
+
+    expect(race?.id).toBe('race-02');
+    expect(fake.queries.length).toBeGreaterThan(0);
+  });
+
+  it('同じJST日付のうちは getOpenEntryRaces もキャッシュから返す', async () => {
+    seedRaces(5);
+    await getOpenEntryRaces(8);
+
+    startNewRequest();
+    vi.setSystemTime(new Date('2026-10-01T14:00:00Z')); // 同日 23:00 JST
+    await getOpenEntryRaces(8);
+
+    expect(fake.queries).toHaveLength(0);
+  });
+
+  it.each([
+    ['getOpenEntryRaces', () => getOpenEntryRaces(8)],
+    ['getSoonOpeningEntryRaces', () => getSoonOpeningEntryRaces(6)],
+    ['getUpcomingRaces', () => getUpcomingRaces(6)],
+  ])('%s は JST日付が変わるとキャッシュを使い回さない', async (_name, call) => {
+    seedRaces(5);
+    await call();
+
+    startNewRequest();
+    vi.setSystemTime(new Date('2026-10-01T15:30:00Z')); // 翌日 00:30 JST
+    await call();
+
+    expect(fake.queries.length, '日付が変わったのに古いキャッシュを返している').toBeGreaterThan(0);
+  });
+
+  it('getOpenEntryCount も JST日付が変わると再取得する', async () => {
+    seedRaces(5);
+    expect(await getOpenEntryCount()).toBe(5);
+
+    startNewRequest();
+    vi.setSystemTime(new Date('2026-10-01T15:30:00Z')); // 翌日 00:30 JST
+    await getOpenEntryCount();
+
+    expect(fake.queries.length).toBeGreaterThan(0);
   });
 });

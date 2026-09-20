@@ -1,11 +1,12 @@
 import { cache } from "react";
+import { unstable_cache } from "next/cache";
 import { eq, and, ne, gte, asc, sql, inArray } from "drizzle-orm";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { getDatabase, type DB } from "./db/client";
 import * as schema from "./db/schema";
 import type { Race, Prefecture, GiftCategory, GiftCategoryId, RaceSeries } from "./types";
 import { assembleRace, toSeriesId } from "./data-mappers";
-import { getTodayJST } from "./utils/date";
+import { getTodayJST, addDaysJST } from "./utils/date";
 import { buildGearStats, deriveResultBucket, DEFAULT_MIN_USERS_PER_BUCKET, type GearStatsRow, type GearStatsBucketResult } from "./gear-stats";
 
 /**
@@ -19,6 +20,19 @@ function getGearStatsMinUsers(): number {
   const parsed = raw ? Number(raw) : NaN;
   return Number.isInteger(parsed) && parsed >= 0 ? parsed : DEFAULT_MIN_USERS_PER_BUCKET;
 }
+
+/**
+ * データキャッシュ（unstable_cache）の保持時間。
+ *
+ * レースデータの更新経路は「クロール → JSONコミット → デプロイ」であり、デプロイすると
+ * OPEN_NEXT_BUILD_ID が変わってキャッシュキーごと入れ替わるため全エントリが即座に無効化される。
+ * このTTLが実際に効くのは、デプロイを伴わずに db:seed-races:remote だけ実行した場合の反映遅延のみ。
+ *
+ * 各取得関数は cache(unstable_cache(...)) の二段構成:
+ *   - React cache      … 同一リクエスト内の重複呼び出しを束ねる
+ *   - unstable_cache   … リクエストをまたいで結果を保持し、D1へのアクセス自体を消す
+ */
+const CACHE_TTL_SECONDS = 60 * 60;
 
 // ==================
 // rows_read 削減のための共通処理
@@ -94,7 +108,7 @@ function assembleListRaces(raceRows: (typeof schema.races.$inferSelect)[], relat
 // Race data
 // ==================
 
-export const getRaces = cache(async (): Promise<Race[]> => {
+export const getRaces = cache(unstable_cache(async (): Promise<Race[]> => {
   const db = getDatabase();
 
   const [raceRows, categoryRows, giftRows, entryPeriodRows, completionGiftRows, receptionSessionRows, travelTimeRows] = await db.batch([
@@ -124,18 +138,18 @@ export const getRaces = cache(async (): Promise<Race[]> => {
       travelTimeRows:        travelTimes.get(row.id) ?? [],
     }),
   );
-});
+}, ['races'], { revalidate: CACHE_TTL_SECONDS }));
 
 /** サイトマップ用: レース一覧に必要な最小限の列だけを返す（子テーブルは引かない） */
-export const getRaceIndexEntries = cache(async (): Promise<{ id: string; name_ja: string; name_en: string; date: string }[]> => {
+export const getRaceIndexEntries = cache(unstable_cache(async (): Promise<{ id: string; name_ja: string; name_en: string; date: string }[]> => {
   const db = getDatabase();
   return db
     .select({ id: schema.races.id, name_ja: schema.races.name_ja, name_en: schema.races.name_en, date: schema.races.date })
     .from(schema.races)
     .orderBy(asc(schema.races.date));
-});
+}, ['race-index-entries'], { revalidate: CACHE_TTL_SECONDS }));
 
-export const getRaceById = cache(async (id: string): Promise<Race | null> => {
+export const getRaceById = cache(unstable_cache(async (id: string): Promise<Race | null> => {
   const db = getDatabase();
 
   const [raceRows, categoryRows, aidRows, checkRows, accessRows, spotRows, weatherRows, giftRows, resultRows, entryPeriodRows, entryLinkRows, galleryRows, voiceRows, timeBucketRows, courseHighlightRows, completionGiftRows, receptionSessionRows, travelTimeRows] =
@@ -182,7 +196,7 @@ export const getRaceById = cache(async (id: string): Promise<Race | null> => {
     receptionSessionRows: receptionSessionRows,
     travelTimeRows:       travelTimeRows,
   });
-});
+}, ['race-by-id'], { revalidate: CACHE_TTL_SECONDS }));
 
 /**
  * レースの「みんなの装備」走力帯別集計を取得する。
@@ -238,9 +252,12 @@ export async function getRacesByPrefecture(prefecture: string): Promise<Race[]> 
   return races.filter((r) => r.prefecture === prefecture);
 }
 
-export const getUpcomingRaces = cache(async (limit = 6): Promise<Race[]> => {
+// 以下3関数は「今日（JST）」を条件に含むため、getTodayJST() の結果をキャッシュ対象関数の
+// 引数として渡す。unstable_cache は引数をキャッシュキーに含めるため、日付が変われば
+// 自動的に別エントリになり、日付境界をまたいで古い判定結果が残ることがない。
+
+const fetchUpcomingRaces = unstable_cache(async (today: string, limit: number): Promise<Race[]> => {
   const db = getDatabase();
-  const today = getTodayJST();
 
   const raceRows = await db
     .select().from(schema.races)
@@ -249,11 +266,12 @@ export const getUpcomingRaces = cache(async (limit = 6): Promise<Race[]> => {
     .limit(limit);
 
   return assembleListRaces(raceRows, await loadListRelatedRows(db, raceRows.map((r) => r.id)));
-});
+}, ['upcoming-races'], { revalidate: CACHE_TTL_SECONDS });
 
-export const getOpenEntryRaces = cache(async (limit = 8): Promise<Race[]> => {
+export const getUpcomingRaces = cache((limit = 6): Promise<Race[]> => fetchUpcomingRaces(getTodayJST(), limit));
+
+const fetchOpenEntryRaces = unstable_cache(async (today: string, limit: number): Promise<Race[]> => {
   const db = getDatabase();
-  const today = getTodayJST();
 
   // date の索引で走査開始位置を絞るため、開催済みのレースは先に除外する（開催後にエントリー受付中はありえない）
   const raceRows = await db
@@ -273,12 +291,13 @@ export const getOpenEntryRaces = cache(async (limit = 8): Promise<Race[]> => {
     .limit(limit);
 
   return assembleListRaces(raceRows, await loadListRelatedRows(db, raceRows.map((r) => r.id)));
-});
+}, ['open-entry-races'], { revalidate: CACHE_TTL_SECONDS });
 
-export const getSoonOpeningEntryRaces = cache(async (limit = 6): Promise<Race[]> => {
+export const getOpenEntryRaces = cache((limit = 8): Promise<Race[]> => fetchOpenEntryRaces(getTodayJST(), limit));
+
+const fetchSoonOpeningEntryRaces = unstable_cache(async (today: string, limit: number): Promise<Race[]> => {
   const db = getDatabase();
-  const today = getTodayJST();
-  const in30days = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString('sv-SE', { timeZone: 'Asia/Tokyo' });
+  const in30days = addDaysJST(today, 30);
 
   // 同上。エントリー開始がこれからのレースは必ず未来開催
   const raceRows = await db
@@ -298,13 +317,15 @@ export const getSoonOpeningEntryRaces = cache(async (limit = 6): Promise<Race[]>
     .limit(limit);
 
   return assembleListRaces(raceRows, await loadListRelatedRows(db, raceRows.map((r) => r.id)));
-});
+}, ['soon-opening-entry-races'], { revalidate: CACHE_TTL_SECONDS });
+
+export const getSoonOpeningEntryRaces = cache((limit = 6): Promise<Race[]> => fetchSoonOpeningEntryRaces(getTodayJST(), limit));
 
 // ==================
 // Prefecture data
 // ==================
 
-export const getPrefectures = cache(async (): Promise<Prefecture[]> => {
+export const getPrefectures = cache(unstable_cache(async (): Promise<Prefecture[]> => {
   const db = getDatabase();
   const rows = await db.select().from(schema.prefectures).all();
   return rows.map((r) => ({
@@ -316,7 +337,7 @@ export const getPrefectures = cache(async (): Promise<Prefecture[]> => {
     lat: r.lat,
     lng: r.lng,
   }));
-});
+}, ['prefectures'], { revalidate: CACHE_TTL_SECONDS }));
 
 export async function getPrefectureByCode(code: string): Promise<Prefecture | null> {
   const db = getDatabase();
@@ -338,7 +359,7 @@ export async function getPrefectureByCode(code: string): Promise<Prefecture | nu
 // Gift category data
 // ==================
 
-export const getGiftCategories = cache(async (): Promise<GiftCategory[]> => {
+export const getGiftCategories = cache(unstable_cache(async (): Promise<GiftCategory[]> => {
   const db = getDatabase();
   const rows = await db.select().from(schema.gift_categories).all();
   return rows.map((r) => ({
@@ -347,7 +368,7 @@ export const getGiftCategories = cache(async (): Promise<GiftCategory[]> => {
     name_en: r.name_en,
     icon: r.icon,
   }));
-});
+}, ['gift-categories'], { revalidate: CACHE_TTL_SECONDS }));
 
 // ==================
 // Race series
@@ -355,7 +376,7 @@ export const getGiftCategories = cache(async (): Promise<GiftCategory[]> => {
 
 export { toSeriesId };
 
-export const getSeriesById = cache(async (seriesId: string): Promise<RaceSeries | null> => {
+export const getSeriesById = cache(unstable_cache(async (seriesId: string): Promise<RaceSeries | null> => {
   const db = getDatabase();
   const rows = await db.select().from(schema.race_series).where(eq(schema.race_series.id, seriesId));
   const r = rows[0];
@@ -367,10 +388,10 @@ export const getSeriesById = cache(async (seriesId: string): Promise<RaceSeries 
     first_held_year: r.first_held_year ?? null,
     website_url: r.website_url ?? null,
   };
-});
+}, ['series-by-id'], { revalidate: CACHE_TTL_SECONDS }));
 
 /** 同シリーズの全大会を日付順で取得（自分自身を除く） */
-export const getSeriesRaces = cache(async (seriesId: string, excludeRaceId: string): Promise<Race[]> => {
+export const getSeriesRaces = cache(unstable_cache(async (seriesId: string, excludeRaceId: string): Promise<Race[]> => {
   const db = getDatabase();
 
   // 除外対象はSQL側で落とし、その子行を読まないようにする
@@ -402,7 +423,7 @@ export const getSeriesRaces = cache(async (seriesId: string, excludeRaceId: stri
       completionGiftRows: completionGift.get(row.id) ?? [],
     }),
   );
-});
+}, ['series-races'], { revalidate: CACHE_TTL_SECONDS }));
 
 export async function getAllSeries(): Promise<RaceSeries[]> {
   const db = getDatabase();
@@ -441,16 +462,14 @@ export async function getAdminRaces(): Promise<{ id: string; name_ja: string; da
 }
 
 /** 全登録大会数 */
-export async function getTotalRaceCount(): Promise<number> {
+export const getTotalRaceCount = cache(unstable_cache(async (): Promise<number> => {
   const db = getDatabase();
   const rows = await db.select({ count: sql<number>`count(*)` }).from(schema.races);
   return rows[0]?.count ?? 0;
-}
+}, ['total-race-count'], { revalidate: CACHE_TTL_SECONDS }));
 
-/** 現在エントリー受付中の大会数 */
-export async function getOpenEntryCount(): Promise<number> {
+const fetchOpenEntryCount = unstable_cache(async (today: string): Promise<number> => {
   const db = getDatabase();
-  const today = getTodayJST();
   const rows = await db.select({ count: sql<number>`count(*)` }).from(schema.races).where(
     and(
       gte(schema.races.date, today),
@@ -463,7 +482,10 @@ export async function getOpenEntryCount(): Promise<number> {
     )
   );
   return rows[0]?.count ?? 0;
-}
+}, ['open-entry-count'], { revalidate: CACHE_TTL_SECONDS });
+
+/** 現在エントリー受付中の大会数 */
+export const getOpenEntryCount = cache((): Promise<number> => fetchOpenEntryCount(getTodayJST()));
 
 export async function getGiftCategoryById(id: string): Promise<GiftCategory | null> {
   const db = getDatabase();

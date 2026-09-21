@@ -8,9 +8,9 @@ import { routing } from '@/i18n/routing';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CookieConsentBanner from '@/components/analytics/CookieConsentBanner';
+import PageViewTracker from '@/components/analytics/PageViewTracker';
+import { GA_INIT_SCRIPT, GA_MEASUREMENT_ID, getCloudflareBeaconToken } from '@/lib/analytics';
 import '../globals.css';
-
-const GA_ID = 'G-9975BX8LXR';
 
 const inter = Inter({ variable: '--font-inter', subsets: ['latin'], display: 'swap' });
 const notoSansJP = Noto_Sans_JP({ variable: '--font-noto-sans-jp', subsets: ['latin'], display: 'swap', preload: false });
@@ -39,6 +39,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   const messages = await getMessages();
+  const beaconToken = getCloudflareBeaconToken();
 
   return (
     <html
@@ -47,28 +48,25 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)] font-sans antialiased">
-        <Script id="consent-init" strategy="beforeInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('consent', 'default', {
-            analytics_storage: 'denied',
-            ad_storage: 'denied',
-            ad_user_data: 'denied',
-            ad_personalization: 'denied',
-          });
-        `}</Script>
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
-        <Script id="ga4-init" strategy="afterInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GA_ID}');
-        `}</Script>
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
+        {/* 同意の既定値・config をまとめて設定する。着地ページの page_view は config が送り、
+            以降のクライアントサイド遷移は PageViewTracker が送る（config は再実行されないため）。 */}
+        <Script id="ga-init" strategy="afterInteractive">{GA_INIT_SCRIPT}</Script>
+        {/* Cloudflare Web Analytics: Cookieを使わないため同意バナーの制約を受けず、
+            全訪問者の素のアクセス数を把握できる。トークン未設定の環境では出力しない。 */}
+        {beaconToken && (
+          <Script
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={JSON.stringify({ token: beaconToken })}
+            strategy="afterInteractive"
+          />
+        )}
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
           <CookieConsentBanner />
+          <PageViewTracker />
         </NextIntlClientProvider>
       </body>
     </html>

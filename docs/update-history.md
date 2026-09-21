@@ -1443,3 +1443,94 @@ npx wrangler pages deployment tail <本番デプロイID> --project-name krote-r
 ### 残課題: トップページのレースカードの先読み
 
 ブラウザで確認したところ、トップページは**表示中のレースカード全件の詳細ページを先読み**している（1カードあたり2リクエスト、計30件程度）。これはナビゲーションリンクとは別系統で、レースカードのクリックが主要導線であるため先読みの価値も高い。インクリメンタルキャッシュが入った今はD1への影響が限定的なため、今回は手を入れていない。Workersリクエスト数を詰める段で再検討する。
+
+## 2026-09-20 アナリティクスの計測漏れを修正（SPA遷移・同意状態）
+
+「GA4のアクセス数が実感と合わない」という指摘を受け、本番のブラウザで実測して原因を特定した。
+
+### 実測でわかった問題
+
+**1. サイト内回遊が一切計測されていない（最大の問題）**
+
+`/ja` から「お知らせ」をクリックしてクライアントサイド遷移した直後の状態:
+
+```
+現在のURL: /ja/news
+計測ビーコン数: 1
+ビーコンのdl: ["https://hashiru.run/ja"]   ← トップのまま
+```
+
+`gtag('config')` は初回ロード時に1回走るだけで、App Router のクライアント遷移では `page_view` が送られない。1セッションで10ページ見ても最初の1ページしか記録されていなかった。
+
+**2. 同意したページビューが「拒否」状態で送られる**
+
+初回ロードのビーコンのパラメータ:
+
+| ビーコン | イベント | 同意状態 |
+|---|---|---|
+| 1本目 | `page_view` | `gcs=G100`（拒否） |
+| 2本目 | `user_engagement` | `gcs=G101`（許可） |
+
+`page_view` はページ読み込み直後に飛ぶが、同意状態の復元を `CookieConsentBanner` の `useEffect` で行っていたため間に合っていなかった。しかも問題1により2ページ目以降の `page_view` が存在しないので、許可状態の `page_view` が1本も発生しない。
+
+同意拒否状態のpingはCookieを持たないため、GA4側では行動モデリングの材料としてしか扱われない。モデリングの適用にはデータ量の閾値が必要で、この規模のサイトではレポートに反映されないか、反映されても毎回別ユーザー扱いになる。
+
+### 対応
+
+- **`src/components/analytics/PageViewTracker.tsx` を追加** — `usePathname()`（next/navigation。ロケールを含む実URLが要るので next-intl 版ではない）の変化を見て `page_view` を送るClient Component。`gtag('config', ..., { send_page_view: false })` と組み合わせ、初回もSPA遷移もここから送る
+- **`src/lib/analytics.ts` を追加** — GA4測定ID、同意初期化スクリプト、Cloudflare ビーコントークンの解決をまとめた
+- **同意状態の復元を GA 初期化スクリプトに移動** — `localStorage` をスクリプト先頭で読み、`consent default` の時点で granted/denied を決める。同意済みの再訪問者は**最初の page_view から granted** になる。`CookieConsentBanner` の復元用 `useEffect` は不要になったので削除
+- **Cloudflare Web Analytics のビーコンを追加** — Cookieを使わず個人を識別しないため同意バナーの制約を受けず、全訪問者の素のアクセス数を把握できる。GA4（同意した人のイベント分析）との二本立て
+
+### Cloudflare Web Analytics の有効化手順（未完了）
+
+ビーコンは `CF_BEACON_TOKEN` が設定されている環境でのみ出力される。未設定なら何も描画しないため、設定前にデプロイしても影響はない。
+
+1. Cloudflareダッシュボード → Analytics & Logs → Web Analytics → サイトを追加し、`hashiru.run` のビーコントークンを取得
+2. Pagesダッシュボード → Settings → Environment variables で `CF_BEACON_TOKEN` を **Production** と **Preview** の両方に設定
+3. 再デプロイ（Pagesの環境変数は既存デプロイには反映されないため）
+
+### TDD
+
+- `src/lib/__tests__/analytics.test.ts`（11件）— GA初期化スクリプトを `window.eval` で実際に評価し、未同意/同意済み/拒否済みで `analytics_storage` が正しく決まること、`consent default → js → config` の順に積まれること（順序が逆だと同意前に計測される）、localStorage が使えない環境でも例外を投げないこと、`gtag` がグローバルに定義されることを検証。ビーコントークンの解決も
+  - 当初 `new Function` で評価していたが、それだと `function gtag(){}` がグローバルにならず本番と挙動が違うため `window.eval` に変更した
+- `src/components/analytics/__tests__/PageViewTracker.test.tsx`（6件）— 着地ページでは送らない、遷移で送る、URL・タイトルの付与、連続遷移、同一パスでの重複送信なし、`gtag` 未定義でも落ちない
+- `CookieConsentBanner.test.tsx`（12件）— 「同意済みの再訪問では consent update を呼ばない」と、**`hydrateRoot` で実際にハイドレーションして `onRecoverableError` が呼ばれないこと**を追加（Red→修正→Green）
+
+### 検証
+- `pnpm vitest run` 全892件パス、`pnpm run lint` エラー0件（警告5件、いずれも既存）、`next build --webpack` 成功
+- `next dev`（middleware一時退避）でエラーオーバーレイが出ないことを確認
+
+### あわせて修正: 全ページで出ていたハイドレーションエラー（React error #418）
+
+同じレイアウトを触るため同時に対応した。`next dev` は既知の middleware 問題（`ReferenceError: self is not defined`）で全ルート500になるので、`src/middleware.ts` を一時退避して開発サーバーを起動し、Next.js のエラーオーバーレイから発生源を特定した。原因は2つ。
+
+**1. `<Script strategy="beforeInteractive">` にインラインの children を渡していた**
+
+```
+src/app/[locale]/layout.tsx (50:9) @ LocaleLayout
+> 50 |  <Script id="consent-init" strategy="beforeInteractive">{`
+```
+
+`beforeInteractive` はSSRのHTMLに `<script>` を出力するが、React 19 はコンポーネントが描画する `<script>` を許容しない（`Encountered a script tag while rendering React component`）。`<head>` に素の `<script dangerouslySetInnerHTML>` として置き直しても、外部ファイル化して `beforeInteractive` + `src` にしても解消しなかった。
+
+最終的に **`beforeInteractive` の使用自体をやめ、`afterInteractive` のインラインスクリプト1本に集約**した。`afterInteractive` はクライアント側で注入されるためSSRのHTMLに現れず、この問題が起きない。同意の既定値・`js`・`config` を1つのスクリプトで順に積むので、順序も保証される。
+
+副作用として gtag.js の読み込みがハイドレーション後になるため、**着地ページの page_view は `config` に送らせ、`PageViewTracker` は2ページ目以降だけを送る**設計にした（初回も送ると二重計上になる）。
+
+**2. `CookieConsentBanner` が `useState` の初期化関数で `localStorage` を読んでいた**
+
+```
+src/components/analytics/CookieConsentBanner.tsx (43:5) @ CookieConsentBanner
+Client: <div className="fixed bottom-0 ..."> / Server: (なし)
+```
+
+サーバーは非表示、クライアントは表示で初期描画が食い違っていた。`useEffect` で `setState` する形に直すと今度は ESLint の「Calling setState synchronously within an effect can trigger cascading renders」に引っかかったため、この用途に適した **`useSyncExternalStore`**（サーバー用スナップショットを別に渡せる）に置き換えた。
+
+修正後、`next dev` のエラーオーバーレイが消えることを確認済み。
+
+### 残課題
+
+- 同意を「拒否」した場合に `consent update` で明示的に denied を送っていない（初期値のままなので動作は同じだが意図が読みにくい）
+- サーバー側での実ページビュー計測（プリフェッチを除外した分類）は未着手
+- 初回訪問でその場で同意した人の1ページ目は依然 denied で記録される（同意を押す前に `page_view` が飛ぶため）。再送すると二重計上になるのであえて送っていない

@@ -1534,3 +1534,29 @@ Client: <div className="fixed bottom-0 ..."> / Server: (なし)
 - 同意を「拒否」した場合に `consent update` で明示的に denied を送っていない（初期値のままなので動作は同じだが意図が読みにくい）
 - サーバー側での実ページビュー計測（プリフェッチを除外した分類）は未着手
 - 初回訪問でその場で同意した人の1ページ目は依然 denied で記録される（同意を押す前に `page_view` が飛ぶため）。再送すると二重計上になるのであえて送っていない
+
+## 2026-09-23 レース詳細ページのイベント構造化データを修正（Search Console 指摘対応）
+
+Search Console から「イベントの構造化データ」で重大ではない問題（`offers` / `image` / `performer` / `organizer` / `endDate` が欠落）の通知を受けて対応。
+
+### 原因
+
+`src/app/[locale]/races/[id]/page.tsx` の JSON-LD（`SportsEvent`）が `name` / `description` / `startDate` / `url` / `eventStatus` / `location` の6項目のみだった。
+
+### 修正
+
+- `src/lib/structured-data.ts` を新設し、JSON-LD の組み立てを純粋関数 `buildRaceJsonLd()` に切り出し（テスト: `src/lib/__tests__/structured-data.test.ts`）
+  - `offers`: カテゴリごとの `Offer`（料金はカテゴリ料金→共通料金の順、`JPY`、エントリーリンク→公式サイトの順で `url`、`validFrom`、受付状況から `availability` = InStock / PreOrder / SoldOut）。料金不明でも url・availability のみの `Offer` を1件出す
+  - `image`: `hero_image_url` とギャラリー画像（絶対URL化）。なければサイト共通画像 `public/og-default.png`
+  - `startDate` / `endDate`: 全カテゴリの最早スタート時刻〜最遅の制限時間終了を JST（`+09:00`）で出力。日付またぎ対応。時刻不明なら日付のみ
+  - `organizer`: 大会名＋公式サイト（主催者フィールドがDBにないため）
+  - `location`: 会場名・住所（`venue_address`）・都道府県・市区町村・`geo`（`start_lat`/`start_lng`）を追加
+  - `eventAttendanceMode`: `OfflineEventAttendanceMode` を追加
+- 再点検で見つかった既存の誤りも修正
+  - 開催済み大会の `eventStatus` が `EventPostponed`（延期）になっていた → 常に `EventScheduled`
+  - `url` が公式サイトを指していた → 自サイトの詳細ページURL
+- サイト全体に OG 画像が1枚もなかったため `src/app/[locale]/opengraph-image.png`（＋alt）を追加し、全ページで `og:image` が出るようにした
+
+### 対応しなかったもの
+
+- `performer`: マラソン大会に該当する出演者がおらず、架空の値を入れる方が不正確なため省略（Search Console の警告は残る）

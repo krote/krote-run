@@ -3,7 +3,8 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { getRaceById, getGiftCategories, getRaceGearStats } from '@/lib/data';
-import { formatDate, formatCurrency, getMainCategory, getRaceName, getRaceDescription, getRaceCity, getCategoryLabel, getTodayJST } from '@/lib/utils';
+import { formatDate, formatCurrency, getMainCategory, getRaceName, getRaceDescription, getCategoryLabel, getTodayJST } from '@/lib/utils';
+import { buildRaceJsonLd } from '@/lib/structured-data';
 import { toSeriesId, getSeriesById, getSeriesRaces } from '@/lib/data';
 import { Link } from '@/i18n/navigation';
 import type { Locale, NearbySpotType } from '@/lib/types';
@@ -151,25 +152,7 @@ export default async function RaceDetailPage({
     { id: 'gear-stats', label: locale === 'ja' ? 'みんなの装備' : 'Gear' },
   ];
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'SportsEvent',
-    name: raceName,
-    description: raceDesc,
-    startDate: race.date,
-    url: race.official_url ?? `https://hashiru.run/${locale}/races/${id}`,
-    eventStatus: isPast
-      ? 'https://schema.org/EventPostponed'
-      : 'https://schema.org/EventScheduled',
-    location: {
-      '@type': 'Place',
-      name: getRaceCity(race, locale),
-      address: {
-        '@type': 'PostalAddress',
-        addressCountry: 'JP',
-      },
-    },
-  };
+  const jsonLd = buildRaceJsonLd(race, locale, today);
 
   return (
     <>

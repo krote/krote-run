@@ -1,10 +1,9 @@
 import type { Race, Locale } from './types';
 import { getCategoryLabel, getRaceName, getRaceCity, getRaceDescription } from './utils';
+import { SITE_ORIGIN, DEFAULT_OG_IMAGE, getRaceImageUrls } from './seo';
 import prefecturesData from '@/data/prefectures.json';
 
-export const SITE_ORIGIN = 'https://hashiru.run';
-/** レース固有の画像がないときに使うサイト共通画像（public/og-default.png） */
-export const DEFAULT_OG_IMAGE = `${SITE_ORIGIN}/og-default.png`;
+export { SITE_ORIGIN, DEFAULT_OG_IMAGE };
 
 const SCHEMA = 'https://schema.org';
 
@@ -24,7 +23,7 @@ export interface RaceJsonLd {
   '@context': string;
   '@type': 'SportsEvent';
   name: string;
-  description: string;
+  description?: string;
   startDate: string;
   endDate: string;
   url: string;
@@ -45,11 +44,6 @@ export interface RaceJsonLd {
   };
   organizer: { '@type': 'Organization'; name: string; url: string };
   offers: OfferJsonLd[];
-}
-
-function toAbsoluteUrl(src: string): string {
-  if (/^https?:\/\//.test(src)) return src;
-  return `${SITE_ORIGIN}${src.startsWith('/') ? '' : '/'}${src}`;
 }
 
 /** "HH:MM" を開催日0時からの分に変換。不正値は null */
@@ -135,15 +129,14 @@ function buildLocation(race: Race, locale: Locale): RaceJsonLd['location'] {
 export function buildRaceJsonLd(race: Race, locale: Locale, today: string): RaceJsonLd {
   const seriesName = getRaceName(race, locale);
   const fullName = locale === 'ja' ? race.full_name_ja : race.full_name_en;
-  const images = [race.hero_image_url, ...race.gallery.map((g) => g.src)]
-    .filter((src): src is string => !!src)
-    .map(toAbsoluteUrl);
+  const images = getRaceImageUrls(race);
+  const description = getRaceDescription(race, locale);
 
   return {
     '@context': SCHEMA,
     '@type': 'SportsEvent',
     name: fullName ?? seriesName,
-    description: getRaceDescription(race, locale),
+    ...(description ? { description } : {}),
     ...buildEventTimes(race),
     url: `${SITE_ORIGIN}/${locale}/races/${race.id}`,
     // 中止・延期のデータを持たないため常に Scheduled（開催済みでも Scheduled が正）

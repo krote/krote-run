@@ -19,6 +19,7 @@ vi.mock('@/lib/announcements', () => ({
 }));
 
 import { generateMetadata } from '../page';
+import { OG_IMAGE } from '@/lib/seo';
 import { formatDate } from '../format-date';
 
 const makeParams = (locale: string) => ({
@@ -62,5 +63,12 @@ describe('news/page generateMetadata', () => {
   it('canonical URL が正しい（en）', async () => {
     const meta = await generateMetadata(makeParams('en'));
     expect(meta.alternates?.canonical).toBe('https://hashiru.run/en/news');
+  });
+});
+
+describe('news/page generateMetadata openGraph', () => {
+  it('og:image にサイト共通画像を出す', async () => {
+    const meta = await generateMetadata(makeParams('ja'));
+    expect(meta.openGraph?.images).toEqual([OG_IMAGE]);
   });
 });

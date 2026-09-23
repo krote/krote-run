@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { getRaceById, getGiftCategories, getRaceGearStats } from '@/lib/data';
 import { formatDate, formatCurrency, getMainCategory, getRaceName, getRaceDescription, getCategoryLabel, getTodayJST } from '@/lib/utils';
 import { buildRaceJsonLd } from '@/lib/structured-data';
+import { buildRaceMetadata } from '@/lib/seo';
 import { toSeriesId, getSeriesById, getSeriesRaces } from '@/lib/data';
 import { Link } from '@/i18n/navigation';
 import type { Locale, NearbySpotType } from '@/lib/types';
@@ -28,35 +29,7 @@ export async function generateMetadata({
   const { locale, id } = await params;
   const race = await getRaceById(id);
   if (!race) return {};
-
-  const isJa = locale !== 'en';
-  const name = isJa ? race.name_ja : (race.name_en ?? race.name_ja);
-  const description = isJa ? race.description_ja : (race.description_en ?? race.description_ja);
-  const url = `https://hashiru.run/${locale}/races/${id}`;
-
-  return {
-    title: name,
-    description,
-    alternates: {
-      canonical: url,
-      languages: {
-        ja: `https://hashiru.run/ja/races/${id}`,
-        en: `https://hashiru.run/en/races/${id}`,
-      },
-    },
-    openGraph: {
-      type: 'website',
-      title: name,
-      description,
-      url,
-      siteName: 'HASHIRU',
-    },
-    twitter: {
-      card: 'summary',
-      title: name,
-      description,
-    },
-  };
+  return buildRaceMetadata(race, locale as Locale);
 }
 
 const NEARBY_TYPE: Record<NearbySpotType, { en: string; icon: string }> = {

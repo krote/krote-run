@@ -10,6 +10,7 @@ import Footer from '@/components/layout/Footer';
 import CookieConsentBanner from '@/components/analytics/CookieConsentBanner';
 import PageViewTracker from '@/components/analytics/PageViewTracker';
 import { GA_INIT_SCRIPT, GA_MEASUREMENT_ID, getCloudflareBeaconToken } from '@/lib/analytics';
+import { OG_IMAGE, SITE_NAME } from '@/lib/seo';
 import '../globals.css';
 
 const inter = Inter({ variable: '--font-inter', subsets: ['latin'], display: 'swap' });
@@ -25,6 +26,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     metadataBase: new URL('https://hashiru.run'),
     title: { default: t('siteName'), template: `%s | ${t('siteName')}` },
     description: t('siteDescription'),
+    openGraph: {
+      type: 'website',
+      siteName: SITE_NAME,
+      title: t('siteName'),
+      description: t('siteDescription'),
+      images: [OG_IMAGE],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('siteName'),
+      description: t('siteDescription'),
+      images: [OG_IMAGE],
+    },
   };
 }
 

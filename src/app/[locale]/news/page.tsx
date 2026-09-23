@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getAnnouncements } from '@/lib/announcements';
+import { OG_IMAGE } from '@/lib/seo';
 import type { Locale } from '@/lib/types';
 import { formatDate } from './format-date';
 
@@ -34,6 +35,7 @@ export async function generateMetadata({
       description,
       url,
       siteName: 'HASHIRU',
+      images: [OG_IMAGE],
     },
   };
 }

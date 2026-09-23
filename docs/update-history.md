@@ -1589,3 +1589,21 @@ npx wrangler d1 execute krote-run-db --remote --file=./migrations/seed-travel-ti
 - レースデータは `unstable_cache`（TTL 1時間）でキャッシュしているため、画面への反映は最大1時間遅れる（再デプロイすれば即時）
 - 移動時間があるのは133大会中39大会のみ（座標のある大会は61件）。残りは別途計算が必要
 - 一部の値は体感より長め（例: 東京→坂東市245分、大阪→甲賀市土山273分）。到着期限から逆算した経路のため待ち時間を含むと考えられるが、個別の検証はしていない
+
+## 2026-09-23 OG画像のメタデータを修正（構造化データ対応のフォローアップ）
+
+前項の対応を本番デプロイ後に確認したところ、OG画像に2つの不具合があった。
+
+### 問題
+
+1. **og:image のURLが `/-/opengraph-image.png` になっていた** — 動的セグメント `[locale]` に Next.js のファイル規約（`opengraph-image.png`）を置いたため。画像自体は200で返るがURLが不正
+2. **一部ページで og:image が出ていなかった** — `generateMetadata` で `openGraph` を丸ごと定義しているページ（レース一覧・お知らせ・レース詳細）がレイアウト側の画像を上書きしていた
+
+### 修正
+
+- ファイル規約の `src/app/[locale]/opengraph-image.png` を削除し、`openGraph.images` に絶対URL（`https://hashiru.run/og-default.png`）を明示する方式に変更
+- `src/lib/seo.ts` を新設（`SITE_ORIGIN` / `OG_IMAGE` / `getRaceImageUrls()` / `buildRaceMetadata()`）。`structured-data.ts` も共通化した定数・関数を使うように整理
+- レース詳細の `generateMetadata` を `buildRaceMetadata()` に置き換え、大会固有の画像があればそちらを優先するようにした
+- `twitter.card` を `summary` から `summary_large_image` に変更（1200x630の画像に合わせる）
+- JSON-LD で `description` が空文字の場合は項目自体を出さないようにした（説明未設定の大会が ja 10件・en 19件ある）
+- テスト追加: `src/lib/__tests__/seo.test.ts`、`src/app/[locale]/races/__tests__/page.metadata.test.ts`、お知らせページのメタデータテストに og:image のアサーションを追加

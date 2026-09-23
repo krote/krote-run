@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { getRaces, getPrefectures, getGiftCategories } from '@/lib/data';
+import { OG_IMAGE } from '@/lib/seo';
 import RaceList from '@/components/races/RaceList';
 import type { Locale } from '@/lib/types';
 import { searchParamsToFilter } from '@/lib/utils';
@@ -34,11 +35,13 @@ export async function generateMetadata({
       description,
       url,
       siteName: 'HASHIRU',
+      images: [OG_IMAGE],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: t('title'),
       description,
+      images: [OG_IMAGE],
     },
   };
 }

@@ -14,6 +14,11 @@ describe('buildRaceJsonLd', () => {
     expect(ld.eventAttendanceMode).toBe('https://schema.org/OfflineEventAttendanceMode');
   });
 
+  it('説明が空なら description 自体を出さない', () => {
+    const ld = buildRaceJsonLd(makeRace({ description_ja: '' }), 'ja', TODAY);
+    expect(ld).not.toHaveProperty('description');
+  });
+
   it('正式名称があれば name に使う', () => {
     const ld = buildRaceJsonLd(makeRace({ full_name_en: '1st Test Race 2026' }), 'en', TODAY);
     expect(ld.name).toBe('1st Test Race 2026');

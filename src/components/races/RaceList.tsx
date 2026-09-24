@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useCallback, useMemo } from 'react';
-import { useRouter, usePathname } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import type { Race, Prefecture, GiftCategory, RaceFilter as RaceFilterType, Locale } from '@/lib/types';
 import { filterRaces, sortRaces, defaultFilter, filterToSearchParams } from '@/lib/utils';
@@ -20,12 +19,9 @@ interface RaceListProps {
 
 export default function RaceList({ races, prefectures, giftCategories, locale, initialFilter }: RaceListProps) {
   const t = useTranslations('races');
-  const router = useRouter();
-  const pathname = usePathname();
-
   const { settings: travelSettings } = useTravelSettings();
 
-  // ローカル state で即時反映しつつ、URL も同期することでブラウザ履歴に残す
+  // ローカル state で即時反映しつつ、URL も同期して共有・リロードに耐えるようにする
   const [filter, setFilterState] = useState<RaceFilterType>(initialFilter ?? defaultFilter());
   const view = filter.view;
 
@@ -44,8 +40,12 @@ export default function RaceList({ races, prefectures, giftCategories, locale, i
     setFilterState(next);
     const params = filterToSearchParams(next);
     const qs = params.toString();
-    router.replace(`${pathname}${qs ? `?${qs}` : ''}`, { scroll: false });
-  }, [router, pathname]);
+    // 絞り込みはすべてクライアント側で完結するため、URL の書き換えに router を使わない。
+    // router.replace はクエリが変わるたびにサーバーへ RSC リクエストを飛ばし、
+    // 1MB 超の一覧ページを毎回サーバーでレンダリングさせる（1文字入力するたびに1回）。
+    // history.replaceState なら URL とリロード時の復元だけを保ったまま通信が発生しない。
+    window.history.replaceState(null, '', `${window.location.pathname}${qs ? `?${qs}` : ''}`);
+  }, []);
 
   const setFilter = (next: RaceFilterType) => updateFilter(next);
   const setView = (v: 'mag' | 'exp') => updateFilter({ ...filter, view: v });

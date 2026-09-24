@@ -185,6 +185,8 @@ export default function RaceCardExp({ race, locale, from, travelSettings }: Race
         <div className="flex gap-2">
           <Link
             href={from ? `/races/${race.id}?from=${from}` : `/races/${race.id}`}
+            // 先読みしない理由は RaceCard と同じ（一覧分の詳細ページがサーバーで描画される）
+            prefetch={false}
             className="flex-1 text-center no-underline transition-colors"
             style={{
               padding: '8px 0',

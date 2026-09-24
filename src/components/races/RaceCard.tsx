@@ -181,6 +181,9 @@ export default function RaceCard({ race, locale, from, travelSettings }: RaceCar
   return (
     <Link
       href={from ? `/races/${race.id}?from=${from}` : `/races/${race.id}`}
+      // 一覧に並ぶカードを先読みすると、表示中の大会の詳細ページが全件
+      // サーバーでレンダリングされる（D1に複数クエリ）。クリック時に読めば十分。
+      prefetch={false}
       className="group block no-underline"
       style={{ color: 'inherit' }}
     >

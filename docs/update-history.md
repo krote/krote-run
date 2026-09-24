@@ -1607,3 +1607,28 @@ npx wrangler d1 execute krote-run-db --remote --file=./migrations/seed-travel-ti
 - `twitter.card` を `summary` から `summary_large_image` に変更（1200x630の画像に合わせる）
 - JSON-LD で `description` が空文字の場合は項目自体を出さないようにした（説明未設定の大会が ja 10件・en 19件ある）
 - テスト追加: `src/lib/__tests__/seo.test.ts`、`src/app/[locale]/races/__tests__/page.metadata.test.ts`、お知らせページのメタデータテストに og:image のアサーションを追加
+
+## 2026-09-25 大会一覧の検索操作による Worker リソース上限超過（Error 1102）を修正
+
+本番で Error 1102（Worker exceeded resource limits）が発生し、サイト全体が 503 になった。大会名での検索を続けると出やすいという報告をもとに調査した。
+
+### 原因
+
+本番で実測したところ、大会一覧で5文字入力するだけで **RSC リクエストが21件**発生していた（うち12件が大会詳細ページの先読み）。要因は2つ。
+
+1. **1文字ごとにサーバーへ問い合わせていた** — 検索欄は1文字ごとに `onChange` を呼び（`RaceFilter.tsx`）、`router.replace()` で URL を書き換えていた（`RaceList.tsx`）。App Router ではクエリが変わるたびに RSC リクエストが飛び、動的レンダリングの大会一覧（HTML 約1MB・133大会）がサーバーで毎回描画される
+2. **表示中の大会カードがすべて先読みされていた** — `RaceCard` / `RaceCardExp` のリンクに `prefetch` 指定がなく、Next.js の既定で画面内カードの詳細ページを先読みしていた。詳細ページも動的レンダリングで D1 に複数クエリを投げる。RSC のトークンが遷移ごとに変わるため、同じカードが何度も先読みし直されていた
+
+`nav-prefetch.ts` でヘッダー・フッターのリンクについては対策済みだったが、大会カードのリンクが漏れていた。
+
+### 修正
+
+- `RaceCard.tsx` / `RaceCardExp.tsx` の詳細ページへのリンクに `prefetch={false}` を指定
+- `RaceList.tsx` の URL 同期を `router.replace()` から `window.history.replaceState()` に変更。絞り込みは元々すべてクライアント側で完結しているため、サーバーへの問い合わせは不要。URL の共有とリロード時の復元は従来どおり動く
+- テスト追加: `src/components/__tests__/RaceCard.prefetch.test.tsx`、`src/components/__tests__/RaceList.urlsync.test.tsx`
+
+### 復旧の経緯と残課題
+
+- 障害時は再デプロイで復旧した。Cloudflare Pages はデプロイごとに別の Worker スクリプトになるため上限がリセットされる。あくまで対症療法
+- 一覧・カレンダーページの1回あたりの SSR コスト（HTML 1MB超）は重いままで、変更前のデプロイでも並行アクセス時に散発的な503が出ていた。SSR コスト自体の削減は別タスクとする
+- **本番環境に負荷試験をかけない**。今回の調査で本番に負荷をかけ、障害を悪化させた。検証は stg 環境で行う

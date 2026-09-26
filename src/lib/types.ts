@@ -453,6 +453,22 @@ export interface RaceFilter {
   dayTrip: boolean;
 }
 
+/**
+ * 大会ステータス判定に必要な最小限の形。
+ * `Race` と `RaceListItem` のどちらからも渡せるよう構造的に定義する。
+ */
+export type RaceStatusInput = Pick<Race, 'date' | 'entry_closed' | 'entry_start_date' | 'entry_end_date'> & {
+  entry_periods: { start_date: string; end_date: string | null }[];
+};
+
+/** 当日受付・到着期限の判定に必要な最小限の形 */
+export type ReceptionInput = {
+  date: string;
+  reception_type: ReceptionType;
+  reception_sessions: { date: string; close_time: string | null }[];
+  categories: { start_time: string }[];
+};
+
 // ==================
 // 装備品管理（Issue #120）
 // ==================

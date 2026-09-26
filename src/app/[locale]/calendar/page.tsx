@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { getRaces, getPrefectures } from '@/lib/data';
+import { toRaceListItem } from '@/lib/race-list-item';
 import { getTodayJST } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/lib/types';
@@ -36,6 +37,8 @@ export default async function CalendarPage({
   const isJa = locale === 'ja';
 
   const [races, prefectures] = await Promise.all([getRaces(), getPrefectures()]);
+  // Client Component に渡す分は一覧で使う項目だけに絞る（RSCペイロード削減）
+  const raceItems = races.map((race) => toRaceListItem(race, locale));
 
   // prefecture コード → 地方名のマップ
   const prefToRegion = Object.fromEntries(
@@ -95,7 +98,7 @@ export default async function CalendarPage({
       </div>
 
       <CalendarView
-        races={races}
+        races={raceItems}
         year={year}
         month={month}
         locale={locale}

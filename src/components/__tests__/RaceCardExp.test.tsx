@@ -2,7 +2,7 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import RaceCardExp from '../races/RaceCardExp';
-import { makeRace, makeCategory, makeEntryPeriod, makeRaceTravelTime } from '../../lib/__tests__/fixtures';
+import { makeCategory, makeEntryPeriod, makeRaceTravelTime, makeRaceListItem } from '../../lib/__tests__/fixtures';
 import type { TravelSettings } from '../../lib/travel';
 
 vi.mock('next-intl', () => ({
@@ -34,26 +34,26 @@ afterEach(() => {
 
 describe('RaceCardExp - 基本レンダリング', () => {
   it('大会名が表示される', () => {
-    const race = makeRace({ name_ja: '東京マラソン2026', date: '2026-10-01' });
+    const race = makeRaceListItem({ name_ja: '東京マラソン2026', date: '2026-10-01' });
     render(<RaceCardExp race={race} locale="ja" />);
     expect(screen.getByText('東京マラソン2026')).toBeInTheDocument();
   });
 
   it('en ロケールで英語名が表示される', () => {
-    const race = makeRace({ name_en: 'Tokyo Marathon 2026', date: '2026-10-01' });
+    const race = makeRaceListItem({ name_en: 'Tokyo Marathon 2026', date: '2026-10-01' });
     render(<RaceCardExp race={race} locale="en" />);
     expect(screen.getByText('Tokyo Marathon 2026')).toBeInTheDocument();
   });
 
   it('大会ページへのリンクが設定される', () => {
-    const race = makeRace({ id: 'tokyo-marathon-2026', date: '2026-10-01' });
+    const race = makeRaceListItem({ id: 'tokyo-marathon-2026', date: '2026-10-01' });
     render(<RaceCardExp race={race} locale="ja" />);
     const link = screen.getByText('詳細を見る').closest('a');
     expect(link).toHaveAttribute('href', '/races/tokyo-marathon-2026');
   });
 
   it('距離バッジが表示される', () => {
-    const race = makeRace({
+    const race = makeRaceListItem({
       date: '2026-10-01',
       categories: [makeCategory({ distance_km: 42.195 })],
     });
@@ -64,7 +64,7 @@ describe('RaceCardExp - 基本レンダリング', () => {
 
 describe('RaceCardExp - エントリー状態', () => {
   it('受付中のとき「エントリー受付中」ハイライトが表示される', () => {
-    const race = makeRace({
+    const race = makeRaceListItem({
       date: '2026-10-01',
       entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30' })],
     });
@@ -73,7 +73,7 @@ describe('RaceCardExp - エントリー状態', () => {
   });
 
   it('受付中のとき公式サイトへのエントリーボタンが表示される', () => {
-    const race = makeRace({
+    const race = makeRaceListItem({
       date: '2026-10-01',
       official_url: 'https://example.com/entry',
       entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30' })],
@@ -84,7 +84,7 @@ describe('RaceCardExp - エントリー状態', () => {
   });
 
   it('開催済みのときエントリーボタンが表示されない', () => {
-    const race = makeRace({
+    const race = makeRaceListItem({
       date: '2026-03-01',
       official_url: 'https://example.com/entry',
       entry_periods: [makeEntryPeriod({ start_date: '2026-01-01', end_date: '2026-02-28' })],
@@ -94,7 +94,7 @@ describe('RaceCardExp - エントリー状態', () => {
   });
 
   it('期間未設定かつ開催前は「未発表」ハイライトが表示される', () => {
-    const race = makeRace({
+    const race = makeRaceListItem({
       date: '2026-10-01',
       entry_periods: [],
       entry_start_date: null,
@@ -114,7 +114,7 @@ describe('RaceCardExp - 日帰りステータスバッジ', () => {
   };
 
   it('travelSettings が未指定ならバッジは表示されない', () => {
-    const race = makeRace({
+    const race = makeRaceListItem({
       date: '2026-10-01',
       reception_type: 'pre_day',
       categories: [makeCategory({ start_time: '09:00' })],
@@ -124,7 +124,7 @@ describe('RaceCardExp - 日帰りステータスバッジ', () => {
   });
 
   it('前日受付のみ大会は「前泊必須」バッジが表示される', () => {
-    const race = makeRace({
+    const race = makeRaceListItem({
       date: '2026-10-01',
       reception_type: 'pre_day',
       categories: [makeCategory({ start_time: '09:00' })],
@@ -135,7 +135,7 @@ describe('RaceCardExp - 日帰りステータスバッジ', () => {
   });
 
   it('日帰り可能な大会は「日帰り可」バッジが表示される', () => {
-    const race = makeRace({
+    const race = makeRaceListItem({
       date: '2026-10-01',
       reception_type: 'race_day',
       categories: [makeCategory({ start_time: '09:00' })],

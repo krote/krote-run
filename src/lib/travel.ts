@@ -1,4 +1,4 @@
-import type { Race } from './types';
+import type { ReceptionInput } from './types';
 import type { HubId } from './hubs';
 import { canReceiveOnRaceDay, getArrivalDeadline } from './reception';
 
@@ -33,7 +33,7 @@ function fromMinutes(minutes: number): string {
  * pre_mail / none は受付なし → 前泊必須にならない。
  * pre_day のみ（当日受付なし）→ 前泊必須。
  */
-function requiresOvernightDueToReception(race: Race): boolean {
+function requiresOvernightDueToReception(race: ReceptionInput): boolean {
   if (race.reception_type === 'pre_mail' || race.reception_type === 'none') {
     return false;
   }
@@ -48,7 +48,7 @@ function requiresOvernightDueToReception(race: Race): boolean {
  * @param settings ユーザーの移動設定
  */
 export function calcDayTripStatus(
-  race: Race,
+  race: ReceptionInput,
   travelMinutes: number | null,
   settings: TravelSettings,
 ): DayTripStatus {

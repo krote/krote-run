@@ -1,4 +1,6 @@
-import type { Race, RaceCategory, EntryPeriod, EntryLink, RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight, ParticipationGift, CompletionGift, AccessPoint, ReceptionSession, RaceTravelTime } from '../types';
+import type { Locale, Race, RaceCategory, EntryPeriod, EntryLink, RaceGallery, RaceVoice, RaceTimeBucket, RaceCourseHighlight, ParticipationGift, CompletionGift, AccessPoint, ReceptionSession, RaceTravelTime } from '../types';
+import type { RaceListItem } from '../race-list-item';
+import { toRaceListItem } from '../race-list-item';
 
 /** テスト用の最小限 Race オブジェクトを生成するファクトリ */
 export function makeRace(overrides: Partial<Race> = {}): Race {
@@ -233,4 +235,9 @@ export function makeRaceTravelTime(overrides: Partial<RaceTravelTime> = {}): Rac
     calculated_at: '2026-01-01T00:00:00Z',
     ...overrides,
   };
+}
+
+/** 一覧・カレンダー用の軽量データ。`Race` を作って射影する（本番と同じ経路） */
+export function makeRaceListItem(overrides: Partial<Race> = {}, locale: Locale = 'ja'): RaceListItem {
+  return toRaceListItem(makeRace(overrides), locale);
 }

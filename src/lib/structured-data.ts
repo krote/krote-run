@@ -1,6 +1,7 @@
 import type { Race, Locale } from './types';
-import { getCategoryLabel, getRaceName, getRaceCity, getRaceDescription } from './utils';
+import { getCategoryLabel, getRaceName, getRaceCity } from './utils';
 import { SITE_ORIGIN, DEFAULT_OG_IMAGE, getRaceImageUrls } from './seo';
+import { getRaceDescriptionOrFallback } from './race-description';
 import prefecturesData from '@/data/prefectures.json';
 
 export { SITE_ORIGIN, DEFAULT_OG_IMAGE };
@@ -130,7 +131,7 @@ export function buildRaceJsonLd(race: Race, locale: Locale, today: string): Race
   const seriesName = getRaceName(race, locale);
   const fullName = locale === 'ja' ? race.full_name_ja : race.full_name_en;
   const images = getRaceImageUrls(race);
-  const description = getRaceDescription(race, locale);
+  const description = getRaceDescriptionOrFallback(race, locale);
 
   return {
     '@context': SCHEMA,

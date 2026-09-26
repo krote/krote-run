@@ -1632,3 +1632,39 @@ npx wrangler d1 execute krote-run-db --remote --file=./migrations/seed-travel-ti
 - 障害時は再デプロイで復旧した。Cloudflare Pages はデプロイごとに別の Worker スクリプトになるため上限がリセットされる。あくまで対症療法
 - 一覧・カレンダーページの1回あたりの SSR コスト（HTML 1MB超）は重いままで、変更前のデプロイでも並行アクセス時に散発的な503が出ていた。SSR コスト自体の削減は別タスクとする
 - **本番環境に負荷試験をかけない**。今回の調査で本番に負荷をかけ、障害を悪化させた。検証は stg 環境で行う
+
+## 2026-09-26 説明文が未入力の大会向けにフォールバック文を生成
+
+Search Console から4件の構造化データの指摘（`description` / `offers` 内の `price`・`priceCurrency`・`validFrom` の欠落）を受けて調査した。
+
+### 原因
+
+いずれもコードの不具合ではなくデータの欠落。前回 `offers` と `description` を出力するようにしたことで、値が埋まっていない大会が可視化された。
+
+| 指摘 | 原因 | 該当 |
+|---|---|---|
+| `description` がない | `description_ja` / `description_en` が空 | ja 10件・en 13件 |
+| `validFrom` がない | `entry_start_date` が null | 8件 |
+| `price` / `priceCurrency` がない | 参加費がどこにも入っていない | 12件 |
+
+重複を除くと27大会。`entry_periods` 側にも開始日・参加費は入っていないため（該当0件）、コード側のフォールバックでは埋められない。
+
+### 対応
+
+`description` のみコードで補った。`src/lib/race-description.ts` の `getRaceDescriptionOrFallback()` で、説明文が空の場合に既存データ（開催日・開催地・距離種別・コース認定）から事実だけの文を組み立てる。JSON-LD（`structured-data.ts`）とページの metadata（`seo.ts`）の両方で使う。ページ本文の表示は変えていない。
+
+生成例:
+```
+2026年10月4日に北海道札幌市南区で開催されるハーフマラソン・10kmの大会「札幌マラソン」。JAAF公認コース。
+```
+
+実データで確認して次の揺れに対処した。
+
+- 市区町村の値に都道府県名が含まれるもの（「北海道網走市」）があり、「北海道北海道網走市」になっていた → 重複を除去
+- `distance_type` が `other` のとき「その他の大会」という無意味な文になっていた → `other` は距離の記述から除外
+- `name_en` や `city_en` の前後の空白で二重スペースになっていた → trim
+
+### 残課題
+
+- `price` / `validFrom` はデータがないと埋まらないため、27大会のデータ補完を Issue 化した
+- `city_ja` に住所や会場名が入っている大会がある（「笠間市笠間2345番地」「DI STADIUM（美原公園陸上競技場）」）。データ補完の Issue に含めた

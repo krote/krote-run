@@ -39,9 +39,10 @@ describe('buildRaceMetadata', () => {
     expect(meta.openGraph?.images).toEqual(['https://cdn.example.com/hero.jpg']);
   });
 
-  it('説明が空でも title は大会名', () => {
+  it('説明が空なら既存データから組み立てた説明を使う', () => {
     const meta = buildRaceMetadata(makeRace({ description_ja: '' }), 'ja');
     expect(meta.title).toBe('テスト大会2026');
-    expect(meta.description).toBe('');
+    expect(meta.description).toContain('2026年10月1日');
+    expect(meta.openGraph?.description).toBe(meta.description);
   });
 });

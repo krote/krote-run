@@ -14,9 +14,10 @@ describe('buildRaceJsonLd', () => {
     expect(ld.eventAttendanceMode).toBe('https://schema.org/OfflineEventAttendanceMode');
   });
 
-  it('説明が空なら description 自体を出さない', () => {
-    const ld = buildRaceJsonLd(makeRace({ description_ja: '' }), 'ja', TODAY);
-    expect(ld).not.toHaveProperty('description');
+  it('説明が空なら既存データから組み立てた説明を出す', () => {
+    const ld = buildRaceJsonLd(makeRace({ description_ja: '', categories: [makeCategory()] }), 'ja', TODAY);
+    expect(ld.description).toContain('2026年10月1日');
+    expect(ld.description).toContain('東京都');
   });
 
   it('正式名称があれば name に使う', () => {

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import type { Race, Locale } from './types';
-import { getRaceDescription } from './utils';
+import { getRaceDescriptionOrFallback } from './race-description';
 
 export const SITE_ORIGIN = 'https://hashiru.run';
 export const SITE_NAME = 'HASHIRU';
@@ -31,7 +31,7 @@ export function getRaceImageUrls(race: Race): string[] {
 export function buildRaceMetadata(race: Race, locale: Locale): Metadata {
   const isJa = locale !== 'en';
   const name = isJa ? race.name_ja : (race.name_en ?? race.name_ja);
-  const description = getRaceDescription(race, locale);
+  const description = getRaceDescriptionOrFallback(race, locale);
   const url = `${SITE_ORIGIN}/${locale}/races/${race.id}`;
   const raceImages = getRaceImageUrls(race);
   const images = raceImages.length > 0 ? raceImages : [OG_IMAGE];

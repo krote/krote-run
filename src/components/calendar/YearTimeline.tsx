@@ -1,10 +1,11 @@
 'use client';
 
-import type { Race, Locale } from '@/lib/types';
+import type { Locale } from '@/lib/types';
+import type { RaceListItem } from '@/lib/race-list-item';
 import { Link } from '@/i18n/navigation';
 
 interface YearTimelineProps {
-  races: Race[];
+  races: RaceListItem[];
   year: number;
   month: number; // 0-indexed
   locale: Locale;
@@ -46,7 +47,7 @@ export default function YearTimeline({ races, year, month, locale, today }: Year
     return abs >= windowStart && abs <= windowEnd;
   }).sort((a, b) => a.date.localeCompare(b.date));
 
-  const raceName = (race: Race) => isJa ? race.name_ja : (race.name_en ?? race.name_ja);
+  const raceName = (race: RaceListItem) => isJa ? race.name_ja : (race.name_en ?? race.name_ja);
 
   const svgWidth = LABEL_W + CHART_W;
   const bodyHeight = windowRaces.length * ROW_H + 8 + 16;

@@ -2,14 +2,15 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import type { Race, Locale } from '@/lib/types';
+import type { Locale } from '@/lib/types';
+import type { RaceListItem } from '@/lib/race-list-item';
 import RaceCard from '@/components/races/RaceCard';
 import RaceCardExp from '@/components/races/RaceCardExp';
 import { Link } from '@/i18n/navigation';
 import { linkPrefetch } from '@/lib/nav-prefetch';
 
 interface Props {
-  races: Race[];
+  races: RaceListItem[];
   locale: Locale;
 }
 

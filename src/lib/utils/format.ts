@@ -19,14 +19,14 @@ export function getDistanceLabel(key: DistanceType, locale: Locale): string {
   return DISTANCE_LABELS[key]?.[locale] ?? key;
 }
 
-export function getMainCategory(categories: RaceCategory[]): RaceCategory | null {
+export function getMainCategory<T extends Pick<RaceCategory, 'distance_type' | 'distance_km'>>(categories: T[]): T | null {
   if (categories.length === 0) return null;
   const full = categories.find((c) => c.distance_type === 'full');
   if (full) return full;
   return categories.reduce((max, c) => (c.distance_km > max.distance_km ? c : max), categories[0]);
 }
 
-export function getCategoryLabel(cat: RaceCategory, locale: Locale): string {
+export function getCategoryLabel(cat: Pick<RaceCategory, 'distance_type' | 'name_ja' | 'name_en'>, locale: Locale): string {
   if (locale === 'en' && cat.name_en) return cat.name_en;
   if (locale === 'ja' && cat.name_ja) return cat.name_ja;
   return getDistanceLabel(cat.distance_type, locale);

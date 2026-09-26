@@ -1,21 +1,22 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import type { Race, Locale } from '@/lib/types';
+import type { Locale } from '@/lib/types';
+import type { RaceListItem } from '@/lib/race-list-item';
 import RaceCard from '@/components/races/RaceCard';
 import { Link } from '@/i18n/navigation';
 import { linkPrefetch } from '@/lib/nav-prefetch';
 import { formatDate, getRaceName, getTodayJST } from '@/lib/utils';
 
 interface Props {
-  upcoming: Race[];
-  openEntry: Race[];
-  soonOpening: Race[];
+  upcoming: RaceListItem[];
+  openEntry: RaceListItem[];
+  soonOpening: RaceListItem[];
   locale: Locale;
 }
 
 // ─── 受付中セクション ──────────────────────────────
-function OpenSection({ races, locale }: { races: Race[]; locale: Locale }) {
+function OpenSection({ races, locale }: { races: RaceListItem[]; locale: Locale }) {
   const t = useTranslations('home.sections');
   const today = getTodayJST();
 
@@ -138,7 +139,7 @@ function OpenSection({ races, locale }: { races: Race[]; locale: Locale }) {
 }
 
 // ─── まもなく受付セクション ────────────────────────
-function SoonSection({ races, locale }: { races: Race[]; locale: Locale }) {
+function SoonSection({ races, locale }: { races: RaceListItem[]; locale: Locale }) {
   const t = useTranslations('home.sections');
   const today = getTodayJST();
 
@@ -327,7 +328,7 @@ function VisitorBand() {
 }
 
 // ─── 近日開催セクション ────────────────────────────
-function UpcomingSection({ races, locale }: { races: Race[]; locale: Locale }) {
+function UpcomingSection({ races, locale }: { races: RaceListItem[]; locale: Locale }) {
   const t = useTranslations('home.sections');
 
   if (races.length === 0) return null;

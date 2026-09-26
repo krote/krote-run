@@ -1,4 +1,5 @@
-import type { Race, Locale } from '@/lib/types';
+import type { Locale } from '@/lib/types';
+import type { RaceListItem } from '@/lib/race-list-item';
 import { formatDate, getRaceName, getTodayJST } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
@@ -7,7 +8,7 @@ import type { TravelSettings } from '@/lib/travel';
 import { calcDayTripStatus } from '@/lib/travel';
 import DayTripBadge from './DayTripBadge';
 interface RaceCardProps {
-  race: Race;
+  race: RaceListItem;
   locale: Locale;
   from?: string;
   travelSettings?: TravelSettings | null;

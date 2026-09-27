@@ -1,4 +1,4 @@
-import type { Race } from './types';
+import type { ReceptionInput } from './types';
 
 /** HH:MM 文字列を分に変換 */
 function toMinutes(time: string): number {
@@ -15,7 +15,7 @@ function fromMinutes(minutes: number): string {
 }
 
 /** 大会当日（race.date）の reception_session を返す */
-function findRaceDaySession(race: Race) {
+function findRaceDaySession(race: ReceptionInput) {
   return race.reception_sessions.find(s => s.date === race.date);
 }
 
@@ -24,7 +24,7 @@ function findRaceDaySession(race: Race) {
  * reception_sessions がある場合は大会当日と同日の session の有無で判定。
  * sessions がない場合は reception_type にフォールバック。
  */
-export function canReceiveOnRaceDay(race: Race): boolean {
+export function canReceiveOnRaceDay(race: ReceptionInput): boolean {
   if (race.reception_sessions.length > 0) {
     return findRaceDaySession(race) !== undefined;
   }
@@ -35,7 +35,7 @@ export function canReceiveOnRaceDay(race: Race): boolean {
  * 大会当日受付の締切時刻を返す。
  * 対応する reception_session がない、または close_time が null の場合は null。
  */
-export function getRaceDayReceptionClose(race: Race): string | null {
+export function getRaceDayReceptionClose(race: ReceptionInput): string | null {
   return findRaceDaySession(race)?.close_time ?? null;
 }
 
@@ -44,7 +44,7 @@ export function getRaceDayReceptionClose(race: Race): string | null {
  * = min(最早スタート時刻 - 30分バッファ, 当日受付締切時刻)
  * start_time が未設定の場合は null。
  */
-export function getArrivalDeadline(race: Race): string | null {
+export function getArrivalDeadline(race: ReceptionInput): string | null {
   const startTimes = race.categories
     .map(c => c.start_time)
     .filter((t): t is string => !!t);

@@ -1,19 +1,23 @@
 'use client';
 
-import type { Race, EntryPeriod, Locale } from '@/lib/types';
+import type { Locale } from '@/lib/types';
+import type { RaceListItem } from '@/lib/race-list-item';
+
+/** カレンダーが扱うエントリー期間（RaceListItem が持つ最小限の形） */
+type EntryPeriod = RaceListItem['entry_periods'][number];
 import { Link } from '@/i18n/navigation';
 
 interface MonthGridProps {
-  races: Race[];
+  races: RaceListItem[];
   year: number;
   month: number; // 0-indexed
   locale: Locale;
   today: string;
-  onHover: (race: Race | null, pos: { x: number; y: number }) => void;
+  onHover: (race: RaceListItem | null, pos: { x: number; y: number }) => void;
 }
 
 type EntryBand = {
-  race: Race;
+  race: RaceListItem;
   period: EntryPeriod;
   isStart: boolean;
   isEnd: boolean;
@@ -30,10 +34,10 @@ function getFirstDayOfMonth(year: number, month: number): number {
 
 export default function MonthGrid({ races, year, month, locale, today, onHover }: MonthGridProps) {
   const isJa = locale === 'ja';
-  const raceName = (race: Race) => isJa ? race.name_ja : (race.name_en ?? race.name_ja);
+  const raceName = (race: RaceListItem) => isJa ? race.name_ja : (race.name_en ?? race.name_ja);
 
   // Race day map
-  const raceDaysByDate = new Map<string, Race[]>();
+  const raceDaysByDate = new Map<string, RaceListItem[]>();
   races.forEach((race) => {
     const key = race.date.split('T')[0];
     if (!raceDaysByDate.has(key)) raceDaysByDate.set(key, []);
@@ -45,7 +49,7 @@ export default function MonthGrid({ races, year, month, locale, today, onHover }
   const monthEnd = new Date(year, month + 1, 0);
 
   interface PeriodEntry {
-    race: Race;
+    race: RaceListItem;
     period: EntryPeriod;
     effectiveStart: string;
     effectiveEnd: string;
@@ -73,7 +77,7 @@ export default function MonthGrid({ races, year, month, locale, today, onHover }
       const effStartStr = `${year}-${pad(effectiveStart.getMonth() + 1)}-${pad(effectiveStart.getDate())}`;
       const effEndStr = `${year}-${pad(effectiveEnd.getMonth() + 1)}-${pad(effectiveEnd.getDate())}`;
 
-      allPeriods.push({ race, period, effectiveStart: effStartStr, effectiveEnd: effEndStr, key: `${race.id}__${period.id ?? period.start_date}` });
+      allPeriods.push({ race, period, effectiveStart: effStartStr, effectiveEnd: effEndStr, key: `${race.id}__${period.start_date}` });
     });
   });
 
@@ -202,7 +206,7 @@ export default function MonthGrid({ races, year, month, locale, today, onHover }
               <div className="space-y-px">
                 {Array.from({ length: totalLanes }, (_, lane) => {
                   const band = entryBands.find(
-                    (b) => laneMap.get(`${b.race.id}__${b.period.id ?? b.period.start_date}`) === lane,
+                    (b) => laneMap.get(`${b.race.id}__${b.period.start_date}`) === lane,
                   );
                   if (!band) return <div key={lane} className="h-5" />;
 

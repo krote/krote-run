@@ -1,9 +1,8 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { vi } from 'vitest';
 import { filterRaces, sortRacesByDate, sortRaces, emptyFilter } from '../utils';
-import { makeRace, makeCategory, makeEntryPeriod, makeParticipationGift, makeCompletionGift, makeRaceTravelTime } from './fixtures';
+import { makeRaceListItem as makeRace, makeCategory, makeEntryPeriod, makeParticipationGift, makeCompletionGift, makeRaceTravelTime } from './fixtures';
 import type { TravelSettings } from '../travel';
-import type { Race } from '../types';
 
 const TODAY = '2026-04-02';
 
@@ -17,7 +16,7 @@ afterEach(() => {
 });
 
 // テスト用レース一式
-function makeRaces(): Race[] {
+function makeRaces() {
   return [
     // 受付中（open_entry）
     makeRace({

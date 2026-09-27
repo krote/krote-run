@@ -1668,3 +1668,40 @@ Search Console から4件の構造化データの指摘（`description` / `offer
 
 - `price` / `validFrom` はデータがないと埋まらないため、27大会のデータ補完を Issue 化した
 - `city_ja` に住所や会場名が入っている大会がある（「笠間市笠間2345番地」「DI STADIUM（美原公園陸上競技場）」）。データ補完の Issue に含めた
+
+## 2026-09-27 一覧・カレンダーのRSCペイロードを削減（Issue #184）
+
+Error 1102（Worker のリソース上限超過）の再発余地を減らすため、一覧・カレンダーページの1回あたりのレンダリングコストを下げた。
+
+### 原因
+
+一覧・カレンダーは Client Component に大会データを渡すため、`Race` をそのまま渡すと全フィールドが RSC ペイロードとして HTML に直列化されていた。本番の実測で `/ja/races` は HTML 約1.0MB のうち **590KB（64%）が大会データ**だった。`reception_sessions` のように一覧で参照しない項目や、表示しない側の言語のテキストまで送っていた。
+
+一覧が実際に使うフィールドは、`filterRaces`/`sortRaces` が11、`RaceCard` が15、`RaceCardExp` が11、`CalendarView` は7だけだった。
+
+### 対応
+
+- `src/lib/race-list-item.ts` を新設。`RaceListItem` 型と `toRaceListItem(race, locale)` を定義し、Server Component 側で射影してから Client Component に渡す
+  - 一覧で使わない子テーブル（`aid_stations` / `checkpoints` / `nearby_spots` / `weather_history` / `access_points` / `gallery` / `voices` / `time_buckets` / `result`）を落とす
+  - 市区町村・説明文・コースの見どころはロケール解決済みの単一値にする（表示しない言語のテキストを送らない）
+  - 説明文はカード表示に必要な長さ（80文字）に切り詰める
+  - 参加賞・完走賞は絞り込みに使うカテゴリIDの配列にまとめる
+  - `categories` / `entry_periods` / `reception_sessions` / `travel_times` は使う項目だけに絞る
+- 共通ヘルパーを構造的な型に広げ、`Race` と `RaceListItem` の両方から呼べるようにした
+  - `getRaceStatus` → `RaceStatusInput`、`calcDayTripStatus` / `canReceiveOnRaceDay` / `getArrivalDeadline` → `ReceptionInput`（`types.ts` に追加）
+  - `getMainCategory` / `getCategoryLabel` / `getRaceName` は `Pick<...>` ベースに変更
+- `filterRaces` / `sortRaces` / `sortRacesByDate` は `RaceListItem[]` を扱うようにした
+- 一覧・カレンダー・ホームの各ページで `toRaceListItem()` を通してから渡すようにした
+- テスト用に `makeRaceListItem()` を追加し、コンポーネント・フィルタのテストを移行
+
+### 効果（stg と本番の実測比較）
+
+| ページ | HTML全体 | RSCデータ |
+|---|---|---|
+| `/ja/races` | 920KB → 533KB（42%減） | 591KB → 208KB（65%減） |
+| `/ja/calendar` | 973KB → 468KB（52%減） | 585KB → 202KB（65%減） |
+
+### 補足
+
+- Issue #184 の「キャッシュ戦略の見直し」は調査の結果すでに対応済みだった（`open-next.config.ts` の R2 インクリメンタルキャッシュ＋リージョナルキャッシュ、`data.ts` の `unstable_cache` 1時間）。ページ単位のISRはビルド時にCloudflareバインディングが使えないため見送られており、その判断は妥当
+- 「初期表示件数の制限」はUXが変わるため今回は対象外。残るマークアップ側（約330KB）の削減が必要になった場合に再検討する

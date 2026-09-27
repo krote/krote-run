@@ -2,7 +2,8 @@
 
 import { useState, useCallback, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import type { Race, Prefecture, GiftCategory, RaceFilter as RaceFilterType, Locale } from '@/lib/types';
+import type { Prefecture, GiftCategory, RaceFilter as RaceFilterType, Locale } from '@/lib/types';
+import type { RaceListItem } from '@/lib/race-list-item';
 import { filterRaces, sortRaces, defaultFilter, filterToSearchParams } from '@/lib/utils';
 import { useTravelSettings } from '@/lib/hooks/useTravelSettings';
 import RaceCard from './RaceCard';
@@ -10,7 +11,7 @@ import RaceCardExp from './RaceCardExp';
 import RaceFilter from './RaceFilter';
 
 interface RaceListProps {
-  races: Race[];
+  races: RaceListItem[];
   prefectures: Prefecture[];
   giftCategories: GiftCategory[];
   locale: Locale;

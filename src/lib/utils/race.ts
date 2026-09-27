@@ -1,7 +1,7 @@
-import type { Race, Locale, RaceStatus } from '../types';
+import type { Race, Locale, RaceStatus, RaceStatusInput } from '../types';
 import { getTodayJST } from './date';
 
-export function getRaceName(race: Race, locale: Locale): string {
+export function getRaceName(race: Pick<Race, 'name_ja' | 'name_en'>, locale: Locale): string {
   return locale === 'en' ? race.name_en : race.name_ja;
 }
 
@@ -13,7 +13,7 @@ export function getRaceDescription(race: Race, locale: Locale): string {
   return locale === 'en' ? race.description_en : race.description_ja;
 }
 
-export function getRaceStatus(race: Race): RaceStatus {
+export function getRaceStatus(race: RaceStatusInput): RaceStatus {
   const today = getTodayJST();
   if (race.date < today) return 'past';
   if (race.entry_closed) return 'entry_closed';

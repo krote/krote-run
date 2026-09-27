@@ -3,7 +3,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render } from '@testing-library/react';
 import RaceCard from '../races/RaceCard';
 import RaceCardExp from '../races/RaceCardExp';
-import { makeRace, makeCategory } from '../../lib/__tests__/fixtures';
+import { makeCategory, makeRaceListItem } from '../../lib/__tests__/fixtures';
 
 /**
  * 大会カードのリンクが先読み（prefetch）されると、画面内のカード分だけ
@@ -37,7 +37,7 @@ afterEach(() => {
   vi.useRealTimers();
 });
 
-const race = makeRace({ categories: [makeCategory()] });
+const race = makeRaceListItem({ categories: [makeCategory()] });
 
 describe('大会カードの先読み', () => {
   it('RaceCard は詳細ページを先読みしない', () => {

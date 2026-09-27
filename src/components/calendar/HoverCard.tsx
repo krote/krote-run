@@ -1,10 +1,11 @@
 'use client';
 
-import type { Race, Locale } from '@/lib/types';
+import type { Locale } from '@/lib/types';
+import type { RaceListItem } from '@/lib/race-list-item';
 import { formatDate, getMainCategory } from '@/lib/utils';
 
 interface HoverCardProps {
-  race: Race | null;
+  race: RaceListItem | null;
   locale: Locale;
   position: { x: number; y: number };
 }
@@ -14,7 +15,7 @@ export default function HoverCard({ race, locale, position }: HoverCardProps) {
 
   const isJa = locale === 'ja';
   const name = isJa ? race.name_ja : (race.name_en ?? race.name_ja);
-  const city = isJa ? race.city_ja : race.city_en;
+  const city = race.city;
   const mainCategory = getMainCategory(race.categories);
 
   return (

@@ -1,12 +1,13 @@
-import type { Race, Locale } from '@/lib/types';
-import { formatDate, getMainCategory, getRaceName, getRaceCity, getRaceDescription, getTodayJST } from '@/lib/utils';
+import type { Locale } from '@/lib/types';
+import type { RaceListItem } from '@/lib/race-list-item';
+import { formatDate, getMainCategory, getRaceName, getTodayJST } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import type { TravelSettings } from '@/lib/travel';
 import { calcDayTripStatus } from '@/lib/travel';
 import DayTripBadge from './DayTripBadge';
 interface RaceCardExpProps {
-  race: Race;
+  race: RaceListItem;
   locale: Locale;
   from?: string;
   travelSettings?: TravelSettings | null;
@@ -26,9 +27,9 @@ export default function RaceCardExp({ race, locale, from, travelSettings }: Race
        today <= race.entry_end_date);
 
   const highlights: string[] = [];
-  const ci = race.course_info;
+  const ci = race.course;
 
-  const hlRaw = locale === 'en' ? ci.highlights_en : ci.highlights_ja;
+  const hlRaw = ci.highlight;
   if (hlRaw) {
     const firstHl = hlRaw.split(/[、,]/)[0].trim();
     if (firstHl) highlights.push(firstHl);
@@ -60,9 +61,9 @@ export default function RaceCardExp({ race, locale, from, travelSettings }: Race
     return calcDayTripStatus(race, mins, travelSettings);
   })();
 
-  const cityLabel = getRaceCity(race, locale);
+  const cityLabel = race.city;
 
-  const desc = getRaceDescription(race, locale);
+  const desc = race.summary;
   const overlayText = desc.length > 72 ? desc.slice(0, 72).trimEnd() + '…' : desc;
 
   return (

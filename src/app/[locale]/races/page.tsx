@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { getRaces, getPrefectures, getGiftCategories } from '@/lib/data';
+import { toRaceListItem } from '@/lib/race-list-item';
 import { OG_IMAGE } from '@/lib/seo';
 import RaceList from '@/components/races/RaceList';
 import type { Locale } from '@/lib/types';
@@ -60,6 +61,8 @@ export default async function RacesPage({
 
   const t = await getTranslations({ locale, namespace: 'races' });
   const [races, prefectures, giftCategories] = await Promise.all([getRaces(), getPrefectures(), getGiftCategories()]);
+  // Client Component に渡す分は一覧で使う項目だけに絞る（RSCペイロード削減）
+  const raceItems = races.map((race) => toRaceListItem(race, locale));
 
   return (
     <>
@@ -109,7 +112,7 @@ export default async function RacesPage({
 
       <div className="max-w-[1120px] mx-auto px-10 py-8">
         <RaceList
-          races={races}
+          races={raceItems}
           prefectures={prefectures}
           giftCategories={giftCategories}
           locale={locale}

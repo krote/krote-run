@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import type { Race, Locale } from '@/lib/types';
+import type { Locale } from '@/lib/types';
+import type { RaceListItem } from '@/lib/race-list-item';
 import ControlBar, { type StatusFilter, type DistanceFilter } from './ControlBar';
 import MonthGrid from './MonthGrid';
 import YearTimeline from './YearTimeline';
@@ -9,7 +10,7 @@ import HoverCard from './HoverCard';
 type ViewMode = 'month' | 'timeline';
 
 interface CalendarViewProps {
-  races: Race[];
+  races: RaceListItem[];
   year: number;
   month: number; // 0-indexed
   locale: Locale;
@@ -18,7 +19,7 @@ interface CalendarViewProps {
   prefToRegion: Record<string, string>;
 }
 
-function getRaceStatus(race: Race, today: string): 'open' | 'soon' | 'closed' | 'past' {
+function getRaceStatus(race: RaceListItem, today: string): 'open' | 'soon' | 'closed' | 'past' {
   if (race.date < today) return 'past';
   if (race.entry_closed) return 'closed';
 
@@ -51,7 +52,7 @@ export default function CalendarView({
   const [status, setStatus] = useState<StatusFilter>('all');
   const [region, setRegion] = useState<string>('all');
   const [distance, setDistance] = useState<DistanceFilter>('all');
-  const [hoverRace, setHoverRace] = useState<Race | null>(null);
+  const [hoverRace, setHoverRace] = useState<RaceListItem | null>(null);
   const [hoverPos, setHoverPos] = useState({ x: 0, y: 0 });
 
   const isJa = locale === 'ja';
@@ -74,7 +75,7 @@ export default function CalendarView({
     return true;
   });
 
-  const handleHover = (race: Race | null, pos: { x: number; y: number }) => {
+  const handleHover = (race: RaceListItem | null, pos: { x: number; y: number }) => {
     setHoverRace(race);
     setHoverPos(pos);
   };

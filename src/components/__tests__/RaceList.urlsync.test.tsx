@@ -3,7 +3,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import RaceList from '../races/RaceList';
-import { makeRace, makeCategory } from '../../lib/__tests__/fixtures';
+import { makeRaceListItem as makeRace, makeCategory } from '../../lib/__tests__/fixtures';
 
 /**
  * フィルタは全てクライアント側で処理しているのに、URL同期に next-intl の router.replace を

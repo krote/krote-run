@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { getUpcomingRaces, getOpenEntryRaces, getSoonOpeningEntryRaces, getTotalRaceCount, getOpenEntryCount } from '@/lib/data';
+import { toRaceListItem } from '@/lib/race-list-item';
 import HomeSections from '@/components/home/HomeSections';
 import { Link } from '@/i18n/navigation';
 import { linkPrefetch } from '@/lib/nav-prefetch';
@@ -300,9 +301,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     <>
       <HeroSection raceCount={totalRaces} openEntryCount={openEntryCount} />
       <HomeSections
-        upcoming={upcomingRaces}
-        openEntry={openEntryRaces}
-        soonOpening={soonOpeningRaces}
+        upcoming={upcomingRaces.map((race) => toRaceListItem(race, locale as Locale))}
+        openEntry={openEntryRaces.map((race) => toRaceListItem(race, locale as Locale))}
+        soonOpening={soonOpeningRaces.map((race) => toRaceListItem(race, locale as Locale))}
         locale={locale as Locale}
       />
       <WhySection />

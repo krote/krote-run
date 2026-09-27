@@ -332,3 +332,42 @@ describe('validateRace 返り値構造', () => {
     assert.ok(['error', 'warning'].includes(issue.level), 'level は error か warning');
   });
 });
+
+// ── Rule: 参加費がどこにも無い（crawl 見直し） ──────────────────────
+
+describe('entry_fee_missing', () => {
+  const base = {
+    id: 'r', date: '2026-10-01', entry_periods: [], categories: [],
+    entry_fee: null, entry_fee_by_category: true, course_info: { certification: [] },
+  };
+
+  test('entry_fee も categories[].entry_fee も無ければ警告', () => {
+    const issues = validateRace({ ...base, categories: [{ distance_type: 'full', entry_fee: null }] });
+    const issue = issues.find(i => i.rule === 'entry_fee_missing');
+    assert.ok(issue, '参加費欠落が検出されない');
+    assert.equal(issue.level, 'warning');
+  });
+
+  test('カテゴリ別に参加費が入っていれば警告しない', () => {
+    const issues = validateRace({ ...base, categories: [{ distance_type: 'full', entry_fee: 12000 }] });
+    assert.equal(issues.find(i => i.rule === 'entry_fee_missing'), undefined);
+  });
+
+  test('トップレベルの参加費が入っていれば警告しない', () => {
+    const issues = validateRace({ ...base, entry_fee: 5000, entry_fee_by_category: false });
+    assert.equal(issues.find(i => i.rule === 'entry_fee_missing'), undefined);
+  });
+
+  test('エントリー期間に参加費があれば警告しない', () => {
+    const issues = validateRace({
+      ...base,
+      entry_periods: [{ label_ja: '一般', label_en: 'General', start_date: '2026-04-01', end_date: null, entry_fee: 8000 }],
+    });
+    assert.equal(issues.find(i => i.rule === 'entry_fee_missing'), undefined);
+  });
+
+  test('開催済みの大会は警告しない（過去大会の補完は対象外）', () => {
+    const issues = validateRace({ ...base, date: '2020-01-01', categories: [{ distance_type: 'full', entry_fee: null }] });
+    assert.equal(issues.find(i => i.rule === 'entry_fee_missing'), undefined);
+  });
+});

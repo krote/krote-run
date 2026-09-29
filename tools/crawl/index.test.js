@@ -309,3 +309,59 @@ describe('discoverInfoLinks', () => {
     assert.equal(links.length, 0);
   });
 });
+
+// ── 強制抽出の対象（欠落フィールドの補完） ──────────────────────────
+
+const { getForcedExtractionReasons } = require('./index');
+
+describe('getForcedExtractionReasons', () => {
+  const future = '2099-01-01';
+  const full = {
+    id: 'test-2026', date: future,
+    venue_name_ja: '会場', venue_address: '東京都千代田区',
+    description_ja: '説明', description_en: 'desc',
+    entry_fee: 5000, categories: [], entry_periods: [],
+    entry_start_date: '2098-01-01',
+  };
+
+  test('欠落がなければ空配列', () => {
+    assert.deepEqual(getForcedExtractionReasons(full), []);
+  });
+
+  test('会場情報がなければ理由に挙がる', () => {
+    const reasons = getForcedExtractionReasons({ ...full, venue_name_ja: null, venue_address: null });
+    assert.ok(reasons.includes('会場情報'));
+  });
+
+  test('参加費がどこにもなければ理由に挙がる', () => {
+    const reasons = getForcedExtractionReasons({ ...full, entry_fee: null, categories: [{ distance_type: 'full', entry_fee: null }] });
+    assert.ok(reasons.includes('参加費'));
+  });
+
+  test('カテゴリ別に参加費があれば挙がらない', () => {
+    const reasons = getForcedExtractionReasons({ ...full, entry_fee: null, categories: [{ distance_type: 'full', entry_fee: 12000 }] });
+    assert.ok(!reasons.includes('参加費'));
+  });
+
+  test('説明文が空なら理由に挙がる', () => {
+    assert.ok(getForcedExtractionReasons({ ...full, description_ja: '' }).includes('説明文'));
+    assert.ok(getForcedExtractionReasons({ ...full, description_en: '' }).includes('説明文'));
+  });
+
+  test('エントリー開始日がなければ理由に挙がる', () => {
+    const reasons = getForcedExtractionReasons({ ...full, entry_start_date: null, entry_periods: [] });
+    assert.ok(reasons.includes('エントリー開始日'));
+  });
+
+  test('開催済みの大会は対象外（補完しても意味がない）', () => {
+    const past = { ...full, date: '2020-01-01', venue_name_ja: null, venue_address: null, description_ja: '' };
+    assert.deepEqual(getForcedExtractionReasons(past), []);
+  });
+
+  test('複数欠落していれば全部挙がる', () => {
+    const reasons = getForcedExtractionReasons({
+      ...full, venue_name_ja: null, venue_address: null, description_ja: '', entry_fee: null,
+    });
+    assert.ok(reasons.length >= 3, `理由が足りない: ${reasons}`);
+  });
+});

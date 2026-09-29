@@ -21,6 +21,10 @@ const CHECKSUMS_FILE = path.join(__dirname, 'checksums.json');
 
 const { extractFromPages, applyAndSave, buildDiff, createNewEditionFile } = require('./extractor');
 const { geocodeAll } = require('../../scripts/geocode-venues');
+const { screenExtraction } = require('./gate');
+const { buildReport } = require('./report');
+const { shouldCreatePr, createCrawlPr } = require('./pr');
+const { validateRace } = require('../../scripts/validate-races');
 
 const FETCH_OPTS = {
   headers: {
@@ -129,6 +133,40 @@ function isMissingCriticalFields(race) {
   const name = (race.venue_name_ja || '').trim();
   const addr = (race.venue_address || '').trim();
   return !name && !addr;
+}
+
+/**
+ * 「ページは無変更だが、データが欠けているので抽出をやり直したい」理由を列挙する。
+ *
+ * チェックサムが一致するページは抽出をスキップするため、一度取りこぼした項目は
+ * 公式サイトが更新されるまで永久に埋まらない。欠落している大会に限り、
+ * 無変更でも抽出にかけて埋めにいく。開催済みの大会は補完しても意味がないので対象外。
+ *
+ * @param {object} race
+ * @param {Date} [now]
+ * @returns {string[]} 欠落項目のラベル（空配列なら強制抽出不要）
+ */
+function getForcedExtractionReasons(race, now = new Date()) {
+  if (isPastRace(race, now)) return [];
+
+  const reasons = [];
+
+  if (isMissingCriticalFields(race)) reasons.push('会場情報');
+
+  const hasFee = race.entry_fee != null
+    || (race.categories ?? []).some(c => c.entry_fee != null)
+    || (race.entry_periods ?? []).some(p => p.entry_fee != null);
+  if (!hasFee) reasons.push('参加費');
+
+  if (!(race.description_ja || '').trim() || !(race.description_en || '').trim()) {
+    reasons.push('説明文');
+  }
+
+  const hasEntryStart = race.entry_start_date != null
+    || (race.entry_periods ?? []).some(p => p.start_date);
+  if (!hasEntryStart) reasons.push('エントリー開始日');
+
+  return reasons;
 }
 
 /**
@@ -266,13 +304,20 @@ async function crawlRace(race, checksums, dryRun = false) {
 
 async function run(options = {}) {
   const dryRun = options.dryRun ?? false;
+  const raceId = options.raceId ?? null;
 
   const checksums = loadChecksums();
   const allFiles = fs.readdirSync(RACES_DIR)
     .filter(f => f.endsWith('.json') && f !== 'index.json')
     .sort();
-  const files = getLatestFilesPerSeries(allFiles);
-  const skippedBySeries = allFiles.length - files.length;
+  const files = raceId
+    ? allFiles.filter(f => f === `${raceId}.json`)
+    : getLatestFilesPerSeries(allFiles);
+  const skippedBySeries = raceId ? 0 : allFiles.length - files.length;
+
+  if (raceId && files.length === 0) {
+    throw new Error(`レースが見つかりません: ${raceId}`);
+  }
 
   const summary = {
     changed: [],       // { race_id, url }
@@ -285,6 +330,8 @@ async function run(options = {}) {
     forced: [],        // { race_id } 会場情報未設定のため無変更でも強制的にLLM抽出対象にしたもの
     skipped_past: [],  // { race_id, diff } 開催済みのため更新をスキップしたもの（次年度切り替わりを除く）
     geocoded: { processed: 0, skipped: 0, failed: 0 }, // venue_address からの座標補完
+    held: [],          // { race_id, race_name, key, rule, message } 検査で適用を見送った更新
+    checks: { errors: 0, warnings: 0, byRule: {} }, // 実行後のデータ品質チェック結果
   };
 
   // 変更が検出されたレースを収集（LLM抽出用）
@@ -303,7 +350,8 @@ async function run(options = {}) {
 
     process.stdout.write(`[${race.id}] `);
     const results = await crawlRace(race, checksums, dryRun);
-    const forceExtract = isMissingCriticalFields(race);
+    const forcedReasons = getForcedExtractionReasons(race);
+    const forceExtract = forcedReasons.length > 0;
 
     const changedTexts = [];
     let hasRealChange = false;
@@ -325,7 +373,7 @@ async function run(options = {}) {
         summary.unchanged++;
         if (forceExtract && r.text) {
           changedTexts.push({ url: r.url, text: r.text });
-          console.log(`変更なし（会場情報未設定のため強制抽出対象): ${r.url}`);
+          console.log(`変更なし（${forcedReasons.join('・')}が未設定のため強制抽出対象): ${r.url}`);
         } else {
           console.log(`変更なし: ${r.url}`);
         }
@@ -334,7 +382,7 @@ async function run(options = {}) {
 
     if (changedTexts.length > 0) {
       if (forceExtract && !hasRealChange) {
-        summary.forced.push({ race_id: race.id });
+        summary.forced.push({ race_id: race.id, race_name: race.name_ja, reasons: forcedReasons });
       }
       changedRaces.push({ race, changedTexts });
     }
@@ -351,7 +399,16 @@ async function run(options = {}) {
     for (const { race, changedTexts } of changedRaces) {
       process.stdout.write(`[extract] ${race.id} ... `);
       try {
-        const { extracted, diff } = await extractFromPages(race, changedTexts);
+        const { extracted: rawExtracted } = await extractFromPages(race, changedTexts);
+
+        // データ品質ルールに反する更新は適用しない（同じ指摘の再発を適用前に止める）
+        const { applied: extracted, held } = screenExtraction(race, rawExtracted);
+        for (const h of held) {
+          console.log(`  保留: ${h.key}（${h.rule}: ${h.message}）`);
+          summary.held.push({ race_id: race.id, race_name: race.name_ja, ...h });
+        }
+
+        const diff = buildDiff(race, extracted);
         const updatedFields = diff.filter(d => d.changed);
 
         if (updatedFields.length === 0) {
@@ -363,7 +420,7 @@ async function run(options = {}) {
         // ページ自体は引き続きチェックし続ける必要があるため、crawl・LLM抽出自体はスキップしない。
         if (isPastRace(race) && !isEditionTransition(race, extracted)) {
           console.log('開催済みのため更新をスキップ（次年度情報ではない）');
-          summary.skipped_past.push({ race_id: race.id, diff: updatedFields });
+          summary.skipped_past.push({ race_id: race.id, race_name: race.name_ja, diff: updatedFields });
           continue;
         }
 
@@ -394,7 +451,7 @@ async function run(options = {}) {
           console.log(`  → ${race.id}.json を更新しました`);
         }
 
-        summary.extracted.push({ race_id: race.id, diff: updatedFields });
+        summary.extracted.push({ race_id: race.id, race_name: race.name_ja, diff: updatedFields });
       } catch (err) {
         console.error(`エラー: ${err.message}`);
         summary.errors.push({ race_id: race.id, url: '(extract)', error: err.message });
@@ -407,12 +464,26 @@ async function run(options = {}) {
   console.log('\n[geocode] venue_address から座標を補完中...\n');
   summary.geocoded = await geocodeAll({ dryRun });
 
+  // ── 実行後のデータ品質チェック ──
+  // 適用前のゲート（gate.js）を通った後でも、全体として破綻していないかを最後に検査する。
+  // 結果は PR 本文に載せ、エラーが残っていればレビューで気づけるようにする。
+  console.log('\n[check] データ品質チェックを実行中...\n');
+  for (const file of fs.readdirSync(RACES_DIR).filter(f => f.endsWith('.json') && f !== 'index.json')) {
+    const checked = JSON.parse(fs.readFileSync(path.join(RACES_DIR, file), 'utf-8'));
+    for (const issue of validateRace(checked)) {
+      if (issue.level === 'error') summary.checks.errors++;
+      else summary.checks.warnings++;
+      summary.checks.byRule[issue.rule] = (summary.checks.byRule[issue.rule] ?? 0) + 1;
+    }
+  }
+  console.log(`エラー ${summary.checks.errors}件 / 警告 ${summary.checks.warnings}件`);
+
   console.log('\n=== チェック完了 ===');
   console.log(`変更あり : ${summary.changed.length}件`);
   console.log(`新規     : ${summary.new.length}件`);
   console.log(`変更なし : ${summary.unchanged}件`);
   console.log(`LLM更新  : ${summary.extracted.length}件`);
-  console.log(`  うち強制抽出（会場情報未設定・ページ無変更）: ${summary.forced.length}件`);
+  console.log(`  うち強制抽出（データ欠落・ページ無変更）: ${summary.forced.length}件`);
   console.log(`開催済みのため更新スキップ: ${summary.skipped_past.length}件`);
   console.log(`新年度作成: ${summary.new_editions.length}件`);
   console.log(`エラー   : ${summary.errors.length}件`);
@@ -433,6 +504,35 @@ async function run(options = {}) {
     }
   }
 
+  console.log(`検査で保留: ${summary.held.length}件`);
+
+  // ── PR 作成 ──
+  // クロールは race JSON を書き換えるため、実行の締めくくりとして
+  // レポートを本文にした PR まで作り、レビューできる状態で止める。
+  const report = buildReport(summary);
+  summary.report = report;
+
+  if (shouldCreatePr(summary, { dryRun })) {
+    console.log('\n[pr] 変更をブランチにまとめて PR を作成します...');
+    try {
+      const result = createCrawlPr(summary, report);
+      if (result.created) {
+        console.log(`[pr] 作成しました: ${result.url}`);
+        summary.pr = result;
+      } else {
+        console.log(`[pr] 作成しませんでした（${result.reason}）`);
+      }
+    } catch (err) {
+      console.error(`[pr] 作成に失敗しました: ${err.message}`);
+      console.error('[pr] レポートを出力します。手動で PR を作成してください。\n');
+      console.log(report);
+      summary.errors.push({ race_id: '(pr)', url: '(pr)', error: err.message });
+    }
+  } else if (dryRun) {
+    console.log('\n--- レポート（dry-run のため PR は作成しません） ---\n');
+    console.log(report);
+  }
+
   return summary;
 }
 
@@ -440,10 +540,12 @@ async function run(options = {}) {
 
 if (require.main === module) {
   const dryRun = process.argv.includes('--dry-run');
-  run({ dryRun, useCli: !process.argv.includes('--no-cli') }).catch(err => {
+  const raceArgIndex = process.argv.indexOf('--race');
+  const raceId = raceArgIndex !== -1 ? process.argv[raceArgIndex + 1] : null;
+  run({ dryRun, raceId, useCli: !process.argv.includes('--no-cli') }).catch(err => {
     console.error('予期しないエラー:', err);
     process.exit(1);
   });
 } else {
-  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks, isMissingCriticalFields, isPastRace, isEditionTransition };
+  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks, isMissingCriticalFields, getForcedExtractionReasons, isPastRace, isEditionTransition };
 }

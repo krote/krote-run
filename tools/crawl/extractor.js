@@ -17,6 +17,8 @@ const DIFF_FIELDS = [
   { key: 'entry_start_date',    label: '申込開始日（旧）',    type: 'scalar' },
   { key: 'entry_end_date',      label: '申込締切日（旧）',    type: 'scalar' },
   { key: 'entry_fee',           label: '参加費（円）',        type: 'scalar' },
+  { key: 'description_ja',      label: '説明文（日）',        type: 'scalar' },
+  { key: 'description_en',      label: '説明文（英）',        type: 'scalar' },
   { key: 'entry_capacity',      label: '定員（人）',          type: 'scalar' },
   { key: 'course_info',         label: 'コース情報',          type: 'object' },
   { key: 'entry_periods',       label: 'エントリー期間',      type: 'array'  },
@@ -56,6 +58,8 @@ function buildExtractionPrompt(race, pageTexts) {
     `  申込開始: ${race.entry_start_date ?? '不明'}`,
     `  申込締切: ${race.entry_end_date ?? '不明'}`,
     `  参加費: ${race.entry_fee != null ? race.entry_fee + '円' : '不明'}`,
+    `  description_ja: ${race.description_ja || '未設定'}`,
+    `  description_en: ${race.description_en || '未設定'}`,
     `  定員: ${race.entry_capacity ? race.entry_capacity + '人' : '不明'}`,
     `  motif: ${race.motif ?? '未設定'}`,
     `  motif_color: ${race.motif_color ?? '未設定'}`,
@@ -118,6 +122,11 @@ ${pages}
 - access_points[].is_primary: 最もアクセスしやすい代表駅を true にする（複数の場合は1件のみ）
 - categories は既存の distance_type と一致する種目のみ、判明した start_time/capacity/entry_fee を返すこと。name_ja・eligibility_ja 等の他フィールドは返さない（既存値を保持するため）。既存に同じ distance_type が複数ある場合は出力しない（曖昧なため）。新しい種目の追加は不可
 - aid_stations[].distance_km は数値（km）。offerings_ja/offerings_en は提供物の説明文（例: "水・スポーツドリンク・バナナ"）。is_featured は特に充実したエイドなら true（不明ならfalse）
+- description_ja / description_en は大会の紹介文。公式サイトに書かれている事実だけを使い、80〜200字程度でまとめること。
+  - 開催地・距離・コースの特徴・大会の成り立ちなど、ページから読み取れる内容のみ書く
+  - 「感動の」「最高の」のような宣伝文句・主観的な評価は書かない
+  - ページから紹介文を書けるだけの情報が読み取れない場合は出力しない
+  - description_en は description_ja の内容を英語で書く（機械的な直訳でなくてよい）
 - checkpoints[].closing_time は HH:MM 形式（関門通過の制限時刻）。name_ja 等の関門名は出力しない（スキーマに存在しないフィールドのため）
 
 【出力スキーマ例】
@@ -126,6 +135,8 @@ ${pages}
   "entry_start_date": "YYYY-MM-DD",
   "entry_end_date": "YYYY-MM-DD",
   "entry_fee": 数値,
+  "description_ja": "大会の紹介文（事実ベース）",
+  "description_en": "Race description (facts only)",
   "entry_capacity": 数値,
   "course_info": {"max_elevation_m":数値,"min_elevation_m":数値,"elevation_diff_m":数値,"surface":"road|trail|mixed","certification":[],"highlights_ja":"文字列","highlights_en":"文字列","notes_ja":null,"notes_en":null},
   "entry_periods": [{"label_ja":"一般エントリー","label_en":"General Entry","start_date":"YYYY-MM-DD","end_date":"YYYY-MM-DD","entry_fee":数値またはnull,"category_id":null,"sort_order":0}],

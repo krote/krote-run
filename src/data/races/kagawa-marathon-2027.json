@@ -9,8 +9,8 @@
   "prefecture": "37",
   "city_ja": "高松市",
   "city_en": "Takamatsu City",
-  "description_ja": "2026年が第1回大会の新しいフルマラソン。香川県の瀬戸内海沿いを走る。うどん県ならではのエイドに期待。",
-  "description_en": "A brand new marathon with its first edition in 2026. Run along the Seto Inland Sea in Kagawa, the udon prefecture.",
+  "description_ja": "あなぶきアリーナ香川を発着する日本陸上競技連盟公認コース。高松の中央通りや特別名勝・栗林公園東門を通り、瀬戸内海や里山、讃岐平野の景色を楽しめる都市型フルマラソン。",
+  "description_en": "A JAAF-certified marathon starting and finishing at Anabuki Arena Kagawa. The course runs through Takamatsu's Chuo-dori and past the east gate of Ritsurin Garden, taking in views of the Seto Inland Sea, satoyama hills, and the Sanuki Plain.",
   "official_url": "https://kagawa-marathon.com",
   "entry_fee": 14000,
   "entry_fee_by_category": true,
@@ -199,16 +199,17 @@
   ],
   "result": null,
   "created_at": "2026-07-27T14:15:58.429Z",
-  "updated_at": "2026-09-18T14:21:21.959Z",
+  "updated_at": "2026-09-28T13:59:28.289Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "2026-07-27: 自動クロールで kagawa-marathon-2026 を元に2027年大会ファイルを新規作成",
       "2026-08-24: 自動クロールで更新",
       "2026-09-04: 自動クロールで更新",
-      "2026-09-18: 自動クロールで更新"
+      "2026-09-18: 自動クロールで更新",
+      "2026-09-28: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-09-28",
     "detail_level": "medium"
   },
   "entry_periods": [],

@@ -892,3 +892,58 @@ describe('buildExtractionPrompt - aid_stations / checkpoints スキーマ整合�
     assert.ok(prompt.includes('is_featured'), 'is_featured の指示が必要');
   });
 });
+
+// ── 説明文の抽出（Issue #186 / crawl 見直し） ─────────────────────
+
+describe('説明文の抽出', () => {
+  const race = {
+    id: 'tokyo-marathon-2026',
+    name_ja: '東京マラソン',
+    date: '2026-03-01',
+    description_ja: '既存の説明文',
+    description_en: 'Existing description',
+  };
+  const pageTexts = [{ url: 'https://example.com/', text: '大会概要のページ' }];
+
+  test('プロンプトに既存の説明文を含める', () => {
+    const prompt = buildExtractionPrompt(race, pageTexts);
+    assert.ok(prompt.includes('既存の説明文'), '既存の description_ja がプロンプトにない');
+    assert.ok(prompt.includes('Existing description'), '既存の description_en がプロンプトにない');
+  });
+
+  test('出力スキーマに description_ja / description_en がある', () => {
+    const prompt = buildExtractionPrompt(race, pageTexts);
+    assert.ok(prompt.includes('"description_ja"'));
+    assert.ok(prompt.includes('"description_en"'));
+  });
+
+  test('説明文の書き方（事実ベース・宣伝文句禁止）を指示している', () => {
+    const prompt = buildExtractionPrompt(race, pageTexts);
+    assert.match(prompt, /description_ja.*事実/s);
+  });
+
+  test('抽出した説明文が差分として検出される', () => {
+    const diff = buildDiff(race, { description_ja: '新しい説明文' });
+    const entry = diff.find(d => d.label === '説明文（日）');
+    assert.ok(entry, '説明文の差分項目がない');
+    assert.equal(entry.changed, true);
+    assert.equal(entry.extracted, '新しい説明文');
+  });
+
+  test('同じ説明文なら差分にならない', () => {
+    const diff = buildDiff(race, { description_ja: '既存の説明文' });
+    const entry = diff.find(d => d.label === '説明文（日）');
+    assert.equal(entry.changed, false);
+  });
+
+  test('applyAndSave で説明文が上書きされる', (t) => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawl-desc-'));
+    const file = path.join(dir, `${race.id}.json`);
+    fs.writeFileSync(file, JSON.stringify(race), 'utf-8');
+    t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
+
+    applyAndSave(race, { description_ja: '更新後の説明文' }, { racesDir: dir });
+    const saved = JSON.parse(fs.readFileSync(file, 'utf-8'));
+    assert.equal(saved.description_ja, '更新後の説明文');
+  });
+});

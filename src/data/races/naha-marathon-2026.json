@@ -46,7 +46,7 @@
       "time_limit_minutes": 375,
       "start_time": "09:00",
       "capacity": 0,
-      "entry_fee": null,
+      "entry_fee": 11000,
       "entry_fee_u25": null,
       "name_ja": null,
       "name_en": null,
@@ -60,7 +60,20 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "distance_km": 21.3,
+      "closing_time": "12:15"
+    },
+    {
+      "distance_km": 34.3,
+      "closing_time": "14:10"
+    },
+    {
+      "distance_km": 42.195,
+      "closing_time": "15:15"
+    }
+  ],
   "access_points": [
     {
       "station_name_ja": "奥武山公園駅",
@@ -133,7 +146,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-07-27T14:24:47.686Z",
+  "updated_at": "2026-09-28T14:02:05.879Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -141,9 +154,10 @@
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
       "2026-05-30: 自動クロールで更新",
       "2026-06-08: 自動クロールで更新",
-      "2026-07-27: 自動クロールで更新"
+      "2026-07-27: 自動クロールで更新",
+      "2026-09-28: 自動クロールで更新"
     ],
-    "last_verified": "2026-07-27",
+    "last_verified": "2026-09-28",
     "detail_level": "medium"
   },
   "entry_periods": [],

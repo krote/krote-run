@@ -95,15 +95,16 @@
   ],
   "result": null,
   "created_at": "2026-08-31T13:37:53.674Z",
-  "updated_at": "2026-09-18T14:29:45.774Z",
+  "updated_at": "2026-09-28T14:01:22.402Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "2026-08-31: 自動クロールで nagoya-womens-marathon-2026 を元に2027年大会ファイルを新規作成",
       "2026-09-06: 自動クロールで更新",
-      "2026-09-18: 自動クロールで更新"
+      "2026-09-18: 自動クロールで更新",
+      "2026-09-28: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-09-28",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -210,7 +211,7 @@
       "label_ja": "海外エントリー（通常）",
       "label_en": "Overseas Entry (Regular)",
       "start_date": "2026-08-25",
-      "end_date": "2026-09-23",
+      "end_date": "2026-12-25",
       "entry_fee": 25000,
       "category_id": null,
       "sort_order": 11

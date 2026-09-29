@@ -44,6 +44,17 @@ function noteHasRaceDayReception(note) {
 }
 
 /**
+ * 開催日が過去かを判定する（date 未設定は false）
+ * @param {object} race
+ * @param {Date} [now]
+ * @returns {boolean}
+ */
+function isPast(race, now = new Date()) {
+  if (!race.date) return false;
+  return new Date(race.date) < now;
+}
+
+/**
  * レースJSONの品質チェックを行い、問題リストを返す
  * @param {object} race
  * @returns {{ rule: string, level: 'error'|'warning', message: string }[]}
@@ -133,6 +144,23 @@ function validateRace(race) {
         rule: 'coords_out_of_japan',
         level: 'error',
         message: `start_lat/lng (${lat}, ${lng}) が日本国内範囲外です (lat: ${JAPAN_LAT_MIN}〜${JAPAN_LAT_MAX}, lng: ${JAPAN_LNG_MIN}〜${JAPAN_LNG_MAX})`,
+      });
+    }
+  }
+
+  // ── Rule 7: 参加費がどこにも設定されていない ──────────────────────
+  // entry_fee_by_category が true のとき entry_fee が null なのは設計どおりだが、
+  // カテゴリ側にも入っていなければ利用者に参加費を出せない（Search Console の
+  // offers.price 欠落の指摘もこれが原因）。開催済みの大会は補完対象外。
+  if (!isPast(race)) {
+    const hasTopFee = race.entry_fee != null;
+    const hasCategoryFee = (race.categories ?? []).some(c => c.entry_fee != null);
+    const hasPeriodFee = (race.entry_periods ?? []).some(p => p.entry_fee != null);
+    if (!hasTopFee && !hasCategoryFee && !hasPeriodFee) {
+      issues.push({
+        rule: 'entry_fee_missing',
+        level: 'warning',
+        message: '参加費が entry_fee・categories[].entry_fee・entry_periods[].entry_fee のいずれにも設定されていません',
       });
     }
   }

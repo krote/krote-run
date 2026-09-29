@@ -28,10 +28,10 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [],
-    "highlights_ja": "淀川河川公園の河川敷のみを走るフラットコース。通常は通行できない淀川大堰を渡れる特徴がある。フルマラソン9:00・ハーフマラソン8:30・10km 13:00スタート。給水所7地点、救護所4地点設置。",
-    "highlights_en": "A flat course running entirely along the Yodo River riverbank park. Runners can cross the Yodo River Weir, normally closed to the public. Full marathon starts at 9:00, half at 8:30, 10km at 13:00. 7 water stations and 4 first-aid stations.",
-    "notes_ja": "救護所設置予定地点：スタート・ゴール地点、赤川地区、西中島地区、塚本地区。",
-    "notes_en": "Planned first-aid station locations: Start/Finish area, Akagawa district, Nishinakajima district, and Tsukamoto district."
+    "highlights_ja": "淀川河川公園の河川敷のみを走るフラットコース。通常は通行できない淀川大堰を渡れる特徴がある。フルマラソンは9:00スタートで淀川左岸を上り枚方市三矢地区で折り返し、ハーフマラソンは8:30スタートで毛馬閘門を抜け淀川大堰を渡り淀川大橋手前で折り返し、10kmは13:00スタートで仁和寺地区を経て佐太西地区で折り返す。給水所はフルマラソン7拠点・延べ13回、ハーフマラソン4拠点・延べ8回、10kmマラソン1拠点・延べ2回。救護所4地点設置。",
+    "highlights_en": "A flat course running entirely along the Yodo River riverbank park. Runners can cross the Yodo River Weir, normally closed to the public. The full marathon (9:00 start) heads up the left bank to a turnaround in Hirakata's Miya district; the half marathon (8:30 start) passes through the Kema Lock Gate, crosses the Yodo River Weir, and turns back near the Yodogawa Ohashi bridge; the 10km (13:00 start) heads up the left bank via the Ninnaji area and turns back at Sada-nishi. Water stations: 7 points (13 total passes) for the full, 4 points (8 passes) for the half, and 1 point (2 passes) for the 10km. 4 first-aid stations are planned.",
+    "notes_ja": "救護所設置予定地点：スタート・ゴール地点、赤川地区、西中島地区、塚本地区。会場およびコース沿いの常設トイレのほか、仮設トイレを数か所設置予定。コース上にAED隊を配置し、数kmごとに巡回する体制を予定。",
+    "notes_en": "Planned first-aid station locations: Start/Finish area, Akagawa district, Nishinakajima district, and Tsukamoto district. Permanent restrooms are available at the venue and along the course, with additional portable toilets planned at several points. An AED team is planned to patrol the course every few kilometers."
   },
   "categories": [
     {
@@ -65,7 +65,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-11T14:42:59.225Z",
-  "updated_at": "2026-08-24T16:37:37.008Z",
+  "updated_at": "2026-09-28T14:04:19.979Z",
   "entry_periods": [
     {
       "label_ja": "一般エントリー",
@@ -121,12 +121,13 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-08-24",
+    "last_verified": "2026-09-28",
     "data_accuracy_notes": [
       "2026-06-08: 自動クロールで更新",
       "2026-06-27: 自動クロールで更新",
       "2026-07-31: 自動クロールで更新",
-      "2026-08-24: 自動クロールで更新"
+      "2026-08-24: 自動クロールで更新",
+      "2026-09-28: 自動クロールで更新"
     ]
   },
   "venue_name_ja": null,

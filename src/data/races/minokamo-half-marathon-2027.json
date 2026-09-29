@@ -95,8 +95,32 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
-  "nearby_spots": [],
+  "access_points": [
+    {
+      "station_name_ja": "JR美濃太田駅",
+      "station_name_en": "JR Mino-Ota Station",
+      "station_code": "",
+      "transport_to_venue_ja": "タクシーで約10分（約4km）。大会当日は無料シャトルバスも利用可能",
+      "transport_to_venue_en": "About 10 min by taxi (approx. 4km); a free shuttle bus also runs on race day",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 10,
+      "is_primary": true
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "温泉",
+      "name_ja": "ぎふ清流里山公園 温泉",
+      "name_en": "Gifu Seiryu Satoyama Park Onsen",
+      "description_ja": "会場内にある温泉施設。レース後の利用が好評",
+      "description_en": "An onsen facility within the venue, popular with runners after the race",
+      "distance_from_venue": "会場内",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    }
+  ],
   "weather_history": [],
   "participation_gifts": [
     {
@@ -118,7 +142,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T00:00:00Z",
-  "updated_at": "2026-09-04T14:17:34.943Z",
+  "updated_at": "2026-09-28T14:00:41.000Z",
   "_metadata": {
     "data_source": "公式サイト（https://minokamo-halfmarathon.net/）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -127,9 +151,10 @@
       "受付方法は「参加者受付：午前7時〜8時」の記載から当日受付（race_day）と判断",
       "エントリー方法はRUNNET経由（外部サイト）。エントリー受付開始前のため詳細未公開",
       "3km・2kmの部は公園内コースのファンラン扱いの可能性があり、distance_typeは'other'とした",
-      "2026-09-04: 自動クロールで更新"
+      "2026-09-04: 自動クロールで更新",
+      "2026-09-28: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-04",
+    "last_verified": "2026-09-28",
     "detail_level": "light"
   },
   "entry_periods": [

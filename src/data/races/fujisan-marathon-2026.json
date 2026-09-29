@@ -32,7 +32,9 @@
     "min_elevation_m": null,
     "elevation_diff_m": null,
     "surface": "road",
-    "certification": [],
+    "certification": [
+      "WMM"
+    ],
     "highlights_ja": "河口湖、西湖、雪化粧した富士山とのコントラスト",
     "highlights_en": "Lake Kawaguchi, Lake Saiko, Mt. Fuji contrasted with winter snow",
     "notes_ja": null,
@@ -128,7 +130,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-09-18T14:14:23.019Z",
+  "updated_at": "2026-09-28T13:58:28.713Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -138,9 +140,10 @@
       "2026-07-31: 自動クロールで更新",
       "2026-08-24: 自動クロールで更新",
       "2026-09-06: 自動クロールで更新",
-      "2026-09-18: 自動クロールで更新"
+      "2026-09-18: 自動クロールで更新",
+      "2026-09-28: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-09-28",
     "detail_level": "medium"
   },
   "entry_periods": [

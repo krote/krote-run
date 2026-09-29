@@ -121,6 +121,9 @@ tools/
 │   ├── index.test.js               # クローラーテスト
 │   ├── extractor.js                # claude -p による情報抽出
 │   ├── extractor.test.js           # 抽出テスト
+│   ├── gate.js                     # 適用前の検査ゲート
+│   ├── report.js                   # 変更内容・失敗分析のレポート生成
+│   ├── pr.js                       # ブランチ作成・コミット・PR作成
 │   └── checksums.json              # チェックサム保存（自動生成）
 └── hooks/
     └── pre-pr.js                   # PR作成前テスト実行フック
@@ -227,15 +230,21 @@ pnpm run admin
 ### 自動更新クローラー
 
 ```bash
-pnpm run crawl:dry   # 変更検知のみ（ファイル更新なし）
-pnpm run crawl       # 変更検知 + claude -p で情報抽出 + race JSON 自動更新
+pnpm run crawl:dry                         # 変更検知とレポート出力のみ（ファイル更新・PR作成なし）
+pnpm run crawl                             # 変更検知 + 情報抽出 + race JSON 更新 + PR作成
+node tools/crawl/index.js --race <race-id> # 特定の大会だけ実行
 ```
 
 動作フロー:
 1. 各レースの `info_urls`（未設定時は `official_url`）をフェッチ
 2. `tools/crawl/checksums.json` と比較して変更を検知
-3. 変更があったページを `claude -p` に渡して構造化抽出
-4. 差分があるフィールドのみ race JSON を更新
+3. 変更があったページを `claude -p`（または `ANTHROPIC_API_KEY` 使用時は Messages API）に渡して構造化抽出
+   - ページが無変更でも、参加費・説明文・会場情報・エントリー開始日が欠けている大会は抽出対象にする
+4. **検査ゲート**（`tools/crawl/gate.js`）でデータ品質ルールに反する更新を除外する
+5. 差分があるフィールドのみ race JSON を更新
+6. 全ファイルに品質チェックを実行し、変更内容と失敗分析をまとめた PR を作成する
+
+検査ルールとレビュー指摘の反映手順は [docs/crawl-rules.md](docs/crawl-rules.md) を参照。
 
 ```bash
 pnpm run test:admin   # 管理ツールのテストを実行

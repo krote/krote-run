@@ -12,7 +12,7 @@
   "description_ja": "東京都北区赤羽の荒川河川敷を走る、日本陸連公認のフラットなハーフマラソン。ナンバーカード・計測チップは事前郵送され、当日受付は不要。",
   "description_en": "A JAAF-certified, flat half marathon along the Arakawa riverbed in Akabane, Kita City, Tokyo. Race bibs and timing chips are mailed in advance, so no day-of check-in is required.",
   "official_url": "https://akabane-hm.tokyo/",
-  "entry_fee": null,
+  "entry_fee": 6200,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
   "entry_start_date": "2026-08-21",
@@ -44,7 +44,7 @@
       "time_limit_minutes": 140,
       "start_time": "10:50",
       "capacity": 0,
-      "entry_fee": null,
+      "entry_fee": 6200,
       "entry_fee_u25": null,
       "name_ja": "ハーフマラソン",
       "name_en": "Half Marathon",
@@ -58,7 +58,7 @@
       "time_limit_minutes": 70,
       "start_time": "09:20",
       "capacity": 0,
-      "entry_fee": null,
+      "entry_fee": 5000,
       "entry_fee_u25": null,
       "name_ja": "10km",
       "name_en": "10km",
@@ -96,7 +96,16 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "distance_km": 16.6,
+      "closing_time": "13:25"
+    },
+    {
+      "distance_km": 21.1,
+      "closing_time": "14:05"
+    }
+  ],
   "access_points": [
     {
       "station_name_ja": "赤羽駅",
@@ -135,7 +144,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T00:00:00Z",
-  "updated_at": "2026-09-04T14:05:52.701Z",
+  "updated_at": "2026-09-28T13:57:16.400Z",
   "_metadata": {
     "data_source": "公式サイト（https://akabane-hm.tokyo/）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -144,9 +153,10 @@
       "定員（entry_capacity）は公式サイトに総数の記載なし。0として扱う（先着順・定員到達次第締切とのみ記載）",
       "コース高低差の具体的数値は公式サイトに記載なし（「ほとんどアップダウンがなくフラット」との定性的記載のみ）",
       "完走メダルの記載は公式サイトになし。完走証はダウンロード形式のみで、郵送・当日発行はなし",
-      "2026-09-04: 自動クロールで更新"
+      "2026-09-04: 自動クロールで更新",
+      "2026-09-28: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-04",
+    "last_verified": "2026-09-28",
     "detail_level": "light"
   },
   "entry_periods": [

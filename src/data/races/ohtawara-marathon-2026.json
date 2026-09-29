@@ -9,8 +9,8 @@
   "prefecture": "09",
   "city_ja": "DI STADIUM（美原公園陸上競技場）",
   "city_en": "",
-  "description_ja": "",
-  "description_en": "",
+  "description_ja": "栃木県大田原市で開催される（公財）日本陸上競技連盟公認のマラソン大会。フルマラソンと10kmの2種目があり、DI STADIUM（美原公園陸上競技場）が発着点。コースは「すり鉢状」で、前半7kmはゆるやかに下り、25km手前の最低地点まで下り基調が続く。そこから上り坂となり「那須おろし」と呼ばれる向かい風が特徴的。最高地点と最低地点の標高差は90m未満。",
+  "description_en": "A JAAF-certified marathon held in Ohtawara City, Tochigi Prefecture, offering full marathon and 10km events starting and finishing at DI Stadium (Mihara Park Athletic Stadium). The bowl-shaped course descends gently for the first 7km and continues downhill to its lowest point near the 25km mark, then climbs into the notorious 'Nasu-oroshi' headwind. The elevation difference between the highest and lowest points is under 90m.",
   "official_url": "https://www.ohtawara-marathon.com/",
   "entry_fee": 10000,
   "entry_fee_by_category": true,
@@ -33,8 +33,154 @@
     "notes_en": ""
   },
   "categories": [],
-  "aid_stations": [],
-  "checkpoints": [],
+  "aid_stations": [
+    {
+      "distance_km": 4.8,
+      "offerings_ja": "水・スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 6.1,
+      "offerings_ja": "水・スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 7.9,
+      "offerings_ja": "水・スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 8.6,
+      "offerings_ja": "スペシャルドリンク（申込者のみ設置可）",
+      "offerings_en": "Special drinks (pre-registered participants only)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 10.7,
+      "offerings_ja": "水・スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 12.9,
+      "offerings_ja": "スペシャルドリンク（申込者のみ設置可）",
+      "offerings_en": "Special drinks (pre-registered participants only)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 13.5,
+      "offerings_ja": "水・スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 15.7,
+      "offerings_ja": "スポンジ",
+      "offerings_en": "Sponges",
+      "is_featured": false
+    },
+    {
+      "distance_km": 17.7,
+      "offerings_ja": "スペシャルドリンク（申込者のみ設置可）",
+      "offerings_en": "Special drinks (pre-registered participants only)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 18.2,
+      "offerings_ja": "水・スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 21.5,
+      "offerings_ja": "スペシャルドリンク（申込者のみ設置可）",
+      "offerings_en": "Special drinks (pre-registered participants only)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 23.1,
+      "offerings_ja": "水・スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 26.5,
+      "offerings_ja": "スペシャルドリンク（申込者のみ設置可）",
+      "offerings_en": "Special drinks (pre-registered participants only)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 27.7,
+      "offerings_ja": "水・スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 31.5,
+      "offerings_ja": "スペシャルドリンク（申込者のみ設置可）",
+      "offerings_en": "Special drinks (pre-registered participants only)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 32.3,
+      "offerings_ja": "水・スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 34.4,
+      "offerings_ja": "スポンジ",
+      "offerings_en": "Sponges",
+      "is_featured": false
+    },
+    {
+      "distance_km": 35.4,
+      "offerings_ja": "スペシャルドリンク（申込者のみ設置可）",
+      "offerings_en": "Special drinks (pre-registered participants only)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 37,
+      "offerings_ja": "水・スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 39.6,
+      "offerings_ja": "水・スポーツドリンク",
+      "offerings_en": "Water, sports drink",
+      "is_featured": false
+    }
+  ],
+  "checkpoints": [
+    {
+      "distance_km": 3,
+      "closing_time": "10:58"
+    },
+    {
+      "distance_km": 15.6,
+      "closing_time": "11:30"
+    },
+    {
+      "distance_km": 20.1,
+      "closing_time": "11:55"
+    },
+    {
+      "distance_km": 26.3,
+      "closing_time": "12:29"
+    },
+    {
+      "distance_km": 35.7,
+      "closing_time": "13:22"
+    },
+    {
+      "distance_km": 40.5,
+      "closing_time": "13:50"
+    }
+  ],
   "access_points": [
     {
       "station_name_ja": "西那須野駅",
@@ -62,7 +208,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-06-08T14:04:29.954Z",
-  "updated_at": "2026-09-06T14:37:19.405Z",
+  "updated_at": "2026-09-28T14:03:26.650Z",
   "info_urls": [
     {
       "url": "https://www.ohtawara-marathon.com/outline/",
@@ -153,10 +299,11 @@
   "start_lat": 36.860409,
   "start_lng": 140.003372,
   "_metadata": {
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-09-28",
     "data_accuracy_notes": [
       "2026-08-24: 自動クロールで更新",
-      "2026-09-06: 自動クロールで更新"
+      "2026-09-06: 自動クロールで更新",
+      "2026-09-28: 自動クロールで更新"
     ]
   }
 }

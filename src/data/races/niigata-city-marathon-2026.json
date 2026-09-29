@@ -9,8 +9,8 @@
   "prefecture": "15",
   "city_ja": "新潟県新潟市",
   "city_en": "Niigata City, Niigata Prefecture",
-  "description_ja": "",
-  "description_en": "",
+  "description_ja": "新潟市を舞台に開催されるワールドアスレティックス認証・日本陸上競技連盟公認のフルマラソン（42.195km）。デンカビッグスワンスタジアム前をスタートし、新潟市陸上競技場でフィニッシュする。10.6kmのファンランのほか、古町十字路と萬代橋東詰めを周回するユニバーサルランも同時開催する。",
+  "description_en": "A World Athletics and JAAF certified full marathon (42.195km) held in Niigata City, starting near Denka Big Swan Stadium and finishing at the Niigata City Athletics Stadium. The event also includes a 10.6km Fun Run and a Universal Run that loops between Furumachi crossing and the east end of Bandai Bridge.",
   "official_url": "https://runfes-niigata.com/",
   "entry_fee": null,
   "entry_fee_by_category": true,
@@ -31,8 +31,8 @@
       "WA",
       "JAAF"
     ],
-    "highlights_ja": "",
-    "highlights_en": "",
+    "highlights_ja": "マラソンはデンカビッグスワンスタジアム前発、新潟市陸上競技場着。ファンラン（10.6km）も同区間で発着。ユニバーサルランは古町十字路と萬代橋東詰めを周回する1周2kmのコース。",
+    "highlights_en": "The marathon starts near Denka Big Swan Stadium and finishes at the Niigata City Athletics Stadium; the 10.6km Fun Run shares the same start/finish. The Universal Run is a 2km loop between Furumachi crossing and the east end of Bandai Bridge.",
     "notes_ja": "",
     "notes_en": ""
   },
@@ -52,7 +52,7 @@
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-04-05T07:57:29.198Z",
-  "updated_at": "2026-09-18T14:30:42.048Z",
+  "updated_at": "2026-09-28T14:02:36.281Z",
   "entry_periods": [
     {
       "label_ja": "一般枠",
@@ -115,14 +115,15 @@
     }
   ],
   "_metadata": {
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-09-28",
     "data_accuracy_notes": [
       "2026-06-22: 自動クロールで更新",
       "2026-06-29: 自動クロールで更新",
       "2026-07-27: 自動クロールで更新",
       "2026-08-31: 自動クロールで更新",
       "2026-09-06: 自動クロールで更新",
-      "2026-09-18: 自動クロールで更新"
+      "2026-09-18: 自動クロールで更新",
+      "2026-09-28: 自動クロールで更新"
     ]
   },
   "venue_name_ja": "デンカビッグスワンスタジアム",

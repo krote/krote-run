@@ -1750,3 +1750,8 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 ### 補足
 
 `claude -p` は Claude Code のセッション内から呼ぶと失敗する（exit 1）。クロールは通常のターミナルから実行するか、`ANTHROPIC_API_KEY` を設定して API 経路を使うこと。
+
+## 2026-10-03 RaceList URL同期テストの日付依存を解消
+
+- `src/components/__tests__/RaceList.urlsync.test.tsx`: `vi.setSystemTime` で今日を 2026-09-01 に固定
+  - テストデータの東京マラソン（2026-10-01）が実日付で過去になり、既定の絞り込み（開催済みを除外）で消えて「絞り込み自体はこれまでどおり動く」が失敗していた（クロールPRのCIで発覚）

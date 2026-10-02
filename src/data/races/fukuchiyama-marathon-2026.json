@@ -108,7 +108,7 @@
   ],
   "result": null,
   "created_at": "2026-04-30T00:00:00Z",
-  "updated_at": "2026-09-18T14:15:06.516Z",
+  "updated_at": "2026-10-02T22:32:23.531Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -120,25 +120,39 @@
       "2026-06-08: 自動クロールで更新",
       "2026-08-24: 自動クロールで更新",
       "2026-08-25: info_urlsの開催概要URL（/2026/info/support-runners/）が404だったため/feature/に修正",
-      "2026-09-18: 自動クロールで更新"
+      "2026-09-18: 自動クロールで更新",
+      "2026-10-02: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-10-02",
     "detail_level": "light"
   },
   "entry_periods": [
     {
+      "label_ja": "先行エントリー",
+      "label_en": "Early Bird",
       "start_date": "2026-05-01",
       "end_date": "2026-05-31",
       "entry_fee": 10000,
-      "label_ja": "先行エントリー",
-      "label_en": "Early Bird"
+      "category_id": null,
+      "sort_order": 0
     },
     {
+      "label_ja": "一般",
+      "label_en": "General",
       "start_date": "2026-06-01",
       "end_date": "2026-09-20",
       "entry_fee": 11000,
-      "label_ja": "一般",
-      "label_en": "General"
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "直前エントリー",
+      "label_en": "Last-minute Entry",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-15",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 2
     }
   ],
   "motif": "福知山城",

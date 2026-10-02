@@ -15,7 +15,7 @@
   "entry_fee": 9100,
   "entry_fee_by_category": true,
   "entry_capacity": 15000,
-  "entry_start_date": null,
+  "entry_start_date": "2026-10-01",
   "entry_end_date": null,
   "reception_type": "pre_mail",
   "reception_note_ja": "すべての種目でナンバーカードを事前に発送させていただきます。\nそのため受付はございません。",
@@ -104,16 +104,27 @@
   ],
   "result": null,
   "created_at": "2026-07-27T14:33:45.113Z",
-  "updated_at": "2026-09-03T14:52:15.821Z",
+  "updated_at": "2026-10-02T22:44:16.091Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "2026-07-27: 自動クロールで soja-kibiji-marathon-2026 を元に2027年大会ファイルを新規作成"
+      "2026-07-27: 自動クロールで soja-kibiji-marathon-2026 を元に2027年大会ファイルを新規作成",
+      "2026-10-02: 自動クロールで更新"
     ],
-    "last_verified": "2026-07-27",
+    "last_verified": "2026-10-02",
     "detail_level": "medium"
   },
-  "entry_periods": [],
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-10-01",
+      "end_date": null,
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
   "motif": "吉備路",
   "motif_color": "#854d0e",
   "motif_romaji": "Kibiji",

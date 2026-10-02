@@ -1,0 +1,218 @@
+{
+  "id": "tamba-sasayama-abc-marathon-2027",
+  "name_ja": "丹波篠山ABCマラソン",
+  "name_en": "Tamba-Sasayama ABC Marathon",
+  "full_name_ja": null,
+  "full_name_en": null,
+  "edition": null,
+  "date": "2027-03-07",
+  "prefecture": "28",
+  "city_ja": "丹波篠山市",
+  "city_en": "Tamba-Sasayama City",
+  "description_ja": "兵庫県丹波篠山市で開催。篠山城跡三の丸広場をスタート・フィニッシュに、城下町の風情と田園風景の中を走る日本陸連公認コース。制限時間6時間30分。",
+  "description_en": "Held in Tamba-Sasayama City, Hyogo. Starting and finishing at Sasayama Castle Ruins Sannomaru Plaza, this JAAF-certified course runs through a castle town atmosphere and rural landscapes. 6.5-hour time limit.",
+  "official_url": "https://tambasasayama-abc-marathon.jp",
+  "entry_fee": 12000,
+  "entry_fee_by_category": false,
+  "entry_capacity": 10000,
+  "entry_start_date": "2026-09-18",
+  "entry_end_date": "2026-12-20",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "アスリートビブス（ゼッケン）・計測チップは2027年2月中旬に事前郵送。紛失時は大会当日7:30〜9:30に篠山城跡三の丸広場内の相談コーナーで有料再発行可能。",
+  "reception_note_en": "Athlete bibs and timing chips are mailed in advance in mid-February 2027. If lost, paid reissue is available at the consultation corner inside Sasayama Castle Ruins Sannomaru Plaza on race day from 7:30 to 9:30.",
+  "tags": [
+    "城下町"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "篠山城跡、田園風景",
+    "highlights_en": "Sasayama Castle ruins, rural landscape",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 330,
+      "start_time": "09:30",
+      "capacity": 10000,
+      "entry_fee": 12000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [
+    {
+      "distance_km": 6.8,
+      "closing_time": "10:40"
+    },
+    {
+      "distance_km": 18.2,
+      "closing_time": "12:05"
+    },
+    {
+      "distance_km": 24.1,
+      "closing_time": "12:55"
+    },
+    {
+      "distance_km": 30.6,
+      "closing_time": "13:55"
+    },
+    {
+      "distance_km": 36.3,
+      "closing_time": "14:55"
+    },
+    {
+      "distance_km": 42.195,
+      "closing_time": "16:00"
+    }
+  ],
+  "access_points": [
+    {
+      "station_name_ja": "篠山口駅",
+      "station_name_en": "Sasayamaguchi Station",
+      "station_code": "",
+      "transport_to_venue_ja": "JR篠山口駅西口から路線バス（ウイング神姫、有料、当日臨時運行あり）",
+      "transport_to_venue_en": "Bus from the west exit of JR Sasayamaguchi Station (Wing Shinki, fare required, extra service on race day)",
+      "latitude": 0,
+      "longitude": 0,
+      "is_primary": true
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "グルメ",
+      "name_ja": "丹波篠山の黒豆・ぼたん鍋",
+      "name_en": "Tamba-Sasayama Black Beans & Botan Nabe",
+      "description_ja": "丹波の黒豆と猪肉のぼたん鍋が名物。秋〜冬が旬。",
+      "description_en": "Famous for Tamba black beans and boar meat hot pot. Best in autumn-winter.",
+      "distance_from_venue": "篠山市内",
+      "url": null,
+      "latitude": 35.0764,
+      "longitude": 135.2203
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "local_product"
+      ],
+      "description_ja": "大会Tシャツ、丹波の特産品",
+      "description_en": "Race T-shirt, Tamba local products",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-10-02T22:45:10.093Z",
+  "updated_at": "2026-10-02T22:45:10.093Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "2026-10-02: 自動クロールで tamba-sasayama-abc-marathon-2026 を元に2027年大会ファイルを新規作成"
+    ],
+    "last_verified": "2026-10-02",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "ふるさと納税エントリー",
+      "label_en": "Furusato Tax Entry",
+      "start_date": "2026-09-18",
+      "end_date": "2026-12-20",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "一般申込",
+      "label_en": "General Entry",
+      "start_date": "2026-10-01",
+      "end_date": "2026-12-20",
+      "entry_fee": 12000,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "海外エントリー",
+      "label_en": "Overseas Entry",
+      "start_date": "2026-10-01",
+      "end_date": "2026-12-20",
+      "entry_fee": 24000,
+      "category_id": null,
+      "sort_order": 2
+    }
+  ],
+  "motif": "城下町",
+  "motif_color": "#1c1917",
+  "motif_romaji": "Jokamachi",
+  "tagline_ja": "丹波篠山・城下町の風情漂う黒豆の里を走る",
+  "tagline_en": "Run through the castle town of Tamba Sasayama, home of black soybeans",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "篠山城跡",
+      "name_en": "Sasayama Castle ruins",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "田園風景",
+      "name_en": "rural landscape",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://tambasasayama-abc-marathon.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://tambasasayama-abc-marathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://tambasasayama-abc-marathon.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://tambasasayama-abc-marathon.jp/faq/",
+      "label": "FAQ"
+    }
+  ],
+  "venue_name_ja": "篠山城跡三の丸広場",
+  "venue_name_en": "Sasayama Castle Ruins Sannomaru Plaza",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null,
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "完走者に丹波焼完走メダルを贈呈",
+      "description_en": "Finishers receive a Tamba-yaki pottery finisher medal",
+      "image": null
+    }
+  ]
+}

@@ -15,7 +15,7 @@
   "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 0,
-  "entry_start_date": "2026-07-05",
+  "entry_start_date": "2026-06-07",
   "entry_end_date": "2026-07-27",
   "reception_type": "pre_day",
   "reception_note_ja": "",
@@ -99,25 +99,46 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-08-31T13:40:53.927Z",
+  "updated_at": "2026-10-02T22:47:31.460Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "秋冬大会の日程は例年パターンからの推定を含む。正式発表後に要更新",
       "2026-08-25: info_urlsのアクセスURLが404だったため、公式サイトのナビゲーションを確認しpage000232.html（コース＆アクセス）に修正",
-      "2026-08-31: 自動クロールで更新"
+      "2026-08-31: 自動クロールで更新",
+      "2026-10-02: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-10-02",
     "detail_level": "medium"
   },
   "entry_periods": [
     {
+      "label_ja": "先行エントリー",
+      "label_en": "Early Entry (Tsukuba Residents)",
+      "start_date": "2026-06-07",
+      "end_date": "2026-06-22",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "ふるさと納税エントリー",
+      "label_en": "Furusato Nozei Entry",
+      "start_date": "2026-06-09",
+      "end_date": "2026-07-27",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
       "start_date": "2026-07-05",
       "end_date": "2026-07-27",
       "entry_fee": null,
-      "label_ja": "一般エントリー",
-      "label_en": "General Entry"
+      "category_id": null,
+      "sort_order": 2
     }
   ],
   "motif": "筑波山",

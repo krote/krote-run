@@ -15,6 +15,11 @@ const path = require('path');
 
 const MAX_COMMIT_BODY_LINES = 20;
 
+/** PR にコミットするパス。seed を含めないと DB 投入時に古い seed が使われる */
+const COMMIT_PATHS = ['src/data/races', 'tools/crawl/checksums.json', 'migrations/seed-races-all.sql'];
+
+const SEED_SCRIPT = path.join(__dirname, '..', '..', 'scripts', 'generate-seed-races.js');
+
 /** JSON に変更が入った場合のみ PR を作る（保留・失敗だけでは作らない） */
 function shouldCreatePr(summary, { dryRun = false } = {}) {
   if (dryRun) return false;
@@ -71,6 +76,11 @@ function git(args, opts = {}) {
   return execFileSync('git', args, { encoding: 'utf-8', ...opts }).trim();
 }
 
+/** 更新後の race JSON から seed-races-all.sql を再生成する */
+function regenerateSeed(run = (cmd, args) => execFileSync(cmd, args, { stdio: 'inherit' })) {
+  run(process.execPath, [SEED_SCRIPT]);
+}
+
 function branchExists(name) {
   try {
     git(['rev-parse', '--verify', name], { stdio: ['ignore', 'pipe', 'ignore'] });
@@ -91,7 +101,9 @@ function createCrawlPr(summary, body, opts = {}) {
   const now = opts.now ?? new Date();
   const baseBranch = opts.baseBranch ?? 'main';
 
-  const changedFiles = git(['status', '--porcelain', '--', 'src/data/races', 'tools/crawl/checksums.json']);
+  regenerateSeed();
+
+  const changedFiles = git(['status', '--porcelain', '--', ...COMMIT_PATHS]);
   if (!changedFiles) {
     return { created: false, reason: '変更されたファイルがありません' };
   }
@@ -102,7 +114,7 @@ function createCrawlPr(summary, body, opts = {}) {
   }
 
   git(['switch', '-c', branch, baseBranch]);
-  git(['add', '--', 'src/data/races', 'tools/crawl/checksums.json']);
+  git(['add', '--', ...COMMIT_PATHS]);
 
   const messageFile = path.join(os.tmpdir(), `crawl-commit-${Date.now()}.txt`);
   fs.writeFileSync(messageFile, buildCommitMessage(summary), 'utf-8');
@@ -126,4 +138,6 @@ function createCrawlPr(summary, body, opts = {}) {
   }
 }
 
-module.exports = { shouldCreatePr, buildBranchName, buildPrTitle, buildCommitMessage, createCrawlPr };
+module.exports = {
+  shouldCreatePr, buildBranchName, buildPrTitle, buildCommitMessage, createCrawlPr, COMMIT_PATHS, regenerateSeed,
+};

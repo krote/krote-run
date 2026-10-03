@@ -32,8 +32,8 @@
     "certification": [],
     "highlights_ja": "美濃加茂市北部の里山を疾走する「山紫水明」のコース。3〜7km地点は下り、7〜9km・14〜15km・18km〜ゴールにそれぞれ上り坂があり、高低差は約100m",
     "highlights_en": "A scenic course through the satoyama hills of northern Minokamo. The route descends from km 3-7, then climbs at km 7-9, km 14-15, and km 18 to the finish, with roughly 100m of elevation change overall.",
-    "notes_ja": null,
-    "notes_en": null
+    "notes_ja": "制限時間は2時間30分。13km地点に関門があり、スタートから1時間25分以内に通過できない場合はレースを中断する。給水所は4箇所。例年の完走率は約9割。",
+    "notes_en": "The time limit is 2 hours 30 minutes. There is a checkpoint at the 13km mark; runners who fail to pass it within 1 hour 25 minutes of the start must stop racing. There are 4 aid stations along the course, and the average finish rate in past years has been about 90%."
   },
   "categories": [
     {
@@ -142,7 +142,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T00:00:00Z",
-  "updated_at": "2026-09-28T14:00:41.000Z",
+  "updated_at": "2026-10-02T22:39:27.503Z",
   "_metadata": {
     "data_source": "公式サイト（https://minokamo-halfmarathon.net/）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -152,9 +152,10 @@
       "エントリー方法はRUNNET経由（外部サイト）。エントリー受付開始前のため詳細未公開",
       "3km・2kmの部は公園内コースのファンラン扱いの可能性があり、distance_typeは'other'とした",
       "2026-09-04: 自動クロールで更新",
-      "2026-09-28: 自動クロールで更新"
+      "2026-09-28: 自動クロールで更新",
+      "2026-10-02: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-28",
+    "last_verified": "2026-10-02",
     "detail_level": "light"
   },
   "entry_periods": [

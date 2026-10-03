@@ -9,8 +9,8 @@
   "prefecture": "43",
   "city_ja": "熊本市",
   "city_en": "Kumamoto City",
-  "description_ja": "熊本城を発着点とするフルマラソン。復興のシンボル・熊本城を目指してゴールする感動のフィニッシュ。",
-  "description_en": "A full marathon starting and finishing at Kumamoto Castle, the symbol of the city's recovery.",
+  "description_ja": "熊本市中心部をめぐる歴史めぐりフルマラソン。花畑広場をスタートし、特別史跡熊本城跡内の二の丸広場でフィニッシュする日本陸連公認コース。同時開催の金栗記念熊日30キロロードレースや城下町ファンランも行われる。",
+  "description_en": "A JAAF-certified full marathon through central Kumamoto City, starting at Hanabata Plaza and finishing inside the Kumamoto Castle ruins at Ninomaru Plaza. The Kanakuri Memorial Kumanichi 30km Road Race and the Jokamachi Fun Run are held alongside it.",
   "official_url": "https://kumamotojyo-marathon.jp",
   "entry_fee": 13750,
   "entry_fee_by_category": true,
@@ -94,13 +94,14 @@
   ],
   "result": null,
   "created_at": "2026-07-27T14:20:33.431Z",
-  "updated_at": "2026-09-03T14:52:09.901Z",
+  "updated_at": "2026-10-02T22:37:34.990Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "2026-07-27: 自動クロールで kumamoto-castle-marathon-2026 を元に2027年大会ファイルを新規作成"
+      "2026-07-27: 自動クロールで kumamoto-castle-marathon-2026 を元に2027年大会ファイルを新規作成",
+      "2026-10-02: 自動クロールで更新"
     ],
-    "last_verified": "2026-07-27",
+    "last_verified": "2026-10-02",
     "detail_level": "medium"
   },
   "entry_periods": [

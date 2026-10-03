@@ -37,8 +37,8 @@
     "certification": [
       "JAAF"
     ],
-    "highlights_ja": "開聞岳、錦江湾、菜の花ロード",
-    "highlights_en": "Mt. Kaimon, Kinko Bay, canola flower road",
+    "highlights_ja": "池田湖、開聞岳、長崎鼻、山川港、菜の花ロード",
+    "highlights_en": "Lake Ikeda, Mt. Kaimon, Nagasakibana Cape, Yamagawa Port, canola flower road",
     "notes_ja": null,
     "notes_en": null
   },
@@ -151,14 +151,15 @@
   ],
   "result": null,
   "created_at": "2026-09-06T14:18:52.776Z",
-  "updated_at": "2026-09-18T14:17:17.470Z",
+  "updated_at": "2026-10-02T22:34:22.626Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "2026-09-06: 自動クロールで ibusuki-nanohana-2026 を元に2027年大会ファイルを新規作成",
-      "2026-09-18: 自動クロールで更新"
+      "2026-09-18: 自動クロールで更新",
+      "2026-10-02: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-10-02",
     "detail_level": "full"
   },
   "entry_periods": [

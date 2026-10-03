@@ -43,10 +43,15 @@ const races = [
   makeRace({ id: 'osaka-marathon-2027', name_ja: '大阪マラソン', date: '2026-11-01', categories: [makeCategory()] }),
 ];
 
+// races の日付が過去になると既定の絞り込み（開催済みを除外）で消えるため、今日を固定する
+const TODAY = '2026-09-01';
+
 const user = userEvent.setup({ delay: null });
 let replaceStateSpy: ReturnType<typeof vi.spyOn>;
 
 beforeEach(() => {
+  vi.useFakeTimers({ toFake: ['Date'] });
+  vi.setSystemTime(new Date(`${TODAY}T12:00:00.000Z`));
   localStorage.clear();
   routerReplace.mockClear();
   routerPush.mockClear();
@@ -56,6 +61,7 @@ beforeEach(() => {
 
 afterEach(() => {
   replaceStateSpy.mockRestore();
+  vi.useRealTimers();
 });
 
 describe('RaceList - URL同期', () => {

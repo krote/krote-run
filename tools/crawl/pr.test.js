@@ -2,7 +2,10 @@
 
 const { test, describe } = require('node:test');
 const assert = require('node:assert/strict');
-const { buildBranchName, buildCommitMessage, buildPrTitle, shouldCreatePr } = require('./pr');
+const path = require('path');
+const {
+  buildBranchName, buildCommitMessage, buildPrTitle, shouldCreatePr, COMMIT_PATHS, regenerateSeed,
+} = require('./pr');
 
 describe('shouldCreatePr', () => {
   const summary = (over = {}) => ({ extracted: [], new_editions: [], held: [], errors: [], ...over });
@@ -70,5 +73,26 @@ describe('buildCommitMessage', () => {
     const msg = buildCommitMessage({ extracted, new_editions: [] });
     assert.ok(msg.split('\n').length < 30, 'コミットメッセージが長すぎる');
     assert.match(msg, /ほか/);
+  });
+});
+
+describe('COMMIT_PATHS', () => {
+  test('再生成した seed もコミット対象に含める', () => {
+    assert.ok(COMMIT_PATHS.includes('migrations/seed-races-all.sql'));
+  });
+
+  test('race JSON とチェックサムも引き続き含める', () => {
+    assert.ok(COMMIT_PATHS.includes('src/data/races'));
+    assert.ok(COMMIT_PATHS.includes('tools/crawl/checksums.json'));
+  });
+});
+
+describe('regenerateSeed', () => {
+  test('generate-seed-races.js を node で実行する', () => {
+    const calls = [];
+    regenerateSeed((cmd, args) => calls.push({ cmd, args }));
+    assert.equal(calls.length, 1);
+    assert.equal(calls[0].cmd, process.execPath);
+    assert.equal(path.basename(calls[0].args[0]), 'generate-seed-races.js');
   });
 });

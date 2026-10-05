@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-10-03T04:01:16.668Z
+-- 生成日時: 2026-10-05T14:06:35.655Z
 -- 対象ファイル数: 133 件（既存 2 件はskip）
 
 -- ==================
@@ -2578,13 +2578,13 @@ INSERT INTO races (
   NULL,
   NULL,
   NULL,
-  '帯広市',
+  '日専連ビル前',
   'Obihiro City',
   '北海道帯広市西2条南8丁目',
   42.923115,
   143.201981,
   '2026-08-25T00:00:00Z',
-  '2026-09-18T14:13:48.450Z'
+  '2026-10-05T13:53:58.319Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -3649,7 +3649,7 @@ INSERT INTO races (
   NULL,
   NULL,
   '2026-04-30T00:00:00Z',
-  '2026-09-06T14:14:15.315Z'
+  '2026-10-05T13:56:19.662Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -3706,12 +3706,32 @@ INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja
   ('fukuoka-marathon-2026', (SELECT id FROM race_categories WHERE race_id = 'fukuoka-marathon-2026' AND distance_type = 'full' ORDER BY id DESC LIMIT 1), 29, '海づり公園', NULL, '福岡市西区の今津・北崎エリアは、海づり公園のほかにカフェやお食事処、牡蠣小屋があり、週末には多くの人が訪れます。博多湾に目を向けると、遠くには福岡タワーや金印で有名な志賀島が望めます', NULL, 3);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('fukuoka-marathon-2026', (SELECT id FROM race_categories WHERE race_id = 'fukuoka-marathon-2026' AND distance_type = 'full' ORDER BY id DESC LIMIT 1), 35, '二見ヶ浦', NULL, 'コース後半の高低差25mの山場を過ぎると、玄界灘の美しい海岸線が見えてきます。渚百選・夕陽百選の一つである二見ヶ浦は、福岡市と糸島市の境にある観光スポットで、付近はおしゃれな飲食店が並び、親子連れやカップル、また多くの観光客で賑わいます。', NULL, 4);
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('fukuoka-marathon-2026', 5.3, '09:25');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('fukuoka-marathon-2026', 9.9, '10:09');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('fukuoka-marathon-2026', 14.3, '10:52');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('fukuoka-marathon-2026', 19.8, '11:44');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('fukuoka-marathon-2026', 25, '12:33');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('fukuoka-marathon-2026', 29.8, '13:20');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('fukuoka-marathon-2026', 32.9, '13:50');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('fukuoka-marathon-2026', 36.9, '14:28');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('fukuoka-marathon-2026', 40.1, '14:59');
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fukuoka-marathon-2026', '観光地', '天神・博多エリア', 'Tenjin & Hakata Area', 'スタート地点の天神は福岡最大の繁華街。大会前後のショッピング・グルメに便利。', 'Tenjin, the start point, is Fukuoka''s largest shopping district. Convenient for pre/post-race dining and shopping.', 'スタート地点', NULL, 33.5904, 130.399);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fukuoka-marathon-2026', 'グルメ', '糸島グルメ', 'Itoshima Gourmet', 'フィニッシュ地点の糸島は新鮮な海産物とカフェが人気のエリア。完走後に楽しめる。', 'Itoshima, the finish area, is popular for fresh seafood and cafes. Enjoy after completing the race.', 'フィニッシュ地点周辺', NULL, 33.5563, 130.1968);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('fukuoka-marathon-2026', '温泉', '二丈温泉きららの湯', 'Nijo Onsen Kirara no Yu', '糸島・二丈エリアの温泉施設。コース沿いでレース後のリカバリーに最適。', 'Hot spring facility in the Itoshima/Nijo area. Ideal for post-race recovery near the course.', '糸島市内', NULL, 33.54, 130.16);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('fukuoka-marathon-2026', '観光地', '二見ヶ浦', 'Futamigaura', 'コース35km付近、福岡市と糸島市の境にある観光スポット。渚百選・夕陽百選にも選ばれた美しい海岸線で、周辺には飲食店が並ぶ。', 'Located around the 35km point of the course, on the border of Fukuoka City and Itoshima. A scenic coastline recognized among Japan''s top 100 beaches and sunset spots, with restaurants and cafes nearby.', 'フィニッシュ地点周辺', NULL, 33.6013, 130.1367);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('fukuoka-marathon-2026', '["tshirt"]', '大会オリジナルTシャツ（有償・希望者のみ）', 'Official race T-shirt (paid, optional)', NULL, 0);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -5121,13 +5141,13 @@ INSERT INTO races (
   NULL,
   NULL,
   NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
+  'いぶすき菜の花マラソン大会コース',
+  'Ibusuki Nanohana Marathon Course',
+  '鹿児島県指宿市',
+  31.252777,
+  130.633057,
   '2026-09-06T14:18:52.776Z',
-  '2026-10-02T22:34:22.626Z'
+  '2026-10-05T14:06:33.398Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -5550,8 +5570,8 @@ INSERT INTO races (
   0,
   'road',
   '[]',
-  '猿岩、湯ノ本温泉、聖母宮、勝本浦町並み、串山海水浴場、イルカパーク、龍蛇神神社、清石浜、左京鼻、はらほげ地蔵、小島神社、原の辻ガイダンス、筒城浜、錦浜など壱岐島内の名所・パワースポットを巡るコース',
-  'The course passes island landmarks and power spots including Saruiwa Rock, Yunomoto Onsen, Shoubo Shrine, the old townscape of Katsumoto, Kushiyama Beach, Dolphin Park, Sasekihama, Sakyo-bana, Harahoge Jizo, Kojima Shrine, and Tsutsukihama and Nishikihama beaches.',
+  '猿岩、湯ノ本温泉、聖母宮、勝本浦町並み、串山海水浴場、イルカパーク、壱岐の土台石・天ヶ原海岸、龍蛇神神社、清石浜、左京鼻、はらほげ地蔵、小島神社、原の辻ガイダンス、筒城浜、錦浜など壱岐島内の名所・パワースポットを巡るコース',
+  'The course passes island landmarks and power spots including Saruiwa Rock, Yunomoto Onsen, Shoubo Shrine, the old townscape of Katsumoto, Kushiyama Beach, Dolphin Park, Iki no Dodaiishi (Amagahara Coast), Sasekihama, Sakyo-bana, Harahoge Jizo, Kojima Shrine, and Tsutsukihama and Nishikihama beaches.',
   '',
   '',
   '壱岐の海',
@@ -5568,7 +5588,7 @@ INSERT INTO races (
   NULL,
   NULL,
   '2026-04-05T08:19:26.353Z',
-  '2026-09-18T14:18:41.643Z'
+  '2026-10-05T13:58:49.469Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -13123,7 +13143,7 @@ INSERT INTO races (
   '新潟市を舞台に開催されるワールドアスレティックス認証・日本陸上競技連盟公認のフルマラソン（42.195km）。デンカビッグスワンスタジアム前をスタートし、新潟市陸上競技場でフィニッシュする。10.6kmのファンランのほか、古町十字路と萬代橋東詰めを周回するユニバーサルランも同時開催する。',
   'A World Athletics and JAAF certified full marathon (42.195km) held in Niigata City, starting near Denka Big Swan Stadium and finishing at the Niigata City Athletics Stadium. The event also includes a 10.6km Fun Run and a Universal Run that loops between Furumachi crossing and the east end of Bandai Bridge.',
   'https://runfes-niigata.com/',
-  NULL,
+  12500,
   1,
   12000,
   '2026-04-08',
@@ -13157,7 +13177,7 @@ INSERT INTO races (
   NULL,
   NULL,
   '2026-04-05T07:57:29.198Z',
-  '2026-09-28T14:02:36.281Z'
+  '2026-10-05T14:04:18.075Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -14920,7 +14940,7 @@ INSERT INTO races (
   0,
   8500,
   '2026-10-01',
-  '2026-10-21',
+  '2026-10-02',
   0,
   'pre_mail',
   '会場での選手受付はありません（海外在住者を除く）。アスリートビブス・計測チップ・参加賞Tシャツ等を事前に発送します（2027年2月下旬予定、ファンランは計測チップなし）。エントリー時の住所に発送するため、エントリー後の住所変更は必ずエントリーセンターへご連絡ください。お手元に届かない場合もエントリーセンターへご連絡ください。当日アスリートビブス・計測チップを忘れると出走できません（ヘルプデスクにて有料で再発行可能）。',
@@ -14950,7 +14970,7 @@ INSERT INTO races (
   NULL,
   NULL,
   '2026-08-24T16:15:46.106Z',
-  '2026-09-18T14:32:52.454Z'
+  '2026-10-05T14:05:10.508Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -15022,15 +15042,15 @@ INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('saga-sakura-marathon-2027', '観光地', '吉野ヶ里遺跡', 'Yoshinogari Ruins', '弥生時代の大規模環濠集落遺跡。国の特別史跡。佐賀市から近い。', 'A large-scale Yayoi period moated settlement. National Special Historic Site. Close to Saga city.', '佐賀市から車約20分', NULL, 33.3167, 130.3833);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('saga-sakura-marathon-2027', '["tshirt"]', '大会オリジナルTシャツ（選択制）', 'Original event T-shirt (selectable)', NULL, 0);
+  ('saga-sakura-marathon-2027', '["tshirt"]', '大会オリジナルTシャツ（選択制、カラー：エメラルドグリーン）', 'Original event T-shirt (selectable, emerald green)', NULL, 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('saga-sakura-marathon-2027', '["local_product"]', '特産品：新撰佐賀のり焼きのり6枚（選択制）', 'Local specialty: Saga roasted nori seaweed, 6 sheets (selectable)', NULL, 1);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('saga-sakura-marathon-2027', '["medal"]', '完走メダル', 'Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('saga-sakura-marathon-2027', NULL, 'マラソン', 'Marathon', '2026-10-01', '2026-10-21', 14500, 0);
+  ('saga-sakura-marathon-2027', NULL, 'マラソン', 'Marathon', '2026-10-01', '2026-10-02', 14500, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('saga-sakura-marathon-2027', NULL, 'ファンラン', 'Fun Run', '2026-10-01', '2026-10-21', 6000, 1);
+  ('saga-sakura-marathon-2027', NULL, 'ファンラン', 'Fun Run', '2026-10-01', '2026-10-02', 6000, 1);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('saga-sakura-marathon-2027', NULL, NULL, '桜並木', 'Cherry blossom trees', NULL, NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -19917,7 +19937,7 @@ INSERT INTO races (
   35.468506,
   139.648621,
   '2026-08-31T23:51:21.157Z',
-  '2026-09-18T14:38:36.828Z'
+  '2026-10-05T14:06:33.262Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -19973,7 +19993,7 @@ INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en,
 INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
   ('yokohama-northdock-run-2026', '東神奈川駅（京急線）', 'Higashi-Kanagawa Station (Keikyu Line)', '', '徒歩13分', '13 min walk', 0, 0, 13, 0, 1);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('yokohama-northdock-run-2026', '["towel"]', '米軍ロゴ入りオリジナルタオル（予定）', 'Original towel with U.S. military logo (planned)', NULL, 0);
+  ('yokohama-northdock-run-2026', '["towel"]', '米軍ロゴ入りオリジナルタオル', 'Original towel with U.S. military logo', NULL, 0);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('yokohama-northdock-run-2026', '["certificate"]', 'WEB完走証発行', 'Digital (web) finisher certificate', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES

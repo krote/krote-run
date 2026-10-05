@@ -94,7 +94,44 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "distance_km": 5.3,
+      "closing_time": "09:25"
+    },
+    {
+      "distance_km": 9.9,
+      "closing_time": "10:09"
+    },
+    {
+      "distance_km": 14.3,
+      "closing_time": "10:52"
+    },
+    {
+      "distance_km": 19.8,
+      "closing_time": "11:44"
+    },
+    {
+      "distance_km": 25,
+      "closing_time": "12:33"
+    },
+    {
+      "distance_km": 29.8,
+      "closing_time": "13:20"
+    },
+    {
+      "distance_km": 32.9,
+      "closing_time": "13:50"
+    },
+    {
+      "distance_km": 36.9,
+      "closing_time": "14:28"
+    },
+    {
+      "distance_km": 40.1,
+      "closing_time": "14:59"
+    }
+  ],
   "access_points": [],
   "nearby_spots": [
     {
@@ -129,6 +166,17 @@
       "url": null,
       "latitude": 33.54,
       "longitude": 130.16
+    },
+    {
+      "type": "観光地",
+      "name_ja": "二見ヶ浦",
+      "name_en": "Futamigaura",
+      "description_ja": "コース35km付近、福岡市と糸島市の境にある観光スポット。渚百選・夕陽百選にも選ばれた美しい海岸線で、周辺には飲食店が並ぶ。",
+      "description_en": "Located around the 35km point of the course, on the border of Fukuoka City and Itoshima. A scenic coastline recognized among Japan's top 100 beaches and sunset spots, with restaurants and cafes nearby.",
+      "distance_from_venue": "フィニッシュ地点周辺",
+      "url": null,
+      "latitude": 33.6013,
+      "longitude": 130.1367
     }
   ],
   "weather_history": [],
@@ -144,7 +192,7 @@
   ],
   "result": null,
   "created_at": "2026-04-30T00:00:00Z",
-  "updated_at": "2026-09-06T14:14:15.315Z",
+  "updated_at": "2026-10-05T13:56:19.662Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -156,9 +204,10 @@
       "2026-08-24: 自動クロールで更新",
       "2026-08-26: entry_end_dateが2026-07-24に変更されていたが、PRレビューで指摘の通り誤り。7/24は優先枠（障がい者枠・ふくおかスポーツ応援ランナー枠等）の締切で、一般エントリーの締切は5/20が正しいため2026-05-20に修正",
       "2026-08-31: 自動クロールで更新",
-      "2026-09-06: 自動クロールで更新"
+      "2026-09-06: 自動クロールで更新",
+      "2026-10-05: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-06",
+    "last_verified": "2026-10-05",
     "detail_level": "light"
   },
   "entry_periods": [

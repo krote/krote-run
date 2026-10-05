@@ -106,7 +106,7 @@
   ],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-09-18T14:13:48.450Z",
+  "updated_at": "2026-10-05T13:53:58.319Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -115,9 +115,10 @@
       "2026-08-24: 自動クロールで更新",
       "2026-08-25: 2.5km区分でentry_fee_u25（1,900円=中学生料金）とdescription（小学生1,200円と記載）が不一致だったため、descriptionを一般・中学生・小学生の3段階を明記する形に修正（スキーマがentry_fee/entry_fee_u25の2段階までのため、小学生料金はdescriptionのみに記載）",
       "2026-08-31: 自動クロールで更新",
-      "2026-09-18: 自動クロールで更新"
+      "2026-09-18: 自動クロールで更新",
+      "2026-10-05: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-10-05",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -160,7 +161,7 @@
     }
   ],
   "completion_gifts": [],
-  "venue_name_ja": "帯広市",
+  "venue_name_ja": "日専連ビル前",
   "venue_name_en": "Obihiro City",
   "venue_address": "北海道帯広市西2条南8丁目",
   "start_lat": 42.923115,

@@ -112,14 +112,14 @@
       "gift_categories": [
         "towel"
       ],
-      "description_ja": "米軍ロゴ入りオリジナルタオル（予定）",
-      "description_en": "Original towel with U.S. military logo (planned)",
+      "description_ja": "米軍ロゴ入りオリジナルタオル",
+      "description_en": "Original towel with U.S. military logo",
       "image": null
     }
   ],
   "result": null,
   "created_at": "2026-08-31T23:51:21.157Z",
-  "updated_at": "2026-09-18T14:38:36.828Z",
+  "updated_at": "2026-10-05T14:06:33.262Z",
   "_metadata": {
     "data_source": "公式サイト（https://pia-running.jp/northdock/）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -130,9 +130,10 @@
       "コースマップ・GPXデータは公式サイトに未掲載",
       "車両送迎・車両でのアクセス不可（公共交通機関のみ）",
       "2026-09-06: 自動クロールで更新",
-      "2026-09-18: 自動クロールで更新"
+      "2026-09-18: 自動クロールで更新",
+      "2026-10-05: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-10-05",
     "detail_level": "medium"
   },
   "entry_periods": [

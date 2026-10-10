@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-10-09T14:07:23.972Z
+-- 生成日時: 2026-10-10T07:04:12.420Z
 -- 対象ファイル数: 134 件（既存 2 件はskip）
 
 -- ==================
@@ -12320,7 +12320,7 @@ INSERT INTO races (
   'https://www.naganomarathon.gr.jp/',
   14300,
   1,
-  9700,
+  10000,
   '2026-09-05',
   '2026-09-11',
   0,
@@ -12398,7 +12398,7 @@ INSERT INTO races (
   start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('nagano-marathon-2027', 'full', 42.195, 300, '08:30', 9700, 14300, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+  ('nagano-marathon-2027', 'full', 42.195, 300, '08:30', 10000, 14300, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
   ('nagano-marathon-2027', 5, '水、スポーツドリンク', 'Water, sports drink', 0);
 INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES

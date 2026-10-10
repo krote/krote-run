@@ -1763,3 +1763,11 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `tools/crawl/pr.test.js`: seed 再生成とコミット対象のテストを追加
 - `package.json`: `test:tools` に `tools/crawl/pr.test.js` を追加（従来は未実行）
 - `migrations/seed-races-all.sql`: 2026-10-03 クロール分（10大会更新・次年度2件）を反映して再生成。stg/本番 D1 へ投入済み
+
+## 2026-10-10 長野マラソン2027の定員を10,000名に修正（クロールPRレビュー指摘）
+
+- `src/data/races/nagano-marathon-2027.json`: `entry_capacity` / `categories[].capacity` を 9700 → 10000 に戻した
+  - 2026-10-09 のクロールが公式サイトの「一般エントリー 定員9,700名」（枠別の定員）を大会全体の定員として取り込んでいた
+  - 公式の参加定員は 10,000名（一般エントリー9,700名＋出走権付き宿泊パック300名）
+  - `_metadata.data_accuracy_notes` に枠別定員との区別を注記
+- `migrations/seed-races-all.sql`: 再生成

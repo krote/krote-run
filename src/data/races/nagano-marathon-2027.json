@@ -14,7 +14,7 @@
   "official_url": "https://www.naganomarathon.gr.jp/",
   "entry_fee": 14300,
   "entry_fee_by_category": true,
-  "entry_capacity": 9700,
+  "entry_capacity": 10000,
   "entry_start_date": "2026-09-05",
   "entry_end_date": "2026-09-11",
   "reception_type": "none",
@@ -49,7 +49,7 @@
       "distance_km": 42.195,
       "time_limit_minutes": 300,
       "start_time": "08:30",
-      "capacity": 9700,
+      "capacity": 10000,
       "entry_fee": 14300,
       "entry_fee_u25": null,
       "name_ja": null,
@@ -253,7 +253,8 @@
     "data_accuracy_notes": [
       "2026-08-31: 自動クロールで nagano-marathon-2026 を元に2027年大会ファイルを新規作成",
       "2026-09-18: 自動クロールで更新",
-      "2026-10-09: 自動クロールで更新"
+      "2026-10-09: 自動クロールで更新",
+      "2026-10-10: 定員は大会全体で10,000名（一般エントリー9,700名＋出走権付き宿泊パック300名）。公式サイトの「一般エントリー 定員9,700名」は枠別の数字であり大会定員ではない"
     ],
     "last_verified": "2026-10-09",
     "detail_level": "full"

@@ -16,7 +16,7 @@
   "entry_fee_by_category": false,
   "entry_capacity": 5000,
   "entry_start_date": "2026-08-18",
-  "entry_end_date": "2026-10-17",
+  "entry_end_date": "2026-11-03",
   "reception_type": "pre_mail",
   "reception_note_ja": "全ての参加者へアスリートビブス（ゼッケン）を事前送付するため、当日受付はなし",
   "reception_note_en": "Athlete bibs are mailed to all participants in advance; there is no race-day reception",
@@ -82,7 +82,24 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "distance_km": 10,
+      "closing_time": "11:25"
+    },
+    {
+      "distance_km": 21,
+      "closing_time": "12:50"
+    },
+    {
+      "distance_km": 27,
+      "closing_time": "13:40"
+    },
+    {
+      "distance_km": 33,
+      "closing_time": "14:30"
+    }
+  ],
   "access_points": [
     {
       "station_name_ja": "館山駅",
@@ -134,15 +151,16 @@
   ],
   "result": null,
   "created_at": "2026-08-24T16:18:08.658Z",
-  "updated_at": "2026-10-02T22:45:37.416Z",
+  "updated_at": "2026-10-09T14:05:56.047Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "2026-08-24: 自動クロールで tateyama-wakashio-2026 を元に2027年大会ファイルを新規作成",
       "2026-08-25: categoriesが自動更新対象外（DIFF_FIELDSに未収録）のため10km・ファンランが欠落していた。公式サイト確認で3種目とも定員・参加料・スタート時刻・制限時間を追加。ふるさと納税エントリー終了日(10/2)は公式サイトで再確認し正しい値と確認済み",
-      "2026-10-02: 自動クロールで更新"
+      "2026-10-02: 自動クロールで更新",
+      "2026-10-09: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-02",
+    "last_verified": "2026-10-09",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -159,7 +177,7 @@
       "label_ja": "一般エントリー",
       "label_en": "General Entry",
       "start_date": "2026-09-01",
-      "end_date": "2026-10-17",
+      "end_date": "2026-11-03",
       "entry_fee": null,
       "category_id": null,
       "sort_order": 1

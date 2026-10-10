@@ -1,0 +1,169 @@
+{
+  "id": "iwate-oshu-kirameki-marathon-2027",
+  "name_ja": "いわて奥州きらめきマラソン",
+  "name_en": "Iwate Oshu Kirameki Marathon",
+  "full_name_ja": "第10回いわて奥州きらめきマラソン",
+  "full_name_en": "Iwate Oshu Kirameki Marathon",
+  "edition": 10,
+  "date": "2027-05-16",
+  "prefecture": "03",
+  "city_ja": "奥州市",
+  "city_en": "Oshu City",
+  "description_ja": "岩手県奥州市で開催。奥州の自然と歴史を感じながら走るフルマラソン。",
+  "description_en": "A full marathon in Oshu City, Iwate, running through the nature and history of the region.",
+  "official_url": "https://oshukirameki.jp",
+  "entry_fee": 10000,
+  "entry_fee_by_category": true,
+  "entry_capacity": 3000,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": "pre_day",
+  "reception_note_ja": "",
+  "reception_note_en": "",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 360,
+      "start_time": "08:30",
+      "capacity": 3000,
+      "entry_fee": 10000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "entry_fee": 3000,
+      "capacity": 1000,
+      "time_limit_minutes": 90,
+      "start_time": "08:45"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [
+    {
+      "station_name_ja": "水沢江刺駅",
+      "station_name_en": "Mizusawa-Esashi Station",
+      "station_code": "",
+      "transport_to_venue_ja": "シャトルバスで15分",
+      "transport_to_venue_en": "15 min by shuttle bus",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 15,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "水沢駅",
+      "station_name_en": "Mizusawa Station",
+      "station_code": "",
+      "transport_to_venue_ja": "シャトルバスで20分",
+      "transport_to_venue_en": "20 min by shuttle bus",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 20,
+      "is_primary": false
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "中尊寺金色堂",
+      "name_en": "Chusonji Konjikido",
+      "description_ja": "世界遺産・平泉。奥州藤原氏の栄華を伝える。奥州市から車約30分。",
+      "description_en": "World Heritage Hiraizumi. Tells of the glory of the Oshu Fujiwara clan. About 30 min by car from Oshu.",
+      "distance_from_venue": "奥州市から車約30分",
+      "url": null,
+      "latitude": 39,
+      "longitude": 141.1
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-10-09T13:59:00.466Z",
+  "updated_at": "2026-10-09T13:59:00.466Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "2026-10-09: 自動クロールで iwate-oshu-kirameki-marathon-2026 を元に2027年大会ファイルを新規作成"
+    ],
+    "last_verified": "2026-10-09",
+    "detail_level": "medium"
+  },
+  "entry_periods": [],
+  "motif": "平泉",
+  "motif_color": "#854d0e",
+  "motif_romaji": "Hiraizumi",
+  "tagline_ja": "世界遺産・平泉の黄金文化を感じながら走る",
+  "tagline_en": "Run through Hiraizumi, the Golden City of World Heritage",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://oshukirameki.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://oshukirameki.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://oshukirameki.jp/info/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://oshukirameki.jp/course/",
+      "label": "コース情報"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "大会Tシャツ、完走メダル",
+      "description_en": "Race T-shirt, Finisher medal",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "奥州市役所江刺総合支所",
+  "venue_name_en": "Oshu City Esashi General Branch Office",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

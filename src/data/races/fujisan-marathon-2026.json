@@ -37,8 +37,8 @@
     ],
     "highlights_ja": "河口湖、西湖、雪化粧した富士山とのコントラスト",
     "highlights_en": "Lake Kawaguchi, Lake Saiko, Mt. Fuji contrasted with winter snow",
-    "notes_ja": null,
-    "notes_en": null
+    "notes_ja": "富士五湖の河口湖・西湖の湖畔は基本的に平坦だが、「心臓破りの坂」と呼ばれる急勾配のポイントがある。",
+    "notes_en": "The lakeside sections around Lake Kawaguchi and Lake Saiko are mostly flat, but the course includes a steep climb nicknamed the \"heartbreak hill.\""
   },
   "categories": [
     {
@@ -130,7 +130,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-09-28T13:58:28.713Z",
+  "updated_at": "2026-10-09T13:55:32.167Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -141,9 +141,10 @@
       "2026-08-24: 自動クロールで更新",
       "2026-09-06: 自動クロールで更新",
       "2026-09-18: 自動クロールで更新",
-      "2026-09-28: 自動クロールで更新"
+      "2026-09-28: 自動クロールで更新",
+      "2026-10-09: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-28",
+    "last_verified": "2026-10-09",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -239,8 +240,8 @@
         "medal",
         "towel"
       ],
-      "description_ja": "完走メダル、フィニッシャータオル",
-      "description_en": "Finisher medal, Finisher towel",
+      "description_ja": "富士山デザインの自立式完走メダルとフィニッシャータオル。メダルを5個集めると立体の富士山が完成し、内部にライトを灯すと輝くオブジェになる。",
+      "description_en": "A free-standing finisher medal and towel featuring a Mt. Fuji design. Collect five medals to assemble a 3D Mt. Fuji that lights up from within.",
       "image": null
     }
   ],

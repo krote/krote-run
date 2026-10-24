@@ -1771,3 +1771,15 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
   - 公式の参加定員は 10,000名（一般エントリー9,700名＋出走権付き宿泊パック300名）
   - `_metadata.data_accuracy_notes` に枠別定員との区別を注記
 - `migrations/seed-races-all.sql`: 再生成
+
+## 2026-10-24 RUNNET週刊ガイド（2026-10-23号）掲載の5大会を追加
+
+- 新規レースJSONを追加（公式サイトとRUNNET大会ページの要項から作成、`detail_level: light`）
+  - `src/data/races/gamagori-bayside-trail-2027.json`: がまごおりベイサイドトレイル（2027-01-23、愛知県蒲郡市、ロング31km/ショート13km/キッズ）
+  - `src/data/races/konosu-pansy-marathon-2027.json`: 第45回鴻巣パンジーマラソン（2027-03-06、埼玉県鴻巣市、ハーフ/5km/1.5km/1km親子）
+  - `src/data/races/hita-hinamatsuri-marathon-2027.json`: 第28回天領日田ひなまつり健康マラソン（2027-03-14、大分県日田市、ハーフ/10km/5km）
+  - `src/data/races/ashikita-utase-marathon-2027.json`: 2027芦北うたせマラソン（2027-03-28、熊本県芦北町、ハーフ/10km/5km/3km）
+  - `src/data/races/adachi-goshiki-sakura-marathon-2027.json`: 第15回あだち五色桜マラソン（2027-04-11、東京都足立区、ハーフ/10km/5km/親子/一輪車）
+- 蒲郡・日田は `geocode:venues` で `start_lat/lng` を補完。鴻巣・芦北・足立は公式に会場住所の記載がなく座標未設定
+- エイド位置・一部アクセスなど公式に記載のない項目は空欄とし、`_metadata.data_accuracy_notes` に理由を記載
+- `migrations/seed-races-all.sql`: 再生成

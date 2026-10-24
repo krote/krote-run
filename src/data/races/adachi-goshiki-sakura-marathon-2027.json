@@ -1,0 +1,297 @@
+{
+  "id": "adachi-goshiki-sakura-marathon-2027",
+  "name_ja": "あだち五色桜マラソン",
+  "name_en": "Adachi Goshiki Sakura Marathon",
+  "full_name_ja": "第15回あだち五色桜マラソン",
+  "full_name_en": "15th Adachi Goshiki Sakura Marathon",
+  "edition": 15,
+  "date": "2027-04-11",
+  "prefecture": "13",
+  "city_ja": "足立区",
+  "city_en": "Adachi City",
+  "description_ja": "荒川堤の五色桜並木の枝から育てた桜を平和と友好の象徴としてワシントンへ贈ってから100周年を記念して誕生した大会。荒川河川敷のアップダウンの少ない周回コースを、五色桜大橋やスカイツリーを眺めながら走る。一輪車の部もある。",
+  "description_en": "Created to mark the 100th anniversary of the cherry trees, grown from the Goshiki Sakura trees on the Arakawa embankment, that were sent to Washington as a symbol of peace and friendship. Runners loop a flat course along the Arakawa riverbank with views of the Goshiki Sakura Ohashi Bridge and Tokyo Skytree. Unicycle races are also held.",
+  "official_url": "https://shining-foundation.wixsite.com/5shikisakura",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 2300,
+  "entry_start_date": "2026-10-30",
+  "entry_end_date": "2027-03-22",
+  "reception_type": "race_day",
+  "reception_note_ja": "大会当日に足立区荒川江北橋緑地で受付。一輪車の部8:30〜8:50、マラソンの部9:00〜（各種目スタート15分前まで）",
+  "reception_note_en": "Same-day check-in at Arakawa Kohokubashi Ryokuchi, Adachi: unicycle races 8:30-8:50; running races from 9:00 until 15 min before each start.",
+  "tags": [
+    "フラットコース",
+    "周回コース",
+    "スカイツリー"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": 7.5,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "荒川河川敷の比較的フラットな特設周回コース（1周約7.0325km、ハーフは3周）。若いサトザクラの並木や五色桜大橋、遠くにスカイツリーを望む",
+    "highlights_en": "A relatively flat loop course on the Arakawa riverbank (approx. 7.0325km per lap; the half is 3 laps), with young satozakura cherry trees, the Goshiki Sakura Ohashi Bridge, and Tokyo Skytree in the distance.",
+    "notes_ja": "ハーフの制限時間は2時間40分。14km（2周目）通過時点で1時間40分（13:30）を超えた場合は3周目に入れない。エイドはコース上2箇所＋会場内1箇所。会場に駐車場なし",
+    "notes_en": "The half marathon time limit is 2 hours 40 minutes. Runners passing 14km (2nd lap) after 1:40 (13:30) may not start the 3rd lap. Aid stations: 2 on the course plus 1 at the venue. No parking at the venue."
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 160,
+      "start_time": "11:50",
+      "capacity": 1000,
+      "entry_fee": 5600,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "18歳以上（高校生不可）",
+      "description_en": "Age 18 and older (high school students not eligible)",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 90,
+      "start_time": "10:15",
+      "capacity": 800,
+      "entry_fee": 5100,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10km",
+      "description_ja": "高校生以上",
+      "description_en": "High school age and older",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 60,
+      "start_time": "10:25",
+      "capacity": 500,
+      "entry_fee": 4600,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": "中学生以上",
+      "description_en": "Junior high school age and older",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1,
+      "time_limit_minutes": 10,
+      "start_time": "10:00",
+      "capacity": 150,
+      "entry_fee": 3300,
+      "entry_fee_u25": null,
+      "name_ja": "1km親子ペア",
+      "name_en": "1km Parent & Child",
+      "description_ja": "親と小学生以下の子のペア。参加料・定員は1組あたり",
+      "description_en": "A parent paired with a child of elementary school age or younger. Fee and capacity are per pair.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 10,
+      "time_limit_minutes": 60,
+      "start_time": "09:00",
+      "capacity": 100,
+      "entry_fee": 3300,
+      "entry_fee_u25": null,
+      "name_ja": "一輪車10km",
+      "name_en": "Unicycle 10km",
+      "description_ja": "中学生以上、小学3〜6年生、1・2年生。ひざあて・ひじあて・ヘルメット（または帽子）着用",
+      "description_en": "Junior high and older, elementary grades 3-6, and grades 1-2. Knee pads, elbow pads, and a helmet (or cap) required.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 5,
+      "time_limit_minutes": 45,
+      "start_time": "09:05",
+      "capacity": 100,
+      "entry_fee": 3300,
+      "entry_fee_u25": null,
+      "name_ja": "一輪車5km",
+      "name_en": "Unicycle 5km",
+      "description_ja": "中学生以上、小学3〜6年生、1・2年生",
+      "description_en": "Junior high and older, elementary grades 3-6, and grades 1-2",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2,
+      "time_limit_minutes": 20,
+      "start_time": "09:08",
+      "capacity": 100,
+      "entry_fee": 3300,
+      "entry_fee_u25": null,
+      "name_ja": "一輪車2km",
+      "name_en": "Unicycle 2km",
+      "description_ja": "小学3〜6年生、1・2年生",
+      "description_en": "Elementary grades 3-6 and grades 1-2",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [
+    {
+      "distance_km": 14,
+      "closing_time": "13:30"
+    }
+  ],
+  "access_points": [
+    {
+      "station_name_ja": "足立小台駅（日暮里・舎人ライナー）",
+      "station_name_en": "Adachi-Odai Station (Nippori-Toneri Liner)",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約10分。橋を渡る前の「扇大橋南」交差点で会場側に渡ってから橋を渡る",
+      "transport_to_venue_en": "About 10 min on foot. Cross to the venue side at the Ogi-Ohashi-Minami intersection before crossing the bridge.",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 10,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "扇大橋駅（日暮里・舎人ライナー）",
+      "station_name_en": "Ogi-Ohashi Station (Nippori-Toneri Liner)",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約10分",
+      "transport_to_venue_en": "About 10 min on foot",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 10,
+      "is_primary": false
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "西新井大師",
+      "name_en": "Nishiarai Daishi",
+      "description_ja": "関東三大師の一つに数えられる足立区の古刹",
+      "description_en": "A historic temple in Adachi, one of the three great Daishi temples of the Kanto region",
+      "distance_from_venue": null,
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "観光地",
+      "name_ja": "舎人公園",
+      "name_en": "Toneri Park",
+      "description_ja": "日暮里・舎人ライナー沿いの大規模公園",
+      "description_en": "A large park along the Nippori-Toneri Liner",
+      "distance_from_venue": null,
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "other"
+      ],
+      "description_ja": "参加賞あり（内容未発表）",
+      "description_en": "Participation gift provided (details not yet announced)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-10-24T00:00:00Z",
+  "updated_at": "2026-10-24T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://shining-foundation.wixsite.com/5shikisakura）およびRUNNET大会ページ（raceId=401835）の公開情報から作成（2026-10-24）",
+    "data_accuracy_notes": [
+      "RUNNET週刊ガイド（2026-10-23号）掲載大会として追加",
+      "要項はRUNNET大会ページ、コース・アクセスは公式サイトのコース＆アクセスページを参照",
+      "entry_capacityはハーフ1,000＋10km800＋5km500の合計（親子ペア150組・一輪車各100人は含まず）",
+      "一輪車種目は距離にかかわらずdistance_type 'other'とした",
+      "関門は14km（2周目）通過時点13:30。3周目に入れない扱い",
+      "エイドはコース上2箇所（計算上2.5kmごと）＋会場内1箇所。位置不明のためaid_stationsは空",
+      "会場住所は公式サイトに記載なし。会場に駐車場なし",
+      "ゲストランナー：吉田香織さん、SUIさん、M高史さん ほか"
+    ],
+    "last_verified": "2026-10-24",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-10-30",
+      "end_date": "2027-03-22",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": "五色桜",
+  "motif_color": "#db2777",
+  "motif_romaji": "Goshiki-zakura",
+  "tagline_ja": "五色桜の荒川堤を、スカイツリーを望んで",
+  "tagline_en": "Along the Goshiki Sakura banks of the Arakawa, Skytree in view",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "五色桜大橋とスカイツリー",
+      "name_en": "Goshiki Sakura Ohashi Bridge and Tokyo Skytree",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "荒川堤のサトザクラ並木",
+      "name_en": "Satozakura cherry trees on the Arakawa embankment",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://shining-foundation.wixsite.com/5shikisakura/information",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://shining-foundation.wixsite.com/5shikisakura/course",
+      "label": "コース＆アクセス"
+    },
+    {
+      "url": "https://shining-foundation.wixsite.com/5shikisakura/entry",
+      "label": "お申込み"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "第15回記念オリジナル完走メダル（親子ペアを除く完走者全員）。親子ペアは子に完走金メダル",
+      "description_en": "Original 15th-edition finisher medal for all finishers except parent-child pairs; children in parent-child pairs receive a gold finisher medal",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "certificate"
+      ],
+      "description_ja": "記録証",
+      "description_en": "Finisher time certificate",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "足立区荒川江北橋緑地",
+  "venue_name_en": "Arakawa Kohokubashi Ryokuchi (Adachi)",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

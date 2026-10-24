@@ -1,0 +1,244 @@
+{
+  "id": "ashikita-utase-marathon-2027",
+  "name_ja": "芦北うたせマラソン",
+  "name_en": "Ashikita Utase Marathon",
+  "full_name_ja": "令和8年熊本地震復興祈念 2027芦北うたせマラソン",
+  "full_name_en": "Ashikita Utase Marathon 2027",
+  "edition": null,
+  "date": "2027-03-28",
+  "prefecture": "43",
+  "city_ja": "芦北町",
+  "city_en": "Ashikita Town",
+  "description_ja": "不知火海（八代海）の潮風を受けながら、風光明媚な芦北海岸の海岸線を走る大会。高低差の少ない折り返しコースで、ハーフは芦北海浜総合公園前をスタートし芦北大橋にフィニッシュする。ゲストランナーは川内優輝選手。",
+  "description_en": "A race along the scenic Ashikita coastline, with sea breezes from the Shiranui Sea (Yatsushiro Sea). The out-and-back courses have little elevation change; the half marathon starts in front of Ashikita Seaside Park and finishes at Ashikita Ohashi Bridge. Yuki Kawauchi runs as a guest.",
+  "official_url": "https://www.ashikitautase-marathon.jp/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 1500,
+  "entry_start_date": "2026-10-30",
+  "entry_end_date": "2027-01-08",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "選手受付なし。ナンバーカード・計測チップ等を事前に郵送する。参加賞は大会当日8:00から芦北海浜総合公園で、事前発送の参加賞等引換証と引き換える",
+  "reception_note_en": "There is no runner check-in. Bibs and timing chips are mailed in advance. Participation gifts are exchanged for the mailed voucher at Ashikita Seaside Park from 8:00 on race day.",
+  "tags": [
+    "海の見えるコース",
+    "招待選手"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "不知火海に沿った芦北海岸を走る高低差の少ない折り返しコース。ハーフは芦北橋・平生橋・広域農道・三ツ島トンネルを経て女島大矢地区で折り返し、芦北大橋にフィニッシュ（一部坂あり）",
+    "highlights_en": "Out-and-back courses with little elevation change along the Ashikita coast of the Shiranui Sea. The half marathon crosses Ashikita Bridge and Hirao Bridge, follows the regional farm road through the Mitsushima Tunnel, turns at the Mejima Oya area, and finishes at Ashikita Ohashi Bridge (some hills).",
+    "notes_ja": "ハーフの制限時間は3時間。16.3km地点の最終関門を11:55までに通過し、12:40までにゴールすること。10km・5km・3kmは芦北海浜総合公園前にフィニッシュ。荒天中止の場合は当日6:00までに公式サイトで告知",
+    "notes_en": "The half marathon time limit is 3 hours: pass the final cutoff at 16.3km by 11:55 and finish by 12:40. The 10km, 5km, and 3km finish in front of Ashikita Seaside Park. Cancellation due to bad weather is announced on the official site by 6:00 on race day."
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 180,
+      "start_time": "09:40",
+      "capacity": 0,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "高校生以上",
+      "description_en": "High school age and older",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 0,
+      "start_time": "10:00",
+      "capacity": 0,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10km",
+      "description_ja": "高校生以上",
+      "description_en": "High school age and older",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 0,
+      "start_time": "10:15",
+      "capacity": 0,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": "高校生以上5,000円、中学生2,500円",
+      "description_en": "High school and older ¥5,000; junior high students ¥2,500",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": 0,
+      "start_time": "10:20",
+      "capacity": 0,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "3km",
+      "name_en": "3km",
+      "description_ja": "一般女子（高校生以上）5,000円、小学4年生以上2,500円",
+      "description_en": "Women (high school and older) ¥5,000; elementary grade 4 and up ¥2,500",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [
+    {
+      "distance_km": 16.3,
+      "closing_time": "11:55"
+    }
+  ],
+  "access_points": [
+    {
+      "station_name_ja": "肥薩おれんじ鉄道 佐敷駅",
+      "station_name_en": "Hisatsu Orange Railway Sashiki Station",
+      "station_code": "",
+      "transport_to_venue_ja": "大会当日は佐敷駅から会場までシャトルバスを運行",
+      "transport_to_venue_en": "A shuttle bus runs from Sashiki Station to the venue on race day",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": null,
+      "is_primary": true
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "温泉",
+      "name_ja": "湯浦温泉ヘルシーパーク芦北",
+      "name_en": "Yunoura Onsen Healthy Park Ashikita",
+      "description_ja": "芦北町の温泉施設",
+      "description_en": "A hot spring facility in Ashikita",
+      "distance_from_venue": null,
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "観光地",
+      "name_ja": "御立岬公園",
+      "name_en": "Otachimisaki Park",
+      "description_ja": "不知火海に突き出た岬の公園。温泉センターも併設",
+      "description_en": "A cape park jutting into the Shiranui Sea, with a hot spring center",
+      "distance_from_venue": null,
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "food"
+      ],
+      "description_ja": "昼食券（特産のエビを使った「エビ飯」を予定）",
+      "description_en": "Lunch voucher (a rice dish made with local shrimp is planned)",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "local_product"
+      ],
+      "description_ja": "芦北町特産品",
+      "description_en": "Ashikita local specialty products",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-10-24T00:00:00Z",
+  "updated_at": "2026-10-24T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://www.ashikitautase-marathon.jp/）およびRUNNET大会ページ（raceId=397500）の公開情報から作成（2026-10-24）",
+    "data_accuracy_notes": [
+      "RUNNET週刊ガイド（2026-10-23号）掲載大会として追加",
+      "公式サイトは作成時点で2026年大会の要項のため、2027年大会の要項はRUNNET大会ページを主に参照",
+      "回数は公式サイト・RUNNETとも記載なしのためnull",
+      "参加料は高校・一般5,000円、小中学生2,500円で種目による差なし。カテゴリには高校・一般の金額を設定",
+      "定員は全種目合計1,500人で種目別定員なし",
+      "10km・5km・3kmの制限時間は記載なし",
+      "給水所の位置は公式サイトに記載なし（コースマップは画像のみ）",
+      "佐敷駅からのシャトルバスの所要時間は記載なし",
+      "紙の完走証は有料（税込550円）、標準はデジタル完走証"
+    ],
+    "last_verified": "2026-10-24",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-10-30",
+      "end_date": "2027-01-08",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": "不知火海",
+  "motif_color": "#0369a1",
+  "motif_romaji": "Shiranui-kai",
+  "tagline_ja": "不知火海の潮風とともに",
+  "tagline_en": "Run with the breeze off the Shiranui Sea",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "芦北海岸の海岸線",
+      "name_en": "Ashikita coastline",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "芦北大橋フィニッシュ",
+      "name_en": "Finish at Ashikita Ohashi Bridge",
+      "description_ja": "ハーフのみ",
+      "description_en": "Half marathon only"
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.ashikitautase-marathon.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.ashikitautase-marathon.jp/course/",
+      "label": "コース&アクセス"
+    },
+    {
+      "url": "https://www.ashikitautase-marathon.jp/entry/",
+      "label": "エントリー"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "certificate"
+      ],
+      "description_ja": "デジタル完走証（紙の完走証は有料550円）",
+      "description_en": "Digital finisher certificate (printed certificate available for ¥550)",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "芦北海浜総合公園",
+  "venue_name_en": "Ashikita Seaside Park",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

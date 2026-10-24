@@ -1,0 +1,215 @@
+{
+  "id": "gamagori-bayside-trail-2027",
+  "name_ja": "がまごおりベイサイドトレイル",
+  "name_en": "Gamagori Bayside Trail",
+  "full_name_ja": "がまごおりベイサイドトレイル2027",
+  "full_name_en": "Gamagori Bayside Trail 2027",
+  "edition": null,
+  "date": "2027-01-23",
+  "prefecture": "23",
+  "city_ja": "蒲郡市",
+  "city_en": "Gamagori City",
+  "description_ja": "愛知県蒲郡市の山々を巡り、各ポイントから三河湾の絶景を望むトレイルラン大会。ロング31km（累積標高約1850m）では五井山からのパノラマも楽しめる。子安弘法大師をスタートし、大塚海浜緑地にフィニッシュする。小学生向けキッズレースも併催。",
+  "description_en": "A trail race through the mountains of Gamagori, Aichi, with sweeping views of Mikawa Bay along the way. The Long 31km course (approx. 1,850m elevation gain) also takes in the panorama from Mt. Goi. Runners start at Koyasu Kobo Daishi and finish at Otsuka Seaside Park. Kids races for elementary school children are also held.",
+  "official_url": "https://www.nature-scene.net/gamagori/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 1100,
+  "entry_start_date": "2026-10-25",
+  "entry_end_date": "2027-01-04",
+  "reception_type": "race_day",
+  "reception_note_ja": "大会当日に大塚海浜緑地で受付。ロング31km 6:30〜7:20、ショート13km 8:30〜9:20、キッズ13:30〜14:10。受付後、スタート地点の子安弘法大師まで徒歩で約2km移動する",
+  "reception_note_en": "Same-day check-in at Otsuka Seaside Park: Long 31km 6:30-7:20, Short 13km 8:30-9:20, Kids 13:30-14:10. After check-in, runners walk about 2km to the start at Koyasu Kobo Daishi.",
+  "tags": [
+    "トレイル",
+    "海の見えるコース"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "trail",
+    "certification": [],
+    "highlights_ja": "三河湾を見下ろすベイサイドの山岳コース。ロング31kmは五井山の開けた山頂からのパノラマが見どころ。累積標高はロング約1850m、ショート約650m",
+    "highlights_en": "A bayside mountain course overlooking Mikawa Bay. The Long 31km highlight is the open panorama from the summit of Mt. Goi. Cumulative elevation gain is approx. 1,850m for the Long and 650m for the Short.",
+    "notes_ja": "ロング31kmはITRA 2ポイント。第2エイド13:00、第3エイド15:30の関門あり（位置は詳細コースマップを参照）。紙コップの用意がないため携帯カップ持参が必要。水分500ml以上の携行が必須。駐車場あり／なし（エコ割）で参加料が異なる",
+    "notes_en": "The Long 31km earns 2 ITRA points. Cutoffs are set at the 2nd aid station (13:00) and 3rd aid station (15:30); see the detailed course map for locations. No paper cups are provided, so bring your own cup. Carrying at least 500ml of water is mandatory. Entry fees differ depending on whether a parking space is included (eco discount without parking)."
+  },
+  "categories": [
+    {
+      "distance_type": "other",
+      "distance_km": 31,
+      "time_limit_minutes": 510,
+      "start_time": "08:00",
+      "capacity": 600,
+      "entry_fee": 11300,
+      "entry_fee_u25": null,
+      "name_ja": "ロング31km",
+      "name_en": "Long 31km",
+      "description_ja": "高校生以上。累積標高約1850m。参加料は駐車場あり11,300円、駐車場なし（エコ割）9,800円",
+      "description_en": "High school age and older. Approx. 1,850m elevation gain. Fee: ¥11,300 with parking, ¥9,800 without parking (eco discount).",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 13,
+      "time_limit_minutes": 240,
+      "start_time": "10:00",
+      "capacity": 300,
+      "entry_fee": 8500,
+      "entry_fee_u25": null,
+      "name_ja": "ショート13km",
+      "name_en": "Short 13km",
+      "description_ja": "中学生以上。累積標高約650m。参加料は駐車場あり8,500円、駐車場なし（エコ割）7,000円",
+      "description_en": "Junior high school age and older. Approx. 650m elevation gain. Fee: ¥8,500 with parking, ¥7,000 without parking (eco discount).",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2,
+      "time_limit_minutes": 30,
+      "start_time": "14:30",
+      "capacity": 0,
+      "entry_fee": 2000,
+      "entry_fee_u25": null,
+      "name_ja": "キッズ2km",
+      "name_en": "Kids 2km",
+      "description_ja": "小学3〜6年生",
+      "description_en": "Elementary school grades 3-6",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1,
+      "time_limit_minutes": 30,
+      "start_time": "14:30",
+      "capacity": 0,
+      "entry_fee": 2000,
+      "entry_fee_u25": null,
+      "name_ja": "キッズ1km",
+      "name_en": "Kids 1km",
+      "description_ja": "小学1・2年生",
+      "description_en": "Elementary school grades 1-2",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "竹島",
+      "name_en": "Takeshima Island",
+      "description_ja": "蒲郡のシンボル。橋で渡れる三河湾の小島",
+      "description_en": "Gamagori's symbol, a small island in Mikawa Bay reached by a footbridge",
+      "distance_from_venue": null,
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "観光地",
+      "name_ja": "竹島水族館",
+      "name_en": "Takeshima Aquarium",
+      "description_ja": "竹島近くの小さな水族館",
+      "description_en": "A small aquarium near Takeshima Island",
+      "distance_from_venue": null,
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会オリジナルTシャツ",
+      "description_en": "Original event T-shirt",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-10-24T00:00:00Z",
+  "updated_at": "2026-10-24T14:05:10.485Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://www.nature-scene.net/gamagori/）およびRUNNET大会ページ（raceId=398341）の公開情報から作成（2026-10-24）",
+    "data_accuracy_notes": [
+      "RUNNET週刊ガイド（2026-10-23号）掲載大会として追加",
+      "回数は公式サイトに記載がないためnull",
+      "キッズ定員は公式200名・RUNNET100名と食い違うため、全体定員はロング600＋ショート300＋キッズ200の1,100とし、キッズ種目別定員は0（不明）とした",
+      "カテゴリの参加料は駐車場ありの金額。エコ割（駐車場なし）は説明文に記載",
+      "関門は第2エイド13:00・第3エイド15:30（スケジュールページ）だが距離不明のためcheckpointsには入れずnotesに記載",
+      "最寄駅・シャトルバス等のアクセス情報は公式サイトに記載なし",
+      "受付会場の住所は公式「蒲郡市海陽町」、RUNNET「蒲郡市大塚町山ノ沢」で表記が異なる"
+    ],
+    "last_verified": "2026-10-24",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-10-25",
+      "end_date": "2027-01-04",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": "三河湾",
+  "motif_color": "#0e7490",
+  "motif_romaji": "Mikawa-wan",
+  "tagline_ja": "山を駆け、三河湾を見下ろす",
+  "tagline_en": "Run the ridges above Mikawa Bay",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "五井山からのパノラマ",
+      "name_en": "Panorama from Mt. Goi",
+      "description_ja": "ロング31kmのみ通過",
+      "description_en": "Long 31km course only"
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.nature-scene.net/gamagori/about/",
+      "label": "大会概要"
+    },
+    {
+      "url": "https://www.nature-scene.net/gamagori/coursemap/",
+      "label": "コースマップ"
+    },
+    {
+      "url": "https://www.nature-scene.net/gamagori/schedule/",
+      "label": "スケジュール"
+    },
+    {
+      "url": "https://www.nature-scene.net/gamagori/entry/",
+      "label": "エントリー"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "certificate"
+      ],
+      "description_ja": "記録証",
+      "description_en": "Finisher time certificate",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "大塚海浜緑地",
+  "venue_name_en": "Otsuka Seaside Park",
+  "venue_address": "愛知県蒲郡市海陽町",
+  "start_lat": 34.806622,
+  "start_lng": 137.266266
+}

@@ -60,7 +60,32 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "distance_km": 7.9,
+      "closing_time": "09:35"
+    },
+    {
+      "distance_km": 13,
+      "closing_time": "10:10"
+    },
+    {
+      "distance_km": 18.9,
+      "closing_time": "11:00"
+    },
+    {
+      "distance_km": 25,
+      "closing_time": "11:50"
+    },
+    {
+      "distance_km": 30.9,
+      "closing_time": "12:45"
+    },
+    {
+      "distance_km": 37.2,
+      "closing_time": "13:35"
+    }
+  ],
   "access_points": [
     {
       "station_name_ja": "水沢江刺駅",
@@ -111,13 +136,14 @@
   ],
   "result": null,
   "created_at": "2026-10-09T13:59:00.466Z",
-  "updated_at": "2026-10-09T13:59:00.466Z",
+  "updated_at": "2026-10-24T13:28:28.767Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "2026-10-09: 自動クロールで iwate-oshu-kirameki-marathon-2026 を元に2027年大会ファイルを新規作成"
+      "2026-10-09: 自動クロールで iwate-oshu-kirameki-marathon-2026 を元に2027年大会ファイルを新規作成",
+      "2026-10-24: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-09",
+    "last_verified": "2026-10-24",
     "detail_level": "medium"
   },
   "entry_periods": [],

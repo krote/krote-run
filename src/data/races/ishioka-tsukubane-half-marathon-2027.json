@@ -108,7 +108,12 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "distance_km": 19,
+      "closing_time": "12:10"
+    }
+  ],
   "access_points": [
     {
       "station_name_ja": "石岡駅",
@@ -144,7 +149,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T00:00:00Z",
-  "updated_at": "2026-09-04T14:11:44.209Z",
+  "updated_at": "2026-10-24T13:28:01.529Z",
   "_metadata": {
     "data_source": "公式サイト（https://ishioka-half.com/）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -153,9 +158,10 @@
       "会場の緯度経度は未確認のためnull",
       "entry_capacity（5,200）は種目別定員（3000+1000+500+500+200）の合計値",
       "エントリー方法はふるさと納税・シンコーネット・ランネットの3経路",
-      "2026-09-04: 自動クロールで更新"
+      "2026-09-04: 自動クロールで更新",
+      "2026-10-24: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-04",
+    "last_verified": "2026-10-24",
     "detail_level": "light"
   },
   "entry_periods": [

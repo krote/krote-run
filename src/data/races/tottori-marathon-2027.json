@@ -1,0 +1,221 @@
+{
+  "id": "tottori-marathon-2027",
+  "name_ja": "鳥取マラソン",
+  "name_en": "Tottori Marathon",
+  "full_name_ja": "鳥取マラソン2027",
+  "full_name_en": "Tottori Marathon",
+  "edition": null,
+  "date": "2027-03-14",
+  "prefecture": "31",
+  "city_ja": "鳥取市",
+  "city_en": "Tottori City",
+  "description_ja": "鳥取砂丘に近いコースを走るフルマラソン。日本海沿いの景色を楽しめる。",
+  "description_en": "A full marathon near Tottori Sand Dunes. Enjoy views along the Sea of Japan coast.",
+  "official_url": "https://tottori-marathon.jp",
+  "entry_fee": 13000,
+  "entry_fee_by_category": true,
+  "entry_capacity": 4200,
+  "entry_start_date": null,
+  "entry_end_date": "2026-12-11",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "前日・当日の受付は行いません。事前送付物に同梱の必要物をお持ちの上、スタートエリア（オアシス広場）へお越しください。",
+  "reception_note_en": "There is no reception the day before or on race day. Bring the items included in the pre-race mailing directly to the start area (Oasis Plaza).",
+  "tags": [
+    "景色が良い"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "鳥取砂丘オアシス広場をスタートし、鳥取城跡・仁風閣・万葉の里などの史跡名勝を巡ってヤマタスポーツパーク陸上競技場にフィニッシュするワンウェイコース。日本陸上競技連盟公認",
+    "highlights_en": "One-way course starting at Tottori Sand Dunes Oasis Plaza, passing historic sites such as Tottori Castle Ruins, Jinpukaku, and Manyo-no-Sato, finishing at Yamata Sports Park Athletics Stadium. JAAF-certified",
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 0,
+      "start_time": "09:00",
+      "capacity": 4200,
+      "entry_fee": 13000,
+      "entry_fee_u25": null,
+      "name_ja": null,
+      "name_en": null,
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [
+    {
+      "distance_km": 5,
+      "closing_time": "09:45"
+    },
+    {
+      "distance_km": 8.7,
+      "closing_time": "10:15"
+    },
+    {
+      "distance_km": 13.4,
+      "closing_time": "10:54"
+    },
+    {
+      "distance_km": 19.3,
+      "closing_time": "11:45"
+    },
+    {
+      "distance_km": 24.3,
+      "closing_time": "12:27"
+    },
+    {
+      "distance_km": 29.6,
+      "closing_time": "13:12"
+    },
+    {
+      "distance_km": 33.4,
+      "closing_time": "13:44"
+    },
+    {
+      "distance_km": 38.5,
+      "closing_time": "14:28"
+    }
+  ],
+  "access_points": [
+    {
+      "station_name_ja": "JR鳥取駅",
+      "station_name_en": "JR Tottori Station",
+      "station_code": "",
+      "transport_to_venue_ja": "ランナー専用シャトルバスで約25分",
+      "transport_to_venue_en": "About 25 min by runner-only shuttle bus",
+      "latitude": 0,
+      "longitude": 0,
+      "is_primary": true
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "鳥取砂丘",
+      "name_en": "Tottori Sand Dunes",
+      "description_ja": "日本最大級の砂丘。起伏のある広大な砂の風景は圧巻。パラグライダーやラクダ乗りも。",
+      "description_en": "Japan's largest sand dunes. Vast sandy landscape. Paragliding and camel rides available.",
+      "distance_from_venue": "会場から車約15分",
+      "url": null,
+      "latitude": 35.5411,
+      "longitude": 134.2289
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "goods"
+      ],
+      "description_ja": "オリジナルTシャツ・ランドリーバッグ（指定袋）\n鳥取マラソン2026大会オリジナルデザインの特製Tシャツ。透湿・吸汗性に優れ、ランニングに最適な生地を採用。",
+      "description_en": "Original T-shirt and designated laundry bag. Tottori Marathon 2026 original design T-shirt made of moisture-wicking, sweat-absorbent fabric ideal for running.",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-10-24T13:43:27.323Z",
+  "updated_at": "2026-10-24T13:43:27.323Z",
+  "_metadata": {
+    "data_source": "公式サイト等の公開情報から転記",
+    "data_accuracy_notes": [
+      "2026-10-24: 自動クロールで tottori-marathon-2026 を元に2027年大会ファイルを新規作成"
+    ],
+    "last_verified": "2026-10-24",
+    "detail_level": "medium"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-10-14",
+      "end_date": "2026-12-11",
+      "entry_fee": 13000,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "海外枠",
+      "label_en": "Overseas Entry",
+      "start_date": "2025-10-15",
+      "end_date": "2026-01-30",
+      "entry_fee": 20000,
+      "category_id": null,
+      "sort_order": 1
+    }
+  ],
+  "motif": "砂丘",
+  "motif_color": "#d4a853",
+  "motif_romaji": "Sakyu",
+  "tagline_ja": "日本最大の砂丘を望む、山陰の大地を走る",
+  "tagline_en": "Run the San-in coast with Japan's great sand dunes in view",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "鳥取砂丘付近",
+      "name_en": "Near Tottori Sand Dunes",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "日本海",
+      "name_en": "Sea of Japan",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://tottori-marathon.jp/about/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://tottori-marathon.jp/course/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://tottori-marathon.jp/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://tottori-marathon.jp/faq/",
+      "label": "FAQ"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "certificate",
+        "medal",
+        "towel",
+        "local_product",
+        "food"
+      ],
+      "description_ja": "・完走証\n・特別メダル（鳥取砂丘の本物の砂を使用した手作りメダル）\n・フィニッシャータオル\n・鳥取のお土産、スポンサースイーツ・ドリンク\n・ラッキー賞（完走証裏面の当たり表記で豪華賞品）",
+      "description_en": "Finisher certificate, special medal handmade from real Tottori Sand Dunes sand, finisher towel, Tottori local souvenirs and sponsored sweets/drinks, plus a lucky-draw prize marked on the back of the finisher certificate.",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "ヤマタスポーツパーク陸上競技場",
+  "venue_name_en": "Yamata Sports Park Athletics Stadium",
+  "venue_address": "鳥取県鳥取市布勢",
+  "start_lat": 35.501266,
+  "start_lng": 134.181396
+}

@@ -95,16 +95,17 @@
   ],
   "result": null,
   "created_at": "2026-08-31T13:37:53.674Z",
-  "updated_at": "2026-09-28T14:01:22.402Z",
+  "updated_at": "2026-10-24T13:37:05.063Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "2026-08-31: 自動クロールで nagoya-womens-marathon-2026 を元に2027年大会ファイルを新規作成",
       "2026-09-06: 自動クロールで更新",
       "2026-09-18: 自動クロールで更新",
-      "2026-09-28: 自動クロールで更新"
+      "2026-09-28: 自動クロールで更新",
+      "2026-10-24: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-28",
+    "last_verified": "2026-10-24",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -190,13 +191,22 @@
       "sort_order": 8
     },
     {
+      "label_ja": "2期エントリー",
+      "label_en": "Second Entry",
+      "start_date": "2026-10-19",
+      "end_date": "2026-11-04",
+      "entry_fee": 19000,
+      "category_id": null,
+      "sort_order": 9
+    },
+    {
       "label_ja": "エリートエントリー",
       "label_en": "Elite Entry",
       "start_date": "2026-12-01",
       "end_date": null,
       "entry_fee": 19000,
       "category_id": null,
-      "sort_order": 9
+      "sort_order": 10
     },
     {
       "label_ja": "海外エントリー（アーリー）",
@@ -205,7 +215,7 @@
       "end_date": "2026-08-24",
       "entry_fee": 24000,
       "category_id": null,
-      "sort_order": 10
+      "sort_order": 11
     },
     {
       "label_ja": "海外エントリー（通常）",
@@ -214,7 +224,7 @@
       "end_date": "2026-12-25",
       "entry_fee": 25000,
       "category_id": null,
-      "sort_order": 11
+      "sort_order": 12
     }
   ],
   "motif": "名古屋城",

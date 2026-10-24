@@ -18,8 +18,8 @@
   "entry_start_date": "2026-06-22",
   "entry_end_date": "2026-09-06",
   "reception_type": "pre_mail",
-  "reception_note_ja": "アスリートビブス・計測チップ等は10月中旬頃までに事前送付される。当日忘れた場合はゴール会場の総合窓口で再発行可（ナンバーカード1,000円、計測チップ2,000円）。",
-  "reception_note_en": "Athlete bibs and timing chips are mailed in advance by mid-October. Reissue available at the finish venue reception desk if forgotten (bib: ¥1,000, chip: ¥2,000).",
+  "reception_note_ja": "アスリートビブス・計測チップ等は10月中旬頃までに事前送付される。当日忘れた場合はゴール会場のランナーサポートセンターで再発行可（計測チップ付アスリートビブス 税込1,500円）。",
+  "reception_note_en": "Athlete bibs and timing chips are mailed in advance by mid-October. If forgotten, reissue is available at the finish venue's Runner Support Center (chip-equipped bib: ¥1,500 incl. tax).",
   "tags": [],
   "course_gpx_file": null,
   "course_info": {
@@ -106,7 +106,7 @@
   ],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-10-05T13:53:58.319Z",
+  "updated_at": "2026-10-24T13:23:04.826Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -116,9 +116,10 @@
       "2026-08-25: 2.5km区分でentry_fee_u25（1,900円=中学生料金）とdescription（小学生1,200円と記載）が不一致だったため、descriptionを一般・中学生・小学生の3段階を明記する形に修正（スキーマがentry_fee/entry_fee_u25の2段階までのため、小学生料金はdescriptionのみに記載）",
       "2026-08-31: 自動クロールで更新",
       "2026-09-18: 自動クロールで更新",
-      "2026-10-05: 自動クロールで更新"
+      "2026-10-05: 自動クロールで更新",
+      "2026-10-24: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-05",
+    "last_verified": "2026-10-24",
     "detail_level": "medium"
   },
   "entry_periods": [

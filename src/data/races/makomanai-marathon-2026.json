@@ -28,8 +28,8 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [],
-    "highlights_ja": "真駒内セキスイハイムスタジアムをスタート・フィニッシュに、豊平川河川敷沿いを周回するコース。フルマラソンは1周10kmのコースを4周し、公園内の2.195kmを加えて42.195kmとなる。",
-    "highlights_en": "Starts and finishes at Makomanai Sekisui Heim Stadium, looping along the Toyohira riverside. The full marathon covers four 10km loops plus an additional 2.195km segment within the park.",
+    "highlights_ja": "真駒内セキスイハイムスタジアムをスタート・フィニッシュに、豊平川河川敷沿いを周回するコース。フルマラソンは1周10kmのコースを4周し、公園内の2.195kmを加えて42.195kmとなる。10kmの部は1周回、2.8kmの部は真駒内公園を1周するコース。",
+    "highlights_en": "Starts and finishes at Makomanai Sekisui Heim Stadium, looping along the Toyohira riverside. The full marathon covers four 10km loops plus an additional 2.195km segment within the park. The 10km race is a single 10km loop, and the 2.8km race is a single loop of Makomanai Park.",
     "notes_ja": null,
     "notes_en": null
   },
@@ -38,7 +38,7 @@
       "distance_type": "full",
       "distance_km": 42.195,
       "time_limit_minutes": 900,
-      "start_time": "",
+      "start_time": "09:00",
       "capacity": 1300,
       "entry_fee": 7000,
       "entry_fee_u25": null,
@@ -52,7 +52,7 @@
       "distance_type": "10k",
       "distance_km": 10,
       "time_limit_minutes": 90,
-      "start_time": "",
+      "start_time": "12:00",
       "capacity": 500,
       "entry_fee": 4000,
       "entry_fee_u25": null,
@@ -66,7 +66,7 @@
       "distance_type": "other",
       "distance_km": 2.8,
       "time_limit_minutes": 0,
-      "start_time": "",
+      "start_time": "09:15",
       "capacity": 200,
       "entry_fee": 2000,
       "entry_fee_u25": null,
@@ -77,8 +77,36 @@
       "waves": null
     }
   ],
-  "aid_stations": [],
-  "checkpoints": [],
+  "aid_stations": [
+    {
+      "distance_km": 0,
+      "offerings_ja": "い・ろ・は・す、アクエリアス",
+      "offerings_en": "Irohasu mineral water, Aquarius sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 3.5,
+      "offerings_ja": "い・ろ・は・す、アクエリアス",
+      "offerings_en": "Irohasu mineral water, Aquarius sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 6.5,
+      "offerings_ja": "い・ろ・は・す、アクエリアス",
+      "offerings_en": "Irohasu mineral water, Aquarius sports drink",
+      "is_featured": false
+    }
+  ],
+  "checkpoints": [
+    {
+      "distance_km": 32.5,
+      "closing_time": "13:20"
+    },
+    {
+      "distance_km": 40,
+      "closing_time": "14:30"
+    }
+  ],
   "access_points": [],
   "nearby_spots": [],
   "weather_history": [],
@@ -95,6 +123,14 @@
       "gift_categories": [
         "other"
       ],
+      "description_ja": "ネックウォーマー（10km部門）",
+      "description_en": "Neck warmer (10km category)",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "other"
+      ],
       "description_ja": "ドリンク（2.8kmファンラン部門）",
       "description_en": "Drink (2.8km Fun Run category)",
       "image": null
@@ -102,7 +138,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T00:00:00Z",
-  "updated_at": "2026-09-03T14:52:10.419Z",
+  "updated_at": "2026-10-24T13:34:08.973Z",
   "_metadata": {
     "data_source": "公式サイト（sakumara.jp）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -111,9 +147,10 @@
       "10kmの部の参加賞は公式サイトで「未定」と記載されており未確定",
       "参加料は1次・2次エントリーで異なる（フル: 7,000〜8,500円、10km: 4,000〜5,000円、2.8km: 2,000〜4,000円）。JSON上のentry_fee・カテゴリ別entry_feeは1次（早期）料金を代表値として記載",
       "アクセス方法・コース標高差・コース認証は公式サイトに詳細記載なし（アクセスは外部サイト http://www.makomanai.com/openstadium/access/ を参照するよう案内あり）",
-      "2.8km部門の制限時間は「制限なし」のためtime_limit_minutesを0としている"
+      "2.8km部門の制限時間は「制限なし」のためtime_limit_minutesを0としている",
+      "2026-10-24: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-10-24",
     "detail_level": "light"
   },
   "entry_periods": [

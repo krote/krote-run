@@ -1,0 +1,222 @@
+{
+  "id": "hita-hinamatsuri-marathon-2027",
+  "name_ja": "天領日田ひなまつり健康マラソン",
+  "name_en": "Tenryo Hita Hinamatsuri Health Marathon",
+  "full_name_ja": "第28回天領日田ひなまつり健康マラソン大会",
+  "full_name_en": "28th Tenryo Hita Hinamatsuri Health Marathon",
+  "edition": 28,
+  "date": "2027-03-14",
+  "prefecture": "44",
+  "city_ja": "日田市",
+  "city_en": "Hita City",
+  "description_ja": "「日本三大美林」とも称される日田杉の中を走るハーフマラソン。日田市陸上競技場を発着し、スタート直後にレトロな町並みの観光名所「豆田町」を通過する。最大高低差は50m。参加賞は日田市出身の諫山創さんにちなんだ『進撃の巨人』コラボTシャツ。",
+  "description_en": "A half marathon through the Hita cedar forests, counted among Japan's three most beautiful forests. Starting and finishing at Hita City Athletics Stadium, the course passes the retro streets of Mamedamachi shortly after the start. The maximum elevation difference is 50m. The participation gift is an Attack on Titan collaboration T-shirt, honoring Hita-born manga artist Hajime Isayama.",
+  "official_url": "https://local-gain.com/hita-hinamatsuri-marathon/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 1500,
+  "entry_start_date": "2026-10-30",
+  "entry_end_date": "2027-01-07",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "ゼッケン・計測チップ等は事前に郵送。前日（3/13 14:00〜17:00）または当日（7:00〜各種目スタート30分前）に日田市陸上競技場で参加賞を受け取る",
+  "reception_note_en": "Bibs and timing chips are mailed in advance. Collect the participation gift at Hita City Athletics Stadium the day before (Mar 13, 14:00-17:00) or on race day (from 7:00 until 30 min before each start).",
+  "tags": [
+    "おひなまつり",
+    "町並み"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": 50,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "日田杉の美林の中を走るコース。ハーフ・10kmはスタート直後に江戸時代の町並みが残る豆田町を通過する",
+    "highlights_en": "A course through beautiful Hita cedar forests. The half and 10km courses pass the Edo-period streets of Mamedamachi shortly after the start.",
+    "notes_ja": "ハーフは18km地点に関門（11:10）あり。給水所はコース上に4箇所（前回大会）。中学生は5kmのみ参加可。コスプレ大賞あり",
+    "notes_en": "The half marathon has a cutoff at 18km (11:10). There were 4 water stations on the course at the previous race. Junior high students may enter the 5km only. A cosplay award is held."
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 0,
+      "start_time": "08:40",
+      "capacity": 0,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフ",
+      "name_en": "Half Marathon",
+      "description_ja": "高校生以上。高校生は2,500円",
+      "description_en": "High school age and older. High school students ¥2,500.",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 0,
+      "start_time": "08:50",
+      "capacity": 0,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10km",
+      "description_ja": "高校生以上。高校生は2,500円",
+      "description_en": "High school age and older. High school students ¥2,500.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 0,
+      "start_time": "09:00",
+      "capacity": 0,
+      "entry_fee": 3500,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": "中学生以上。高校生・中学生は2,500円",
+      "description_en": "Junior high school age and older. High school and junior high students ¥2,500.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [
+    {
+      "distance_km": 18,
+      "closing_time": "11:10"
+    }
+  ],
+  "access_points": [],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "豆田町",
+      "name_en": "Mamedamachi",
+      "description_ja": "江戸時代の天領の面影を残す町並み。大会時期は天領日田おひなまつり（2月中旬〜3月末）を開催中",
+      "description_en": "Historic streets from Hita's days as a shogunate-controlled town. The Tenryo Hita Hina Doll Festival runs from mid-February to the end of March.",
+      "distance_from_venue": null,
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "type": "温泉",
+      "name_ja": "天ヶ瀬温泉",
+      "name_en": "Amagase Onsen",
+      "description_ja": "大会会場で天ヶ瀬温泉の足湯を利用できる（予定）",
+      "description_en": "An Amagase Onsen footbath is planned at the venue",
+      "distance_from_venue": "会場内（足湯）",
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "『進撃の巨人』コラボTシャツ",
+      "description_en": "Attack on Titan collaboration T-shirt",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "coupon"
+      ],
+      "description_ja": "温泉入浴券、天領日田資料館・日田祇園山鉾会館の入館券を無料配布（予定）",
+      "description_en": "Free onsen bath tickets and admission tickets to the Tenryo Hita Museum and Hita Gion Yamaboko Hall (planned)",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "food"
+      ],
+      "description_ja": "うどんの炊き出し（予定）",
+      "description_en": "Free udon served at the venue (planned)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-10-24T00:00:00Z",
+  "updated_at": "2026-10-24T14:05:11.508Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://local-gain.com/hita-hinamatsuri-marathon/）、第27回参加案内PDF、RUNNET大会ページ（raceId=398366）の公開情報から作成（2026-10-24）",
+    "data_accuracy_notes": [
+      "RUNNET週刊ガイド（2026-10-23号）掲載大会として追加",
+      "公式サイトは作成時点で第27回（2026年）の内容のため、第28回の要項はRUNNET大会ページを主に参照",
+      "ハーフの制限時間は関門（18km地点11:10）のみ記載でゴール制限時間は不明のため0",
+      "定員は全種目合計1,500名で種目別定員なし",
+      "給水所4箇所は第27回参加案内の記載。位置は不明のためaid_stationsは空",
+      "最寄駅からのアクセスは公式サイトに記載なし",
+      "抽選で日田の特産品・豆田町商店街商品券（1,000円分）等が当たる（予定）"
+    ],
+    "last_verified": "2026-10-24",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-10-30",
+      "end_date": "2027-01-07",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": "日田杉",
+  "motif_color": "#be185d",
+  "motif_romaji": "Hita-sugi",
+  "tagline_ja": "ひなまつりの町並みと日田杉を駆ける",
+  "tagline_en": "Through hina festival streets and Hita cedar forests",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "豆田町の町並み",
+      "name_en": "Mamedamachi historic streets",
+      "description_ja": "ハーフ・10kmはスタート直後に通過",
+      "description_en": "Passed shortly after the start on the half and 10km courses"
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://local-gain.com/hita-hinamatsuri-marathon/about.html",
+      "label": "大会概要"
+    },
+    {
+      "url": "https://local-gain.com/hita-hinamatsuri-marathon/course.html",
+      "label": "コース"
+    },
+    {
+      "url": "https://local-gain.com/hita-hinamatsuri-marathon/access.html",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://local-gain.com/hita-hinamatsuri-marathon/entry.html",
+      "label": "エントリー"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "certificate"
+      ],
+      "description_ja": "WEB完走証",
+      "description_en": "Online finisher certificate",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "日田市陸上競技場",
+  "venue_name_en": "Hita City Athletics Stadium",
+  "venue_address": "大分県日田市大字田島613-2",
+  "start_lat": 33.321854,
+  "start_lng": 130.949554
+}

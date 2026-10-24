@@ -1,0 +1,250 @@
+{
+  "id": "konosu-pansy-marathon-2027",
+  "name_ja": "鴻巣パンジーマラソン",
+  "name_en": "Konosu Pansy Marathon",
+  "full_name_ja": "第45回鴻巣パンジーマラソン",
+  "full_name_en": "45th Konosu Pansy Marathon",
+  "edition": 45,
+  "date": "2027-03-06",
+  "prefecture": "11",
+  "city_ja": "鴻巣市",
+  "city_en": "Konosu City",
+  "description_ja": "ラクロフィールド鴻巣（鴻巣市立陸上競技場）を発着とする土曜開催のハーフマラソン。市街地を中心とした起伏の少ないコースで、JR鴻巣駅から徒歩約15分と好アクセス。大会当日は日本一高いピラミッドひな壇で知られる「鴻巣びっくりひな祭り」も開催中。",
+  "description_en": "A Saturday half marathon starting and finishing at Lacrofield Konosu (Konosu City Athletics Stadium). The mostly urban course is flat and easy to run, and the venue is about a 15-minute walk from JR Konosu Station. On race day the city also hosts the Konosu Bikkuri Hina Festival, famous for Japan's tallest pyramid display of hina dolls.",
+  "official_url": "https://www.konosupansymarathon.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 5000,
+  "entry_start_date": "2026-10-30",
+  "entry_end_date": "2027-01-15",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "選手受付なし。2月下旬に大会案内・ICタグ付きナンバーカード等を郵送するので、大会当日に必ず持参する",
+  "reception_note_en": "There is no runner check-in. The race guide and bib with IC tag are mailed in late February; bring them on race day.",
+  "tags": [
+    "フラットコース",
+    "土曜開催",
+    "駅近"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "鴻巣市街地を中心に走る起伏の少ないフラットなコース。ハーフはアールビーズによる距離計測済みで「ハーフマラソン1歳刻みランキング」の対象",
+    "highlights_en": "A flat course through central Konosu with few hills. The half marathon course has been distance-measured by R-bies and counts toward the Japan Half Marathon Ranking.",
+    "notes_ja": "日本陸連の公認大会ではない。ハーフの制限時間は2時間30分で、11.2km（1時間19分）・15.4km（1時間48分）・18.0km（2時間6分）に関門あり。当日は最長8:50〜12:00頃まで交通規制",
+    "notes_en": "Not a JAAF-certified race. The half marathon time limit is 2 hours 30 minutes, with cutoffs at 11.2km (1:19), 15.4km (1:48), and 18.0km (2:06). Traffic restrictions run from 8:50 to about 12:00 at the longest."
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 150,
+      "start_time": "09:30",
+      "capacity": 4000,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "高校生以上",
+      "description_en": "High school age and older",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 40,
+      "start_time": "09:50",
+      "capacity": 1000,
+      "entry_fee": 3000,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": "一般（高校生以上）は3,000円・定員1,000人・9:52スタート。中学生は1,000円",
+      "description_en": "General (high school and older): ¥3,000, capacity 1,000, starts 9:52. Junior high students: ¥1,000.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.5,
+      "time_limit_minutes": 15,
+      "start_time": "09:57",
+      "capacity": 0,
+      "entry_fee": 2000,
+      "entry_fee_u25": null,
+      "name_ja": "1.5km",
+      "name_en": "1.5km",
+      "description_ja": "ビギナー（高校生以上）2,000円、小学5・6年生500円",
+      "description_en": "Beginners (high school and older) ¥2,000; elementary grades 5-6 ¥500",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1,
+      "time_limit_minutes": 10,
+      "start_time": "09:00",
+      "capacity": 0,
+      "entry_fee": 2500,
+      "entry_fee_u25": null,
+      "name_ja": "1km親子",
+      "name_en": "1km Parent & Child",
+      "description_ja": "成人の親族と小学1〜4年生のペア。学年ごとに順次スタート（1年9:00、2年9:15、3・4年9:40）",
+      "description_en": "Pairs of an adult relative and a child in elementary grades 1-4. Staggered starts by grade (1st 9:00, 2nd 9:15, 3rd-4th 9:40).",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [
+    {
+      "distance_km": 11.2,
+      "closing_time": "10:49"
+    },
+    {
+      "distance_km": 15.4,
+      "closing_time": "11:18"
+    },
+    {
+      "distance_km": 18,
+      "closing_time": "11:36"
+    }
+  ],
+  "access_points": [
+    {
+      "station_name_ja": "JR鴻巣駅",
+      "station_name_en": "JR Konosu Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約15分（JR高崎線）",
+      "transport_to_venue_en": "About 15 min on foot (JR Takasaki Line)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 15,
+      "is_primary": true
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "観光地",
+      "name_ja": "鴻巣びっくりひな祭り",
+      "name_en": "Konosu Bikkuri Hina Festival",
+      "description_ja": "日本一高いピラミッドひな壇で有名なひな祭り。大会当日も開催中で、メイン会場はJR鴻巣駅直結のエルミこうのす",
+      "description_en": "A hina doll festival famous for Japan's tallest pyramid display, held on race day. The main venue is Elmi Konosu, directly connected to JR Konosu Station.",
+      "distance_from_venue": null,
+      "url": null,
+      "latitude": 0,
+      "longitude": 0
+    }
+  ],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "goods"
+      ],
+      "description_ja": "オリジナルスポーツグッズ",
+      "description_en": "Original sports goods",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "food"
+      ],
+      "description_ja": "ドリンク",
+      "description_en": "Drink",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "coupon"
+      ],
+      "description_ja": "お買い物券（ハーフ参加者のみ）",
+      "description_en": "Shopping voucher (half marathon runners only)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-10-24T00:00:00Z",
+  "updated_at": "2026-10-24T00:00:00Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://www.konosupansymarathon.com/）およびRUNNET大会ページ（raceId=398336）の公開情報から作成（2026-10-24）",
+    "data_accuracy_notes": [
+      "RUNNET週刊ガイド（2026-10-23号）掲載大会として追加",
+      "公式サイトは作成時点で第44回（2026年）の内容のため、第45回の要項はRUNNET大会ページを主に参照",
+      "関門時刻はハーフスタート9:30からの経過時間（1:19/1:48/2:06）を時刻に換算",
+      "entry_capacityはハーフ4,000人＋5km一般1,000人の合計。1.5km・1km親子の定員は記載なし",
+      "給水所の位置・数は公式サイトに記載なし（コースマップは画像のみ）",
+      "会場住所は公式サイトに記載なし",
+      "ゲストランナー：こうのす観光大使 服部翔大さん、しまむら女子陸上部"
+    ],
+    "last_verified": "2026-10-24",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-10-30",
+      "end_date": "2027-01-15",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": "パンジー",
+  "motif_color": "#7c3aed",
+  "motif_romaji": "Pansy",
+  "tagline_ja": "花のまち鴻巣を、土曜のハーフで",
+  "tagline_en": "A Saturday half through Konosu, the city of flowers",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "起伏の少ない市街地コース",
+      "name_en": "Flat urban course",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.konosupansymarathon.com/guide/",
+      "label": "開催要項"
+    },
+    {
+      "url": "https://www.konosupansymarathon.com/event/",
+      "label": "種目・参加費"
+    },
+    {
+      "url": "https://www.konosupansymarathon.com/course/",
+      "label": "コースマップ"
+    },
+    {
+      "url": "https://www.konosupansymarathon.com/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://www.konosupansymarathon.com/entry/",
+      "label": "お申込方法"
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "certificate"
+      ],
+      "description_ja": "記録証",
+      "description_en": "Finisher time certificate",
+      "image": null
+    }
+  ],
+  "venue_name_ja": "ラクロフィールド鴻巣（鴻巣市立陸上競技場）",
+  "venue_name_en": "Lacrofield Konosu (Konosu City Athletics Stadium)",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

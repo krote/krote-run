@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-10-24T13:44:07.156Z
--- 対象ファイル数: 136 件（既存 2 件はskip）
+-- 生成日時: 2026-10-24T14:05:13.648Z
+-- 対象ファイル数: 141 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -148,6 +148,169 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
   ('abashiri-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-07-16', 12000, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('abashiri-marathon-2026', NULL, 'ふるさと寄附エントリー（マラソンの部）', 'Furusato Donation Entry (Marathon)', '2026-04-01', '2026-05-31', 45000, 1);
+
+-- ==================
+-- あだち五色桜マラソン (adachi-goshiki-sakura-marathon-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM race_categories WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM aid_stations WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM checkpoints WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM access_points WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM nearby_spots WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM weather_history WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM participation_gifts WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM completion_gifts WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM race_entry_links WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM reception_sessions WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM race_travel_times WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM race_results WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM race_gallery WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM race_voices WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'adachi-goshiki-sakura-marathon-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'adachi-goshiki-sakura-marathon-2027',
+  'あだち五色桜マラソン',
+  'Adachi Goshiki Sakura Marathon',
+  '2027-04-11',
+  '13',
+  '足立区',
+  'Adachi City',
+  '荒川堤の五色桜並木の枝から育てた桜を平和と友好の象徴としてワシントンへ贈ってから100周年を記念して誕生した大会。荒川河川敷のアップダウンの少ない周回コースを、五色桜大橋やスカイツリーを眺めながら走る。一輪車の部もある。',
+  'Created to mark the 100th anniversary of the cherry trees, grown from the Goshiki Sakura trees on the Arakawa embankment, that were sent to Washington as a symbol of peace and friendship. Runners loop a flat course along the Arakawa riverbank with views of the Goshiki Sakura Ohashi Bridge and Tokyo Skytree. Unicycle races are also held.',
+  'https://shining-foundation.wixsite.com/5shikisakura',
+  NULL,
+  1,
+  2300,
+  '2026-10-30',
+  '2027-03-22',
+  0,
+  'race_day',
+  '大会当日に足立区荒川江北橋緑地で受付。一輪車の部8:30〜8:50、マラソンの部9:00〜（各種目スタート15分前まで）',
+  'Same-day check-in at Arakawa Kohokubashi Ryokuchi, Adachi: unicycle races 8:30-8:50; running races from 9:00 until 15 min before each start.',
+  '["フラットコース","周回コース","スカイツリー"]',
+  NULL,
+  0,
+  0,
+  7.5,
+  'road',
+  '[]',
+  '荒川河川敷の比較的フラットな特設周回コース（1周約7.0325km、ハーフは3周）。若いサトザクラの並木や五色桜大橋、遠くにスカイツリーを望む',
+  'A relatively flat loop course on the Arakawa riverbank (approx. 7.0325km per lap; the half is 3 laps), with young satozakura cherry trees, the Goshiki Sakura Ohashi Bridge, and Tokyo Skytree in the distance.',
+  'ハーフの制限時間は2時間40分。14km（2周目）通過時点で1時間40分（13:30）を超えた場合は3周目に入れない。エイドはコース上2箇所＋会場内1箇所。会場に駐車場なし',
+  'The half marathon time limit is 2 hours 40 minutes. Runners passing 14km (2nd lap) after 1:40 (13:30) may not start the 3rd lap. Aid stations: 2 on the course plus 1 at the venue. No parking at the venue.',
+  '五色桜',
+  '#db2777',
+  'Goshiki-zakura',
+  '五色桜の荒川堤を、スカイツリーを望んで',
+  'Along the Goshiki Sakura banks of the Arakawa, Skytree in view',
+  NULL,
+  NULL,
+  NULL,
+  '足立区荒川江北橋緑地',
+  'Arakawa Kohokubashi Ryokuchi (Adachi)',
+  NULL,
+  NULL,
+  NULL,
+  '2026-10-24T00:00:00Z',
+  '2026-10-24T00:00:00Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', 'half', 21.0975, 160, '11:50', 1000, 5600, NULL, 'ハーフマラソン', 'Half Marathon', '18歳以上（高校生不可）', 'Age 18 and older (high school students not eligible)', NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', '10k', 10, 90, '10:15', 800, 5100, NULL, '10km', '10km', '高校生以上', 'High school age and older', NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', '5k', 5, 60, '10:25', 500, 4600, NULL, '5km', '5km', '中学生以上', 'Junior high school age and older', NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', 'other', 1, 10, '10:00', 150, 3300, NULL, '1km親子ペア', '1km Parent & Child', '親と小学生以下の子のペア。参加料・定員は1組あたり', 'A parent paired with a child of elementary school age or younger. Fee and capacity are per pair.', NULL, NULL, NULL, '[]', 3);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', 'other', 10, 60, '09:00', 100, 3300, NULL, '一輪車10km', 'Unicycle 10km', '中学生以上、小学3〜6年生、1・2年生。ひざあて・ひじあて・ヘルメット（または帽子）着用', 'Junior high and older, elementary grades 3-6, and grades 1-2. Knee pads, elbow pads, and a helmet (or cap) required.', NULL, NULL, NULL, '[]', 4);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', 'other', 5, 45, '09:05', 100, 3300, NULL, '一輪車5km', 'Unicycle 5km', '中学生以上、小学3〜6年生、1・2年生', 'Junior high and older, elementary grades 3-6, and grades 1-2', NULL, NULL, NULL, '[]', 5);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', 'other', 2, 20, '09:08', 100, 3300, NULL, '一輪車2km', 'Unicycle 2km', '小学3〜6年生、1・2年生', 'Elementary grades 3-6 and grades 1-2', NULL, NULL, NULL, '[]', 6);
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', 14, '13:30');
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', '足立小台駅（日暮里・舎人ライナー）', 'Adachi-Odai Station (Nippori-Toneri Liner)', '', '徒歩約10分。橋を渡る前の「扇大橋南」交差点で会場側に渡ってから橋を渡る', 'About 10 min on foot. Cross to the venue side at the Ogi-Ohashi-Minami intersection before crossing the bridge.', 0, 0, 10, 1, 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', '扇大橋駅（日暮里・舎人ライナー）', 'Ogi-Ohashi Station (Nippori-Toneri Liner)', '', '徒歩約10分', 'About 10 min on foot', 0, 0, 10, 0, 1);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', '観光地', '西新井大師', 'Nishiarai Daishi', '関東三大師の一つに数えられる足立区の古刹', 'A historic temple in Adachi, one of the three great Daishi temples of the Kanto region', '', NULL, 0, 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', '観光地', '舎人公園', 'Toneri Park', '日暮里・舎人ライナー沿いの大規模公園', 'A large park along the Nippori-Toneri Liner', '', NULL, 0, 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', '["other"]', '参加賞あり（内容未発表）', 'Participation gift provided (details not yet announced)', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', '["medal"]', '第15回記念オリジナル完走メダル（親子ペアを除く完走者全員）。親子ペアは子に完走金メダル', 'Original 15th-edition finisher medal for all finishers except parent-child pairs; children in parent-child pairs receive a gold finisher medal', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', '["certificate"]', '記録証', 'Finisher time certificate', NULL, 1);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-10-30', '2027-03-22', NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', NULL, NULL, '五色桜大橋とスカイツリー', 'Goshiki Sakura Ohashi Bridge and Tokyo Skytree', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('adachi-goshiki-sakura-marathon-2027', NULL, NULL, '荒川堤のサトザクラ並木', 'Satozakura cherry trees on the Arakawa embankment', NULL, NULL, 1);
 
 -- ==================
 -- あいの土山マラソン (ainotuchiyama-2026)
@@ -1326,6 +1489,161 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
   ('asahikawa-half-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-01', '2026-07-26', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('asahikawa-half-marathon-2026', NULL, NULL, '忠別川沿い', 'Along Chubetsu River', NULL, NULL, 0);
+
+-- ==================
+-- 芦北うたせマラソン (ashikita-utase-marathon-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM race_categories WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM aid_stations WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM checkpoints WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM access_points WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM nearby_spots WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM weather_history WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM participation_gifts WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM completion_gifts WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM race_entry_links WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM reception_sessions WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM race_travel_times WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM race_results WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM race_gallery WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM race_voices WHERE race_id = 'ashikita-utase-marathon-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'ashikita-utase-marathon-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'ashikita-utase-marathon-2027',
+  '芦北うたせマラソン',
+  'Ashikita Utase Marathon',
+  '2027-03-28',
+  '43',
+  '芦北町',
+  'Ashikita Town',
+  '不知火海（八代海）の潮風を受けながら、風光明媚な芦北海岸の海岸線を走る大会。高低差の少ない折り返しコースで、ハーフは芦北海浜総合公園前をスタートし芦北大橋にフィニッシュする。ゲストランナーは川内優輝選手。',
+  'A race along the scenic Ashikita coastline, with sea breezes from the Shiranui Sea (Yatsushiro Sea). The out-and-back courses have little elevation change; the half marathon starts in front of Ashikita Seaside Park and finishes at Ashikita Ohashi Bridge. Yuki Kawauchi runs as a guest.',
+  'https://www.ashikitautase-marathon.jp/',
+  NULL,
+  1,
+  1500,
+  '2026-10-30',
+  '2027-01-08',
+  0,
+  'pre_mail',
+  '選手受付なし。ナンバーカード・計測チップ等を事前に郵送する。参加賞は大会当日8:00から芦北海浜総合公園で、事前発送の参加賞等引換証と引き換える',
+  'There is no runner check-in. Bibs and timing chips are mailed in advance. Participation gifts are exchanged for the mailed voucher at Ashikita Seaside Park from 8:00 on race day.',
+  '["海の見えるコース","招待選手"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '不知火海に沿った芦北海岸を走る高低差の少ない折り返しコース。ハーフは芦北橋・平生橋・広域農道・三ツ島トンネルを経て女島大矢地区で折り返し、芦北大橋にフィニッシュ（一部坂あり）',
+  'Out-and-back courses with little elevation change along the Ashikita coast of the Shiranui Sea. The half marathon crosses Ashikita Bridge and Hirao Bridge, follows the regional farm road through the Mitsushima Tunnel, turns at the Mejima Oya area, and finishes at Ashikita Ohashi Bridge (some hills).',
+  'ハーフの制限時間は3時間。16.3km地点の最終関門を11:55までに通過し、12:40までにゴールすること。10km・5km・3kmは芦北海浜総合公園前にフィニッシュ。荒天中止の場合は当日6:00までに公式サイトで告知',
+  'The half marathon time limit is 3 hours: pass the final cutoff at 16.3km by 11:55 and finish by 12:40. The 10km, 5km, and 3km finish in front of Ashikita Seaside Park. Cancellation due to bad weather is announced on the official site by 6:00 on race day.',
+  '不知火海',
+  '#0369a1',
+  'Shiranui-kai',
+  '不知火海の潮風とともに',
+  'Run with the breeze off the Shiranui Sea',
+  NULL,
+  NULL,
+  NULL,
+  '芦北海浜総合公園',
+  'Ashikita Seaside Park',
+  NULL,
+  NULL,
+  NULL,
+  '2026-10-24T00:00:00Z',
+  '2026-10-24T00:00:00Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ashikita-utase-marathon-2027', 'half', 21.0975, 180, '09:40', 0, 5000, NULL, 'ハーフマラソン', 'Half Marathon', '高校生以上', 'High school age and older', NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ashikita-utase-marathon-2027', '10k', 10, 0, '10:00', 0, 5000, NULL, '10km', '10km', '高校生以上', 'High school age and older', NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ashikita-utase-marathon-2027', '5k', 5, 0, '10:15', 0, 5000, NULL, '5km', '5km', '高校生以上5,000円、中学生2,500円', 'High school and older ¥5,000; junior high students ¥2,500', NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ashikita-utase-marathon-2027', 'other', 3, 0, '10:20', 0, 5000, NULL, '3km', '3km', '一般女子（高校生以上）5,000円、小学4年生以上2,500円', 'Women (high school and older) ¥5,000; elementary grade 4 and up ¥2,500', NULL, NULL, NULL, '[]', 3);
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('ashikita-utase-marathon-2027', 16.3, '11:55');
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('ashikita-utase-marathon-2027', '肥薩おれんじ鉄道 佐敷駅', 'Hisatsu Orange Railway Sashiki Station', '', '大会当日は佐敷駅から会場までシャトルバスを運行', 'A shuttle bus runs from Sashiki Station to the venue on race day', 0, 0, NULL, 1, 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('ashikita-utase-marathon-2027', '温泉', '湯浦温泉ヘルシーパーク芦北', 'Yunoura Onsen Healthy Park Ashikita', '芦北町の温泉施設', 'A hot spring facility in Ashikita', '', NULL, 0, 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('ashikita-utase-marathon-2027', '観光地', '御立岬公園', 'Otachimisaki Park', '不知火海に突き出た岬の公園。温泉センターも併設', 'A cape park jutting into the Shiranui Sea, with a hot spring center', '', NULL, 0, 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('ashikita-utase-marathon-2027', '["food"]', '昼食券（特産のエビを使った「エビ飯」を予定）', 'Lunch voucher (a rice dish made with local shrimp is planned)', NULL, 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('ashikita-utase-marathon-2027', '["local_product"]', '芦北町特産品', 'Ashikita local specialty products', NULL, 1);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('ashikita-utase-marathon-2027', '["certificate"]', 'デジタル完走証（紙の完走証は有料550円）', 'Digital finisher certificate (printed certificate available for ¥550)', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('ashikita-utase-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-10-30', '2027-01-08', NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('ashikita-utase-marathon-2027', NULL, NULL, '芦北海岸の海岸線', 'Ashikita coastline', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('ashikita-utase-marathon-2027', NULL, NULL, '芦北大橋フィニッシュ', 'Finish at Ashikita Ohashi Bridge', NULL, NULL, 1);
 
 -- ==================
 -- 坂東市将門ハーフマラソン (bando-masakado-half-marathon-2026)
@@ -3927,6 +4245,153 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
   ('fukuoka-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-20', '2026-07-24', 16000, 0);
 
 -- ==================
+-- がまごおりベイサイドトレイル (gamagori-bayside-trail-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM race_categories WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM aid_stations WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM checkpoints WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM access_points WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM nearby_spots WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM weather_history WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM participation_gifts WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM completion_gifts WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM race_entry_links WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM reception_sessions WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM race_travel_times WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM race_results WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM race_gallery WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM race_voices WHERE race_id = 'gamagori-bayside-trail-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'gamagori-bayside-trail-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'gamagori-bayside-trail-2027',
+  'がまごおりベイサイドトレイル',
+  'Gamagori Bayside Trail',
+  '2027-01-23',
+  '23',
+  '蒲郡市',
+  'Gamagori City',
+  '愛知県蒲郡市の山々を巡り、各ポイントから三河湾の絶景を望むトレイルラン大会。ロング31km（累積標高約1850m）では五井山からのパノラマも楽しめる。子安弘法大師をスタートし、大塚海浜緑地にフィニッシュする。小学生向けキッズレースも併催。',
+  'A trail race through the mountains of Gamagori, Aichi, with sweeping views of Mikawa Bay along the way. The Long 31km course (approx. 1,850m elevation gain) also takes in the panorama from Mt. Goi. Runners start at Koyasu Kobo Daishi and finish at Otsuka Seaside Park. Kids races for elementary school children are also held.',
+  'https://www.nature-scene.net/gamagori/',
+  NULL,
+  1,
+  1100,
+  '2026-10-25',
+  '2027-01-04',
+  0,
+  'race_day',
+  '大会当日に大塚海浜緑地で受付。ロング31km 6:30〜7:20、ショート13km 8:30〜9:20、キッズ13:30〜14:10。受付後、スタート地点の子安弘法大師まで徒歩で約2km移動する',
+  'Same-day check-in at Otsuka Seaside Park: Long 31km 6:30-7:20, Short 13km 8:30-9:20, Kids 13:30-14:10. After check-in, runners walk about 2km to the start at Koyasu Kobo Daishi.',
+  '["トレイル","海の見えるコース"]',
+  NULL,
+  0,
+  0,
+  0,
+  'trail',
+  '[]',
+  '三河湾を見下ろすベイサイドの山岳コース。ロング31kmは五井山の開けた山頂からのパノラマが見どころ。累積標高はロング約1850m、ショート約650m',
+  'A bayside mountain course overlooking Mikawa Bay. The Long 31km highlight is the open panorama from the summit of Mt. Goi. Cumulative elevation gain is approx. 1,850m for the Long and 650m for the Short.',
+  'ロング31kmはITRA 2ポイント。第2エイド13:00、第3エイド15:30の関門あり（位置は詳細コースマップを参照）。紙コップの用意がないため携帯カップ持参が必要。水分500ml以上の携行が必須。駐車場あり／なし（エコ割）で参加料が異なる',
+  'The Long 31km earns 2 ITRA points. Cutoffs are set at the 2nd aid station (13:00) and 3rd aid station (15:30); see the detailed course map for locations. No paper cups are provided, so bring your own cup. Carrying at least 500ml of water is mandatory. Entry fees differ depending on whether a parking space is included (eco discount without parking).',
+  '三河湾',
+  '#0e7490',
+  'Mikawa-wan',
+  '山を駆け、三河湾を見下ろす',
+  'Run the ridges above Mikawa Bay',
+  NULL,
+  NULL,
+  NULL,
+  '大塚海浜緑地',
+  'Otsuka Seaside Park',
+  '愛知県蒲郡市海陽町',
+  34.806622,
+  137.266266,
+  '2026-10-24T00:00:00Z',
+  '2026-10-24T14:05:10.485Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('gamagori-bayside-trail-2027', 'other', 31, 510, '08:00', 600, 11300, NULL, 'ロング31km', 'Long 31km', '高校生以上。累積標高約1850m。参加料は駐車場あり11,300円、駐車場なし（エコ割）9,800円', 'High school age and older. Approx. 1,850m elevation gain. Fee: ¥11,300 with parking, ¥9,800 without parking (eco discount).', NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('gamagori-bayside-trail-2027', 'other', 13, 240, '10:00', 300, 8500, NULL, 'ショート13km', 'Short 13km', '中学生以上。累積標高約650m。参加料は駐車場あり8,500円、駐車場なし（エコ割）7,000円', 'Junior high school age and older. Approx. 650m elevation gain. Fee: ¥8,500 with parking, ¥7,000 without parking (eco discount).', NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('gamagori-bayside-trail-2027', 'other', 2, 30, '14:30', 0, 2000, NULL, 'キッズ2km', 'Kids 2km', '小学3〜6年生', 'Elementary school grades 3-6', NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('gamagori-bayside-trail-2027', 'other', 1, 30, '14:30', 0, 2000, NULL, 'キッズ1km', 'Kids 1km', '小学1・2年生', 'Elementary school grades 1-2', NULL, NULL, NULL, '[]', 3);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('gamagori-bayside-trail-2027', '観光地', '竹島', 'Takeshima Island', '蒲郡のシンボル。橋で渡れる三河湾の小島', 'Gamagori''s symbol, a small island in Mikawa Bay reached by a footbridge', '', NULL, 0, 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('gamagori-bayside-trail-2027', '観光地', '竹島水族館', 'Takeshima Aquarium', '竹島近くの小さな水族館', 'A small aquarium near Takeshima Island', '', NULL, 0, 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('gamagori-bayside-trail-2027', '["tshirt"]', '大会オリジナルTシャツ', 'Original event T-shirt', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('gamagori-bayside-trail-2027', '["certificate"]', '記録証', 'Finisher time certificate', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('gamagori-bayside-trail-2027', NULL, '一般エントリー', 'General Entry', '2026-10-25', '2027-01-04', NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('gamagori-bayside-trail-2027', NULL, NULL, '五井山からのパノラマ', 'Panorama from Mt. Goi', NULL, NULL, 0);
+
+-- ==================
 -- ぐんまマラソン (gunma-marathon-2026)
 -- ==================
 DELETE FROM race_course_highlights WHERE race_id = 'gunma-marathon-2026';
@@ -4672,6 +5137,157 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
   ('himeji-castle-marathon-2026', NULL, '一般エントリー', 'General Entry', '2025-08-04', '2025-10-31', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('himeji-castle-marathon-2026', NULL, NULL, '姫路城', 'Himeji Castle', NULL, NULL, 0);
+
+-- ==================
+-- 天領日田ひなまつり健康マラソン (hita-hinamatsuri-marathon-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM race_categories WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM aid_stations WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM checkpoints WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM access_points WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM nearby_spots WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM weather_history WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM participation_gifts WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM completion_gifts WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM race_entry_links WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM reception_sessions WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM race_travel_times WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM race_results WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM race_gallery WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM race_voices WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'hita-hinamatsuri-marathon-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'hita-hinamatsuri-marathon-2027',
+  '天領日田ひなまつり健康マラソン',
+  'Tenryo Hita Hinamatsuri Health Marathon',
+  '2027-03-14',
+  '44',
+  '日田市',
+  'Hita City',
+  '「日本三大美林」とも称される日田杉の中を走るハーフマラソン。日田市陸上競技場を発着し、スタート直後にレトロな町並みの観光名所「豆田町」を通過する。最大高低差は50m。参加賞は日田市出身の諫山創さんにちなんだ『進撃の巨人』コラボTシャツ。',
+  'A half marathon through the Hita cedar forests, counted among Japan''s three most beautiful forests. Starting and finishing at Hita City Athletics Stadium, the course passes the retro streets of Mamedamachi shortly after the start. The maximum elevation difference is 50m. The participation gift is an Attack on Titan collaboration T-shirt, honoring Hita-born manga artist Hajime Isayama.',
+  'https://local-gain.com/hita-hinamatsuri-marathon/',
+  NULL,
+  1,
+  1500,
+  '2026-10-30',
+  '2027-01-07',
+  0,
+  'pre_mail',
+  'ゼッケン・計測チップ等は事前に郵送。前日（3/13 14:00〜17:00）または当日（7:00〜各種目スタート30分前）に日田市陸上競技場で参加賞を受け取る',
+  'Bibs and timing chips are mailed in advance. Collect the participation gift at Hita City Athletics Stadium the day before (Mar 13, 14:00-17:00) or on race day (from 7:00 until 30 min before each start).',
+  '["おひなまつり","町並み"]',
+  NULL,
+  0,
+  0,
+  50,
+  'road',
+  '[]',
+  '日田杉の美林の中を走るコース。ハーフ・10kmはスタート直後に江戸時代の町並みが残る豆田町を通過する',
+  'A course through beautiful Hita cedar forests. The half and 10km courses pass the Edo-period streets of Mamedamachi shortly after the start.',
+  'ハーフは18km地点に関門（11:10）あり。給水所はコース上に4箇所（前回大会）。中学生は5kmのみ参加可。コスプレ大賞あり',
+  'The half marathon has a cutoff at 18km (11:10). There were 4 water stations on the course at the previous race. Junior high students may enter the 5km only. A cosplay award is held.',
+  '日田杉',
+  '#be185d',
+  'Hita-sugi',
+  'ひなまつりの町並みと日田杉を駆ける',
+  'Through hina festival streets and Hita cedar forests',
+  NULL,
+  NULL,
+  NULL,
+  '日田市陸上競技場',
+  'Hita City Athletics Stadium',
+  '大分県日田市大字田島613-2',
+  33.321854,
+  130.949554,
+  '2026-10-24T00:00:00Z',
+  '2026-10-24T14:05:11.508Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('hita-hinamatsuri-marathon-2027', 'half', 21.0975, 0, '08:40', 0, 5000, NULL, 'ハーフ', 'Half Marathon', '高校生以上。高校生は2,500円', 'High school age and older. High school students ¥2,500.', NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('hita-hinamatsuri-marathon-2027', '10k', 10, 0, '08:50', 0, 4000, NULL, '10km', '10km', '高校生以上。高校生は2,500円', 'High school age and older. High school students ¥2,500.', NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('hita-hinamatsuri-marathon-2027', '5k', 5, 0, '09:00', 0, 3500, NULL, '5km', '5km', '中学生以上。高校生・中学生は2,500円', 'Junior high school age and older. High school and junior high students ¥2,500.', NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('hita-hinamatsuri-marathon-2027', 18, '11:10');
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('hita-hinamatsuri-marathon-2027', '観光地', '豆田町', 'Mamedamachi', '江戸時代の天領の面影を残す町並み。大会時期は天領日田おひなまつり（2月中旬〜3月末）を開催中', 'Historic streets from Hita''s days as a shogunate-controlled town. The Tenryo Hita Hina Doll Festival runs from mid-February to the end of March.', '', NULL, 0, 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('hita-hinamatsuri-marathon-2027', '温泉', '天ヶ瀬温泉', 'Amagase Onsen', '大会会場で天ヶ瀬温泉の足湯を利用できる（予定）', 'An Amagase Onsen footbath is planned at the venue', '会場内（足湯）', NULL, 0, 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('hita-hinamatsuri-marathon-2027', '["tshirt"]', '『進撃の巨人』コラボTシャツ', 'Attack on Titan collaboration T-shirt', NULL, 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('hita-hinamatsuri-marathon-2027', '["coupon"]', '温泉入浴券、天領日田資料館・日田祇園山鉾会館の入館券を無料配布（予定）', 'Free onsen bath tickets and admission tickets to the Tenryo Hita Museum and Hita Gion Yamaboko Hall (planned)', NULL, 1);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('hita-hinamatsuri-marathon-2027', '["food"]', 'うどんの炊き出し（予定）', 'Free udon served at the venue (planned)', NULL, 2);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('hita-hinamatsuri-marathon-2027', '["certificate"]', 'WEB完走証', 'Online finisher certificate', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('hita-hinamatsuri-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-10-30', '2027-01-07', NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('hita-hinamatsuri-marathon-2027', NULL, NULL, '豆田町の町並み', 'Mamedamachi historic streets', NULL, NULL, 0);
 
 -- ==================
 -- ひたちシーサイドマラソン (hitachi-seaside-marathon-2026)
@@ -10711,6 +11327,163 @@ INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja
   ('kochi-ryoma-marathon-2027', NULL, NULL, '浦戸大橋', 'Urado Bridge', NULL, NULL, 1);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('kochi-ryoma-marathon-2027', NULL, NULL, '桂浜方面', 'Katsurahama area', NULL, NULL, 2);
+
+-- ==================
+-- 鴻巣パンジーマラソン (konosu-pansy-marathon-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM race_categories WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM aid_stations WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM checkpoints WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM access_points WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM nearby_spots WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM weather_history WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM participation_gifts WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM completion_gifts WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM race_entry_links WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM reception_sessions WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM race_travel_times WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM race_results WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM race_gallery WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM race_voices WHERE race_id = 'konosu-pansy-marathon-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'konosu-pansy-marathon-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'konosu-pansy-marathon-2027',
+  '鴻巣パンジーマラソン',
+  'Konosu Pansy Marathon',
+  '2027-03-06',
+  '11',
+  '鴻巣市',
+  'Konosu City',
+  'ラクロフィールド鴻巣（鴻巣市立陸上競技場）を発着とする土曜開催のハーフマラソン。市街地を中心とした起伏の少ないコースで、JR鴻巣駅から徒歩約15分と好アクセス。大会当日は日本一高いピラミッドひな壇で知られる「鴻巣びっくりひな祭り」も開催中。',
+  'A Saturday half marathon starting and finishing at Lacrofield Konosu (Konosu City Athletics Stadium). The mostly urban course is flat and easy to run, and the venue is about a 15-minute walk from JR Konosu Station. On race day the city also hosts the Konosu Bikkuri Hina Festival, famous for Japan''s tallest pyramid display of hina dolls.',
+  'https://www.konosupansymarathon.com/',
+  NULL,
+  1,
+  5000,
+  '2026-10-30',
+  '2027-01-15',
+  0,
+  'pre_mail',
+  '選手受付なし。2月下旬に大会案内・ICタグ付きナンバーカード等を郵送するので、大会当日に必ず持参する',
+  'There is no runner check-in. The race guide and bib with IC tag are mailed in late February; bring them on race day.',
+  '["フラットコース","土曜開催","駅近"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '鴻巣市街地を中心に走る起伏の少ないフラットなコース。ハーフはアールビーズによる距離計測済みで「ハーフマラソン1歳刻みランキング」の対象',
+  'A flat course through central Konosu with few hills. The half marathon course has been distance-measured by R-bies and counts toward the Japan Half Marathon Ranking.',
+  '日本陸連の公認大会ではない。ハーフの制限時間は2時間30分で、11.2km（1時間19分）・15.4km（1時間48分）・18.0km（2時間6分）に関門あり。当日は最長8:50〜12:00頃まで交通規制',
+  'Not a JAAF-certified race. The half marathon time limit is 2 hours 30 minutes, with cutoffs at 11.2km (1:19), 15.4km (1:48), and 18.0km (2:06). Traffic restrictions run from 8:50 to about 12:00 at the longest.',
+  'パンジー',
+  '#7c3aed',
+  'Pansy',
+  '花のまち鴻巣を、土曜のハーフで',
+  'A Saturday half through Konosu, the city of flowers',
+  NULL,
+  NULL,
+  NULL,
+  'ラクロフィールド鴻巣（鴻巣市立陸上競技場）',
+  'Lacrofield Konosu (Konosu City Athletics Stadium)',
+  NULL,
+  NULL,
+  NULL,
+  '2026-10-24T00:00:00Z',
+  '2026-10-24T00:00:00Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('konosu-pansy-marathon-2027', 'half', 21.0975, 150, '09:30', 4000, 5000, NULL, 'ハーフマラソン', 'Half Marathon', '高校生以上', 'High school age and older', NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('konosu-pansy-marathon-2027', '5k', 5, 40, '09:50', 1000, 3000, NULL, '5km', '5km', '一般（高校生以上）は3,000円・定員1,000人・9:52スタート。中学生は1,000円', 'General (high school and older): ¥3,000, capacity 1,000, starts 9:52. Junior high students: ¥1,000.', NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('konosu-pansy-marathon-2027', 'other', 1.5, 15, '09:57', 0, 2000, NULL, '1.5km', '1.5km', 'ビギナー（高校生以上）2,000円、小学5・6年生500円', 'Beginners (high school and older) ¥2,000; elementary grades 5-6 ¥500', NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('konosu-pansy-marathon-2027', 'other', 1, 10, '09:00', 0, 2500, NULL, '1km親子', '1km Parent & Child', '成人の親族と小学1〜4年生のペア。学年ごとに順次スタート（1年9:00、2年9:15、3・4年9:40）', 'Pairs of an adult relative and a child in elementary grades 1-4. Staggered starts by grade (1st 9:00, 2nd 9:15, 3rd-4th 9:40).', NULL, NULL, NULL, '[]', 3);
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('konosu-pansy-marathon-2027', 11.2, '10:49');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('konosu-pansy-marathon-2027', 15.4, '11:18');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('konosu-pansy-marathon-2027', 18, '11:36');
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('konosu-pansy-marathon-2027', 'JR鴻巣駅', 'JR Konosu Station', '', '徒歩約15分（JR高崎線）', 'About 15 min on foot (JR Takasaki Line)', 0, 0, 15, 1, 0);
+INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
+  ('konosu-pansy-marathon-2027', '観光地', '鴻巣びっくりひな祭り', 'Konosu Bikkuri Hina Festival', '日本一高いピラミッドひな壇で有名なひな祭り。大会当日も開催中で、メイン会場はJR鴻巣駅直結のエルミこうのす', 'A hina doll festival famous for Japan''s tallest pyramid display, held on race day. The main venue is Elmi Konosu, directly connected to JR Konosu Station.', '', NULL, 0, 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('konosu-pansy-marathon-2027', '["goods"]', 'オリジナルスポーツグッズ', 'Original sports goods', NULL, 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('konosu-pansy-marathon-2027', '["food"]', 'ドリンク', 'Drink', NULL, 1);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('konosu-pansy-marathon-2027', '["coupon"]', 'お買い物券（ハーフ参加者のみ）', 'Shopping voucher (half marathon runners only)', NULL, 2);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('konosu-pansy-marathon-2027', '["certificate"]', '記録証', 'Finisher time certificate', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('konosu-pansy-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-10-30', '2027-01-15', NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('konosu-pansy-marathon-2027', NULL, NULL, '起伏の少ない市街地コース', 'Flat urban course', NULL, NULL, 0);
 
 -- ==================
 -- 熊本城マラソン (kumamoto-castle-marathon-2026)

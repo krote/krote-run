@@ -31,5 +31,16 @@
     "link_href": "/mypage",
     "link_label_ja": "マイページで出発地を設定する",
     "link_label_en": "Set your departure point on My Page"
+  },
+  {
+    "slug": "2026-10-25-race-data-update",
+    "date": "2026-10-25",
+    "title_ja": "新たに7大会を掲載・13大会の情報を更新しました",
+    "title_en": "7 Races Added, 13 Races Updated",
+    "body_ja": "2027年1〜4月開催の大会を中心に、以下の7大会を新たに掲載しました。\n・がまごおりベイサイドトレイル（1/23・愛知県蒲郡市）\n・鴻巣パンジーマラソン（3/6・埼玉県鴻巣市）\n・天領日田ひなまつり健康マラソン（3/14・大分県日田市）\n・鳥取マラソン2027（3/14・鳥取県鳥取市）\n・芦北うたせマラソン（3/28・熊本県芦北町）\n・あだち五色桜マラソン（4/11・東京都足立区）\n・チャレンジ富士五湖ウルトラマラソン2027（4/18・山梨県富士吉田市）\nこのうち5大会は、10月25日〜31日にエントリーが始まります。気になる大会は早めにチェックしてください。\nあわせて、名古屋ウィメンズマラソン、高知龍馬マラソン、下関海響マラソンなど13大会の情報を各公式サイトの最新内容に更新しました。主な更新内容は、エントリー期間、関門、エイドステーション、参加賞、受付方法です。",
+    "body_en": "We've added the following 7 races, mostly held between January and April 2027:\n- Gamagori Bayside Trail (Jan 23, Gamagori, Aichi)\n- Konosu Pansy Marathon (Mar 6, Konosu, Saitama)\n- Tenryo Hita Hinamatsuri Health Marathon (Mar 14, Hita, Oita)\n- Tottori Marathon 2027 (Mar 14, Tottori)\n- Ashikita Utase Marathon (Mar 28, Ashikita, Kumamoto)\n- Adachi Goshiki Sakura Marathon (Apr 11, Adachi, Tokyo)\n- Challenge Fuji Five Lakes Ultra Marathon 2027 (Apr 18, Fujiyoshida, Yamanashi)\nEntries for 5 of these open between October 25 and 31, so check the ones you're interested in early.\nWe've also updated 13 races, including the Nagoya Women's Marathon, Kochi Ryoma Marathon, and Shimonoseki Kaikyo Marathon, with the latest information from their official websites. Updates mainly cover entry periods, cutoffs, aid stations, participation gifts, and check-in procedures.",
+    "link_href": "/races",
+    "link_label_ja": "大会一覧を見る",
+    "link_label_en": "Browse all races"
   }
 ]

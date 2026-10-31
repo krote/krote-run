@@ -1,5 +1,5 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-10-24T14:05:13.648Z
+-- 生成日時: 2026-10-31T15:39:22.460Z
 -- 対象ファイル数: 141 件（既存 2 件はskip）
 
 -- ==================
@@ -198,7 +198,7 @@ INSERT INTO races (
   'https://shining-foundation.wixsite.com/5shikisakura',
   NULL,
   1,
-  2300,
+  2750,
   '2026-10-30',
   '2027-03-22',
   0,
@@ -230,7 +230,7 @@ INSERT INTO races (
   NULL,
   NULL,
   '2026-10-24T00:00:00Z',
-  '2026-10-24T00:00:00Z'
+  '2026-10-31T15:14:53.194Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -822,7 +822,7 @@ INSERT INTO races (
   '2026-07-06',
   '2026-09-11',
   0,
-  'race_day',
+  'both',
   '大会開催1週間前に申込代表者宛に参加通知（電子チケットURL）のメールが送付される。当日は会場でスマートフォンの電子チケット画面を提示し、係員による電子スタンプ押印後に参加賞を受け取る。',
   'About one week before the event, an e-ticket URL is emailed to the entry representative. On race day, present the e-ticket on your smartphone at the venue; after staff apply an electronic stamp, receive your participation gift.',
   '["団体戦"]',
@@ -850,7 +850,7 @@ INSERT INTO races (
   32.452171,
   130.199707,
   '2026-08-31T23:51:21.157Z',
-  '2026-09-06T14:09:11.371Z'
+  '2026-10-31T15:15:29.586Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -900,9 +900,9 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('amakusa-marathon-2026', 'half', 21.0975, 210, '', 0, 6000, NULL, 'ハーフマラソン団体戦', 'Half Marathon Team Competition', '3〜6人でチーム編成。上位3人の合計タイムで順位を競う（定員はハーフマラソン個人の部と併算・計2,000人）', 'Teams of 3-6 members; ranked by the combined time of the top 3 finishers (capacity shared with the individual half marathon, 2,000 total)', NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('amakusa-marathon-2026', '5k', 5, 0, '', 400, 3000, NULL, '5km', '5km', '小中高生で参加賞なしを選択の場合は1,000円', '1,000 yen for elementary/junior high/high school students who opt out of the participation gift', NULL, NULL, NULL, '[]', 2);
+  ('amakusa-marathon-2026', '5k', 5, 0, '09:15', 400, 3000, NULL, '5km', '5km', '小中高生で参加賞なしを選択の場合は1,000円', '1,000 yen for elementary/junior high/high school students who opt out of the participation gift', NULL, NULL, NULL, '[]', 2);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('amakusa-marathon-2026', 'other', 3, 0, '', 400, 3000, NULL, '3km', '3km', '小中高生で参加賞なしを選択の場合は1,000円', '1,000 yen for elementary/junior high/high school students who opt out of the participation gift', NULL, NULL, NULL, '[]', 3);
+  ('amakusa-marathon-2026', 'other', 3, 0, '09:25', 400, 3000, NULL, '3km', '3km', '小中高生で参加賞なしを選択の場合は1,000円', '1,000 yen for elementary/junior high/high school students who opt out of the participation gift', NULL, NULL, NULL, '[]', 3);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('amakusa-marathon-2026', '["local_product"]', '地元特産品、サービス券（予定）', 'Local specialty products, service vouchers (planned)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -1553,10 +1553,10 @@ INSERT INTO races (
   0,
   'road',
   '[]',
-  '不知火海に沿った芦北海岸を走る高低差の少ない折り返しコース。ハーフは芦北橋・平生橋・広域農道・三ツ島トンネルを経て女島大矢地区で折り返し、芦北大橋にフィニッシュ（一部坂あり）',
-  'Out-and-back courses with little elevation change along the Ashikita coast of the Shiranui Sea. The half marathon crosses Ashikita Bridge and Hirao Bridge, follows the regional farm road through the Mitsushima Tunnel, turns at the Mejima Oya area, and finishes at Ashikita Ohashi Bridge (some hills).',
-  'ハーフの制限時間は3時間。16.3km地点の最終関門を11:55までに通過し、12:40までにゴールすること。10km・5km・3kmは芦北海浜総合公園前にフィニッシュ。荒天中止の場合は当日6:00までに公式サイトで告知',
-  'The half marathon time limit is 3 hours: pass the final cutoff at 16.3km by 11:55 and finish by 12:40. The 10km, 5km, and 3km finish in front of Ashikita Seaside Park. Cancellation due to bad weather is announced on the official site by 6:00 on race day.',
+  '不知火海に沿った芦北海岸を走る高低差の少ない折り返しコース。ハーフは芦北橋・平生橋・広域農道・三ツ島トンネルを経て女島福浦地区で折り返し、芦北大橋にフィニッシュ（一部坂あり）',
+  'Out-and-back courses with little elevation change along the Ashikita coast of the Shiranui Sea. The half marathon crosses Ashikita Bridge and Hirao Bridge, follows the regional farm road through the Mitsushima Tunnel, turns at the Mejima Fukuura area, and finishes at Ashikita Ohashi Bridge (some hills).',
+  'ハーフの制限時間は3時間。16km地点の最終関門を11:55までに通過し、12:40までにゴールすること。10km・5km・3kmは芦北海浜総合公園前にフィニッシュ。荒天中止の場合は当日6:00までに公式サイトで告知',
+  'The half marathon time limit is 3 hours: pass the final cutoff at 16km by 11:55 and finish by 12:40. The 10km, 5km, and 3km finish in front of Ashikita Seaside Park. Cancellation due to bad weather is announced on the official site by 6:00 on race day.',
   '不知火海',
   '#0369a1',
   'Shiranui-kai',
@@ -1571,7 +1571,7 @@ INSERT INTO races (
   NULL,
   NULL,
   '2026-10-24T00:00:00Z',
-  '2026-10-24T00:00:00Z'
+  '2026-10-31T15:17:16.002Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -1625,7 +1625,7 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('ashikita-utase-marathon-2027', 'other', 3, 0, '10:20', 0, 5000, NULL, '3km', '3km', '一般女子（高校生以上）5,000円、小学4年生以上2,500円', 'Women (high school and older) ¥5,000; elementary grade 4 and up ¥2,500', NULL, NULL, NULL, '[]', 3);
 INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
-  ('ashikita-utase-marathon-2027', 16.3, '11:55');
+  ('ashikita-utase-marathon-2027', 16, '11:55');
 INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
   ('ashikita-utase-marathon-2027', '肥薩おれんじ鉄道 佐敷駅', 'Hisatsu Orange Railway Sashiki Station', '', '大会当日は佐敷駅から会場までシャトルバスを運行', 'A shuttle bus runs from Sashiki Station to the venue on race day', 0, 0, NULL, 1, 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -1633,7 +1633,7 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('ashikita-utase-marathon-2027', '観光地', '御立岬公園', 'Otachimisaki Park', '不知火海に突き出た岬の公園。温泉センターも併設', 'A cape park jutting into the Shiranui Sea, with a hot spring center', '', NULL, 0, 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('ashikita-utase-marathon-2027', '["food"]', '昼食券（特産のエビを使った「エビ飯」を予定）', 'Lunch voucher (a rice dish made with local shrimp is planned)', NULL, 0);
+  ('ashikita-utase-marathon-2027', '["food"]', '昼食券（特産のイシエビを使った「エビ飯」を予定）', 'Lunch voucher (a rice dish made with local ishi-ebi shrimp is planned)', NULL, 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('ashikita-utase-marathon-2027', '["local_product"]', '芦北町特産品', 'Ashikita local specialty products', NULL, 1);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -2433,7 +2433,7 @@ INSERT INTO races (
   'https://www.r-wellness.com/fuji5/',
   19500,
   1,
-  4500,
+  4700,
   '2026-10-30',
   '2027-01-31',
   0,
@@ -2449,8 +2449,8 @@ INSERT INTO races (
   '[]',
   '河口湖畔の桜並木、西湖からの富士山眺望、精進湖、本栖湖（80km・120kmのみ）、山中湖（100km・120kmのみ）、富士北麓公園（スタート・フィニッシュ）',
   'Cherry blossom-lined Lake Kawaguchi shore, Mt. Fuji views from Lake Saiko, Lake Shoji, Lake Motosu (80km & 120km only), Lake Yamanaka (100km & 120km only), Fuji Hokuroku Park (start/finish)',
-  '紙コップでの給水提供なし。携帯ボトル・カップ必須。補給食・防寒具・雨対策も携帯必須。標高830〜1050mのため、早朝は気温が低い（4月でも氷点下の可能性あり）。',
-  'No paper cup water service. Carry your own bottle/cup. Must carry supplies, cold weather gear, and rain protection. Elevation 830-1050m, so early morning temperatures can be very low (below freezing possible even in April).',
+  '紙コップでの給水提供なし。携帯ボトル・カップ必須。補給食・防寒具・雨対策も携帯必須。標高830〜1050mのため、早朝は気温が低い（4月でも氷点下の可能性あり）。一般道路は歩道が無く車道が一車線の箇所が多いため、絶対に広がって走行しないこと。',
+  'No paper cup water service. Carry your own bottle/cup. Must carry supplies, cold weather gear, and rain protection. Elevation 830-1050m, so early morning temperatures can be very low (below freezing possible even in April). Many sections of public roads have no sidewalk and only a single traffic lane, so runners must never spread out across the road.',
   '富士五湖',
   '#2563eb',
   'Fuji-Goko',
@@ -2465,7 +2465,7 @@ INSERT INTO races (
   35.426395,
   138.753159,
   '2026-10-24T13:22:35.944Z',
-  '2026-10-24T13:22:35.944Z'
+  '2026-10-31T15:18:49.690Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -3340,8 +3340,8 @@ INSERT INTO races (
   '19',
   '富士河口湖町',
   'Fujikawaguchiko Town',
-  '河口湖・西湖を走るフルマラソン。紅葉の富士山を望む絶景コース。制限時間6時間。',
-  'A full marathon around Lake Kawaguchi and Lake Saiko. Spectacular autumn views of Mt. Fuji. 6-hour time limit.',
+  '河口湖・西湖畔を巡るフルマラソン。雪化粧した富士山を望む絶景コースで、湖畔は基本的に平坦だが「心臓破りの坂」と呼ばれる急勾配のポイントもある。制限時間6時間。',
+  'A full marathon around Lake Kawaguchi and Lake Saiko, offering views of Mt. Fuji set against winter snow. The lakeside sections are mostly flat but include a steep climb nicknamed the "heartbreak hill". 6-hour time limit.',
   'https://mtfujimarathon.com/',
   NULL,
   1,
@@ -3377,7 +3377,7 @@ INSERT INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-10-09T13:55:32.167Z'
+  '2026-10-31T15:20:29.976Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -4298,8 +4298,8 @@ INSERT INTO races (
   '2027-01-04',
   0,
   'race_day',
-  '大会当日に大塚海浜緑地で受付。ロング31km 6:30〜7:20、ショート13km 8:30〜9:20、キッズ13:30〜14:10。受付後、スタート地点の子安弘法大師まで徒歩で約2km移動する',
-  'Same-day check-in at Otsuka Seaside Park: Long 31km 6:30-7:20, Short 13km 8:30-9:20, Kids 13:30-14:10. After check-in, runners walk about 2km to the start at Koyasu Kobo Daishi.',
+  '大会当日に大塚海浜緑地で受付。ロング31km 6:30〜7:30、ショート13km 8:30〜9:30、キッズ13:30〜14:10。受付後、スタート地点の子安弘法大師まで徒歩で約2km移動する',
+  'Same-day check-in at Otsuka Seaside Park: Long 31km 6:30-7:30, Short 13km 8:30-9:30, Kids 13:30-14:10. After check-in, runners walk about 2km to the start at Koyasu Kobo Daishi.',
   '["トレイル","海の見えるコース"]',
   NULL,
   0,
@@ -4325,7 +4325,7 @@ INSERT INTO races (
   34.806622,
   137.266266,
   '2026-10-24T00:00:00Z',
-  '2026-10-24T14:05:10.485Z'
+  '2026-10-31T15:22:20.653Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -4378,6 +4378,10 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('gamagori-bayside-trail-2027', 'other', 2, 30, '14:30', 0, 2000, NULL, 'キッズ2km', 'Kids 2km', '小学3〜6年生', 'Elementary school grades 3-6', NULL, NULL, NULL, '[]', 2);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('gamagori-bayside-trail-2027', 'other', 1, 30, '14:30', 0, 2000, NULL, 'キッズ1km', 'Kids 1km', '小学1・2年生', 'Elementary school grades 1-2', NULL, NULL, NULL, '[]', 3);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('gamagori-bayside-trail-2027', 'JR三河大塚駅', 'JR Mikawa-Otsuka Station', '', '徒歩20〜25分（約2km）', '20-25 min walk (approx. 2km)', 0, 0, 23, 1, 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('gamagori-bayside-trail-2027', 'JR三河三谷駅', 'JR Mikawa-Mitani Station', '', '徒歩30〜40分（約2.9km）', '30-40 min walk (approx. 2.9km)', 0, 0, 35, 0, 1);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('gamagori-bayside-trail-2027', '観光地', '竹島', 'Takeshima Island', '蒲郡のシンボル。橋で渡れる三河湾の小島', 'Gamagori''s symbol, a small island in Mikawa Bay reached by a footbridge', '', NULL, 0, 0);
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
@@ -5203,8 +5207,8 @@ INSERT INTO races (
   '[]',
   '日田杉の美林の中を走るコース。ハーフ・10kmはスタート直後に江戸時代の町並みが残る豆田町を通過する',
   'A course through beautiful Hita cedar forests. The half and 10km courses pass the Edo-period streets of Mamedamachi shortly after the start.',
-  'ハーフは18km地点に関門（11:10）あり。給水所はコース上に4箇所（前回大会）。中学生は5kmのみ参加可。コスプレ大賞あり',
-  'The half marathon has a cutoff at 18km (11:10). There were 4 water stations on the course at the previous race. Junior high students may enter the 5km only. A cosplay award is held.',
+  'ハーフは18km地点に関門（11:10）あり。給水所はハーフ・10km共用で4箇所を予定（陸上競技場ロータリー、ウッドコンビナート入口、日向野橋付近、垣内橋付近）。中学生は5kmのみ参加可。コスプレを対象とした表彰あり',
+  'The half marathon has a cutoff at 18km (11:10). Four water stations are planned, shared by the half and 10km courses (stadium rotary, Wood Combinat entrance, near Hyugano Bridge, near Kakiuchi Bridge). Junior high students may enter the 5km only. There is also a cosplay award.',
   '日田杉',
   '#be185d',
   'Hita-sugi',
@@ -5219,7 +5223,7 @@ INSERT INTO races (
   33.321854,
   130.949554,
   '2026-10-24T00:00:00Z',
-  '2026-10-24T14:05:11.508Z'
+  '2026-10-31T15:24:35.571Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -5282,6 +5286,8 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('hita-hinamatsuri-marathon-2027', '["coupon"]', '温泉入浴券、天領日田資料館・日田祇園山鉾会館の入館券を無料配布（予定）', 'Free onsen bath tickets and admission tickets to the Tenryo Hita Museum and Hita Gion Yamaboko Hall (planned)', NULL, 1);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('hita-hinamatsuri-marathon-2027', '["food"]', 'うどんの炊き出し（予定）', 'Free udon served at the venue (planned)', NULL, 2);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('hita-hinamatsuri-marathon-2027', '["local_product","coupon"]', '日田の特産品・豆田町商店街商品券（1000円分）等を抽選でプレゼント', 'A lottery prize of Hita local products and Mamedamachi shopping district vouchers (worth 1,000 yen)', NULL, 3);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('hita-hinamatsuri-marathon-2027', '["certificate"]', 'WEB完走証', 'Online finisher certificate', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -6840,7 +6846,7 @@ INSERT INTO races (
   36.193573,
   140.272461,
   '2026-08-31T00:00:00Z',
-  '2026-10-24T13:28:01.529Z'
+  '2026-10-31T15:25:15.888Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -6895,6 +6901,14 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('ishioka-tsukubane-half-marathon-2027', 'other', 2.2, 25, '10:50', 500, 1000, NULL, '小学生2.2kmの部', 'Elementary School 2.2km', NULL, NULL, NULL, NULL, NULL, '[]', 3);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('ishioka-tsukubane-half-marathon-2027', 'other', 2.2, 25, '10:55', 200, 2000, NULL, '親子2.2kmの部', 'Parent-Child 2.2km', NULL, NULL, NULL, NULL, NULL, '[]', 4);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('ishioka-tsukubane-half-marathon-2027', 5, '給水', 'Water', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('ishioka-tsukubane-half-marathon-2027', 10, '給水', 'Water', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('ishioka-tsukubane-half-marathon-2027', 15, '給水', 'Water', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('ishioka-tsukubane-half-marathon-2027', 20, '給水', 'Water', 0);
 INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
   ('ishioka-tsukubane-half-marathon-2027', 19, '12:10');
 INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
@@ -11258,7 +11272,7 @@ INSERT INTO races (
   33.561375,
   133.529541,
   '2026-06-29T14:13:35.752Z',
-  '2026-10-24T13:32:26.496Z'
+  '2026-10-31T15:29:52.130Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -11320,7 +11334,7 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
   ('kochi-ryoma-marathon-2027', NULL, '新宿シティ連携協定枠', 'Shinjuku City Partnership Entry', '2026-08-22', '2026-10-20', 26000, 1);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('kochi-ryoma-marathon-2027', NULL, 'ふるさと納税枠', 'Furusato Tax Donation Entry', '2026-10-08', '2026-10-31', NULL, 2);
+  ('kochi-ryoma-marathon-2027', NULL, 'ふるさと納税枠', 'Furusato Tax Donation Entry', '2026-10-08', '2026-11-08', NULL, 2);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('kochi-ryoma-marathon-2027', NULL, NULL, '太平洋', 'Pacific Ocean', NULL, NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -11393,8 +11407,8 @@ INSERT INTO races (
   '[]',
   '鴻巣市街地を中心に走る起伏の少ないフラットなコース。ハーフはアールビーズによる距離計測済みで「ハーフマラソン1歳刻みランキング」の対象',
   'A flat course through central Konosu with few hills. The half marathon course has been distance-measured by R-bies and counts toward the Japan Half Marathon Ranking.',
-  '日本陸連の公認大会ではない。ハーフの制限時間は2時間30分で、11.2km（1時間19分）・15.4km（1時間48分）・18.0km（2時間6分）に関門あり。当日は最長8:50〜12:00頃まで交通規制',
-  'Not a JAAF-certified race. The half marathon time limit is 2 hours 30 minutes, with cutoffs at 11.2km (1:19), 15.4km (1:48), and 18.0km (2:06). Traffic restrictions run from 8:50 to about 12:00 at the longest.',
+  '日本陸連の公認大会ではない。制限時間は1km10分・1.5km15分・5km40分・ハーフ2時間30分で、ハーフは11.2km（1時間19分）・15.4km（1時間48分）・18.0km（2時間6分）に関門あり。当日は最長8:50〜12:00頃まで交通規制',
+  'Not a JAAF-certified race. Time limits are 10 minutes for 1km, 15 minutes for 1.5km, 40 minutes for 5km, and 2 hours 30 minutes for the half marathon, with half marathon cutoffs at 11.2km (1:19), 15.4km (1:48), and 18.0km (2:06). Traffic restrictions run from 8:50 to about 12:00 at the longest.',
   'パンジー',
   '#7c3aed',
   'Pansy',
@@ -11409,7 +11423,7 @@ INSERT INTO races (
   NULL,
   NULL,
   '2026-10-24T00:00:00Z',
-  '2026-10-24T00:00:00Z'
+  '2026-10-31T15:31:20.454Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -11457,11 +11471,21 @@ INSERT INTO races (
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('konosu-pansy-marathon-2027', 'half', 21.0975, 150, '09:30', 4000, 5000, NULL, 'ハーフマラソン', 'Half Marathon', '高校生以上', 'High school age and older', NULL, NULL, NULL, '[]', 0);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
-  ('konosu-pansy-marathon-2027', '5k', 5, 40, '09:50', 1000, 3000, NULL, '5km', '5km', '一般（高校生以上）は3,000円・定員1,000人・9:52スタート。中学生は1,000円', 'General (high school and older): ¥3,000, capacity 1,000, starts 9:52. Junior high students: ¥1,000.', NULL, NULL, NULL, '[]', 1);
+  ('konosu-pansy-marathon-2027', '5k', 5, 40, '09:52', 1000, 3000, NULL, '5km', '5km', '一般（高校生以上）は3,000円・定員1,000人・9:52スタート。中学生は1,000円', 'General (high school and older): ¥3,000, capacity 1,000, starts 9:52. Junior high students: ¥1,000.', NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('konosu-pansy-marathon-2027', 'other', 1.5, 15, '09:57', 0, 2000, NULL, '1.5km', '1.5km', 'ビギナー（高校生以上）2,000円、小学5・6年生500円', 'Beginners (high school and older) ¥2,000; elementary grades 5-6 ¥500', NULL, NULL, NULL, '[]', 2);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('konosu-pansy-marathon-2027', 'other', 1, 10, '09:00', 0, 2500, NULL, '1km親子', '1km Parent & Child', '成人の親族と小学1〜4年生のペア。学年ごとに順次スタート（1年9:00、2年9:15、3・4年9:40）', 'Pairs of an adult relative and a child in elementary grades 1-4. Staggered starts by grade (1st 9:00, 2nd 9:15, 3rd-4th 9:40).', NULL, NULL, NULL, '[]', 3);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('konosu-pansy-marathon-2027', 3.2, '水', 'Water', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('konosu-pansy-marathon-2027', 6.6, '水', 'Water', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('konosu-pansy-marathon-2027', 11.2, '水', 'Water', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('konosu-pansy-marathon-2027', 15.4, '水', 'Water', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('konosu-pansy-marathon-2027', 18, '水', 'Water', 0);
 INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
   ('konosu-pansy-marathon-2027', 11.2, '10:49');
 INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
@@ -12424,7 +12448,7 @@ INSERT INTO races (
   1,
   3000,
   '2026-09-01',
-  '2026-10-31',
+  '2026-11-13',
   0,
   'race_day',
   '大会当日午前7時〜8時（8時30分終了）に受付',
@@ -12454,7 +12478,7 @@ INSERT INTO races (
   35.474476,
   137.031143,
   '2026-08-31T00:00:00Z',
-  '2026-10-02T22:39:27.503Z'
+  '2026-10-31T15:32:28.121Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -12518,7 +12542,7 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('minokamo-half-marathon-2027', '["certificate"]', '記録証（計測種目のみ）', 'Finisher time certificate (timed events only)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('minokamo-half-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-09-01', '2026-10-31', NULL, 0);
+  ('minokamo-half-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-09-01', '2026-11-13', NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('minokamo-half-marathon-2027', NULL, NULL, 'ぎふ清流里山公園の里山コース', 'Satoyama course through Gifu Seiryu Satoyama Park', NULL, NULL, 0);
 
@@ -17972,11 +17996,11 @@ Therefore, there is no registration required.',
   NULL,
   '総社商工会館東交差点（発着）・総社市スポーツセンター',
   'Soja Chamber of Commerce East Intersection (Start/Finish) / Soja Sports Center',
-  '岡山県総社市',
+  '岡山県総社市三輪1300番地',
   34.67255,
   133.746735,
   '2026-07-27T14:33:45.113Z',
-  '2026-10-02T22:44:16.091Z'
+  '2026-10-31T15:36:43.432Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -20092,7 +20116,7 @@ INSERT INTO races (
   13000,
   1,
   4200,
-  NULL,
+  '2025-10-15',
   '2026-12-11',
   0,
   'pre_mail',
@@ -20123,7 +20147,7 @@ INSERT INTO races (
   35.501266,
   134.181396,
   '2026-10-24T13:43:27.323Z',
-  '2026-10-24T13:43:27.323Z'
+  '2026-10-31T15:38:48.583Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -20192,7 +20216,7 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
   ('tottori-marathon-2027', '観光地', '鳥取砂丘', 'Tottori Sand Dunes', '日本最大級の砂丘。起伏のある広大な砂の風景は圧巻。パラグライダーやラクダ乗りも。', 'Japan''s largest sand dunes. Vast sandy landscape. Paragliding and camel rides available.', '会場から車約15分', NULL, 35.5411, 134.2289);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('tottori-marathon-2027', '["tshirt","goods"]', 'オリジナルTシャツ・ランドリーバッグ（指定袋）
-鳥取マラソン2026大会オリジナルデザインの特製Tシャツ。透湿・吸汗性に優れ、ランニングに最適な生地を採用。', 'Original T-shirt and designated laundry bag. Tottori Marathon 2026 original design T-shirt made of moisture-wicking, sweat-absorbent fabric ideal for running.', NULL, 0);
+鳥取マラソン2027大会オリジナルデザインの特製Tシャツ。透湿・吸汗性に優れ、ランニングに最適な生地を採用。', 'Original T-shirt and designated laundry bag. Tottori Marathon 2027 original design T-shirt made of moisture-wicking, sweat-absorbent fabric ideal for running.', NULL, 0);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('tottori-marathon-2027', '["certificate","medal","towel","local_product","food"]', '・完走証
 ・特別メダル（鳥取砂丘の本物の砂を使用した手作りメダル）

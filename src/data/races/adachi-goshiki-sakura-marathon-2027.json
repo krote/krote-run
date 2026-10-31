@@ -14,7 +14,7 @@
   "official_url": "https://shining-foundation.wixsite.com/5shikisakura",
   "entry_fee": null,
   "entry_fee_by_category": true,
-  "entry_capacity": 2300,
+  "entry_capacity": 2750,
   "entry_start_date": "2026-10-30",
   "entry_end_date": "2027-03-22",
   "reception_type": "race_day",
@@ -205,7 +205,7 @@
   ],
   "result": null,
   "created_at": "2026-10-24T00:00:00Z",
-  "updated_at": "2026-10-24T00:00:00Z",
+  "updated_at": "2026-10-31T15:14:53.194Z",
   "_metadata": {
     "data_source": "公式サイト（https://shining-foundation.wixsite.com/5shikisakura）およびRUNNET大会ページ（raceId=401835）の公開情報から作成（2026-10-24）",
     "data_accuracy_notes": [
@@ -216,9 +216,10 @@
       "関門は14km（2周目）通過時点13:30。3周目に入れない扱い",
       "エイドはコース上2箇所（計算上2.5kmごと）＋会場内1箇所。位置不明のためaid_stationsは空",
       "会場住所は公式サイトに記載なし。会場に駐車場なし",
-      "ゲストランナー：吉田香織さん、SUIさん、M高史さん ほか"
+      "ゲストランナー：吉田香織さん、SUIさん、M高史さん ほか",
+      "2026-10-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-24",
+    "last_verified": "2026-10-31",
     "detail_level": "light"
   },
   "entry_periods": [

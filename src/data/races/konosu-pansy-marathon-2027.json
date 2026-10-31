@@ -34,8 +34,8 @@
     "certification": [],
     "highlights_ja": "鴻巣市街地を中心に走る起伏の少ないフラットなコース。ハーフはアールビーズによる距離計測済みで「ハーフマラソン1歳刻みランキング」の対象",
     "highlights_en": "A flat course through central Konosu with few hills. The half marathon course has been distance-measured by R-bies and counts toward the Japan Half Marathon Ranking.",
-    "notes_ja": "日本陸連の公認大会ではない。ハーフの制限時間は2時間30分で、11.2km（1時間19分）・15.4km（1時間48分）・18.0km（2時間6分）に関門あり。当日は最長8:50〜12:00頃まで交通規制",
-    "notes_en": "Not a JAAF-certified race. The half marathon time limit is 2 hours 30 minutes, with cutoffs at 11.2km (1:19), 15.4km (1:48), and 18.0km (2:06). Traffic restrictions run from 8:50 to about 12:00 at the longest."
+    "notes_ja": "日本陸連の公認大会ではない。制限時間は1km10分・1.5km15分・5km40分・ハーフ2時間30分で、ハーフは11.2km（1時間19分）・15.4km（1時間48分）・18.0km（2時間6分）に関門あり。当日は最長8:50〜12:00頃まで交通規制",
+    "notes_en": "Not a JAAF-certified race. Time limits are 10 minutes for 1km, 15 minutes for 1.5km, 40 minutes for 5km, and 2 hours 30 minutes for the half marathon, with half marathon cutoffs at 11.2km (1:19), 15.4km (1:48), and 18.0km (2:06). Traffic restrictions run from 8:50 to about 12:00 at the longest."
   },
   "categories": [
     {
@@ -56,7 +56,7 @@
       "distance_type": "5k",
       "distance_km": 5,
       "time_limit_minutes": 40,
-      "start_time": "09:50",
+      "start_time": "09:52",
       "capacity": 1000,
       "entry_fee": 3000,
       "entry_fee_u25": null,
@@ -95,7 +95,38 @@
       "waves": null
     }
   ],
-  "aid_stations": [],
+  "aid_stations": [
+    {
+      "distance_km": 3.2,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    },
+    {
+      "distance_km": 6.6,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    },
+    {
+      "distance_km": 11.2,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    },
+    {
+      "distance_km": 15.4,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    },
+    {
+      "distance_km": 18,
+      "offerings_ja": "水",
+      "offerings_en": "Water",
+      "is_featured": false
+    }
+  ],
   "checkpoints": [
     {
       "distance_km": 11.2,
@@ -165,7 +196,7 @@
   ],
   "result": null,
   "created_at": "2026-10-24T00:00:00Z",
-  "updated_at": "2026-10-24T00:00:00Z",
+  "updated_at": "2026-10-31T15:31:20.454Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.konosupansymarathon.com/）およびRUNNET大会ページ（raceId=398336）の公開情報から作成（2026-10-24）",
     "data_accuracy_notes": [
@@ -175,9 +206,10 @@
       "entry_capacityはハーフ4,000人＋5km一般1,000人の合計。1.5km・1km親子の定員は記載なし",
       "給水所の位置・数は公式サイトに記載なし（コースマップは画像のみ）",
       "会場住所は公式サイトに記載なし",
-      "ゲストランナー：こうのす観光大使 服部翔大さん、しまむら女子陸上部"
+      "ゲストランナー：こうのす観光大使 服部翔大さん、しまむら女子陸上部",
+      "2026-10-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-24",
+    "last_verified": "2026-10-31",
     "detail_level": "light"
   },
   "entry_periods": [

@@ -9,8 +9,8 @@
   "prefecture": "19",
   "city_ja": "富士河口湖町",
   "city_en": "Fujikawaguchiko Town",
-  "description_ja": "河口湖・西湖を走るフルマラソン。紅葉の富士山を望む絶景コース。制限時間6時間。",
-  "description_en": "A full marathon around Lake Kawaguchi and Lake Saiko. Spectacular autumn views of Mt. Fuji. 6-hour time limit.",
+  "description_ja": "河口湖・西湖畔を巡るフルマラソン。雪化粧した富士山を望む絶景コースで、湖畔は基本的に平坦だが「心臓破りの坂」と呼ばれる急勾配のポイントもある。制限時間6時間。",
+  "description_en": "A full marathon around Lake Kawaguchi and Lake Saiko, offering views of Mt. Fuji set against winter snow. The lakeside sections are mostly flat but include a steep climb nicknamed the \"heartbreak hill\". 6-hour time limit.",
   "official_url": "https://mtfujimarathon.com/",
   "entry_fee": null,
   "entry_fee_by_category": true,
@@ -130,7 +130,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-10-09T13:55:32.167Z",
+  "updated_at": "2026-10-31T15:20:29.976Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -142,9 +142,10 @@
       "2026-09-06: 自動クロールで更新",
       "2026-09-18: 自動クロールで更新",
       "2026-09-28: 自動クロールで更新",
-      "2026-10-09: 自動クロールで更新"
+      "2026-10-09: 自動クロールで更新",
+      "2026-10-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-09",
+    "last_verified": "2026-10-31",
     "detail_level": "medium"
   },
   "entry_periods": [

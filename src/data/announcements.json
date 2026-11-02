@@ -42,5 +42,16 @@
     "link_href": "/races",
     "link_label_ja": "大会一覧を見る",
     "link_label_en": "Browse all races"
+  },
+  {
+    "slug": "2026-11-03-race-data-update",
+    "date": "2026-11-03",
+    "title_ja": "13大会の情報を更新しました",
+    "title_en": "13 Races Updated",
+    "body_ja": "以下の13大会の情報を各公式サイトの最新内容に更新しました。\n・天草マラソン大会（11/15・熊本県天草市）\n・富士山マラソン（12/13・山梨県富士河口湖町）\n・みのかもハーフマラソン（1/10・岐阜県美濃加茂市）\n・がまごおりベイサイドトレイル（1/23・愛知県蒲郡市）\n・石岡つくばねハーフマラソン（2/14・茨城県石岡市）\n・高知龍馬マラソン（2/21・高知県高知市）\n・そうじゃ吉備路マラソン（2/28・岡山県総社市）\n・鴻巣パンジーマラソン（3/6・埼玉県鴻巣市）\n・天領日田ひなまつり健康マラソン（3/14・大分県日田市）\n・鳥取マラソン（3/14・鳥取県鳥取市）\n・芦北うたせマラソン（3/28・熊本県芦北町）\n・あだち五色桜マラソン（4/11・東京都足立区）\n・チャレンジ富士五湖ウルトラマラソン（4/18・山梨県富士吉田市）\n主な更新内容は、エントリー期間、定員、コース情報、エイドステーション、参加賞、受付方法です。",
+    "body_en": "We've updated the following 13 races with the latest information from their official websites:\n- Amakusa Marathon (Nov 15, Amakusa, Kumamoto)\n- Mt. Fuji Marathon (Dec 13, Fujikawaguchiko, Yamanashi)\n- Minokamo Half Marathon (Jan 10, Minokamo, Gifu)\n- Gamagori Bayside Trail (Jan 23, Gamagori, Aichi)\n- Ishioka Tsukubane Half Marathon (Feb 14, Ishioka, Ibaraki)\n- Kochi Ryoma Marathon (Feb 21, Kochi)\n- Soja Kibiji Marathon (Feb 28, Soja, Okayama)\n- Konosu Pansy Marathon (Mar 6, Konosu, Saitama)\n- Tenryo Hita Hinamatsuri Health Marathon (Mar 14, Hita, Oita)\n- Tottori Marathon (Mar 14, Tottori)\n- Ashikita Utase Marathon (Mar 28, Ashikita, Kumamoto)\n- Adachi Goshiki Sakura Marathon (Apr 11, Adachi, Tokyo)\n- Challenge Fuji Five Lakes Ultra Marathon (Apr 18, Fujiyoshida, Yamanashi)\nUpdates mainly cover entry periods, capacity, course information, aid stations, participation gifts, and check-in procedures.",
+    "link_href": "/races",
+    "link_label_ja": "大会一覧を見る",
+    "link_label_en": "Browse all races"
   }
 ]

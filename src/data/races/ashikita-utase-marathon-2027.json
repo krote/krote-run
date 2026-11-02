@@ -31,10 +31,10 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [],
-    "highlights_ja": "不知火海に沿った芦北海岸を走る高低差の少ない折り返しコース。ハーフは芦北橋・平生橋・広域農道・三ツ島トンネルを経て女島大矢地区で折り返し、芦北大橋にフィニッシュ（一部坂あり）",
-    "highlights_en": "Out-and-back courses with little elevation change along the Ashikita coast of the Shiranui Sea. The half marathon crosses Ashikita Bridge and Hirao Bridge, follows the regional farm road through the Mitsushima Tunnel, turns at the Mejima Oya area, and finishes at Ashikita Ohashi Bridge (some hills).",
-    "notes_ja": "ハーフの制限時間は3時間。16.3km地点の最終関門を11:55までに通過し、12:40までにゴールすること。10km・5km・3kmは芦北海浜総合公園前にフィニッシュ。荒天中止の場合は当日6:00までに公式サイトで告知",
-    "notes_en": "The half marathon time limit is 3 hours: pass the final cutoff at 16.3km by 11:55 and finish by 12:40. The 10km, 5km, and 3km finish in front of Ashikita Seaside Park. Cancellation due to bad weather is announced on the official site by 6:00 on race day."
+    "highlights_ja": "不知火海に沿った芦北海岸を走る高低差の少ない折り返しコース。ハーフは芦北橋・平生橋・広域農道・三ツ島トンネルを経て女島福浦地区で折り返し、芦北大橋にフィニッシュ（一部坂あり）",
+    "highlights_en": "Out-and-back courses with little elevation change along the Ashikita coast of the Shiranui Sea. The half marathon crosses Ashikita Bridge and Hirao Bridge, follows the regional farm road through the Mitsushima Tunnel, turns at the Mejima Fukuura area, and finishes at Ashikita Ohashi Bridge (some hills).",
+    "notes_ja": "ハーフの制限時間は3時間。16km地点の最終関門を11:55までに通過し、12:40までにゴールすること。10km・5km・3kmは芦北海浜総合公園前にフィニッシュ。荒天中止の場合は当日6:00までに公式サイトで告知",
+    "notes_en": "The half marathon time limit is 3 hours: pass the final cutoff at 16km by 11:55 and finish by 12:40. The 10km, 5km, and 3km finish in front of Ashikita Seaside Park. Cancellation due to bad weather is announced on the official site by 6:00 on race day."
   },
   "categories": [
     {
@@ -97,7 +97,7 @@
   "aid_stations": [],
   "checkpoints": [
     {
-      "distance_km": 16.3,
+      "distance_km": 16,
       "closing_time": "11:55"
     }
   ],
@@ -144,8 +144,8 @@
       "gift_categories": [
         "food"
       ],
-      "description_ja": "昼食券（特産のエビを使った「エビ飯」を予定）",
-      "description_en": "Lunch voucher (a rice dish made with local shrimp is planned)",
+      "description_ja": "昼食券（特産のイシエビを使った「エビ飯」を予定）",
+      "description_en": "Lunch voucher (a rice dish made with local ishi-ebi shrimp is planned)",
       "image": null
     },
     {
@@ -159,7 +159,7 @@
   ],
   "result": null,
   "created_at": "2026-10-24T00:00:00Z",
-  "updated_at": "2026-10-24T00:00:00Z",
+  "updated_at": "2026-10-31T15:17:16.002Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.ashikitautase-marathon.jp/）およびRUNNET大会ページ（raceId=397500）の公開情報から作成（2026-10-24）",
     "data_accuracy_notes": [
@@ -171,9 +171,10 @@
       "10km・5km・3kmの制限時間は記載なし",
       "給水所の位置は公式サイトに記載なし（コースマップは画像のみ）",
       "佐敷駅からのシャトルバスの所要時間は記載なし",
-      "紙の完走証は有料（税込550円）、標準はデジタル完走証"
+      "紙の完走証は有料（税込550円）、標準はデジタル完走証",
+      "2026-10-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-24",
+    "last_verified": "2026-10-31",
     "detail_level": "light"
   },
   "entry_periods": [

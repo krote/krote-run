@@ -16,7 +16,7 @@
   "entry_fee_by_category": true,
   "entry_capacity": 3000,
   "entry_start_date": "2026-09-01",
-  "entry_end_date": "2026-10-31",
+  "entry_end_date": "2026-11-13",
   "reception_type": "race_day",
   "reception_note_ja": "大会当日午前7時〜8時（8時30分終了）に受付",
   "reception_note_en": "Same-day check-in from 7:00-8:00 AM (closes 8:30 AM)",
@@ -142,7 +142,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T00:00:00Z",
-  "updated_at": "2026-10-02T22:39:27.503Z",
+  "updated_at": "2026-10-31T15:32:28.121Z",
   "_metadata": {
     "data_source": "公式サイト（https://minokamo-halfmarathon.net/）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -153,9 +153,10 @@
       "3km・2kmの部は公園内コースのファンラン扱いの可能性があり、distance_typeは'other'とした",
       "2026-09-04: 自動クロールで更新",
       "2026-09-28: 自動クロールで更新",
-      "2026-10-02: 自動クロールで更新"
+      "2026-10-02: 自動クロールで更新",
+      "2026-10-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-02",
+    "last_verified": "2026-10-31",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -163,7 +164,7 @@
       "label_ja": "一般エントリー",
       "label_en": "General Entry",
       "start_date": "2026-09-01",
-      "end_date": "2026-10-31",
+      "end_date": "2026-11-13",
       "entry_fee": null,
       "category_id": null,
       "sort_order": 0

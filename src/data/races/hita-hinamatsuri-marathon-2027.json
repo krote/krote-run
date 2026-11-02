@@ -33,8 +33,8 @@
     "certification": [],
     "highlights_ja": "日田杉の美林の中を走るコース。ハーフ・10kmはスタート直後に江戸時代の町並みが残る豆田町を通過する",
     "highlights_en": "A course through beautiful Hita cedar forests. The half and 10km courses pass the Edo-period streets of Mamedamachi shortly after the start.",
-    "notes_ja": "ハーフは18km地点に関門（11:10）あり。給水所はコース上に4箇所（前回大会）。中学生は5kmのみ参加可。コスプレ大賞あり",
-    "notes_en": "The half marathon has a cutoff at 18km (11:10). There were 4 water stations on the course at the previous race. Junior high students may enter the 5km only. A cosplay award is held."
+    "notes_ja": "ハーフは18km地点に関門（11:10）あり。給水所はハーフ・10km共用で4箇所を予定（陸上競技場ロータリー、ウッドコンビナート入口、日向野橋付近、垣内橋付近）。中学生は5kmのみ参加可。コスプレを対象とした表彰あり",
+    "notes_en": "The half marathon has a cutoff at 18km (11:10). Four water stations are planned, shared by the half and 10km courses (stadium rotary, Wood Combinat entrance, near Hyugano Bridge, near Kakiuchi Bridge). Junior high students may enter the 5km only. There is also a cosplay award."
   },
   "categories": [
     {
@@ -137,11 +137,20 @@
       "description_ja": "うどんの炊き出し（予定）",
       "description_en": "Free udon served at the venue (planned)",
       "image": null
+    },
+    {
+      "gift_categories": [
+        "local_product",
+        "coupon"
+      ],
+      "description_ja": "日田の特産品・豆田町商店街商品券（1000円分）等を抽選でプレゼント",
+      "description_en": "A lottery prize of Hita local products and Mamedamachi shopping district vouchers (worth 1,000 yen)",
+      "image": null
     }
   ],
   "result": null,
   "created_at": "2026-10-24T00:00:00Z",
-  "updated_at": "2026-10-24T14:05:11.508Z",
+  "updated_at": "2026-10-31T15:24:35.571Z",
   "_metadata": {
     "data_source": "公式サイト（https://local-gain.com/hita-hinamatsuri-marathon/）、第27回参加案内PDF、RUNNET大会ページ（raceId=398366）の公開情報から作成（2026-10-24）",
     "data_accuracy_notes": [
@@ -151,9 +160,10 @@
       "定員は全種目合計1,500名で種目別定員なし",
       "給水所4箇所は第27回参加案内の記載。位置は不明のためaid_stationsは空",
       "最寄駅からのアクセスは公式サイトに記載なし",
-      "抽選で日田の特産品・豆田町商店街商品券（1,000円分）等が当たる（予定）"
+      "抽選で日田の特産品・豆田町商店街商品券（1,000円分）等が当たる（予定）",
+      "2026-10-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-24",
+    "last_verified": "2026-10-31",
     "detail_level": "light"
   },
   "entry_periods": [

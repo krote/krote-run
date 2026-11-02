@@ -18,8 +18,8 @@
   "entry_start_date": "2026-10-25",
   "entry_end_date": "2027-01-04",
   "reception_type": "race_day",
-  "reception_note_ja": "大会当日に大塚海浜緑地で受付。ロング31km 6:30〜7:20、ショート13km 8:30〜9:20、キッズ13:30〜14:10。受付後、スタート地点の子安弘法大師まで徒歩で約2km移動する",
-  "reception_note_en": "Same-day check-in at Otsuka Seaside Park: Long 31km 6:30-7:20, Short 13km 8:30-9:20, Kids 13:30-14:10. After check-in, runners walk about 2km to the start at Koyasu Kobo Daishi.",
+  "reception_note_ja": "大会当日に大塚海浜緑地で受付。ロング31km 6:30〜7:30、ショート13km 8:30〜9:30、キッズ13:30〜14:10。受付後、スタート地点の子安弘法大師まで徒歩で約2km移動する",
+  "reception_note_en": "Same-day check-in at Otsuka Seaside Park: Long 31km 6:30-7:30, Short 13km 8:30-9:30, Kids 13:30-14:10. After check-in, runners walk about 2km to the start at Koyasu Kobo Daishi.",
   "tags": [
     "トレイル",
     "海の見えるコース"
@@ -96,7 +96,30 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "JR三河大塚駅",
+      "station_name_en": "JR Mikawa-Otsuka Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩20〜25分（約2km）",
+      "transport_to_venue_en": "20-25 min walk (approx. 2km)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 23,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "JR三河三谷駅",
+      "station_name_en": "JR Mikawa-Mitani Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩30〜40分（約2.9km）",
+      "transport_to_venue_en": "30-40 min walk (approx. 2.9km)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 35,
+      "is_primary": false
+    }
+  ],
   "nearby_spots": [
     {
       "type": "観光地",
@@ -134,7 +157,7 @@
   ],
   "result": null,
   "created_at": "2026-10-24T00:00:00Z",
-  "updated_at": "2026-10-24T14:05:10.485Z",
+  "updated_at": "2026-10-31T15:22:20.653Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.nature-scene.net/gamagori/）およびRUNNET大会ページ（raceId=398341）の公開情報から作成（2026-10-24）",
     "data_accuracy_notes": [
@@ -144,9 +167,10 @@
       "カテゴリの参加料は駐車場ありの金額。エコ割（駐車場なし）は説明文に記載",
       "関門は第2エイド13:00・第3エイド15:30（スケジュールページ）だが距離不明のためcheckpointsには入れずnotesに記載",
       "最寄駅・シャトルバス等のアクセス情報は公式サイトに記載なし",
-      "受付会場の住所は公式「蒲郡市海陽町」、RUNNET「蒲郡市大塚町山ノ沢」で表記が異なる"
+      "受付会場の住所は公式「蒲郡市海陽町」、RUNNET「蒲郡市大塚町山ノ沢」で表記が異なる",
+      "2026-10-31: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-24",
+    "last_verified": "2026-10-31",
     "detail_level": "light"
   },
   "entry_periods": [

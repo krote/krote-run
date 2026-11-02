@@ -42,5 +42,16 @@
     "link_href": "/races",
     "link_label_ja": "大会一覧を見る",
     "link_label_en": "Browse all races"
+  },
+  {
+    "slug": "2026-11-03-race-data-update",
+    "date": "2026-11-03",
+    "title_ja": "13大会の情報を更新しました",
+    "title_en": "13 Races Updated",
+    "body_ja": "高知龍馬マラソン、鳥取マラソン、チャレンジ富士五湖ウルトラマラソン2027など13大会の情報を各公式サイトの最新内容に更新しました。主な更新内容は、エントリー期間、定員、コース情報、エイドステーション、参加賞、受付方法です。",
+    "body_en": "We've updated 13 races, including the Kochi Ryoma Marathon, Tottori Marathon, and Challenge Fuji Five Lakes Ultra Marathon 2027, with the latest information from their official websites. Updates mainly cover entry periods, capacity, course information, aid stations, participation gifts, and check-in procedures.",
+    "link_href": "/races",
+    "link_label_ja": "大会一覧を見る",
+    "link_label_en": "Browse all races"
   }
 ]

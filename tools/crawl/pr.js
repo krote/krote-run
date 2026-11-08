@@ -23,7 +23,7 @@ const SEED_SCRIPT = path.join(__dirname, '..', '..', 'scripts', 'generate-seed-r
 /** JSON に変更が入った場合のみ PR を作る（保留・失敗だけでは作らない） */
 function shouldCreatePr(summary, { dryRun = false } = {}) {
   if (dryRun) return false;
-  const changed = (summary.extracted ?? []).length + (summary.new_editions ?? []).length;
+  const changed = (summary.extracted ?? []).length + (summary.new_editions ?? []).length + (summary.discovered ?? []).length;
   return changed > 0;
 }
 
@@ -35,8 +35,8 @@ function formatDateJst(date) {
   return `${y}-${m}-${d}`;
 }
 
-function buildBranchName(date = new Date(), suffix = 1) {
-  const base = `crawl/update-${formatDateJst(date)}`;
+function buildBranchName(date = new Date(), suffix = 1, prefix = 'crawl/update') {
+  const base = `${prefix}-${formatDateJst(date)}`;
   return suffix > 1 ? `${base}-${suffix}` : base;
 }
 
@@ -45,10 +45,14 @@ function buildPrTitle(summary) {
   const raceCount = (summary.extracted ?? []).length;
   const editionCount = (summary.new_editions ?? []).length;
 
+  const discoveredCount = (summary.discovered ?? []).length;
+
   if (raceCount > 0) parts.push(`${raceCount}大会のデータを更新`);
   if (editionCount > 0) parts.push(`次年度ファイル${editionCount}件を作成`);
+  if (discoveredCount > 0) parts.push(`${discoveredCount}大会を新規掲載`);
 
-  return `chore: クロールで${parts.join('・')}`;
+  const prefix = summary.kind === 'discover' ? '未掲載大会の探索で' : 'クロールで';
+  return `chore: ${prefix}${parts.join('・')}`;
 }
 
 function buildCommitMessage(summary) {
@@ -65,6 +69,10 @@ function buildCommitMessage(summary) {
 
   for (const edition of summary.new_editions ?? []) {
     lines.push(`- 次年度ファイル作成: ${edition.new_race_id}`);
+  }
+
+  for (const d of summary.discovered ?? []) {
+    lines.push(`- 新規掲載: ${d.race_name ?? d.race_id}（${d.race_id}）`);
   }
 
   return lines.join('\n');
@@ -173,9 +181,10 @@ function createCrawlPr(summary, body, opts = {}) {
     return { created: false, reason: '変更されたファイルがありません' };
   }
 
-  let branch = buildBranchName(now);
+  const branchPrefix = opts.branchPrefix ?? 'crawl/update';
+  let branch = buildBranchName(now, 1, branchPrefix);
   for (let i = 2; branchExists(branch); i++) {
-    branch = buildBranchName(now, i);
+    branch = buildBranchName(now, i, branchPrefix);
   }
 
   git(['switch', '-c', branch, baseBranch]);

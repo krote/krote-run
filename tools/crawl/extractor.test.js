@@ -1193,3 +1193,17 @@ describe('buildCliArgs - システムプロンプトの差し替え（#202）', 
     assert.equal(args[args.indexOf('--system-prompt-file') + 1], '"/tmp/x.txt"');
   });
 });
+
+describe('buildCliArgs - ツールの許可（#204）', () => {
+  test('tools を指定するとそのツールだけを有効・許可する（未掲載大会の公式URL検索用）', () => {
+    const args = buildCliArgs('m', '/tmp/x.txt', 'WebSearch');
+    assert.equal(args[args.indexOf('--tools') + 1], 'WebSearch');
+    assert.equal(args[args.indexOf('--allowedTools') + 1], 'WebSearch');
+  });
+
+  test('既定ではツールを無効にし、--allowedTools を付けない', () => {
+    const args = buildCliArgs('m');
+    assert.equal(args[args.indexOf('--tools') + 1], '""');
+    assert.equal(args.indexOf('--allowedTools'), -1);
+  });
+});

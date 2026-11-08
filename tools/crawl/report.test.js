@@ -293,3 +293,25 @@ describe('buildReport - X 投稿文（#202）', () => {
     assert.doesNotMatch(buildReport(emptySummary()), /X 投稿文/);
   });
 });
+
+describe('buildReport - 未掲載大会の探索（#204）', () => {
+  const summary = () => ({
+    ...emptySummary(),
+    kind: 'discover',
+    discovered: [{ race_id: 'koshien-enjoy-run-2026', race_name: '甲子園エンジョイラン', date: '2026-12-13', official_url: 'https://koshien.example/',
+      source_url: 'https://www.sportsentry.ne.jp/event/t/107433', issues: [{ rule: 'entry_fee_missing', level: 'warning', message: '参加費なし' }] }],
+    discover_skipped: [{ candidate_id: 'sportsentry-1', name: '謎の大会', reason: '公式サイトが見つからない' }],
+  });
+
+  test('新規掲載した大会を、公式サイト・発見元・検査結果つきで表示する', () => {
+    const report = buildReport(summary());
+    assert.match(report, /## 新規掲載（1大会）/);
+    assert.match(report, /\| 2026-12-13 \| 甲子園エンジョイラン \| `koshien-enjoy-run-2026` \| \[公式\]\(https:\/\/koshien\.example\/\) \| \[発見元\]\(https:\/\/www\.sportsentry\.ne\.jp\/event\/t\/107433\) \| 警告: entry_fee_missing \|/);
+    assert.match(report, /detail_level: light/);
+    assert.doesNotMatch(report, /レースデータへの変更はありません/);
+  });
+
+  test('生成しなかった候補を理由つきで表示する', () => {
+    assert.match(buildReport(summary()), /### 生成しなかった候補（1件）\n\n- 謎の大会（`sportsentry-1`）: 公式サイトが見つからない/);
+  });
+});

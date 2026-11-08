@@ -75,6 +75,29 @@ function renderChanges(summary, lines) {
   }
 }
 
+function renderDiscovered(summary, lines) {
+  const discovered = summary.discovered ?? [];
+  const skipped = summary.discover_skipped ?? [];
+  if (discovered.length === 0 && skipped.length === 0) return;
+
+  if (discovered.length > 0) {
+    lines.push(`## 新規掲載（${discovered.length}大会）`, '');
+    lines.push('未掲載大会の探索（`pnpm run discover`）で選んだ大会を、公式サイトの情報から `detail_level: light` で生成した。公式サイトと突き合わせて確認すること。', '');
+    lines.push('| 開催日 | 大会名 | ID | 公式サイト | 発見元 | 検査 |', '|---|---|---|---|---|---|');
+    for (const d of discovered) {
+      const issues = (d.issues ?? []).map((i) => `${i.level === 'error' ? 'エラー' : '警告'}: ${i.rule}`).join(', ') || 'OK';
+      lines.push(`| ${d.date ?? ''} | ${d.race_name} | \`${d.race_id}\` | [公式](${d.official_url}) | [発見元](${d.source_url}) | ${issues} |`);
+    }
+    lines.push('');
+  }
+
+  if (skipped.length > 0) {
+    lines.push(`### 生成しなかった候補（${skipped.length}件）`, '');
+    for (const s of skipped) lines.push(`- ${s.name}（\`${s.candidate_id}\`）: ${s.reason}`);
+    lines.push('');
+  }
+}
+
 function renderAnnouncement(summary, lines) {
   const a = summary.announcement;
   if (!a) return;
@@ -265,7 +288,8 @@ function renderSummaryCounts(summary, lines) {
  */
 function buildReport(summary) {
   const lines = [];
-  const hasChanges = (summary.extracted ?? []).length > 0 || (summary.new_editions ?? []).length > 0;
+  const hasChanges = (summary.extracted ?? []).length > 0 || (summary.new_editions ?? []).length > 0
+    || (summary.discovered ?? []).length > 0;
 
   if (!hasChanges) {
     lines.push('## 変更内容', '', 'レースデータへの変更はありません。', '');
@@ -273,6 +297,7 @@ function buildReport(summary) {
 
   renderChanges(summary, lines);
   renderNewEditions(summary, lines);
+  renderDiscovered(summary, lines);
   renderAnnouncement(summary, lines);
   renderXPost(summary, lines);
   renderExpired(summary, lines);

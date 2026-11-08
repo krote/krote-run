@@ -25,6 +25,7 @@ const { screenExtraction } = require('./gate');
 const { buildReport } = require('./report');
 const { shouldCreatePr, createCrawlPr, runPreflight, PREFLIGHT_ERROR_CODE } = require('./pr');
 const { validateRace } = require('../../scripts/validate-races');
+const { shouldRelaunchWithExtraCa, relaunchWithExtraCa } = require('./extra-ca');
 
 const FETCH_OPTS = {
   headers: {
@@ -280,8 +281,20 @@ function cleanHtml(html) {
     .trim();
 }
 
-async function fetchPageText(url) {
-  const res = await fetch(url, { ...FETCH_OPTS, signal: AbortSignal.timeout(15000) });
+/**
+ * ページを取得してテキストにする
+ * @param {string} url
+ * @param {{ fetchFn?: typeof fetch }} [opts] - テスト用に fetch を差し替えられる
+ */
+async function fetchPageText(url, { fetchFn = fetch } = {}) {
+  let res;
+  try {
+    res = await fetchFn(url, { ...FETCH_OPTS, signal: AbortSignal.timeout(15000) });
+  } catch (err) {
+    // fetch は接続エラーを "fetch failed" に丸めるため、原因コード（証明書エラー等）を残す
+    const code = err.cause?.code;
+    throw new Error(code ? `${err.message} (${code})` : err.message);
+  }
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const text = cleanHtml(await res.text());
   if (text.length < 100) throw new Error('ページコンテンツが空または短すぎます（スキップ）');
@@ -584,7 +597,10 @@ async function run(options = {}) {
 
 // ── エントリーポイント ───────────────────────────────────────────
 
-if (require.main === module) {
+if (require.main === module && shouldRelaunchWithExtraCa(process.env)) {
+  // 中間証明書を補うため NODE_EXTRA_CA_CERTS を付けて起動し直す（#209）
+  process.exit(relaunchWithExtraCa());
+} else if (require.main === module) {
   const dryRun = process.argv.includes('--dry-run');
   const raceArgIndex = process.argv.indexOf('--race');
   const raceId = raceArgIndex !== -1 ? process.argv[raceArgIndex + 1] : null;

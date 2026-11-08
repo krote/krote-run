@@ -69,3 +69,30 @@
 - 参加費（どのフィールドにも無い）
 - 説明文（`description_ja` または `description_en` が空）
 - エントリー開始日（`entry_start_date` も `entry_periods[].start_date` も無い）
+
+## 中間証明書の補完（#209）
+
+サーバーが中間証明書を送ってこないサイトは、ブラウザでは開けても Node の `fetch` では
+`fetch failed (UNABLE_TO_VERIFY_LEAF_SIGNATURE)` で失敗する（ブラウザは AIA で補完するが Node はしない）。
+PR 本文の失敗分析では「証明書エラー」として他の失敗と分けて表示する。
+
+不足している中間 CA 証明書を `tools/crawl/extra-ca.pem` に置き、`index.js` / `eval-models.js` は
+`NODE_EXTRA_CA_CERTS` にこのファイルを指定して自分を起動し直す（`tools/crawl/extra-ca.js`）。
+**証明書検証の無効化（`NODE_TLS_REJECT_UNAUTHORIZED=0`）は使わない。**
+
+証明書エラーが出たサイトを追加する手順:
+
+```bash
+# 1. サイト証明書の発行元（AIA の CA Issuers URL）を確認
+echo | openssl s_client -connect <host>:443 -servername <host> 2>/dev/null | openssl x509 -noout -ext authorityInfoAccess
+# 2. 中間証明書を取得して PEM に変換
+curl -sS -o ca.crt <CA Issuers の URL>
+openssl x509 -inform DER -in ca.crt -out ca.pem
+# 3. システムのルート証明書でチェーンが通ることを確認（OK になること）
+echo | openssl s_client -connect <host>:443 -servername <host> 2>/dev/null | openssl x509 > leaf.pem
+openssl verify -untrusted ca.pem leaf.pem
+```
+
+確認できたら、出典 URL・SHA-256 フィンガープリント・期限・対象サイトをコメントに書いて `extra-ca.pem` に追記する。
+期限切れの証明書は削除する。独自の PEM を使いたい場合は `NODE_EXTRA_CA_CERTS` を自分で指定して実行すれば、再起動はしない
+（`CRAWL_NO_EXTRA_CA=1` で補完自体を無効化できる）。

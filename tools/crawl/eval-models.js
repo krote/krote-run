@@ -16,6 +16,7 @@
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
+const { shouldRelaunchWithExtraCa, relaunchWithExtraCa } = require('./extra-ca');
 
 const RACES_DIR = path.join(__dirname, '../../src/data/races');
 const CACHE_DIR = path.join(os.tmpdir(), 'krote-crawl-eval');
@@ -220,7 +221,10 @@ async function main(argv) {
   if (args.out) fs.writeFileSync(args.out, md, 'utf-8');
 }
 
-if (require.main === module) {
+if (require.main === module && shouldRelaunchWithExtraCa(process.env)) {
+  // クロール本体と同じく中間証明書を補って起動し直す（#209）
+  process.exit(relaunchWithExtraCa());
+} else if (require.main === module) {
   main(process.argv.slice(2)).catch((err) => {
     console.error(err.message);
     process.exit(1);

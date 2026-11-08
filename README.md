@@ -254,6 +254,7 @@ node tools/crawl/eval-models.js --races kochi-ryoma-marathon-2027,tottori-marath
 
 動作フロー:
 1. 各レースの `info_urls`（未設定時は `official_url`）をフェッチ
+   - 中間証明書を送ってこないサイト向けに、`tools/crawl/extra-ca.pem` を `NODE_EXTRA_CA_CERTS` に指定して実行する（[docs/crawl-rules.md](docs/crawl-rules.md#中間証明書の補完209)）
 2. `tools/crawl/checksums.json` と比較して変更を検知
 3. 変更があったページを `claude -p`（`--no-cli` 指定時は Messages API）に渡して構造化抽出
    - ページが無変更でも、参加費・説明文・会場情報・エントリー開始日が欠けている大会は抽出対象にする

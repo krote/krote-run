@@ -18,8 +18,8 @@
   "entry_start_date": "2026-07-06",
   "entry_end_date": "2026-09-11",
   "reception_type": "both",
-  "reception_note_ja": "大会開催1週間前に申込代表者宛に参加通知（電子チケットURL）のメールが送付される。当日は会場でスマートフォンの電子チケット画面を提示し、係員による電子スタンプ押印後に参加賞を受け取る。",
-  "reception_note_en": "About one week before the event, an e-ticket URL is emailed to the entry representative. On race day, present the e-ticket on your smartphone at the venue; after staff apply an electronic stamp, receive your participation gift.",
+  "reception_note_ja": "前日11月14日(土)15:00～18:00にあましんスタジアムで選手受付を行い、当日は7:00～8:30に当日受付を行う。受付時は代理出走防止のため本人確認（運転免許証や保険証など）がある。大会開催1週間前に申込代表者宛に参加通知（電子チケットURL）のメールが送付される。受付では会場でスマートフォンの電子チケット画面を提示し、係員による電子スタンプ押印後に参加賞を受け取る。",
+  "reception_note_en": "Athlete registration takes place at Amashin Stadium on Saturday, November 14 from 15:00 to 18:00, and race-day registration on November 15 from 7:00 to 8:30. Photo ID such as a driver's license or health insurance card is checked to prevent proxy running. About one week before the event, an e-ticket URL is emailed to the entry representative. At registration, present the e-ticket on your smartphone; after staff apply an electronic stamp, receive your participation gift.",
   "tags": [
     "団体戦"
   ],
@@ -110,7 +110,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T23:51:21.157Z",
-  "updated_at": "2026-10-31T15:15:29.586Z",
+  "updated_at": "2026-11-08T15:17:27.128Z",
   "_metadata": {
     "data_source": "公式サイト（https://ama-spo.net/marathon/）の公開情報から作成（2026-08-31）",
     "data_accuracy_notes": [
@@ -121,9 +121,10 @@
       "entry_capacityはハーフマラソン（団体戦併算）2,000人+5km 400人+3km 400人の合計",
       "2026-09-04: 自動クロールで更新",
       "2026-09-06: 自動クロールで更新",
-      "2026-10-31: 自動クロールで更新"
+      "2026-10-31: 自動クロールで更新",
+      "2026-11-08: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-31",
+    "last_verified": "2026-11-08",
     "detail_level": "light"
   },
   "entry_periods": [

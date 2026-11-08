@@ -12,14 +12,14 @@
   "description_ja": "都農神社前をスタート・ゴールとする日本陸連公認コース。参加者全員に都農ワイン（高校生以下は特産品）が贈呈される。",
   "description_en": "A JAAF-certified course starting and finishing in front of Tsuno Shrine in Miyazaki Prefecture. All participants receive Tsuno wine (a local specialty for participants in high school or younger).",
   "official_url": "https://tsuno-osuzu-marathon.jp/",
-  "entry_fee": null,
+  "entry_fee": 4000,
   "entry_fee_by_category": true,
   "entry_capacity": 2000,
   "entry_start_date": "2026-09-25",
   "entry_end_date": "2026-11-25",
   "reception_type": "pre_mail",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "reception_note_ja": "事前の受付は実施せず、アスリートビブス（ナンバーカード）は1月下旬頃に登録住所へ郵送。団体申込の場合は大会事務局での受け取り、または代表者へ一括郵送。参加賞の引き換えは大会当日8:00～13:00に行い、アスリートビブスが必要。",
+  "reception_note_en": "No in-person registration is held. Athlete bibs are mailed to the registered address in late January. For group entries, bibs are either picked up at the race office or mailed in bulk to the group representative. Participation gifts are exchanged on race day from 8:00 to 13:00, and the athlete bib is required.",
   "reception_sessions": [],
   "travel_times": [],
   "tags": [],
@@ -113,15 +113,16 @@
   "completion_gifts": [],
   "result": null,
   "created_at": "2026-09-18T00:00:00Z",
-  "updated_at": "2026-09-18T14:38:39.065Z",
+  "updated_at": "2026-11-08T15:22:46.415Z",
   "_metadata": {
     "data_source": "runnet.jp週刊ガイド・公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ",
       "2026-09-18: runnet.jp週刊ガイド(260918.html)を起点に新規登録",
-      "アクセス（JR都農駅から車約5分・徒歩25分、都農ICから車10分）はコース&アクセスページに記載あるが、access_pointsとしては未構造化"
+      "アクセス（JR都農駅から車約5分・徒歩25分、都農ICから車10分）はコース&アクセスページに記載あるが、access_pointsとしては未構造化",
+      "2026-11-08: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-08",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -130,7 +131,7 @@
       "label_en": "General Entry",
       "start_date": "2026-09-25",
       "end_date": "2026-11-25",
-      "entry_fee": null,
+      "entry_fee": 4000,
       "category_id": null,
       "sort_order": 0
     }

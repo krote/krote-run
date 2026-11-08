@@ -9,17 +9,17 @@
   "prefecture": "45",
   "city_ja": "",
   "city_en": "",
-  "description_ja": "",
-  "description_en": "",
+  "description_ja": "第40回青島太平洋マラソンは2026年12月13日に宮崎市のひなた宮崎県総合運動公園で開催される大会です。マラソンは宮崎市内中心部と宮崎神宮を折り返し、トロピカルロードを経てフィニッシュします。10kmとポケモンラン(3km)も実施されます。",
+  "description_en": "The 40th Aoshima Taiheiyo Marathon is held on December 13, 2026 at Hinata Miyazaki Prefectural Park in Miyazaki City. The marathon course passes through central Miyazaki, turns at Miyazaki Shrine, and returns via Tropical Road. A 10km race and the Pokemon Run (3km) are also held.",
   "official_url": "https://www.aotai.gr.jp/",
-  "entry_fee": null,
+  "entry_fee": 13500,
   "entry_fee_by_category": true,
-  "entry_capacity": 0,
-  "entry_start_date": null,
-  "entry_end_date": null,
-  "reception_type": "pre_day",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "entry_capacity": 10800,
+  "entry_start_date": "2026-06-17",
+  "entry_end_date": "2026-06-30",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "アスリートビブス(ナンバーカード)・大会案内等は11月下旬に事前発送。大会前日・当日のランナー受付の有無は決定次第公式サイトで案内。",
+  "reception_note_en": "Bibs and race information are mailed in advance in late November. Whether runner reception will be held on the day before or on race day will be announced on the official website once decided.",
   "tags": [],
   "course_gpx_file": null,
   "course_info": {
@@ -35,18 +35,72 @@
   },
   "categories": [],
   "aid_stations": [],
-  "checkpoints": [],
-  "access_points": [],
+  "checkpoints": [
+    {
+      "distance_km": 1.4,
+      "closing_time": "09:35"
+    },
+    {
+      "distance_km": 10.1,
+      "closing_time": "10:44"
+    },
+    {
+      "distance_km": 12.7,
+      "closing_time": "11:05"
+    },
+    {
+      "distance_km": 17.9,
+      "closing_time": "11:47"
+    },
+    {
+      "distance_km": 20.6,
+      "closing_time": "12:08"
+    },
+    {
+      "distance_km": 23.1,
+      "closing_time": "12:30"
+    },
+    {
+      "distance_km": 26.5,
+      "closing_time": "12:59"
+    },
+    {
+      "distance_km": 31.7,
+      "closing_time": "13:44"
+    },
+    {
+      "distance_km": 37,
+      "closing_time": "14:32"
+    },
+    {
+      "distance_km": 42.195,
+      "closing_time": "15:20"
+    }
+  ],
+  "access_points": [
+    {
+      "station_name_ja": "木花駅",
+      "station_name_en": "Kibana Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約10分",
+      "transport_to_venue_en": "About 10 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 10,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "result": null,
   "created_at": "2026-06-12T13:47:30.815Z",
-  "updated_at": "2026-06-12T13:47:30.815Z",
+  "updated_at": "2026-11-08T15:22:56.232Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
-      "2026-08-31: 更新チェックツールでwww.aotai.gr.jp配下の全info_urlsがfetch failedを検出。調査の結果サイト自体は稼働中（ブラウザでは正常表示、curl/WebFetchでも200）で、URLも現行のまま正しい。原因はサーバー側のTLS証明書チェーン不備（中間証明書未送出、openssl s_clientでverify error 21: unable to verify the first certificateを確認）。Node.js標準fetch等の厳格な検証を行うクライアントのみ失敗する。URL変更は不要。次回要再確認"
+      "2026-08-31: 更新チェックツールでwww.aotai.gr.jp配下の全info_urlsがfetch failedを検出。調査の結果サイト自体は稼働中（ブラウザでは正常表示、curl/WebFetchでも200）で、URLも現行のまま正しい。原因はサーバー側のTLS証明書チェーン不備（中間証明書未送出、openssl s_clientでverify error 21: unable to verify the first certificateを確認）。Node.js標準fetch等の厳格な検証を行うクライアントのみ失敗する。URL変更は不要。次回要再確認",
+      "2026-11-08: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-11-08",
     "detail_level": "medium"
   },
   "info_urls": [
@@ -71,11 +125,58 @@
       "label": "アクセス"
     }
   ],
-  "entry_periods": [],
+  "entry_periods": [
+    {
+      "label_ja": "マラソン",
+      "label_en": "Marathon",
+      "start_date": "2026-06-17",
+      "end_date": "2026-06-30",
+      "entry_fee": 13500,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "10km",
+      "label_en": "10km",
+      "start_date": "2026-06-17",
+      "end_date": "2026-06-30",
+      "entry_fee": 8000,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "ポケモンラン(3km)",
+      "label_en": "Pokemon Run (3km)",
+      "start_date": "2026-06-17",
+      "end_date": "2026-06-30",
+      "entry_fee": 6000,
+      "category_id": null,
+      "sort_order": 2
+    }
+  ],
   "entry_closed": false,
   "entry_links": [],
-  "participation_gifts": [],
-  "completion_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "オリジナルTシャツ",
+      "description_en": "Original T-shirt",
+      "image": null
+    }
+  ],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal",
+        "towel"
+      ],
+      "description_ja": "完走メダル(10km除く)、フィニッシャータオルなど",
+      "description_en": "Finisher medal (excluding 10km), finisher towel, etc.",
+      "image": null
+    }
+  ],
   "motif": null,
   "motif_romaji": null,
   "motif_color": null,
@@ -87,9 +188,9 @@
   "gallery": [],
   "voices": [],
   "time_buckets": [],
-  "venue_name_ja": null,
-  "venue_name_en": null,
-  "venue_address": null,
-  "start_lat": null,
-  "start_lng": null
+  "venue_name_ja": "ひなた宮崎県総合運動公園",
+  "venue_name_en": "Hinata Miyazaki Prefectural Sports Park",
+  "venue_address": "宮崎県宮崎市熊野",
+  "start_lat": 31.832977,
+  "start_lng": 131.441925
 }

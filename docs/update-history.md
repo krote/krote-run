@@ -1895,3 +1895,19 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `tools/crawl/index.js`: お知らせ生成後に X 投稿文を生成し、LLM 使用量に合算
 - `tools/crawl/report.js`: PR 本文に「X 投稿文」（コードブロック・文字数・生成方法）を表示
 - 実データ確認: 既存のお知らせ2件と生成サンプル1件で 257〜264 / 280。うち1件は初回が超過し、再生成で収まった
+
+## 2026-11-08 未掲載大会の探索と、選んだ大会の race JSON 自動生成（#203 / #204）
+
+- 調査（#203）: RUNNET は利用規約で商業目的利用・第三者提供を禁止しているため自動収集しない。スポーツエントリーの一覧ページ（robots.txt で許可・静的 HTML）を候補の手がかりに、Web 検索（`claude -p` + WebSearch）を公式 URL の特定に使う
+- `tools/discover/sportsentry.js`（新規）: スポーツエントリー「マラソン・ランニング」一覧の取得・解析（2秒間隔、HASHIRUBot の UA）
+- `tools/discover/candidates.js`（新規）: 期間（12か月先まで）・除外キーワードでの絞り込み、大会名の正規化と開催日＋都道府県による掲載済み判定、申込区分ごとの重複の統合、前回の選択の引き継ぎ、候補一覧の Markdown
+- `tools/discover/generate.js`（新規）: 公式 URL を Web 検索で特定 → 公式サイトのトップと要項等のページを取得 → LLM で抽出 → 既存と同じ形の `detail_level: light` JSON を組み立て（空ラベル・null の開始日・`entry_start_date` をデータ品質ルールに沿って補正）→ 検査ゲート
+- `tools/discover/index.js`（新規）: `pnpm run discover`（候補出力）/ `--generate`（生成・座標補完・お知らせ・X 投稿文・PR 作成）/ `--dry-run`
+- `tools/discover/discover-system-prompt.txt`（新規）
+- `tools/crawl/extractor.js`: `callClaudeP` / `buildCliArgs` に許可ツールの指定（`tools`）を追加
+- `tools/crawl/pr.js`: 新規掲載（`summary.discovered`）に対応した PR タイトル・コミットメッセージ、ブランチ名の接頭辞指定
+- `tools/crawl/report.js`: 「新規掲載」「生成しなかった候補」セクションを追加
+- `package.json`: `discover` スクリプト、`test:tools` に `tools/discover/discover.test.js` を追加
+- `.gitignore`: `tools/discover/candidates.json` / `candidates.md`
+- 実データ確認: 一覧3ページ（30件）→ 期間・除外後27件 → 掲載済み6件を除き候補21件。せとだレモンマラソン2027 を dry-run で生成し、公式サイト（lemon-marathon.jp）から種目・参加費・定員・エントリー期間・会場を抽出できた
+- `README.md` / `docs/crawl-rules.md`: 手順と情報源の方針を追記

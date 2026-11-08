@@ -283,13 +283,15 @@ function resolveModel(env = process.env) {
  * @param {string} model
  * @returns {string[]}
  */
-function buildCliArgs(model, systemPromptFile = SYSTEM_PROMPT_FILE) {
+function buildCliArgs(model, systemPromptFile = SYSTEM_PROMPT_FILE, tools = null) {
   return [
     '-p',
     '--model', model,
     '--output-format', 'json',
     '--system-prompt-file', `"${systemPromptFile}"`,
-    '--tools', '""',
+    // 抽出ではツールを使わない。未掲載大会の公式URL検索（#204）だけ WebSearch を許可する
+    '--tools', tools ?? '""',
+    ...(tools ? ['--allowedTools', tools] : []),
     '--strict-mcp-config',
     '--no-session-persistence',
   ];
@@ -350,6 +352,7 @@ function readSystemPrompt(file = SYSTEM_PROMPT_FILE) {
  * @param {string} prompt
  * @param {{ useCli?: boolean, model?: string, fetchFn?: Function, spawnFn?: Function, systemPromptFile?: string }} opts
  *   systemPromptFile: 抽出以外の用途（X 投稿文の生成等）でシステムプロンプトを差し替える
+ *   tools: 許可するツール（例 'WebSearch'。CLI のみ）
  * @returns {Promise<{ text: string, meta: { model: string|null, inputTokens: number, outputTokens: number, cacheCreationTokens: number, cacheReadTokens: number, costUsd: number|null } }>}
  */
 async function callClaudeP(prompt, opts = {}) {
@@ -366,7 +369,7 @@ async function callClaudeP(prompt, opts = {}) {
     // 超えるプロンプト（複数URL分のページテキストを含む）で
     // 「The command line is too long.」により失敗するため。
     // cwd を一時ディレクトリにして、プロジェクトの CLAUDE.md を読ませない。
-    const result = spawnFn('claude', buildCliArgs(model, opts.systemPromptFile), {
+    const result = spawnFn('claude', buildCliArgs(model, opts.systemPromptFile, opts.tools), {
       input: prompt,
       encoding: 'utf-8',
       timeout: LLM_TIMEOUT_MS,

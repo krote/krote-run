@@ -264,6 +264,16 @@ node tools/crawl/eval-models.js --races kochi-ryoma-marathon-2027,tottori-marath
 
 検査ルールとレビュー指摘の反映手順は [docs/crawl-rules.md](docs/crawl-rules.md) を参照。
 
+#### 未掲載大会の探索
+
+```bash
+pnpm run discover                          # スポーツエントリーの一覧から未掲載大会の候補を tools/discover/candidates.json / .md に出力
+pnpm run discover -- --generate --dry-run  # selected: true の候補の race JSON を生成して確認（保存しない）
+pnpm run discover -- --generate            # 生成して PR を作成（お知らせ・X 投稿文も同梱）
+```
+
+情報源の使い分け（RUNNET は自動では使わない）と手順は [docs/crawl-rules.md](docs/crawl-rules.md#未掲載大会の探索204) を参照。
+
 ```bash
 pnpm run test:admin   # 管理ツールのテストを実行
 pnpm run test:tools   # tools/ 配下の全テストを実行（admin + crawl）

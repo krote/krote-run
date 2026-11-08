@@ -566,3 +566,30 @@ describe('URL失効の判定（#208）', () => {
     assert.deepEqual(links.map((l) => l.href), ['https://example.com/2027/outline/', 'https://example.com/2027/entry/']);
   });
 });
+
+describe('collectAnnouncementInputs（#201）', () => {
+  const { collectAnnouncementInputs } = require('./index');
+  const races = {
+    'a-2027': { id: 'a-2027', name_ja: 'A' },
+    'b-2028': { id: 'b-2028', name_ja: 'B 2028' },
+    'c-2027': { id: 'c-2027', name_ja: 'C' },
+  };
+  const loadRace = (id) => races[id] ?? null;
+
+  test('更新した大会は最新の JSON と diff、次年度ファイル・追加した大会は新規掲載にする', () => {
+    const summary = {
+      extracted: [{ race_id: 'a-2027', diff: [{ key: 'entry_periods' }] }],
+      new_editions: [{ race_id: 'b-2027', new_race_id: 'b-2028' }],
+      discovered: [{ race_id: 'c-2027' }],
+    };
+    const { added, updated } = collectAnnouncementInputs(summary, loadRace);
+    assert.deepEqual(added.map((r) => r.id), ['b-2028', 'c-2027']);
+    assert.deepEqual(updated, [{ race: races['a-2027'], diff: [{ key: 'entry_periods' }] }]);
+  });
+
+  test('JSON を読めない大会は除く', () => {
+    const { added, updated } = collectAnnouncementInputs({ extracted: [{ race_id: 'x', diff: [] }], new_editions: [] }, loadRace);
+    assert.deepEqual(added, []);
+    assert.deepEqual(updated, []);
+  });
+});

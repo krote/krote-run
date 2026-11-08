@@ -85,6 +85,8 @@ describe('COMMIT_PATHS', () => {
   test('race JSON とチェックサムも引き続き含める', () => {
     assert.ok(COMMIT_PATHS.includes('src/data/races'));
     assert.ok(COMMIT_PATHS.includes('tools/crawl/checksums.json'));
+    // お知らせをクロール PR に同梱する（#201）
+    assert.ok(COMMIT_PATHS.includes('src/data/announcements.json'));
   });
 });
 

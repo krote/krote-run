@@ -75,6 +75,20 @@ function renderChanges(summary, lines) {
   }
 }
 
+function renderAnnouncement(summary, lines) {
+  const a = summary.announcement;
+  if (!a) return;
+
+  lines.push('## お知らせ（同梱）', '');
+  lines.push(`\`src/data/announcements.json\` に \`${a.slug}\` を追加した。マージ・デプロイでデータと同時に公開される。`, '');
+  lines.push(`**${a.title_ja}**`, '');
+  lines.push('```text', a.body_ja, '```', '');
+  lines.push('<details><summary>English</summary>', '');
+  lines.push(`**${a.title_en}**`, '');
+  lines.push('```text', a.body_en, '```', '');
+  lines.push('</details>', '');
+}
+
 function renderNewEditions(summary, lines) {
   const editions = summary.new_editions ?? [];
   if (editions.length === 0) return;
@@ -247,6 +261,7 @@ function buildReport(summary) {
 
   renderChanges(summary, lines);
   renderNewEditions(summary, lines);
+  renderAnnouncement(summary, lines);
   renderExpired(summary, lines);
   renderFailures(summary, lines);
   renderTruncated(summary, lines);

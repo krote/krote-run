@@ -18,12 +18,15 @@ const path = require('path');
 const ROOT = path.join(__dirname, '../..');
 const RACES_DIR = path.join(ROOT, 'src/data/races');
 const CHECKSUMS_FILE = path.join(__dirname, 'checksums.json');
+const ANNOUNCEMENTS_FILE = path.join(ROOT, 'src/data/announcements.json');
+const PREFECTURES_FILE = path.join(ROOT, 'src/data/prefectures.json');
 
 const { extractFromPages, applyAndSave, buildDiff, createNewEditionFile, resolveModel } = require('./extractor');
 const { geocodeAll } = require('../../scripts/geocode-venues');
 const { screenExtraction } = require('./gate');
 const { buildReport } = require('./report');
-const { shouldCreatePr, createCrawlPr, runPreflight, PREFLIGHT_ERROR_CODE } = require('./pr');
+const { shouldCreatePr, createCrawlPr, runPreflight, PREFLIGHT_ERROR_CODE, formatDateJst } = require('./pr');
+const { buildAnnouncement, appendAnnouncement } = require('./announcement');
 const { validateRace } = require('../../scripts/validate-races');
 const { shouldRelaunchWithExtraCa, relaunchWithExtraCa } = require('./extra-ca');
 
@@ -295,6 +298,33 @@ function accumulateLlmUsage(usage, meta) {
     cacheReadTokens: usage.cacheReadTokens + (meta.cacheReadTokens ?? 0),
     costUsd: usage.costUsd + (meta.costUsd ?? 0),
   };
+}
+
+/**
+ * お知らせに載せる大会を集める（#201）
+ * - 新規掲載: 次年度ファイル（new_editions）と探索で追加した大会（discovered。#204）
+ * - 更新: LLM 抽出で JSON を更新した大会。開催済みの大会は extracted に入らない（skipped_past）
+ * 大会名・開催日は更新後の JSON から読む
+ * @param {object} summary
+ * @param {(raceId: string) => object|null} loadRace
+ */
+function collectAnnouncementInputs(summary, loadRace) {
+  const added = [
+    ...(summary.new_editions ?? []).map((e) => loadRace(e.new_race_id)),
+    ...(summary.discovered ?? []).map((e) => loadRace(e.race_id)),
+  ].filter(Boolean);
+  const updated = (summary.extracted ?? [])
+    .map((e) => ({ race: loadRace(e.race_id), diff: e.diff }))
+    .filter((e) => e.race);
+  return { added, updated };
+}
+
+function loadRaceFile(raceId) {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(RACES_DIR, `${raceId}.json`), 'utf-8'));
+  } catch {
+    return null;
+  }
 }
 
 // ── I/O ──────────────────────────────────────────────────────────
@@ -716,6 +746,24 @@ async function run(options = {}) {
 
   console.log(`検査で保留: ${summary.held.length}件`);
 
+  // ── お知らせ（#201） ──
+  // データ反映と同時に公開されるよう、PR を作る場合はお知らせも同梱する。dry-run は案の表示のみ
+  if (shouldCreatePr(summary, { dryRun }) || dryRun) {
+    const announcement = buildAnnouncement({
+      ...collectAnnouncementInputs(summary, loadRaceFile),
+      date: formatDateJst(new Date()),
+      existingSlugs: JSON.parse(fs.readFileSync(ANNOUNCEMENTS_FILE, 'utf-8')).map((a) => a.slug),
+      prefectures: JSON.parse(fs.readFileSync(PREFECTURES_FILE, 'utf-8')),
+    });
+    if (announcement) {
+      summary.announcement = announcement;
+      if (!dryRun) {
+        appendAnnouncement(ANNOUNCEMENTS_FILE, announcement);
+        console.log(`\n[announce] お知らせを追加しました: ${announcement.slug}`);
+      }
+    }
+  }
+
   // ── PR 作成 ──
   // クロールは race JSON を書き換えるため、実行の締めくくりとして
   // レポートを本文にした PR まで作り、レビューできる状態で止める。
@@ -764,5 +812,5 @@ if (require.main === module && shouldRelaunchWithExtraCa(process.env)) {
     process.exit(1);
   });
 } else {
-  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks, isMissingCriticalFields, getForcedExtractionReasons, isPastRace, isEditionTransition, buildExtractOptions, accumulateLlmUsage, emptyLlmUsage, fetchPageText, fetchPage, isPdfBytes, extractPdfText, SPARSE_PDF_CHARS, isUrlExpired, recordFetchFailure, findRelinkCandidates, EXPIRE_AFTER_5XX };
+  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks, isMissingCriticalFields, getForcedExtractionReasons, isPastRace, isEditionTransition, buildExtractOptions, accumulateLlmUsage, emptyLlmUsage, fetchPageText, fetchPage, isPdfBytes, extractPdfText, SPARSE_PDF_CHARS, isUrlExpired, recordFetchFailure, findRelinkCandidates, EXPIRE_AFTER_5XX, collectAnnouncementInputs };
 }

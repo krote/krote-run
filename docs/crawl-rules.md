@@ -142,3 +142,15 @@ node tools/crawl/eval-models.js --races <id,...> --models claude-sonnet-5-5 --bu
 - 連続失敗回数は `tools/crawl/checksums.json` の各 URL に `fail_count` / `last_error` として記録する（成功すると消える。`--dry-run` では記録しない）
 - 大会の**全 URL が失効**している場合は「要対応」として先頭に出す。あわせて `official_url`（トップページ）を取得し、要項・エントリー・アクセス等のリンクを候補として表示する（`findRelinkCandidates()`）
 - `info_urls` は自動で置き換えない。候補を見て人が登録し直す
+
+## お知らせの同梱（#201）
+
+PR を作る実行では、`src/data/announcements.json` にお知らせを1件追記してクロール PR に同梱する（`tools/crawl/announcement.js`）。
+マージ → D1 反映 → デプロイの順で、データの反映と同時に公開される。PR 本文の「お知らせ（同梱）」で文面を確認できる。
+
+- **LLM は使わない**。diff と更新後の race JSON から決定的に組み立てる（事実誤認を混ぜないため）
+- 新規掲載: 次年度ファイル（`new_editions`）と探索で追加した大会。更新: LLM 抽出で JSON を更新した大会（開催済みは対象外）
+- 一覧は開催日順に「大会名（M/D・都道府県＋市区町村）」。欠けている要素は省き、21大会目以降は件数だけ書く
+- 主な更新内容は diff の項目を利用者向けの話題（エントリー期間・参加賞・関門等）にまとめ、多い順に最大6件。説明文・タグライン・モチーフは話題にしない
+- `slug` は `YYYY-MM-DD-race-data-update`（JST）。同日に複数回実行した場合は `-2`, `-3` …
+- 文面を直したい場合は PR ブランチ上で `announcements.json` を編集する

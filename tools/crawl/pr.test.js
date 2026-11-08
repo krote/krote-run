@@ -5,6 +5,7 @@ const assert = require('node:assert/strict');
 const path = require('path');
 const {
   buildBranchName, buildCommitMessage, buildPrTitle, shouldCreatePr, COMMIT_PATHS, regenerateSeed,
+  findPreflightProblems, runPreflight, PREFLIGHT_ERROR_CODE,
 } = require('./pr');
 
 describe('shouldCreatePr', () => {
@@ -94,5 +95,133 @@ describe('regenerateSeed', () => {
     assert.equal(calls.length, 1);
     assert.equal(calls[0].cmd, process.execPath);
     assert.equal(path.basename(calls[0].args[0]), 'generate-seed-races.js');
+  });
+});
+
+describe('findPreflightProblems', () => {
+  const ok = { branch: 'main', ahead: 0, behind: 0, dirty: [] };
+
+  test('main 上で origin/main と一致し、対象パスが綺麗なら問題なし', () => {
+    assert.deepEqual(findPreflightProblems(ok), []);
+  });
+
+  test('main 以外のブランチを検出する', () => {
+    const problems = findPreflightProblems({ ...ok, branch: 'news/2026-11-03-race-update' });
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /main ではありません/);
+    assert.match(problems[0], /news\/2026-11-03-race-update/);
+  });
+
+  test('origin/main より遅れている（behind）ことを検出する', () => {
+    const problems = findPreflightProblems({ ...ok, behind: 3 });
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /behind 3/);
+    assert.match(problems[0], /git pull/);
+  });
+
+  test('origin/main より進んでいる（ahead）ことを検出する', () => {
+    const problems = findPreflightProblems({ ...ok, ahead: 2 });
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /ahead 2/);
+  });
+
+  test('対象パスの未コミット変更を列挙する', () => {
+    const problems = findPreflightProblems({ ...ok, dirty: ['src/data/races/a-2027.json', 'tools/crawl/checksums.json'] });
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /a-2027\.json/);
+    assert.match(problems[0], /checksums\.json/);
+  });
+
+  test('未コミット変更が多い場合は10件までに省略する', () => {
+    const dirty = Array.from({ length: 15 }, (_, i) => `src/data/races/race-${i}.json`);
+    const [problem] = findPreflightProblems({ ...ok, dirty });
+    assert.match(problem, /race-9\.json/);
+    assert.doesNotMatch(problem, /race-10\.json/);
+    assert.match(problem, /ほか5件/);
+  });
+
+  test('複数の問題はすべて返す', () => {
+    const problems = findPreflightProblems({ branch: 'feat/x', ahead: 0, behind: 1, dirty: ['src/data/races/a.json'] });
+    assert.equal(problems.length, 3);
+  });
+
+  test('基準ブランチを変更できる', () => {
+    assert.deepEqual(findPreflightProblems({ ...ok, branch: 'develop' }, { baseBranch: 'develop' }), []);
+  });
+});
+
+describe('runPreflight', () => {
+  /** git の引数に応じて応答を返す偽の git */
+  const fakeGit = ({ branch = 'main', counts = '0\t0', status = '', fetchError = null } = {}) => {
+    const calls = [];
+    const fn = (args) => {
+      calls.push(args);
+      if (args[0] === 'rev-parse') return branch;
+      if (args[0] === 'fetch') { if (fetchError) throw fetchError; return ''; }
+      if (args[0] === 'rev-list') return counts;
+      if (args[0] === 'status') return status;
+      throw new Error(`unexpected git ${args.join(' ')}`);
+    };
+    fn.calls = calls;
+    return fn;
+  };
+
+  test('条件を満たせば例外を投げない', () => {
+    const gitFn = fakeGit();
+    assert.doesNotThrow(() => runPreflight({ gitFn }));
+  });
+
+  test('fetch してから origin/main と比較する', () => {
+    const gitFn = fakeGit();
+    runPreflight({ gitFn });
+    const fetchIndex = gitFn.calls.findIndex((a) => a[0] === 'fetch');
+    const revListIndex = gitFn.calls.findIndex((a) => a[0] === 'rev-list');
+    assert.ok(fetchIndex >= 0 && fetchIndex < revListIndex);
+    assert.deepEqual(gitFn.calls[fetchIndex], ['fetch', 'origin', 'main']);
+    assert.ok(gitFn.calls[revListIndex].includes('main...origin/main'));
+  });
+
+  test('status は COMMIT_PATHS に限定し未追跡ファイルも含める', () => {
+    const gitFn = fakeGit();
+    runPreflight({ gitFn });
+    const statusArgs = gitFn.calls.find((a) => a[0] === 'status');
+    assert.ok(statusArgs.includes('--porcelain'));
+    assert.ok(statusArgs.includes('--untracked-files=all'));
+    for (const p of COMMIT_PATHS) assert.ok(statusArgs.includes(p));
+  });
+
+  test('ブランチ違い・遅れ・未コミット変更があれば理由つきで例外を投げる', () => {
+    const gitFn = fakeGit({
+      branch: 'news/2026-11-03-race-update',
+      counts: '0\t3',
+      status: ' M src/data/races/a-2027.json\n?? src/data/races/b-2027.json',
+    });
+    assert.throws(() => runPreflight({ gitFn }), (err) => {
+      assert.match(err.message, /news\/2026-11-03-race-update/);
+      assert.match(err.message, /behind 3/);
+      assert.match(err.message, /a-2027\.json/);
+      assert.match(err.message, /b-2027\.json/);
+      return true;
+    });
+  });
+
+  test('先頭行の空白が trim された status 出力でもパスを正しく取り出す', () => {
+    const gitFn = fakeGit({ status: 'M src/data/races/a-2027.json\n M tools/crawl/checksums.json' });
+    assert.throws(() => runPreflight({ gitFn }), (err) => {
+      assert.match(err.message, / src\/data\/races\/a-2027\.json/);
+      assert.match(err.message, / tools\/crawl\/checksums\.json/);
+      return true;
+    });
+  });
+
+  test('fetch に失敗したら中断する（安全側に倒す）', () => {
+    const gitFn = fakeGit({ fetchError: new Error('Could not resolve host') });
+    assert.throws(() => runPreflight({ gitFn }), /fetch/);
+  });
+
+  test('事前チェックの失敗は識別用のエラーコードを持つ', () => {
+    for (const gitFn of [fakeGit({ branch: 'feat/x' }), fakeGit({ fetchError: new Error('offline') })]) {
+      assert.throws(() => runPreflight({ gitFn }), (err) => err.code === PREFLIGHT_ERROR_CODE);
+    }
   });
 });

@@ -70,6 +70,43 @@ function buildCommitMessage(summary) {
   return lines.join('\n');
 }
 
+const MAX_DIRTY_LIST = 10;
+
+/** 事前チェック失敗を呼び出し側で判別するためのエラーコード */
+const PREFLIGHT_ERROR_CODE = 'CRAWL_PREFLIGHT';
+
+/**
+ * クロール開始前の Git 状態から問題点を洗い出す（純粋関数）。
+ * クロールは作業ツリーの race JSON を基準に差分を作り、最後に基準ブランチから PR を切るため、
+ * 別ブランチ・古い基準ブランチ・未コミット変更があると PR に意図しない変更が混入する。
+ * @param {{ branch: string, ahead: number, behind: number, dirty: string[] }} state
+ * @param {{ baseBranch?: string, remote?: string }} [opts]
+ * @returns {string[]} 問題点のメッセージ（問題なしなら空配列）
+ */
+function findPreflightProblems(state, { baseBranch = 'main', remote = 'origin' } = {}) {
+  const problems = [];
+  const upstream = `${remote}/${baseBranch}`;
+
+  if (state.branch !== baseBranch) {
+    problems.push(`現在のブランチが ${baseBranch} ではありません（${state.branch}）。git switch ${baseBranch} で切り替えてください`);
+  }
+
+  if (state.ahead > 0 || state.behind > 0) {
+    problems.push(
+      `${baseBranch} が ${upstream} と一致しません（ahead ${state.ahead} / behind ${state.behind}）。` +
+      'git pull --ff-only で更新するか、未 push のコミットを整理してください',
+    );
+  }
+
+  if (state.dirty.length > 0) {
+    const listed = state.dirty.slice(0, MAX_DIRTY_LIST).map((p) => `    ${p}`);
+    if (state.dirty.length > MAX_DIRTY_LIST) listed.push(`    ほか${state.dirty.length - MAX_DIRTY_LIST}件`);
+    problems.push(`クロール対象パスに未コミットの変更があります。コミットするか破棄してください:\n${listed.join('\n')}`);
+  }
+
+  return problems;
+}
+
 // ── 副作用 ───────────────────────────────────────────────────────
 
 function git(args, opts = {}) {
@@ -87,6 +124,34 @@ function branchExists(name) {
     return true;
   } catch {
     return false;
+  }
+}
+
+/**
+ * クロール開始前に Git 状態を検査し、PR に意図しない変更が混入する状態なら例外を投げる。
+ * fetch に失敗した場合も基準ブランチの鮮度を確認できないため中断する。
+ * @param {{ baseBranch?: string, remote?: string, gitFn?: (args: string[]) => string }} [opts]
+ */
+function runPreflight({ baseBranch = 'main', remote = 'origin', gitFn = git } = {}) {
+  const fail = (message) => Object.assign(new Error(message), { code: PREFLIGHT_ERROR_CODE });
+  const branch = gitFn(['rev-parse', '--abbrev-ref', 'HEAD']).trim();
+
+  try {
+    gitFn(['fetch', remote, baseBranch]);
+  } catch (err) {
+    throw fail(`git fetch ${remote} ${baseBranch} に失敗しました（${err.message}）。ネットワーク接続を確認してください`);
+  }
+
+  const [ahead, behind] = gitFn(['rev-list', '--left-right', '--count', `${baseBranch}...${remote}/${baseBranch}`])
+    .trim().split(/\s+/).map(Number);
+
+  const dirty = gitFn(['status', '--porcelain', '--untracked-files=all', '--', ...COMMIT_PATHS])
+    // git() が出力全体を trim するため先頭行のステータス前の空白が消えうる。固定桁ではなく空白区切りで外す
+    .split('\n').filter((line) => line.trim()).map((line) => line.trim().replace(/^\S+\s+/, ''));
+
+  const problems = findPreflightProblems({ branch, ahead, behind, dirty }, { baseBranch, remote });
+  if (problems.length > 0) {
+    throw fail(`クロールを開始できません:\n${problems.map((p) => `  - ${p}`).join('\n')}`);
   }
 }
 
@@ -140,4 +205,5 @@ function createCrawlPr(summary, body, opts = {}) {
 
 module.exports = {
   shouldCreatePr, buildBranchName, buildPrTitle, buildCommitMessage, createCrawlPr, COMMIT_PATHS, regenerateSeed,
+  findPreflightProblems, runPreflight, PREFLIGHT_ERROR_CODE,
 };

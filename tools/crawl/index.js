@@ -23,7 +23,7 @@ const { extractFromPages, applyAndSave, buildDiff, createNewEditionFile } = requ
 const { geocodeAll } = require('../../scripts/geocode-venues');
 const { screenExtraction } = require('./gate');
 const { buildReport } = require('./report');
-const { shouldCreatePr, createCrawlPr } = require('./pr');
+const { shouldCreatePr, createCrawlPr, runPreflight, PREFLIGHT_ERROR_CODE } = require('./pr');
 const { validateRace } = require('../../scripts/validate-races');
 
 const FETCH_OPTS = {
@@ -306,6 +306,12 @@ async function run(options = {}) {
   const dryRun = options.dryRun ?? false;
   const raceId = options.raceId ?? null;
 
+  // PR に意図しない変更が混入しないよう、ファイル更新を伴う実行は Git 状態を検査してから始める。
+  // dry-run はファイル更新も PR 作成もしないため対象外。
+  if (!dryRun) {
+    runPreflight();
+  }
+
   const checksums = loadChecksums();
   const allFiles = fs.readdirSync(RACES_DIR)
     .filter(f => f.endsWith('.json') && f !== 'index.json')
@@ -543,6 +549,10 @@ if (require.main === module) {
   const raceArgIndex = process.argv.indexOf('--race');
   const raceId = raceArgIndex !== -1 ? process.argv[raceArgIndex + 1] : null;
   run({ dryRun, raceId, useCli: !process.argv.includes('--no-cli') }).catch(err => {
+    if (err.code === PREFLIGHT_ERROR_CODE) {
+      console.error(`[preflight] ${err.message}`);
+      process.exit(1);
+    }
     console.error('予期しないエラー:', err);
     process.exit(1);
   });

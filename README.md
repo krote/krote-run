@@ -235,6 +235,11 @@ pnpm run crawl                             # 変更検知 + 情報抽出 + race 
 node tools/crawl/index.js --race <race-id> # 特定の大会だけ実行
 ```
 
+実行前提（`--dry-run` 以外）: 以下を満たさない場合、クロール前に中断する（`tools/crawl/pr.js` の `runPreflight`）。
+- 現在のブランチが `main`
+- `git fetch` 後の `main` が `origin/main` と一致（ahead / behind なし）
+- `src/data/races`・`tools/crawl/checksums.json`・`migrations/seed-races-all.sql` に未コミットの変更・未追跡ファイルがない
+
 動作フロー:
 1. 各レースの `info_urls`（未設定時は `official_url`）をフェッチ
 2. `tools/crawl/checksums.json` と比較して変更を検知

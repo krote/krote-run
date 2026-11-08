@@ -1797,3 +1797,12 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
   - 更新対象はPR #196（クロールで13大会のデータを更新、2026-11-02マージ）の13大会（代表として高知龍馬・鳥取・チャレンジ富士五湖2027を例示）
   - 本番・STGのD1には別途 `db:seed-races:remote` / `db:seed-races:stg` で反映済み
   - リンク先は大会一覧（`/races`）
+
+## 2026-11-08 クロール実行前のブランチ・作業ツリー事前チェックを追加（#198）
+
+- `tools/crawl/pr.js`: `findPreflightProblems()`（純粋関数）と `runPreflight()` を追加
+  - 現在のブランチが `main` か、`git fetch` 後の `main` が `origin/main` と一致するか、`COMMIT_PATHS` 配下に未コミット変更・未追跡ファイルがないかを検査
+  - `git fetch` 失敗時も中断（安全側）。失敗時のエラーは `code: 'CRAWL_PREFLIGHT'` を持つ
+- `tools/crawl/index.js`: `run()` の冒頭で `--dry-run` 以外のとき `runPreflight()` を実行。失敗時は `[preflight]` 付きで理由を表示して exit 1
+- `tools/crawl/pr.test.js`: 事前チェックのテストを追加
+- `README.md` / `docs/crawl-rules.md`: 実行前提を追記

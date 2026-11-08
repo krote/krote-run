@@ -255,6 +255,12 @@ describe('discoverInfoLinks', () => {
     assert.ok(links.length > 0);
   });
 
+  test('要項・募集ページのリンクを検出する（#208）', () => {
+    const html = '<a href="/a/">大会要項</a><a href="/b/">ランナー募集</a><a href="/outline/">概要</a>';
+    const links = discoverInfoLinks(html, 'https://example.com/');
+    assert.equal(links.length, 3);
+  });
+
   test('関係ないリンクは除外する', () => {
     const html = '<a href="/about/">運営会社</a><a href="/news/">お知らせ</a>';
     const base = 'https://example.com/';
@@ -517,5 +523,46 @@ describe('PDF のテキスト化（#211）', () => {
   test('fetchPageText は PDF でも抽出テキストを返す', async () => {
     const text = await fetchPageText('https://example.com/guide.pdf', { fetchFn: async () => response(makePdf(longLines)) });
     assert.match(text, /Entry fee/);
+  });
+});
+
+describe('URL失効の判定（#208）', () => {
+  const { isUrlExpired, recordFetchFailure, findRelinkCandidates, EXPIRE_AFTER_5XX } = require('./index');
+
+  test('404 / 410 は1回で失効とみなす', () => {
+    assert.equal(isUrlExpired('HTTP 404', 1), true);
+    assert.equal(isUrlExpired('HTTP 410', 1), true);
+  });
+
+  test('5xx は連続失敗が閾値に達したら失効とみなす（一時障害を除くため）', () => {
+    assert.equal(EXPIRE_AFTER_5XX, 3);
+    assert.equal(isUrlExpired('HTTP 500', 2), false);
+    assert.equal(isUrlExpired('HTTP 503', 3), true);
+  });
+
+  test('タイムアウト・証明書・403 などは失効扱いにしない', () => {
+    assert.equal(isUrlExpired('The operation was aborted due to timeout', 10), false);
+    assert.equal(isUrlExpired('fetch failed (UNABLE_TO_VERIFY_LEAF_SIGNATURE)', 10), false);
+    assert.equal(isUrlExpired('HTTP 403', 10), false);
+  });
+
+  test('recordFetchFailure は連続失敗回数を1増やし、ハッシュは保つ', () => {
+    const prev = { hash: 'h', last_checked: 'x', race_id: 'r' };
+    const next = recordFetchFailure(prev, 'r', 'HTTP 500', new Date('2026-11-08T00:00:00Z'));
+    assert.deepEqual(next, { hash: 'h', last_checked: '2026-11-08T00:00:00.000Z', race_id: 'r', fail_count: 1, last_error: 'HTTP 500' });
+    assert.equal(recordFetchFailure(next, 'r', 'HTTP 500', new Date()).fail_count, 2);
+    assert.equal(prev.fail_count, undefined);
+  });
+
+  test('recordFetchFailure は未登録 URL でも記録する', () => {
+    const next = recordFetchFailure(undefined, 'r', 'HTTP 404', new Date('2026-11-08T00:00:00Z'));
+    assert.equal(next.fail_count, 1);
+    assert.equal(next.hash, null);
+  });
+
+  test('findRelinkCandidates はトップページの要項・エントリー等のリンクから登録済み URL を除く', () => {
+    const html = '<a href="/2027/outline/">大会要項</a><a href="/2027/entry/">エントリー</a><a href="/old/entry/">エントリー（旧）</a><a href="/news/">ニュース</a>';
+    const links = findRelinkCandidates(html, 'https://example.com/', ['https://example.com/old/entry/']);
+    assert.deepEqual(links.map((l) => l.href), ['https://example.com/2027/outline/', 'https://example.com/2027/entry/']);
   });
 });

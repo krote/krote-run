@@ -1860,3 +1860,15 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `tools/crawl/eval-models.js`: `--budgets 3000p,10000,20000` で予算方式を比較できるようにした
 - 評価（6大会・131項目・Sonnet 5.5）: 従来57件一致 → 総量20,000字で62件一致（入力トークン +15%）。長井マラソン（PDF 要項）は 7 → 10件
 - `docs/crawl-rules.md`: 予算と評価結果を追記
+
+## 2026-11-08 クロールで巡回URLの失効を検知し、トップページから候補を提示（#208）
+
+- `tools/crawl/index.js`
+  - `isUrlExpired()`: 404 / 410 は即、5xx は3回連続（`EXPIRE_AFTER_5XX`）で「URL失効」と判定
+  - `recordFetchFailure()`: 取得失敗時に `checksums.json` へ `fail_count` / `last_error` を記録（ハッシュは保持。成功で消える）
+  - 全 URL が失効した大会は `official_url` を取得し、`findRelinkCandidates()` で要項・エントリー等のリンク候補を探す（自動置換はしない）
+  - `discoverInfoLinks` のキーワードに「要項・募集・概要・outline・guideline」を追加
+  - 失効を `summary.expired` に記録
+- `tools/crawl/report.js`: 「URL失効」セクションを追加。全 URL 失効の大会は「要対応」として先頭に表示し、候補リンクを並べる
+- 実データ確認（dry-run）: 徳島マラソンの4 URL を 404 で失効として検出。姫路城マラソンの 500 は1回目のため失効扱いにしない
+- `docs/crawl-rules.md`: 判定基準と運用を追記

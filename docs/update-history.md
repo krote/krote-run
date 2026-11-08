@@ -1872,3 +1872,14 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `tools/crawl/report.js`: 「URL失効」セクションを追加。全 URL 失効の大会は「要対応」として先頭に表示し、候補リンクを並べる
 - 実データ確認（dry-run）: 徳島マラソンの4 URL を 404 で失効として検出。姫路城マラソンの 500 は1回目のため失効扱いにしない
 - `docs/crawl-rules.md`: 判定基準と運用を追記
+
+## 2026-11-08 クロール PR にお知らせエントリを自動生成して同梱（#201）
+
+- `tools/crawl/announcement.js`（新規）: クロール結果からお知らせエントリを生成。LLM を使わず diff と race JSON から決定的に組み立てる。文面は既存のデータ更新お知らせ（2026-10-25 / 11-03）の形式に合わせた
+  - タイトル「新たにN大会を掲載・M大会の情報を更新しました」/「N Races Added, M Races Updated」（片方0件なら省略）
+  - 本文は開催日順の大会一覧（大会名・M/D・都道府県＋市区町村）と、diff を話題にまとめた「主な更新内容」
+  - `slug` は `YYYY-MM-DD-race-data-update`、重複時は連番
+- `tools/crawl/index.js`: PR を作る実行で `announcements.json` に追記。`--dry-run` では案を表示するのみ。`collectAnnouncementInputs()` で次年度ファイル・探索で追加した大会を新規掲載、更新した大会を更新として集める
+- `tools/crawl/pr.js`: `COMMIT_PATHS` に `src/data/announcements.json` を追加（実行前チェックの対象にもなる）
+- `tools/crawl/report.js`: PR 本文に「お知らせ（同梱）」を表示
+- `docs/crawl-rules.md`: 運用を追記

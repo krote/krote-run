@@ -254,3 +254,23 @@ describe('buildReport - URL失効（#208）', () => {
     assert.doesNotMatch(buildReport(emptySummary()), /URL失効/);
   });
 });
+
+describe('buildReport - お知らせ案（#201）', () => {
+  const announcement = {
+    slug: '2026-11-08-race-data-update', date: '2026-11-08', title_ja: '2大会の情報を更新しました', title_en: '2 Races Updated',
+    body_ja: '以下の2大会の情報を…\n・鳥取マラソン（3/14・鳥取県鳥取市）', body_en: "We've updated…", link_href: '/races',
+  };
+
+  test('同梱したお知らせのタイトルと本文を表示する', () => {
+    const report = buildReport({ ...emptySummary(), announcement });
+    assert.match(report, /## お知らせ（同梱）/);
+    assert.match(report, /`src\/data\/announcements\.json` に `2026-11-08-race-data-update` を追加/);
+    assert.match(report, /\*\*2大会の情報を更新しました\*\*/);
+    assert.match(report, /・鳥取マラソン（3\/14・鳥取県鳥取市）/);
+    assert.match(report, /2 Races Updated/);
+  });
+
+  test('お知らせが無ければ表示しない', () => {
+    assert.doesNotMatch(buildReport(emptySummary()), /お知らせ（同梱）/);
+  });
+});

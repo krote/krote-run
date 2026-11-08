@@ -16,7 +16,7 @@ const path = require('path');
 const MAX_COMMIT_BODY_LINES = 20;
 
 /** PR にコミットするパス。seed を含めないと DB 投入時に古い seed が使われる */
-const COMMIT_PATHS = ['src/data/races', 'tools/crawl/checksums.json', 'migrations/seed-races-all.sql'];
+const COMMIT_PATHS = ['src/data/races', 'tools/crawl/checksums.json', 'migrations/seed-races-all.sql', 'src/data/announcements.json'];
 
 const SEED_SCRIPT = path.join(__dirname, '..', '..', 'scripts', 'generate-seed-races.js');
 
@@ -204,6 +204,6 @@ function createCrawlPr(summary, body, opts = {}) {
 }
 
 module.exports = {
-  shouldCreatePr, buildBranchName, buildPrTitle, buildCommitMessage, createCrawlPr, COMMIT_PATHS, regenerateSeed,
+  formatDateJst, shouldCreatePr, buildBranchName, buildPrTitle, buildCommitMessage, createCrawlPr, COMMIT_PATHS, regenerateSeed,
   findPreflightProblems, runPreflight, PREFLIGHT_ERROR_CODE,
 };

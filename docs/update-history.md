@@ -1839,3 +1839,15 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `tools/crawl/index.js`: `fetchPageText` が接続エラーの原因コード（`UNABLE_TO_VERIFY_LEAF_SIGNATURE` 等）をメッセージに残すようにした（`fetch failed` に丸められていた）。テスト用に `fetchFn` を差し替え可能にした
 - `tools/crawl/report.js`: `classifyError` に「証明書エラー」を追加
 - `docs/crawl-rules.md` / `README.md`: 中間証明書の追加手順を記載。証明書検証の無効化は使わない
+
+## 2026-11-08 クロールで PDF の URL をテキスト化する（#211）
+
+- `package.json`: devDependencies に `unpdf@2.1.0` を追加（`tools/` 専用）
+- `tools/crawl/index.js`
+  - `fetchPage()` を追加。先頭 `%PDF-` で PDF を判定して `unpdf` でテキスト抽出（これまで PDF のバイナリを HTML として文字列化し、プロンプトに混入していた）。`.pdf` の URL でも中身が HTML なら HTML として扱う
+  - 300字未満の PDF は `sparse`（画像中心）として `summary.sparse_pdfs` に記録。テキストが全く取れない PDF はエラー
+  - `fetchPageText()` は `fetchPage()` のテキストだけを返す互換関数にした
+- `tools/crawl/report.js`: 「テキストの少ないPDF」の表示と、エラー分類「PDFにテキストなし（画像のみ）」を追加
+- `tools/crawl/test-pdf.js`（新規）: テスト用の最小 PDF 生成
+- 実データ確認: 富士登山競走 2,536字・ひたちシーサイド 2,242字・長井 3,464字を抽出（各200〜380ms）。別府大分は画像のみの PDF で失敗として分類
+- `docs/crawl-rules.md`: PDF の扱いを追記

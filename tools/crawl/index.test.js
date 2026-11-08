@@ -457,3 +457,65 @@ describe('fetchPageText', () => {
     await assert.rejects(fetchPageText('https://example.com/', { fetchFn }), /fetch failed \(UNABLE_TO_VERIFY_LEAF_SIGNATURE\)/);
   });
 });
+
+describe('PDF のテキスト化（#211）', () => {
+  const { isPdfBytes, extractPdfText, fetchPage, SPARSE_PDF_CHARS } = require('./index');
+  const { makePdf } = require('./test-pdf');
+
+  const response = (bytes, { contentType = 'application/pdf' } = {}) => ({
+    ok: true,
+    status: 200,
+    headers: new Headers({ 'content-type': contentType }),
+    arrayBuffer: async () => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength),
+    text: async () => new TextDecoder().decode(bytes),
+  });
+  const longLines = Array.from({ length: 12 }, (_, i) => `Entry fee 10000 yen line ${i} for the full marathon category`);
+
+  test('先頭が %PDF- なら PDF と判定する', () => {
+    assert.equal(isPdfBytes(makePdf(['a'])), true);
+    assert.equal(isPdfBytes(new TextEncoder().encode('<html></html>')), false);
+    assert.equal(isPdfBytes(new Uint8Array()), false);
+  });
+
+  test('PDF からテキストを抽出する', async () => {
+    const text = await extractPdfText(makePdf(['Entry fee 10000 yen', 'Start 9:00']));
+    assert.match(text, /Entry fee 10000 yen/);
+    assert.match(text, /Start 9:00/);
+  });
+
+  test('PDF の応答はバイナリではなく抽出テキストを返す', async () => {
+    const page = await fetchPage('https://example.com/guide.pdf', { fetchFn: async () => response(makePdf(longLines)) });
+    assert.equal(page.kind, 'pdf');
+    assert.match(page.text, /Entry fee 10000 yen line 0/);
+    assert.ok(!page.text.includes('endobj'));
+    assert.equal(page.sparse, false);
+  });
+
+  test('Content-Type が PDF でも中身が HTML なら HTML として扱う（リンク切れ等）', async () => {
+    const html = `<html><body>${'お知らせ '.repeat(40)}</body></html>`;
+    const page = await fetchPage('https://example.com/guide.pdf', {
+      fetchFn: async () => response(new TextEncoder().encode(html), { contentType: 'application/pdf' }),
+    });
+    assert.equal(page.kind, 'html');
+    assert.ok(page.text.startsWith('お知らせ'));
+  });
+
+  test('テキストの少ない PDF（画像中心）は sparse として返す（短くてもエラーにしない）', async () => {
+    const page = await fetchPage('https://example.com/p.pdf', { fetchFn: async () => response(makePdf(['FINISH START 9:00'])) });
+    assert.equal(page.kind, 'pdf');
+    assert.equal(page.sparse, true);
+    assert.ok(page.text.length < SPARSE_PDF_CHARS);
+  });
+
+  test('テキストが全く取れない PDF はエラーにする', async () => {
+    await assert.rejects(
+      fetchPage('https://example.com/p.pdf', { fetchFn: async () => response(makePdf([])) }),
+      /PDF からテキストを抽出できない/,
+    );
+  });
+
+  test('fetchPageText は PDF でも抽出テキストを返す', async () => {
+    const text = await fetchPageText('https://example.com/guide.pdf', { fetchFn: async () => response(makePdf(longLines)) });
+    assert.match(text, /Entry fee/);
+  });
+});

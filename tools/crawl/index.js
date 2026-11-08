@@ -281,12 +281,45 @@ function cleanHtml(html) {
     .trim();
 }
 
+/** これより短い PDF テキストは画像中心の PDF とみなしてレポートに出す（#211） */
+const SPARSE_PDF_CHARS = 300;
+const MIN_HTML_CHARS = 100;
+
+/** 先頭が `%PDF-` か（Content-Type は当てにならないため中身で判定する） */
+function isPdfBytes(bytes) {
+  const head = '%PDF-';
+  if (!bytes || bytes.length < head.length) return false;
+  for (let i = 0; i < head.length; i++) {
+    if (bytes[i] !== head.charCodeAt(i)) return false;
+  }
+  return true;
+}
+
 /**
- * ページを取得してテキストにする
+ * PDF のテキストを抽出する（unpdf = pdf.js。Node のみで動作）
+ * @param {Uint8Array} bytes
+ * @returns {Promise<string>} 空白を詰めたテキスト
+ */
+async function extractPdfText(bytes) {
+  const { getDocumentProxy, extractText } = await import('unpdf');
+  // verbosity 0: フォント読み込み等の警告で標準出力を埋めない
+  const pdf = await getDocumentProxy(new Uint8Array(bytes), { verbosity: 0 });
+  try {
+    const { text } = await extractText(pdf, { mergePages: true });
+    return text.replace(/\s+/g, ' ').trim();
+  } finally {
+    await pdf.cleanup?.();
+  }
+}
+
+/**
+ * ページを取得してテキストにする。PDF はテキストを抽出する（#211）
  * @param {string} url
  * @param {{ fetchFn?: typeof fetch }} [opts] - テスト用に fetch を差し替えられる
+ * @returns {Promise<{ text: string, kind: 'html'|'pdf', sparse: boolean }>}
+ *   sparse: テキストの少ない PDF（画像中心のパンフレット等）
  */
-async function fetchPageText(url, { fetchFn = fetch } = {}) {
+async function fetchPage(url, { fetchFn = fetch } = {}) {
   let res;
   try {
     res = await fetchFn(url, { ...FETCH_OPTS, signal: AbortSignal.timeout(15000) });
@@ -296,9 +329,24 @@ async function fetchPageText(url, { fetchFn = fetch } = {}) {
     throw new Error(code ? `${err.message} (${code})` : err.message);
   }
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const text = cleanHtml(await res.text());
-  if (text.length < 100) throw new Error('ページコンテンツが空または短すぎます（スキップ）');
-  return text;
+
+  const bytes = new Uint8Array(await res.arrayBuffer());
+
+  // .pdf の URL でもリンク切れで HTML が返ることがあるため、拡張子ではなく中身で判定する
+  if (isPdfBytes(bytes)) {
+    const text = await extractPdfText(bytes);
+    if (text.length === 0) throw new Error('PDF からテキストを抽出できない（画像のみの PDF）');
+    return { text, kind: 'pdf', sparse: text.length < SPARSE_PDF_CHARS };
+  }
+
+  const text = cleanHtml(new TextDecoder('utf-8').decode(bytes));
+  if (text.length < MIN_HTML_CHARS) throw new Error('ページコンテンツが空または短すぎます（スキップ）');
+  return { text, kind: 'html', sparse: false };
+}
+
+/** ページを取得してテキストだけを返す（評価スクリプト等の互換用） */
+async function fetchPageText(url, opts) {
+  return (await fetchPage(url, opts)).text;
 }
 
 // ── クロール ─────────────────────────────────────────────────────
@@ -315,9 +363,11 @@ async function crawlRace(race, checksums, dryRun = false) {
     let status;
     let error = null;
     let text = null;
+    let page = null;
 
     try {
-      const fetchedText = await fetchPageText(url);
+      page = await fetchPage(url);
+      const fetchedText = page.text;
       const newHash = computeHash(fetchedText);
       const isNew = !checksums[url];
       const changed = hasChanged(url, newHash, checksums);
@@ -342,7 +392,7 @@ async function crawlRace(race, checksums, dryRun = false) {
       error = err.message;
     }
 
-    results.push({ url, status, error, text });
+    results.push({ url, status, error, text, kind: page?.kind ?? null, sparse: page?.sparse ?? false });
   }
 
   return results;
@@ -387,6 +437,7 @@ async function run(options = {}) {
     held: [],          // { race_id, race_name, key, rule, message } 検査で適用を見送った更新
     checks: { errors: 0, warnings: 0, byRule: {} }, // 実行後のデータ品質チェック結果
     llm: emptyLlmUsage(), // LLM 抽出の使用モデル・呼び出し回数・トークン数（#199）
+    sparse_pdfs: [],   // { race_id, url, chars } テキストの少ない PDF（画像中心。#211）
   };
 
   // 変更が検出されたレースを収集（LLM抽出用）
@@ -413,6 +464,9 @@ async function run(options = {}) {
     const changedTexts = [];
     let hasRealChange = false;
     for (const r of results) {
+      if (r.sparse) {
+        summary.sparse_pdfs.push({ race_id: race.id, url: r.url, chars: r.text.length });
+      }
       if (r.status === 'changed') {
         hasRealChange = true;
         summary.changed.push({ race_id: race.id, url: r.url });
@@ -613,5 +667,5 @@ if (require.main === module && shouldRelaunchWithExtraCa(process.env)) {
     process.exit(1);
   });
 } else {
-  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks, isMissingCriticalFields, getForcedExtractionReasons, isPastRace, isEditionTransition, buildExtractOptions, accumulateLlmUsage, emptyLlmUsage, fetchPageText };
+  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks, isMissingCriticalFields, getForcedExtractionReasons, isPastRace, isEditionTransition, buildExtractOptions, accumulateLlmUsage, emptyLlmUsage, fetchPageText, fetchPage, isPdfBytes, extractPdfText, SPARSE_PDF_CHARS };
 }

@@ -60,6 +60,10 @@ describe('classifyError', () => {
     assert.equal(classifyError('fetch failed (CERT_HAS_EXPIRED)'), '証明書エラー');
     assert.equal(classifyError('fetch failed (DEPTH_ZERO_SELF_SIGNED_CERT)'), '証明書エラー');
   });
+
+  test('画像のみの PDF は分けて分類する（#211）', () => {
+    assert.equal(classifyError('PDF からテキストを抽出できない（画像のみの PDF）'), 'PDFにテキストなし（画像のみ）');
+  });
 });
 
 describe('buildReport', () => {
@@ -197,5 +201,18 @@ describe('buildReport - LLM 使用量（#199）', () => {
   test('LLM を呼ばなかった場合は使用量の行を出さない', () => {
     const md = buildReport({ ...emptySummary(), llm: { models: [], calls: 0, inputTokens: 0, outputTokens: 0, cacheCreationTokens: 0, cacheReadTokens: 0, costUsd: 0 } });
     assert.doesNotMatch(md, /使用モデル/);
+  });
+});
+
+describe('buildReport - テキストの少ない PDF（#211）', () => {
+  test('画像中心の PDF を大会・URL・文字数つきで表示する', () => {
+    const summary = { ...emptySummary(), sparse_pdfs: [{ race_id: 'a-2027', url: 'https://a/p.pdf', chars: 61 }] };
+    const report = buildReport(summary);
+    assert.match(report, /テキストの少ないPDF（1件）/);
+    assert.match(report, /`a-2027` https:\/\/a\/p\.pdf（61字）/);
+  });
+
+  test('該当がなければ表示しない', () => {
+    assert.doesNotMatch(buildReport(emptySummary()), /テキストの少ないPDF/);
   });
 });

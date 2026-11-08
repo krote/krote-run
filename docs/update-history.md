@@ -1840,7 +1840,6 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `tools/crawl/report.js`: `classifyError` に「証明書エラー」を追加
 - `docs/crawl-rules.md` / `README.md`: 中間証明書の追加手順を記載。証明書検証の無効化は使わない
 
-<<<<<<< Updated upstream
 ## 2026-11-08 クロールで PDF の URL をテキスト化する（#211）
 
 - `package.json`: devDependencies に `unpdf@2.1.0` を追加（`tools/` 専用）
@@ -1912,10 +1911,15 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `.gitignore`: `tools/discover/candidates.json` / `candidates.md`
 - 実データ確認: 一覧3ページ（30件）→ 期間・除外後27件 → 掲載済み6件を除き候補21件。せとだレモンマラソン2027 を dry-run で生成し、公式サイト（lemon-marathon.jp）から種目・参加費・定員・エントリー期間・会場を抽出できた
 - `README.md` / `docs/crawl-rules.md`: 手順と情報源の方針を追記
-=======
+
 ## 2026-11-09 クロール結果（PR #219）を stg・本番 D1 へ適用
 
 - `pnpm run db:seed-races:stg` → `pnpm run db:seed-races:remote` の順に適用（changes 3,382 / rows_written 7,004、両環境とも同値）
 - 適用後、両環境で `races` が 143 → 144 件（`higashine-sakuranbo-marathon-2027` を新規追加）。更新した大会の `entry_end_date` / `updated_at` が JSON と一致することを確認
 - 適用前の確認: seed は全大会の `race_travel_times` / `weather_history` を DELETE するが再 INSERT しない。両環境とも `race_travel_times` は元から 0 件、`weather_history` は seed 対象外の2大会（`nagano-marathon-2026` / `challenge-fuji5lakes-2026`）の10件のみで、今回の適用で失われるデータは無かった
->>>>>>> Stashed changes
+
+## 2026-11-09 スタックPR（#213〜#218）の変更を main に取り込む
+
+- #213〜#218 はスタック構成（各PRの base が1つ前のブランチ）のままマージしたため、変更が main ではなく1つ前のブランチに入り、main には #212 しか反映されていなかった
+- スタック先端の `feat/discover-races-204`（#213〜#218 の6コミットをすべて含む）に main（#212・#219）をマージした `feat/crawl-stack-to-main` から main へPRを出し直した。コンフリクトなし、`pnpm run test:tools` 523件 pass
+- 次回以降、スタックPRは先頭のPRをマージした後に次のPRの base を main へ変更してからマージする

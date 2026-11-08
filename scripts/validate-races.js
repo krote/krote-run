@@ -57,9 +57,10 @@ function isPast(race, now = new Date()) {
 /**
  * レースJSONの品質チェックを行い、問題リストを返す
  * @param {object} race
+ * @param {{ now?: Date }} [opts] - now: 開催済み判定の基準日時（既定は現在時刻）
  * @returns {{ rule: string, level: 'error'|'warning', message: string }[]}
  */
-function validateRace(race) {
+function validateRace(race, { now = new Date() } = {}) {
   const issues = [];
 
   // ── Rule 1: entry_periods label_ja / label_en 空文字禁止 ────────────
@@ -152,7 +153,7 @@ function validateRace(race) {
   // entry_fee_by_category が true のとき entry_fee が null なのは設計どおりだが、
   // カテゴリ側にも入っていなければ利用者に参加費を出せない（Search Console の
   // offers.price 欠落の指摘もこれが原因）。開催済みの大会は補完対象外。
-  if (!isPast(race)) {
+  if (!isPast(race, now)) {
     const hasTopFee = race.entry_fee != null;
     const hasCategoryFee = (race.categories ?? []).some(c => c.entry_fee != null);
     const hasPeriodFee = (race.entry_periods ?? []).some(p => p.entry_fee != null);

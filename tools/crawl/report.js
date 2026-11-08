@@ -89,6 +89,18 @@ function renderAnnouncement(summary, lines) {
   lines.push('</details>', '');
 }
 
+function renderXPost(summary, lines) {
+  const post = summary.x_post;
+  if (!post) return;
+
+  const how = post.source === 'llm'
+    ? 'LLM で要約'
+    : `テンプレート文${post.error ? `（LLM の生成に失敗: ${post.error}）` : '（LLM の文が条件を満たさなかったため）'}`;
+  lines.push('## X 投稿文', '');
+  lines.push(`マージ・デプロイ後に手動で投稿する。${how}・${post.length} / 280（X の数え方）`, '');
+  lines.push('```text', post.text, '```', '');
+}
+
 function renderNewEditions(summary, lines) {
   const editions = summary.new_editions ?? [];
   if (editions.length === 0) return;
@@ -262,6 +274,7 @@ function buildReport(summary) {
   renderChanges(summary, lines);
   renderNewEditions(summary, lines);
   renderAnnouncement(summary, lines);
+  renderXPost(summary, lines);
   renderExpired(summary, lines);
   renderFailures(summary, lines);
   renderTruncated(summary, lines);

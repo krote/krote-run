@@ -27,6 +27,7 @@ const { screenExtraction } = require('./gate');
 const { buildReport } = require('./report');
 const { shouldCreatePr, createCrawlPr, runPreflight, PREFLIGHT_ERROR_CODE, formatDateJst } = require('./pr');
 const { buildAnnouncement, appendAnnouncement } = require('./announcement');
+const { generateXPost } = require('./x-post');
 const { validateRace } = require('../../scripts/validate-races');
 const { shouldRelaunchWithExtraCa, relaunchWithExtraCa } = require('./extra-ca');
 
@@ -761,6 +762,13 @@ async function run(options = {}) {
         appendAnnouncement(ANNOUNCEMENTS_FILE, announcement);
         console.log(`\n[announce] お知らせを追加しました: ${announcement.slug}`);
       }
+
+      // X 投稿文（#202）。投稿は手動。生成に失敗してもテンプレート文になり PR 作成は止めない
+      console.log('[x-post] X 投稿文を生成中...');
+      const xPost = await generateXPost(announcement, extractOptions);
+      for (const meta of xPost.metas) summary.llm = accumulateLlmUsage(summary.llm, meta);
+      summary.x_post = xPost;
+      console.log(`[x-post] ${xPost.source === 'llm' ? 'LLM で生成' : 'テンプレート文'}（${xPost.length} / 280）`);
     }
   }
 

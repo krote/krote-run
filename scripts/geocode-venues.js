@@ -87,9 +87,11 @@ async function geocodeAddress(address) {
 
 /**
  * 全レース JSON を走査し、venue_address がありかつ座標が未設定のものを geocode する
- * @param {{ dryRun?: boolean, fetchFn?: Function, _delayMs?: number }} opts
+ * 進捗は log に1件1行で出力する。process.stdout.write で改行なしの部分出力をすると
+ * node --test の子プロセス通信を壊すため使わない。
+ * @param {{ dryRun?: boolean, fetchFn?: Function, _delayMs?: number, log?: (line: string) => void }} opts
  */
-async function geocodeAll({ dryRun = false, fetchFn = geocodeAddress, _delayMs = 1000 } = {}) {
+async function geocodeAll({ dryRun = false, fetchFn = geocodeAddress, _delayMs = 1000, log = console.log } = {}) {
   const files = fs.readdirSync(RACES_DIR)
     .filter(f => f.endsWith('.json') && f !== 'index.json')
     .sort();
@@ -105,18 +107,18 @@ async function geocodeAll({ dryRun = false, fetchFn = geocodeAddress, _delayMs =
     if (!race.venue_address) { skipped++; continue; }
     if (race.start_lat != null && race.start_lng != null) { skipped++; continue; }
 
-    process.stdout.write(`  ${file}: "${race.venue_address}" → `);
+    const prefix = `  ${file}: "${race.venue_address}" → `;
 
     try {
       const coords = await fetchFn(race.venue_address);
       if (!coords) {
-        console.log('結果なし（スキップ）');
+        log(`${prefix}結果なし（スキップ）`);
         failed++;
       } else if (!isInJapan(coords.lat, coords.lng)) {
-        console.log(`範囲外 (${coords.lat}, ${coords.lng})（スキップ）`);
+        log(`${prefix}範囲外 (${coords.lat}, ${coords.lng})（スキップ）`);
         failed++;
       } else {
-        console.log(`(${coords.lat}, ${coords.lng})`);
+        log(`${prefix}(${coords.lat}, ${coords.lng})`);
         processed++;
 
         if (!dryRun) {
@@ -127,7 +129,7 @@ async function geocodeAll({ dryRun = false, fetchFn = geocodeAddress, _delayMs =
         }
       }
     } catch (err) {
-      console.log(`エラー: ${err.message}`);
+      log(`${prefix}エラー: ${err.message}`);
       failed++;
     } finally {
       // 礼儀正しく待つ（APIへの連続リクエストを避ける）
@@ -135,8 +137,8 @@ async function geocodeAll({ dryRun = false, fetchFn = geocodeAddress, _delayMs =
     }
   }
 
-  console.log(`\n処理: ${processed}件  スキップ: ${skipped}件  エラー/範囲外: ${failed}件`);
-  if (dryRun) console.log('（--dry-run のため実際の書き込みは行っていません）');
+  log(`\n処理: ${processed}件  スキップ: ${skipped}件  エラー/範囲外: ${failed}件`);
+  if (dryRun) log('（--dry-run のため実際の書き込みは行っていません）');
 
   return { processed, skipped, failed };
 }

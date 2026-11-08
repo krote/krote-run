@@ -216,3 +216,16 @@ describe('buildReport - テキストの少ない PDF（#211）', () => {
     assert.doesNotMatch(buildReport(emptySummary()), /テキストの少ないPDF/);
   });
 });
+
+describe('buildReport - テキストの切り詰め（#210）', () => {
+  test('切り詰めたページを大会・URL・残した字数/全体で表示する', () => {
+    const summary = { ...emptySummary(), truncated: [{ race_id: 'a-2027', pages: [{ url: 'https://a/x', kept: 4500, total: 12000 }] }] };
+    const report = buildReport(summary);
+    assert.match(report, /テキストを切り詰めたページ（1大会）/);
+    assert.match(report, /`a-2027` https:\/\/a\/x（4,500 \/ 12,000字）/);
+  });
+
+  test('該当がなければ表示しない', () => {
+    assert.doesNotMatch(buildReport(emptySummary()), /切り詰めたページ/);
+  });
+});

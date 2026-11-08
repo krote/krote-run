@@ -1125,3 +1125,64 @@ describe('callClaudeP - 非ゼロ終了時のエラーメッセージ（#199）'
     );
   });
 });
+
+// ── allocateTextBudget（#210） ────────────────────────────────────
+
+describe('allocateTextBudget', () => {
+  const { allocateTextBudget } = require('./extractor');
+  const page = (url, len) => ({ url, text: 'あ'.repeat(len) });
+
+  test('合計が予算以内なら全ページを全文のまま返す', () => {
+    const { pages, truncated } = allocateTextBudget([page('a', 5000), page('b', 4000)], 20000);
+    assert.equal(pages[0].text.length, 5000);
+    assert.equal(pages[1].text.length, 4000);
+    assert.deepEqual(truncated, []);
+  });
+
+  test('短いページは全文、余った予算を長いページに配分する', () => {
+    const { pages, truncated } = allocateTextBudget([page('short', 1000), page('long1', 12000), page('long2', 9000)], 10000);
+    assert.equal(pages[0].text.length, 1000);
+    assert.equal(pages[1].text.length, 4500);
+    assert.equal(pages[2].text.length, 4500);
+    assert.deepEqual(truncated, [
+      { url: 'long1', kept: 4500, total: 12000 },
+      { url: 'long2', kept: 4500, total: 9000 },
+    ]);
+  });
+
+  test('配分の合計は予算を超えない', () => {
+    const input = [page('a', 7001), page('b', 3333), page('c', 9999), page('d', 10)];
+    const { pages } = allocateTextBudget(input, 10000);
+    assert.ok(pages.reduce((s, p) => s + p.text.length, 0) <= 10000);
+  });
+
+  test('ページの順序と url を保つ（元の配列は変更しない）', () => {
+    const input = [page('x', 9000), page('y', 100)];
+    const { pages } = allocateTextBudget(input, 1000);
+    assert.deepEqual(pages.map((p) => p.url), ['x', 'y']);
+    assert.equal(input[0].text.length, 9000);
+  });
+
+  test('perPageLimit 指定時は従来どおりページごとに切り詰める（評価の比較用）', () => {
+    const { pages, truncated } = allocateTextBudget([page('a', 5000), page('b', 100)], null, { perPageLimit: 3000 });
+    assert.equal(pages[0].text.length, 3000);
+    assert.equal(pages[1].text.length, 100);
+    assert.deepEqual(truncated, [{ url: 'a', kept: 3000, total: 5000 }]);
+  });
+});
+
+describe('buildExtractionPrompt - 総量予算（#210）', () => {
+  const race = { id: 'r-2027', name_ja: 'R', date: '2027-03-01' };
+
+  test('既定では 3,000字を超えるページも予算内なら全文を含める', () => {
+    const text = `${'い'.repeat(5000)}末尾マーカー`;
+    const prompt = buildExtractionPrompt(race, [{ url: 'u', text }]);
+    assert.ok(prompt.includes('末尾マーカー'));
+  });
+
+  test('textBudget を超える分は切り詰める', () => {
+    const text = `${'い'.repeat(5000)}末尾マーカー`;
+    const prompt = buildExtractionPrompt(race, [{ url: 'u', text }], { textBudget: 1000 });
+    assert.ok(!prompt.includes('末尾マーカー'));
+  });
+});

@@ -100,6 +100,14 @@ function summarizeScores(results) {
   return { total, match, mismatch: count('mismatch'), missing: count('missing'), rate: total ? match / total : null };
 }
 
+/** 「3000p」= ページごと3,000字（従来方式）、「20000」= 1大会あたり総量20,000字（#210） */
+function parseBudget(token) {
+  const m = token.match(/^(\d+)(p?)$/);
+  if (!m) throw new Error(`--budgets の値が不正です: ${token}（例: 3000p,10000,20000）`);
+  const value = Number(m[1]);
+  return m[2] ? { label: `${value}字/ページ`, perPageLimit: value } : { label: `総量${value}字`, textBudget: value };
+}
+
 function parseArgs(argv) {
   const get = (name) => {
     const i = argv.indexOf(name);
@@ -109,7 +117,9 @@ function parseArgs(argv) {
   const races = list(get('--races'));
   if (races.length === 0) throw new Error('--races に評価する大会IDをカンマ区切りで指定してください');
   const models = list(get('--models'));
+  const budgets = list(get('--budgets')).map(parseBudget);
   return {
+    budgets: budgets.length ? budgets : [{ label: '既定予算' }],
     races,
     models: models.length ? models : DEFAULT_MODELS,
     refresh: argv.includes('--refresh'),
@@ -191,10 +201,12 @@ async function main(argv) {
   }
 
   const results = [];
-  for (const model of args.models) {
+  const runs = args.models.flatMap((model) => args.budgets.map((budget) => ({ model, budget })));
+  for (const { model, budget } of runs) {
+    const label = args.budgets.length > 1 ? `${model} / ${budget.label}` : model;
     const races = [];
     for (const { race, pages } of inputs) {
-      process.stdout.write(`[eval] ${model} × ${race.id} ... `);
+      process.stdout.write(`[eval] ${label} × ${race.id} ... `);
       const started = Date.now();
       if (pages.length === 0) {
         races.push({ raceId: race.id, scores: null, held: 0, error: 'ページ取得失敗', ms: 0, meta: null });
@@ -203,7 +215,7 @@ async function main(argv) {
       }
       try {
         const blank = blankForEval(race);
-        const { extracted, meta } = await extractFromPages(blank, pages, { model });
+        const { extracted, meta } = await extractFromPages(blank, pages, { model, textBudget: budget.textBudget, perPageLimit: budget.perPageLimit });
         const { held } = screenExtraction(blank, extracted);
         const scores = summarizeScores(compareExtraction(race, extracted));
         races.push({ raceId: race.id, scores, held: held.length, error: null, ms: Date.now() - started, meta });
@@ -213,7 +225,7 @@ async function main(argv) {
         console.log(`失敗: ${err.message}`);
       }
     }
-    results.push({ model, races });
+    results.push({ model: label, races });
   }
 
   const md = renderMarkdown(results);

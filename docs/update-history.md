@@ -1851,3 +1851,12 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `tools/crawl/test-pdf.js`（新規）: テスト用の最小 PDF 生成
 - 実データ確認: 富士登山競走 2,536字・ひたちシーサイド 2,242字・長井 3,464字を抽出（各200〜380ms）。別府大分は画像のみの PDF で失敗として分類
 - `docs/crawl-rules.md`: PDF の扱いを追記
+
+## 2026-11-08 クロールのページテキスト切り詰めを1大会あたりの総量予算に変更（#210）
+
+- `tools/crawl/extractor.js`: `allocateTextBudget()` を追加。ページごとの先頭3,000字切り詰めをやめ、1大会あたり合計20,000字（`DEFAULT_TEXT_BUDGET`）に収める。短いページは全文、残りを長いページに均等配分。`extractFromPages` は切り詰めたページ（`truncated`）も返す
+- `tools/crawl/index.js`: 切り詰めたページを `summary.truncated` に記録
+- `tools/crawl/report.js`: 「テキストを切り詰めたページ」を表示
+- `tools/crawl/eval-models.js`: `--budgets 3000p,10000,20000` で予算方式を比較できるようにした
+- 評価（6大会・131項目・Sonnet 5.5）: 従来57件一致 → 総量20,000字で62件一致（入力トークン +15%）。長井マラソン（PDF 要項）は 7 → 10件
+- `docs/crawl-rules.md`: 予算と評価結果を追記

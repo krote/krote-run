@@ -48,12 +48,53 @@ const DIFF_FIELDS = [
 // ── 純粋関数（テスト対象） ────────────────────────────────────────
 
 /**
+ * 1大会あたりにプロンプトへ入れるページテキストの総量（字数。#210）。
+ * 値は eval-models.js の --budgets で比較して決めた（docs/crawl-rules.md 参照）
+ */
+const DEFAULT_TEXT_BUDGET = 20000;
+
+/**
+ * ページテキストを1大会あたりの総量予算に収める（#210）。
+ * 短いページは全文を入れ、残りの予算を長いページに均等に配分する（水位方式）。
+ * 以前はページごとに先頭3,000字で切っていたため、長いページの後半が常に欠けていた。
+ * @param {{ url: string, text: string }[]} pageTexts
+ * @param {number|null} totalBudget - 総量（字数）
+ * @param {{ perPageLimit?: number|null }} [opts] - 指定時は従来のページごとの切り詰め（評価の比較用）
+ * @returns {{ pages: { url: string, text: string }[], truncated: { url: string, kept: number, total: number }[] }}
+ */
+function allocateTextBudget(pageTexts, totalBudget, { perPageLimit = null } = {}) {
+  const lengths = pageTexts.map((p) => p.text.length);
+  const limits = new Array(pageTexts.length);
+
+  if (perPageLimit) {
+    lengths.forEach((len, i) => { limits[i] = Math.min(len, perPageLimit); });
+  } else {
+    const order = lengths.map((_, i) => i).sort((a, b) => lengths[a] - lengths[b]);
+    let remaining = totalBudget;
+    let left = order.length;
+    for (const i of order) {
+      const share = Math.floor(remaining / left);
+      limits[i] = Math.min(lengths[i], share);
+      remaining -= limits[i];
+      left--;
+    }
+  }
+
+  const pages = pageTexts.map((p, i) => ({ ...p, text: p.text.slice(0, limits[i]) }));
+  const truncated = pageTexts
+    .map((p, i) => ({ url: p.url, kept: limits[i], total: lengths[i] }))
+    .filter((t) => t.kept < t.total);
+  return { pages, truncated };
+}
+
+/**
  * claude -p に渡すプロンプトを構築する
  * @param {object} race - 既存の race JSON
  * @param {{ url: string, text: string }[]} pageTexts - 変更が検出されたページ
+ * @param {{ textBudget?: number, perPageLimit?: number|null }} [opts] - ページテキストの予算（allocateTextBudget）
  * @returns {string}
  */
-function buildExtractionPrompt(race, pageTexts) {
+function buildExtractionPrompt(race, pageTexts, { textBudget = DEFAULT_TEXT_BUDGET, perPageLimit = null } = {}) {
   const existingScalar = [
     `  開催日: ${race.date ?? '不明'}`,
     `  申込開始: ${race.entry_start_date ?? '不明'}`,
@@ -87,8 +128,8 @@ function buildExtractionPrompt(race, pageTexts) {
     `  checkpoints: ${JSON.stringify(race.checkpoints ?? [])}`,
   ].join('\n');
 
-  const pages = pageTexts
-    .map(p => `=== ${p.url} ===\n${p.text.slice(0, 3000)}`)
+  const pages = allocateTextBudget(pageTexts, textBudget, { perPageLimit }).pages
+    .map(p => `=== ${p.url} ===\n${p.text}`)
     .join('\n\n');
 
   return `以下はマラソン大会「${race.name_ja}」(ID: ${race.id}) の公式サイトのテキストです。
@@ -393,15 +434,18 @@ async function callClaudeP(prompt, opts = {}) {
  * 変更が検出されたページからレース情報を抽出する
  * @param {object} race
  * @param {{ url: string, text: string }[]} pageTexts
- * @param {{ useCli?: boolean, model?: string, fetchFn?: Function, spawnFn?: Function }} [opts]
- * @returns {Promise<{ extracted: object, diff: object[], meta: object }>}
+ * @param {{ useCli?: boolean, model?: string, fetchFn?: Function, spawnFn?: Function, textBudget?: number, perPageLimit?: number|null }} [opts]
+ * @returns {Promise<{ extracted: object, diff: object[], meta: object, truncated: object[] }>}
+ *   truncated: 予算に収めるため切り詰めたページ（allocateTextBudget）
  */
 async function extractFromPages(race, pageTexts, opts = {}) {
-  const prompt = buildExtractionPrompt(race, pageTexts);
+  const budget = { textBudget: opts.textBudget ?? DEFAULT_TEXT_BUDGET, perPageLimit: opts.perPageLimit ?? null };
+  const { truncated } = allocateTextBudget(pageTexts, budget.textBudget, budget);
+  const prompt = buildExtractionPrompt(race, pageTexts, budget);
   const { text, meta } = await callClaudeP(prompt, opts);
   const extracted = parseClaudeResponse(text);
   const diff = buildDiff(race, extracted);
-  return { extracted, diff, meta };
+  return { extracted, diff, meta, truncated };
 }
 
 /**
@@ -546,6 +590,8 @@ function createNewEditionFile(race, extracted, opts = {}) {
 // ── エクスポート ──────────────────────────────────────────────────
 
 module.exports = {
+  allocateTextBudget,
+  DEFAULT_TEXT_BUDGET,
   buildExtractionPrompt,
   parseClaudeResponse,
   buildDiff,

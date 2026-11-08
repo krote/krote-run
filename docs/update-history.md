@@ -1883,3 +1883,15 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `tools/crawl/pr.js`: `COMMIT_PATHS` に `src/data/announcements.json` を追加（実行前チェックの対象にもなる）
 - `tools/crawl/report.js`: PR 本文に「お知らせ（同梱）」を表示
 - `docs/crawl-rules.md`: 運用を追記
+
+## 2026-11-08 クロール PR 本文に X 投稿文を生成（#202）
+
+- `tools/crawl/x-post.js`（新規）: お知らせエントリから X のまとめ投稿1件分を生成
+  - `countXLength()`: X の重み付き文字数（全角2・半角1・URL 23）。上限280
+  - LLM で要約し、文字数・リンクの有無を検証。条件を満たさなければ1回だけ再生成、だめならテンプレート文（`buildTemplatePost()`）。LLM 失敗時もテンプレート文
+  - リンク `https://hashiru.run/ja/news`、ハッシュタグ `#マラソン #ランニング`
+- `tools/crawl/x-post-system-prompt.txt`（新規）: X 投稿文用のシステムプロンプト
+- `tools/crawl/extractor.js`: `callClaudeP` / `buildCliArgs` にシステムプロンプトの差し替え（`systemPromptFile`）を追加
+- `tools/crawl/index.js`: お知らせ生成後に X 投稿文を生成し、LLM 使用量に合算
+- `tools/crawl/report.js`: PR 本文に「X 投稿文」（コードブロック・文字数・生成方法）を表示
+- 実データ確認: 既存のお知らせ2件と生成サンプル1件で 257〜264 / 280。うち1件は初回が超過し、再生成で収まった

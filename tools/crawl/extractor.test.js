@@ -1186,3 +1186,10 @@ describe('buildExtractionPrompt - 総量予算（#210）', () => {
     assert.ok(!prompt.includes('末尾マーカー'));
   });
 });
+
+describe('buildCliArgs - システムプロンプトの差し替え（#202）', () => {
+  test('第2引数のファイルをシステムプロンプトにする（X 投稿文の生成用）', () => {
+    const args = buildCliArgs('m', '/tmp/x.txt');
+    assert.equal(args[args.indexOf('--system-prompt-file') + 1], '"/tmp/x.txt"');
+  });
+});

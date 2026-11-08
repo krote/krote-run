@@ -274,3 +274,22 @@ describe('buildReport - お知らせ案（#201）', () => {
     assert.doesNotMatch(buildReport(emptySummary()), /お知らせ（同梱）/);
   });
 });
+
+describe('buildReport - X 投稿文（#202）', () => {
+  test('コピーしやすいようコードブロックで、文字数と生成方法を添えて表示する', () => {
+    const summary = { ...emptySummary(), x_post: { text: '13大会を更新しました\nhttps://hashiru.run/ja/news\n#マラソン #ランニング', source: 'llm', length: 80 } };
+    const report = buildReport(summary);
+    assert.match(report, /## X 投稿文/);
+    assert.match(report, /```text\n13大会を更新しました\nhttps:\/\/hashiru\.run\/ja\/news\n#マラソン #ランニング\n```/);
+    assert.match(report, /80 \/ 280/);
+  });
+
+  test('テンプレート文にした場合はその旨と理由を出す', () => {
+    const summary = { ...emptySummary(), x_post: { text: 't', source: 'template', length: 1, error: 'boom' } };
+    assert.match(buildReport(summary), /テンプレート文（LLM の生成に失敗: boom）/);
+  });
+
+  test('無ければ表示しない', () => {
+    assert.doesNotMatch(buildReport(emptySummary()), /X 投稿文/);
+  });
+});

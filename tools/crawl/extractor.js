@@ -283,12 +283,12 @@ function resolveModel(env = process.env) {
  * @param {string} model
  * @returns {string[]}
  */
-function buildCliArgs(model) {
+function buildCliArgs(model, systemPromptFile = SYSTEM_PROMPT_FILE) {
   return [
     '-p',
     '--model', model,
     '--output-format', 'json',
-    '--system-prompt-file', `"${SYSTEM_PROMPT_FILE}"`,
+    '--system-prompt-file', `"${systemPromptFile}"`,
     '--tools', '""',
     '--strict-mcp-config',
     '--no-session-persistence',
@@ -338,8 +338,8 @@ function describeCliFailure(result) {
   return result.stderr?.trim() || String(result.stdout ?? '').trim().slice(0, 200);
 }
 
-function readSystemPrompt() {
-  return fs.readFileSync(SYSTEM_PROMPT_FILE, 'utf-8').trim();
+function readSystemPrompt(file = SYSTEM_PROMPT_FILE) {
+  return fs.readFileSync(file, 'utf-8').trim();
 }
 
 // ── 副作用関数 ────────────────────────────────────────────────────
@@ -348,7 +348,8 @@ function readSystemPrompt() {
  * LLM でプロンプトを実行し、結果テキストと使用量を返す。
  * 既定は claude -p（サブスクの利用枠）。useCli: false で Messages API（ANTHROPIC_API_KEY）を使う。
  * @param {string} prompt
- * @param {{ useCli?: boolean, model?: string, fetchFn?: Function, spawnFn?: Function }} opts
+ * @param {{ useCli?: boolean, model?: string, fetchFn?: Function, spawnFn?: Function, systemPromptFile?: string }} opts
+ *   systemPromptFile: 抽出以外の用途（X 投稿文の生成等）でシステムプロンプトを差し替える
  * @returns {Promise<{ text: string, meta: { model: string|null, inputTokens: number, outputTokens: number, cacheCreationTokens: number, cacheReadTokens: number, costUsd: number|null } }>}
  */
 async function callClaudeP(prompt, opts = {}) {
@@ -365,7 +366,7 @@ async function callClaudeP(prompt, opts = {}) {
     // 超えるプロンプト（複数URL分のページテキストを含む）で
     // 「The command line is too long.」により失敗するため。
     // cwd を一時ディレクトリにして、プロジェクトの CLAUDE.md を読ませない。
-    const result = spawnFn('claude', buildCliArgs(model), {
+    const result = spawnFn('claude', buildCliArgs(model, opts.systemPromptFile), {
       input: prompt,
       encoding: 'utf-8',
       timeout: LLM_TIMEOUT_MS,
@@ -401,7 +402,7 @@ async function callClaudeP(prompt, opts = {}) {
       body: JSON.stringify({
         model,
         max_tokens: API_MAX_TOKENS,
-        system: readSystemPrompt(),
+        system: readSystemPrompt(opts.systemPromptFile),
         messages: [{ role: 'user', content: prompt }],
       }),
       signal: controller.signal,

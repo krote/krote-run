@@ -36,7 +36,7 @@
       "AIMS"
     ],
     "highlights_ja": "さくら通り、新九頭竜橋、丸岡城周辺",
-    "highlights_en": "Sakura-dori Ave, Shin-Kuzuryu Bridge, Marukoka Castle area",
+    "highlights_en": "Sakura-dori Ave, Shin-Kuzuryu Bridge, Maruoka Castle area",
     "notes_ja": "高低差15mのフラットなコース",
     "notes_en": "Flat course with 15m elevation difference"
   },
@@ -152,7 +152,7 @@
   ],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-09-18T14:15:46.946Z",
+  "updated_at": "2026-11-08T15:18:44.280Z",
   "_metadata": {
     "data_source": "公式サイト（fukui-sakura-marathon.jp）およびふくい桜マラソン公式ニュースリリース、福井新聞ONLINE報道から転記",
     "data_accuracy_notes": [
@@ -164,9 +164,10 @@
       "2026-08-31: 自動クロールで更新",
       "2026-08-31: info_urlsの宿泊・交通URL（/access/）が404。/access/ページは存在せず該当情報は/stay/に統合されていたためURLを修正",
       "2026-09-04: 自動クロールで更新",
-      "2026-09-18: 自動クロールで更新"
+      "2026-09-18: 自動クロールで更新",
+      "2026-11-08: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-08",
     "detail_level": "medium"
   },
   "entry_periods": [

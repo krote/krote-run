@@ -164,6 +164,17 @@ function renderSummaryCounts(summary, lines) {
   lines.push(`| 失敗 | ${(summary.errors ?? []).length} |`);
   const geo = summary.geocoded ?? { processed: 0, skipped: 0, failed: 0 };
   lines.push(`| 座標補完 | ${geo.processed}（失敗${geo.failed}） |`);
+
+  const llm = summary.llm;
+  if (llm && llm.calls > 0) {
+    const n = (v) => v.toLocaleString('en-US');
+    lines.push(`| 使用モデル | ${llm.models.join(', ')} |`);
+    lines.push(`| LLM呼び出し | ${llm.calls} |`);
+    lines.push(`| 入力トークン | ${n(llm.inputTokens)}（キャッシュ作成 ${n(llm.cacheCreationTokens)} / 読込 ${n(llm.cacheReadTokens)}） |`);
+    lines.push(`| 出力トークン | ${n(llm.outputTokens)} |`);
+    // claude -p の total_cost_usd は API 料金換算。サブスク利用時は実費ではない
+    lines.push(`| API換算コスト | $${llm.costUsd.toFixed(2)} |`);
+  }
   lines.push('');
 }
 

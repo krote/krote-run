@@ -365,3 +365,64 @@ describe('getForcedExtractionReasons', () => {
     assert.ok(reasons.length >= 3, `理由が足りない: ${reasons}`);
   });
 });
+
+// ── #199: 抽出オプションの伝搬と LLM 使用量の集計 ───────────────────
+
+const { buildExtractOptions, accumulateLlmUsage, emptyLlmUsage } = require('./index');
+
+describe('buildExtractOptions', () => {
+  test('--no-cli 指定（useCli: false）を抽出に渡す', () => {
+    assert.equal(buildExtractOptions({ useCli: false }, {}).useCli, false);
+  });
+
+  test('既定は CLI 経由', () => {
+    assert.equal(buildExtractOptions({}, {}).useCli, true);
+  });
+
+  test('モデルは CRAWL_MODEL から解決する', () => {
+    assert.equal(buildExtractOptions({}, { CRAWL_MODEL: 'claude-opus-5-5' }).model, 'claude-opus-5-5');
+    assert.equal(buildExtractOptions({}, {}).model, 'claude-sonnet-5-5');
+  });
+
+  test('options.model が環境変数より優先される（評価スクリプトから指定するため）', () => {
+    assert.equal(buildExtractOptions({ model: 'claude-haiku-5-5' }, { CRAWL_MODEL: 'claude-opus-5-5' }).model, 'claude-haiku-5-5');
+  });
+});
+
+describe('accumulateLlmUsage', () => {
+  const meta = (over = {}) => ({
+    model: 'claude-sonnet-5-5', inputTokens: 100, outputTokens: 50,
+    cacheCreationTokens: 600, cacheReadTokens: 10, costUsd: 0.01, ...over,
+  });
+
+  test('呼び出し回数とトークン数を合算する', () => {
+    let usage = emptyLlmUsage();
+    usage = accumulateLlmUsage(usage, meta());
+    usage = accumulateLlmUsage(usage, meta({ inputTokens: 1, outputTokens: 2, costUsd: 0.02 }));
+    assert.equal(usage.calls, 2);
+    assert.equal(usage.inputTokens, 101);
+    assert.equal(usage.outputTokens, 52);
+    assert.equal(usage.cacheCreationTokens, 1200);
+    assert.equal(usage.cacheReadTokens, 20);
+    assert.ok(Math.abs(usage.costUsd - 0.03) < 1e-9);
+  });
+
+  test('使用モデルを重複なく記録する', () => {
+    let usage = emptyLlmUsage();
+    usage = accumulateLlmUsage(usage, meta());
+    usage = accumulateLlmUsage(usage, meta());
+    usage = accumulateLlmUsage(usage, meta({ model: 'claude-haiku-5-5' }));
+    assert.deepEqual(usage.models, ['claude-sonnet-5-5', 'claude-haiku-5-5']);
+  });
+
+  test('costUsd が null（API 経路）でも壊れない', () => {
+    const usage = accumulateLlmUsage(emptyLlmUsage(), meta({ costUsd: null }));
+    assert.equal(usage.costUsd, 0);
+  });
+
+  test('元のオブジェクトを変更しない', () => {
+    const before = emptyLlmUsage();
+    accumulateLlmUsage(before, meta());
+    assert.equal(before.calls, 0);
+  });
+});

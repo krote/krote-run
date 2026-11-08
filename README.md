@@ -233,6 +233,18 @@ pnpm run admin
 pnpm run crawl:dry                         # 変更検知とレポート出力のみ（ファイル更新・PR作成なし）
 pnpm run crawl                             # 変更検知 + 情報抽出 + race JSON 更新 + PR作成
 node tools/crawl/index.js --race <race-id> # 特定の大会だけ実行
+node tools/crawl/index.js --no-cli         # claude -p ではなく Messages API（ANTHROPIC_API_KEY）で抽出
+```
+
+抽出モデル: 既定は `claude-sonnet-5-5`。環境変数 `CRAWL_MODEL` で変更できる（CLI・API 共通）。
+`claude -p` はシステムプロンプトを `tools/crawl/extract-system-prompt.txt` に差し替え、一時ディレクトリで実行するため、CLAUDE.md 等の余分なコンテキストを読み込まない。
+使用モデル・LLM呼び出し回数・トークン数は PR 本文の「実行サマリ」に記載される。
+
+モデルの比較評価（レビュー済みの race JSON を正解として、採点項目を空にした状態から各モデルに抽出させる）:
+
+```bash
+node tools/crawl/eval-models.js --races kochi-ryoma-marathon-2027,tottori-marathon-2027 \
+  [--models claude-haiku-5-5,claude-sonnet-5-5,claude-opus-5-5] [--refresh] [--out result.md]
 ```
 
 実行前提（`--dry-run` 以外）: 以下を満たさない場合、クロール前に中断する（`tools/crawl/pr.js` の `runPreflight`）。
@@ -243,7 +255,7 @@ node tools/crawl/index.js --race <race-id> # 特定の大会だけ実行
 動作フロー:
 1. 各レースの `info_urls`（未設定時は `official_url`）をフェッチ
 2. `tools/crawl/checksums.json` と比較して変更を検知
-3. 変更があったページを `claude -p`（または `ANTHROPIC_API_KEY` 使用時は Messages API）に渡して構造化抽出
+3. 変更があったページを `claude -p`（`--no-cli` 指定時は Messages API）に渡して構造化抽出
    - ページが無変更でも、参加費・説明文・会場情報・エントリー開始日が欠けている大会は抽出対象にする
 4. **検査ゲート**（`tools/crawl/gate.js`）でデータ品質ルールに反する更新を除外する
 5. 差分があるフィールドのみ race JSON を更新

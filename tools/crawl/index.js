@@ -19,7 +19,7 @@ const ROOT = path.join(__dirname, '../..');
 const RACES_DIR = path.join(ROOT, 'src/data/races');
 const CHECKSUMS_FILE = path.join(__dirname, 'checksums.json');
 
-const { extractFromPages, applyAndSave, buildDiff, createNewEditionFile } = require('./extractor');
+const { extractFromPages, applyAndSave, buildDiff, createNewEditionFile, resolveModel } = require('./extractor');
 const { geocodeAll } = require('../../scripts/geocode-venues');
 const { screenExtraction } = require('./gate');
 const { buildReport } = require('./report');
@@ -213,6 +213,41 @@ function getLatestFilesPerSeries(files) {
   return [...map.values()].map(v => v.file).sort();
 }
 
+/**
+ * run() のオプションから LLM 抽出のオプションを組み立てる。
+ * options.model（評価スクリプトから指定）> CRAWL_MODEL > 既定モデル の順で決まる。
+ * @param {{ useCli?: boolean, model?: string }} options
+ * @param {Record<string, string|undefined>} [env]
+ * @returns {{ useCli: boolean, model: string }}
+ */
+function buildExtractOptions(options, env = process.env) {
+  return {
+    useCli: options.useCli ?? true,
+    model: options.model ?? resolveModel(env),
+  };
+}
+
+function emptyLlmUsage() {
+  return { models: [], calls: 0, inputTokens: 0, outputTokens: 0, cacheCreationTokens: 0, cacheReadTokens: 0, costUsd: 0 };
+}
+
+/**
+ * LLM 呼び出し1回分の meta を使用量の合計に加える（元のオブジェクトは変更しない）
+ * costUsd は claude -p が返す API 換算額。サブスク利用時は実費ではない
+ */
+function accumulateLlmUsage(usage, meta) {
+  const models = meta.model && !usage.models.includes(meta.model) ? [...usage.models, meta.model] : usage.models;
+  return {
+    models,
+    calls: usage.calls + 1,
+    inputTokens: usage.inputTokens + (meta.inputTokens ?? 0),
+    outputTokens: usage.outputTokens + (meta.outputTokens ?? 0),
+    cacheCreationTokens: usage.cacheCreationTokens + (meta.cacheCreationTokens ?? 0),
+    cacheReadTokens: usage.cacheReadTokens + (meta.cacheReadTokens ?? 0),
+    costUsd: usage.costUsd + (meta.costUsd ?? 0),
+  };
+}
+
 // ── I/O ──────────────────────────────────────────────────────────
 
 function loadChecksums() {
@@ -240,7 +275,7 @@ function cleanHtml(html) {
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
+    .replace(/>/g, '>')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -338,11 +373,14 @@ async function run(options = {}) {
     geocoded: { processed: 0, skipped: 0, failed: 0 }, // venue_address からの座標補完
     held: [],          // { race_id, race_name, key, rule, message } 検査で適用を見送った更新
     checks: { errors: 0, warnings: 0, byRule: {} }, // 実行後のデータ品質チェック結果
+    llm: emptyLlmUsage(), // LLM 抽出の使用モデル・呼び出し回数・トークン数（#199）
   };
 
   // 変更が検出されたレースを収集（LLM抽出用）
   const changedRaces = [];
 
+  const extractOptions = buildExtractOptions(options);
+  console.log(`[crawl] 抽出: ${extractOptions.useCli ? 'claude -p' : 'Messages API'} / モデル ${extractOptions.model}`);
   console.log(`[crawl] ${files.length}件のレースをチェックします（${skippedBySeries}件は旧年度のためスキップ）${dryRun ? ' (dry-run)' : ''}\n`);
 
   for (const file of files) {
@@ -405,7 +443,8 @@ async function run(options = {}) {
     for (const { race, changedTexts } of changedRaces) {
       process.stdout.write(`[extract] ${race.id} ... `);
       try {
-        const { extracted: rawExtracted } = await extractFromPages(race, changedTexts);
+        const { extracted: rawExtracted, meta } = await extractFromPages(race, changedTexts, extractOptions);
+        summary.llm = accumulateLlmUsage(summary.llm, meta);
 
         // データ品質ルールに反する更新は適用しない（同じ指摘の再発を適用前に止める）
         const { applied: extracted, held } = screenExtraction(race, rawExtracted);
@@ -495,6 +534,7 @@ async function run(options = {}) {
   console.log(`エラー   : ${summary.errors.length}件`);
   console.log(`スキップ : ${summary.skipped}件（URL未設定）`);
   console.log(`座標補完 : ${summary.geocoded.processed}件（スキップ${summary.geocoded.skipped}件・失敗${summary.geocoded.failed}件）`);
+  console.log(`LLM呼出 : ${summary.llm.calls}回（${summary.llm.models.join(', ') || '-'}・入力${summary.llm.inputTokens}/出力${summary.llm.outputTokens}トークン）`);
 
   if (summary.extracted.length > 0) {
     console.log('\n--- 更新されたレース ---');
@@ -557,5 +597,5 @@ if (require.main === module) {
     process.exit(1);
   });
 } else {
-  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks, isMissingCriticalFields, getForcedExtractionReasons, isPastRace, isEditionTransition };
+  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks, isMissingCriticalFields, getForcedExtractionReasons, isPastRace, isEditionTransition, buildExtractOptions, accumulateLlmUsage, emptyLlmUsage, fetchPageText };
 }

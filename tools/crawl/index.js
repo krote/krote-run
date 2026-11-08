@@ -437,6 +437,7 @@ async function run(options = {}) {
     held: [],          // { race_id, race_name, key, rule, message } 検査で適用を見送った更新
     checks: { errors: 0, warnings: 0, byRule: {} }, // 実行後のデータ品質チェック結果
     llm: emptyLlmUsage(), // LLM 抽出の使用モデル・呼び出し回数・トークン数（#199）
+    truncated: [],     // { race_id, pages: [{ url, kept, total }] } 総量予算に収めるため切り詰めたページ（#210）
     sparse_pdfs: [],   // { race_id, url, chars } テキストの少ない PDF（画像中心。#211）
   };
 
@@ -510,8 +511,9 @@ async function run(options = {}) {
     for (const { race, changedTexts } of changedRaces) {
       process.stdout.write(`[extract] ${race.id} ... `);
       try {
-        const { extracted: rawExtracted, meta } = await extractFromPages(race, changedTexts, extractOptions);
+        const { extracted: rawExtracted, meta, truncated } = await extractFromPages(race, changedTexts, extractOptions);
         summary.llm = accumulateLlmUsage(summary.llm, meta);
+        if (truncated.length > 0) summary.truncated.push({ race_id: race.id, pages: truncated });
 
         // データ品質ルールに反する更新は適用しない（同じ指摘の再発を適用前に止める）
         const { applied: extracted, held } = screenExtraction(race, rawExtracted);

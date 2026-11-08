@@ -146,6 +146,22 @@ function renderFailures(summary, lines) {
   }
 }
 
+function renderTruncated(summary, lines) {
+  const truncated = summary.truncated ?? [];
+  if (truncated.length === 0) return;
+
+  const n = (v) => v.toLocaleString('en-US');
+  lines.push(`### テキストを切り詰めたページ（${truncated.length}大会）`, '');
+  lines.push('1大会あたりの総量予算を超えたため、後半をプロンプトに入れていない。抽出漏れがあれば `info_urls` を絞る。', '');
+  lines.push('<details><summary>一覧</summary>', '');
+  for (const t of truncated) {
+    for (const p of t.pages) {
+      lines.push(`- \`${t.race_id}\` ${p.url}（${n(p.kept)} / ${n(p.total)}字）`);
+    }
+  }
+  lines.push('', '</details>', '');
+}
+
 function renderChecks(summary, lines) {
   const checks = summary.checks ?? { errors: 0, warnings: 0, byRule: {} };
   lines.push('## チェック結果', '');
@@ -207,6 +223,7 @@ function buildReport(summary) {
   renderChanges(summary, lines);
   renderNewEditions(summary, lines);
   renderFailures(summary, lines);
+  renderTruncated(summary, lines);
   renderChecks(summary, lines);
   renderSummaryCounts(summary, lines);
 

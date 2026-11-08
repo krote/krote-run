@@ -170,3 +170,20 @@ describe('renderMarkdown - 入力トークン（#199）', () => {
     assert.match(md, /3,502/);
   });
 });
+
+describe('parseArgs - --budgets（#210）', () => {
+  test('総量予算と「Np」（ページごと N 字）を受け取る', () => {
+    const a = parseArgs(['--races', 'a', '--budgets', '3000p,10000,20000']);
+    assert.deepEqual(a.budgets, [{ label: '3000字/ページ', perPageLimit: 3000 }, { label: '総量10000字', textBudget: 10000 }, { label: '総量20000字', textBudget: 20000 }]);
+  });
+
+  test('省略時は既定の予算1件だけ', () => {
+    const a = parseArgs(['--races', 'a']);
+    assert.equal(a.budgets.length, 1);
+    assert.equal(a.budgets[0].perPageLimit, undefined);
+  });
+
+  test('数値でない予算は例外', () => {
+    assert.throws(() => parseArgs(['--races', 'a', '--budgets', 'abc']), /--budgets/);
+  });
+});

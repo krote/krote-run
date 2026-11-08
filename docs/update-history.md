@@ -1804,3 +1804,12 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `scripts/validate-races.test.js`: `entry_fee_missing` のテストが開催日 `2026-10-01` を固定値で使っており、実行日がこれを過ぎて「開催済み」扱いになり失敗していた。基準日 `2026-09-01` を渡して日付に依存しないようにし、基準日で判定が切り替わるテストを追加
 - `scripts/geocode-venues.js`: `geocodeAll` に `log` オプションを追加し、`process.stdout.write` による改行なしの部分出力をやめて1件1行で出力するようにした
 - `scripts/geocode-venues.test.js`: `geocodeAll` の日本語の進捗出力が `node --test` の子プロセス通信を壊し「Unable to deserialize cloned data」でファイルごと失敗していた。テストでは `log` を差し替えて出力を抑止し、1件1行で渡すことを検証するテストを追加
+
+## 2026-11-08 クロール実行前のブランチ・作業ツリー事前チェックを追加（#198）
+
+- `tools/crawl/pr.js`: `findPreflightProblems()`（純粋関数）と `runPreflight()` を追加
+  - 現在のブランチが `main` か、`git fetch` 後の `main` が `origin/main` と一致するか、`COMMIT_PATHS` 配下に未コミット変更・未追跡ファイルがないかを検査
+  - `git fetch` 失敗時も中断（安全側）。失敗時のエラーは `code: 'CRAWL_PREFLIGHT'` を持つ
+- `tools/crawl/index.js`: `run()` の冒頭で `--dry-run` 以外のとき `runPreflight()` を実行。失敗時は `[preflight]` 付きで理由を表示して exit 1
+- `tools/crawl/pr.test.js`: 事前チェックのテストを追加
+- `README.md` / `docs/crawl-rules.md`: 実行前提を追記

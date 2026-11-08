@@ -37,6 +37,8 @@ function classifyError(message) {
     return `HTTPエラー (${status})`;
   }
 
+  // 中間証明書の欠落・期限切れ等。extra-ca.pem への追加で直る場合がある（#209）
+  if (/CERT|UNABLE_TO_VERIFY|SELF_SIGNED/.test(text)) return '証明書エラー';
   if (/timeout|aborted/i.test(text)) return 'タイムアウト';
   if (/JSON/i.test(text)) return '抽出結果の解析失敗';
   if (/空または短すぎ/.test(text)) return 'ページ内容が取得できない';

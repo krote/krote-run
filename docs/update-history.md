@@ -1830,3 +1830,12 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `README.md`: 抽出モデル・`--no-cli`・評価スクリプトを追記
 - 評価結果（5大会・採点116項目）: Haiku 5.5 47件一致 / Sonnet 5.5 53件 / Opus 5.5 54件。Sonnet と Opus はほぼ同等で、Sonnet が最速・最少出力のため既定を `claude-sonnet-5-5` で確定（詳細は #199 のコメント）
 - 開発環境の Claude Code を 2.1.239 → 2.1.319 に更新（Opus 5.5 は 2.1.280 以上が必要）
+
+## 2026-11-08 クロールで中間証明書が欠けたサイトを取得できるようにする（#209）
+
+- `tools/crawl/extra-ca.pem`（新規）: 青島太平洋マラソン（`www.aotai.gr.jp`）・佐渡トキマラソン（`www.scsf.jp`）が送ってこない中間 CA 証明書（GeoTrust TLS RSA CA G1 / GlobalSign GCC R3 DV TLS CA 2020）。出典・フィンガープリント・期限をコメントに記載
+- `tools/crawl/extra-ca.js`（新規）: `NODE_EXTRA_CA_CERTS` 未設定なら同じ引数で自分を起動し直す。Node 22 には実行中に CA を追加する API がなく、`--env-file` でも効かないため（実測）
+- `tools/crawl/index.js` / `eval-models.js`: エントリーポイントで上記の再起動を行う
+- `tools/crawl/index.js`: `fetchPageText` が接続エラーの原因コード（`UNABLE_TO_VERIFY_LEAF_SIGNATURE` 等）をメッセージに残すようにした（`fetch failed` に丸められていた）。テスト用に `fetchFn` を差し替え可能にした
+- `tools/crawl/report.js`: `classifyError` に「証明書エラー」を追加
+- `docs/crawl-rules.md` / `README.md`: 中間証明書の追加手順を記載。証明書検証の無効化は使わない

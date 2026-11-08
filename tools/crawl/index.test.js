@@ -368,7 +368,7 @@ describe('getForcedExtractionReasons', () => {
 
 // ── #199: 抽出オプションの伝搬と LLM 使用量の集計 ───────────────────
 
-const { buildExtractOptions, accumulateLlmUsage, emptyLlmUsage } = require('./index');
+const { buildExtractOptions, accumulateLlmUsage, emptyLlmUsage, fetchPageText } = require("./index");
 
 describe('buildExtractOptions', () => {
   test('--no-cli 指定（useCli: false）を抽出に渡す', () => {
@@ -424,5 +424,36 @@ describe('accumulateLlmUsage', () => {
     const before = emptyLlmUsage();
     accumulateLlmUsage(before, meta());
     assert.equal(before.calls, 0);
+  });
+});
+
+describe('fetchPageText', () => {
+  const htmlResponse = (body, { status = 200, contentType = 'text/html' } = {}) => ({
+    ok: status >= 200 && status < 300,
+    status,
+    headers: new Headers({ 'content-type': contentType }),
+    text: async () => body,
+    arrayBuffer: async () => new TextEncoder().encode(body).buffer,
+  });
+
+  test('HTML はタグを除いたテキストを返す', async () => {
+    const body = `<html><body><p>${'大会要項 '.repeat(30)}</p></body></html>`;
+    const text = await fetchPageText('https://example.com/', { fetchFn: async () => htmlResponse(body) });
+    assert.ok(text.startsWith('大会要項'));
+    assert.ok(!text.includes('<p>'));
+  });
+
+  test('HTTP エラーはステータスをメッセージに含める', async () => {
+    await assert.rejects(
+      fetchPageText('https://example.com/', { fetchFn: async () => htmlResponse('', { status: 404 }) }),
+      /HTTP 404/,
+    );
+  });
+
+  test('接続エラーは原因コードをメッセージに含める（#209 証明書エラーの分類用）', async () => {
+    const fetchFn = async () => {
+      throw new TypeError('fetch failed', { cause: Object.assign(new Error('unable to verify'), { code: 'UNABLE_TO_VERIFY_LEAF_SIGNATURE' }) });
+    };
+    await assert.rejects(fetchPageText('https://example.com/', { fetchFn }), /fetch failed \(UNABLE_TO_VERIFY_LEAF_SIGNATURE\)/);
   });
 });

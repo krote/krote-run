@@ -24,6 +24,8 @@
 # misc
 .DS_Store
 *.pem
+# 中間CA証明書（公開情報のみ。秘密鍵ではない）は追跡する（#209）
+!tools/crawl/extra-ca.pem
 
 # debug
 npm-debug.log*

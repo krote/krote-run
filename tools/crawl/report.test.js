@@ -54,6 +54,12 @@ describe('classifyError', () => {
   test('未知のエラーはその他にまとめる', () => {
     assert.equal(classifyError('something odd'), 'その他');
   });
+
+  test('証明書エラーは他と分けて分類する（#209）', () => {
+    assert.equal(classifyError('fetch failed (UNABLE_TO_VERIFY_LEAF_SIGNATURE)'), '証明書エラー');
+    assert.equal(classifyError('fetch failed (CERT_HAS_EXPIRED)'), '証明書エラー');
+    assert.equal(classifyError('fetch failed (DEPTH_ZERO_SELF_SIGNED_CERT)'), '証明書エラー');
+  });
 });
 
 describe('buildReport', () => {

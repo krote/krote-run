@@ -42,6 +42,7 @@ function classifyError(message) {
   if (/timeout|aborted/i.test(text)) return 'タイムアウト';
   if (/JSON/i.test(text)) return '抽出結果の解析失敗';
   if (/空または短すぎ/.test(text)) return 'ページ内容が取得できない';
+  if (/PDF からテキストを抽出できない/.test(text)) return 'PDFにテキストなし（画像のみ）';
   if (/claude -p 失敗|ANTHROPIC/i.test(text)) return 'LLM呼び出し失敗';
   return 'その他';
 }
@@ -90,7 +91,7 @@ function renderFailures(summary, lines) {
   const held = summary.held ?? [];
   const skippedPast = summary.skipped_past ?? [];
 
-  if (errors.length === 0 && held.length === 0 && skippedPast.length === 0) return;
+  if (errors.length === 0 && held.length === 0 && skippedPast.length === 0 && (summary.sparse_pdfs ?? []).length === 0) return;
 
   lines.push('## 失敗・保留の分析', '');
 
@@ -121,6 +122,16 @@ function renderFailures(summary, lines) {
     lines.push('| 大会 | 項目 | ルール | 内容 |', '|---|---|---|---|');
     for (const h of held) {
       lines.push(`| ${h.race_name ?? h.race_id} | ${h.key} | \`${h.rule}\` | ${formatValue(h.message)} |`);
+    }
+    lines.push('');
+  }
+
+  const sparsePdfs = summary.sparse_pdfs ?? [];
+  if (sparsePdfs.length > 0) {
+    lines.push(`### テキストの少ないPDF（${sparsePdfs.length}件）`, '');
+    lines.push('画像中心のパンフレット等で、抽出に使える情報がほとんどない。要項が HTML でも公開されていれば `info_urls` をそちらに替える。', '');
+    for (const p of sparsePdfs) {
+      lines.push(`- \`${p.race_id}\` ${p.url}（${p.chars}字）`);
     }
     lines.push('');
   }

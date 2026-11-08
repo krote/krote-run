@@ -1813,3 +1813,20 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `tools/crawl/index.js`: `run()` の冒頭で `--dry-run` 以外のとき `runPreflight()` を実行。失敗時は `[preflight]` 付きで理由を表示して exit 1
 - `tools/crawl/pr.test.js`: 事前チェックのテストを追加
 - `README.md` / `docs/crawl-rules.md`: 実行前提を追記
+
+## 2026-11-08 クロール抽出モデルの明示固定と比較評価（#199）
+
+- `tools/crawl/extractor.js`
+  - 抽出モデルを明示指定。既定 `claude-sonnet-5-5`、`CRAWL_MODEL` で上書き（CLI・API 共通）。これまで `claude -p` は `--model` 未指定で CLI 既定（`claude-sonnet-5`）任せだった
+  - `claude -p` を `--output-format json` で呼び、使用モデル・トークン数・API換算コストを取得（`parseCliOutput`）
+  - システムプロンプトを `tools/crawl/extract-system-prompt.txt` に差し替え、ツール・MCP 無効、一時ディレクトリで実行。1回あたりのコンテキストが約61,000 → 約700トークンに削減（実測）
+  - Messages API 経路: 旧 `claude-haiku-4-5` の直書きを廃止、タイムアウトを CLI と同じ180秒に統一、`max_tokens` 4096 → 8192
+  - 非ゼロ終了時は stdout の JSON の `result` から原因を表示（CLI のバージョン不足等が切り詰めで見えなかった）
+  - `callClaudeP` / `extractFromPages` は使用量（`meta`）も返す
+- `tools/crawl/index.js`: `--no-cli` が抽出に渡っていなかったバグを修正（`buildExtractOptions`）。LLM 使用量を `summary.llm` に集計
+- `tools/crawl/report.js`: 実行サマリに使用モデル・LLM呼び出し回数・トークン数・API換算コストを追加
+- `tools/crawl/eval-models.js`（新規）: レビュー済み race JSON を正解に、採点項目を空にした状態からモデル別に抽出させて一致率・保留・時間・トークンを比較
+- `package.json`: `test:tools` に `report.test.js` / `gate.test.js` / `eval-models.test.js` を追加（前2つは実行対象から漏れていた）
+- `README.md`: 抽出モデル・`--no-cli`・評価スクリプトを追記
+- 評価結果（5大会・採点116項目）: Haiku 5.5 47件一致 / Sonnet 5.5 53件 / Opus 5.5 54件。Sonnet と Opus はほぼ同等で、Sonnet が最速・最少出力のため既定を `claude-sonnet-5-5` で確定（詳細は #199 のコメント）
+- 開発環境の Claude Code を 2.1.239 → 2.1.319 に更新（Opus 5.5 は 2.1.280 以上が必要）

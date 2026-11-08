@@ -171,3 +171,25 @@ describe('buildReport', () => {
     assert.match(md, /tokyo-marathon-2027/);
   });
 });
+
+describe('buildReport - LLM 使用量（#199）', () => {
+  test('使用モデル・呼び出し回数・トークン数を実行サマリに載せる', () => {
+    const md = buildReport({
+      ...emptySummary(),
+      llm: {
+        models: ['claude-sonnet-5-5'], calls: 3, inputTokens: 12000, outputTokens: 3400,
+        cacheCreationTokens: 1800, cacheReadTokens: 1200, costUsd: 0.1234,
+      },
+    });
+    assert.match(md, /使用モデル \| claude-sonnet-5-5/);
+    assert.match(md, /LLM呼び出し \| 3/);
+    assert.match(md, /12,000/);
+    assert.match(md, /3,400/);
+    assert.match(md, /\$0\.12/);
+  });
+
+  test('LLM を呼ばなかった場合は使用量の行を出さない', () => {
+    const md = buildReport({ ...emptySummary(), llm: { models: [], calls: 0, inputTokens: 0, outputTokens: 0, cacheCreationTokens: 0, cacheReadTokens: 0, costUsd: 0 } });
+    assert.doesNotMatch(md, /使用モデル/);
+  });
+});

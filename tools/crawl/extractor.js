@@ -7,6 +7,7 @@
 
 const { spawnSync } = require('child_process');
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 
 const RACES_DIR = path.join(__dirname, '../../src/data/races');
@@ -208,21 +209,113 @@ function buildDiff(current, extracted) {
     });
 }
 
+// ── LLM 呼び出し設定（#199） ──────────────────────────────────────
+
+/** 抽出の既定モデル。CRAWL_MODEL 環境変数で上書きする */
+const DEFAULT_MODEL = 'claude-sonnet-5-5';
+
+/** CLI・API 共通のタイムアウト。60秒では複数URL分のページテキストを含む長い prompt で頻繁にタイムアウトした */
+const LLM_TIMEOUT_MS = 180000;
+
+/** 説明文・関門・エイドを含む JSON が途中で切れないよう余裕を持たせる */
+const API_MAX_TOKENS = 8192;
+
+/**
+ * claude -p の既定システムプロンプト（CLAUDE.md・ツール定義・MCP を含め約5万トークン）を
+ * 抽出専用の短いものに差し替える。差し替えると1回あたり約600トークンになる（2026-11-08 実測）
+ */
+const SYSTEM_PROMPT_FILE = path.join(__dirname, 'extract-system-prompt.txt');
+
+/**
+ * 使用モデルを解決する
+ * @param {Record<string, string|undefined>} [env]
+ * @returns {string}
+ */
+function resolveModel(env = process.env) {
+  const model = (env.CRAWL_MODEL ?? '').trim();
+  return model || DEFAULT_MODEL;
+}
+
+/**
+ * claude -p の引数を組み立てる。shell: true で渡すため、パスは自前でクォートする。
+ * prompt はコマンドライン長制限を避けるため引数ではなく stdin で渡す。
+ * @param {string} model
+ * @returns {string[]}
+ */
+function buildCliArgs(model) {
+  return [
+    '-p',
+    '--model', model,
+    '--output-format', 'json',
+    '--system-prompt-file', `"${SYSTEM_PROMPT_FILE}"`,
+    '--tools', '""',
+    '--strict-mcp-config',
+    '--no-session-persistence',
+  ];
+}
+
+/**
+ * claude -p --output-format json の出力から結果テキストと使用量を取り出す
+ * @param {string} stdout
+ * @returns {{ text: string, meta: object }}
+ */
+function parseCliOutput(stdout) {
+  let data;
+  try {
+    data = JSON.parse(stdout);
+  } catch {
+    throw new Error(`claude -p の出力を JSON として解釈できません: ${String(stdout).trim().slice(0, 200)}`);
+  }
+  if (data.is_error) {
+    throw new Error(`claude -p がエラーを返しました: ${String(data.result ?? data.subtype ?? '').slice(0, 200)}`);
+  }
+  const usage = data.usage ?? {};
+  return {
+    text: String(data.result ?? '').trim(),
+    meta: {
+      model: Object.keys(data.modelUsage ?? {})[0] ?? null,
+      inputTokens: usage.input_tokens ?? 0,
+      outputTokens: usage.output_tokens ?? 0,
+      cacheCreationTokens: usage.cache_creation_input_tokens ?? 0,
+      cacheReadTokens: usage.cache_read_input_tokens ?? 0,
+      costUsd: data.total_cost_usd ?? null,
+    },
+  };
+}
+
+/**
+ * 非ゼロ終了時の原因を取り出す。--output-format json ではエラー内容も stdout の JSON の result に入り、
+ * usage 等が先に並ぶため、生の stdout を切り詰めると原因が見えなくなる。
+ */
+function describeCliFailure(result) {
+  try {
+    const data = JSON.parse(result.stdout);
+    if (data.result) return String(data.result).trim();
+  } catch {
+    // JSON でなければ stderr / stdout をそのまま使う
+  }
+  return result.stderr?.trim() || String(result.stdout ?? '').trim().slice(0, 200);
+}
+
+function readSystemPrompt() {
+  return fs.readFileSync(SYSTEM_PROMPT_FILE, 'utf-8').trim();
+}
+
 // ── 副作用関数 ────────────────────────────────────────────────────
 
 /**
- * claude -p でプロンプトを実行して結果テキストを返す
- * ANTHROPIC_API_KEY が設定されている場合は Messages API を直接呼び出す（CI 対応）
+ * LLM でプロンプトを実行し、結果テキストと使用量を返す。
+ * 既定は claude -p（サブスクの利用枠）。useCli: false で Messages API（ANTHROPIC_API_KEY）を使う。
  * @param {string} prompt
- * @param {{ useCli?: boolean, fetchFn?: Function, spawnFn?: Function }} opts
- * @returns {Promise<string>}
+ * @param {{ useCli?: boolean, model?: string, fetchFn?: Function, spawnFn?: Function }} opts
+ * @returns {Promise<{ text: string, meta: { model: string|null, inputTokens: number, outputTokens: number, cacheCreationTokens: number, cacheReadTokens: number, costUsd: number|null } }>}
  */
 async function callClaudeP(prompt, opts = {}) {
   const useCli = opts.useCli ?? true;
+  const model = opts.model ?? resolveModel();
   const fetchFn = opts.fetchFn ?? fetch;
   const spawnFn = opts.spawnFn ?? spawnSync;
 
-  // CLI を使う場合
   if (useCli) {
     // shell: true が必須。Windows では claude は .cmd シムのため、
     // shell 経由でないと spawnSync が ENOENT で失敗する。
@@ -230,30 +323,31 @@ async function callClaudeP(prompt, opts = {}) {
     // 引数で渡すと Windows の cmd.exe コマンドライン長制限（約8191文字）を
     // 超えるプロンプト（複数URL分のページテキストを含む）で
     // 「The command line is too long.」により失敗するため。
-    const result = spawnFn('claude', ['-p'], {
+    // cwd を一時ディレクトリにして、プロジェクトの CLAUDE.md を読ませない。
+    const result = spawnFn('claude', buildCliArgs(model), {
       input: prompt,
       encoding: 'utf-8',
-      // 60秒だと複数URL分のページテキストを含む長いpromptで頻繁にタイムアウトしたため180秒に延長
-      timeout: 180000,
+      timeout: LLM_TIMEOUT_MS,
       maxBuffer: 4 * 1024 * 1024,
       shell: true,
+      cwd: os.tmpdir(),
     });
 
     if (result.error) throw result.error;
     if (result.status !== 0) {
-      throw new Error(`claude -p 失敗 (exit ${result.status}): ${result.stderr?.trim()}`);
+      throw new Error(`claude -p 失敗 (exit ${result.status}): ${describeCliFailure(result)}`);
     }
-    return result.stdout.trim();
+    return parseCliOutput(result.stdout);
   }
 
-  // Messages API フォールバック（CI / ANTHROPIC_API_KEY 環境変数）
+  // Messages API（--no-cli 指定時 / CI 等）
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
     throw new Error('ANTHROPIC_API_KEY 環境変数が未設定です。API キーを設定してください');
   }
 
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 60000);
+  const timer = setTimeout(() => controller.abort(), LLM_TIMEOUT_MS);
   let res;
   try {
     res = await fetchFn('https://api.anthropic.com/v1/messages', {
@@ -264,8 +358,9 @@ async function callClaudeP(prompt, opts = {}) {
         'content-type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
-        max_tokens: 4096,
+        model,
+        max_tokens: API_MAX_TOKENS,
+        system: readSystemPrompt(),
         messages: [{ role: 'user', content: prompt }],
       }),
       signal: controller.signal,
@@ -279,21 +374,34 @@ async function callClaudeP(prompt, opts = {}) {
   }
 
   const data = await res.json();
-  return data.content?.[0]?.text?.trim() ?? '';
+  const usage = data.usage ?? {};
+  return {
+    text: data.content?.[0]?.text?.trim() ?? '',
+    meta: {
+      model: data.model ?? model,
+      inputTokens: usage.input_tokens ?? 0,
+      outputTokens: usage.output_tokens ?? 0,
+      cacheCreationTokens: usage.cache_creation_input_tokens ?? 0,
+      cacheReadTokens: usage.cache_read_input_tokens ?? 0,
+      // Messages API のレスポンスは料金を含まないため記録しない
+      costUsd: null,
+    },
+  };
 }
 
 /**
  * 変更が検出されたページからレース情報を抽出する
  * @param {object} race
  * @param {{ url: string, text: string }[]} pageTexts
- * @returns {{ extracted: object, diff: object[] }}
+ * @param {{ useCli?: boolean, model?: string, fetchFn?: Function, spawnFn?: Function }} [opts]
+ * @returns {Promise<{ extracted: object, diff: object[], meta: object }>}
  */
 async function extractFromPages(race, pageTexts, opts = {}) {
   const prompt = buildExtractionPrompt(race, pageTexts);
-  const raw = await callClaudeP(prompt, opts);
-  const extracted = parseClaudeResponse(raw);
+  const { text, meta } = await callClaudeP(prompt, opts);
+  const extracted = parseClaudeResponse(text);
   const diff = buildDiff(race, extracted);
-  return { extracted, diff };
+  return { extracted, diff, meta };
 }
 
 /**
@@ -447,4 +555,11 @@ module.exports = {
   buildNewEditionRace,
   createNewEditionFile,
   mergeCategoryUpdates,
+  resolveModel,
+  buildCliArgs,
+  parseCliOutput,
+  DEFAULT_MODEL,
+  LLM_TIMEOUT_MS,
+  API_MAX_TOKENS,
+  SYSTEM_PROMPT_FILE,
 };

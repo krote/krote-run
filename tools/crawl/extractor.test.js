@@ -558,7 +558,7 @@ describe('callClaudeP - Messages API フォールバック', () => {
     };
 
     try {
-      const result = await callClaudeP('test prompt', { useCli: false, fetchFn: mockFetch });
+      const { text: result } = await callClaudeP('test prompt', { useCli: false, fetchFn: mockFetch });
       assert.ok(fetchCalled, 'fetch が呼ばれる');
       assert.ok(fetchUrl.includes('anthropic.com'), 'Anthropic API エンドポイントに送信');
       assert.ok(result.includes('2027-03-01'), 'レスポンスが返る');
@@ -626,6 +626,15 @@ describe('callClaudeP - Messages API フォールバック', () => {
   });
 });
 
+/** claude -p --output-format json の出力を模す */
+function cliJson(result, { model = 'claude-sonnet-5-5', isError = false } = {}) {
+  return JSON.stringify({
+    type: 'result', is_error: isError, result, total_cost_usd: 0.0123,
+    usage: { input_tokens: 100, output_tokens: 50, cache_creation_input_tokens: 600, cache_read_input_tokens: 0 },
+    modelUsage: { [model]: { inputTokens: 100, outputTokens: 50 } },
+  });
+}
+
 // ── Step 6: callClaudeP CLI 経路（Windows spawnSync ENOENT対策） ──────────
 
 describe('callClaudeP - CLI経路（spawnFn注入）', () => {
@@ -633,7 +642,7 @@ describe('callClaudeP - CLI経路（spawnFn注入）', () => {
     let receivedOpts = null;
     const mockSpawnFn = (command, args, opts) => {
       receivedOpts = opts;
-      return { error: null, status: 0, stdout: 'ok', stderr: '' };
+      return { error: null, status: 0, stdout: cliJson('ok'), stderr: '' };
     };
 
     await callClaudeP('test prompt', { useCli: true, spawnFn: mockSpawnFn });
@@ -644,7 +653,7 @@ describe('callClaudeP - CLI経路（spawnFn注入）', () => {
     let receivedOpts = null;
     const mockSpawnFn = (command, args, opts) => {
       receivedOpts = opts;
-      return { error: null, status: 0, stdout: 'ok', stderr: '' };
+      return { error: null, status: 0, stdout: cliJson('ok'), stderr: '' };
     };
 
     await callClaudeP('test prompt', { useCli: true, spawnFn: mockSpawnFn });
@@ -658,7 +667,7 @@ describe('callClaudeP - CLI経路（spawnFn注入）', () => {
     const mockSpawnFn = (command, args, opts) => {
       receivedArgs = args;
       receivedOpts = opts;
-      return { error: null, status: 0, stdout: 'ok', stderr: '' };
+      return { error: null, status: 0, stdout: cliJson('ok'), stderr: '' };
     };
 
     await callClaudeP(longPrompt, { useCli: true, spawnFn: mockSpawnFn });
@@ -666,11 +675,11 @@ describe('callClaudeP - CLI経路（spawnFn注入）', () => {
     assert.equal(receivedOpts.input, longPrompt, 'promptはinput（stdin）として渡される');
   });
 
-  test('spawnFn の結果を返す', async () => {
-    const mockSpawnFn = () => ({ error: null, status: 0, stdout: '  結果テキスト  ', stderr: '' });
+  test('CLI の JSON 出力から result をテキストとして返す', async () => {
+    const mockSpawnFn = () => ({ error: null, status: 0, stdout: cliJson('  結果テキスト  '), stderr: '' });
 
-    const result = await callClaudeP('test prompt', { useCli: true, spawnFn: mockSpawnFn });
-    assert.equal(result, '結果テキスト');
+    const { text } = await callClaudeP('test prompt', { useCli: true, spawnFn: mockSpawnFn });
+    assert.equal(text, '結果テキスト');
   });
 
   test('spawnFn が error を返した場合（ENOENT等）は Error をスローする', async () => {
@@ -945,5 +954,174 @@ describe('説明文の抽出', () => {
     applyAndSave(race, { description_ja: '更新後の説明文' }, { racesDir: dir });
     const saved = JSON.parse(fs.readFileSync(file, 'utf-8'));
     assert.equal(saved.description_ja, '更新後の説明文');
+  });
+});
+
+// ── #199: モデルの明示指定と CLI の余分なコンテキスト削減 ─────────────────
+
+const {
+  resolveModel, DEFAULT_MODEL, buildCliArgs, parseCliOutput, LLM_TIMEOUT_MS, API_MAX_TOKENS, SYSTEM_PROMPT_FILE, extractFromPages,
+} = require('./extractor');
+
+describe('resolveModel', () => {
+  test('既定は Sonnet 5.5', () => {
+    assert.equal(DEFAULT_MODEL, 'claude-sonnet-5-5');
+    assert.equal(resolveModel({}), 'claude-sonnet-5-5');
+  });
+
+  test('CRAWL_MODEL で上書きできる', () => {
+    assert.equal(resolveModel({ CRAWL_MODEL: 'claude-haiku-5-5' }), 'claude-haiku-5-5');
+  });
+
+  test('空文字・空白のみは既定に戻す', () => {
+    assert.equal(resolveModel({ CRAWL_MODEL: '  ' }), DEFAULT_MODEL);
+  });
+});
+
+describe('buildCliArgs', () => {
+  const args = buildCliArgs('claude-haiku-5-5');
+
+  test('モデルを明示指定する', () => {
+    const i = args.indexOf('--model');
+    assert.ok(i >= 0);
+    assert.equal(args[i + 1], 'claude-haiku-5-5');
+  });
+
+  test('使用モデルとトークン数を取れるよう JSON で出力させる', () => {
+    assert.ok(args.includes('-p'));
+    assert.equal(args[args.indexOf('--output-format') + 1], 'json');
+  });
+
+  test('システムプロンプトを差し替えて CLAUDE.md 等の余分なコンテキストを読ませない', () => {
+    const i = args.indexOf('--system-prompt-file');
+    assert.ok(i >= 0);
+    // shell: true で渡すためパスはクォートする（空白を含むパスでも壊れないように）
+    assert.equal(args[i + 1], `"${SYSTEM_PROMPT_FILE}"`);
+  });
+
+  test('ツールと MCP を無効化し、セッションを保存しない', () => {
+    assert.equal(args[args.indexOf('--tools') + 1], '""');
+    assert.ok(args.includes('--strict-mcp-config'));
+    assert.ok(args.includes('--no-session-persistence'));
+  });
+
+  test('システムプロンプトのファイルが存在する', () => {
+    assert.ok(fs.existsSync(SYSTEM_PROMPT_FILE));
+    assert.ok(fs.readFileSync(SYSTEM_PROMPT_FILE, 'utf-8').trim().length > 0);
+  });
+});
+
+describe('parseCliOutput', () => {
+  test('result と使用モデル・トークン数・コストを取り出す', () => {
+    const { text, meta } = parseCliOutput(cliJson(' {"date":"2027-03-01"} ', { model: 'claude-opus-5-5' }));
+    assert.equal(text, '{"date":"2027-03-01"}');
+    assert.deepEqual(meta, {
+      model: 'claude-opus-5-5', inputTokens: 100, outputTokens: 50,
+      cacheCreationTokens: 600, cacheReadTokens: 0, costUsd: 0.0123,
+    });
+  });
+
+  test('is_error が true なら例外を投げる', () => {
+    assert.throws(() => parseCliOutput(cliJson('rate limited', { isError: true })), /rate limited/);
+  });
+
+  test('JSON でない出力は内容の一部を含めて例外を投げる', () => {
+    assert.throws(() => parseCliOutput('Error: something broke'), /something broke/);
+  });
+});
+
+describe('callClaudeP - #199 の CLI 実行条件', () => {
+  test('一時ディレクトリで実行する（プロジェクトの CLAUDE.md を読ませない）', async () => {
+    let received = null;
+    const spawnFn = (cmd, args, opts) => { received = opts; return { error: null, status: 0, stdout: cliJson('{}'), stderr: '' }; };
+    await callClaudeP('p', { useCli: true, spawnFn });
+    assert.equal(received.cwd, os.tmpdir());
+  });
+
+  test('opts.model を CLI に渡し、meta を返す', async () => {
+    let receivedArgs = null;
+    const spawnFn = (cmd, args) => { receivedArgs = args; return { error: null, status: 0, stdout: cliJson('{}', { model: 'claude-haiku-5-5' }), stderr: '' }; };
+    const { meta } = await callClaudeP('p', { useCli: true, spawnFn, model: 'claude-haiku-5-5' });
+    assert.equal(receivedArgs[receivedArgs.indexOf('--model') + 1], 'claude-haiku-5-5');
+    assert.equal(meta.model, 'claude-haiku-5-5');
+  });
+
+  test('CLI のタイムアウトは LLM_TIMEOUT_MS（180秒）', async () => {
+    let received = null;
+    const spawnFn = (cmd, args, opts) => { received = opts; return { error: null, status: 0, stdout: cliJson('{}'), stderr: '' }; };
+    await callClaudeP('p', { useCli: true, spawnFn });
+    assert.equal(LLM_TIMEOUT_MS, 180000);
+    assert.equal(received.timeout, LLM_TIMEOUT_MS);
+  });
+});
+
+describe('callClaudeP - #199 の API 実行条件', () => {
+  const withKey = async (fn) => {
+    const original = process.env.ANTHROPIC_API_KEY;
+    process.env.ANTHROPIC_API_KEY = 'test-key';
+    try { await fn(); } finally {
+      if (original === undefined) delete process.env.ANTHROPIC_API_KEY;
+      else process.env.ANTHROPIC_API_KEY = original;
+    }
+  };
+  const apiResponse = {
+    ok: true,
+    json: async () => ({
+      model: 'claude-sonnet-5-5',
+      content: [{ type: 'text', text: '{}' }],
+      usage: { input_tokens: 10, output_tokens: 5, cache_creation_input_tokens: 0, cache_read_input_tokens: 0 },
+    }),
+  };
+
+  test('既定モデル・max_tokens・システムプロンプトを送る（旧 Haiku 4.5 の直書きをやめる）', async () => {
+    await withKey(async () => {
+      let body = null;
+      const fetchFn = async (url, opts) => { body = JSON.parse(opts.body); return apiResponse; };
+      await callClaudeP('p', { useCli: false, fetchFn });
+      assert.equal(body.model, DEFAULT_MODEL);
+      assert.equal(body.max_tokens, API_MAX_TOKENS);
+      assert.ok(API_MAX_TOKENS >= 8192);
+      assert.equal(body.system, fs.readFileSync(SYSTEM_PROMPT_FILE, 'utf-8').trim());
+    });
+  });
+
+  test('opts.model を送り、usage を meta で返す', async () => {
+    await withKey(async () => {
+      let body = null;
+      const fetchFn = async (url, opts) => { body = JSON.parse(opts.body); return apiResponse; };
+      const { meta } = await callClaudeP('p', { useCli: false, fetchFn, model: 'claude-haiku-5-5' });
+      assert.equal(body.model, 'claude-haiku-5-5');
+      assert.equal(meta.inputTokens, 10);
+      assert.equal(meta.outputTokens, 5);
+      assert.equal(meta.costUsd, null, 'API は料金を返さないため null');
+    });
+  });
+});
+
+describe('extractFromPages - meta を返す', () => {
+  test('LLM 呼び出しの meta を返し、opts を callClaudeP に渡す', async () => {
+    let receivedArgs = null;
+    const spawnFn = (cmd, args) => { receivedArgs = args; return { error: null, status: 0, stdout: cliJson('{"date":"2027-03-01"}', { model: 'claude-haiku-5-5' }), stderr: '' }; };
+    const race = { id: 'r-2027', name_ja: 'R', date: '2027-03-01', categories: [] };
+    const { extracted, meta } = await extractFromPages(race, [{ url: 'https://example.com', text: 'x'.repeat(200) }], { useCli: true, spawnFn, model: 'claude-haiku-5-5' });
+    assert.equal(extracted.date, '2027-03-01');
+    assert.equal(meta.model, 'claude-haiku-5-5');
+    assert.ok(receivedArgs.includes('claude-haiku-5-5'));
+  });
+});
+
+describe('callClaudeP - 非ゼロ終了時のエラーメッセージ（#199）', () => {
+  test('stdout の JSON に含まれる result をエラーに含める（CLI のバージョン不足等の原因が分かるように）', async () => {
+    const stdout = cliJson("API Error: 400 Claude Code 2.1.239 does not support this model; version 2.1.280 or newer is required", { isError: true });
+    const spawnFn = () => ({ error: null, status: 1, stdout, stderr: '' });
+    await assert.rejects(
+      () => callClaudeP('p', { useCli: true, spawnFn }),
+      (err) => {
+        assert.match(err.message, /does not support this model; version 2\.1\.280 or newer is required/);
+        // 実際の出力は usage 等が result より前に来るため、生 JSON を切り詰めると原因が消える
+        assert.doesNotMatch(err.message, /"is_error"/);
+        return true;
+      },
+    );
   });
 });

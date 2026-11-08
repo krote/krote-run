@@ -1797,3 +1797,10 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
   - 更新対象はPR #196（クロールで13大会のデータを更新、2026-11-02マージ）の13大会（代表として高知龍馬・鳥取・チャレンジ富士五湖2027を例示）
   - 本番・STGのD1には別途 `db:seed-races:remote` / `db:seed-races:stg` で反映済み
   - リンク先は大会一覧（`/races`）
+
+## 2026-11-08 test:tools の既存失敗2件を修正
+
+- `scripts/validate-races.js`: `validateRace(race, { now })` で開催済み判定の基準日時を渡せるようにした（既定は現在時刻。既存の呼び出し元は変更不要）
+- `scripts/validate-races.test.js`: `entry_fee_missing` のテストが開催日 `2026-10-01` を固定値で使っており、実行日がこれを過ぎて「開催済み」扱いになり失敗していた。基準日 `2026-09-01` を渡して日付に依存しないようにし、基準日で判定が切り替わるテストを追加
+- `scripts/geocode-venues.js`: `geocodeAll` に `log` オプションを追加し、`process.stdout.write` による改行なしの部分出力をやめて1件1行で出力するようにした
+- `scripts/geocode-venues.test.js`: `geocodeAll` の日本語の進捗出力が `node --test` の子プロセス通信を壊し「Unable to deserialize cloned data」でファイルごと失敗していた。テストでは `log` を差し替えて出力を抑止し、1件1行で渡すことを検証するテストを追加

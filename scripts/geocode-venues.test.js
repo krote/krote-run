@@ -117,22 +117,34 @@ describe('buildGeocodingUrl', () => {
 
 // ── geocodeAll ─────────────────────────────────────────────────────────
 
+// geocodeAll の進捗出力（日本語を含む）を node --test の子プロセスの stdout に流すと、
+// テストランナーの通信が壊れ「Unable to deserialize cloned data」でファイルごと失敗する。
+// テストでは必ず log を差し替えて出力を抑止する。
+const silent = () => {};
+
 describe('geocodeAll', () => {
   test('fetchFn が null を返した場合でも例外なく完了する（dry-run）', async () => {
     // fetchFn=null返し → "結果なし" パスでスロットルが finally で必ず動くが例外なし
     await assert.doesNotReject(
-      () => geocodeAll({ dryRun: true, fetchFn: async () => null, _delayMs: 0 })
+      () => geocodeAll({ dryRun: true, fetchFn: async () => null, _delayMs: 0, log: silent })
     );
   });
 
   test('fetchFn がスローしても例外は吸収して完了する（dry-run）', async () => {
     await assert.doesNotReject(
-      () => geocodeAll({ dryRun: true, fetchFn: async () => { throw new Error('API error'); }, _delayMs: 0 })
+      () => geocodeAll({ dryRun: true, fetchFn: async () => { throw new Error('API error'); }, _delayMs: 0, log: silent })
     );
   });
 
+  test('進捗は log に1件1行で渡す（住所と結果を同じ行にまとめる）', async () => {
+    const lines = [];
+    await geocodeAll({ dryRun: true, fetchFn: async () => null, _delayMs: 0, log: (l) => lines.push(l) });
+    assert.ok(lines.length > 0, 'log に出力されていない');
+    assert.ok(lines.some((l) => /: ".+" → 結果なし（スキップ）$/.test(l)), '住所と結果が同じ行に出ていない');
+  });
+
   test('{ processed, skipped, failed } の統計オブジェクトを返す', async () => {
-    const stats = await geocodeAll({ dryRun: true, fetchFn: async () => null, _delayMs: 0 });
+    const stats = await geocodeAll({ dryRun: true, fetchFn: async () => null, _delayMs: 0, log: silent });
     assert.equal(typeof stats.processed, 'number');
     assert.equal(typeof stats.skipped, 'number');
     assert.equal(typeof stats.failed, 'number');

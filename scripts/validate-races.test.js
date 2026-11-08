@@ -336,25 +336,27 @@ describe('validateRace 返り値構造', () => {
 // ── Rule: 参加費がどこにも無い（crawl 見直し） ──────────────────────
 
 describe('entry_fee_missing', () => {
+  // 開催日が実行日を過ぎるとテストの意味が変わるため、判定の基準日を固定する
+  const NOW = new Date('2026-09-01T00:00:00+09:00');
   const base = {
     id: 'r', date: '2026-10-01', entry_periods: [], categories: [],
     entry_fee: null, entry_fee_by_category: true, course_info: { certification: [] },
   };
 
   test('entry_fee も categories[].entry_fee も無ければ警告', () => {
-    const issues = validateRace({ ...base, categories: [{ distance_type: 'full', entry_fee: null }] });
+    const issues = validateRace({ ...base, categories: [{ distance_type: 'full', entry_fee: null }] }, { now: NOW });
     const issue = issues.find(i => i.rule === 'entry_fee_missing');
     assert.ok(issue, '参加費欠落が検出されない');
     assert.equal(issue.level, 'warning');
   });
 
   test('カテゴリ別に参加費が入っていれば警告しない', () => {
-    const issues = validateRace({ ...base, categories: [{ distance_type: 'full', entry_fee: 12000 }] });
+    const issues = validateRace({ ...base, categories: [{ distance_type: 'full', entry_fee: 12000 }] }, { now: NOW });
     assert.equal(issues.find(i => i.rule === 'entry_fee_missing'), undefined);
   });
 
   test('トップレベルの参加費が入っていれば警告しない', () => {
-    const issues = validateRace({ ...base, entry_fee: 5000, entry_fee_by_category: false });
+    const issues = validateRace({ ...base, entry_fee: 5000, entry_fee_by_category: false }, { now: NOW });
     assert.equal(issues.find(i => i.rule === 'entry_fee_missing'), undefined);
   });
 
@@ -362,12 +364,20 @@ describe('entry_fee_missing', () => {
     const issues = validateRace({
       ...base,
       entry_periods: [{ label_ja: '一般', label_en: 'General', start_date: '2026-04-01', end_date: null, entry_fee: 8000 }],
-    });
+    }, { now: NOW });
     assert.equal(issues.find(i => i.rule === 'entry_fee_missing'), undefined);
   });
 
   test('開催済みの大会は警告しない（過去大会の補完は対象外）', () => {
-    const issues = validateRace({ ...base, date: '2020-01-01', categories: [{ distance_type: 'full', entry_fee: null }] });
+    const issues = validateRace({ ...base, date: '2020-01-01', categories: [{ distance_type: 'full', entry_fee: null }] }, { now: NOW });
     assert.equal(issues.find(i => i.rule === 'entry_fee_missing'), undefined);
+  });
+
+  test('開催済みかどうかは渡した基準日で判定する', () => {
+    const race = { ...base, categories: [{ distance_type: 'full', entry_fee: null }] };
+    const before = validateRace(race, { now: new Date('2026-09-30T00:00:00+09:00') });
+    const after = validateRace(race, { now: new Date('2026-10-02T00:00:00+09:00') });
+    assert.ok(before.find(i => i.rule === 'entry_fee_missing'), '開催前なのに警告されない');
+    assert.equal(after.find(i => i.rule === 'entry_fee_missing'), undefined);
   });
 });

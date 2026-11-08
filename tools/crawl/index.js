@@ -40,6 +40,8 @@ const FETCH_OPTS = {
 const INFO_LINK_KEYWORDS = [
   'access', 'アクセス', '交通', '最寄', '会場',
   '受付', 'reception', 'entry', 'エントリー', '申込',
+  // URL 失効時の再発見用（#208）: 新年度の要項ページを拾う
+  '要項', '募集', '概要', 'outline', 'guideline',
 ];
 
 /**
@@ -93,6 +95,52 @@ function discoverInfoLinks(html, baseUrl) {
   }
 
   return links;
+}
+
+/** 5xx が何回連続したら失効とみなすか（1回の失敗は一時障害の可能性があるため。#208） */
+const EXPIRE_AFTER_5XX = 3;
+
+/**
+ * 取得エラーが「URL の失効」（info_urls の登録し直しが必要）かを判定する（#208）
+ * - 404 / 410: 1回で失効
+ * - 5xx: 連続 EXPIRE_AFTER_5XX 回で失効（サイト改修で下層ページが 500 になる例があった）
+ * - タイムアウト・証明書・403 等は URL 自体の問題ではないため対象外
+ * @param {string} error - fetchPage のエラーメッセージ
+ * @param {number} failCount - 今回を含む連続失敗回数
+ */
+function isUrlExpired(error, failCount) {
+  const m = String(error ?? '').match(/HTTP (\d{3})/);
+  if (!m) return false;
+  const status = Number(m[1]);
+  if (status === 404 || status === 410) return true;
+  return status >= 500 && failCount >= EXPIRE_AFTER_5XX;
+}
+
+/**
+ * 取得失敗をチェックサムのエントリに記録する（元のエントリは変更しない）。
+ * ハッシュは残すので、復旧時に内容が変わっていなければ「変更なし」になる。
+ * @returns {{ hash: string|null, last_checked: string, race_id: string, fail_count: number, last_error: string }}
+ */
+function recordFetchFailure(entry, raceId, error, now = new Date()) {
+  return {
+    hash: entry?.hash ?? null,
+    last_checked: now.toISOString(),
+    race_id: raceId,
+    fail_count: (entry?.fail_count ?? 0) + 1,
+    last_error: error,
+  };
+}
+
+/**
+ * 全 URL が失効した大会について、トップページから info_urls の候補リンクを探す（#208）。
+ * 登録済み（失効した）URL は候補から除く。自動置換はせず PR 本文に出すだけ
+ * @param {string} html - official_url の HTML
+ * @param {string} baseUrl - official_url
+ * @param {string[]} registeredUrls - 現在の info_urls
+ */
+function findRelinkCandidates(html, baseUrl, registeredUrls) {
+  const registered = new Set(registeredUrls);
+  return discoverInfoLinks(html, baseUrl).filter((l) => !registered.has(l.href));
 }
 
 /** テキストの SHA-256 ハッシュを返す */
@@ -392,10 +440,51 @@ async function crawlRace(race, checksums, dryRun = false) {
       error = err.message;
     }
 
-    results.push({ url, status, error, text, kind: page?.kind ?? null, sparse: page?.sparse ?? false });
+    // 連続失敗回数を記録して失効を判定する（#208）。成功時は上の代入で fail_count が消える
+    let failCount = 0;
+    if (status === 'error') {
+      const failed = recordFetchFailure(checksums[url], race.id, error);
+      failCount = failed.fail_count;
+      if (!dryRun) checksums[url] = failed;
+    }
+
+    results.push({
+      url, status, error, text, kind: page?.kind ?? null, sparse: page?.sparse ?? false,
+      failCount, expired: status === 'error' && isUrlExpired(error, failCount),
+    });
   }
 
   return results;
+}
+
+/**
+ * URL 失効の記録を作る。全 URL が失効していればトップページから候補リンクを探す（#208）
+ */
+async function buildExpiredEntry(race, results, expired) {
+  const allExpired = expired.length === results.length;
+  let suggestions = [];
+  let suggestionError = null;
+  const registered = results.map((r) => r.url);
+
+  if (allExpired && race.official_url && !registered.includes(race.official_url)) {
+    try {
+      const res = await fetch(race.official_url, { ...FETCH_OPTS, signal: AbortSignal.timeout(15000) });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      suggestions = findRelinkCandidates(await res.text(), race.official_url, registered);
+    } catch (err) {
+      suggestionError = err.message;
+    }
+  }
+
+  for (const r of expired) console.log(`  URL失効: ${r.url}（${r.error}）`);
+  return {
+    race_id: race.id,
+    race_name: race.name_ja,
+    all_expired: allExpired,
+    urls: expired.map((r) => ({ url: r.url, error: r.error, fail_count: r.failCount })),
+    suggestions,
+    suggestion_error: suggestionError,
+  };
 }
 
 // ── メイン ───────────────────────────────────────────────────────
@@ -437,6 +526,7 @@ async function run(options = {}) {
     held: [],          // { race_id, race_name, key, rule, message } 検査で適用を見送った更新
     checks: { errors: 0, warnings: 0, byRule: {} }, // 実行後のデータ品質チェック結果
     llm: emptyLlmUsage(), // LLM 抽出の使用モデル・呼び出し回数・トークン数（#199）
+    expired: [],       // { race_id, race_name, all_expired, urls: [{ url, error, fail_count }], suggestions } URL失効（#208）
     truncated: [],     // { race_id, pages: [{ url, kept, total }] } 総量予算に収めるため切り詰めたページ（#210）
     sparse_pdfs: [],   // { race_id, url, chars } テキストの少ない PDF（画像中心。#211）
   };
@@ -490,6 +580,11 @@ async function run(options = {}) {
           console.log(`変更なし: ${r.url}`);
         }
       }
+    }
+
+    const expired = results.filter((r) => r.expired);
+    if (expired.length > 0) {
+      summary.expired.push(await buildExpiredEntry(race, results, expired));
     }
 
     if (changedTexts.length > 0) {
@@ -669,5 +764,5 @@ if (require.main === module && shouldRelaunchWithExtraCa(process.env)) {
     process.exit(1);
   });
 } else {
-  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks, isMissingCriticalFields, getForcedExtractionReasons, isPastRace, isEditionTransition, buildExtractOptions, accumulateLlmUsage, emptyLlmUsage, fetchPageText, fetchPage, isPdfBytes, extractPdfText, SPARSE_PDF_CHARS };
+  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks, isMissingCriticalFields, getForcedExtractionReasons, isPastRace, isEditionTransition, buildExtractOptions, accumulateLlmUsage, emptyLlmUsage, fetchPageText, fetchPage, isPdfBytes, extractPdfText, SPARSE_PDF_CHARS, isUrlExpired, recordFetchFailure, findRelinkCandidates, EXPIRE_AFTER_5XX };
 }

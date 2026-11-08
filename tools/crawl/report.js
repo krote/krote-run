@@ -86,6 +86,31 @@ function renderNewEditions(summary, lines) {
   lines.push('');
 }
 
+function renderExpired(summary, lines) {
+  const expired = summary.expired ?? [];
+  if (expired.length === 0) return;
+
+  // 全 URL が失効した大会（情報が全く取れていない）を先に出す
+  const sorted = [...expired].sort((a, b) => Number(b.all_expired) - Number(a.all_expired));
+  lines.push(`## URL失効（${expired.length}大会）`, '');
+  lines.push('`info_urls` が 404 / 410、または 5xx が続いている。URL を登録し直すこと（自動置換はしない）。', '');
+  for (const e of sorted) {
+    const name = e.race_name ?? e.race_id;
+    lines.push(e.all_expired ? `### **要対応** ${name}（全URL失効）` : `### ${name}`, '');
+    lines.push(`\`${e.race_id}\``, '');
+    for (const u of e.urls) {
+      const streak = /HTTP 5\d\d/.test(u.error) ? `・${u.fail_count}回連続` : '';
+      lines.push(`- ${u.url}（${u.error}${streak}）`);
+    }
+    if (e.suggestions?.length > 0) {
+      lines.push('', `候補: ${e.suggestions.map((s) => `[${s.text || s.href}](${s.href})`).join(' / ')}`);
+    } else if (e.suggestion_error) {
+      lines.push('', `トップページを取得できず候補を探せなかった（${e.suggestion_error}）`);
+    }
+    lines.push('');
+  }
+}
+
 function renderFailures(summary, lines) {
   const errors = summary.errors ?? [];
   const held = summary.held ?? [];
@@ -222,6 +247,7 @@ function buildReport(summary) {
 
   renderChanges(summary, lines);
   renderNewEditions(summary, lines);
+  renderExpired(summary, lines);
   renderFailures(summary, lines);
   renderTruncated(summary, lines);
   renderChecks(summary, lines);

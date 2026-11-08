@@ -229,3 +229,28 @@ describe('buildReport - テキストの切り詰め（#210）', () => {
     assert.doesNotMatch(buildReport(emptySummary()), /切り詰めたページ/);
   });
 });
+
+describe('buildReport - URL失効（#208）', () => {
+  const expired = [
+    { race_id: 'a-2027', race_name: 'A大会', all_expired: true, urls: [{ url: 'https://a/x', error: 'HTTP 404', fail_count: 1 }],
+      suggestions: [{ href: 'https://a/2027/outline/', text: '大会要項' }] },
+    { race_id: 'b-2027', race_name: 'B大会', all_expired: false, urls: [{ url: 'https://b/y', error: 'HTTP 500', fail_count: 3 }], suggestions: [] },
+  ];
+
+  test('失効した URL を大会別に表示し、全URL失効の大会は要対応として目立たせる', () => {
+    const report = buildReport({ ...emptySummary(), expired });
+    assert.match(report, /## URL失効（2大会）/);
+    assert.match(report, /\*\*要対応\*\* A大会/);
+    assert.match(report, /https:\/\/a\/x（HTTP 404）/);
+    assert.match(report, /https:\/\/b\/y（HTTP 500・3回連続）/);
+  });
+
+  test('トップページから見つけた候補リンクを表示する', () => {
+    const report = buildReport({ ...emptySummary(), expired });
+    assert.match(report, /候補: \[大会要項\]\(https:\/\/a\/2027\/outline\/\)/);
+  });
+
+  test('該当がなければ表示しない', () => {
+    assert.doesNotMatch(buildReport(emptySummary()), /URL失効/);
+  });
+});

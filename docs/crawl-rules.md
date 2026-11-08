@@ -128,3 +128,17 @@ openssl verify -untrusted ca.pem leaf.pem
 ```bash
 node tools/crawl/eval-models.js --races <id,...> --models claude-sonnet-5-5 --budgets 3000p,10000,20000,30000
 ```
+
+## URL失効の検知と再発見（#208）
+
+`info_urls` が失効していると、その大会の情報が取れないまま失敗に埋もれる。失効は他の失敗と分け、PR 本文の「URL失効」に大会別に出す。
+
+| エラー | 失効とみなす条件 |
+|---|---|
+| HTTP 404 / 410 | 1回で失効 |
+| HTTP 5xx | **3回連続**（`EXPIRE_AFTER_5XX`）で失効。1回だけなら一時障害とみなす |
+| タイムアウト・証明書エラー・403 等 | 失効扱いにしない（URL 自体の問題ではない） |
+
+- 連続失敗回数は `tools/crawl/checksums.json` の各 URL に `fail_count` / `last_error` として記録する（成功すると消える。`--dry-run` では記録しない）
+- 大会の**全 URL が失効**している場合は「要対応」として先頭に出す。あわせて `official_url`（トップページ）を取得し、要項・エントリー・アクセス等のリンクを候補として表示する（`findRelinkCandidates()`）
+- `info_urls` は自動で置き換えない。候補を見て人が登録し直す

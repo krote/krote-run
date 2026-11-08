@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-10-31T15:39:22.460Z
--- 対象ファイル数: 141 件（既存 2 件はskip）
+-- 生成日時: 2026-11-08T15:22:58.506Z
+-- 対象ファイル数: 142 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -823,8 +823,8 @@ INSERT INTO races (
   '2026-09-11',
   0,
   'both',
-  '大会開催1週間前に申込代表者宛に参加通知（電子チケットURL）のメールが送付される。当日は会場でスマートフォンの電子チケット画面を提示し、係員による電子スタンプ押印後に参加賞を受け取る。',
-  'About one week before the event, an e-ticket URL is emailed to the entry representative. On race day, present the e-ticket on your smartphone at the venue; after staff apply an electronic stamp, receive your participation gift.',
+  '前日11月14日(土)15:00～18:00にあましんスタジアムで選手受付を行い、当日は7:00～8:30に当日受付を行う。受付時は代理出走防止のため本人確認（運転免許証や保険証など）がある。大会開催1週間前に申込代表者宛に参加通知（電子チケットURL）のメールが送付される。受付では会場でスマートフォンの電子チケット画面を提示し、係員による電子スタンプ押印後に参加賞を受け取る。',
+  'Athlete registration takes place at Amashin Stadium on Saturday, November 14 from 15:00 to 18:00, and race-day registration on November 15 from 7:00 to 8:30. Photo ID such as a driver''s license or health insurance card is checked to prevent proxy running. About one week before the event, an e-ticket URL is emailed to the entry representative. At registration, present the e-ticket on your smartphone; after staff apply an electronic stamp, receive your participation gift.',
   '["団体戦"]',
   NULL,
   0,
@@ -850,7 +850,7 @@ INSERT INTO races (
   32.452171,
   130.199707,
   '2026-08-31T23:51:21.157Z',
-  '2026-10-31T15:15:29.586Z'
+  '2026-11-08T15:17:27.128Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -1266,18 +1266,18 @@ INSERT INTO races (
   '45',
   '',
   '',
-  '',
-  '',
+  '第40回青島太平洋マラソンは2026年12月13日に宮崎市のひなた宮崎県総合運動公園で開催される大会です。マラソンは宮崎市内中心部と宮崎神宮を折り返し、トロピカルロードを経てフィニッシュします。10kmとポケモンラン(3km)も実施されます。',
+  'The 40th Aoshima Taiheiyo Marathon is held on December 13, 2026 at Hinata Miyazaki Prefectural Park in Miyazaki City. The marathon course passes through central Miyazaki, turns at Miyazaki Shrine, and returns via Tropical Road. A 10km race and the Pokemon Run (3km) are also held.',
   'https://www.aotai.gr.jp/',
-  NULL,
+  13500,
   1,
+  10800,
+  '2026-06-17',
+  '2026-06-30',
   0,
-  NULL,
-  NULL,
-  0,
-  'pre_day',
-  '',
-  '',
+  'pre_mail',
+  'アスリートビブス(ナンバーカード)・大会案内等は11月下旬に事前発送。大会前日・当日のランナー受付の有無は決定次第公式サイトで案内。',
+  'Bibs and race information are mailed in advance in late November. Whether runner reception will be held on the day before or on race day will be announced on the official website once decided.',
   '[]',
   NULL,
   0,
@@ -1297,13 +1297,13 @@ INSERT INTO races (
   NULL,
   NULL,
   NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
-  NULL,
+  'ひなた宮崎県総合運動公園',
+  'Hinata Miyazaki Prefectural Sports Park',
+  '宮崎県宮崎市熊野',
+  31.832977,
+  131.441925,
   '2026-06-12T13:47:30.815Z',
-  '2026-06-12T13:47:30.815Z'
+  '2026-11-08T15:22:56.232Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -1348,6 +1348,38 @@ INSERT INTO races (
   start_lat = excluded.start_lat,
   start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('aoshima-taiheyo-marathon-2026', 1.4, '09:35');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('aoshima-taiheyo-marathon-2026', 10.1, '10:44');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('aoshima-taiheyo-marathon-2026', 12.7, '11:05');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('aoshima-taiheyo-marathon-2026', 17.9, '11:47');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('aoshima-taiheyo-marathon-2026', 20.6, '12:08');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('aoshima-taiheyo-marathon-2026', 23.1, '12:30');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('aoshima-taiheyo-marathon-2026', 26.5, '12:59');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('aoshima-taiheyo-marathon-2026', 31.7, '13:44');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('aoshima-taiheyo-marathon-2026', 37, '14:32');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('aoshima-taiheyo-marathon-2026', 42.195, '15:20');
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('aoshima-taiheyo-marathon-2026', '木花駅', 'Kibana Station', '', '徒歩約10分', 'About 10 min walk', 0, 0, 10, 1, 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('aoshima-taiheyo-marathon-2026', '["tshirt"]', 'オリジナルTシャツ', 'Original T-shirt', NULL, 0);
+INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('aoshima-taiheyo-marathon-2026', '["medal","towel"]', '完走メダル(10km除く)、フィニッシャータオルなど', 'Finisher medal (excluding 10km), finisher towel, etc.', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('aoshima-taiheyo-marathon-2026', NULL, 'マラソン', 'Marathon', '2026-06-17', '2026-06-30', 13500, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('aoshima-taiheyo-marathon-2026', NULL, '10km', '10km', '2026-06-17', '2026-06-30', 8000, 1);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('aoshima-taiheyo-marathon-2026', NULL, 'ポケモンラン(3km)', 'Pokemon Run (3km)', '2026-06-17', '2026-06-30', 6000, 2);
 
 -- ==================
 -- 旭川ハーフマラソン (asahikawa-half-marathon-2026)
@@ -2465,7 +2497,7 @@ INSERT INTO races (
   35.426395,
   138.753159,
   '2026-10-24T13:22:35.944Z',
-  '2026-10-31T15:18:49.690Z'
+  '2026-11-08T15:17:59.883Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -2553,7 +2585,7 @@ INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, descriptio
 INSERT OR REPLACE INTO nearby_spots (race_id, type, name_ja, name_en, description_ja, description_en, distance_from_venue, url, latitude, longitude) VALUES
   ('challenge-fuji5lakes-2027', '観光地', '河口湖', 'Lake Kawaguchi', '富士五湖の中で最もアクセスが良い湖。4月は桜と富士山の共演が楽しめる。コース上でも湖畔を走る。', 'The most accessible of the Fuji Five Lakes. In April, enjoy cherry blossoms with Mt. Fuji. The course runs along the lakeshore.', '富士北麓公園から車で約10分', NULL, 35.51, 138.75);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
-  ('challenge-fuji5lakes-2027', '["tshirt","towel"]', '大会オリジナルTシャツ（THE NORTH FACE製）。2026年12月20日（日）までの申込者のうち先着2,800名（全種目合計）に贈呈。先着数到達後の申込者にはオリジナルタオルを贈呈。参加賞は「Tシャツ」または「タオル」のいずれか1点。', 'Official race T-shirt by THE NORTH FACE for the first 2,800 entrants (across all categories) who register by December 20, 2026 (Sun). Entrants after the limit is reached will receive an original towel instead. Participation gift is either the T-shirt or the towel, not both.', NULL, 0);
+  ('challenge-fuji5lakes-2027', '["tshirt","towel"]', '大会オリジナルTシャツ（THE NORTH FACE製）。2026年12月20日（日）までの申込者のうち先着2,800名（全種目合計）に贈呈。先着数到達後の申込者にはオリジナルタオルを贈呈。参加賞は「Tシャツ」または「タオル」のいずれか1点。2026年11月4日時点で予定数に達したため、Tシャツの受付は終了している。複数のエントリーサイトのデータを集約し、エントリー手続き完了時間を基準に申込順で判定するため、参加賞の確定連絡まで約1か月かかる。エントリー時にTシャツを選んでいてもタオルになる場合がある。', 'Official race T-shirt by THE NORTH FACE for the first 2,800 entrants (across all categories) who register by December 20, 2026 (Sun). Entrants after the limit is reached will receive an original towel instead. Participation gift is either the T-shirt or the towel, not both. As of November 4, 2026, the planned number has been reached and T-shirt allocation has closed. Because data from multiple entry sites is consolidated and judged in order of entry completion time, confirmation of the gift takes about one month. Even if you selected the T-shirt at entry, you may receive the towel.', NULL, 0);
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('challenge-fuji5lakes-2027', '["medal"]', '完走メダル（完走者）、WEB完走証（完走者）', 'Finisher medal (finishers), Web finisher certificate (finishers)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
@@ -3815,7 +3847,7 @@ INSERT INTO races (
   'road',
   '["JAAF","WA","AIMS"]',
   'さくら通り、新九頭竜橋、丸岡城周辺',
-  'Sakura-dori Ave, Shin-Kuzuryu Bridge, Marukoka Castle area',
+  'Sakura-dori Ave, Shin-Kuzuryu Bridge, Maruoka Castle area',
   '高低差15mのフラットなコース',
   'Flat course with 15m elevation difference',
   '桜',
@@ -3832,7 +3864,7 @@ INSERT INTO races (
   36.082733,
   136.231293,
   '2026-08-25T00:00:00Z',
-  '2026-09-18T14:15:46.946Z'
+  '2026-11-08T15:18:44.280Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -4615,7 +4647,7 @@ INSERT INTO races (
   1,
   8500,
   '2026-09-01',
-  '2026-11-15',
+  '2026-11-17',
   0,
   'none',
   '',
@@ -4645,7 +4677,7 @@ INSERT INTO races (
   34.710941,
   137.726532,
   '2026-08-31T13:29:34.000Z',
-  '2026-09-04T14:28:36.779Z'
+  '2026-11-08T15:19:06.978Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -4713,7 +4745,7 @@ INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('hamamatsu-city-marathon-2027', '["tshirt"]', '浜松シティマラソンオリジナルTシャツ（前面プリント、サイズ130・150・XS～XLの7種類）', 'Original Hamamatsu City Marathon T-shirt (front print, 7 sizes from 130/150 to XS–XL)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('hamamatsu-city-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-09-01', '2026-11-15', NULL, 0);
+  ('hamamatsu-city-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-09-01', '2026-11-17', NULL, 0);
 
 -- ==================
 -- さくらんぼマラソン大会 (higashine-sakuranbo-marathon-2026)
@@ -4859,6 +4891,163 @@ INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja
   ('higashine-sakuranbo-marathon-2026', NULL, NULL, 'フルーツライン', 'Fruit Line road', NULL, NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('higashine-sakuranbo-marathon-2026', NULL, NULL, '神町駐屯地周辺', 'Kanomachi Garrison area', NULL, NULL, 1);
+
+-- ==================
+-- さくらんぼマラソン大会 (higashine-sakuranbo-marathon-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM race_categories WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM aid_stations WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM checkpoints WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM access_points WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM nearby_spots WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM weather_history WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM participation_gifts WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM completion_gifts WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM race_entry_links WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM reception_sessions WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM race_travel_times WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM race_results WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM race_gallery WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM race_voices WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'higashine-sakuranbo-marathon-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'higashine-sakuranbo-marathon-2027',
+  'さくらんぼマラソン大会',
+  'Sakuranbo Marathon',
+  '2027-06-06',
+  '06',
+  '山形県東根市',
+  'Higashine City, Yamagata',
+  'さくらんぼの名産地・山形県東根市で毎年6月に開催される大会。陸上自衛隊神町駐屯地をスタート・フィニッシュ地点とし、フルーツラインの周回コースを走る。ハーフマラソン・10km・5kmの3種目。さくらんぼの季節に合わせた地域密着型のレース。',
+  'A popular race held every June in Higashine City, Yamagata, famous for its cherries. The course starts and finishes at JGSDF Kanomachi Garrison and loops around the Fruit Line road. Three distances: half marathon, 10km, and 5km.',
+  'https://www.sakuranbo-m.jp/',
+  6000,
+  1,
+  10000,
+  '2027-02-01',
+  '2027-03-31',
+  0,
+  'pre_mail',
+  '当日受付は行いません。ナンバーカードは5月中旬〜下旬にお申込み時登録住所へ事前発送します。',
+  'No same-day registration. Race bibs are mailed in advance to registered addresses in mid-to-late May.',
+  '["ご当地グルメ","初心者おすすめ","夏マラソン","景色が良い"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  'フルーツライン、神町駐屯地周辺',
+  'Fruit Line road, Kanomachi Garrison area',
+  'スタート・フィニッシュ：陸上自衛隊神町駐屯地。',
+  'Start/Finish: JGSDF Kanomachi Garrison.',
+  'さくらんぼ',
+  '#dc2626',
+  'Sakuranbo',
+  'さくらんぼの里・東根で走る、甘い42km',
+  'Run 42km in Japan''s cherry capital',
+  NULL,
+  NULL,
+  NULL,
+  '陸上自衛隊神町駐屯地',
+  'JGSDF Kanomachi Garrison',
+  '山形県東根市神町南三丁目１－１',
+  38.403603,
+  140.386368,
+  '2026-11-08T15:19:14.401Z',
+  '2026-11-08T15:19:14.401Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('higashine-sakuranbo-marathon-2027', 'half', 21.0975, 170, '08:40', 5500, 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('higashine-sakuranbo-marathon-2027', '10k', 10, 95, '09:15', 2000, 6000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('higashine-sakuranbo-marathon-2027', 'other', 5, 50, '08:05', 1500, 5500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('higashine-sakuranbo-marathon-2027', 2.8, '08:35');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('higashine-sakuranbo-marathon-2027', 5.5, '10:10');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('higashine-sakuranbo-marathon-2027', 7.6, '10:30');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('higashine-sakuranbo-marathon-2027', 12.8, '10:25');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('higashine-sakuranbo-marathon-2027', 16.4, '10:55');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('higashine-sakuranbo-marathon-2027', 18.7, '11:12');
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('higashine-sakuranbo-marathon-2027', 'さくらんぼ東根駅', 'Sakuranbo Higashine Station', '', '無料シャトルバス約10分', 'Free shuttle bus, about 10 min', 0, 0, NULL, 1, 0);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('higashine-sakuranbo-marathon-2027', 'JR神町駅', 'JR Kanmachi Station', '', 'シャトルバスなし、徒歩約1時間（非推奨）', 'No shuttle bus, about 1 hour walk (not recommended)', 0, 0, NULL, 0, 1);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('higashine-sakuranbo-marathon-2027', '["tshirt","local_product","food"]', 'さくらんぼ「佐藤錦」、山形県産米おにぎり、大会記念Ｔシャツ、冷凍フルーツ（予定）', '', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
+  ('higashine-sakuranbo-marathon-2027', NULL, '一般エントリー', 'General Entry', '2027-02-01', '2027-03-31', NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('higashine-sakuranbo-marathon-2027', NULL, NULL, 'フルーツライン', 'Fruit Line road', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('higashine-sakuranbo-marathon-2027', NULL, NULL, '神町駐屯地周辺', 'Kanomachi Garrison area', NULL, NULL, 1);
 
 -- ==================
 -- 東日本ハーフマラソン (higashinipon-half-marathon-2026)
@@ -20712,15 +20901,15 @@ INSERT INTO races (
   '都農神社前をスタート・ゴールとする日本陸連公認コース。参加者全員に都農ワイン（高校生以下は特産品）が贈呈される。',
   'A JAAF-certified course starting and finishing in front of Tsuno Shrine in Miyazaki Prefecture. All participants receive Tsuno wine (a local specialty for participants in high school or younger).',
   'https://tsuno-osuzu-marathon.jp/',
-  NULL,
+  4000,
   1,
   2000,
   '2026-09-25',
   '2026-11-25',
   0,
   'pre_mail',
-  '',
-  '',
+  '事前の受付は実施せず、アスリートビブス（ナンバーカード）は1月下旬頃に登録住所へ郵送。団体申込の場合は大会事務局での受け取り、または代表者へ一括郵送。参加賞の引き換えは大会当日8:00～13:00に行い、アスリートビブスが必要。',
+  'No in-person registration is held. Athlete bibs are mailed to the registered address in late January. For group entries, bibs are either picked up at the race office or mailed in bulk to the group representative. Participation gifts are exchanged on race day from 8:00 to 13:00, and the athlete bib is required.',
   '[]',
   NULL,
   0,
@@ -20746,7 +20935,7 @@ INSERT INTO races (
   32.25671,
   131.559662,
   '2026-09-18T00:00:00Z',
-  '2026-09-18T14:38:39.065Z'
+  '2026-11-08T15:22:46.415Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -20802,7 +20991,7 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('tsuno-osuzu-marathon-2027', '["local_product"]', '参加者全員に都農ワインを贈呈（高校生以下は特産品）', 'Tsuno wine for all participants (a local specialty for those in high school or younger)', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order) VALUES
-  ('tsuno-osuzu-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-09-25', '2026-11-25', NULL, 0);
+  ('tsuno-osuzu-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-09-25', '2026-11-25', 4000, 0);
 
 -- ==================
 -- ベジタブルマラソンin彩湖 (vegetable-marathon-saiko-2026)

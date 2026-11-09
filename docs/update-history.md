@@ -1923,3 +1923,13 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - #213〜#218 はスタック構成（各PRの base が1つ前のブランチ）のままマージしたため、変更が main ではなく1つ前のブランチに入り、main には #212 しか反映されていなかった
 - スタック先端の `feat/discover-races-204`（#213〜#218 の6コミットをすべて含む）に main（#212・#219）をマージした `feat/crawl-stack-to-main` から main へPRを出し直した。コンフリクトなし、`pnpm run test:tools` 523件 pass
 - 次回以降、スタックPRは先頭のPRをマージした後に次のPRの base を main へ変更してからマージする
+
+## 2026-11-10 seed-races で移動時間（race_travel_times）が消える問題を修正し、stg・本番へ再投入
+
+本番・stg の `race_travel_times` が 0 件で、前泊判定がどの大会にも出ていなかった（2026-09-21 に `seed-travel-times.sql` を投入済みだった）。
+
+- 原因: `scripts/generate-seed-races.js` が全大会分 `DELETE FROM race_travel_times` を出力する一方、INSERT は JSON の `travel_times`（全大会で空配列）からしか作らない。移動時間は `calc-travel-times.js` が生成する `migrations/seed-travel-times.sql` で別に投入する設計のため、クロール後に `db:seed-races:*` を実行するたびに消えていた
+- `scripts/generate-seed-races.js`: JSON に `travel_times` がある大会だけ DELETE → INSERT で置き換え、空なら `race_travel_times` に触れないように変更。`generateRaceSQL` を export し、メイン処理を `require.main === module` のときだけ実行するように変更（require しただけで seed を書き換えないように）
+- `scripts/generate-seed-races.test.js`（新規）: 空・未定義・ありの3パターンと、他の子テーブルの削除が従来どおりであることを検証。`test:tools` に追加
+- `migrations/seed-races-all.sql`: 再生成（差分は `race_travel_times` の DELETE 142行と生成日時のみ）
+- stg・本番の順に `migrations/seed-travel-times.sql` を再投入: 両環境とも 312件・39大会、最小10分〜最大862分、`races` に無い race_id は0件。本番の大会ページ（`yokohama-northdock-run-2026`）で移動時間がペイロードに含まれることを確認

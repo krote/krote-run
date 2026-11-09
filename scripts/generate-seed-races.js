@@ -44,7 +44,11 @@ function generateRaceSQL(r) {
   lines.push(`DELETE FROM race_entry_links WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_entry_periods WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM reception_sessions WHERE race_id = ${esc(r.id)};`);
-  lines.push(`DELETE FROM race_travel_times WHERE race_id = ${esc(r.id)};`);
+  // race_travel_times は calc-travel-times.js が生成する migrations/seed-travel-times.sql で投入する。
+  // JSON に travel_times がある場合だけ JSON を正として置き換え、空なら DB の値を保持する
+  if (r.travel_times && r.travel_times.length > 0) {
+    lines.push(`DELETE FROM race_travel_times WHERE race_id = ${esc(r.id)};`);
+  }
   lines.push(`DELETE FROM race_results WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_gallery WHERE race_id = ${esc(r.id)};`);
   lines.push(`DELETE FROM race_voices WHERE race_id = ${esc(r.id)};`);
@@ -306,40 +310,48 @@ function generateRaceSQL(r) {
 }
 
 // メイン処理
-const files = fs.readdirSync(RACES_DIR)
-  .filter(f => f.endsWith('.json') && f !== 'index.json')
-  .sort();
+function main() {
+  const files = fs.readdirSync(RACES_DIR)
+    .filter(f => f.endsWith('.json') && f !== 'index.json')
+    .sort();
 
-let sql = `-- 自動生成: generate-seed-races.js
+  let sql = `-- 自動生成: generate-seed-races.js
 -- 生成日時: ${new Date().toISOString()}
 -- 対象ファイル数: ${files.length - ALREADY_SEEDED.size} 件（既存 ${ALREADY_SEEDED.size} 件はskip）
 
 `;
 
-let count = 0;
-const skipped = [];
-const processed = [];
+  let count = 0;
+  const skipped = [];
+  const processed = [];
 
-for (const file of files) {
-  const filePath = path.join(RACES_DIR, file);
-  const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  for (const file of files) {
+    const filePath = path.join(RACES_DIR, file);
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
-  if (ALREADY_SEEDED.has(data.id)) {
-    skipped.push(data.id);
-    continue;
+    if (ALREADY_SEEDED.has(data.id)) {
+      skipped.push(data.id);
+      continue;
+    }
+
+    sql += `-- ==================\n-- ${data.name_ja} (${data.id})\n-- ==================\n`;
+    sql += generateRaceSQL(data);
+    sql += '\n\n';
+    processed.push(data.id);
+    count++;
   }
 
-  sql += `-- ==================\n-- ${data.name_ja} (${data.id})\n-- ==================\n`;
-  sql += generateRaceSQL(data);
-  sql += '\n\n';
-  processed.push(data.id);
-  count++;
+  fs.writeFileSync(OUTPUT_FILE, sql, 'utf-8');
+
+  console.log(`✅ 生成完了: ${OUTPUT_FILE}`);
+  console.log(`  処理: ${count} 件`);
+  console.log(`  スキップ: ${skipped.join(', ')}`);
+  console.log(`\n処理した大会:`);
+  processed.forEach(id => console.log(`  - ${id}`));
 }
 
-fs.writeFileSync(OUTPUT_FILE, sql, 'utf-8');
+if (require.main === module) {
+  main();
+}
 
-console.log(`✅ 生成完了: ${OUTPUT_FILE}`);
-console.log(`  処理: ${count} 件`);
-console.log(`  スキップ: ${skipped.join(', ')}`);
-console.log(`\n処理した大会:`);
-processed.forEach(id => console.log(`  - ${id}`));
+module.exports = { generateRaceSQL };

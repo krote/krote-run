@@ -85,6 +85,8 @@ describe('COMMIT_PATHS', () => {
   test('race JSON とチェックサムも引き続き含める', () => {
     assert.ok(COMMIT_PATHS.includes('src/data/races'));
     assert.ok(COMMIT_PATHS.includes('tools/crawl/checksums.json'));
+    // お知らせをクロール PR に同梱する（#201）
+    assert.ok(COMMIT_PATHS.includes('src/data/announcements.json'));
   });
 });
 
@@ -223,5 +225,26 @@ describe('runPreflight', () => {
     for (const gitFn of [fakeGit({ branch: 'feat/x' }), fakeGit({ fetchError: new Error('offline') })]) {
       assert.throws(() => runPreflight({ gitFn }), (err) => err.code === PREFLIGHT_ERROR_CODE);
     }
+  });
+});
+
+describe('未掲載大会の探索で追加した大会（#204）', () => {
+  const discovered = [{ race_id: 'koshien-enjoy-run-2026', race_name: '甲子園エンジョイラン' }];
+
+  test('追加した大会があれば PR を作る', () => {
+    assert.equal(shouldCreatePr({ extracted: [], new_editions: [], discovered }, { dryRun: false }), true);
+  });
+
+  test('探索の PR は件数を含むタイトルにする', () => {
+    assert.equal(buildPrTitle({ kind: 'discover', extracted: [], new_editions: [], discovered }), 'chore: 未掲載大会の探索で1大会を新規掲載');
+  });
+
+  test('コミットメッセージに追加した大会を並べる', () => {
+    const msg = buildCommitMessage({ kind: 'discover', extracted: [], new_editions: [], discovered });
+    assert.match(msg, /- 新規掲載: 甲子園エンジョイラン（koshien-enjoy-run-2026）/);
+  });
+
+  test('ブランチ名の接頭辞を変えられる', () => {
+    assert.equal(buildBranchName(new Date('2026-11-08T10:00:00+09:00'), 1, 'discover/add'), 'discover/add-2026-11-08');
   });
 });

@@ -42,6 +42,7 @@ function classifyError(message) {
   if (/timeout|aborted/i.test(text)) return 'タイムアウト';
   if (/JSON/i.test(text)) return '抽出結果の解析失敗';
   if (/空または短すぎ/.test(text)) return 'ページ内容が取得できない';
+  if (/PDF からテキストを抽出できない/.test(text)) return 'PDFにテキストなし（画像のみ）';
   if (/claude -p 失敗|ANTHROPIC/i.test(text)) return 'LLM呼び出し失敗';
   return 'その他';
 }
@@ -74,6 +75,55 @@ function renderChanges(summary, lines) {
   }
 }
 
+function renderDiscovered(summary, lines) {
+  const discovered = summary.discovered ?? [];
+  const skipped = summary.discover_skipped ?? [];
+  if (discovered.length === 0 && skipped.length === 0) return;
+
+  if (discovered.length > 0) {
+    lines.push(`## 新規掲載（${discovered.length}大会）`, '');
+    lines.push('未掲載大会の探索（`pnpm run discover`）で選んだ大会を、公式サイトの情報から `detail_level: light` で生成した。公式サイトと突き合わせて確認すること。', '');
+    lines.push('| 開催日 | 大会名 | ID | 公式サイト | 発見元 | 検査 |', '|---|---|---|---|---|---|');
+    for (const d of discovered) {
+      const issues = (d.issues ?? []).map((i) => `${i.level === 'error' ? 'エラー' : '警告'}: ${i.rule}`).join(', ') || 'OK';
+      lines.push(`| ${d.date ?? ''} | ${d.race_name} | \`${d.race_id}\` | [公式](${d.official_url}) | [発見元](${d.source_url}) | ${issues} |`);
+    }
+    lines.push('');
+  }
+
+  if (skipped.length > 0) {
+    lines.push(`### 生成しなかった候補（${skipped.length}件）`, '');
+    for (const s of skipped) lines.push(`- ${s.name}（\`${s.candidate_id}\`）: ${s.reason}`);
+    lines.push('');
+  }
+}
+
+function renderAnnouncement(summary, lines) {
+  const a = summary.announcement;
+  if (!a) return;
+
+  lines.push('## お知らせ（同梱）', '');
+  lines.push(`\`src/data/announcements.json\` に \`${a.slug}\` を追加した。マージ・デプロイでデータと同時に公開される。`, '');
+  lines.push(`**${a.title_ja}**`, '');
+  lines.push('```text', a.body_ja, '```', '');
+  lines.push('<details><summary>English</summary>', '');
+  lines.push(`**${a.title_en}**`, '');
+  lines.push('```text', a.body_en, '```', '');
+  lines.push('</details>', '');
+}
+
+function renderXPost(summary, lines) {
+  const post = summary.x_post;
+  if (!post) return;
+
+  const how = post.source === 'llm'
+    ? 'LLM で要約'
+    : `テンプレート文${post.error ? `（LLM の生成に失敗: ${post.error}）` : '（LLM の文が条件を満たさなかったため）'}`;
+  lines.push('## X 投稿文', '');
+  lines.push(`マージ・デプロイ後に手動で投稿する。${how}・${post.length} / 280（X の数え方）`, '');
+  lines.push('```text', post.text, '```', '');
+}
+
 function renderNewEditions(summary, lines) {
   const editions = summary.new_editions ?? [];
   if (editions.length === 0) return;
@@ -85,12 +135,37 @@ function renderNewEditions(summary, lines) {
   lines.push('');
 }
 
+function renderExpired(summary, lines) {
+  const expired = summary.expired ?? [];
+  if (expired.length === 0) return;
+
+  // 全 URL が失効した大会（情報が全く取れていない）を先に出す
+  const sorted = [...expired].sort((a, b) => Number(b.all_expired) - Number(a.all_expired));
+  lines.push(`## URL失効（${expired.length}大会）`, '');
+  lines.push('`info_urls` が 404 / 410、または 5xx が続いている。URL を登録し直すこと（自動置換はしない）。', '');
+  for (const e of sorted) {
+    const name = e.race_name ?? e.race_id;
+    lines.push(e.all_expired ? `### **要対応** ${name}（全URL失効）` : `### ${name}`, '');
+    lines.push(`\`${e.race_id}\``, '');
+    for (const u of e.urls) {
+      const streak = /HTTP 5\d\d/.test(u.error) ? `・${u.fail_count}回連続` : '';
+      lines.push(`- ${u.url}（${u.error}${streak}）`);
+    }
+    if (e.suggestions?.length > 0) {
+      lines.push('', `候補: ${e.suggestions.map((s) => `[${s.text || s.href}](${s.href})`).join(' / ')}`);
+    } else if (e.suggestion_error) {
+      lines.push('', `トップページを取得できず候補を探せなかった（${e.suggestion_error}）`);
+    }
+    lines.push('');
+  }
+}
+
 function renderFailures(summary, lines) {
   const errors = summary.errors ?? [];
   const held = summary.held ?? [];
   const skippedPast = summary.skipped_past ?? [];
 
-  if (errors.length === 0 && held.length === 0 && skippedPast.length === 0) return;
+  if (errors.length === 0 && held.length === 0 && skippedPast.length === 0 && (summary.sparse_pdfs ?? []).length === 0) return;
 
   lines.push('## 失敗・保留の分析', '');
 
@@ -125,6 +200,16 @@ function renderFailures(summary, lines) {
     lines.push('');
   }
 
+  const sparsePdfs = summary.sparse_pdfs ?? [];
+  if (sparsePdfs.length > 0) {
+    lines.push(`### テキストの少ないPDF（${sparsePdfs.length}件）`, '');
+    lines.push('画像中心のパンフレット等で、抽出に使える情報がほとんどない。要項が HTML でも公開されていれば `info_urls` をそちらに替える。', '');
+    for (const p of sparsePdfs) {
+      lines.push(`- \`${p.race_id}\` ${p.url}（${p.chars}字）`);
+    }
+    lines.push('');
+  }
+
   if (skippedPast.length > 0) {
     lines.push(`### 開催済みのためスキップ（${skippedPast.length}件）`, '');
     for (const s of skippedPast) {
@@ -133,6 +218,22 @@ function renderFailures(summary, lines) {
     }
     lines.push('');
   }
+}
+
+function renderTruncated(summary, lines) {
+  const truncated = summary.truncated ?? [];
+  if (truncated.length === 0) return;
+
+  const n = (v) => v.toLocaleString('en-US');
+  lines.push(`### テキストを切り詰めたページ（${truncated.length}大会）`, '');
+  lines.push('1大会あたりの総量予算を超えたため、後半をプロンプトに入れていない。抽出漏れがあれば `info_urls` を絞る。', '');
+  lines.push('<details><summary>一覧</summary>', '');
+  for (const t of truncated) {
+    for (const p of t.pages) {
+      lines.push(`- \`${t.race_id}\` ${p.url}（${n(p.kept)} / ${n(p.total)}字）`);
+    }
+  }
+  lines.push('', '</details>', '');
 }
 
 function renderChecks(summary, lines) {
@@ -187,7 +288,8 @@ function renderSummaryCounts(summary, lines) {
  */
 function buildReport(summary) {
   const lines = [];
-  const hasChanges = (summary.extracted ?? []).length > 0 || (summary.new_editions ?? []).length > 0;
+  const hasChanges = (summary.extracted ?? []).length > 0 || (summary.new_editions ?? []).length > 0
+    || (summary.discovered ?? []).length > 0;
 
   if (!hasChanges) {
     lines.push('## 変更内容', '', 'レースデータへの変更はありません。', '');
@@ -195,7 +297,12 @@ function buildReport(summary) {
 
   renderChanges(summary, lines);
   renderNewEditions(summary, lines);
+  renderDiscovered(summary, lines);
+  renderAnnouncement(summary, lines);
+  renderXPost(summary, lines);
+  renderExpired(summary, lines);
   renderFailures(summary, lines);
+  renderTruncated(summary, lines);
   renderChecks(summary, lines);
   renderSummaryCounts(summary, lines);
 

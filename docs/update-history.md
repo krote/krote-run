@@ -1839,3 +1839,87 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `tools/crawl/index.js`: `fetchPageText` が接続エラーの原因コード（`UNABLE_TO_VERIFY_LEAF_SIGNATURE` 等）をメッセージに残すようにした（`fetch failed` に丸められていた）。テスト用に `fetchFn` を差し替え可能にした
 - `tools/crawl/report.js`: `classifyError` に「証明書エラー」を追加
 - `docs/crawl-rules.md` / `README.md`: 中間証明書の追加手順を記載。証明書検証の無効化は使わない
+
+## 2026-11-08 クロールで PDF の URL をテキスト化する（#211）
+
+- `package.json`: devDependencies に `unpdf@2.1.0` を追加（`tools/` 専用）
+- `tools/crawl/index.js`
+  - `fetchPage()` を追加。先頭 `%PDF-` で PDF を判定して `unpdf` でテキスト抽出（これまで PDF のバイナリを HTML として文字列化し、プロンプトに混入していた）。`.pdf` の URL でも中身が HTML なら HTML として扱う
+  - 300字未満の PDF は `sparse`（画像中心）として `summary.sparse_pdfs` に記録。テキストが全く取れない PDF はエラー
+  - `fetchPageText()` は `fetchPage()` のテキストだけを返す互換関数にした
+- `tools/crawl/report.js`: 「テキストの少ないPDF」の表示と、エラー分類「PDFにテキストなし（画像のみ）」を追加
+- `tools/crawl/test-pdf.js`（新規）: テスト用の最小 PDF 生成
+- 実データ確認: 富士登山競走 2,536字・ひたちシーサイド 2,242字・長井 3,464字を抽出（各200〜380ms）。別府大分は画像のみの PDF で失敗として分類
+- `docs/crawl-rules.md`: PDF の扱いを追記
+
+## 2026-11-08 クロールのページテキスト切り詰めを1大会あたりの総量予算に変更（#210）
+
+- `tools/crawl/extractor.js`: `allocateTextBudget()` を追加。ページごとの先頭3,000字切り詰めをやめ、1大会あたり合計20,000字（`DEFAULT_TEXT_BUDGET`）に収める。短いページは全文、残りを長いページに均等配分。`extractFromPages` は切り詰めたページ（`truncated`）も返す
+- `tools/crawl/index.js`: 切り詰めたページを `summary.truncated` に記録
+- `tools/crawl/report.js`: 「テキストを切り詰めたページ」を表示
+- `tools/crawl/eval-models.js`: `--budgets 3000p,10000,20000` で予算方式を比較できるようにした
+- 評価（6大会・131項目・Sonnet 5.5）: 従来57件一致 → 総量20,000字で62件一致（入力トークン +15%）。長井マラソン（PDF 要項）は 7 → 10件
+- `docs/crawl-rules.md`: 予算と評価結果を追記
+
+## 2026-11-08 クロールで巡回URLの失効を検知し、トップページから候補を提示（#208）
+
+- `tools/crawl/index.js`
+  - `isUrlExpired()`: 404 / 410 は即、5xx は3回連続（`EXPIRE_AFTER_5XX`）で「URL失効」と判定
+  - `recordFetchFailure()`: 取得失敗時に `checksums.json` へ `fail_count` / `last_error` を記録（ハッシュは保持。成功で消える）
+  - 全 URL が失効した大会は `official_url` を取得し、`findRelinkCandidates()` で要項・エントリー等のリンク候補を探す（自動置換はしない）
+  - `discoverInfoLinks` のキーワードに「要項・募集・概要・outline・guideline」を追加
+  - 失効を `summary.expired` に記録
+- `tools/crawl/report.js`: 「URL失効」セクションを追加。全 URL 失効の大会は「要対応」として先頭に表示し、候補リンクを並べる
+- 実データ確認（dry-run）: 徳島マラソンの4 URL を 404 で失効として検出。姫路城マラソンの 500 は1回目のため失効扱いにしない
+- `docs/crawl-rules.md`: 判定基準と運用を追記
+
+## 2026-11-08 クロール PR にお知らせエントリを自動生成して同梱（#201）
+
+- `tools/crawl/announcement.js`（新規）: クロール結果からお知らせエントリを生成。LLM を使わず diff と race JSON から決定的に組み立てる。文面は既存のデータ更新お知らせ（2026-10-25 / 11-03）の形式に合わせた
+  - タイトル「新たにN大会を掲載・M大会の情報を更新しました」/「N Races Added, M Races Updated」（片方0件なら省略）
+  - 本文は開催日順の大会一覧（大会名・M/D・都道府県＋市区町村）と、diff を話題にまとめた「主な更新内容」
+  - `slug` は `YYYY-MM-DD-race-data-update`、重複時は連番
+- `tools/crawl/index.js`: PR を作る実行で `announcements.json` に追記。`--dry-run` では案を表示するのみ。`collectAnnouncementInputs()` で次年度ファイル・探索で追加した大会を新規掲載、更新した大会を更新として集める
+- `tools/crawl/pr.js`: `COMMIT_PATHS` に `src/data/announcements.json` を追加（実行前チェックの対象にもなる）
+- `tools/crawl/report.js`: PR 本文に「お知らせ（同梱）」を表示
+- `docs/crawl-rules.md`: 運用を追記
+
+## 2026-11-08 クロール PR 本文に X 投稿文を生成（#202）
+
+- `tools/crawl/x-post.js`（新規）: お知らせエントリから X のまとめ投稿1件分を生成
+  - `countXLength()`: X の重み付き文字数（全角2・半角1・URL 23）。上限280
+  - LLM で要約し、文字数・リンクの有無を検証。条件を満たさなければ1回だけ再生成、だめならテンプレート文（`buildTemplatePost()`）。LLM 失敗時もテンプレート文
+  - リンク `https://hashiru.run/ja/news`、ハッシュタグ `#マラソン #ランニング`
+- `tools/crawl/x-post-system-prompt.txt`（新規）: X 投稿文用のシステムプロンプト
+- `tools/crawl/extractor.js`: `callClaudeP` / `buildCliArgs` にシステムプロンプトの差し替え（`systemPromptFile`）を追加
+- `tools/crawl/index.js`: お知らせ生成後に X 投稿文を生成し、LLM 使用量に合算
+- `tools/crawl/report.js`: PR 本文に「X 投稿文」（コードブロック・文字数・生成方法）を表示
+- 実データ確認: 既存のお知らせ2件と生成サンプル1件で 257〜264 / 280。うち1件は初回が超過し、再生成で収まった
+
+## 2026-11-08 未掲載大会の探索と、選んだ大会の race JSON 自動生成（#203 / #204）
+
+- 調査（#203）: RUNNET は利用規約で商業目的利用・第三者提供を禁止しているため自動収集しない。スポーツエントリーの一覧ページ（robots.txt で許可・静的 HTML）を候補の手がかりに、Web 検索（`claude -p` + WebSearch）を公式 URL の特定に使う
+- `tools/discover/sportsentry.js`（新規）: スポーツエントリー「マラソン・ランニング」一覧の取得・解析（2秒間隔、HASHIRUBot の UA）
+- `tools/discover/candidates.js`（新規）: 期間（12か月先まで）・除外キーワードでの絞り込み、大会名の正規化と開催日＋都道府県による掲載済み判定、申込区分ごとの重複の統合、前回の選択の引き継ぎ、候補一覧の Markdown
+- `tools/discover/generate.js`（新規）: 公式 URL を Web 検索で特定 → 公式サイトのトップと要項等のページを取得 → LLM で抽出 → 既存と同じ形の `detail_level: light` JSON を組み立て（空ラベル・null の開始日・`entry_start_date` をデータ品質ルールに沿って補正）→ 検査ゲート
+- `tools/discover/index.js`（新規）: `pnpm run discover`（候補出力）/ `--generate`（生成・座標補完・お知らせ・X 投稿文・PR 作成）/ `--dry-run`
+- `tools/discover/discover-system-prompt.txt`（新規）
+- `tools/crawl/extractor.js`: `callClaudeP` / `buildCliArgs` に許可ツールの指定（`tools`）を追加
+- `tools/crawl/pr.js`: 新規掲載（`summary.discovered`）に対応した PR タイトル・コミットメッセージ、ブランチ名の接頭辞指定
+- `tools/crawl/report.js`: 「新規掲載」「生成しなかった候補」セクションを追加
+- `package.json`: `discover` スクリプト、`test:tools` に `tools/discover/discover.test.js` を追加
+- `.gitignore`: `tools/discover/candidates.json` / `candidates.md`
+- 実データ確認: 一覧3ページ（30件）→ 期間・除外後27件 → 掲載済み6件を除き候補21件。せとだレモンマラソン2027 を dry-run で生成し、公式サイト（lemon-marathon.jp）から種目・参加費・定員・エントリー期間・会場を抽出できた
+- `README.md` / `docs/crawl-rules.md`: 手順と情報源の方針を追記
+
+## 2026-11-09 クロール結果（PR #219）を stg・本番 D1 へ適用
+
+- `pnpm run db:seed-races:stg` → `pnpm run db:seed-races:remote` の順に適用（changes 3,382 / rows_written 7,004、両環境とも同値）
+- 適用後、両環境で `races` が 143 → 144 件（`higashine-sakuranbo-marathon-2027` を新規追加）。更新した大会の `entry_end_date` / `updated_at` が JSON と一致することを確認
+- 適用前の確認: seed は全大会の `race_travel_times` / `weather_history` を DELETE するが再 INSERT しない。両環境とも `race_travel_times` は元から 0 件、`weather_history` は seed 対象外の2大会（`nagano-marathon-2026` / `challenge-fuji5lakes-2026`）の10件のみで、今回の適用で失われるデータは無かった
+
+## 2026-11-09 スタックPR（#213〜#218）の変更を main に取り込む
+
+- #213〜#218 はスタック構成（各PRの base が1つ前のブランチ）のままマージしたため、変更が main ではなく1つ前のブランチに入り、main には #212 しか反映されていなかった
+- スタック先端の `feat/discover-races-204`（#213〜#218 の6コミットをすべて含む）に main（#212・#219）をマージした `feat/crawl-stack-to-main` から main へPRを出し直した。コンフリクトなし、`pnpm run test:tools` 523件 pass
+- 次回以降、スタックPRは先頭のPRをマージした後に次のPRの base を main へ変更してからマージする

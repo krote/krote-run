@@ -60,6 +60,10 @@ describe('classifyError', () => {
     assert.equal(classifyError('fetch failed (CERT_HAS_EXPIRED)'), '証明書エラー');
     assert.equal(classifyError('fetch failed (DEPTH_ZERO_SELF_SIGNED_CERT)'), '証明書エラー');
   });
+
+  test('画像のみの PDF は分けて分類する（#211）', () => {
+    assert.equal(classifyError('PDF からテキストを抽出できない（画像のみの PDF）'), 'PDFにテキストなし（画像のみ）');
+  });
 });
 
 describe('buildReport', () => {
@@ -197,5 +201,117 @@ describe('buildReport - LLM 使用量（#199）', () => {
   test('LLM を呼ばなかった場合は使用量の行を出さない', () => {
     const md = buildReport({ ...emptySummary(), llm: { models: [], calls: 0, inputTokens: 0, outputTokens: 0, cacheCreationTokens: 0, cacheReadTokens: 0, costUsd: 0 } });
     assert.doesNotMatch(md, /使用モデル/);
+  });
+});
+
+describe('buildReport - テキストの少ない PDF（#211）', () => {
+  test('画像中心の PDF を大会・URL・文字数つきで表示する', () => {
+    const summary = { ...emptySummary(), sparse_pdfs: [{ race_id: 'a-2027', url: 'https://a/p.pdf', chars: 61 }] };
+    const report = buildReport(summary);
+    assert.match(report, /テキストの少ないPDF（1件）/);
+    assert.match(report, /`a-2027` https:\/\/a\/p\.pdf（61字）/);
+  });
+
+  test('該当がなければ表示しない', () => {
+    assert.doesNotMatch(buildReport(emptySummary()), /テキストの少ないPDF/);
+  });
+});
+
+describe('buildReport - テキストの切り詰め（#210）', () => {
+  test('切り詰めたページを大会・URL・残した字数/全体で表示する', () => {
+    const summary = { ...emptySummary(), truncated: [{ race_id: 'a-2027', pages: [{ url: 'https://a/x', kept: 4500, total: 12000 }] }] };
+    const report = buildReport(summary);
+    assert.match(report, /テキストを切り詰めたページ（1大会）/);
+    assert.match(report, /`a-2027` https:\/\/a\/x（4,500 \/ 12,000字）/);
+  });
+
+  test('該当がなければ表示しない', () => {
+    assert.doesNotMatch(buildReport(emptySummary()), /切り詰めたページ/);
+  });
+});
+
+describe('buildReport - URL失効（#208）', () => {
+  const expired = [
+    { race_id: 'a-2027', race_name: 'A大会', all_expired: true, urls: [{ url: 'https://a/x', error: 'HTTP 404', fail_count: 1 }],
+      suggestions: [{ href: 'https://a/2027/outline/', text: '大会要項' }] },
+    { race_id: 'b-2027', race_name: 'B大会', all_expired: false, urls: [{ url: 'https://b/y', error: 'HTTP 500', fail_count: 3 }], suggestions: [] },
+  ];
+
+  test('失効した URL を大会別に表示し、全URL失効の大会は要対応として目立たせる', () => {
+    const report = buildReport({ ...emptySummary(), expired });
+    assert.match(report, /## URL失効（2大会）/);
+    assert.match(report, /\*\*要対応\*\* A大会/);
+    assert.match(report, /https:\/\/a\/x（HTTP 404）/);
+    assert.match(report, /https:\/\/b\/y（HTTP 500・3回連続）/);
+  });
+
+  test('トップページから見つけた候補リンクを表示する', () => {
+    const report = buildReport({ ...emptySummary(), expired });
+    assert.match(report, /候補: \[大会要項\]\(https:\/\/a\/2027\/outline\/\)/);
+  });
+
+  test('該当がなければ表示しない', () => {
+    assert.doesNotMatch(buildReport(emptySummary()), /URL失効/);
+  });
+});
+
+describe('buildReport - お知らせ案（#201）', () => {
+  const announcement = {
+    slug: '2026-11-08-race-data-update', date: '2026-11-08', title_ja: '2大会の情報を更新しました', title_en: '2 Races Updated',
+    body_ja: '以下の2大会の情報を…\n・鳥取マラソン（3/14・鳥取県鳥取市）', body_en: "We've updated…", link_href: '/races',
+  };
+
+  test('同梱したお知らせのタイトルと本文を表示する', () => {
+    const report = buildReport({ ...emptySummary(), announcement });
+    assert.match(report, /## お知らせ（同梱）/);
+    assert.match(report, /`src\/data\/announcements\.json` に `2026-11-08-race-data-update` を追加/);
+    assert.match(report, /\*\*2大会の情報を更新しました\*\*/);
+    assert.match(report, /・鳥取マラソン（3\/14・鳥取県鳥取市）/);
+    assert.match(report, /2 Races Updated/);
+  });
+
+  test('お知らせが無ければ表示しない', () => {
+    assert.doesNotMatch(buildReport(emptySummary()), /お知らせ（同梱）/);
+  });
+});
+
+describe('buildReport - X 投稿文（#202）', () => {
+  test('コピーしやすいようコードブロックで、文字数と生成方法を添えて表示する', () => {
+    const summary = { ...emptySummary(), x_post: { text: '13大会を更新しました\nhttps://hashiru.run/ja/news\n#マラソン #ランニング', source: 'llm', length: 80 } };
+    const report = buildReport(summary);
+    assert.match(report, /## X 投稿文/);
+    assert.match(report, /```text\n13大会を更新しました\nhttps:\/\/hashiru\.run\/ja\/news\n#マラソン #ランニング\n```/);
+    assert.match(report, /80 \/ 280/);
+  });
+
+  test('テンプレート文にした場合はその旨と理由を出す', () => {
+    const summary = { ...emptySummary(), x_post: { text: 't', source: 'template', length: 1, error: 'boom' } };
+    assert.match(buildReport(summary), /テンプレート文（LLM の生成に失敗: boom）/);
+  });
+
+  test('無ければ表示しない', () => {
+    assert.doesNotMatch(buildReport(emptySummary()), /X 投稿文/);
+  });
+});
+
+describe('buildReport - 未掲載大会の探索（#204）', () => {
+  const summary = () => ({
+    ...emptySummary(),
+    kind: 'discover',
+    discovered: [{ race_id: 'koshien-enjoy-run-2026', race_name: '甲子園エンジョイラン', date: '2026-12-13', official_url: 'https://koshien.example/',
+      source_url: 'https://www.sportsentry.ne.jp/event/t/107433', issues: [{ rule: 'entry_fee_missing', level: 'warning', message: '参加費なし' }] }],
+    discover_skipped: [{ candidate_id: 'sportsentry-1', name: '謎の大会', reason: '公式サイトが見つからない' }],
+  });
+
+  test('新規掲載した大会を、公式サイト・発見元・検査結果つきで表示する', () => {
+    const report = buildReport(summary());
+    assert.match(report, /## 新規掲載（1大会）/);
+    assert.match(report, /\| 2026-12-13 \| 甲子園エンジョイラン \| `koshien-enjoy-run-2026` \| \[公式\]\(https:\/\/koshien\.example\/\) \| \[発見元\]\(https:\/\/www\.sportsentry\.ne\.jp\/event\/t\/107433\) \| 警告: entry_fee_missing \|/);
+    assert.match(report, /detail_level: light/);
+    assert.doesNotMatch(report, /レースデータへの変更はありません/);
+  });
+
+  test('生成しなかった候補を理由つきで表示する', () => {
+    assert.match(buildReport(summary()), /### 生成しなかった候補（1件）\n\n- 謎の大会（`sportsentry-1`）: 公式サイトが見つからない/);
   });
 });

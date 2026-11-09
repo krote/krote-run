@@ -255,6 +255,12 @@ describe('discoverInfoLinks', () => {
     assert.ok(links.length > 0);
   });
 
+  test('要項・募集ページのリンクを検出する（#208）', () => {
+    const html = '<a href="/a/">大会要項</a><a href="/b/">ランナー募集</a><a href="/outline/">概要</a>';
+    const links = discoverInfoLinks(html, 'https://example.com/');
+    assert.equal(links.length, 3);
+  });
+
   test('関係ないリンクは除外する', () => {
     const html = '<a href="/about/">運営会社</a><a href="/news/">お知らせ</a>';
     const base = 'https://example.com/';
@@ -455,5 +461,135 @@ describe('fetchPageText', () => {
       throw new TypeError('fetch failed', { cause: Object.assign(new Error('unable to verify'), { code: 'UNABLE_TO_VERIFY_LEAF_SIGNATURE' }) });
     };
     await assert.rejects(fetchPageText('https://example.com/', { fetchFn }), /fetch failed \(UNABLE_TO_VERIFY_LEAF_SIGNATURE\)/);
+  });
+});
+
+describe('PDF のテキスト化（#211）', () => {
+  const { isPdfBytes, extractPdfText, fetchPage, SPARSE_PDF_CHARS } = require('./index');
+  const { makePdf } = require('./test-pdf');
+
+  const response = (bytes, { contentType = 'application/pdf' } = {}) => ({
+    ok: true,
+    status: 200,
+    headers: new Headers({ 'content-type': contentType }),
+    arrayBuffer: async () => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength),
+    text: async () => new TextDecoder().decode(bytes),
+  });
+  const longLines = Array.from({ length: 12 }, (_, i) => `Entry fee 10000 yen line ${i} for the full marathon category`);
+
+  test('先頭が %PDF- なら PDF と判定する', () => {
+    assert.equal(isPdfBytes(makePdf(['a'])), true);
+    assert.equal(isPdfBytes(new TextEncoder().encode('<html></html>')), false);
+    assert.equal(isPdfBytes(new Uint8Array()), false);
+  });
+
+  test('PDF からテキストを抽出する', async () => {
+    const text = await extractPdfText(makePdf(['Entry fee 10000 yen', 'Start 9:00']));
+    assert.match(text, /Entry fee 10000 yen/);
+    assert.match(text, /Start 9:00/);
+  });
+
+  test('PDF の応答はバイナリではなく抽出テキストを返す', async () => {
+    const page = await fetchPage('https://example.com/guide.pdf', { fetchFn: async () => response(makePdf(longLines)) });
+    assert.equal(page.kind, 'pdf');
+    assert.match(page.text, /Entry fee 10000 yen line 0/);
+    assert.ok(!page.text.includes('endobj'));
+    assert.equal(page.sparse, false);
+  });
+
+  test('Content-Type が PDF でも中身が HTML なら HTML として扱う（リンク切れ等）', async () => {
+    const html = `<html><body>${'お知らせ '.repeat(40)}</body></html>`;
+    const page = await fetchPage('https://example.com/guide.pdf', {
+      fetchFn: async () => response(new TextEncoder().encode(html), { contentType: 'application/pdf' }),
+    });
+    assert.equal(page.kind, 'html');
+    assert.ok(page.text.startsWith('お知らせ'));
+  });
+
+  test('テキストの少ない PDF（画像中心）は sparse として返す（短くてもエラーにしない）', async () => {
+    const page = await fetchPage('https://example.com/p.pdf', { fetchFn: async () => response(makePdf(['FINISH START 9:00'])) });
+    assert.equal(page.kind, 'pdf');
+    assert.equal(page.sparse, true);
+    assert.ok(page.text.length < SPARSE_PDF_CHARS);
+  });
+
+  test('テキストが全く取れない PDF はエラーにする', async () => {
+    await assert.rejects(
+      fetchPage('https://example.com/p.pdf', { fetchFn: async () => response(makePdf([])) }),
+      /PDF からテキストを抽出できない/,
+    );
+  });
+
+  test('fetchPageText は PDF でも抽出テキストを返す', async () => {
+    const text = await fetchPageText('https://example.com/guide.pdf', { fetchFn: async () => response(makePdf(longLines)) });
+    assert.match(text, /Entry fee/);
+  });
+});
+
+describe('URL失効の判定（#208）', () => {
+  const { isUrlExpired, recordFetchFailure, findRelinkCandidates, EXPIRE_AFTER_5XX } = require('./index');
+
+  test('404 / 410 は1回で失効とみなす', () => {
+    assert.equal(isUrlExpired('HTTP 404', 1), true);
+    assert.equal(isUrlExpired('HTTP 410', 1), true);
+  });
+
+  test('5xx は連続失敗が閾値に達したら失効とみなす（一時障害を除くため）', () => {
+    assert.equal(EXPIRE_AFTER_5XX, 3);
+    assert.equal(isUrlExpired('HTTP 500', 2), false);
+    assert.equal(isUrlExpired('HTTP 503', 3), true);
+  });
+
+  test('タイムアウト・証明書・403 などは失効扱いにしない', () => {
+    assert.equal(isUrlExpired('The operation was aborted due to timeout', 10), false);
+    assert.equal(isUrlExpired('fetch failed (UNABLE_TO_VERIFY_LEAF_SIGNATURE)', 10), false);
+    assert.equal(isUrlExpired('HTTP 403', 10), false);
+  });
+
+  test('recordFetchFailure は連続失敗回数を1増やし、ハッシュは保つ', () => {
+    const prev = { hash: 'h', last_checked: 'x', race_id: 'r' };
+    const next = recordFetchFailure(prev, 'r', 'HTTP 500', new Date('2026-11-08T00:00:00Z'));
+    assert.deepEqual(next, { hash: 'h', last_checked: '2026-11-08T00:00:00.000Z', race_id: 'r', fail_count: 1, last_error: 'HTTP 500' });
+    assert.equal(recordFetchFailure(next, 'r', 'HTTP 500', new Date()).fail_count, 2);
+    assert.equal(prev.fail_count, undefined);
+  });
+
+  test('recordFetchFailure は未登録 URL でも記録する', () => {
+    const next = recordFetchFailure(undefined, 'r', 'HTTP 404', new Date('2026-11-08T00:00:00Z'));
+    assert.equal(next.fail_count, 1);
+    assert.equal(next.hash, null);
+  });
+
+  test('findRelinkCandidates はトップページの要項・エントリー等のリンクから登録済み URL を除く', () => {
+    const html = '<a href="/2027/outline/">大会要項</a><a href="/2027/entry/">エントリー</a><a href="/old/entry/">エントリー（旧）</a><a href="/news/">ニュース</a>';
+    const links = findRelinkCandidates(html, 'https://example.com/', ['https://example.com/old/entry/']);
+    assert.deepEqual(links.map((l) => l.href), ['https://example.com/2027/outline/', 'https://example.com/2027/entry/']);
+  });
+});
+
+describe('collectAnnouncementInputs（#201）', () => {
+  const { collectAnnouncementInputs } = require('./index');
+  const races = {
+    'a-2027': { id: 'a-2027', name_ja: 'A' },
+    'b-2028': { id: 'b-2028', name_ja: 'B 2028' },
+    'c-2027': { id: 'c-2027', name_ja: 'C' },
+  };
+  const loadRace = (id) => races[id] ?? null;
+
+  test('更新した大会は最新の JSON と diff、次年度ファイル・追加した大会は新規掲載にする', () => {
+    const summary = {
+      extracted: [{ race_id: 'a-2027', diff: [{ key: 'entry_periods' }] }],
+      new_editions: [{ race_id: 'b-2027', new_race_id: 'b-2028' }],
+      discovered: [{ race_id: 'c-2027' }],
+    };
+    const { added, updated } = collectAnnouncementInputs(summary, loadRace);
+    assert.deepEqual(added.map((r) => r.id), ['b-2028', 'c-2027']);
+    assert.deepEqual(updated, [{ race: races['a-2027'], diff: [{ key: 'entry_periods' }] }]);
+  });
+
+  test('JSON を読めない大会は除く', () => {
+    const { added, updated } = collectAnnouncementInputs({ extracted: [{ race_id: 'x', diff: [] }], new_editions: [] }, loadRace);
+    assert.deepEqual(added, []);
+    assert.deepEqual(updated, []);
   });
 });

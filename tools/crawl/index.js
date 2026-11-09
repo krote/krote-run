@@ -18,12 +18,16 @@ const path = require('path');
 const ROOT = path.join(__dirname, '../..');
 const RACES_DIR = path.join(ROOT, 'src/data/races');
 const CHECKSUMS_FILE = path.join(__dirname, 'checksums.json');
+const ANNOUNCEMENTS_FILE = path.join(ROOT, 'src/data/announcements.json');
+const PREFECTURES_FILE = path.join(ROOT, 'src/data/prefectures.json');
 
 const { extractFromPages, applyAndSave, buildDiff, createNewEditionFile, resolveModel } = require('./extractor');
 const { geocodeAll } = require('../../scripts/geocode-venues');
 const { screenExtraction } = require('./gate');
 const { buildReport } = require('./report');
-const { shouldCreatePr, createCrawlPr, runPreflight, PREFLIGHT_ERROR_CODE } = require('./pr');
+const { shouldCreatePr, createCrawlPr, runPreflight, PREFLIGHT_ERROR_CODE, formatDateJst } = require('./pr');
+const { buildAnnouncement, appendAnnouncement } = require('./announcement');
+const { generateXPost } = require('./x-post');
 const { validateRace } = require('../../scripts/validate-races');
 const { shouldRelaunchWithExtraCa, relaunchWithExtraCa } = require('./extra-ca');
 
@@ -40,6 +44,8 @@ const FETCH_OPTS = {
 const INFO_LINK_KEYWORDS = [
   'access', 'アクセス', '交通', '最寄', '会場',
   '受付', 'reception', 'entry', 'エントリー', '申込',
+  // URL 失効時の再発見用（#208）: 新年度の要項ページを拾う
+  '要項', '募集', '概要', 'outline', 'guideline',
 ];
 
 /**
@@ -93,6 +99,52 @@ function discoverInfoLinks(html, baseUrl) {
   }
 
   return links;
+}
+
+/** 5xx が何回連続したら失効とみなすか（1回の失敗は一時障害の可能性があるため。#208） */
+const EXPIRE_AFTER_5XX = 3;
+
+/**
+ * 取得エラーが「URL の失効」（info_urls の登録し直しが必要）かを判定する（#208）
+ * - 404 / 410: 1回で失効
+ * - 5xx: 連続 EXPIRE_AFTER_5XX 回で失効（サイト改修で下層ページが 500 になる例があった）
+ * - タイムアウト・証明書・403 等は URL 自体の問題ではないため対象外
+ * @param {string} error - fetchPage のエラーメッセージ
+ * @param {number} failCount - 今回を含む連続失敗回数
+ */
+function isUrlExpired(error, failCount) {
+  const m = String(error ?? '').match(/HTTP (\d{3})/);
+  if (!m) return false;
+  const status = Number(m[1]);
+  if (status === 404 || status === 410) return true;
+  return status >= 500 && failCount >= EXPIRE_AFTER_5XX;
+}
+
+/**
+ * 取得失敗をチェックサムのエントリに記録する（元のエントリは変更しない）。
+ * ハッシュは残すので、復旧時に内容が変わっていなければ「変更なし」になる。
+ * @returns {{ hash: string|null, last_checked: string, race_id: string, fail_count: number, last_error: string }}
+ */
+function recordFetchFailure(entry, raceId, error, now = new Date()) {
+  return {
+    hash: entry?.hash ?? null,
+    last_checked: now.toISOString(),
+    race_id: raceId,
+    fail_count: (entry?.fail_count ?? 0) + 1,
+    last_error: error,
+  };
+}
+
+/**
+ * 全 URL が失効した大会について、トップページから info_urls の候補リンクを探す（#208）。
+ * 登録済み（失効した）URL は候補から除く。自動置換はせず PR 本文に出すだけ
+ * @param {string} html - official_url の HTML
+ * @param {string} baseUrl - official_url
+ * @param {string[]} registeredUrls - 現在の info_urls
+ */
+function findRelinkCandidates(html, baseUrl, registeredUrls) {
+  const registered = new Set(registeredUrls);
+  return discoverInfoLinks(html, baseUrl).filter((l) => !registered.has(l.href));
 }
 
 /** テキストの SHA-256 ハッシュを返す */
@@ -249,6 +301,33 @@ function accumulateLlmUsage(usage, meta) {
   };
 }
 
+/**
+ * お知らせに載せる大会を集める（#201）
+ * - 新規掲載: 次年度ファイル（new_editions）と探索で追加した大会（discovered。#204）
+ * - 更新: LLM 抽出で JSON を更新した大会。開催済みの大会は extracted に入らない（skipped_past）
+ * 大会名・開催日は更新後の JSON から読む
+ * @param {object} summary
+ * @param {(raceId: string) => object|null} loadRace
+ */
+function collectAnnouncementInputs(summary, loadRace) {
+  const added = [
+    ...(summary.new_editions ?? []).map((e) => loadRace(e.new_race_id)),
+    ...(summary.discovered ?? []).map((e) => loadRace(e.race_id)),
+  ].filter(Boolean);
+  const updated = (summary.extracted ?? [])
+    .map((e) => ({ race: loadRace(e.race_id), diff: e.diff }))
+    .filter((e) => e.race);
+  return { added, updated };
+}
+
+function loadRaceFile(raceId) {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(RACES_DIR, `${raceId}.json`), 'utf-8'));
+  } catch {
+    return null;
+  }
+}
+
 // ── I/O ──────────────────────────────────────────────────────────
 
 function loadChecksums() {
@@ -281,12 +360,45 @@ function cleanHtml(html) {
     .trim();
 }
 
+/** これより短い PDF テキストは画像中心の PDF とみなしてレポートに出す（#211） */
+const SPARSE_PDF_CHARS = 300;
+const MIN_HTML_CHARS = 100;
+
+/** 先頭が `%PDF-` か（Content-Type は当てにならないため中身で判定する） */
+function isPdfBytes(bytes) {
+  const head = '%PDF-';
+  if (!bytes || bytes.length < head.length) return false;
+  for (let i = 0; i < head.length; i++) {
+    if (bytes[i] !== head.charCodeAt(i)) return false;
+  }
+  return true;
+}
+
 /**
- * ページを取得してテキストにする
+ * PDF のテキストを抽出する（unpdf = pdf.js。Node のみで動作）
+ * @param {Uint8Array} bytes
+ * @returns {Promise<string>} 空白を詰めたテキスト
+ */
+async function extractPdfText(bytes) {
+  const { getDocumentProxy, extractText } = await import('unpdf');
+  // verbosity 0: フォント読み込み等の警告で標準出力を埋めない
+  const pdf = await getDocumentProxy(new Uint8Array(bytes), { verbosity: 0 });
+  try {
+    const { text } = await extractText(pdf, { mergePages: true });
+    return text.replace(/\s+/g, ' ').trim();
+  } finally {
+    await pdf.cleanup?.();
+  }
+}
+
+/**
+ * ページを取得してテキストにする。PDF はテキストを抽出する（#211）
  * @param {string} url
  * @param {{ fetchFn?: typeof fetch }} [opts] - テスト用に fetch を差し替えられる
+ * @returns {Promise<{ text: string, kind: 'html'|'pdf', sparse: boolean }>}
+ *   sparse: テキストの少ない PDF（画像中心のパンフレット等）
  */
-async function fetchPageText(url, { fetchFn = fetch } = {}) {
+async function fetchPage(url, { fetchFn = fetch } = {}) {
   let res;
   try {
     res = await fetchFn(url, { ...FETCH_OPTS, signal: AbortSignal.timeout(15000) });
@@ -296,9 +408,24 @@ async function fetchPageText(url, { fetchFn = fetch } = {}) {
     throw new Error(code ? `${err.message} (${code})` : err.message);
   }
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const text = cleanHtml(await res.text());
-  if (text.length < 100) throw new Error('ページコンテンツが空または短すぎます（スキップ）');
-  return text;
+
+  const bytes = new Uint8Array(await res.arrayBuffer());
+
+  // .pdf の URL でもリンク切れで HTML が返ることがあるため、拡張子ではなく中身で判定する
+  if (isPdfBytes(bytes)) {
+    const text = await extractPdfText(bytes);
+    if (text.length === 0) throw new Error('PDF からテキストを抽出できない（画像のみの PDF）');
+    return { text, kind: 'pdf', sparse: text.length < SPARSE_PDF_CHARS };
+  }
+
+  const text = cleanHtml(new TextDecoder('utf-8').decode(bytes));
+  if (text.length < MIN_HTML_CHARS) throw new Error('ページコンテンツが空または短すぎます（スキップ）');
+  return { text, kind: 'html', sparse: false };
+}
+
+/** ページを取得してテキストだけを返す（評価スクリプト等の互換用） */
+async function fetchPageText(url, opts) {
+  return (await fetchPage(url, opts)).text;
 }
 
 // ── クロール ─────────────────────────────────────────────────────
@@ -315,9 +442,11 @@ async function crawlRace(race, checksums, dryRun = false) {
     let status;
     let error = null;
     let text = null;
+    let page = null;
 
     try {
-      const fetchedText = await fetchPageText(url);
+      page = await fetchPage(url);
+      const fetchedText = page.text;
       const newHash = computeHash(fetchedText);
       const isNew = !checksums[url];
       const changed = hasChanged(url, newHash, checksums);
@@ -342,10 +471,51 @@ async function crawlRace(race, checksums, dryRun = false) {
       error = err.message;
     }
 
-    results.push({ url, status, error, text });
+    // 連続失敗回数を記録して失効を判定する（#208）。成功時は上の代入で fail_count が消える
+    let failCount = 0;
+    if (status === 'error') {
+      const failed = recordFetchFailure(checksums[url], race.id, error);
+      failCount = failed.fail_count;
+      if (!dryRun) checksums[url] = failed;
+    }
+
+    results.push({
+      url, status, error, text, kind: page?.kind ?? null, sparse: page?.sparse ?? false,
+      failCount, expired: status === 'error' && isUrlExpired(error, failCount),
+    });
   }
 
   return results;
+}
+
+/**
+ * URL 失効の記録を作る。全 URL が失効していればトップページから候補リンクを探す（#208）
+ */
+async function buildExpiredEntry(race, results, expired) {
+  const allExpired = expired.length === results.length;
+  let suggestions = [];
+  let suggestionError = null;
+  const registered = results.map((r) => r.url);
+
+  if (allExpired && race.official_url && !registered.includes(race.official_url)) {
+    try {
+      const res = await fetch(race.official_url, { ...FETCH_OPTS, signal: AbortSignal.timeout(15000) });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      suggestions = findRelinkCandidates(await res.text(), race.official_url, registered);
+    } catch (err) {
+      suggestionError = err.message;
+    }
+  }
+
+  for (const r of expired) console.log(`  URL失効: ${r.url}（${r.error}）`);
+  return {
+    race_id: race.id,
+    race_name: race.name_ja,
+    all_expired: allExpired,
+    urls: expired.map((r) => ({ url: r.url, error: r.error, fail_count: r.failCount })),
+    suggestions,
+    suggestion_error: suggestionError,
+  };
 }
 
 // ── メイン ───────────────────────────────────────────────────────
@@ -387,6 +557,9 @@ async function run(options = {}) {
     held: [],          // { race_id, race_name, key, rule, message } 検査で適用を見送った更新
     checks: { errors: 0, warnings: 0, byRule: {} }, // 実行後のデータ品質チェック結果
     llm: emptyLlmUsage(), // LLM 抽出の使用モデル・呼び出し回数・トークン数（#199）
+    expired: [],       // { race_id, race_name, all_expired, urls: [{ url, error, fail_count }], suggestions } URL失効（#208）
+    truncated: [],     // { race_id, pages: [{ url, kept, total }] } 総量予算に収めるため切り詰めたページ（#210）
+    sparse_pdfs: [],   // { race_id, url, chars } テキストの少ない PDF（画像中心。#211）
   };
 
   // 変更が検出されたレースを収集（LLM抽出用）
@@ -413,6 +586,9 @@ async function run(options = {}) {
     const changedTexts = [];
     let hasRealChange = false;
     for (const r of results) {
+      if (r.sparse) {
+        summary.sparse_pdfs.push({ race_id: race.id, url: r.url, chars: r.text.length });
+      }
       if (r.status === 'changed') {
         hasRealChange = true;
         summary.changed.push({ race_id: race.id, url: r.url });
@@ -437,6 +613,11 @@ async function run(options = {}) {
       }
     }
 
+    const expired = results.filter((r) => r.expired);
+    if (expired.length > 0) {
+      summary.expired.push(await buildExpiredEntry(race, results, expired));
+    }
+
     if (changedTexts.length > 0) {
       if (forceExtract && !hasRealChange) {
         summary.forced.push({ race_id: race.id, race_name: race.name_ja, reasons: forcedReasons });
@@ -456,8 +637,9 @@ async function run(options = {}) {
     for (const { race, changedTexts } of changedRaces) {
       process.stdout.write(`[extract] ${race.id} ... `);
       try {
-        const { extracted: rawExtracted, meta } = await extractFromPages(race, changedTexts, extractOptions);
+        const { extracted: rawExtracted, meta, truncated } = await extractFromPages(race, changedTexts, extractOptions);
         summary.llm = accumulateLlmUsage(summary.llm, meta);
+        if (truncated.length > 0) summary.truncated.push({ race_id: race.id, pages: truncated });
 
         // データ品質ルールに反する更新は適用しない（同じ指摘の再発を適用前に止める）
         const { applied: extracted, held } = screenExtraction(race, rawExtracted);
@@ -565,6 +747,31 @@ async function run(options = {}) {
 
   console.log(`検査で保留: ${summary.held.length}件`);
 
+  // ── お知らせ（#201） ──
+  // データ反映と同時に公開されるよう、PR を作る場合はお知らせも同梱する。dry-run は案の表示のみ
+  if (shouldCreatePr(summary, { dryRun }) || dryRun) {
+    const announcement = buildAnnouncement({
+      ...collectAnnouncementInputs(summary, loadRaceFile),
+      date: formatDateJst(new Date()),
+      existingSlugs: JSON.parse(fs.readFileSync(ANNOUNCEMENTS_FILE, 'utf-8')).map((a) => a.slug),
+      prefectures: JSON.parse(fs.readFileSync(PREFECTURES_FILE, 'utf-8')),
+    });
+    if (announcement) {
+      summary.announcement = announcement;
+      if (!dryRun) {
+        appendAnnouncement(ANNOUNCEMENTS_FILE, announcement);
+        console.log(`\n[announce] お知らせを追加しました: ${announcement.slug}`);
+      }
+
+      // X 投稿文（#202）。投稿は手動。生成に失敗してもテンプレート文になり PR 作成は止めない
+      console.log('[x-post] X 投稿文を生成中...');
+      const xPost = await generateXPost(announcement, extractOptions);
+      for (const meta of xPost.metas) summary.llm = accumulateLlmUsage(summary.llm, meta);
+      summary.x_post = xPost;
+      console.log(`[x-post] ${xPost.source === 'llm' ? 'LLM で生成' : 'テンプレート文'}（${xPost.length} / 280）`);
+    }
+  }
+
   // ── PR 作成 ──
   // クロールは race JSON を書き換えるため、実行の締めくくりとして
   // レポートを本文にした PR まで作り、レビューできる状態で止める。
@@ -613,5 +820,5 @@ if (require.main === module && shouldRelaunchWithExtraCa(process.env)) {
     process.exit(1);
   });
 } else {
-  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks, isMissingCriticalFields, getForcedExtractionReasons, isPastRace, isEditionTransition, buildExtractOptions, accumulateLlmUsage, emptyLlmUsage, fetchPageText };
+  module.exports = { computeHash, hasChanged, buildUrlsToCheck, getLatestFilesPerSeries, discoverInfoLinks, isMissingCriticalFields, getForcedExtractionReasons, isPastRace, isEditionTransition, buildExtractOptions, accumulateLlmUsage, emptyLlmUsage, fetchPageText, fetchPage, isPdfBytes, extractPdfText, SPARSE_PDF_CHARS, isUrlExpired, recordFetchFailure, findRelinkCandidates, EXPIRE_AFTER_5XX, collectAnnouncementInputs };
 }

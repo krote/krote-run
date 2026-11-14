@@ -1969,3 +1969,13 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 
 ### stg・本番への適用時の注意
 - リモートの `d1_migrations` に `seed-travel-times.sql` の記録が無いため、`db:migrate:stg` / `db:migrate:remote` を実行すると 0019 に続けて `seed-travel-times.sql` も流れ、`race_travel_times` の UNIQUE 制約で失敗する（ローカルの `db:migrate:local` では実際に流れた）。0019 は `wrangler d1 execute --remote --file=migrations/0019_clever_pet_avengers.sql` で個別に適用し、`d1_migrations` に 0019 と `seed-travel-times.sql` を INSERT して適用済みにする
+
+## 2026-11-14 途中終了フラグ（PR #223）を stg・本番へ適用
+
+- リモートの `d1_migrations` に `seed-travel-times.sql` の記録が無く、`migrations apply` だと 0019 に続けて同ファイルが流れて UNIQUE 制約で失敗するため、個別に適用した
+  1. `wrangler d1 execute <DB> --remote --file=./migrations/0019_clever_pet_avengers.sql`
+  2. `INSERT INTO d1_migrations (name) VALUES ('0019_clever_pet_avengers.sql'), ('seed-travel-times.sql')`
+  3. `pnpm run db:seed-races:stg` / `db:seed-races:remote`（changes 3,485、両環境とも同値）
+- stg → 本番の順に実施。両環境とも `race_entry_periods.closed_early` 追加済み（275期間・true は0件）、`races` 145件、`race_travel_times` 312件で変化なし、`wrangler d1 migrations list` が「No migrations to apply」
+- `pnpm run cf:deploy:stg` → `pnpm run cf:deploy` で main（5dbc630）をデプロイ。両環境で `/ja`・`/ja/races`・`/ja/calendar`・大会詳細が 200、ペイロードに `closed_early` が含まれることを確認
+- 今後 `seed-travel-times.sql` は適用済み扱いになるため、移動時間を再計算して入れ直す場合は `wrangler d1 execute --file` で直接実行すること

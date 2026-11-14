@@ -18,8 +18,8 @@
   "entry_start_date": "2026-07-03",
   "entry_end_date": "2026-09-24",
   "reception_type": "pre_day",
-  "reception_note_ja": "",
-  "reception_note_en": "",
+  "reception_note_ja": "ランナー受付（アスリートビブス引換）は2027年3月12日（金）12:00〜20:30、3月13日（土）10:00〜19:30、バンテリンドームナゴヤにて。大会当日の受付・郵送対応はなし。本人確認書類（パスポート・住民票・マイナンバーカード・資格確認書のいずれか）が必要で、運転免許証は不可。代理受付は不可。",
+  "reception_note_en": "Runner registration (bib pick-up) is held at Vantelin Dome Nagoya on Friday, March 12, 2027 (12:00-20:30) and Saturday, March 13 (10:00-19:30). No registration on race day and no mailing of bibs. Bring one of the following IDs: passport, certificate of residence, My Number card, or eligibility certificate (driver's licenses are not accepted). Proxy pick-up is not allowed.",
   "tags": [
     "女性限定",
     "大規模",
@@ -95,7 +95,7 @@
   ],
   "result": null,
   "created_at": "2026-08-31T13:37:53.674Z",
-  "updated_at": "2026-10-24T13:37:05.063Z",
+  "updated_at": "2026-11-14T03:02:32.944Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -103,9 +103,10 @@
       "2026-09-06: 自動クロールで更新",
       "2026-09-18: 自動クロールで更新",
       "2026-09-28: 自動クロールで更新",
-      "2026-10-24: 自動クロールで更新"
+      "2026-10-24: 自動クロールで更新",
+      "2026-11-14: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-24",
+    "last_verified": "2026-11-14",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -200,13 +201,22 @@
       "sort_order": 9
     },
     {
+      "label_ja": "アディショナルエントリー",
+      "label_en": "Additional Entry",
+      "start_date": "2026-11-17",
+      "end_date": "2026-11-22",
+      "entry_fee": 19000,
+      "category_id": null,
+      "sort_order": 10
+    },
+    {
       "label_ja": "エリートエントリー",
       "label_en": "Elite Entry",
       "start_date": "2026-12-01",
       "end_date": null,
       "entry_fee": 19000,
       "category_id": null,
-      "sort_order": 10
+      "sort_order": 11
     },
     {
       "label_ja": "海外エントリー（アーリー）",
@@ -215,7 +225,7 @@
       "end_date": "2026-08-24",
       "entry_fee": 24000,
       "category_id": null,
-      "sort_order": 11
+      "sort_order": 12
     },
     {
       "label_ja": "海外エントリー（通常）",
@@ -224,7 +234,7 @@
       "end_date": "2026-12-25",
       "entry_fee": 25000,
       "category_id": null,
-      "sort_order": 12
+      "sort_order": 13
     }
   ],
   "motif": "名古屋城",

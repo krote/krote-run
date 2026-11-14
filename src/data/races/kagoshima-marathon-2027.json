@@ -97,23 +97,25 @@
   "participation_gifts": [
     {
       "gift_categories": [
-        "tshirt"
+        "tshirt",
+        "medal"
       ],
-      "description_ja": "大会Tシャツ、完走メダル",
-      "description_en": "Race T-shirt, Finisher medal",
+      "description_ja": "記念Tシャツ・記念メダル・クーポン（500円分）から希望する2つを選択（マラソンのみ）。ファンランはTシャツ・フェイスタオル。",
+      "description_en": "Choose 2 of: commemorative T-shirt, commemorative medal, or ¥500 coupon (marathon only). Fun run participants receive a T-shirt and face towel.",
       "image": null
     }
   ],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-09-03T14:52:06.142Z",
+  "updated_at": "2026-11-14T03:01:27.524Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "kagoshima-marathon-2026.json をベースに2027年大会（西郷隆盛生誕200年・没後150年カウントダウン記念）向けに新規作成",
-      "2026-08-25: runnet.jp紹介記事を起点に新規登録"
+      "2026-08-25: runnet.jp紹介記事を起点に新規登録",
+      "2026-11-14: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-25",
+    "last_verified": "2026-11-14",
     "detail_level": "medium"
   },
   "entry_periods": [

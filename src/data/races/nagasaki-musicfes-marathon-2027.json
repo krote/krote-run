@@ -9,8 +9,8 @@
   "prefecture": "42",
   "city_ja": "諫早市",
   "city_en": "Isahaya City",
-  "description_ja": "「ランニングと音楽が紡ぐ、平和でかけがえのない一日」をコンセプトに開催される新設のフルマラソン。東京マラソン財団のプロデュースを受け、県内初の日本陸連公認フルマラソン大会を目標とする。",
-  "description_en": "A newly established full marathon under the concept 'A peaceful, irreplaceable day woven by running and music,' produced with support from the Tokyo Marathon Foundation, aiming to be the prefecture's first JAAF-certified full marathon.",
+  "description_ja": "「ランニングと音楽が紡ぐ、平和でかけがえのない一日」をコンセプトに、2027年1月31日に開催されるフルマラソン。トランスコスモススタジアム長崎を発着とし、諫早湾干拓堤防道路を含む、ワールドアスレティックス認証・日本陸連公認のコースで、東京マラソン財団が特別協力する。",
+  "description_en": "A full marathon held on January 31, 2027 under the concept 'A peaceful, irreplaceable day woven by running and music,' with special cooperation from the Tokyo Marathon Foundation. Starting and finishing at Trans Cosmos Stadium Nagasaki, the course includes the Isahaya Bay reclamation seawall road and is certified by World Athletics and the JAAF.",
   "official_url": "https://mf42195nagasaki.jp/",
   "entry_fee": 15000,
   "entry_fee_by_category": true,
@@ -209,7 +209,7 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-10-24T13:36:23.784Z",
+  "updated_at": "2026-11-14T03:02:19.430Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -220,9 +220,10 @@
       "2026-08-31: 自動クロールで更新",
       "2026-09-04: 自動クロールで更新",
       "2026-09-18: 自動クロールで更新",
-      "2026-10-24: 自動クロールで更新"
+      "2026-10-24: 自動クロールで更新",
+      "2026-11-14: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-24",
+    "last_verified": "2026-11-14",
     "detail_level": "medium"
   },
   "entry_periods": [

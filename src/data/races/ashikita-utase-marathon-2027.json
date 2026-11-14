@@ -12,7 +12,7 @@
   "description_ja": "不知火海（八代海）の潮風を受けながら、風光明媚な芦北海岸の海岸線を走る大会。高低差の少ない折り返しコースで、ハーフは芦北海浜総合公園前をスタートし芦北大橋にフィニッシュする。ゲストランナーは川内優輝選手。",
   "description_en": "A race along the scenic Ashikita coastline, with sea breezes from the Shiranui Sea (Yatsushiro Sea). The out-and-back courses have little elevation change; the half marathon starts in front of Ashikita Seaside Park and finishes at Ashikita Ohashi Bridge. Yuki Kawauchi runs as a guest.",
   "official_url": "https://www.ashikitautase-marathon.jp/",
-  "entry_fee": null,
+  "entry_fee": 5000,
   "entry_fee_by_category": true,
   "entry_capacity": 1500,
   "entry_start_date": "2026-10-30",
@@ -159,7 +159,7 @@
   ],
   "result": null,
   "created_at": "2026-10-24T00:00:00Z",
-  "updated_at": "2026-10-31T15:17:16.002Z",
+  "updated_at": "2026-11-14T02:59:56.647Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.ashikitautase-marathon.jp/）およびRUNNET大会ページ（raceId=397500）の公開情報から作成（2026-10-24）",
     "data_accuracy_notes": [
@@ -172,9 +172,10 @@
       "給水所の位置は公式サイトに記載なし（コースマップは画像のみ）",
       "佐敷駅からのシャトルバスの所要時間は記載なし",
       "紙の完走証は有料（税込550円）、標準はデジタル完走証",
-      "2026-10-31: 自動クロールで更新"
+      "2026-10-31: 自動クロールで更新",
+      "2026-11-14: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-31",
+    "last_verified": "2026-11-14",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -183,7 +184,7 @@
       "label_en": "General Entry",
       "start_date": "2026-10-30",
       "end_date": "2027-01-08",
-      "entry_fee": null,
+      "entry_fee": 5000,
       "category_id": null,
       "sort_order": 0
     }

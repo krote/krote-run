@@ -117,21 +117,22 @@
         "local_product",
         "food"
       ],
-      "description_ja": "「大会オリジナルTシャツ」または「地元名産品」のいずれかを選択（申込後の変更不可）。地元コシヒカリ玄米100%使用「備食ライス」（参加者全員）",
-      "description_en": "Choice of \"Original Race T-shirt\" or \"Local Specialty Product\" (no changes after entry). Local Koshihikari brown rice \"Bishoku Rice\" (all participants)",
+      "description_ja": "「大会オリジナルTシャツ」または「地元名産品」のいずれかをエントリー時に選択（Tシャツ希望の場合は参加料に500円（税込）追加、申込後の変更不可）。地元コシヒカリ玄米100%使用「備食ライス」（参加者全員）",
+      "description_en": "Choice of \"Original Race T-shirt\" or \"Local Specialty Product\" at entry (T-shirt requires an additional 500 yen including tax; no changes after entry). Local Koshihikari brown rice \"Bishoku Rice\" (all participants)",
       "image": null
     }
   ],
   "result": null,
   "created_at": "2026-09-04T14:15:06.304Z",
-  "updated_at": "2026-10-24T13:31:25.960Z",
+  "updated_at": "2026-11-14T03:01:36.419Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "2026-09-04: 自動クロールで kasumigaura-marathon-2026 を元に2027年大会ファイルを新規作成",
-      "2026-10-24: 自動クロールで更新"
+      "2026-10-24: 自動クロールで更新",
+      "2026-11-14: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-24",
+    "last_verified": "2026-11-14",
     "detail_level": "medium"
   },
   "entry_periods": [

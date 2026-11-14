@@ -53,5 +53,16 @@
     "link_href": "/races",
     "link_label_ja": "大会一覧を見る",
     "link_label_en": "Browse all races"
+  },
+  {
+    "slug": "2026-11-14-race-data-update",
+    "date": "2026-11-14",
+    "title_ja": "新たに1大会を掲載・11大会の情報を更新しました",
+    "title_en": "1 Race Added, 11 Races Updated",
+    "body_ja": "以下の1大会を新たに掲載しました。\n・ちばアクアラインマラソン（11/21・千葉県木更津市・袖ケ浦市）\nあわせて、以下の11大会の情報を各公式サイトの最新内容に更新しました。\n・青島太平洋マラソン（12/13・宮崎県）\n・富士山マラソン（12/13・山梨県富士河口湖町）\n・みえ松阪マラソン（12/20・三重県松阪市）\n・長崎ミュージックフェスマラソン（1/31・長崎県諫早市）\n・さいたまマラソン（2/14・埼玉県さいたま市）\n・鹿児島マラソン（3/7・鹿児島県鹿児島市）\n・東京マラソン（3/7・東京都新宿区〜千代田区）\n・名古屋ウィメンズマラソン（3/14・愛知県名古屋市）\n・芦北うたせマラソン（3/28・熊本県芦北町）\n・かすみがうらマラソン（4/18・茨城県土浦市）\n・いわて奥州きらめきマラソン（5/16・岩手県奥州市）\n主な更新内容は、エントリー期間、参加費、参加賞・完走賞、会場情報、受付方法、定員です。",
+    "body_en": "We've added the following race:\n- Chiba Aqualine Marathon (Nov 21, Kisarazu City / Sodegaura City, Chiba, Chiba)\nWe've also updated the following 11 races with the latest information from their official websites:\n- Aotai (Dec 13, Miyazaki)\n- Mt. Fuji Marathon (Dec 13, Fujikawaguchiko, Yamanashi)\n- Mie Matsusaka Marathon (Dec 20, Matsusaka, Mie)\n- Nagasaki Music Fes Marathon (Jan 31, Isahaya, Nagasaki)\n- Saitama Marathon (Feb 14, Saitama)\n- Kagoshima Marathon (Mar 7, Kagoshima)\n- Tokyo Marathon (Mar 7, Shinjuku to Chiyoda, Tokyo)\n- Nagoya Women's Marathon (Mar 14, Nagoya, Aichi)\n- Ashikita Utase Marathon (Mar 28, Ashikita, Kumamoto)\n- Kasumigaura Marathon (Apr 18, Tsuchiura, Ibaraki)\n- Iwate Oshu Kirameki Marathon (May 16, Oshu, Iwate)\nUpdates mainly cover entry periods, entry fees, participation and finisher gifts, venue information, check-in procedures, and capacity.",
+    "link_href": "/races",
+    "link_label_ja": "大会一覧を見る",
+    "link_label_en": "Browse all races"
   }
 ]

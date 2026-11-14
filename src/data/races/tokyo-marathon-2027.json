@@ -12,9 +12,9 @@
   "description_ja": "日本最大規模の市民マラソン。東京都庁をスタートし、皇居、浅草、銀座など東京の名所を巡り東京駅前でフィニッシュ。ワールドマラソンメジャーズの一つ。",
   "description_en": "Japan's largest citizens' marathon. Starting from Tokyo Metropolitan Government, passing the Imperial Palace, Asakusa, Ginza, finishing at Tokyo Station. One of the World Marathon Majors.",
   "official_url": "https://www.marathon.tokyo",
-  "entry_fee": null,
+  "entry_fee": 19800,
   "entry_fee_by_category": true,
-  "entry_capacity": 38500,
+  "entry_capacity": 40000,
   "entry_start_date": "2026-06-24",
   "entry_end_date": "2026-08-28",
   "reception_type": "pre_day",
@@ -50,8 +50,8 @@
       "distance_km": 42.195,
       "time_limit_minutes": 420,
       "start_time": "09:10",
-      "capacity": 38500,
-      "entry_fee": null,
+      "capacity": 40000,
+      "entry_fee": 19800,
       "entry_fee_u25": null,
       "name_ja": null,
       "name_en": null,
@@ -134,16 +134,17 @@
   ],
   "result": null,
   "created_at": "2026-06-24T00:00:00Z",
-  "updated_at": "2026-09-03T14:52:17.410Z",
+  "updated_at": "2026-11-14T03:03:25.161Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。エイド、周辺スポット、気象データ等は未入力",
       "2026-06-22: 自動クロールで取得した2027年大会情報を元に新規作成",
       "2026-06-27: 自動クロールでエントリー区分を更新",
-      "2026-07-27: 自動クロールで更新"
+      "2026-07-27: 自動クロールで更新",
+      "2026-11-14: 自動クロールで更新"
     ],
-    "last_verified": "2026-07-27",
+    "last_verified": "2026-11-14",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -161,7 +162,7 @@
       "label_en": "ONE TOKYO Premium Member Entry",
       "start_date": "2026-07-31",
       "end_date": "2026-08-13",
-      "entry_fee": null,
+      "entry_fee": 19800,
       "category_id": null,
       "sort_order": 1
     },
@@ -170,7 +171,7 @@
       "label_en": "Sub-Elite Entry",
       "start_date": "2026-07-31",
       "end_date": "2026-08-13",
-      "entry_fee": null,
+      "entry_fee": 19800,
       "category_id": null,
       "sort_order": 2
     },
@@ -179,7 +180,7 @@
       "label_en": "General Entry",
       "start_date": "2026-08-14",
       "end_date": "2026-08-28",
-      "entry_fee": null,
+      "entry_fee": 19800,
       "category_id": null,
       "sort_order": 3
     }

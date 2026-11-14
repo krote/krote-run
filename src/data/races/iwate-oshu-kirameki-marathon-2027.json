@@ -12,11 +12,11 @@
   "description_ja": "岩手県奥州市で開催。奥州の自然と歴史を感じながら走るフルマラソン。",
   "description_en": "A full marathon in Oshu City, Iwate, running through the nature and history of the region.",
   "official_url": "https://oshukirameki.jp",
-  "entry_fee": 10000,
+  "entry_fee": 13000,
   "entry_fee_by_category": true,
   "entry_capacity": 3000,
-  "entry_start_date": null,
-  "entry_end_date": null,
+  "entry_start_date": "2026-11-20",
+  "entry_end_date": "2027-02-27",
   "reception_type": "pre_day",
   "reception_note_ja": "",
   "reception_note_en": "",
@@ -42,7 +42,7 @@
       "time_limit_minutes": 360,
       "start_time": "08:30",
       "capacity": 3000,
-      "entry_fee": 10000,
+      "entry_fee": 13000,
       "entry_fee_u25": null,
       "name_ja": null,
       "name_en": null,
@@ -53,7 +53,7 @@
     {
       "distance_type": "10k",
       "distance_km": 10,
-      "entry_fee": 3000,
+      "entry_fee": 6000,
       "capacity": 1000,
       "time_limit_minutes": 90,
       "start_time": "08:45"
@@ -136,17 +136,28 @@
   ],
   "result": null,
   "created_at": "2026-10-09T13:59:00.466Z",
-  "updated_at": "2026-10-24T13:28:28.767Z",
+  "updated_at": "2026-11-14T03:03:33.212Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "2026-10-09: 自動クロールで iwate-oshu-kirameki-marathon-2026 を元に2027年大会ファイルを新規作成",
-      "2026-10-24: 自動クロールで更新"
+      "2026-10-24: 自動クロールで更新",
+      "2026-11-14: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-24",
+    "last_verified": "2026-11-14",
     "detail_level": "medium"
   },
-  "entry_periods": [],
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-11-20",
+      "end_date": "2027-02-27",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
   "motif": "平泉",
   "motif_color": "#854d0e",
   "motif_romaji": "Hiraizumi",
@@ -189,7 +200,7 @@
   ],
   "venue_name_ja": "奥州市役所江刺総合支所",
   "venue_name_en": "Oshu City Esashi General Branch Office",
-  "venue_address": null,
-  "start_lat": null,
-  "start_lng": null
+  "venue_address": "岩手県奥州市江刺大通り1-8",
+  "start_lat": 39.191879,
+  "start_lng": 141.174332
 }

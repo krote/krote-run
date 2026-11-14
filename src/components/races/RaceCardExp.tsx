@@ -1,6 +1,6 @@
 import type { Locale } from '@/lib/types';
 import type { RaceListItem } from '@/lib/race-list-item';
-import { formatDate, getMainCategory, getRaceName, getTodayJST } from '@/lib/utils';
+import { formatDate, getMainCategory, getRaceName, getTodayJST, isPeriodActive } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import type { TravelSettings } from '@/lib/travel';
@@ -19,12 +19,12 @@ export default function RaceCardExp({ race, locale, from, travelSettings }: Race
   const today = getTodayJST();
   const isPast = race.date < today;
   const periods = race.entry_periods ?? [];
-  const isEntryOpen = periods.length > 0
-    ? periods.some((p) => p.start_date <= today && (p.end_date === null || p.end_date >= today))
+  const isEntryOpen = !race.entry_closed && (periods.length > 0
+    ? periods.some((p) => isPeriodActive(p, today))
     : (race.entry_start_date !== null &&
        race.entry_end_date !== null &&
        today >= race.entry_start_date &&
-       today <= race.entry_end_date);
+       today <= race.entry_end_date));
 
   const highlights: string[] = [];
   const ci = race.course;

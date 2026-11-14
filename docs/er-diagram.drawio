@@ -731,7 +731,7 @@
 
         <!-- ===== race_entry_periods ===== -->
         <mxCell id="rperiod_title" value="race_entry_periods" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="900" y="340" width="280" height="240" as="geometry" />
+          <mxGeometry x="900" y="340" width="280" height="270" as="geometry" />
         </mxCell>
         <mxCell id="rperiod_r0" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="rperiod_title">
           <mxGeometry y="30" width="280" height="30" as="geometry" />
@@ -796,10 +796,19 @@
         <mxCell id="rperiod_r6_v" value="sort_order (INT)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="rperiod_r6">
           <mxGeometry x="40" width="240" height="30" as="geometry" />
         </mxCell>
+        <mxCell id="rperiod_r7" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="rperiod_title">
+          <mxGeometry y="240" width="280" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rperiod_r7_k" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="rperiod_r7">
+          <mxGeometry width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rperiod_r7_v" value="closed_early (BOOL)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="rperiod_r7">
+          <mxGeometry x="40" width="240" height="30" as="geometry" />
+        </mxCell>
 
         <!-- ===== race_entry_links ===== -->
         <mxCell id="relink_title" value="race_entry_links" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="900" y="610" width="280" height="180" as="geometry" />
+          <mxGeometry x="900" y="640" width="280" height="180" as="geometry" />
         </mxCell>
         <mxCell id="relink_r0" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="relink_title">
           <mxGeometry y="30" width="280" height="30" as="geometry" />
@@ -849,7 +858,7 @@
 
         <!-- ===== race_gallery ===== -->
         <mxCell id="rgal_title" value="race_gallery" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="900" y="820" width="280" height="180" as="geometry" />
+          <mxGeometry x="900" y="850" width="280" height="180" as="geometry" />
         </mxCell>
         <mxCell id="rgal_r0" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="rgal_title">
           <mxGeometry y="30" width="280" height="30" as="geometry" />
@@ -899,7 +908,7 @@
 
         <!-- ===== race_voices ===== -->
         <mxCell id="rvoices_title" value="race_voices" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="900" y="1030" width="280" height="210" as="geometry" />
+          <mxGeometry x="900" y="1060" width="280" height="210" as="geometry" />
         </mxCell>
         <mxCell id="rvoices_r0" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="rvoices_title">
           <mxGeometry y="30" width="280" height="30" as="geometry" />
@@ -958,7 +967,7 @@
 
         <!-- ===== race_time_buckets ===== -->
         <mxCell id="rtb_title" value="race_time_buckets" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="900" y="1270" width="280" height="180" as="geometry" />
+          <mxGeometry x="900" y="1300" width="280" height="180" as="geometry" />
         </mxCell>
         <mxCell id="rtb_r0" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="rtb_title">
           <mxGeometry y="30" width="280" height="30" as="geometry" />

@@ -145,3 +145,24 @@ describe('RaceCardExp - 日帰りステータスバッジ', () => {
     expect(screen.getByText(/日帰り可/)).toBeInTheDocument();
   });
 });
+
+describe('RaceCardExp - 受付終了', () => {
+  it('受付中の期間が途中終了していれば「エントリー受付中」を表示しない', () => {
+    const race = makeRaceListItem({
+      date: '2026-10-01',
+      entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30', closed_early: true })],
+    });
+    render(<RaceCardExp race={race} locale="ja" />);
+    expect(screen.queryByText('エントリー受付中')).not.toBeInTheDocument();
+  });
+
+  it('大会単位で受付終了（entry_closed）なら「エントリー受付中」を表示しない', () => {
+    const race = makeRaceListItem({
+      date: '2026-10-01',
+      entry_closed: true,
+      entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30' })],
+    });
+    render(<RaceCardExp race={race} locale="ja" />);
+    expect(screen.queryByText('エントリー受付中')).not.toBeInTheDocument();
+  });
+});

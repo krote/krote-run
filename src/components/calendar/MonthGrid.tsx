@@ -62,7 +62,7 @@ export default function MonthGrid({ races, year, month, locale, today, onHover }
     const effectivePeriods = periods.length > 0
       ? periods
       : (race.entry_start_date && race.entry_end_date
-          ? [{ id: 0, race_id: race.id, category_id: null, label_ja: '一般エントリー', label_en: 'General Entry', start_date: race.entry_start_date.split('T')[0], end_date: race.entry_end_date.split('T')[0], entry_fee: null, sort_order: 0 }]
+          ? [{ id: 0, race_id: race.id, category_id: null, label_ja: '一般エントリー', label_en: 'General Entry', start_date: race.entry_start_date.split('T')[0], end_date: race.entry_end_date.split('T')[0], entry_fee: null, sort_order: 0, closed_early: false }]
           : []);
 
     effectivePeriods.forEach((period) => {
@@ -103,7 +103,7 @@ export default function MonthGrid({ races, year, month, locale, today, onHover }
     const effectivePeriods = periods.length > 0
       ? periods
       : (race.entry_start_date && race.entry_end_date
-          ? [{ id: 0, race_id: race.id, category_id: null, label_ja: '一般エントリー', label_en: 'General Entry', start_date: race.entry_start_date.split('T')[0], end_date: race.entry_end_date.split('T')[0], entry_fee: null, sort_order: 0 }]
+          ? [{ id: 0, race_id: race.id, category_id: null, label_ja: '一般エントリー', label_en: 'General Entry', start_date: race.entry_start_date.split('T')[0], end_date: race.entry_end_date.split('T')[0], entry_fee: null, sort_order: 0, closed_early: false }]
           : []);
 
     effectivePeriods.forEach((period) => {

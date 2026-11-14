@@ -98,7 +98,12 @@ describe('toRaceListItem', () => {
   describe('エントリー期間', () => {
     it('ステータス判定に使う日付だけを残す', () => {
       const race = makeRace({ entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30' })] });
-      expect(toRaceListItem(race, 'ja').entry_periods).toEqual([{ start_date: '2026-03-01', end_date: '2026-06-30' }]);
+      expect(toRaceListItem(race, 'ja').entry_periods).toEqual([{ start_date: '2026-03-01', end_date: '2026-06-30', closed_early: false }]);
+    });
+
+    it('途中終了（closed_early）を残す', () => {
+      const race = makeRace({ entry_periods: [makeEntryPeriod({ closed_early: true })] });
+      expect(toRaceListItem(race, 'ja').entry_periods[0].closed_early).toBe(true);
     });
   });
 

@@ -120,6 +120,7 @@ export function makeEntryPeriod(overrides: Partial<EntryPeriod> = {}): EntryPeri
     end_date: '2026-06-30',
     entry_fee: null,
     sort_order: 0,
+    closed_early: false,
     ...overrides,
   };
 }

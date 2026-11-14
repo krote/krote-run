@@ -276,6 +276,7 @@ export const race_entry_periods = sqliteTable("race_entry_periods", {
   end_date:    text("end_date"),
   entry_fee:   integer("entry_fee"),
   sort_order:  integer("sort_order").notNull().default(0),
+  closed_early: integer("closed_early", { mode: "boolean" }).notNull().default(false), // 締切日前に受付終了（定員到達・先着締切等）
 }, (t) => [
   index("race_entry_periods_race_id_idx").on(t.race_id),
 ]);

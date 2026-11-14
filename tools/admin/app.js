@@ -417,6 +417,12 @@ function addEntryPeriodRow(period = {}) {
         <label>ラベル（English）</label>
         <input type="text" class="ep-label-en" value="${period.label_en ?? ''}" placeholder="e.g. General Entry" />
       </div>
+      <div class="field full">
+        <label class="checkbox-label">
+          <input type="checkbox" class="ep-closed-early" ${period.closed_early ? 'checked' : ''} />
+          <span>締切前に受付終了（定員到達・先着締切等）</span>
+        </label>
+      </div>
     </div>
   `;
 
@@ -430,6 +436,7 @@ function addEntryPeriodRow(period = {}) {
   });
 
   row.querySelectorAll('input').forEach(el => el.addEventListener('input', markDirty));
+  row.querySelector('.ep-closed-early').addEventListener('change', markDirty);
   container.appendChild(row);
 }
 
@@ -440,6 +447,8 @@ function collectEntryPeriods() {
     entry_fee: row.dataset.entryFee != null ? parseInt(row.dataset.entryFee) : null,
     label_ja: row.querySelector('.ep-label-ja').value || '',
     label_en: row.querySelector('.ep-label-en').value || '',
+    // false はキーを付けない（クロールの差分判定と揃える）
+    ...(row.querySelector('.ep-closed-early').checked && { closed_early: true }),
   })).filter(p => p.start_date && p.end_date);
 }
 

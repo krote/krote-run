@@ -1,6 +1,6 @@
 import type { Locale } from '@/lib/types';
 import type { RaceListItem } from '@/lib/race-list-item';
-import { formatDate, getRaceName, getTodayJST } from '@/lib/utils';
+import { formatDate, getRaceName, getTodayJST, isPeriodActive } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import prefecturesData from '@/data/prefectures.json';
@@ -78,12 +78,15 @@ export default function RaceCard({ race, locale, from, travelSettings }: RaceCar
   const isPast = race.date < today;
 
   const periods = race.entry_periods ?? [];
-  const activePeriod = periods.find((p) => p.start_date <= today && (p.end_date === null || p.end_date >= today))
-    ?? (race.entry_start_date && race.entry_end_date && today >= race.entry_start_date && today <= race.entry_end_date
+  // entry_periods がある大会はそれを正とし、旧フィールドへのフォールバックは期間が無い大会だけに限る
+  const hasPeriods = periods.length > 0;
+  const activePeriod = periods.find((p) => isPeriodActive(p, today))
+    ?? (!hasPeriods && race.entry_start_date && race.entry_end_date && today >= race.entry_start_date && today <= race.entry_end_date
         ? { start_date: race.entry_start_date, end_date: race.entry_end_date } : null);
   const futurePeriod = periods.find((p) => p.start_date > today)
-    ?? (race.entry_start_date && today < race.entry_start_date
+    ?? (!hasPeriods && race.entry_start_date && today < race.entry_start_date
         ? { start_date: race.entry_start_date, end_date: race.entry_end_date ?? '' } : null);
+  const hasClosedEarly = periods.some((p) => p.closed_early);
   const latestEndDate = periods.length > 0
     ? periods.reduce((max, p) => (p.end_date !== null && p.end_date > max) ? p.end_date : max, '')
     : race.entry_end_date ?? null;
@@ -99,7 +102,7 @@ export default function RaceCard({ race, locale, from, travelSettings }: RaceCar
   const isEntryClosed =
     !isPast &&
     (race.entry_closed ||
-      (!isEntryOpen && !futurePeriod && latestEndDate !== null && today > latestEndDate));
+      (!isEntryOpen && !futurePeriod && (hasClosedEarly || (latestEndDate !== null && today > latestEndDate))));
 
   const entryPeriod = (() => {
     const fmt = (d: string) => formatDate(d, locale);

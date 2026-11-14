@@ -58,6 +58,7 @@
 | `reception_type_mismatch` | warning | `reception_note_ja` の記述と `reception_type` が食い違う | 受付情報の追加時 |
 | `coords_out_of_japan` | error | `start_lat` / `start_lng` が日本の範囲外 | ジオコーディング導入時 |
 | `entry_fee_missing` | warning | 参加費が `entry_fee`・`categories[].entry_fee`・`entry_periods[].entry_fee` のどこにも無い | Search Console の `offers.price` 欠落指摘（#186） |
+| `entry_period_closed_before_start` | error | 受付開始前の `entry_periods[]` に `closed_early: true` が付いている（前回大会の「受付終了」を読み違えた可能性） | 途中終了フラグの追加時 |
 
 ## 欠落データの補完（強制抽出）
 
@@ -190,3 +191,15 @@ pnpm run discover -- --generate            # race JSON 生成 → 座標補完 �
 - 生成した JSON は `detail_level: light`。`_metadata.data_accuracy_notes` に発見元と LLM の注記が入る。検査ゲートで新たな違反を生む項目は外す
 - `candidates.json` / `candidates.md` は作業ファイル（`.gitignore` 済み）
 - Web 検索の結果は実行ごとに揺れる（同じ候補でも公式サイトが見つかったり見つからなかったりする）。PR では公式サイトの URL を必ず確認する
+
+## 途中終了（締切前の受付終了）
+
+人気の大会は、締切日より前に定員到達・先着順で受付を終えることがある。期間単位で `entry_periods[].closed_early: true` を付けて記録する（DB は `race_entry_periods.closed_early`）。
+
+- 抽出プロンプトで、今回大会のその期間について「定員に達したため受付を終了」等がページに明記されているときだけ true を返させる。前回大会の表示・締切日を過ぎた通常の終了・開始前の期間には付けない
+- 一部の種目だけ締め切った場合は、その種目の期間にだけ付ける
+- LLM が期間を返す際にフラグを書き漏らしても外れないよう、ラベル（`label_ja`）と種目（`category_id`）が一致する既存期間の true を引き継ぐ（`carryOverClosedEarly`）。明示的な `false` は追加募集・受付再開として外す
+- JSON には true のときだけキーを書く（false でキーを付けると、既存 JSON と比べて毎回「変更あり」になるため）
+- 受付開始前の期間に付いた場合は `entry_period_closed_before_start` で保留にする
+- 次年度ファイルを作るときは、大会単位の `entry_closed` を false に戻す（期間は空から作り直すため `closed_early` は引き継がれない）
+- 締切がエントリーサイト（RUNNET 等）にしか出ていない大会は検出できない。必要なら管理画面（`pnpm run admin`）の「締切前に受付終了」で手動設定する

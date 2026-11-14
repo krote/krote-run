@@ -440,3 +440,14 @@ describe('sortRaces - entry_opening_soon', () => {
     expect(sorted[1].id).toBe('no-future');
   });
 });
+
+describe('sortRaces - 途中終了（closed_early）', () => {
+  it('entry_closing_soon: 途中終了した期間は受付中として扱わない', () => {
+    const races = [
+      makeRace({ id: 'closed', date: '2026-10-01', entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-04-05', closed_early: true })] }),
+      makeRace({ id: 'active', date: '2026-10-01', entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30' })] }),
+    ];
+    const sorted = sortRaces(races, 'entry_closing_soon');
+    expect(sorted.map((r) => r.id)).toEqual(['active', 'closed']);
+  });
+});

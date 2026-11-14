@@ -186,6 +186,7 @@ describe('rowToEntryPeriod', () => {
       end_date: '2025-12-31',
       entry_fee: null,
       sort_order: 0,
+      closed_early: false,
     };
     const result = rowToEntryPeriod(row);
     expect(result.category_id).toBeNull();
@@ -572,5 +573,17 @@ describe('rowToRaceTravelTime', () => {
       calculated_at: '2026-01-01T00:00:00.000Z',
     };
     expect(rowToRaceTravelTime(row).departure_time).toBeNull();
+  });
+});
+
+describe('rowToEntryPeriod - closed_early', () => {
+  const base = {
+    id: 1, race_id: 'test-race-2026', category_id: null, label_ja: '一般エントリー', label_en: 'General Entry',
+    start_date: '2026-03-01', end_date: '2026-06-30', entry_fee: null, sort_order: 0,
+  };
+
+  it('closed_early をそのまま返す', () => {
+    expect(rowToEntryPeriod({ ...base, closed_early: true }).closed_early).toBe(true);
+    expect(rowToEntryPeriod({ ...base, closed_early: false }).closed_early).toBe(false);
   });
 });

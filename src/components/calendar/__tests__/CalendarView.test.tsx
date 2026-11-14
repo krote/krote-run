@@ -1,8 +1,8 @@
 // @vitest-environment jsdom
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import CalendarView from '../CalendarView';
-import { makeRace } from '../../../lib/__tests__/fixtures';
+import CalendarView, { getCalendarRaceStatus } from '../CalendarView';
+import { makeRace, makeRaceListItem, makeEntryPeriod } from '../../../lib/__tests__/fixtures';
 
 vi.mock('@/i18n/navigation', () => ({
   Link: ({ href, children, ...props }: { href: string; children: React.ReactNode; className?: string }) => (
@@ -101,5 +101,24 @@ describe('CalendarView', () => {
       />
     );
     expect(screen.getByText('受付中')).toBeInTheDocument();
+  });
+});
+
+describe('getCalendarRaceStatus', () => {
+  const TODAY = '2026-04-05';
+
+  it('受付中の期間があれば open', () => {
+    const race = makeRaceListItem({ date: '2026-10-01', entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30' })] });
+    expect(getCalendarRaceStatus(race, TODAY)).toBe('open');
+  });
+
+  it('受付中の期間が途中終了していれば closed（旧フィールドが期間内でも）', () => {
+    const race = makeRaceListItem({
+      date: '2026-10-01',
+      entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30', closed_early: true })],
+      entry_start_date: '2026-03-01',
+      entry_end_date: '2026-06-30',
+    });
+    expect(getCalendarRaceStatus(race, TODAY)).toBe('closed');
   });
 });

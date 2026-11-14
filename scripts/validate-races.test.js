@@ -381,3 +381,28 @@ describe('entry_fee_missing', () => {
     assert.equal(after.find(i => i.rule === 'entry_fee_missing'), undefined);
   });
 });
+
+describe('Rule: entry_period_closed_before_start', () => {
+  const NOW = new Date('2026-09-01T00:00:00+09:00');
+
+  test('開始日前の期間に closed_early が付いていればエラー', () => {
+    const race = makeRace({
+      date: '2027-03-01',
+      entry_start_date: '2026-10-01',
+      entry_periods: [{ label_ja: '一般エントリー', label_en: 'General Entry', start_date: '2026-10-01', end_date: '2026-11-30', closed_early: true }],
+    });
+    const issues = validateRace(race, { now: NOW }).filter((i) => i.rule === 'entry_period_closed_before_start');
+    assert.equal(issues.length, 1);
+    assert.equal(issues[0].level, 'error');
+  });
+
+  test('開始済みの期間なら closed_early でもエラーにしない', () => {
+    const race = makeRace({
+      date: '2027-03-01',
+      entry_start_date: '2026-08-01',
+      entry_periods: [{ label_ja: '一般エントリー', label_en: 'General Entry', start_date: '2026-08-01', end_date: '2026-11-30', closed_early: true }],
+    });
+    const issues = validateRace(race, { now: NOW }).filter((i) => i.rule === 'entry_period_closed_before_start');
+    assert.equal(issues.length, 0);
+  });
+});

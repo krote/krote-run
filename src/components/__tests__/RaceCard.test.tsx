@@ -253,3 +253,17 @@ describe('RaceCard - 日帰りステータスバッジ', () => {
     expect(screen.queryByText('移動時間不明')).not.toBeInTheDocument();
   });
 });
+
+describe('RaceCard - 途中終了（closed_early）', () => {
+  it('受付中の期間が途中終了していれば受付終了バッジを表示する（旧フィールドが期間内でも）', () => {
+    const race = makeRaceListItem({
+      date: '2026-10-01',
+      entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30', closed_early: true })],
+      entry_start_date: '2026-03-01',
+      entry_end_date: '2026-06-30',
+    });
+    render(<RaceCard race={race} locale="ja" />);
+    expect(screen.getByText('受付終了')).toBeInTheDocument();
+    expect(screen.queryByText('エントリー受付中')).not.toBeInTheDocument();
+  });
+});

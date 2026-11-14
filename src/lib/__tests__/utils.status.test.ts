@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { vi } from 'vitest';
-import { getRaceStatus } from '../utils';
+import { getRaceStatus, isPeriodActive } from '../utils';
 import { makeRace, makeEntryPeriod } from './fixtures';
 
 // 現在日時を固定して再現性を確保する
@@ -156,6 +156,67 @@ describe('getRaceStatus - 旧フィールド（entry_start_date / entry_end_date
       entry_periods: [makeEntryPeriod({ start_date: '2026-06-01', end_date: '2026-08-31' })],
       entry_start_date: '2026-03-01',
       entry_end_date: '2026-06-30',
+    });
+    expect(getRaceStatus(race)).toBe('entry_not_open');
+  });
+});
+
+describe('isPeriodActive', () => {
+  it('期間内なら true', () => {
+    expect(isPeriodActive({ start_date: '2026-03-01', end_date: '2026-06-30' }, TODAY)).toBe(true);
+  });
+
+  it('終了日未定で開始済みなら true', () => {
+    expect(isPeriodActive({ start_date: '2026-03-01', end_date: null }, TODAY)).toBe(true);
+  });
+
+  it('途中終了（closed_early）した期間は期間内でも false', () => {
+    expect(isPeriodActive({ start_date: '2026-03-01', end_date: '2026-06-30', closed_early: true }, TODAY)).toBe(false);
+  });
+
+  it('開始前・終了後は false', () => {
+    expect(isPeriodActive({ start_date: '2026-05-01', end_date: '2026-06-30' }, TODAY)).toBe(false);
+    expect(isPeriodActive({ start_date: '2026-01-01', end_date: '2026-03-31' }, TODAY)).toBe(false);
+  });
+});
+
+describe('getRaceStatus - 途中終了（closed_early）', () => {
+  it('受付中の期間が途中終了していれば "entry_closed" を返す', () => {
+    const race = makeRace({
+      date: '2026-10-01',
+      entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30', closed_early: true })],
+    });
+    expect(getRaceStatus(race)).toBe('entry_closed');
+  });
+
+  it('途中終了した期間のほかに受付中の期間があれば "open_entry" を返す', () => {
+    const race = makeRace({
+      date: '2026-10-01',
+      entry_periods: [
+        makeEntryPeriod({ id: 1, start_date: '2026-03-01', end_date: '2026-06-30', closed_early: true }),
+        makeEntryPeriod({ id: 2, start_date: '2026-03-15', end_date: '2026-07-31' }),
+      ],
+    });
+    expect(getRaceStatus(race)).toBe('open_entry');
+  });
+
+  it('途中終了した期間しかなければ、旧フィールドが期間内でも "entry_closed" を返す', () => {
+    const race = makeRace({
+      date: '2026-10-01',
+      entry_periods: [makeEntryPeriod({ start_date: '2026-03-01', end_date: '2026-06-30', closed_early: true })],
+      entry_start_date: '2026-03-01',
+      entry_end_date: '2026-06-30',
+    });
+    expect(getRaceStatus(race)).toBe('entry_closed');
+  });
+
+  it('途中終了した期間のほかに未来の期間があれば "entry_not_open" を返す', () => {
+    const race = makeRace({
+      date: '2026-10-01',
+      entry_periods: [
+        makeEntryPeriod({ id: 1, start_date: '2026-03-01', end_date: '2026-06-30', closed_early: true }),
+        makeEntryPeriod({ id: 2, start_date: '2026-05-01', end_date: '2026-07-31' }),
+      ],
     });
     expect(getRaceStatus(race)).toBe('entry_not_open');
   });

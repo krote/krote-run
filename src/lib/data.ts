@@ -279,11 +279,13 @@ const fetchOpenEntryRaces = unstable_cache(async (today: string, limit: number):
     .where(
       and(
         gte(schema.races.date, today),
+        eq(schema.races.entry_closed, false),
         sql`EXISTS (
           SELECT 1 FROM race_entry_periods rep
           WHERE rep.race_id = ${schema.races.id}
             AND rep.start_date <= ${today}
             AND rep.end_date >= ${today}
+            AND rep.closed_early = 0
         )`,
       )
     )
@@ -473,11 +475,13 @@ const fetchOpenEntryCount = unstable_cache(async (today: string): Promise<number
   const rows = await db.select({ count: sql<number>`count(*)` }).from(schema.races).where(
     and(
       gte(schema.races.date, today),
+      eq(schema.races.entry_closed, false),
       sql`EXISTS (
         SELECT 1 FROM race_entry_periods rep
         WHERE rep.race_id = ${schema.races.id}
           AND rep.start_date <= ${today}
           AND rep.end_date >= ${today}
+          AND rep.closed_early = 0
       )`,
     )
   );

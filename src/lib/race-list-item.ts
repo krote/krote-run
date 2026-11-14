@@ -34,7 +34,7 @@ export interface RaceListItem {
   reception_type: ReceptionType;
   reception_sessions: { date: string; close_time: string | null }[];
   categories: RaceListItemCategory[];
-  entry_periods: { start_date: string; end_date: string | null }[];
+  entry_periods: { start_date: string; end_date: string | null; closed_early: boolean }[];
   /** 参加賞・完走賞をまとめたカテゴリID（絞り込み用） */
   gift_category_ids: GiftCategoryId[];
   travel_times: { hub_id: HubId; duration_minutes: number }[];
@@ -94,7 +94,7 @@ export function toRaceListItem(race: Race, locale: Locale): RaceListItem {
       name_ja: c.name_ja,
       name_en: c.name_en,
     })),
-    entry_periods: race.entry_periods.map((p) => ({ start_date: p.start_date, end_date: p.end_date })),
+    entry_periods: race.entry_periods.map((p) => ({ start_date: p.start_date, end_date: p.end_date, closed_early: !!p.closed_early })),
     gift_category_ids: [...giftCategoryIds],
     travel_times: (race.travel_times ?? []).map((t) => ({ hub_id: t.hub_id as HubId, duration_minutes: t.duration_minutes })),
     course: {

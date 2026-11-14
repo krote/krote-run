@@ -189,6 +189,7 @@ export function rowToEntryPeriod(row: EntryPeriodRow): EntryPeriod {
     end_date: row.end_date,
     entry_fee: row.entry_fee ?? null,
     sort_order: row.sort_order,
+    closed_early: !!row.closed_early,
   };
 }
 

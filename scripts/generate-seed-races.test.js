@@ -49,3 +49,18 @@ describe('generateRaceSQL: race_travel_times', () => {
     assert.match(sql, /DELETE FROM race_entry_periods WHERE race_id = 'test-marathon-2027';/);
   });
 });
+
+describe('generateRaceSQL: race_entry_periods.closed_early', () => {
+  const period = { label_ja: '一般エントリー', label_en: 'General Entry', start_date: '2026-06-01', end_date: '2026-08-31', entry_fee: null };
+
+  test('closed_early: true の期間は 1 を出力する', () => {
+    const sql = generateRaceSQL(makeRace({ entry_periods: [{ ...period, closed_early: true }] }));
+    assert.match(sql, /INSERT OR REPLACE INTO race_entry_periods \([^)]*closed_early\)/);
+    assert.match(sql, /'2026-08-31', NULL, 0, 1\);/);
+  });
+
+  test('closed_early が無い期間は 0 を出力する', () => {
+    const sql = generateRaceSQL(makeRace({ entry_periods: [period] }));
+    assert.match(sql, /'2026-08-31', NULL, 0, 0\);/);
+  });
+});

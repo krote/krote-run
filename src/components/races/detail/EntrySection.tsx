@@ -7,6 +7,19 @@ interface EntrySectionProps {
   today: string;
 }
 
+/** 締切日前に受付を終えた期間（closed_early）に付ける表示 */
+function ClosedEarlyBadge({ locale }: { locale: Locale }) {
+  return (
+    <span
+      data-testid="entry-period-closed-early"
+      className="inline-block ml-2 px-1.5 py-[1px] text-xs font-semibold rounded-[2px] whitespace-nowrap align-middle"
+      style={{ background: '#fff8f0', border: '1px solid #f0d9c0', color: '#7a4f1a' }}
+    >
+      {locale === 'ja' ? '受付終了（締切前に終了）' : 'Closed early'}
+    </span>
+  );
+}
+
 export default function EntrySection({ race, locale, today }: EntrySectionProps) {
   const isPast = race.date < today;
 
@@ -49,6 +62,7 @@ export default function EntrySection({ race, locale, today }: EntrySectionProps)
                   {formatDate(race.entry_periods[0].start_date, locale)}
                   {' — '}
                   {race.entry_periods[0].end_date ? formatDate(race.entry_periods[0].end_date, locale) : '—'}
+                  {race.entry_periods[0].closed_early && <ClosedEarlyBadge locale={locale} />}
                 </p>
               </div>
               {race.entry_periods[0].entry_fee && (
@@ -84,6 +98,7 @@ export default function EntrySection({ race, locale, today }: EntrySectionProps)
                       </td>
                       <td className="py-2.5">
                         {formatDate(ep.start_date, locale)} — {ep.end_date ? formatDate(ep.end_date, locale) : '—'}
+                        {ep.closed_early && <ClosedEarlyBadge locale={locale} />}
                       </td>
                       <td className="py-2.5 text-right">
                         {ep.entry_fee

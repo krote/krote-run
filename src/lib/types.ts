@@ -121,6 +121,8 @@ export interface EntryPeriod {
   end_date: string | null; // YYYY-MM-DD（終了日未定の場合は null）
   entry_fee: number | null;
   sort_order: number;
+  /** true のとき締切日前に受付終了（定員到達・先着締切等）。期間内でも受付中として扱わない */
+  closed_early: boolean;
 }
 
 // ==================
@@ -458,8 +460,11 @@ export interface RaceFilter {
  * `Race` と `RaceListItem` のどちらからも渡せるよう構造的に定義する。
  */
 export type RaceStatusInput = Pick<Race, 'date' | 'entry_closed' | 'entry_start_date' | 'entry_end_date'> & {
-  entry_periods: { start_date: string; end_date: string | null }[];
+  entry_periods: EntryPeriodStatusInput[];
 };
+
+/** 期間が受付中かの判定に必要な最小限の形 */
+export type EntryPeriodStatusInput = { start_date: string; end_date: string | null; closed_early?: boolean };
 
 /** 当日受付・到着期限の判定に必要な最小限の形 */
 export type ReceptionInput = {

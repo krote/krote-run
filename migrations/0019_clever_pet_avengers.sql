@@ -1,0 +1,1 @@
+ALTER TABLE `race_entry_periods` ADD `closed_early` integer DEFAULT false NOT NULL;

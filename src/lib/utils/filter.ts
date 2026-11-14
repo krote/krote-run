@@ -2,7 +2,7 @@ import type { RaceFilter, RaceStatus, DistanceType, RaceSortKey } from '../types
 import type { RaceListItem } from '../race-list-item';
 import type { TravelSettings } from '../travel';
 import { calcDayTripStatus } from '../travel';
-import { getRaceStatus } from './race';
+import { getRaceStatus, isPeriodActive } from './race';
 import { getTodayJST } from './date';
 
 /** デフォルト初期フィルタ（開催済みを非表示） */
@@ -133,9 +133,9 @@ export function sortRacesByDate(races: RaceListItem[], ascending = true): RaceLi
 function getEarliestActiveEnd(race: RaceListItem, today: string): string | null {
   const periods = race.entry_periods;
   if (periods.length > 0) {
-    const active = periods.filter((p) => p.start_date <= today && (p.end_date === null || p.end_date >= today));
+    const active = periods.filter((p) => isPeriodActive(p, today));
     if (active.length === 0) return null;
-    const withEnd = active.filter((p): p is { start_date: string; end_date: string } => p.end_date !== null);
+    const withEnd = active.filter((p): p is typeof p & { end_date: string } => p.end_date !== null);
     if (withEnd.length === 0) return null;
     return withEnd.reduce((min, p) => (p.end_date < min ? p.end_date : min), withEnd[0].end_date);
   }

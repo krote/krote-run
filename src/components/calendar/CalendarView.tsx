@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import type { Locale } from '@/lib/types';
 import type { RaceListItem } from '@/lib/race-list-item';
+import { isPeriodActive } from '@/lib/utils';
 import ControlBar, { type StatusFilter, type DistanceFilter } from './ControlBar';
 import MonthGrid from './MonthGrid';
 import YearTimeline from './YearTimeline';
@@ -19,13 +20,14 @@ interface CalendarViewProps {
   prefToRegion: Record<string, string>;
 }
 
-function getRaceStatus(race: RaceListItem, today: string): 'open' | 'soon' | 'closed' | 'past' {
+export function getCalendarRaceStatus(race: RaceListItem, today: string): 'open' | 'soon' | 'closed' | 'past' {
   if (race.date < today) return 'past';
   if (race.entry_closed) return 'closed';
 
-  const activePeriod = race.entry_periods.find(
-    (p) => today >= p.start_date && (p.end_date === null || today <= p.end_date),
-  ) ?? (race.entry_start_date && race.entry_end_date &&
+  // entry_periods がある大会はそれを正とし、旧フィールドへのフォールバックは期間が無い大会だけに限る
+  const hasPeriods = race.entry_periods.length > 0;
+  const activePeriod = race.entry_periods.find((p) => isPeriodActive(p, today))
+    ?? (!hasPeriods && race.entry_start_date && race.entry_end_date &&
     today >= race.entry_start_date && today <= race.entry_end_date
       ? { start_date: race.entry_start_date, end_date: race.entry_end_date }
       : null);
@@ -33,7 +35,7 @@ function getRaceStatus(race: RaceListItem, today: string): 'open' | 'soon' | 'cl
   if (activePeriod) return 'open';
 
   const futurePeriod = race.entry_periods.find((p) => p.start_date > today)
-    ?? (race.entry_start_date && race.entry_start_date > today ? {} : null);
+    ?? (!hasPeriods && race.entry_start_date && race.entry_start_date > today ? {} : null);
   if (futurePeriod) return 'soon';
 
   return 'closed';
@@ -64,7 +66,7 @@ export default function CalendarView({
       if (raceRegion !== region) return false;
     }
     if (status !== 'all') {
-      const rStatus = getRaceStatus(race, today);
+      const rStatus = getCalendarRaceStatus(race, today);
       if (status === 'open' && rStatus !== 'open') return false;
       if (status === 'soon' && rStatus !== 'soon') return false;
       if (status === 'closed' && rStatus !== 'closed' && rStatus !== 'past') return false;

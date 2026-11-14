@@ -131,6 +131,7 @@ function entryPeriodRow(id: number, raceId: string, start: string, end: string |
     start_date: start,
     end_date: end,
     sort_order: 0,
+    closed_early: 0,
   };
 }
 
@@ -445,5 +446,45 @@ describe('unstable_cache によるリクエスト間キャッシュ', () => {
     await getOpenEntryCount();
 
     expect(fake.queries.length).toBeGreaterThan(0);
+  });
+});
+
+// ── 途中終了・受付終了の大会は「受付中」扱いしない ──
+
+describe('受付終了の絞り込み', () => {
+  /** 2026-10-01 時点で期間内だが、途中終了した期間しかないレースと、大会単位で受付終了のレースを投入する */
+  function seedClosedRaces() {
+    fake.insert(schema.races, [
+      raceRow('closed-early-race', '2026-12-01'),
+      raceRow('entry-closed-race', '2026-12-01', { entry_closed: 1 }),
+    ]);
+    fake.insert(schema.race_entry_periods, [
+      { ...entryPeriodRow(950, 'closed-early-race', '2026-09-01', '2026-11-30'), closed_early: 1 },
+      entryPeriodRow(951, 'entry-closed-race', '2026-09-01', '2026-11-30'),
+    ]);
+  }
+
+  it('getOpenEntryRaces は途中終了した期間しかないレースを返さない', async () => {
+    seedClosedRaces();
+    const ids = (await getOpenEntryRaces(8)).map((r) => r.id);
+    expect(ids).not.toContain('closed-early-race');
+  });
+
+  it('getOpenEntryRaces は大会単位で受付終了（entry_closed）のレースを返さない', async () => {
+    seedClosedRaces();
+    const ids = (await getOpenEntryRaces(8)).map((r) => r.id);
+    expect(ids).not.toContain('entry-closed-race');
+  });
+
+  it('getOpenEntryCount は途中終了・受付終了のレースを数えない', async () => {
+    seedRaces(3);
+    seedClosedRaces();
+    expect(await getOpenEntryCount()).toBe(3);
+  });
+
+  it('getRaceById は期間ごとの closed_early を返す', async () => {
+    seedClosedRaces();
+    const race = await getRaceById('closed-early-race');
+    expect(race?.entry_periods[0].closed_early).toBe(true);
   });
 });

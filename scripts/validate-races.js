@@ -106,6 +106,20 @@ function validateRace(race, { now = new Date() } = {}) {
     }
   }
 
+  // ── Rule 3b: 受付開始前の期間に途中終了（closed_early）は付かない ──
+  // 前回大会の「受付終了」表示をクロールが読み違えた場合を想定し、保留にする
+  const todayJst = new Date(now.getTime() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  for (let i = 0; i < (race.entry_periods ?? []).length; i++) {
+    const p = race.entry_periods[i];
+    if (p.closed_early && p.start_date != null && p.start_date > todayJst) {
+      issues.push({
+        rule: 'entry_period_closed_before_start',
+        level: 'error',
+        message: `entry_periods[${i}] は受付開始前（${p.start_date}）なのに closed_early が true です`,
+      });
+    }
+  }
+
   // ── Rule 4: entry_start_date = 全 entry_periods の最早 start_date ──
   if (race.entry_start_date != null && (race.entry_periods ?? []).length > 0) {
     const validDates = race.entry_periods

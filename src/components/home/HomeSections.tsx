@@ -6,7 +6,7 @@ import type { RaceListItem } from '@/lib/race-list-item';
 import RaceCard from '@/components/races/RaceCard';
 import { Link } from '@/i18n/navigation';
 import { linkPrefetch } from '@/lib/nav-prefetch';
-import { formatDate, getRaceName, getTodayJST } from '@/lib/utils';
+import { formatDate, getRaceName, getTodayJST, isPeriodActive } from '@/lib/utils';
 
 interface Props {
   upcoming: RaceListItem[];
@@ -64,7 +64,7 @@ function OpenSection({ races, locale }: { races: RaceListItem[]; locale: Locale 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {races.slice(0, 3).map((race) => {
             const periods = race.entry_periods ?? [];
-            const activePeriod = periods.find((p) => p.start_date <= today && (p.end_date === null || p.end_date >= today));
+            const activePeriod = periods.find((p) => isPeriodActive(p, today));
             const deadline = activePeriod ? activePeriod.end_date : (race.entry_end_date ?? null);
 
             return (

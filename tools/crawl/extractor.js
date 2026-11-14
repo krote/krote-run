@@ -155,6 +155,11 @@ ${pages}
 - participation_gifts と completion_gifts は別々に設定すること（完走賞・メダルは completion_gifts）
 - 複数種目（フルマラソン・ジョギング・10km等）でエントリー締切が異なる場合は、種目ごとに個別の entry_periods エントリーを作成すること（まとめて1件にしない）
 - 既存の entry_periods が複数件設定されている場合は、その種目構造を維持して更新すること
+- entry_periods[].closed_early: 締切日より前に受付を終えた期間だけ true にする
+  - 今回大会（上の登録値の開催日の大会）のその期間について、「定員に達したため受付を終了」「先着順のため締め切りました」「募集を終了しました」等がページに明記されている場合のみ
+  - 前回大会の受付終了の表示、締切日を過ぎて通常どおり終了した期間、エントリー開始前の期間には付けない
+  - 一部の種目だけ締め切った場合は、その種目の期間（category_id や label_ja で区別できるもの）にだけ付ける
+  - 既存で true の期間は、追加募集・受付再開が明記されていない限り true のまま返す。再開が明記されていれば false にする
 - start_lat / start_lng は出力禁止（座標はジオコーディングスクリプトで別途処理する）
 - reception_type は "pre_day" / "race_day" / "both" / "pre_mail" / "none" のいずれか。判別不能なら出力しない
   - 前日と当日の両方の受付記載あり → "both"
@@ -181,7 +186,7 @@ ${pages}
   "description_en": "Race description (facts only)",
   "entry_capacity": 数値,
   "course_info": {"max_elevation_m":数値,"min_elevation_m":数値,"elevation_diff_m":数値,"surface":"road|trail|mixed","certification":[],"highlights_ja":"文字列","highlights_en":"文字列","notes_ja":null,"notes_en":null},
-  "entry_periods": [{"label_ja":"一般エントリー","label_en":"General Entry","start_date":"YYYY-MM-DD","end_date":"YYYY-MM-DD","entry_fee":数値またはnull,"category_id":null,"sort_order":0}],
+  "entry_periods": [{"label_ja":"一般エントリー","label_en":"General Entry","start_date":"YYYY-MM-DD","end_date":"YYYY-MM-DD","entry_fee":数値またはnull,"category_id":null,"sort_order":0,"closed_early":true}],
   "participation_gifts": [{"gift_categories":["tshirt"],"description_ja":"説明","description_en":"description","image":null}],
   "completion_gifts": [{"gift_categories":["medal"],"description_ja":"説明","description_en":"description","image":null}],
   "nearby_spots": [{"type":"観光地|温泉|グルメ|宿泊","name_ja":"名称","name_en":"name","description_ja":"説明","description_en":"description","distance_from_venue":"徒歩5分","url":null,"latitude":0,"longitude":0}],
@@ -201,6 +206,31 @@ ${pages}
   "aid_stations": [{"distance_km":10,"offerings_ja":"水・スポーツドリンク","offerings_en":"Water, sports drink","is_featured":false}],
   "checkpoints": [{"distance_km":20,"closing_time":"11:30"}]
 }`;
+}
+
+/**
+ * 抽出した entry_periods の途中終了フラグ（closed_early）を整える。
+ * - 抽出結果にフラグが無い期間は、ラベルと種目が一致する既存期間の値を引き継ぐ（LLM の書き漏れで外れないように）
+ * - 明示的な false は受付再開として外す
+ * - false はキーを付けない（キーが無ければ false 扱い。既存 JSON との差分を出さないため）
+ * @param {object[]|undefined} existingPeriods - 既存の entry_periods
+ * @param {object[]|undefined} extractedPeriods - 抽出した entry_periods
+ * @returns {object[]|undefined}
+ */
+function carryOverClosedEarly(existingPeriods, extractedPeriods) {
+  if (!Array.isArray(extractedPeriods)) return extractedPeriods;
+  const existing = Array.isArray(existingPeriods) ? existingPeriods : [];
+  return extractedPeriods.map((period) => {
+    const { closed_early: explicit, ...rest } = period;
+    let closed;
+    if (typeof explicit === 'boolean') {
+      closed = explicit;
+    } else {
+      const match = existing.find((e) => e.label_ja === period.label_ja && (e.category_id ?? null) === (period.category_id ?? null));
+      closed = !!match?.closed_early;
+    }
+    return closed ? { ...rest, closed_early: true } : rest;
+  });
 }
 
 /**
@@ -448,6 +478,9 @@ async function extractFromPages(race, pageTexts, opts = {}) {
   const prompt = buildExtractionPrompt(race, pageTexts, budget);
   const { text, meta } = await callClaudeP(prompt, opts);
   const extracted = parseClaudeResponse(text);
+  if (extracted.entry_periods != null) {
+    extracted.entry_periods = carryOverClosedEarly(race.entry_periods, extracted.entry_periods);
+  }
   const diff = buildDiff(race, extracted);
   return { extracted, diff, meta, truncated };
 }
@@ -550,6 +583,8 @@ function buildNewEditionRace(race, extracted) {
     entry_start_date: null,
     entry_end_date: null,
     entry_periods: [],
+    // 前年の受付終了フラグは新年度に引き継がない
+    entry_closed: false,
     // 前年の実績データをリセット
     result: null,
     weather_history: [],
@@ -605,6 +640,7 @@ module.exports = {
   buildNewEditionRace,
   createNewEditionFile,
   mergeCategoryUpdates,
+  carryOverClosedEarly,
   resolveModel,
   buildCliArgs,
   parseCliOutput,

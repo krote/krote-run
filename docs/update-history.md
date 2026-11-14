@@ -1933,3 +1933,39 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `scripts/generate-seed-races.test.js`（新規）: 空・未定義・ありの3パターンと、他の子テーブルの削除が従来どおりであることを検証。`test:tools` に追加
 - `migrations/seed-races-all.sql`: 再生成（差分は `race_travel_times` の DELETE 142行と生成日時のみ）
 - stg・本番の順に `migrations/seed-travel-times.sql` を再投入: 両環境とも 312件・39大会、最小10分〜最大862分、`races` に無い race_id は0件。本番の大会ページ（`yokohama-northdock-run-2026`）で移動時間がペイロードに含まれることを確認
+
+## 2026-11-14 エントリー期間に途中終了フラグ（closed_early）を追加し、クロールで設定する
+
+人気の大会は締切日より前に定員到達・先着順で受付を終えることがあるが、データ上は締切日まで「受付中」と表示され続けていた。大会単位の `races.entry_closed` は手動設定のみでクロールは扱っておらず、期間単位で途中終了を表す項目も無かった。
+
+### データ構造
+- `src/lib/db/schema.ts`: `race_entry_periods.closed_early`（integer boolean、NOT NULL、既定 false）を追加。`migrations/0019_clever_pet_avengers.sql`（ALTER 1文のみ）
+- `src/lib/types.ts`: `EntryPeriod.closed_early`、`EntryPeriodStatusInput` を追加
+- race JSON は `entry_periods[].closed_early: true` のときだけキーを持つ（無ければ false）
+- `docs/schema.md`: `race_entry_periods` の節（従来なし）とインデックス・マイグレーション履歴を追記。`docs/er-diagram.drawio`: `closed_early` 行を追加し、下のテーブルを30px下げた
+
+### 受付中の判定
+- `src/lib/utils/race.ts`: `isPeriodActive(period, today)` を新設（途中終了した期間は期間内でも false）。8か所に重複していた判定（`getRaceStatus` / `RaceCard` / `RaceCardExp` / `CalendarView` / `HomeSections` / `filter.ts` の締切順ソート）をこれに置き換え
+- `entry_periods` がある大会は、旧フィールド（`entry_start_date` / `entry_end_date`）へのフォールバックをしないように変更（途中終了した期間しかない大会が旧フィールドで「受付中」になっていたため）
+- `src/lib/data.ts`: 受付中の一覧・件数の SQL に `rep.closed_early = 0` と `races.entry_closed = 0` を追加（後者は既存の不具合で、手動で受付終了にした大会がトップの「受付中」に出ていた）
+- `RaceCardExp` が `entry_closed` を見ていなかった不具合も修正
+- `CalendarView` の内部関数を `getCalendarRaceStatus` として export（テスト用）
+
+### 表示
+- `EntrySection.tsx`: 途中終了した期間に「受付終了（締切前に終了）」/「Closed early」を表示。期間の日付は残す
+
+### クロール・データ
+- `tools/crawl/extractor.js`: 抽出プロンプトに `entry_periods[].closed_early` のルール（今回大会のその期間について定員到達等が明記されている場合のみ）とスキーマ例を追加。`carryOverClosedEarly()` で、LLM が書き漏らしたフラグを既存期間（label_ja + category_id で照合）から引き継ぎ、明示的な false は受付再開として外す
+- `buildNewEditionRace`: 前年の `entry_closed` を新年度に引き継いでいた不具合を修正（false にリセット）
+- `scripts/validate-races.js`: `entry_period_closed_before_start`（受付開始前の期間に closed_early → error。クロールでは保留）
+- `scripts/generate-seed-races.js`: `race_entry_periods` の INSERT に `closed_early` を追加。`migrations/seed-races-all.sql` を再生成
+- `tools/admin/app.js`: エントリー期間に「締切前に受付終了」チェックボックスを追加（保存時にフラグが落ちないように）
+- `docs/crawl-rules.md`: ルール一覧と「途中終了（締切前の受付終了）」節を追記
+
+### 確認
+- `pnpm exec vitest run`: 981件 pass、`pnpm run test:tools`: 539件 pass、`pnpm run lint`: エラー0、`pnpm run build`: 成功
+- ローカルD1に 0019 と seed を適用し、エラーなし
+- 管理画面のチェックボックスは自動テストなし（ブラウザでの動作確認は未実施）
+
+### stg・本番への適用時の注意
+- リモートの `d1_migrations` に `seed-travel-times.sql` の記録が無いため、`db:migrate:stg` / `db:migrate:remote` を実行すると 0019 に続けて `seed-travel-times.sql` も流れ、`race_travel_times` の UNIQUE 制約で失敗する（ローカルの `db:migrate:local` では実際に流れた）。0019 は `wrangler d1 execute --remote --file=migrations/0019_clever_pet_avengers.sql` で個別に適用し、`d1_migrations` に 0019 と `seed-travel-times.sql` を INSERT して適用済みにする

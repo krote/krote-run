@@ -278,6 +278,28 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 
 ---
 
+### race_entry_periods
+
+| カラム | 型 | NULL | デフォルト | 備考 |
+|---|---|---|---|---|
+| id | integer | NO | autoincrement | PK |
+| race_id | text | NO | — | FK → races.id（CASCADE） |
+| category_id | integer | YES | — | FK → race_categories.id（CASCADE）。種目別の期間のとき |
+| label_ja | text | NO | `"一般エントリー"` | 区分名（例: 先行エントリー、一般エントリー） |
+| label_en | text | NO | `"General Entry"` | |
+| start_date | text | NO | — | `YYYY-MM-DD` |
+| end_date | text | YES | — | `YYYY-MM-DD`。終了日未定は NULL |
+| entry_fee | integer | YES | — | |
+| sort_order | integer | NO | `0` | |
+| closed_early | integer (boolean) | NO | `false` | 締切日より前に受付を終えた（定員到達・先着締切等）。true の期間は期間内でも受付中として扱わない |
+
+**備考**
+- 受付中の判定は `src/lib/utils/race.ts` の `isPeriodActive()` に集約している（`start_date <= 今日 <= end_date` かつ `closed_early = false`）
+- 大会全体を手動で受付終了にする場合は `races.entry_closed` を使う。`closed_early` はクロールが期間単位で設定する
+- race JSON では `entry_periods[].closed_early: true` のときだけキーを持つ（キーが無ければ false）
+
+---
+
 ## インデックス一覧
 
 | テーブル | インデックス名 | カラム |
@@ -286,6 +308,7 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | races | races_prefecture_idx | prefecture |
 | race_categories | race_categories_race_id_idx | race_id |
 | race_entry_links | race_entry_links_race_id_idx | race_id |
+| race_entry_periods | race_entry_periods_race_id_idx | race_id |
 | aid_stations | aid_stations_race_id_idx | race_id |
 | checkpoints | checkpoints_race_id_idx | race_id |
 | access_points | access_points_race_id_idx | race_id |
@@ -523,3 +546,4 @@ ER図は `docs/er-diagram.drawio` で管理しています。[draw.io](https://a
 | `migrations/0016_silky_shaman.sql` | reception_sessions に (race_id, date) の UNIQUE インデックスを追加（同日受付重複防止）（Issue #85） |
 | `migrations/0017_perfect_boomer.sql` | contact_submissions に ip_address / user_agent カラムと複合インデックスを追加（Issue #86 スパム対策） |
 | `migrations/0018_open_lucky_pierre.sql` | user_races に is_participated カラムを追加（開催済み大会への参加済み登録）（Issue #144） |
+| `migrations/0019_clever_pet_avengers.sql` | race_entry_periods に closed_early カラムを追加（締切日前の受付終了を期間単位で記録） |

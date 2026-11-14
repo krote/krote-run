@@ -31,7 +31,7 @@ describe('EntrySection', () => {
         id: 1, race_id: 'test', category_id: null,
         label_ja: '一般エントリー', label_en: 'General',
         start_date: '2025-09-01', end_date: '2025-11-30',
-        entry_fee: null, sort_order: 0,
+        entry_fee: null, sort_order: 0, closed_early: false,
       }],
     });
     render(<EntrySection race={race} locale="ja" today="2025-08-01" />);
@@ -62,5 +62,42 @@ describe('EntrySection', () => {
     const race = makeRace({ entry_capacity: 0, date: '2026-04-19' });
     render(<EntrySection race={race} locale="ja" today="2026-01-01" />);
     expect(screen.queryByText(/人$/)).toBeNull();
+  });
+});
+
+describe('EntrySection - 途中終了（closed_early）', () => {
+  const period = (overrides: Record<string, unknown> = {}) => ({
+    id: 1, race_id: 'test-race-2026', category_id: null, label_ja: '一般エントリー', label_en: 'General Entry',
+    start_date: '2026-03-01', end_date: '2026-06-30', entry_fee: null, sort_order: 0, closed_early: false, ...overrides,
+  });
+
+  it('期間が1件で途中終了していれば「受付終了（締切前に終了）」を表示し、期間も残す', () => {
+    const race = makeRace({ date: '2026-10-01', entry_periods: [period({ closed_early: true })] });
+    render(<EntrySection race={race} locale="ja" today="2026-04-01" />);
+    expect(screen.getByTestId('entry-period-closed-early')).toHaveTextContent('受付終了（締切前に終了）');
+    expect(screen.getByText(/2026/)).toBeInTheDocument();
+  });
+
+  it('複数期間のうち途中終了した期間の行だけに表示する', () => {
+    const race = makeRace({
+      date: '2026-10-01',
+      entry_periods: [period({ id: 1, label_ja: '先行エントリー', closed_early: true }), period({ id: 2, label_ja: '一般エントリー' })],
+    });
+    render(<EntrySection race={race} locale="ja" today="2026-04-01" />);
+    const badges = screen.getAllByTestId('entry-period-closed-early');
+    expect(badges).toHaveLength(1);
+    expect(badges[0].closest('tr')).toHaveTextContent('先行エントリー');
+  });
+
+  it('en ロケールでは「Closed early」と表示する', () => {
+    const race = makeRace({ date: '2026-10-01', entry_periods: [period({ closed_early: true })] });
+    render(<EntrySection race={race} locale="en" today="2026-04-01" />);
+    expect(screen.getByTestId('entry-period-closed-early')).toHaveTextContent('Closed early');
+  });
+
+  it('途中終了していない期間には表示しない', () => {
+    const race = makeRace({ date: '2026-10-01', entry_periods: [period()] });
+    render(<EntrySection race={race} locale="ja" today="2026-04-01" />);
+    expect(screen.queryByTestId('entry-period-closed-early')).toBeNull();
   });
 });

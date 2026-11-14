@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
-const { buildExtractionPrompt, parseClaudeResponse, buildDiff, applyAndSave, buildNewEditionRace } = require('./extractor');
+const { buildExtractionPrompt, parseClaudeResponse, buildDiff, applyAndSave, buildNewEditionRace, carryOverClosedEarly } = require('./extractor');
 
 // ── buildExtractionPrompt ─────────────────────────────────────────
 
@@ -1205,5 +1205,59 @@ describe('buildCliArgs - ツールの許可（#204）', () => {
     const args = buildCliArgs('m');
     assert.equal(args[args.indexOf('--tools') + 1], '""');
     assert.equal(args.indexOf('--allowedTools'), -1);
+  });
+});
+
+// ── 途中終了（entry_periods[].closed_early） ──────────────────────
+
+describe('carryOverClosedEarly', () => {
+  const existing = [
+    { label_ja: '先行エントリー', category_id: null, start_date: '2026-05-01', end_date: '2026-05-31', closed_early: true },
+    { label_ja: '一般エントリー', category_id: null, start_date: '2026-06-01', end_date: '2026-08-31' },
+  ];
+
+  test('抽出結果にフラグが無ければ、ラベルと種目が一致する既存期間の true を引き継ぐ', () => {
+    const extracted = [{ label_ja: '先行エントリー', category_id: null, start_date: '2026-05-01', end_date: '2026-05-31' }];
+    assert.equal(carryOverClosedEarly(existing, extracted)[0].closed_early, true);
+  });
+
+  test('抽出結果が明示的に false なら外す（追加募集・受付再開）', () => {
+    const extracted = [{ label_ja: '先行エントリー', category_id: null, start_date: '2026-05-01', end_date: '2026-05-31', closed_early: false }];
+    assert.equal('closed_early' in carryOverClosedEarly(existing, extracted)[0], false);
+  });
+
+  test('抽出結果が true ならそのまま残す', () => {
+    const extracted = [{ label_ja: '一般エントリー', category_id: null, start_date: '2026-06-01', end_date: '2026-08-31', closed_early: true }];
+    assert.equal(carryOverClosedEarly(existing, extracted)[0].closed_early, true);
+  });
+
+  test('false・未指定の期間にはキーを付けない（既存 JSON との差分を出さないため）', () => {
+    const extracted = [{ label_ja: '一般エントリー', category_id: null, start_date: '2026-06-01', end_date: '2026-08-31' }];
+    assert.deepEqual(carryOverClosedEarly(existing, extracted)[0], extracted[0]);
+  });
+
+  test('既存に一致する期間が無い新しい期間は引き継がない', () => {
+    const extracted = [{ label_ja: '追加募集', category_id: null, start_date: '2026-09-01', end_date: '2026-09-15' }];
+    assert.equal('closed_early' in carryOverClosedEarly(existing, extracted)[0], false);
+  });
+
+  test('引数が配列でなければそのまま返す', () => {
+    assert.equal(carryOverClosedEarly(existing, undefined), undefined);
+  });
+});
+
+describe('buildExtractionPrompt - closed_early', () => {
+  test('途中終了の出力ルールとスキーマ例を含む', () => {
+    const prompt = buildExtractionPrompt({ id: 'x-2026', name_ja: 'X', entry_periods: [] }, [{ url: 'https://example.com', text: 'x' }]);
+    assert.match(prompt, /closed_early/);
+    assert.match(prompt, /定員/);
+  });
+});
+
+describe('buildNewEditionRace - 受付終了のリセット', () => {
+  test('前年の entry_closed を引き継がない', () => {
+    const race = { id: 'x-marathon-2026', date: '2026-03-01', entry_closed: true, entry_periods: [], categories: [] };
+    const next = buildNewEditionRace(race, { date: '2027-03-07' });
+    assert.equal(next.entry_closed, false);
   });
 });

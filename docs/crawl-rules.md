@@ -15,7 +15,11 @@
 |---|---|
 | 現在のブランチが `main` | `git switch main` |
 | `main` が `origin/main` と一致（`git fetch` 後に比較） | `git pull --ff-only`、未 push のコミットは整理 |
-| `COMMIT_PATHS` 配下に未コミット変更・未追跡ファイルがない | コミットするか破棄 |
+| `COMMIT_PATHS` 配下に未コミット変更・未追跡ファイルがない（`tools/crawl/checksums.json` は除く） | コミットするか破棄 |
+
+`tools/crawl/checksums.json` の未コミット変更は許容する（`CARRY_OVER_PATHS`）。更新0件のクロールは PR を作らず
+チェックサム（`last_checked` / `fail_count`）だけを書き換えて終わるため、これを拒否すると次の crawl / discover が止まる。
+残った変更は次に作る crawl / discover の PR にそのまま同梱される。破棄すると `fail_count` がリセットされ失効判定が遅れる。
 
 `git fetch` に失敗した場合も、`main` の鮮度を確認できないため中断する。回避フラグは用意していない。
 

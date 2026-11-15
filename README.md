@@ -250,7 +250,7 @@ node tools/crawl/eval-models.js --races kochi-ryoma-marathon-2027,tottori-marath
 実行前提（`--dry-run` 以外）: 以下を満たさない場合、クロール前に中断する（`tools/crawl/pr.js` の `runPreflight`）。
 - 現在のブランチが `main`
 - `git fetch` 後の `main` が `origin/main` と一致（ahead / behind なし）
-- `src/data/races`・`tools/crawl/checksums.json`・`migrations/seed-races-all.sql` に未コミットの変更・未追跡ファイルがない
+- `src/data/races`・`migrations/seed-races-all.sql`・`src/data/announcements.json` に未コミットの変更・未追跡ファイルがない（`tools/crawl/checksums.json` の変更は許容し、次の PR に同梱する）
 
 動作フロー:
 1. 各レースの `info_urls`（未設定時は `official_url`）をフェッチ

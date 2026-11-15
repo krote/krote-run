@@ -1,0 +1,138 @@
+{
+  "id": "okinawa-honto-isshu-survival-run-2026",
+  "name_ja": "沖縄本島1周サバイバルラン",
+  "name_en": "Okinawa Main Island Circuit Survival Run",
+  "full_name_ja": "2026沖縄本島1周サバイバルラン",
+  "full_name_en": "2026 Okinawa Main Island Circuit Survival Run",
+  "edition": null,
+  "date": "2026-11-20",
+  "prefecture": "47",
+  "city_ja": "那覇市",
+  "city_en": "Naha City",
+  "description_ja": "沖縄本島を1周する400kmのウルトラレースで、制限時間は72時間。エイドステーションがなく、コース上のコンビニなどを各自で利用して走る。個人サポートは禁止で、100km以上のウルトラマラソン完走者のみが参加できる。",
+  "description_en": "A 400 km ultra race circling the main island of Okinawa with a 72-hour time limit. There are no official aid stations, so runners resupply on their own at convenience stores along the course. Individual support is prohibited, and only runners who have completed an ultramarathon of 100 km or more may enter.",
+  "official_url": "https://teamultra-k.info/race/survival2026/",
+  "entry_fee": 30000,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2026-05-15",
+  "entry_end_date": "2026-06-30",
+  "reception_type": "race_day",
+  "reception_note_ja": "2026年11月20日（金）10:45受付開始、受付場所は沖縄那覇ビーチサイドホテル内（予定）。開会式は11:30、スタートは12:00。スタートはグループスタート（時差スタート）。",
+  "reception_note_en": "Registration opens at 10:45 on Friday, November 20, 2026 at the Okinawa Naha Beachside Hotel (planned). The opening ceremony is at 11:30 and the start is at 12:00, with staggered group starts.",
+  "tags": [
+    "沖縄本島1周",
+    "400km",
+    "72時間制限"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "ultra",
+      "distance_km": 400,
+      "time_limit_minutes": 4320,
+      "start_time": "12:00",
+      "capacity": null,
+      "entry_fee": 30000,
+      "entry_fee_u25": null,
+      "name_ja": "サバイバルラン400km（男子・女子）",
+      "name_en": "Survival Run 400km (Men/Women)",
+      "description_ja": "参加資格は、100km以上のウルトラマラソン完走者で、18歳以上（高校生以上）の方。チェックポイントの制限時間は、残波岬（34km）5時間、宮里三丁目（77km）12時間、辺戸岬（162km）24時間、海の駅あやはし（295km）48時間。",
+      "description_en": "Open to runners aged 18 or over (high school age and up) who have finished an ultramarathon of 100 km or more. Checkpoint cut-offs: Zampa Cape (34 km) 5 h, Miyazato 3-chome (77 km) 12 h, Cape Hedo (162 km) 24 h, Umi-no-Eki Ayahashi (295 km) 48 h.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:20:52.292Z",
+  "updated_at": "2026-11-15T08:20:52.292Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://teamultra-k.info/race/survival2026/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105540）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典: 公式サイト https://teamultra-k.info/race/survival2026/（2026年大会の要項）。",
+      "定員は一般45名と優先エントリー者で、全体の定員数は記載がないため entry_capacity と種目別定員は null とした。",
+      "公式の事務局締め切り日は「2025年06月30日（月）」と書かれている。一般エントリー開始が2026年6月1日であり、記載ミスの可能性が高い。一般エントリーの終了日は候補情報（スポーツエントリー掲載）の2026-06-30を採用した。ただし定員になり次第締め切り。",
+      "優先エントリーは2026年5月15日〜5月30日。公式に記載された年は省略されているが、2026年として扱った。",
+      "第3回宮古島ウルトラ100マイル上位者の枠は6/7の大会終了後から受付で、別枠のため entry_periods には含めていない。",
+      "回数（edition）は公式サイトに記載がないため null とした。",
+      "会場住所は記載がなく null。スタート・フィニッシュ・受付場所はいずれも「予定」と表記されている。",
+      "参加15名以上で開催決定。2026年はスポーツエントリーでキャンセル待ちの受付あり。2026年10月15日以降のキャンセルは参加料の返還なし。",
+      "公式サイトの最新情報には、2026年11月11日付で速報サイトの案内が掲載されている。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "優先エントリー",
+      "label_en": "Priority Entry",
+      "start_date": "2026-05-15",
+      "end_date": "2026-05-30",
+      "entry_fee": 30000,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-06-01",
+      "end_date": "2026-06-30",
+      "entry_fee": 30000,
+      "category_id": null,
+      "sort_order": 1
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://teamultra-k.info/past/event/",
+      "label": "開催要項"
+    },
+    {
+      "url": "https://teamultra-k.info/past/58run/entry/",
+      "label": "2023沖縄58ラン・出場者一覧"
+    },
+    {
+      "url": "https://teamultra-k.info/past/survival2022/entry/",
+      "label": "沖縄本島1周サバイバルラン2022・出場者一覧"
+    },
+    {
+      "url": "https://teamultra-k.info/past/event/survival2021_entry/",
+      "label": "沖縄本島1周サバイバルラン2021・出場者一覧"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "沖縄那覇ビーチサイドホテル前（予定）",
+  "venue_name_en": "In front of Okinawa Naha Beachside Hotel (planned)",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

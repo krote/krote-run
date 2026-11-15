@@ -1,0 +1,211 @@
+{
+  "id": "riverside-marathon-yamatogawa-2026",
+  "name_ja": "リバーサイドマラソン大和川大会",
+  "name_en": "Riverside Marathon Yamatogawa",
+  "full_name_ja": "第10回リバーサイドマラソン大和川大会",
+  "full_name_en": "The 10th Riverside Marathon Yamatogawa",
+  "edition": 10,
+  "date": "2026-11-29",
+  "prefecture": "27",
+  "city_ja": "大阪市",
+  "city_en": "Osaka City",
+  "description_ja": "河川敷のフラットなコースを使い、ランナーに優しい運営をしているリバーサイドマラソンシリーズの大会です。高低差がほぼなく好タイムも出やすいため、ビギナーから熟練者まで楽しめます。川辺の野鳥を眺めながらのファンランにも向いています。",
+  "description_en": "This event is part of the Riverside Marathon series, held on a flat riverside course and run with runner-friendly management. The course has almost no elevation change, so it suits good times and beginners as well as experienced runners. It is also a good setting for a fun run while watching the wild birds along the river.",
+  "official_url": "https://riverside-marathon.jimdofree.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2026-01-08",
+  "entry_end_date": "2026-11-22",
+  "reception_type": null,
+  "reception_note_ja": "公式サイトのエントリーページでは、参加費の入金確認後に大会1週間前に参加案内通知書とエントリーシートをメールで送付するとされています。当日の受付方法・受付時間は大和川大会について記載がありません。",
+  "reception_note_en": "The official entry page says that after the entry fee payment is confirmed, a participation notice and entry sheet are emailed one week before the event. The reception method and hours on the day are not stated for the Yamatogawa event.",
+  "tags": [
+    "フラットコース",
+    "河川敷コース",
+    "ファンラン向け"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "other",
+      "distance_km": 30,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "30kmの部",
+      "name_en": "30km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 20,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "20kmの部",
+      "name_en": "20km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "10kmの部",
+      "name_en": "10km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "5kmの部",
+      "name_en": "5km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": null,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "低学年の部",
+      "name_en": "Lower Grades",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": null,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "高学年の部",
+      "name_en": "Upper Grades",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": null,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "親子リレーの部",
+      "name_en": "Parent and Child Relay",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:32:34.459Z",
+  "updated_at": "2026-11-15T08:32:34.459Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://riverside-marathon.jimdofree.com/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/103808）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイトのトップページ、エントリーページ、スケジュールです。大和川大会専用ページの本文は提供されていないため、参加費、定員、制限時間、スタート時刻、参加資格、会場住所、受付方法は不明で null または空にしました。",
+      "開催日(2026-11-29)、第10回、各種目名(30km/20km/10km/5km/低学年/高学年/親子リレー)、会場名(大和川河川公園)は公式サイトの記載に基づきます。",
+      "エントリー期間(2026-01-08〜2026-11-22)は候補情報のスポーツエントリー掲載内容によるもので、公式サイトでは確認できていません。",
+      "開催地の市区町村はスケジュール表の「大阪市」に基づきます。",
+      "低学年・高学年・親子リレーの距離は記載がないため distance_km は null です。",
+      "公式サイトのコースは河川敷ですが、路面の種類は明記されていないため surface は null としました。",
+      "淀川大会や猪名川大会の参加費・定員・制限時間は大和川大会には適用せず、転用していません。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー（スポーツエントリー掲載）",
+      "label_en": "General Entry (listed on SPORTS ENTRY)",
+      "start_date": "2026-01-08",
+      "end_date": "2026-11-22",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://riverside-marathon.jimdofree.com/%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA%E3%83%BC/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://riverside-marathon.jimdofree.com/%E3%83%9C%E3%83%A9%E3%83%B3%E3%83%86%E3%82%A3%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%83%E3%83%95%E5%8B%9F%E9%9B%86/",
+      "label": "ボランティアスタッフ募集"
+    },
+    {
+      "url": "https://riverside-marathon.jimdofree.com/%E7%8C%AA%E5%90%8D%E5%B7%9D%E5%A4%A7%E4%BC%9A/",
+      "label": "第6回リバーサイドマラソン猪名川大会【2027年1月24日（日）開催】のエントリーを開始しました。"
+    },
+    {
+      "url": "https://riverside-marathon.jimdofree.com/%E6%B7%80%E5%B7%9D%E5%A4%A7%E4%BC%9A-%E4%B8%8A%E6%B5%81%E3%82%B3%E3%83%BC%E3%82%B9/",
+      "label": "第18回リバーサイドマラソン淀川大会【2027年1月31日（日）開催】のエントリーを開始しました。"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "大和川河川公園",
+  "venue_name_en": "Yamatogawa Riverside Park",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

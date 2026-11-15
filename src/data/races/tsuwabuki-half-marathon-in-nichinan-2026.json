@@ -1,0 +1,183 @@
+{
+  "id": "tsuwabuki-half-marathon-in-nichinan-2026",
+  "name_ja": "つわぶきハーフマラソン大会in日南",
+  "name_en": "Tsuwabuki Half Marathon in Nichinan",
+  "full_name_ja": "第18回つわぶきハーフマラソン大会in日南",
+  "full_name_en": "The 18th Tsuwabuki Half Marathon in Nichinan",
+  "edition": 18,
+  "date": "2026-11-15",
+  "prefecture": "45",
+  "city_ja": "日南市",
+  "city_en": "Nichinan City",
+  "description_ja": "宮崎県日南市の日南総合運動公園を中心とした市内コースで開催される大会で、ハーフマラソンの部は日本陸上競技連盟公認コースです。ハーフのほか5km・3km・1.5km・親子1.5kmの部があり、子どもから大人まで参加できます。参加賞として地元特産品や昼食、ハーフの部では温泉入浴券が付きます。",
+  "description_en": "This race is held on a city course centered on Nichinan General Sports Park in Nichinan, Miyazaki Prefecture, and the half marathon course is certified by the Japan Association of Athletics Federations. In addition to the half marathon, it offers 5km, 3km, 1.5km and parent-child 1.5km races for participants from children to adults. Participants receive local specialty products and a lunch, and half marathon runners also receive a hot spring bathing ticket.",
+  "official_url": "https://taikai.in/tsuwabuki/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": null,
+  "entry_start_date": "2026-07-01",
+  "entry_end_date": "2026-09-30",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "ナンバーカード等は事前に発送されます（原則、出場されるランナー宛）。有料駐車場の利用者には駐車証が事前に発送されます。",
+  "reception_note_en": "Bib numbers and other items are mailed in advance, in principle to the participating runner. Parking permits for paid parking are also mailed in advance.",
+  "tags": [
+    "日本陸連公認コース",
+    "市内コース",
+    "地元特産品の参加賞"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": null,
+      "start_time": "09:00",
+      "capacity": 1600,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソンの部",
+      "name_en": "Half Marathon",
+      "description_ja": "高校生以上男女別。参加料は高校生相当4,000円、一般5,000円（昼食・保険料込）。申込カテゴリーの距離を完走できる健康な方。18歳未満は保護者の同意が必要。伴走者が必要なランナー向けのユニファイド区分あり。",
+      "description_en": "Men and women, high school age and above. Fee: 4,000 yen for high school age, 5,000 yen for general (lunch and insurance included). Participants must be healthy and able to complete the distance. Those under 18 need parental consent. A Unified division is available for runners who need a guide runner.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "09:15",
+      "capacity": 150,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "5kmの部",
+      "name_en": "5km",
+      "description_ja": "中学生以上男女別。参加料は中高校生2,000円、一般3,000円（昼食・保険料込）。",
+      "description_en": "Men and women, junior high school age and above. Fee: 2,000 yen for junior/senior high school students, 3,000 yen for general (lunch and insurance included).",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": null,
+      "start_time": "09:15",
+      "capacity": 150,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "3kmの部",
+      "name_en": "3km",
+      "description_ja": "中学生以上男女別。参加料は中高校生2,000円、一般3,000円（昼食・保険料込）。",
+      "description_en": "Men and women, junior high school age and above. Fee: 2,000 yen for junior/senior high school students, 3,000 yen for general (lunch and insurance included).",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.5,
+      "time_limit_minutes": null,
+      "start_time": "09:15",
+      "capacity": 100,
+      "entry_fee": 1500,
+      "entry_fee_u25": null,
+      "name_ja": "1.5kmの部",
+      "name_en": "1.5km",
+      "description_ja": "小学生のみ男女別（1・2年、3・4年、5・6年の区分）。参加料1,500円（昼食・保険料込）。",
+      "description_en": "Elementary school students only, by gender (grades 1-2, 3-4, 5-6). Fee: 1,500 yen (lunch and insurance included).",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.5,
+      "time_limit_minutes": null,
+      "start_time": "09:15",
+      "capacity": 50,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": "親子1.5kmの部",
+      "name_en": "Parent-Child 1.5km",
+      "description_ja": "親1名と小学生以下1名の2人1組（未就学児含む）。参加料1組4,000円（昼食・保険料込）。定員は50組。必ず手をつないでゴールすること。",
+      "description_en": "Teams of one adult and one child (elementary school age or younger, including preschoolers). Fee: 4,000 yen per pair (lunch and insurance included). Capacity is 50 pairs. Pairs must cross the finish line holding hands.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:16:17.696Z",
+  "updated_at": "2026-11-15T08:16:17.696Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://taikai.in/tsuwabuki/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106099）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイト（taikai.in/tsuwabuki）の大会要項は第18回・2026年11月15日開催の内容で、候補情報と一致している。",
+      "エントリーは2026年9月30日に締め切り済み。サイトにはリザルト公開のお知らせも掲載されている。",
+      "全体の定員は公式サイトに明記がないため null とした。部門別の定員の合計（1,600+150+150+100+50組）は2,050で、親子の部は組数で記載されている。",
+      "参加料は種目・区分ごとに異なるため、entry_fee と各種目の entry_fee は、区分で金額が分かれるものを null とした。金額は description に記載した。",
+      "制限時間は公式サイトの要項に値の記載がないため null とした。",
+      "メイン会場の住所は記載がなく、大会事務局の住所（日南市中央1-1-1）しか分からないため venue_address は null とした。",
+      "ハーフマラソンの距離21.0975kmは公認コースであることから設定した。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-07-01",
+      "end_date": "2026-09-30",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://taikai.in/tsuwabuki/outline_2025/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://taikai.in/tsuwabuki/#",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://taikai.in/tsuwabuki/entry/",
+      "label": "エントリ―"
+    },
+    {
+      "url": "https://taikai.in/tsuwabuki/access/",
+      "label": "アクセス・会場図"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "日南総合運動公園 陸上競技場",
+  "venue_name_en": "Nichinan General Sports Park Athletics Stadium",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

@@ -1,0 +1,155 @@
+{
+  "id": "yatsugatake-nobeyama-kogen-100km-ultramarathon-2027",
+  "name_ja": "星の郷八ヶ岳野辺山高原100kmウルトラマラソン",
+  "name_en": "Hoshi no Sato Yatsugatake Nobeyama Highland 100km Ultramarathon",
+  "full_name_ja": "第33回 星の郷八ヶ岳野辺山高原100kmウルトラマラソン",
+  "full_name_en": "The 33rd Hoshi no Sato Yatsugatake Nobeyama Highland 100km Ultramarathon",
+  "edition": 33,
+  "date": "2027-05-16",
+  "prefecture": "20",
+  "city_ja": "南牧村",
+  "city_en": "Minamimaki Village",
+  "description_ja": "南牧村・小海町・北相木村・南相木村・川上村を走る、100km・68km・42kmの3種目で行われるウルトラマラソンです。交通規制を行わない一般道路を走るコースで、白線や矢印看板で案内されますが、基本的にはランナー自身がコースを把握して走ります。25歳以下を対象としたU25区分があります。",
+  "description_en": "An ultramarathon with three events (100km, 68km and 42km) held across Minamimaki, Koumi, Kitaaiki, Minamiaiki and Kawakami. The course uses public roads without traffic closures and is marked with white lines and arrow signs, but runners are expected to know the course themselves. A U25 category is available for runners aged 25 or under.",
+  "official_url": "https://www.r-wellness.com/nobeyama/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 3300,
+  "entry_start_date": "2026-11-06",
+  "entry_end_date": "2027-03-12",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "ナンバーカード・計測タグは大会前に発送されます。参加案内は大会の約3週間前にメールで配信予定です。",
+  "reception_note_en": "Bib numbers and timing tags are mailed before the event. Participant information is scheduled to be sent by email about 3 weeks before the race.",
+  "tags": [
+    "ウルトラマラソン",
+    "高原コース",
+    "一般道路"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "ultra",
+      "distance_km": 100,
+      "time_limit_minutes": 840,
+      "start_time": "04:55",
+      "capacity": 2700,
+      "entry_fee": 23000,
+      "entry_fee_u25": null,
+      "name_ja": "100km",
+      "name_en": "100km",
+      "description_ja": "大会当日満18歳以上の健康な男女（高校生は除く）。一般2,670名（国内在住23,000円／海外在住26,000円）、U25 30名（国内在住18,400円／海外在住20,800円）。スタートはWAVE A 4:55、WAVE B 5:10。参加料は国内在住の一般区分の金額。",
+      "description_en": "Healthy men and women aged 18 or over on race day (high school students excluded). General: 2,670 places (JPY 23,000 domestic / JPY 26,000 overseas). U25: 30 places (JPY 18,400 domestic / JPY 20,800 overseas). Start: Wave A 4:55, Wave B 5:10. The fee shown is the domestic general fee.",
+      "waves": null
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 68,
+      "time_limit_minutes": 590,
+      "start_time": "04:55",
+      "capacity": 300,
+      "entry_fee": 19500,
+      "entry_fee_u25": null,
+      "name_ja": "68km",
+      "name_en": "68km",
+      "description_ja": "大会当日満18歳以上の健康な男女（高校生は除く）。一般290名（国内在住19,500円／海外在住22,500円）、U25 10名（国内在住15,600円／海外在住18,000円）。スタートはWAVE A 4:55、WAVE B 5:10。参加料は国内在住の一般区分の金額。",
+      "description_en": "Healthy men and women aged 18 or over on race day (high school students excluded). General: 290 places (JPY 19,500 domestic / JPY 22,500 overseas). U25: 10 places (JPY 15,600 domestic / JPY 18,000 overseas). Start: Wave A 4:55, Wave B 5:10. The fee shown is the domestic general fee.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 42,
+      "time_limit_minutes": 390,
+      "start_time": "04:55",
+      "capacity": 300,
+      "entry_fee": 12500,
+      "entry_fee_u25": null,
+      "name_ja": "42km",
+      "name_en": "42km",
+      "description_ja": "大会当日満18歳以上の健康な男女（高校生は除く）。一般290名（国内在住12,500円／海外在住15,500円）、U25 10名（国内在住10,000円／海外在住12,400円）。スタートはWAVE A 4:55、WAVE B 5:10。参加料は国内在住の一般区分の金額。",
+      "description_en": "Healthy men and women aged 18 or over on race day (high school students excluded). General: 290 places (JPY 12,500 domestic / JPY 15,500 overseas). U25: 10 places (JPY 10,000 domestic / JPY 12,400 overseas). Start: Wave A 4:55, Wave B 5:10. The fee shown is the domestic general fee.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T09:29:46.084Z",
+  "updated_at": "2026-11-15T09:29:46.084Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://www.r-wellness.com/nobeyama/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/107547）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイト（r-wellness.com/nobeyama/ の トップ、entry、outline、access、お知らせ261109）。第33回（2027年5月16日開催）の情報で、候補の情報と一致します。",
+      "エントリー期間は2026年11月6日20:00～2027年3月12日23:59ですが、2026年11月9日付のお知らせで、U25・海外在住者向けなど一部を除く一般種目は定員に達して受付終了となっています。",
+      "参加料は種目と区分（一般/U25、国内/海外在住）で異なるため、全体の参加費は null としました。categories の entry_fee と capacity は一般とU25の合計定員、国内在住一般区分の参加料です。",
+      "42kmは42.195kmと明記されていないため distance_type を other としました。",
+      "スタート時刻は予定で、変更の可能性があります。start_time は WAVE A の時刻です。",
+      "路面は一般道路を走るコースであることから road としましたが、公式サイトに路面の明記はありません。",
+      "2027年大会の駐車場・シャトルバスの詳細は調整中です（アクセスページ掲載分は2026年大会の情報）。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-11-06",
+      "end_date": "2027-03-12",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.r-wellness.com/nobeyama/entry/",
+      "label": "ENTRY"
+    },
+    {
+      "url": "https://www.r-wellness.com/nobeyama/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.r-wellness.com/nobeyama/access/",
+      "label": "アクセス・駐車場"
+    },
+    {
+      "url": "https://www.r-wellness.com/nobeyama/261109/",
+      "label": "ー INFORMATION ー \n        一般種目エントリー受付終了のお知らせ"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "南牧村社会体育館",
+  "venue_name_en": "Minamimaki Village Gymnasium",
+  "venue_address": "〒384-1305 長野県南佐久郡南牧村大字野辺山120",
+  "start_lat": null,
+  "start_lng": null
+}

@@ -1,0 +1,116 @@
+{
+  "id": "awa-kamogawa-michikusa-bochibochi-full-marathon-2026",
+  "name_ja": "安房鴨川みちくさぼちぼちフルマラソン",
+  "name_en": "Awa-Kamogawa Michikusa Bochibochi Full Marathon",
+  "full_name_ja": "第3回 安房鴨川みちくさぼちぼちフルマラソン",
+  "full_name_en": "The 3rd Awa-Kamogawa Michikusa Bochibochi Full Marathon",
+  "edition": 3,
+  "date": "2026-12-13",
+  "prefecture": "12",
+  "city_ja": "鴨川市",
+  "city_en": "Kamogawa City",
+  "description_ja": "三日月シーパークホテル安房鴨川をスタート・ゴールとし、鴨川市・勝浦市を巡る約42kmの大会。タイムを競わず、交通規制をかけない歩道を歩いたりゆっくり走ったりして楽しむ趣旨で、5時間以内のゴールは失格となる。環境配慮のため紙コップは用意せず、マイカップの持参が必須。",
+  "description_en": "A roughly 42 km event starting and finishing at Mikazuki Sea Park Hotel Awa-Kamogawa, passing through Kamogawa and Katsuura. It is not a race against the clock: participants walk or run at an easy pace on sidewalks without road closures, and finishing in under 5 hours results in disqualification. For environmental reasons no paper cups are provided, so runners must bring their own cup.",
+  "official_url": "https://michikusa-ultra.com/event/3rd_b_kamogawa.html",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": 500,
+  "entry_start_date": "2026-08-01",
+  "entry_end_date": "2026-10-31",
+  "reception_type": "both",
+  "reception_note_ja": "前日（12/12）15:00～18:00、当日 6:30～7:30。いずれも三日月シーパークホテル安房鴨川フロント前。参加通知書（ハガキ）と大会案内メールは大会1週間前に送付。受付でマイカップの所持確認があり、確認できない場合は出走不可。",
+  "reception_note_en": "Day before (Dec 12) 15:00-18:00 and race day 6:30-7:30, both at the front desk of Mikazuki Sea Park Hotel Awa-Kamogawa. The participation notice (postcard) and event guide email are sent one week before the race. Possession of a personal cup is checked at reception; runners without one cannot start.",
+  "tags": [
+    "歩道を走る",
+    "ゆっくり走る大会",
+    "マイカップ持参"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42,
+      "time_limit_minutes": 540,
+      "start_time": "08:00",
+      "capacity": 500,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "約42km（フルマラソン）",
+      "name_en": "Approx. 42 km (Full Marathon)",
+      "description_ja": "年齢制限なし（未成年は親の承諾書が必要）。自分で体調管理ができ、注意事項・大会規約に同意した方。ウェーブスタート。制限時間9時間（17:00まで）。5時間以内のゴールは失格。",
+      "description_en": "No age limit (parental consent form required for minors). Participants must be able to manage their own health and agree to the notes and rules. Wave start. Time limit 9 hours (until 17:00). Finishing within 5 hours results in disqualification.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:46:22.743Z",
+  "updated_at": "2026-11-15T08:46:22.743Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://michikusa-ultra.com/event/3rd_b_kamogawa.html）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106389）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイト（michikusa-ultra.com）の大会詳細ページ。候補と同じ第3回・2026-12-13の内容で、日付・開催地・締切日は一致している。",
+      "参加費は一般13,000円（18歳未満10,000円）、鴨川市民・勝浦市民11,000円（18歳未満8,000円）と居住地・年齢で異なり、単一の共通額がないため entry_fee は null。種目は1つのみなので entry_fee_by_category は false。",
+      "エントリー開始日2026-08-01は候補情報（スポーツエントリー掲載）による。公式サイトには締切日2026-10-31のみ記載。本日（2026-11-15）時点で締切を過ぎている。",
+      "公式のエントリーページには本大会が選択肢として載っておらず（2027年1月以降の他大会のみ）、申込方法は銀行・ゆうちょ振込のみと記載。",
+      "距離は公式では「約42kmぐらい」と表記。市区町村は開催地欄の「鴨川市・勝浦市」の先頭を採用（会場ホテルの住所は公式テキストに記載なし）。コースが鴨川市・勝浦市にまたがる。",
+      "コースマップのリンクが2nd_b_kamogawa.jpg（第2回の画像）を指しており、掲載内容が最新回か未確認。",
+      "会場の住所は記載がないため null。路面（surface）は歩道・公道を走る旨から road としたが、公式に明記はない。",
+      "参加賞は大会記念オリジナルTシャツ、完走賞は完走記念バスタオル等。エイドは10か所、5kmごとのキロ表示。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-08-01",
+      "end_date": "2026-10-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://michikusa-ultra.com/entry/index.html",
+      "label": "大会情報"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "三日月シーパークホテル安房鴨川",
+  "venue_name_en": "Mikazuki Sea Park Hotel Awa-Kamogawa",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

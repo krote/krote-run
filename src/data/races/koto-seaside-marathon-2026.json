@@ -1,0 +1,141 @@
+{
+  "id": "koto-seaside-marathon-2026",
+  "name_ja": "江東シーサイドマラソン大会",
+  "name_en": "Koto Seaside Marathon",
+  "full_name_ja": "第44回江東シーサイドマラソン大会",
+  "full_name_en": "The 44th Koto Seaside Marathon",
+  "edition": 44,
+  "date": "2026-11-29",
+  "prefecture": "13",
+  "city_ja": "江東区",
+  "city_en": "Koto City",
+  "description_ja": "夢の島競技場を発着点に、ハーフマラソンの部と10kmの部で行われる日本陸上競技連盟公認大会。潮風を感じながら江東区南部を走る、江東区ならではの大会で、昭和56年に始まり、江東区最大級のスポーツイベントとして親しまれている。",
+  "description_en": "A JAAF-certified race starting and finishing at Yumenoshima Stadium, with half marathon and 10km divisions. Runners enjoy the sea breeze along southern Koto City. Started in 1981, it is one of the largest sporting events in Koto City.",
+  "official_url": "https://www.city.koto.lg.jp/104000/seaside44.html",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": 4000,
+  "entry_start_date": "2026-08-14",
+  "entry_end_date": "2026-08-31",
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "公認コース",
+    "潮風",
+    "夢の島発着"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 2400,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソンの部",
+      "name_en": "Half Marathon",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 1600,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "10kmの部",
+      "name_en": "10km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:31:15.720Z",
+  "updated_at": "2026-11-15T08:31:15.720Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://www.city.koto.lg.jp/104000/seaside44.html）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105916）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は江東区公式ページ（更新日2026年11月10日）。第44回大会（令和8年11月29日開催）の概要・定員・交通規制・協賛募集のみ掲載されており、エントリー期間と参加費の記載はないため null/空配列とした。",
+      "候補情報のエントリー期間（2026-08-14〜2026-08-31）は公式サイトで確認できず採用していない。",
+      "開催日（令和8年11月29日）と種目別定員（ハーフ2,400名、10km1,600名）は公式ページに記載。全体定員は両種目の合計（4,000名）で、ページ内のランナー約4,000人の記載とも一致する。",
+      "受付方法、会場住所、制限時間、スタート時刻は公式ページに記載がなく不明。",
+      "ハーフマラソンの距離21.0975kmは種目名からの標準距離であり、10kmも種目名に基づく。",
+      "関連PDFは本文が取得できず、xlsファイルは協賛申込書で、大会情報は読み取れなかった。",
+      "候補名の「一般エントリー（抽選）」は公式ページでは確認できない。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-08-14",
+      "end_date": "2026-08-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.city.koto.lg.jp/104000/documents/20261110084610.pdf",
+      "label": "交通規制チラシ（PDF：1,288KB）（別ウィンドウで開きます）"
+    },
+    {
+      "url": "https://www.city.koto.lg.jp/104000/documents/20260522164632.pdf",
+      "label": "江東シーサイドマラソン大会協賛募集要綱」（PDF：1,876KB）（別ウィンドウで開きます）"
+    },
+    {
+      "url": "https://www.city.koto.lg.jp/104000/documents/20260521123705.xls",
+      "label": "「協賛申込書」（エクセル：47KB）（別ウィンドウで開きます）"
+    },
+    {
+      "url": "https://www.city.koto.lg.jp/104000/documents/20260522164714.pdf",
+      "label": "江東シーサイドマラソン大会協賛募集要綱（PDF：1,876KB）（別ウィンドウで開きます）"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "江東区夢の島競技場",
+  "venue_name_en": "Koto City Yumenoshima Stadium",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

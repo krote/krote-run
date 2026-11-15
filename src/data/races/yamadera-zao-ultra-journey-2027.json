@@ -1,0 +1,151 @@
+{
+  "id": "yamadera-zao-ultra-journey-2027",
+  "name_ja": "山寺蔵王ウルトラジャーニー",
+  "name_en": "Yamadera Zao Ultra Journey",
+  "full_name_ja": "第8回 山寺蔵王ウルトラジャーニー",
+  "full_name_en": "The 8th Yamadera Zao Ultra Journey",
+  "edition": 8,
+  "date": "2027-04-18",
+  "prefecture": "06",
+  "city_ja": null,
+  "city_en": null,
+  "description_ja": "山寺をスタートし、天童・中山・山辺・上山など5市町村を巡るウルトラ大会。桜と雪景色の風景、観光名所や温泉、山形の食を楽しみながら走れる。エイドではジンギスカンやお蕎麦、のし梅などを提供し、ゴール後には芋煮を提供する予定。",
+  "description_en": "An ultra-distance event starting at Yamadera and passing through five municipalities including Tendo, Nakayama, Yamanobe and Kaminoyama. Runners enjoy scenery of cherry blossoms and snow, sightseeing spots, hot springs and Yamagata cuisine. Aid stations offer Genghis Khan lamb, soba and noshiume sweets, and imoni (taro stew) is planned for finishers.",
+  "official_url": "https://jogtrail.wixsite.com/website-2",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2026-10-01",
+  "entry_end_date": "2027-01-31",
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "5市町村周遊",
+    "桜と雪景色",
+    "温泉・グルメエイド"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "ultra",
+      "distance_km": 110,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "110km",
+      "name_en": "110km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 101,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "101km",
+      "name_en": "101km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 52,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "52km",
+      "name_en": "52km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T09:28:18.172Z",
+  "updated_at": "2026-11-15T09:28:18.172Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://jogtrail.wixsite.com/website-2）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/107007）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイトは第8回（2027年4月18日開催）の内容で、候補の開催日と一致。",
+      "エントリー開始日（2026年10月1日0:00）は公式サイト記載。エントリー終了日（2027-01-31）は公式サイトに記載がなく、候補情報（スポーツエントリー掲載）に基づく。",
+      "参加費・定員・制限時間・スタート時刻は公式サイトの閲覧範囲に記載がなく null。大会要項ページにも詳細テキストなし。",
+      "種目は公式サイトのGPXマップ表記（110km・101km・52km）から抽出。各種目の詳細は未確認。",
+      "開催地の市区町村、会場名、路面、受付方法は明記がないため null。スタートは山寺で、コースは山寺・天童・中山・山辺・上山の5市町村を巡る。",
+      "トップページに「第7回大会も…お待ちしております」という前回の文言が残っている。",
+      "ボランティア募集のエントリーは2026年12月1日開始予定（e-moshicom）。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-10-01",
+      "end_date": "2027-01-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://jogtrail.wixsite.com/website-2/about",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://jogtrail.wixsite.com/website-2/architecture",
+      "label": "ボランティア募集"
+    },
+    {
+      "url": "https://jogtrail.wixsite.com/website-2/blank-3",
+      "label": "アクセス"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

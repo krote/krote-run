@@ -1,0 +1,198 @@
+{
+  "id": "the-challenge-race-toyosu-2027",
+  "name_ja": "THE CHALLENGE RACE TOYOSU",
+  "name_en": "THE CHALLENGE RACE TOYOSU",
+  "full_name_ja": "THE CHALLENGE RACE TOYOSU 22",
+  "full_name_en": "THE CHALLENGE RACE TOYOSU 22",
+  "edition": 22,
+  "date": "2027-03-27",
+  "prefecture": "13",
+  "city_ja": "江東区",
+  "city_en": "Koto City",
+  "description_ja": "東京・豊洲の豊洲ぐるり公園を使用する日本陸連公認の記録挑戦型マラソン大会。全長5kmの周回コースは高低差1.5m以内のフラットな高速コースで、フルマラソン・30km・ハーフマラソン・10km・5km・1マイルの6種目を実施する。目標タイム別にペーサーが配置され、給水ではドリンクとジェルが提供される。",
+  "description_en": "A JAAF-certified, record-oriented race held at Toyosu Gururi Park in Koto City, Tokyo. The flat, fast 5km loop course has an elevation difference of 1.5m or less, and the event offers six categories: full marathon, 30km, half marathon, 10km, 5km and 1 mile. Pacers are provided for different target times, and drinks and gels are available at the aid stations.",
+  "official_url": "https://race.rdc-run.com/event/tokyo-toyosu/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 500,
+  "entry_start_date": "2026-09-27",
+  "entry_end_date": "2027-03-23",
+  "reception_type": "race_day",
+  "reception_note_ja": "ゼッケン等の事前送付はなし。当日8:00〜9:00に受付場所（豊洲ぐるり公園 花木とモニュメント広場前）でエントリーサイトの決済ページを提示してゼッケン等を受け取る。受付時間に遅れると出走できない。",
+  "reception_note_en": "Race numbers are not mailed in advance. On race day, between 8:00 and 9:00, show the payment page of the entry site at the reception area (in front of the Flowering Trees and Monument Plaza, Toyosu Gururi Park) to receive your bib and other items. Runners who miss the reception hours cannot start.",
+  "tags": [
+    "フラットコース",
+    "高低差1.5m以内",
+    "5km周回コース"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 270,
+      "start_time": "09:30",
+      "capacity": 300,
+      "entry_fee": 11000,
+      "entry_fee_u25": null,
+      "name_ja": "フルマラソン",
+      "name_en": "Full Marathon",
+      "description_ja": "小学生以上。5km周回コースを8周＋折返しでフィニッシュ。",
+      "description_en": "Elementary school age and above. Eight 5km laps plus a turnaround section to the finish.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 30,
+      "time_limit_minutes": 192,
+      "start_time": "09:30",
+      "capacity": 300,
+      "entry_fee": 7700,
+      "entry_fee_u25": null,
+      "name_ja": "30km",
+      "name_en": "30km",
+      "description_ja": "小学生以上。5km周回コースを6周。",
+      "description_en": "Elementary school age and above. Six 5km laps.",
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 150,
+      "start_time": "09:30",
+      "capacity": 300,
+      "entry_fee": 7700,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "小学生以上。5km周回コースを4周＋折返しでフィニッシュ。",
+      "description_en": "Elementary school age and above. Four 5km laps plus a turnaround section to the finish.",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": "09:30",
+      "capacity": 200,
+      "entry_fee": 5500,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10km",
+      "description_ja": "小学生以上。5km周回コースを2周。",
+      "description_en": "Elementary school age and above. Two 5km laps.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "09:30",
+      "capacity": 200,
+      "entry_fee": 3300,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": "小学生以上。5km周回コースを1周。",
+      "description_en": "Elementary school age and above. One 5km lap.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.609,
+      "time_limit_minutes": null,
+      "start_time": "09:35",
+      "capacity": null,
+      "entry_fee": 3300,
+      "entry_fee_u25": null,
+      "name_ja": "1マイル",
+      "name_en": "1 Mile",
+      "description_ja": "小学生以上。スタートから0.804km地点で折り返してフィニッシュ。",
+      "description_en": "Elementary school age and above. Turn around at 0.804km from the start and return to the finish.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T09:25:04.943Z",
+  "updated_at": "2026-11-15T09:30:55.988Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://race.rdc-run.com/event/tokyo-toyosu/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/107306）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "開催日2027-03-27は公式サイトのスケジュールページ（THE CHALLENGE RACE TOYOSU 22、日本陸連公認）で確認済み。",
+      "エントリー期間の開始日2026-09-27は候補情報（スポーツエントリー掲載）のみに基づく。公式サイトには開始日の記載がない。終了日2027-03-23は公式の締切ルール（開催週の火曜日）と一致する。",
+      "10km・5kmの制限時間は公式サイト内で食い違う（Q&Aは10km 90分・5km 40分、大会要項は10km 70分・5km 35分）ため null とした。1マイルの制限時間は記載なし。",
+      "定員500人は大会要項の「全種目合計エントリー人数が500人に達した時点で終了」による。種目別定員はフル300・30km 300・ハーフ300・10km 200・5km 200で、1マイルの定員は記載なし。",
+      "参加費は種目別（フル11,000円、30km・ハーフ7,700円、10km 5,500円、5km・1マイル3,300円）。R.LEAGUE会員は10%OFF。",
+      "1マイルの距離1.609kmは「1マイル」表記からの換算値。",
+      "会場住所は受付場所の住所（東京都江東区豊洲2丁目3）。",
+      "エントリーページは設計プレビューのため、情報源としては使用していない。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-27",
+      "end_date": "2027-03-23",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://race.rdc-run.com/event/tokyo-toyosu/#overview",
+      "label": "概要"
+    },
+    {
+      "url": "https://race.rdc-run.com/schedule/?venue=TOYOSU",
+      "label": "この大会にエントリー →"
+    },
+    {
+      "url": "https://race.rdc-run.com/entry?event=EVT_aa14a155",
+      "label": "202611/22（日）\n        THE CHALLENGE RACE TOYOSU 16\n                エントリー受付中"
+    },
+    {
+      "url": "https://race.rdc-run.com/entry?event=EVT_14f55dc1",
+      "label": "202612/5（土）\n        THE CHALLENGE RACE TOYOSU 17\n                エントリー受付中"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "豊洲ぐるり公園マラソンコース",
+  "venue_name_en": "Toyosu Gururi Park Marathon Course",
+  "venue_address": "東京都江東区豊洲2丁目3",
+  "start_lat": 35.652561,
+  "start_lng": 139.792892
+}

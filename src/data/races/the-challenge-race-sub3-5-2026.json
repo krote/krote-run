@@ -1,0 +1,127 @@
+{
+  "id": "the-challenge-race-sub3-5-2026",
+  "name_ja": "THE CHALLENGE RACE SUB3.5",
+  "name_en": "THE CHALLENGE RACE SUB3.5",
+  "full_name_ja": "THE CHALLENGE RACE SUB3.5 2",
+  "full_name_en": "THE CHALLENGE RACE SUB3.5 2",
+  "edition": 2,
+  "date": "2026-12-19",
+  "prefecture": "13",
+  "city_ja": "板橋区",
+  "city_en": "Itabashi City",
+  "description_ja": "荒川河川敷の全長10km周回コースで行う、サブ3.5・サブ4を狙うフルマラソン。高低差1.5m以内のフラットな日本陸連公認コースで、3時間20分から4時間00分まで8つのペーサーグループが配置される。給水所ではドリンクとジェルが用意され、参加者の写真は無料で提供される。",
+  "description_en": "A full marathon in Tokyo's Arakawa riverbed area for runners aiming at sub-3:30 or sub-4:00. It uses a JAAF-certified, flat 10km loop course with an elevation difference of 1.5m or less. Eight pacer groups from 3:20 to 4:00 are provided, aid stations offer drinks and gels, and participant photos are supplied free of charge.",
+  "official_url": "https://race.rdc-run.com/series/sub35-sub4/",
+  "entry_fee": 13200,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2026-06-04",
+  "entry_end_date": "2026-12-15",
+  "reception_type": "race_day",
+  "reception_note_ja": "ゼッケン等の事前送付はなく、当日8:00〜9:00に荒川戸田橋陸上競技場前の受付で、エントリーサイトの決済ページを提示して受け取る。受付時間に遅れると出走できない。",
+  "reception_note_en": "Bibs are not mailed in advance. Pick up on race day between 8:00 and 9:00 in front of Arakawa Todabashi Athletics Stadium by showing the payment page of the entry site. Runners who miss the reception hours cannot start.",
+  "tags": [
+    "フラットコース",
+    "日本陸連公認",
+    "10km周回コース"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 270,
+      "start_time": "09:30",
+      "capacity": 300,
+      "entry_fee": 13200,
+      "entry_fee_u25": null,
+      "name_ja": "フルマラソン",
+      "name_en": "Full Marathon",
+      "description_ja": "小学生以上。日本陸連公認コース。",
+      "description_en": "Elementary school students and older. JAAF-certified course.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:48:32.932Z",
+  "updated_at": "2026-11-15T08:48:32.932Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://race.rdc-run.com/series/sub35-sub4/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105934）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典: 公式サイト https://race.rdc-run.com/series/sub35-sub4/ 。公式ページはSUB3.5とSUB4を併記しており、2026-12-19開催（次回）として候補と日付が一致する。",
+      "エントリー開始日2026-06-04は候補情報（スポーツエントリー掲載）のみに基づく。公式サイトには開始日の記載がない。",
+      "エントリー締切: 公式は『原則、開催週の火曜日いっぱい』（2026-12-15にあたる）とする一方、大会要項には『レース開始1週間前まで』とあり食い違う。候補情報と一致する2026-12-15を採用した。",
+      "定員は要項でフルマラソン300人、かつ全種目合計500人で受付終了とあるが、SUB3.5とSUB4を合わせた枠か不明なため、全体定員はnullとした。",
+      "ペーサー設定は3時間20分・25分・28分・30分（SUB3.5側）、3時間50分・55分・58分・4時間00分（SUB4側）。",
+      "制限時間4時間30分。5kmごとに関門があり、30km地点は3時間12分、40km地点は4時間16分。",
+      "全競技終了は14:00。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-06-04",
+      "end_date": "2026-12-15",
+      "entry_fee": 13200,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://race.rdc-run.com/series/sub35-sub4/#overview",
+      "label": "概要"
+    },
+    {
+      "url": "https://race.rdc-run.com/schedule/?venue=TOKYO",
+      "label": "この大会にエントリー →"
+    },
+    {
+      "url": "https://race.rdc-run.com/entry?event=EVT_0b22c9ce",
+      "label": "202612/19（土）\n        THE CHALLENGE RACE SUB4 2\n                エントリー受付中"
+    },
+    {
+      "url": "https://race.rdc-run.com/entry?event=EVT_5a9b6eb2",
+      "label": "202612/19（土）\n        THE CHALLENGE RACE SUB3.5 2\n                エントリー受付中"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "荒川河川敷（受付: 荒川戸田橋陸上競技場前）",
+  "venue_name_en": "Arakawa Riverbed (Reception: in front of Arakawa Todabashi Athletics Stadium)",
+  "venue_address": "〒174-0041 東京都板橋区舟渡4丁目7",
+  "start_lat": null,
+  "start_lng": null
+}

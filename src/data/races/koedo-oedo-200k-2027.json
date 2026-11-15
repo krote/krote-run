@@ -1,0 +1,191 @@
+{
+  "id": "koedo-oedo-200k-2027",
+  "name_ja": "小江戸大江戸200k",
+  "name_en": "Koedo Oedo 200k",
+  "full_name_ja": "第17回 小江戸大江戸200k",
+  "full_name_en": "The 17th Koedo Oedo 200k",
+  "edition": 17,
+  "date": "2027-03-13",
+  "prefecture": "11",
+  "city_ja": "川越市",
+  "city_en": "Kawagoe City",
+  "description_ja": "スパルタスロンへの参加資格獲得大会として発足したウルトラマラソンで、川越の蓮馨寺をスタート・ゴールとします。小江戸(川越周辺)コースと、都庁・国立競技場・東京タワー・皇居・スカイツリー・浅草寺など東京の名所を巡る大江戸コースを走ります。90kmから260kmまでの種目があります。",
+  "description_en": "This ultramarathon began as a qualifying race for the Spartathlon and starts and finishes at Renkeiji Temple in Kawagoe. Runners cover the Koedo course around Kawagoe and the Oedo course through Tokyo landmarks such as the Tokyo Metropolitan Government Building, the National Stadium, Tokyo Tower, the Imperial Palace, Skytree and Sensoji. Events range from 90 km to 260 km.",
+  "official_url": "https://trainic-world.org/coedo-oedo/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": null,
+  "entry_start_date": "2026-10-29",
+  "entry_end_date": "2027-02-05",
+  "reception_type": "both",
+  "reception_note_ja": "前日受付: 3月12日(金)16:00〜19:00 蓮馨寺(大江戸ナイト115kmを除く)。当日受付: 3月13日(土) 200k/230k/260k/90kは6:00〜7:30、大江戸ナイト115kmは20:00〜21:30。",
+  "reception_note_en": "Day-before reception: Fri, March 12, 16:00-19:00 at Renkeiji (except the Oedo Night 115km). Race-day reception on Sat, March 13: 6:00-7:30 for the 200k/230k/260k/90k, and 20:00-21:30 for the Oedo Night 115km.",
+  "tags": [
+    "ウルトラマラソン",
+    "東京名所巡り",
+    "川越発着"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "ultra",
+      "distance_km": 200,
+      "time_limit_minutes": 2160,
+      "start_time": "08:00",
+      "capacity": 430,
+      "entry_fee": 20000,
+      "entry_fee_u25": null,
+      "name_ja": "小江戸大江戸200km",
+      "name_en": "Koedo Oedo 200km",
+      "description_ja": "優先枠は小江戸大江戸200k大会の200km・230km・260kmの制限時間内完走者、一般枠は90km以上の大会の制限時間内完走者が対象。2023年以降開催の大会が対象。",
+      "description_en": "Priority entry is for finishers within the time limit of the 200km, 230km or 260km at this race. General entry is for finishers within the time limit of a race of 90km or more. Only races held in 2023 or later count.",
+      "waves": null
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 230,
+      "time_limit_minutes": 2160,
+      "start_time": "08:00",
+      "capacity": 105,
+      "entry_fee": 22000,
+      "entry_fee_u25": null,
+      "name_ja": "小江戸大江戸230km",
+      "name_en": "Koedo Oedo 230km",
+      "description_ja": "優先枠は小江戸大江戸200k大会の200km・230km・260kmの制限時間内完走者、一般枠は90km以上の大会の制限時間内完走者が対象。200kmを31時間でゴールできる実力が目安。",
+      "description_en": "Priority entry is for finishers within the time limit of the 200km, 230km or 260km at this race. General entry is for finishers within the time limit of a race of 90km or more. The organizer suggests being able to finish 200km in 31 hours.",
+      "waves": null
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 260,
+      "time_limit_minutes": 2160,
+      "start_time": "08:00",
+      "capacity": 45,
+      "entry_fee": 24000,
+      "entry_fee_u25": null,
+      "name_ja": "小江戸大江戸260km",
+      "name_en": "Koedo Oedo 260km",
+      "description_ja": "小江戸大江戸200k大会の200kmを27時間以内、または230km・260kmを制限時間内に完走した方が対象。",
+      "description_en": "Open to those who finished the 200km at this race within 27 hours, or the 230km or 260km within the time limit.",
+      "waves": null
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 90,
+      "time_limit_minutes": 840,
+      "start_time": "07:50",
+      "capacity": 100,
+      "entry_fee": 13000,
+      "entry_fee_u25": null,
+      "name_ja": "小江戸90km",
+      "name_en": "Koedo 90km",
+      "description_ja": "42km以上の大会の制限時間内完走者が対象(一般枠のみ)。",
+      "description_en": "Open to those who finished a race of 42km or more within the time limit (general entry only).",
+      "waves": null
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 115,
+      "time_limit_minutes": 1140,
+      "start_time": "22:00",
+      "capacity": 140,
+      "entry_fee": 16000,
+      "entry_fee_u25": null,
+      "name_ja": "大江戸ナイト115km",
+      "name_en": "Oedo Night 115km",
+      "description_ja": "42km以上の大会の制限時間内完走者が対象(一般枠のみ)。夜22:00スタート。",
+      "description_en": "Open to those who finished a race of 42km or more within the time limit (general entry only). Starts at 22:00 at night.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T09:18:45.371Z",
+  "updated_at": "2026-11-15T09:30:36.877Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://trainic-world.org/coedo-oedo/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/107606）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイト(trainic-world.org/coedo-oedo/)の大会概要ページ。第17回(2027年)の内容で、候補情報と一致。",
+      "参加費は種目ごとに異なるため entry_fee は null、entry_periods の参加費も null。",
+      "種目の定員は優先枠と一般枠の合計。優先枠が定員に満たない場合は一般枠を増やして募集。200kmの優先枠にはレジェンド枠20名(65歳以上)を含む。",
+      "全体の定員は公式サイトに明記がないため null。",
+      "スタッフ募集ページは第16回(2026年)の内容で、抽出に使用していない。",
+      "種目名は概要の表記が「大江戸ナイト115km」と「大江戸115km」で揺れている。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "優先エントリー",
+      "label_en": "Priority Entry",
+      "start_date": "2026-10-29",
+      "end_date": "2026-11-02",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-11-05",
+      "end_date": "2027-02-05",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://trainic-world.org/coedo-oedo/outline",
+      "label": "大会概要"
+    },
+    {
+      "url": "https://trainic-world.org/coedo-oedo/staff-wanted",
+      "label": "スタッフ募集"
+    },
+    {
+      "url": "https://trainic-world.org/coedo-oedo/access",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://trainic-world.org/coedo-oedo/category/%e3%82%a8%e3%83%b3%e3%83%88%e3%83%aa%e3%83%bc",
+      "label": "エントリー"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "蓮馨寺",
+  "venue_name_en": "Renkeiji Temple",
+  "venue_address": "埼玉県川越市連雀町7-1",
+  "start_lat": 35.919285,
+  "start_lng": 139.482162
+}

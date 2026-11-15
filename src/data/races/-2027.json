@@ -1,0 +1,105 @@
+{
+  "id": "-2027",
+  "name_ja": "【東京・豊洲】THE CHALLENGE RACE TOYOSU 20｜日本陸連公認のマラソン大会",
+  "name_en": null,
+  "full_name_ja": null,
+  "full_name_en": null,
+  "edition": null,
+  "date": "2027-02-07",
+  "prefecture": "13",
+  "city_ja": null,
+  "city_en": null,
+  "description_ja": null,
+  "description_en": null,
+  "official_url": "https://onetokyo.org/",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2026-09-27",
+  "entry_end_date": "2027-02-02",
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T09:11:21.311Z",
+  "updated_at": "2026-11-15T09:11:21.311Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://onetokyo.org/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/107304）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "提供された公式サイトのテキスト（onetokyo.org、東京マラソン財団公式クラブ ONE TOKYO のサイト）には、候補の大会「THE CHALLENGE RACE TOYOSU 20」に関する記載がなく、大会名・開催日・会場・種目・参加費・定員・エントリー期間などを確認できなかった。",
+      "onetokyo.org の内容は東京マラソン2027関連のニュース、ONE TOKYO のイベント情報、陸連登録（ONE TOKYO RC）の案内であり、候補大会の公式サイトではない可能性がある。",
+      "候補情報（開催日 2027-02-07、エントリー期間 2026-09-27〜2027-02-02、開催地 東京都）は大会情報サイトの掲載内容のみで、公式サイトでの裏付けが取れないため採用していない。",
+      "正しい公式サイトのテキストを再提供いただければ再抽出可能。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-27",
+      "end_date": "2027-02-02",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://onetokyo.org/about/tot/jaaf",
+      "label": "ONE TOKYO RC概要"
+    },
+    {
+      "url": "https://onetokyo.org/runentry/redirect?returnUri=/event/schedule",
+      "label": "イベントスケジュール"
+    },
+    {
+      "url": "https://onetokyo.org/news/detail?id=01kykxyz2p5saj076r58e3yag9",
+      "label": "2026.07.31.FRI\n                                        東京マラソン\n                                                                            \n                                    \n                                        東京マラソン2027 ONE TOKYO プレミアムメンバーエントリー抽選決定のお知らせ"
+    },
+    {
+      "url": "https://onetokyo.org/news/detail?id=01kykx0aca31j5gv3pj1xfrz9w",
+      "label": "2026.07.30.THU\n                                        東京マラソン\n                                                                            \n                                    \n                                        ＜7月31日よりエントリー開始！＞東京マラソン2027 ONE TOKYO プレミアムメンバーエントリー"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

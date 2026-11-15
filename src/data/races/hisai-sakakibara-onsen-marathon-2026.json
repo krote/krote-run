@@ -1,0 +1,169 @@
+{
+  "id": "hisai-sakakibara-onsen-marathon-2026",
+  "name_ja": "ひさい榊原温泉マラソン",
+  "name_en": "Hisai Sakakibara Onsen Marathon",
+  "full_name_ja": "津市合併20周年記念 第29回 ひさい榊原温泉マラソン",
+  "full_name_en": "Tsu City 20th Anniversary Commemorative 29th Hisai Sakakibara Onsen Marathon",
+  "edition": 29,
+  "date": "2026-11-15",
+  "prefecture": "24",
+  "city_ja": "津市",
+  "city_en": "Tsu City",
+  "description_ja": "全国から集まったランナーが、秋の自然豊かな榊原温泉郷を走るマラソン大会。幅広い年齢層が自分の体力に合わせて参加できるよう、競技種目を豊富に設定している。10mile・10km・5km参加者には温泉入湯券及びスパウォーター割引購入券、1.5km参加者にはお菓子のプレゼントがある。",
+  "description_en": "A marathon event where runners from across Japan run through the scenic Sakakibara Onsen area in autumn. A wide variety of events lets participants of all ages join according to their fitness. Participants in the 10 mile, 10 km and 5 km events receive a hot spring bathing ticket and a spa water discount coupon, and 1.5 km participants receive sweets.",
+  "official_url": "https://www.info.city.tsu.mie.jp/www/sp/contents/1534743038672/index.html",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2026-09-01",
+  "entry_end_date": "2026-09-30",
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "温泉郷コース",
+    "起伏あり",
+    "アップダウン"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "other",
+      "distance_km": 16.09,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "10mile",
+      "name_en": "10 mile",
+      "description_ja": "一般・高校生対象",
+      "description_en": "For general participants and high school students",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10 km",
+      "description_ja": "一般・高校生対象",
+      "description_en": "For general participants and high school students",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5 km",
+      "description_ja": "一般・高校生・中学生対象",
+      "description_en": "For general participants, high school and junior high school students",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.5,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "1.5km",
+      "name_en": "1.5 km",
+      "description_ja": "小学生対象",
+      "description_en": "For elementary school students",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:15:35.246Z",
+  "updated_at": "2026-11-15T09:30:31.566Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://www.info.city.tsu.mie.jp/www/sp/contents/1534743038672/index.html）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106030）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典: 津市公式サイト「第29回ひさい榊原温泉マラソン参加者募集！」（2026年9月15日更新）。開催日・申込期間（2026-09-01〜09-30）は公式サイトと一致。",
+      "大会要項PDFからは本文の詳細（参加費・定員・受付方法・スタート時刻・制限時間）が取得できず、これらは null とした。",
+      "受付方法は公式ページに記載がないため reception_type は null。",
+      "コース途中に路面状態が悪い所、道幅が狭い所、急勾配な所があると記載あり。車いすでの参加不可。",
+      "申込はスポーツエントリー（インターネットまたは電話 0570-039-846）。雨天決行。",
+      "路面区分 road は推測を含む（公式に明記なし）。タグは公式の注意書きに基づく。",
+      "問い合わせ: ひさい榊原温泉マラソン大会実行委員会事務局（久居体育館内）059-255-6081。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-01",
+      "end_date": "2026-09-30",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.info.city.tsu.mie.jp/kurashi/douro_koutsuu/index.html",
+      "label": "道路・交通"
+    },
+    {
+      "url": "https://www.info.city.tsu.mie.jp/shisei/shiyakusho_annai/1004814/index.html",
+      "label": "アクセス・窓口案内"
+    },
+    {
+      "url": "https://www.info.city.tsu.mie.jp/_res/projects/default_project/_page_/001/010/057/youkou.pdf",
+      "label": "第29回ひさい榊原温泉マラソン大会要項 （PDF 2.2MB）"
+    },
+    {
+      "url": "https://www.info.city.tsu.mie.jp/shisei/shiyakusho_annai/1004814/1004819/index.html",
+      "label": "庁舎へのアクセス"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "榊原小学校および榊原温泉郷周辺",
+  "venue_name_en": "Sakakibara Elementary School and around Sakakibara Onsen area",
+  "venue_address": "三重県津市榊原町5848",
+  "start_lat": 34.706676,
+  "start_lng": 136.355804
+}

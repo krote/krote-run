@@ -1,0 +1,197 @@
+{
+  "id": "the-challenge-race-yokohama-2026",
+  "name_ja": "THE CHALLENGE RACE YOKOHAMA",
+  "name_en": "THE CHALLENGE RACE YOKOHAMA",
+  "full_name_ja": "THE CHALLENGE RACE YOKOHAMA 12",
+  "full_name_en": "THE CHALLENGE RACE YOKOHAMA 12",
+  "edition": 12,
+  "date": "2026-11-21",
+  "prefecture": "14",
+  "city_ja": "横浜市",
+  "city_en": "Yokohama City",
+  "description_ja": "鶴見川右岸の片道5km・全長10kmの周回コースを走る、日本陸連公認の記録狙い向け大会です。高低差3m以内の高速コースで、フルからハーフ、10km、5km、1マイルまで6種目があります。目標タイム別に全12グループのペーサーが付き、給水ではドリンクとジェルを用意しています。",
+  "description_en": "A JAAF-certified record-oriented race on a 10 km loop course along the right bank of the Tsurumi River, with each lap a 5 km out-and-back. The course is fast, with an elevation difference of 3 m or less. Six events are offered, from the full marathon down to the 1 mile. Pacers are provided for 12 target-time groups, and aid stations offer drinks and gels.",
+  "official_url": "https://race.rdc-run.com/series/yokohama/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 500,
+  "entry_start_date": "2026-04-29",
+  "entry_end_date": "2026-11-17",
+  "reception_type": "race_day",
+  "reception_note_ja": "受付は当日8:00〜9:00、新横浜駅前公園東側のあずまやで行います。ゼッケン等の事前送付はなく、エントリーサイトの決済ページを提示して受け取ります。受付時間に遅れると出走できません。",
+  "reception_note_en": "Race-day registration only, 8:00-9:00 at the pavilion on the east side of Shin-Yokohama Station Park. Bibs are not mailed in advance; show the payment page from the entry site to receive your bib. Late arrivals cannot start.",
+  "tags": [
+    "フラットコース",
+    "日本陸連公認",
+    "ペーサー配置"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 270,
+      "start_time": "09:30",
+      "capacity": 300,
+      "entry_fee": 11000,
+      "entry_fee_u25": null,
+      "name_ja": "フルマラソン",
+      "name_en": "Full Marathon",
+      "description_ja": "小学生以上が参加可能です（大会要項より）。",
+      "description_en": "Open to elementary school students and older (per race regulations).",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 30,
+      "time_limit_minutes": 192,
+      "start_time": "09:30",
+      "capacity": 300,
+      "entry_fee": 7700,
+      "entry_fee_u25": null,
+      "name_ja": "30km",
+      "name_en": "30 km",
+      "description_ja": "小学生以上が参加可能です（大会要項より）。",
+      "description_en": "Open to elementary school students and older (per race regulations).",
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 150,
+      "start_time": "09:30",
+      "capacity": 300,
+      "entry_fee": 7700,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "小学生以上が参加可能です（大会要項より）。",
+      "description_en": "Open to elementary school students and older (per race regulations).",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 90,
+      "start_time": "09:30",
+      "capacity": 200,
+      "entry_fee": 5500,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10 km",
+      "description_ja": "小学生以上が参加可能です（大会要項より）。",
+      "description_en": "Open to elementary school students and older (per race regulations).",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 40,
+      "start_time": "09:30",
+      "capacity": 200,
+      "entry_fee": 3300,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5 km",
+      "description_ja": "小学生以上が参加可能です（大会要項より）。",
+      "description_en": "Open to elementary school students and older (per race regulations).",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.609,
+      "time_limit_minutes": null,
+      "start_time": "09:35",
+      "capacity": null,
+      "entry_fee": 3300,
+      "entry_fee_u25": null,
+      "name_ja": "1マイル",
+      "name_en": "1 Mile",
+      "description_ja": "小学生以上が参加可能です（大会要項より）。",
+      "description_en": "Open to elementary school students and older (per race regulations).",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:21:46.085Z",
+  "updated_at": "2026-11-15T09:30:57.048Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://race.rdc-run.com/series/yokohama/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105516）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイト race.rdc-run.com の横浜シリーズページ・スケジュールページです。スケジュールページに2026-11-21開催の YOKOHAMA 12 が載っており、候補の回と一致します。",
+      "エントリー期間: 公式は「締切は原則、開催週の火曜日いっぱい」としており、11/21（土）開催のため2026-11-17と算出しました。候補情報の終了日 2026-11-16 とは1日異なり、公式を優先しています。開始日は公式に記載がなく、null です。",
+      "定員は大会要項の「全種目合計500人で受付終了」から500人としました。1マイルの個別定員と制限時間は記載がなく null です。1マイルの距離 1.609km は1マイル換算の値です（公式のコース説明では折返し0.804km）。",
+      "当日スケジュールの欄は開会式の記載が崩れていますが、FAQと大会要項では5km〜フルのスタートが9:30、1マイルが9:35と一致しています。",
+      "大会要項の本文は途中で途切れており、定員の補足以外の参加資格や締切の詳細は未確認です。",
+      "会場の住所は受付場所（新横浜駅前公園東側あずまや）のものです。",
+      "参加料金は公式の料金表の値で、R.LEAGUE会員は10%OFFです。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-04-29",
+      "end_date": "2026-11-17",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://race.rdc-run.com/series/yokohama/#overview",
+      "label": "概要"
+    },
+    {
+      "url": "https://race.rdc-run.com/schedule/?venue=YOKOHAMA",
+      "label": "この大会にエントリー →"
+    },
+    {
+      "url": "https://race.rdc-run.com/entry?event=EVT_b11cd835",
+      "label": "202611/21（土）\n        THE CHALLENGE RACE YOKOHAMA 12\n                エントリー受付中"
+    },
+    {
+      "url": "https://race.rdc-run.com/entry?event=EVT_7021a522",
+      "label": "202612/26（土）\n        THE CHALLENGE RACE YOKOHAMA 13\n                エントリー受付中"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "鶴見川河川敷（受付: 新横浜駅前公園東側あずまや）",
+  "venue_name_en": "Tsurumi River Riverbed (Registration: pavilion on the east side of Shin-Yokohama Station Park)",
+  "venue_address": "神奈川県横浜市港北区新横浜3丁目22-10",
+  "start_lat": 35.512608,
+  "start_lng": 139.618317
+}

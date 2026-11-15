@@ -1,0 +1,141 @@
+{
+  "id": "awaji-island-trail-2026",
+  "name_ja": "AWAJI ISLAND TRAIL",
+  "name_en": "AWAJI ISLAND TRAIL",
+  "full_name_ja": "AWAJI ISLAND TRAIL -The Legend of KUNIUMI- 2026",
+  "full_name_en": "AWAJI ISLAND TRAIL -The Legend of KUNIUMI- 2026",
+  "edition": null,
+  "date": "2026-11-29",
+  "prefecture": "28",
+  "city_ja": "洲本市",
+  "city_en": "Sumoto City",
+  "description_ja": "国生み島・淡路島を横断し、南あわじ市の阿万海岸海水浴場から洲本市の大浜海浜公園まで、諭鶴羽山地を縦走するトレイルレース。ビーチからビーチへ走る、ロング42kmとショート23kmの2種目を実施する。ITRAポイント対象大会。",
+  "description_en": "A trail race crossing Awaji Island, the legendary island of Japanese creation myth, running along the Yuzuruha mountain range from Ama Beach in Minamiawaji City to Ohama Seaside Park in Sumoto City. It offers two courses, Long (42km) and Short (23km), and awards ITRA points.",
+  "official_url": "https://okushinano100.com/ITA/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 1000,
+  "entry_start_date": "2026-07-05",
+  "entry_end_date": "2026-11-08",
+  "reception_type": "both",
+  "reception_note_ja": "11月28日(土)は大浜海浜公園で受付(ロング・ショート)。11月29日(日)は当日受付で、ロングは阿万海岸海水浴場、ショートは大浜海浜公園。参加通知の郵送はなく、スタートリストでゼッケン番号を確認し、受付でゼッケン番号と氏名を伝える。",
+  "reception_note_en": "On Saturday Nov 28, registration for both Long and Short is at Ohama Seaside Park. On Sunday Nov 29, race-day registration is at Ama Beach for Long and at Ohama Seaside Park for Short. No entry notice is mailed; check your bib number on the start list and give your bib number and name at the reception desk.",
+  "tags": [
+    "ビーチからビーチ",
+    "島縦走トレイル",
+    "ITRAポイント対象"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "trail",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "other",
+      "distance_km": 42,
+      "time_limit_minutes": 540,
+      "start_time": "08:00",
+      "capacity": 700,
+      "entry_fee": 15000,
+      "entry_fee_u25": null,
+      "name_ja": "ロング42km",
+      "name_en": "Long 42km",
+      "description_ja": "高校生以上。累積標高2200m。関門2箇所(第1エイド11:00、第2エイド14:30)。ITRA 2ポイント。U-29割・島民割は12,200円(税込)。",
+      "description_en": "High school students and older. Elevation gain 2,200m. Two cut-offs (Aid 1 at 11:00, Aid 2 at 14:30). 2 ITRA points. U-29 and island resident discount: 12,200 yen (tax incl.).",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 23,
+      "time_limit_minutes": 360,
+      "start_time": "11:00",
+      "capacity": 300,
+      "entry_fee": 9000,
+      "entry_fee_u25": null,
+      "name_ja": "ショート23km",
+      "name_en": "Short 23km",
+      "description_ja": "中学生以上。累積標高1300m。関門1箇所(第2エイド14:30)。ITRA 1ポイント。U-29割・島民割は7,200円(税込)。",
+      "description_en": "Junior high school students and older. Elevation gain 1,300m. One cut-off (Aid 2 at 14:30). 1 ITRA point. U-29 and island resident discount: 7,200 yen (tax incl.).",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:31:57.170Z",
+  "updated_at": "2026-11-15T09:30:28.351Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://okushinano100.com/ITA/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106169）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイト(okushinano100.com/ITA/)。開催日は公式サイトで11月28日(土)・29日(日)と記載されているが、28日は前日受付で、ロング・ショートの競技は29日に行われるため date は2026-11-29とした。",
+      "entry_capacity はロング700人とショート300人の合計で算出した値で、全体定員としては公式に明記されていない。",
+      "参加費は税込。種目別に異なるため entry_fee は null とした(U-29割・島民割あり)。",
+      "回数(edition)は公式サイトに記載がないため null とした。",
+      "distance_type は42km・23kmのトレイルでフル・ハーフに該当しないため other とした。",
+      "会場の city は、フィニッシュ会場の大浜海浜公園がある洲本市とした。スタート会場は南あわじ市の阿万海岸海水浴場。",
+      "エントリーは公式サイト記載のとおり2026年7月5日18:00〜11月8日23:59で、スポーツエントリーで受付。公式サイトのニュースは2026年11月12日更新で、エントリー期間は終了している。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-07-05",
+      "end_date": "2026-11-08",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://okushinano100.com/ITA/raceinfo/",
+      "label": "RACE INFO大会概要"
+    },
+    {
+      "url": "https://okushinano100.com/ITA/access/",
+      "label": "ACCESSアクセス"
+    },
+    {
+      "url": "https://okushinano100.com/ITA/entry/",
+      "label": "ENTRY"
+    },
+    {
+      "url": "https://okushinano100.com/ITA/news/#news20261020",
+      "label": "2026.10.20\n                                                アクセスバス予約受付中"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "大浜海浜公園(フィニッシュ会場)",
+  "venue_name_en": "Ohama Seaside Park (finish venue)",
+  "venue_address": "兵庫県洲本市海岸通1丁目2",
+  "start_lat": 34.3419,
+  "start_lng": 134.902695
+}

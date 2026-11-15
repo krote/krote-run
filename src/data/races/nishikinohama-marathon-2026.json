@@ -1,0 +1,163 @@
+{
+  "id": "nishikinohama-marathon-2026",
+  "name_ja": "二色の浜マラソン大会",
+  "name_en": "Nishikinohama Marathon",
+  "full_name_ja": "第19回 二色の浜マラソン大会",
+  "full_name_en": "The 19th Nishikinohama Marathon",
+  "edition": 19,
+  "date": "2026-12-06",
+  "prefecture": "27",
+  "city_ja": "貝塚市",
+  "city_en": "Kaizuka City",
+  "description_ja": "貝塚市陸上競技協会が主催・主管する、二色の浜公園の周回コースで行われるマラソン大会です。ハーフマラソンのほか5km・4km・2kmの種目があります。ハーフマラソンの参加者には、申込時に登録した住所宛てにはがきサイズの記録証が発送されます。",
+  "description_en": "This marathon event is organized by the Kaizuka City Athletics Association and held on a lap course in Nishikinohama Park. It offers a half marathon as well as 5km, 4km and 2km races. Half marathon participants receive a postcard-sized record certificate mailed to the address registered at entry.",
+  "official_url": "https://kaidukarikujou.jimdofree.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2026-04-24",
+  "entry_end_date": "2026-11-20",
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "周回コース",
+    "公園コース"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 4,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "4km",
+      "name_en": "4km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "2km",
+      "name_en": "2km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:40:28.580Z",
+  "updated_at": "2026-11-15T08:40:28.580Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://kaidukarikujou.jimdofree.com/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105471）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイト（貝塚市陸上競技協会）で第19回が令和8年12月6日（日）開催、申込締切11/20と確認。",
+      "エントリーはGoogleフォームから可能。参加費・定員・受付方法・時間制限・スタート時刻は公式サイトのテキストに記載がなく、詳細は大会要項PDFに掲載されている可能性があるが未確認のため null。",
+      "エントリー開始日（2026-04-24）は候補情報（スポーツエントリー掲載）によるもので、公式サイトのテキストでは確認できない。終了日は公式サイトの締切11/20と一致。",
+      "種目（ハーフ・5km・4km・2km）は候補情報の大会名による。公式サイトのテキストには種目一覧の記載がなく、ハーフの距離は標準距離として記載。",
+      "会場の住所は公式サイトに記載がないため null。市区町村は貝塚市（二色の浜公園）。",
+      "コース路面は周回コースのため road としたが、公式サイトに明記はない。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-04-24",
+      "end_date": "2026-11-20",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://kaidukarikujou.jimdofree.com/%E4%BA%8C%E8%89%B2%E3%81%AE%E6%B5%9C%E3%83%9E%E3%83%A9%E3%82%BD%E3%83%B3%E5%A4%A7%E4%BC%9A-r8-12-6/",
+      "label": "大会開催要項のページ"
+    },
+    {
+      "url": "https://kaidukarikujou.jimdofree.com/%E8%B2%9D%E5%A1%9A%E5%B8%82%E6%B0%91%E9%A7%85%E4%BC%9D%E7%AB%B6%E8%B5%B0%E5%A4%A7%E4%BC%9A-r9-1-17/",
+      "label": "❏大会開催要項は、こちらをクリック！"
+    },
+    {
+      "url": "https://kaidukarikujou.jimdofree.com/about/",
+      "label": "概要"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "二色の浜公園周回コース",
+  "venue_name_en": "Nishikinohama Park Lap Course",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

@@ -1,0 +1,199 @@
+{
+  "id": "nagasaki-bayside-marathon-2026",
+  "name_ja": "長崎ベイサイドマラソン",
+  "name_en": "Nagasaki Bayside Marathon",
+  "full_name_ja": "2026長崎ベイサイドマラソン",
+  "full_name_en": "2026 Nagasaki Bayside Marathon",
+  "edition": null,
+  "date": "2026-11-15",
+  "prefecture": "42",
+  "city_ja": "長崎市",
+  "city_en": "Nagasaki City",
+  "description_ja": "長崎水辺の森公園を発着点に、ジャイアントカンチレバークレーンなど世界遺産の景観を間近に感じながら走れる大会です。コースのハイライトは女神大橋からの長崎港のパノラマで、港町らしい適度なアップダウンも楽しめます。ハーフ、10km、1.9kmなど複数の種目があります。",
+  "description_en": "The race starts and finishes at Nagasaki Mizube-no-Mori Park and passes close to World Heritage sights such as the Giant Cantilever Crane. The highlight of the course is the panoramic view of Nagasaki Port from Megami Bridge, and the course has moderate ups and downs typical of this port city. Events include the half marathon, 10km and 1.9km.",
+  "official_url": "https://bayside-marathon.jp/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": null,
+  "entry_start_date": "2026-07-22",
+  "entry_end_date": "2026-09-23",
+  "reception_type": "both",
+  "reception_note_ja": "アスリートビブスは11月上旬ごろに事前発送。参加記念品の引換受付は前日11/14(土) 10:30～16:30、当日11/15(日) 8:00～正午。",
+  "reception_note_en": "Athlete bibs are mailed in advance (around early November). Commemorative items can be collected on Nov 14 (Sat) 10:30-16:30 and on race day, Nov 15 (Sun), 8:00-12:00.",
+  "tags": [
+    "世界遺産の景観",
+    "女神大橋",
+    "適度なアップダウン"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 150,
+      "start_time": "09:00",
+      "capacity": 1700,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン【一般枠】",
+      "name_en": "Half Marathon (General)",
+      "description_ja": "小学生以上で健康な方。2時間30分で完走できる方。男女・年代別(39歳以下/40歳代/50歳代/60歳以上)。",
+      "description_en": "Elementary school age and above, in good health, able to finish within 2 hours 30 minutes. Divided by gender and age group (39 and under / 40s / 50s / 60 and over).",
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 150,
+      "start_time": "09:00",
+      "capacity": 200,
+      "entry_fee": 11000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン【チャリティーランナー枠】",
+      "name_en": "Half Marathon (Charity Runner)",
+      "description_ja": "参加料11,000円のうち5,000円が長崎市スポーツ振興基金への寄付となる。2時間30分で完走できる方。",
+      "description_en": "Of the 11,000 yen fee, 5,000 yen is donated to the Nagasaki City Sports Promotion Fund. Must be able to finish within 2 hours 30 minutes.",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": "09:10",
+      "capacity": 1050,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": "10kmマラソン",
+      "name_en": "10km",
+      "description_ja": "男女・年代別(39歳以下/40歳代/50歳代/60歳以上)。",
+      "description_en": "Divided by gender and age group (39 and under / 40s / 50s / 60 and over).",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.9,
+      "time_limit_minutes": null,
+      "start_time": "10:15",
+      "capacity": null,
+      "entry_fee": 900,
+      "entry_fee_u25": null,
+      "name_ja": "1.9km【小中学生】",
+      "name_en": "1.9km (Elementary and Junior High School Students)",
+      "description_ja": "小学生低・中学年は10:15、高学年は10:30、中学生は10:45スタート。定員なし。",
+      "description_en": "Lower and middle elementary grades start at 10:15, upper elementary at 10:30, junior high at 10:45. No capacity limit.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.9,
+      "time_limit_minutes": null,
+      "start_time": "11:00",
+      "capacity": null,
+      "entry_fee": 3200,
+      "entry_fee_u25": null,
+      "name_ja": "1.9km【一般】",
+      "name_en": "1.9km (General)",
+      "description_ja": "男女別(39歳以下/40～59歳/60歳以上)。定員なし。",
+      "description_en": "Divided by gender and age (39 and under / 40-59 / 60 and over). No capacity limit.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.9,
+      "time_limit_minutes": null,
+      "start_time": "09:25",
+      "capacity": null,
+      "entry_fee": 4100,
+      "entry_fee_u25": null,
+      "name_ja": "1.9km【親子】",
+      "name_en": "1.9km (Parent and Child)",
+      "description_ja": "保護者と小学生の組み合わせで3名以内。定員なし。",
+      "description_en": "Parent and elementary school child(ren), up to 3 people per group. No capacity limit.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:14:27.560Z",
+  "updated_at": "2026-11-15T08:14:27.560Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://bayside-marathon.jp/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106114）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイト(bayside-marathon.jp)の大会要項・エントリー・ボランティア・メディカルランナーの各ページ。",
+      "エントリー期間は公式エントリーページ記載のインターネット受付(2026-07-22～2026-09-23、9/11から延長・先着順)を採用。電話受付は2026-09-11まで、大会要項の申込期間表記も9/11までで、延長前の日付と思われる。",
+      "回数は公式サイトに記載がなく null。会場の住所も記載がなく null。事務局の所在地は長崎県長崎市魚の町4-1(長崎市スポーツ振興課内)。",
+      "全体の定員は記載なし。1.9km種目は定員なしのため合計も算出せず null とした。",
+      "10kmの完走制限時間は記載なし。関門は5km=スタート後42分、7.7km=54分。ハーフの時間制限150分は参加資格(2時間30分で完走できる方)に基づく。",
+      "ハーフのチャリティー枠の種目番号は一般枠と同じ1A～1Hで表記されている(公式サイトの記載どおり)。",
+      "参加料とは別にスポーツエントリー利用料がかかる(ネット申込は参加料合計4,000円まで220円、4,001円以上は5.3%)。",
+      "公式サイトのお知らせ(2026.11.13)に、令和9年度の大会開催休止に関する重要なお知らせがある。詳細は本文に記載がなく未確認。",
+      "ハーフ距離21.0975kmは標準のハーフ距離であり、公式サイトに明記されたものではない。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-07-22",
+      "end_date": "2026-09-23",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://bayside-marathon.jp/entry",
+      "label": "お申し込みはこちら"
+    },
+    {
+      "url": "https://bayside-marathon.jp/outline",
+      "label": "大会情報"
+    },
+    {
+      "url": "https://bayside-marathon.jp/volunteer",
+      "label": "ボランティア募集"
+    },
+    {
+      "url": "https://bayside-marathon.jp/medicalrunner",
+      "label": "メディカルランナー募集"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "長崎水辺の森公園",
+  "venue_name_en": "Nagasaki Mizube-no-Mori Park",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

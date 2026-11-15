@@ -1,0 +1,96 @@
+{
+  "id": "asahi-iioka-shiosai-marathon-2027",
+  "name_ja": "旭市飯岡しおさいマラソン大会",
+  "name_en": "Asahi City Iioka Shiosai Marathon",
+  "full_name_ja": "第38回旭市飯岡しおさいマラソン大会",
+  "full_name_en": "The 38th Asahi City Iioka Shiosai Marathon",
+  "edition": 38,
+  "date": "2027-02-07",
+  "prefecture": "12",
+  "city_ja": "旭市",
+  "city_en": "Asahi City",
+  "description_ja": "飯岡・矢指地域の海沿いを舞台に、潮風を感じながら走ることができるマラソン大会です。旭市ならではの景観や地域の魅力を感じながら、楽しく走れる大会を目指しています。",
+  "description_en": "This marathon is held along the coast of the Iioka and Yazashi areas, where runners can enjoy the sea breeze. The event aims to let participants run happily while experiencing the scenery and local charm unique to Asahi City.",
+  "official_url": "https://www.city.asahi.lg.jp/soshiki/30/42764.html",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2026-10-01",
+  "entry_end_date": "2026-11-30",
+  "reception_type": "none",
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "海沿いコース"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T09:07:43.873Z",
+  "updated_at": "2026-11-15T09:07:43.873Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://www.city.asahi.lg.jp/soshiki/30/42764.html）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106717）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典: 旭市公式サイト「第38回旭市飯岡しおさいマラソン 開催のお知らせ」（2026年6月1日更新）。開催日は令和9年（2027年）2月7日（日）で候補情報と一致。",
+      "大会要項・種目・申込方法・交通規制・会場案内などの詳細は未発表（決まり次第、大会公式ホームページで告知予定）のため、参加費・定員・種目・受付方法は null または空配列とした。",
+      "エントリー期間（2026-10-01〜2026-11-30）はスポーツエントリー掲載の情報のみで、公式サイトでは確認できないため entry_periods には記載しなかった。",
+      "会場の住所は公式サイトに記載がないため null。路面は海沿いのコースとの記述から road としたが、詳細は未確認。",
+      "reception_type は公式サイトに記載がないため none としたが、実際は未定・不明。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-10-01",
+      "end_date": "2026-11-30",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.city.asahi.lg.jp/soshiki/3/2759.html",
+      "label": "旭市へのアクセス"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "しおさいスタジアム",
+  "venue_name_en": "Shiosai Stadium",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

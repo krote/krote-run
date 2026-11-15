@@ -1,0 +1,93 @@
+{
+  "id": "tokashiki-marathon-2027",
+  "name_ja": "とかしきマラソン",
+  "name_en": "Tokashiki Marathon",
+  "full_name_ja": null,
+  "full_name_en": null,
+  "edition": null,
+  "date": "2027-02-06",
+  "prefecture": "47",
+  "city_ja": "渡嘉敷村",
+  "city_en": "Tokashiki Village",
+  "description_ja": null,
+  "description_en": null,
+  "official_url": "http://kuzira-marathon.jp/",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2026-10-01",
+  "entry_end_date": "2026-12-11",
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T09:06:29.704Z",
+  "updated_at": "2026-11-15T09:06:29.704Z",
+  "_metadata": {
+    "data_source": "公式サイト（http://kuzira-marathon.jp/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106956）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイト(kuzira-marathon.jp)には「第16回とかしきマラソン記録」の内容のみが掲載されており、候補の第18回（2027-02-06）の情報は記載されていない。そのため date・entry_periods・entry_fee・entry_capacity・categories は null または空としている。",
+      "候補情報（第18回、開催日2027-02-06、エントリー期間2026-10-01〜2026-12-11）は大会情報サイト由来で、公式サイトでは確認できていない。",
+      "full_name・edition は公式サイトで第18回の記載がないため null とした。",
+      "実行委員会の所在地は沖縄県渡嘉敷村字渡嘉敷183番地、問い合わせ先は098-987-2333（月〜金 9:00〜17:00、祝祭日除く）。会場住所は大会会場として明記されていないため null とした。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-10-01",
+      "end_date": "2026-12-11",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "http://kuzira-marathon.jp/pdf/design2023.pdf",
+      "label": "とかしきマラソン2023 Tシャツ・フィニッシャータオルデザイン募集のお知らせ"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

@@ -1,0 +1,211 @@
+{
+  "id": "the-challenge-race-tokyo-2026",
+  "name_ja": "THE CHALLENGE RACE TOKYO",
+  "name_en": "THE CHALLENGE RACE TOKYO",
+  "full_name_ja": "THE CHALLENGE RACE 41",
+  "full_name_en": "THE CHALLENGE RACE 41",
+  "edition": 41,
+  "date": "2026-11-15",
+  "prefecture": "13",
+  "city_ja": "板橋区",
+  "city_en": "Itabashi City",
+  "description_ja": "東京・荒川河川敷の1周10kmの周回コースで開催される、日本陸連公認の記録挑戦型マラソン大会。高低差1.5m以内のフラットな高速コースで、1マイルから50km・フルマラソンまで幅広い種目がある。目標タイム別のペーサーも配置される。",
+  "description_en": "A JAAF-certified, record-oriented marathon series held on a 10 km loop course along the Arakawa riverbank in Tokyo. The flat, fast course has an elevation difference of 1.5 m or less, and the event offers distances from 1 mile to 50 km and the full marathon. Pacers are provided for a range of target times.",
+  "official_url": "https://race.rdc-run.com/series/tokyo-arakawa/",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2026-05-13",
+  "entry_end_date": "2026-11-10",
+  "reception_type": "race_day",
+  "reception_note_ja": "ゼッケン等の事前送付はなく、当日の受付場所（荒川戸田橋陸上競技場前）でエントリーサイトの決済ページを提示して受け取る。受付時間は8:00〜9:00で、遅れると出走できない。",
+  "reception_note_en": "Race numbers are not mailed in advance. Pick them up on race day at the reception area in front of Arakawa Todabashi Athletics Stadium by showing the payment page of the entry site. Reception is open 8:00-9:00, and late arrivals cannot start.",
+  "tags": [
+    "フラットコース",
+    "高速コース",
+    "日本陸連公認"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "ultra",
+      "distance_km": 50,
+      "time_limit_minutes": null,
+      "start_time": "09:30",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "50km",
+      "name_en": "50km",
+      "description_ja": "日本陸連登録者のみ申込可。",
+      "description_en": "Open only to JAAF-registered runners.",
+      "waves": null
+    },
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": null,
+      "start_time": "09:30",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "フルマラソン",
+      "name_en": "Full Marathon",
+      "description_ja": "参加資格は小学生以上（大会要項）。",
+      "description_en": "Open to elementary school students and older (per race regulations).",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 30,
+      "time_limit_minutes": null,
+      "start_time": "09:30",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "30km",
+      "name_en": "30km",
+      "description_ja": "参加資格は小学生以上（大会要項）。",
+      "description_en": "Open to elementary school students and older (per race regulations).",
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": null,
+      "start_time": "09:30",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "参加資格は小学生以上（大会要項）。",
+      "description_en": "Open to elementary school students and older (per race regulations).",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": "09:30",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10km",
+      "description_ja": "参加資格は小学生以上（大会要項）。",
+      "description_en": "Open to elementary school students and older (per race regulations).",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "09:30",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": "参加資格は小学生以上（大会要項）。",
+      "description_en": "Open to elementary school students and older (per race regulations).",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.609,
+      "time_limit_minutes": null,
+      "start_time": "09:35",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "1マイル",
+      "name_en": "1 Mile",
+      "description_ja": "参加資格は小学生以上（大会要項）。",
+      "description_en": "Open to elementary school students and older (per race regulations).",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:19:22.907Z",
+  "updated_at": "2026-11-15T08:19:22.907Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://race.rdc-run.com/series/tokyo-arakawa/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105630）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイト（race.rdc-run.com）は第41回の開催情報を掲載しておらず、第41回の結果が2026.11.14付で過去結果に載り、次回開催として第42回（2026-11-29）以降のみを案内している。候補の開催日2026-11-15とも一致しないため、date・entry_periods・entry_fee・entry_capacity、および各種目の参加費・定員は null / [] とした。",
+      "公式サイトの参加料金（50km 14,300円、フル 11,000円、30km・ハーフ 7,700円、10km 5,500円、5km・1マイル 3,300円）や定員（全種目合計500人）は、第41回のものとは確認できないため採用していない。",
+      "回数 41 は候補情報（大会情報サイト）に基づく。公式サイトでは確認できない。",
+      "制限時間は公式サイト内で食い違う（FAQ: 10km 90分・5km 40分、大会要項: 10km 70分・5km 35分）ため null とした。フル・50kmは4時間30分、30kmは3時間12分、ハーフは2時間30分と記載されている。",
+      "スタート時刻は9:30（1マイルは9:35）。当日スケジュール表には9:10-9:20のスタートとの記載もあり、FAQ・大会要項に合わせた。",
+      "1マイルの距離は一般的な1.609kmとした。ページには折返し0.804kmとのみ記載がある。",
+      "エントリーページ（entry?event=...）は設計プレビューで、大会情報は含まれていなかった。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-05-13",
+      "end_date": "2026-11-10",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://race.rdc-run.com/series/tokyo-arakawa/#overview",
+      "label": "概要"
+    },
+    {
+      "url": "https://race.rdc-run.com/schedule/?venue=TOKYO",
+      "label": "この大会にエントリー →"
+    },
+    {
+      "url": "https://race.rdc-run.com/entry?event=EVT_3810c662",
+      "label": "202611/29（日）\n        THE CHALLENGE RACE 42\n                エントリー受付中"
+    },
+    {
+      "url": "https://race.rdc-run.com/entry?event=EVT_9104c127",
+      "label": "202612/6（日）\n        THE CHALLENGE RACE 43\n                エントリー受付中"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "荒川河川敷（受付：荒川戸田橋陸上競技場前）",
+  "venue_name_en": "Arakawa Riverbank (reception: in front of Arakawa Todabashi Athletics Stadium)",
+  "venue_address": "〒174-0041 東京都板橋区舟渡4丁目7",
+  "start_lat": null,
+  "start_lng": null
+}

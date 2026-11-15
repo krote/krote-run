@@ -1,0 +1,107 @@
+{
+  "id": "the-challenge-race-sub4-2026",
+  "name_ja": "THE CHALLENGE RACE SUB4",
+  "name_en": "THE CHALLENGE RACE SUB4",
+  "full_name_ja": "THE CHALLENGE RACE SUB4 2",
+  "full_name_en": "THE CHALLENGE RACE SUB4 #2",
+  "edition": 2,
+  "date": "2026-12-19",
+  "prefecture": "13",
+  "city_ja": null,
+  "city_en": null,
+  "description_ja": "日本陸連公認の高速マラソン大会シリーズ「THE CHALLENGE RACE」の東京・荒川開催回です。高低差2m以内の平坦な公認コースで、目標タイム別のペーサーが配置され、給水所ではドリンクとジェルが用意されます。",
+  "description_en": "This is the Tokyo Arakawa edition of THE CHALLENGE RACE, a series of fast marathon events certified by the Japan Association of Athletics Federations. It is held on a flat certified course with an elevation difference of 2 m or less. Pacers are provided for each target time, and the aid stations offer drinks and gels.",
+  "official_url": "https://race.rdc-run.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2026-06-04",
+  "entry_end_date": "2026-12-15",
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "フラットコース",
+    "日本陸連公認コース",
+    "ペーサーあり"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:47:56.248Z",
+  "updated_at": "2026-11-15T08:47:56.248Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://race.rdc-run.com/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105935）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイトの開催スケジュールに「2026/12/19(土) 東京荒川 THE CHALLENGE RACE SUB4 2 日本陸連公認」と掲載されており、日付と回数は公式で確認できた。",
+      "エントリー期間（2026-06-04〜2026-12-15）は候補情報（スポーツエントリー掲載）のみが根拠で、公式サイトには記載がない。公式サイトでは現在エントリー受付中と表示されている。",
+      "参加費は、公式の共通要項に標準額（フルマラソン11,000円など）があるが、大会により異なる場合があるとされている。この回の種目・参加費・定員は公式サイトに記載がないため null / [] とした。",
+      "会場名・住所・受付方法・スタート時刻・制限時間・種目の距離はこの回について記載がなく、null とした。会場は「東京荒川」とのみ記載されており、市区町村は特定できない。",
+      "コースの路面（surface）は明記されていないため null とした。",
+      "公式サイトの共通要項によると、標準の制限時間はフルマラソンで4時間30分である。ただしこの回の種目が何かは明記されていない。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-06-04",
+      "end_date": "2026-12-15",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://race.rdc-run.com/schedule/",
+      "label": "Recommend\n        YOKOHAMA\n        2026.11.21 ／ エントリー受付中\n      \n      →"
+    },
+    {
+      "url": "https://race.rdc-run.com/50k/",
+      "label": "日本代表選考シリーズ\n          50K\n          50km 日本代表選考シリーズ\n          IAU 50km世界選手権へ。全国4会場のシリーズと決勝大会"
+    },
+    {
+      "url": "https://race.rdc-run.com/the-challenge-race-policy/",
+      "label": "大会要項・規約"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

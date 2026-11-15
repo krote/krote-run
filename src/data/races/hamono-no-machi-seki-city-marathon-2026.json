@@ -1,0 +1,158 @@
+{
+  "id": "hamono-no-machi-seki-city-marathon-2026",
+  "name_ja": "刃物のまち関シティマラソン",
+  "name_en": "Hamono-no-Machi Seki City Marathon",
+  "full_name_ja": "2026刃物のまち関シティマラソン",
+  "full_name_en": "2026 Hamono-no-Machi Seki City Marathon",
+  "edition": null,
+  "date": "2026-11-22",
+  "prefecture": "21",
+  "city_ja": "関市",
+  "city_en": "Seki City",
+  "description_ja": "中池かわせみスタジアム（中池公園陸上競技場）を発着点とする、郊外地コースで行われる大会です。ハーフマラソン、10km、3.3kmの3種目があり、ハーフ・10kmはチップによる計測を行い、完走者にWEB記録証を交付します。今大会からハーフマラソンの制限時間が延長されました。",
+  "description_en": "This race starts and finishes at Nakaike Kawasemi Stadium (Nakaike Park Athletics Stadium) and uses a suburban course. It offers three events: a half marathon, a 10km and a 3.3km. The half marathon and 10km are chip-timed, and finishers receive a web-based certificate of record. The half marathon time limit has been extended starting this year.",
+  "official_url": "https://www.sekimarathon.net/",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": 2500,
+  "entry_start_date": "2026-06-02",
+  "entry_end_date": "2026-08-30",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "当日受付はありません。申込後、計測用チップとアスリートビブスなどの参加案内が事前に発送されるため、当日必ず持参してください。",
+  "reception_note_en": "There is no race-day registration. After entry, the timing chip, athlete bib and other participation materials are mailed in advance, and participants must bring them on race day.",
+  "tags": [
+    "郊外地コース",
+    "陸上競技場発着",
+    "3種目開催"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 1200,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "高校生以下は参加できません。18歳以下は保護者の同意が必要です。先着順です。",
+      "description_en": "High school students and younger cannot enter. Participants aged 18 or under need parental consent. Entries are first come, first served.",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 700,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "10kmコース",
+      "name_en": "10km",
+      "description_ja": "中学生以下は参加できません。18歳以下は保護者の同意が必要です。先着順です。",
+      "description_en": "Junior high school students and younger cannot enter. Participants aged 18 or under need parental consent. Entries are first come, first served.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3.3,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 600,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "3.3kmコース",
+      "name_en": "3.3km",
+      "description_ja": "中学生以下は、この種目のみ参加できます。計測は行わず、フィニッシュ後に完走証を交付します。先着順です。",
+      "description_en": "Junior high school students and younger can enter only this event. It is not timed, and a finisher's certificate is issued after finishing. Entries are first come, first served.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:26:44.987Z",
+  "updated_at": "2026-11-15T08:26:44.987Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://www.sekimarathon.net/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105578）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイト（sekimarathon.net）です。",
+      "開催日は公式サイトのテキストに明記がなく、候補情報（2026-11-22）をそのまま使用しています。",
+      "回数は公式サイトのテキストに記載がないため null にしています。",
+      "参加費は表が抽出されておらず不明なため null にしています。各種目に参加費が設定されているかも確認できていません。",
+      "制限時間とスタート時刻はテキストに記載がなく、null にしています。",
+      "会場の住所は記載がなく null にしています。",
+      "全体の定員2,500名は、種目別定員（ハーフ1,200名、10km 700名、3.3km 600名）の合計です。",
+      "募集期間は、公式サイトの延長告知（2026/08/06付、2026年6月2日〜8月30日）に従いました。同じページの本文には「2026/6/2〜8/15」という旧情報も残っています。",
+      "「真夏の夜の陸上フェスタ」は別イベントのため、募集期間（8月31日まで）の対象外としました。",
+      "路面は「郊外地コース」「日本陸上競技連盟規則に沿って開催」などの記載から road としましたが、路面の明記はありません。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-06-02",
+      "end_date": "2026-08-30",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.sekimarathon.net/2026/10/29/%E6%9C%AC%E6%97%A5%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA%E3%83%BC%E3%81%95%E3%82%8C%E3%81%9F%E7%9A%86%E6%A7%98%E3%81%AB%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B/",
+      "label": "エントリーされた皆様にお知らせ"
+    },
+    {
+      "url": "https://www.sekimarathon.net/2026/08/23/%E7%9C%9F%E5%A4%8F%E3%81%AE%E5%A4%9C%E3%81%AE%E9%99%B8%E4%B8%8A%E3%83%95%E3%82%A7%E3%82%B9%E3%82%BF-%E5%8B%9F%E9%9B%86%E6%9C%9F%E9%96%93%E5%BB%B6%E9%95%B7-8%E6%9C%8831%E6%97%A5%E3%81%BE%E3%81%A7/",
+      "label": "「真夏の夜の陸上フェスタ」募集期間延長‼　8月31日まで。"
+    },
+    {
+      "url": "https://www.sekimarathon.net/2026/08/06/%E5%8B%9F%E9%9B%86%E6%9C%9F%E9%96%93%E5%BB%B6%E9%95%B7%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/",
+      "label": "募集期間の延長について"
+    },
+    {
+      "url": "https://www.sekimarathon.net/#e_8",
+      "label": "8.募集期間・参加申込方法"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "中池かわせみスタジアム（中池公園陸上競技場）",
+  "venue_name_en": "Nakaike Kawasemi Stadium (Nakaike Park Athletics Stadium)",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

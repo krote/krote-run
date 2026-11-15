@@ -1,0 +1,193 @@
+{
+  "id": "nenmatsu-hashiriosame-marathon-2026",
+  "name_ja": "年末走り納めマラソン",
+  "name_en": "Year-End Hashiri-Osame Marathon",
+  "full_name_ja": "年末走り納めマラソン2026【宝塚武庫川会場】",
+  "full_name_en": "Year-End Hashiri-Osame Marathon 2026 (Takarazuka Mukogawa Venue)",
+  "edition": null,
+  "date": "2026-12-26",
+  "prefecture": "28",
+  "city_ja": "宝塚市",
+  "city_en": "Takarazuka City",
+  "description_ja": "2026年の目標に向けて走った自分を労い、みんなで走って一年を締めくくる年末開催のマラソン大会です。宝塚武庫川会場ではフル・ハーフ・10km・5kmの4種目を実施し、フル・ハーフにはペースメーカーが付きます。フル・ハーフ参加者には「走り納め証」記念タオルが贈られ、ゴール後にはおしるこが振る舞われます。",
+  "description_en": "A year-end running event where participants reward themselves for a year of running toward their goals and close out the year together. The Takarazuka Mukogawa venue offers four events: full marathon, half marathon, 10km and 5km, with pacers for the full and half marathons. Full and half marathon participants receive a commemorative 'Hashiri-Osame' towel, and oshiruko (sweet red bean soup) is served after the finish.",
+  "official_url": "https://sportsone.jp/hashiriosame/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": null,
+  "entry_start_date": "2026-07-24",
+  "entry_end_date": "2026-12-26",
+  "reception_type": "race_day",
+  "reception_note_ja": "当日、会場でゼッケン番号を確認し、受付で氏名とゼッケン番号を伝えてゼッケンと参加賞を受け取ります。各大会3日前までにメールで事前案内があります。受付時間は公式サイトの記載がありません。",
+  "reception_note_en": "On the day, check your bib number at the venue, then give your name and bib number at the reception desk to receive your bib and participation gift. Advance information is sent by email up to 3 days before the event. Reception hours are not stated on the official site.",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 390,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": 10500,
+      "entry_fee_u25": null,
+      "name_ja": "フルマラソンの部",
+      "name_en": "Full Marathon",
+      "description_ja": "参加資格の記載なし。参加費は通常期間の料金（超早割7,500円、早割8,900円、当日12,000円）。",
+      "description_en": "Eligibility not stated. Fee shown is the regular-period price (Super Early Bird 7,500 yen, Early Bird 8,900 yen, race day 12,000 yen).",
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 210,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": 7800,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソンの部",
+      "name_en": "Half Marathon",
+      "description_ja": "参加資格の記載なし。参加費は通常期間の料金（超早割5,800円、早割6,800円、当日8,500円）。",
+      "description_en": "Eligibility not stated. Fee shown is the regular-period price (Super Early Bird 5,800 yen, Early Bird 6,800 yen, race day 8,500 yen).",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 150,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": 5500,
+      "entry_fee_u25": null,
+      "name_ja": "10kmの部",
+      "name_en": "10km",
+      "description_ja": "参加資格の記載なし。参加費は通常期間の料金（早割4,400円、当日6,600円）。タオル別売り。",
+      "description_en": "Eligibility not stated. Fee shown is the regular-period price (Early Bird 4,400 yen, race day 6,600 yen). Towel sold separately.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 150,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": 3900,
+      "entry_fee_u25": null,
+      "name_ja": "5kmの部",
+      "name_en": "5km",
+      "description_ja": "参加資格の記載なし。参加費は通常期間の料金（早割3,000円、当日5,000円）。タオル別売り。",
+      "description_en": "Eligibility not stated. Fee shown is the regular-period price (Early Bird 3,000 yen, race day 5,000 yen). Towel sold separately.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:52:51.688Z",
+  "updated_at": "2026-11-15T08:52:51.688Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://sportsone.jp/hashiriosame/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106716）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典: 公式サイト https://sportsone.jp/hashiriosame/ （2026年大会の内容）。候補情報のエントリー期間（2026-08-07〜2026-12-13）は公式と異なるため、公式の超早割（7/24開始〜8/7）、早割（〜10/25）、通常（〜12/13）、当日（12/26）の区分に置き換えた。",
+      "参加費は関西（宝塚・堺浜寺・淀川）共通の料金表による。種目別カテゴリーの entry_fee は通常期間（〜2026/12/13）の料金を採用した。",
+      "早割の開始日は公式に明記がないため null。通常の開始日（10/26）は堺浜寺会場のイベントページの記載に基づく。",
+      "宝塚武庫川会場の個別ページは取得できていないため、スタート時間、定員、会場住所、路面（surface）、参加資格は不明として null とした。",
+      "開催日12/26は公式サイトの開催概要（26日：兵庫 宝塚新大橋公園 シンボル広場）による。",
+      "公式サイトのお知らせ欄には2025年大会の情報（宝塚武庫川会場の詳細リンクなど）も混在しているが、2026年大会の情報のみを抽出した。",
+      "お支払方法は当日エントリー・タオル購入ともPayPayのみ。計測チップ紛失・未返却は実費2,000円。駐車場なし。",
+      "フル・ハーフの事前エントリー者には「走り納め証」記念タオルを無料プレゼント。5km・10kmはタオル別売り（1,500円）。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "超早割（フル・ハーフのみ）",
+      "label_en": "Super Early Bird (Full/Half only)",
+      "start_date": "2026-07-24",
+      "end_date": "2026-08-07",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "早割",
+      "label_en": "Early Bird",
+      "start_date": "2026-07-24",
+      "end_date": "2026-10-25",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "通常",
+      "label_en": "Regular Entry",
+      "start_date": "2026-10-26",
+      "end_date": "2026-12-13",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 2
+    },
+    {
+      "label_ja": "当日エントリー",
+      "label_en": "Race-Day Entry",
+      "start_date": "2026-12-26",
+      "end_date": "2026-12-26",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 3
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://sportsone.jp/hashiriosame/#section02",
+      "label": "エントリーをお考えの方へ"
+    },
+    {
+      "url": "https://sportsone.jp/hashiriosame/#section06",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://sportsone.jp/running/srt/stocks/2026/srt20261227_137461.html",
+      "label": "大会概要ページ"
+    },
+    {
+      "url": "https://sportsone.jp/hashiriosame/#section10",
+      "label": "エントリーはこちらから"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "宝塚新大橋公園 シンボル広場",
+  "venue_name_en": "Takarazuka Shin-Ohashi Park Symbol Plaza",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

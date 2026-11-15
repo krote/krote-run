@@ -1,0 +1,184 @@
+{
+  "id": "shinrinkoen-winter-marathon-2026",
+  "name_ja": "森林公園ウインターマラソン",
+  "name_en": "Shinrinkoen Winter Marathon",
+  "full_name_ja": "2026森林公園ウインターマラソン",
+  "full_name_en": "2026 Shinrinkoen Winter Marathon",
+  "edition": null,
+  "date": "2026-12-05",
+  "prefecture": "11",
+  "city_ja": "滑川町",
+  "city_en": "Namegawa Town",
+  "description_ja": "国営武蔵丘陵森林公園の緑豊かな自然の中を走る、1周5kmの起伏に富んだ周回コースの大会です。最大斜度27％の超ハードなアップダウンがあり、アスリートのトレーニングにも人気です。計測チップによる自動計測で、完走証はその場で即時発行されます。",
+  "description_en": "This race is held on a hilly 5 km loop course through the green natural setting of Musashi Kyuryo National Government Park. The course has extremely tough ups and downs with a maximum gradient of 27%, making it popular for athletes' training. Times are recorded automatically with timing chips, and finisher certificates are issued immediately.",
+  "official_url": "https://up-run.jp/events/up-shinrinkoen1/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 1000,
+  "entry_start_date": "2026-09-12",
+  "entry_end_date": "2026-12-03",
+  "reception_type": "race_day",
+  "reception_note_ja": "当日10:30から運動広場で受付（各種目スタート30分前まで）。ゼッケンは郵送せず、当日受付で渡されます。参加通知は開催2日前までにメールで届きます。入園料は参加費に含まれます。貴重品のみ500円で預かり可。",
+  "reception_note_en": "Race-day check-in at the Undo Hiroba (sports field) starts at 10:30 and closes 30 minutes before each event's start. Bibs are not mailed and are handed out at check-in. Participation notice is sent by email up to 2 days before the race. Park admission is included in the entry fee. Valuables only can be stored for 500 yen.",
+  "tags": [
+    "起伏コース",
+    "最大斜度27％",
+    "1周5km周回"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 180,
+      "start_time": "11:30",
+      "capacity": null,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "男女高校生以上。100m手前からスタートし、運動広場を2周した後、通常コース（1周5km）を4周します。",
+      "description_en": "Open to men and women high school age and above. Starts 100 m before the start line, runs 2 laps of the sports field, then 4 laps of the regular 5 km course.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 20,
+      "time_limit_minutes": null,
+      "start_time": "12:00",
+      "capacity": null,
+      "entry_fee": 3000,
+      "entry_fee_u25": null,
+      "name_ja": "20kmリレー",
+      "name_en": "20 km Relay",
+      "description_ja": "どなたでも参加可。2〜4人のチームで1本のタスキをつなぎ、計4周（5km×4）を走ります。走る順番や周回数は自由。参加費は1名分。",
+      "description_en": "Open to all. Teams of 2 to 4 pass a single sash and run 4 laps (5 km x 4) in total. Running order and number of laps per runner are free. Fee is per person.",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": "12:00",
+      "capacity": null,
+      "entry_fee": 3500,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10 km",
+      "description_ja": "男女中学生以上。ペア割あり（1組6500円）。",
+      "description_en": "Open to men and women junior high school age and above. Pair discount available (6,500 yen per pair).",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "12:00",
+      "capacity": null,
+      "entry_fee": 3000,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5 km",
+      "description_ja": "どなたでも参加可。ペア割あり（1組5500円）。",
+      "description_en": "Open to all. Pair discount available (5,500 yen per pair).",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "12:00",
+      "capacity": null,
+      "entry_fee": 2000,
+      "entry_fee_u25": null,
+      "name_ja": "5km親子",
+      "name_en": "5 km Parent and Child",
+      "description_ja": "3歳〜小学生のお子様と保護者が対象。参加費は保護者1名・お子様1名の1組料金。",
+      "description_en": "For children aged 3 to elementary school and their guardian. Fee is per pair (one guardian and one child).",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:36:43.581Z",
+  "updated_at": "2026-11-15T09:30:43.256Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://up-run.jp/events/up-shinrinkoen1/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/107190）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典: 公式サイト https://up-run.jp/events/up-shinrinkoen1/ （開催日2026-12-05は候補情報と一致）。",
+      "エントリー期間（2026-09-12〜2026-12-03）は公式サイトに記載がなく、候補情報（スポーツエントリー掲載）によるもの。要確認。",
+      "早割あり: 開催1か月前までの申込で500円OFF。表示の参加費は通常料金。",
+      "回数（第○回）は公式サイトに記載なし。",
+      "路面（surface）は公式サイトに明記がないため null。",
+      "ハーフの距離21.0975kmは種目名からの標準値で、公式サイトに数値の記載はない。",
+      "定員1000名は大会全体の数値。種目別定員の記載なし。",
+      "スタート時間は12:00で、5km・10km・親子・20kmリレーが同時刻。競技終了予定は14:30。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-12",
+      "end_date": "2026-12-03",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://up-run.jp/directions/",
+      "label": "会場までの道順"
+    },
+    {
+      "url": "https://up-run.jp/events/up-shinrinkoen1/#entry",
+      "label": "大会エントリーはこちら"
+    },
+    {
+      "url": "https://up-run.jp/events/up-shinrinkoen1/#route",
+      "label": "会場までの道順はこちら"
+    },
+    {
+      "url": "https://up-run.jp/entrychk/",
+      "label": "～案内メールが届かない方へ～"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "国営武蔵丘陵森林公園 運動広場",
+  "venue_name_en": "Musashi Kyuryo National Government Park, Undo Hiroba (Sports Field)",
+  "venue_address": "埼玉県比企郡滑川町大字山田1920",
+  "start_lat": 36.092148,
+  "start_lng": 139.373993
+}

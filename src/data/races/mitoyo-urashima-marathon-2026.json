@@ -1,0 +1,158 @@
+{
+  "id": "mitoyo-urashima-marathon-2026",
+  "name_ja": "三豊市うらしまマラソン大会",
+  "name_en": "Mitoyo Urashima Marathon",
+  "full_name_ja": "第8回 三豊市うらしまマラソン大会",
+  "full_name_en": "The 8th Mitoyo Urashima Marathon",
+  "edition": 8,
+  "date": "2026-11-15",
+  "prefecture": "37",
+  "city_ja": "三豊市",
+  "city_en": "Mitoyo City",
+  "description_ja": "香川県三豊市の瀬戸内海沿いを、ゆっくりのんびり走って秋の一日を楽しむマラソン大会です。浦島伝説が残る三豊の景色を堪能できます。会場では三豊市選りすぐりの店が並ぶシーサイドマルシェも同時開催されます。",
+  "description_en": "A marathon event along the Seto Inland Sea coast in Mitoyo City, Kagawa, where runners can take a leisurely run and enjoy an autumn day. Runners can take in the scenery of Mitoyo, where the Urashima legend lives on. The Seaside Marche, featuring selected local shops, is held at the venue at the same time.",
+  "official_url": "https://urashima-m.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": null,
+  "entry_start_date": "2026-06-19",
+  "entry_end_date": "2026-10-05",
+  "reception_type": "race_day",
+  "reception_note_ja": "当日 8:30〜9:30 に受付テントで、事前に郵送される参加通知書（ハガキ）とナンバーカードを引き換えます。参加賞の引換は 8:30〜13:00。駐車場から会場へは 8:00〜9:00 に無料シャトルバスが運行されます。",
+  "reception_note_en": "On race day, between 8:30 and 9:30, exchange the participation notice postcard mailed in advance for your number card at the reception tent. Participation gifts can be collected from 8:30 to 13:00. A free shuttle bus runs from the parking lot to the venue between 8:00 and 9:00.",
+  "tags": [
+    "海沿いコース",
+    "瀬戸内海の景色",
+    "シーサイドマルシェ"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 180,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "高校生以上。参加料は一般（18歳以上）5,000円、高校生2,000円。ハーフ・10kmの合計定員は1,200名。",
+      "description_en": "High school students and older. Entry fee: 5,000 yen for general participants (18 and over), 2,000 yen for high school students. The combined capacity of the Half and 10km is 1,200.",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 90,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10km",
+      "description_ja": "中学生以上。参加料は一般（18歳以上）5,000円、高校生2,000円、中学生1,000円。ハーフ・10kmの合計定員は1,200名。",
+      "description_en": "Junior high school students and older. Entry fee: 5,000 yen for general participants (18 and over), 2,000 yen for high school students, 1,000 yen for junior high school students. The combined capacity of the Half and 10km is 1,200.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.5,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": 1000,
+      "entry_fee_u25": null,
+      "name_ja": "1.5km",
+      "name_en": "1.5km",
+      "description_ja": "小学生以上。小学生は保護者と一緒に受付。制限時間なし。参加料は小学生1,000円。",
+      "description_en": "Elementary school students and older. Elementary school children must check in with a parent or guardian. No time limit. Entry fee: 1,000 yen for elementary school students.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:16:59.302Z",
+  "updated_at": "2026-11-15T09:30:37.936Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://urashima-m.com/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105987）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "情報源は公式サイト（urashima-m.com）の実施要項・エントリー・アクセス・お知らせページです。",
+      "開催日・エントリー期間（2026-06-19〜2026-10-05）は公式サイトと候補情報で一致しています。",
+      "「第8回」という回数は候補情報の掲載内容に基づきます。公式サイトのテキストには回数の記載がありません。",
+      "参加料は区分別です（一般18歳以上5,000円、高校生2,000円、中学生1,000円、小学生1,000円）。種目ごとの参加料は年齢区分と組み合わさるため、categories の entry_fee は設定していません（1.5kmのみ小学生1,000円を記載）。",
+      "定員はハーフ・10kmの合計で1,200名とのみ記載されています。全体や種目別の定員は不明のため null としています。",
+      "スタート時刻は「AM 10:00 START」とトップページに記載されていますが、種目別の時刻は明記されていないため、各種目の start_time は null としています。",
+      "ハーフの制限時間は3時間、10kmは1時間30分です。ほかに関門があります（松崎ローソン交差点 11:00、神島化学東 12:30、須田東 12:45）。",
+      "会場の詳細な住所は記載されていません。「三豊市詫間町」までを記載しています。",
+      "エントリー手数料は別途かかります。RUNNETとスポーツエントリーで手数料の記載が異なり、実施要項とエントリーページでも数値が食い違っています。",
+      "公式サイトのお知らせによると、エントリー受付は2026年10月5日に終了しています。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-06-19",
+      "end_date": "2026-10-05",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://urashima-m.com/about/guide/",
+      "label": "大会実施要項"
+    },
+    {
+      "url": "https://urashima-m.com/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://urashima-m.com/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://urashima-m.com/news/post/202610071325/",
+      "label": "エントリー受付締切のお知らせ"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "詫間町弓道場駐車場",
+  "venue_name_en": "Takuma-cho Kyudojo Parking Lot",
+  "venue_address": "香川県三豊市詫間町",
+  "start_lat": 34.271408,
+  "start_lng": 133.633026
+}

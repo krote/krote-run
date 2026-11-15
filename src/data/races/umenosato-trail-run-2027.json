@@ -1,0 +1,135 @@
+{
+  "id": "umenosato-trail-run-2027",
+  "name_ja": "梅の里トレイルラン",
+  "name_en": "Umenosato Trail Run",
+  "full_name_ja": "梅の里トレイルラン2027",
+  "full_name_en": "Umenosato Trail Run 2027",
+  "edition": 10,
+  "date": "2027-02-21",
+  "prefecture": "30",
+  "city_ja": "みなべ町",
+  "city_en": "Minabe Town",
+  "description_ja": "「一目百万、香り十里」と称される日本一の梅の里、和歌山県みなべ町で開催されるトレイルラン大会。世界農業遺産にも認められた里山の景観とみなべ町の温かいおもてなしを体感できる。10km（ショート）と27km（ミドル）の2種目で、2018年から続く手づくりの大会。",
+  "description_en": "A trail running event held in Minabe Town, Wakayama, Japan's top ume (plum) region known as 'a million blossoms at a glance, fragrance for ten ri'. Runners enjoy the satoyama scenery recognized as a Globally Important Agricultural Heritage System and the warm hospitality of Minabe. Offering 10km (Short) and 27km (Middle) courses, it is a handmade event that has continued since 2018.",
+  "official_url": "https://umenosatotrail.wixsite.com/umenosatotrail",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 400,
+  "entry_start_date": "2026-09-01",
+  "entry_end_date": "2027-01-15",
+  "reception_type": "race_day",
+  "reception_note_ja": "受付場所は旧高城中学校体育館。受付時間の詳細は記載なし。",
+  "reception_note_en": "Reception is at the gymnasium of the former Takagi Junior High School. Detailed reception hours are not stated.",
+  "tags": [
+    "梅の里",
+    "里山コース",
+    "アドベンチャーコース"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "trail",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 210,
+      "start_time": "08:30",
+      "capacity": 200,
+      "entry_fee": 3500,
+      "entry_fee_u25": null,
+      "name_ja": "ショート",
+      "name_en": "Short",
+      "description_ja": "中学生以上。ゴールは清川球場。参加費はTシャツ無3,500円（学生2,000円）、Tシャツ有5,500円（学生4,000円）。",
+      "description_en": "Junior high school students and above. Finish at Kiyokawa Stadium. Fee: 3,500 yen without T-shirt (students 2,000 yen), 5,500 yen with T-shirt (students 4,000 yen).",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 27,
+      "time_limit_minutes": 450,
+      "start_time": "08:30",
+      "capacity": 200,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "ミドル",
+      "name_en": "Middle",
+      "description_ja": "18歳以上（高校生不可）。ゴールは旧高城中学校。参加費はTシャツ無6,000円、Tシャツ有8,000円。",
+      "description_en": "Age 18 and above (high school students not allowed). Finish at the former Takagi Junior High School. Fee: 6,000 yen without T-shirt, 8,000 yen with T-shirt.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T09:15:21.730Z",
+  "updated_at": "2026-11-15T09:31:00.244Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://umenosatotrail.wixsite.com/umenosatotrail）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106234）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイト（トップページ、大会要項、ブログ記事）。",
+      "第10回は公式サイトの「2018年から活動を続けて10回目」との記載に基づく。",
+      "受付方法（前日/当日）は公式サイトに明記がなく、受付場所のみ記載があるため reception_type は race_day と推定。要確認。",
+      "ショート・ミドルの開始時刻は大会全体のスタート時刻8:30を適用。",
+      "参加費は種目ごとに異なり、Tシャツの有無・学生区分でも異なるため、categories の entry_fee はTシャツ無の一般料金を記載。ふるさと納税枠（ショート14,000円〜、ミドル24,000円〜、申込締切2026-12-31）あり。",
+      "定員はショート200名・ミドル200名の先着で、合計400名。定員になり次第締切。",
+      "制限時間はショート3時間30分、ミドル7時間30分。",
+      "ミドルの距離27kmは distance_type を other とした。",
+      "公式サイトの要項では第1エイドは5km地点、関門は清川球場11:00と上木台14:00。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-01",
+      "end_date": "2027-01-15",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://umenosatotrail.wixsite.com/umenosatotrail/%E5%A4%A7%E4%BC%9A%E8%A6%81%E9%A0%85",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://umenosatotrail.wixsite.com/umenosatotrail/post/9%E6%9C%881%E6%97%A5%EF%BC%88%E7%81%AB%EF%BC%89%E3%82%88%E3%82%8A%E5%8F%82%E5%8A%A0%E5%8F%97%E4%BB%98%E9%96%8B%E5%A7%8B%E3%81%A7%E3%81%99%EF%BC%81",
+      "label": "9月1日（火）より参加受付開始です！"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "旧高城中学校（旧みなべ町立高城中学校）",
+  "venue_name_en": "Former Takagi Junior High School",
+  "venue_address": "和歌山県日高郡みなべ町滝81",
+  "start_lat": 33.845833,
+  "start_lng": 135.33931
+}

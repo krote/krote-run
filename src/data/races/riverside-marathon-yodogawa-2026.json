@@ -1,0 +1,171 @@
+{
+  "id": "riverside-marathon-yodogawa-2026",
+  "name_ja": "リバーサイドマラソン淀川大会【上流コース】",
+  "name_en": "Riverside Marathon Yodogawa (Upstream Course)",
+  "full_name_ja": "第17回 リバーサイドマラソン淀川大会【上流コース】",
+  "full_name_en": "The 17th Riverside Marathon Yodogawa (Upstream Course)",
+  "edition": 17,
+  "date": "2026-11-15",
+  "prefecture": "27",
+  "city_ja": "大阪市",
+  "city_en": "Osaka City",
+  "description_ja": "大阪を代表する一級河川・淀川の淀川河川公園西中島地区を利用した、1周5kmの周回コースのマラソン大会。「競争」ではなく「共走」の理念に基づき、完走率100%を目指す。30km・20km・10km・5kmの部があり、フラットな河川敷コースでビギナーから経験者まで楽しめる。",
+  "description_en": "This race is held at the Yodogawa Riverside Park Nishinakajima area along the Yodo River, one of Osaka's leading first-class rivers, on a 5 km loop course. Based on the philosophy of running together rather than competing, it aims for a 100% finish rate. It offers 30 km, 20 km, 10 km and 5 km events on a flat riverside course suited to both beginners and experienced runners.",
+  "official_url": "https://riverside-marathon.jimdofree.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 400,
+  "entry_start_date": "2026-03-28",
+  "entry_end_date": "2026-11-08",
+  "reception_type": "race_day",
+  "reception_note_ja": "受付時間は8:50〜9:40。大会1週間前に参加案内通知書とエントリーシートがメールで送られる。貴重品は受付テントで500円で預かり。",
+  "reception_note_en": "Reception is open from 8:50 to 9:40. A participation notice and entry sheet are emailed one week before the event. Valuables can be left at the reception tent for 500 yen.",
+  "tags": [
+    "フラットコース",
+    "河川敷",
+    "周回コース"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "other",
+      "distance_km": 30,
+      "time_limit_minutes": 240,
+      "start_time": null,
+      "capacity": 100,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "30kmの部",
+      "name_en": "30 km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 20,
+      "time_limit_minutes": 180,
+      "start_time": null,
+      "capacity": 100,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "20kmの部",
+      "name_en": "20 km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 90,
+      "start_time": null,
+      "capacity": 100,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": "10kmの部",
+      "name_en": "10 km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 50,
+      "start_time": null,
+      "capacity": 100,
+      "entry_fee": 3500,
+      "entry_fee_u25": null,
+      "name_ja": "5kmの部",
+      "name_en": "5 km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:18:34.070Z",
+  "updated_at": "2026-11-15T08:18:34.070Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://riverside-marathon.jimdofree.com/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105022）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイト（淀川大会【上流コース】ページ）に第17回（2026-11-15）の情報が掲載されており、候補の開催日と一致。",
+      "参加費は一般（事前）料金を種目別に記載：30km 6000円、20km 5000円、10km 4000円、5km 3500円。当日料金は 7000円・6000円・5000円・4500円。",
+      "エントリー期間の開始日 2026-03-28 は候補情報（スポーツエントリー掲載）によるもので、公式サイトには記載なし。締切 2026-11-08 は公式サイトと一致。公式サイトでは第17回のモシコム・スポーツエントリーとも受付終了と記載。",
+      "定員は各種目100名と記載。全体定員400は4種目の合計であり、公式サイトに全体定員の明記はない。",
+      "参加資格は「18歳以上の健康な方」「16歳以上の健康な方」の2種類のみ記載され、どの種目に対応するか不明のため null とした。",
+      "スタート時刻は10:00と10:05の2種類のみ記載され、種目との対応が不明のため null とした。",
+      "会場の住所は公式サイトに記載がない（記載の住所は大会事務局のもの）。アクセスは地下鉄御堂筋線「西中島南方駅」2番出口から南へ徒歩5分で、会場に駐車場はない。",
+      "コースは1周5kmの周回（30km=6周、20km=4周、10km=2周、5km=1周）。気象状況により1周の距離を短くする場合がある。6〜10月開催分以降は熱中症対策で1周2.5kmに変更される旨の記載あり。",
+      "受付区分は、受付時間の記載と事前のメール案内から race_day とした。参加費は事前の銀行振込で、入金確認後に本登録となる。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-03-28",
+      "end_date": "2026-11-08",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://riverside-marathon.jimdofree.com/%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA%E3%83%BC/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://riverside-marathon.jimdofree.com/%E3%83%9C%E3%83%A9%E3%83%B3%E3%83%86%E3%82%A3%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%83%E3%83%95%E5%8B%9F%E9%9B%86/",
+      "label": "ボランティアスタッフ募集"
+    },
+    {
+      "url": "https://riverside-marathon.jimdofree.com/%E7%8C%AA%E5%90%8D%E5%B7%9D%E5%A4%A7%E4%BC%9A/",
+      "label": "第6回リバーサイドマラソン猪名川大会【2027年1月24日（日）開催】のエントリーを開始しました。"
+    },
+    {
+      "url": "https://riverside-marathon.jimdofree.com/%E6%B7%80%E5%B7%9D%E5%A4%A7%E4%BC%9A-%E4%B8%8A%E6%B5%81%E3%82%B3%E3%83%BC%E3%82%B9/",
+      "label": "第18回リバーサイドマラソン淀川大会【2027年1月31日（日）開催】のエントリーを開始しました。"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "淀川河川公園西中島地区",
+  "venue_name_en": "Yodogawa Riverside Park, Nishinakajima Area",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

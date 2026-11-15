@@ -1,0 +1,189 @@
+{
+  "id": "tokyo-kita-akabane-toshinose-marathon-2026",
+  "name_ja": "東京都北区赤羽年の瀬マラソン",
+  "name_en": "Tokyo Kita-ku Akabane Year-End Marathon",
+  "full_name_ja": "東京都北区赤羽年の瀬マラソン 2026",
+  "full_name_en": "Tokyo Kita-ku Akabane Year-End Marathon 2026",
+  "edition": null,
+  "date": "2026-12-12",
+  "prefecture": "13",
+  "city_ja": "北区",
+  "city_en": "Kita City",
+  "description_ja": "荒川河川敷の舗装されたコースで開催される年の瀬の大会です。スリークォーター（31.64625km）、ハーフ、クォーター、ワンエイト、ハーフリレーの種目があり、全種目で計測チップによる自動計測を行います。参加賞（オリジナルドライTシャツ）の有無を選んでエントリーできます。",
+  "description_en": "A year-end race held on a paved course along the Arakawa riverbank. Events include the Three-Quarter (31.64625 km), Half, Quarter, One-Eighth and Half Relay, with automatic timing by timing chip for all events. Entrants can choose whether or not to receive the participation prize (original dry T-shirt).",
+  "official_url": "https://akabane-marathon.tokyo/yearend/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": null,
+  "entry_start_date": "2026-07-24",
+  "entry_end_date": null,
+  "reception_type": "race_day",
+  "reception_note_ja": "受付は当日9:30〜10:45。受付で名前とゼッケン番号を伝え、計測チップ付きゼッケンを受け取る（チップは要返却）。参加賞ありの方は受付後に別の参加賞お渡し所へ。参加者が多数の場合はゼッケン等を郵送することがあり、その際はメールとニュースで案内。ゼッケン番号は2026年12月2日に公式サイトへ掲載予定。",
+  "reception_note_en": "Race-day reception 9:30-10:45. Tell staff your name and bib number to receive a bib with a timing chip (chip must be returned). Entrants who chose the participation prize collect it at a separate counter after reception. If entries are numerous, bibs etc. may be mailed, with notice by email and on the News page. Bib numbers are scheduled to be posted on the official site on 2026-12-02.",
+  "tags": [
+    "河川敷コース",
+    "舗装路",
+    "周回コース"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "other",
+      "distance_km": 31.64625,
+      "time_limit_minutes": 190,
+      "start_time": "10:55",
+      "capacity": null,
+      "entry_fee": 3690,
+      "entry_fee_u25": null,
+      "name_ja": "スリークォーター",
+      "name_en": "Three-Quarter",
+      "description_ja": "3周。参加賞不要3,690円／参加賞あり4,790円",
+      "description_en": "3 laps. 3,690 JPY without prize / 4,790 JPY with prize",
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 180,
+      "start_time": "11:00",
+      "capacity": null,
+      "entry_fee": 3190,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフ",
+      "name_en": "Half",
+      "description_ja": "2周。参加賞不要3,190円／参加賞あり4,290円",
+      "description_en": "2 laps. 3,190 JPY without prize / 4,290 JPY with prize",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10.54875,
+      "time_limit_minutes": 170,
+      "start_time": "11:05",
+      "capacity": null,
+      "entry_fee": 2690,
+      "entry_fee_u25": null,
+      "name_ja": "クォーター",
+      "name_en": "Quarter",
+      "description_ja": "1周。参加賞不要2,690円／参加賞あり3,790円",
+      "description_en": "1 lap. 2,690 JPY without prize / 3,790 JPY with prize",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5.2743,
+      "time_limit_minutes": 170,
+      "start_time": "11:10",
+      "capacity": null,
+      "entry_fee": 2190,
+      "entry_fee_u25": null,
+      "name_ja": "ワンエイト",
+      "name_en": "One-Eighth",
+      "description_ja": "1/2周。参加賞不要2,190円／参加賞あり3,290円",
+      "description_en": "Half lap. 2,190 JPY without prize / 3,290 JPY with prize",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 165,
+      "start_time": "11:15",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフリレー（4区間）",
+      "name_en": "Half Relay (4 legs)",
+      "description_ja": "1区間5.274375km×4区間。2人チーム6,200円／3人チーム8,100円／4人チーム8,400円（参加賞不要）、参加賞ありは8,400円／11,400円／12,800円（チーム単位）",
+      "description_en": "4 legs of 5.274375 km each. Team fees without prize: 2 members 6,200 JPY / 3 members 8,100 JPY / 4 members 8,400 JPY; with prize: 8,400 / 11,400 / 12,800 JPY (per team)",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:41:32.042Z",
+  "updated_at": "2026-11-15T08:41:32.042Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://akabane-marathon.tokyo/yearend/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106652）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイト（akabane-marathon.tokyo/yearend/）。公式サイトの内容は2026年大会のものである。",
+      "エントリー開始日は公式ニュースより：RUNNET 2026-07-24、スポーツエントリー 2026-07-31。公式サイトにエントリー締切日の記載はなく、候補情報のスポーツエントリー掲載の締切2026-11-30は公式では未確認のため end_date は null とした。",
+      "回数、定員、会場の正式な住所は記載なし。市区町村は会場が東京都北区のため北区とした。",
+      "クォーターの距離は公式内で10.54875kmと10.5487kmの表記ゆれあり。ワンエイトも5.2743kmと5.274375kmの表記ゆれあり。",
+      "参加費は参加賞の有無で異なる。categoriesのentry_feeは参加賞不要の場合の金額。ハーフリレーのチーム料金は人数別のためentry_feeはnull。",
+      "種目のdistance_typeについて、スリークォーターとハーフリレーは other、クォーターは約10.5kmのため10k、ワンエイトは約5.3kmのため5kとした。",
+      "制限時間は公式記載の各種目の時間。全種目共通の関門時刻は13:35。",
+      "アクセスの徒歩時間は大会要項（赤羽駅徒歩約20分、赤羽岩淵駅約10分）とアクセス欄（約18分、約12分）で記載が異なる。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "RUNNET エントリー",
+      "label_en": "RUNNET Entry",
+      "start_date": "2026-07-24",
+      "end_date": null,
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "スポーツエントリー",
+      "label_en": "Sports Entry",
+      "start_date": "2026-07-31",
+      "end_date": null,
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://akabane-marathon.tokyo/yearend/#wrap5",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://akabane-marathon.tokyo/yearend/#wrap7",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://akabane-marathon.tokyo/yearend/#wrap12",
+      "label": "アクセス"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "東京都北区赤羽河川敷 JR京浜東北線高架下 特設会場",
+  "venue_name_en": "Akabane Riverbank Special Venue (under the JR Keihin-Tohoku Line viaduct), Kita City, Tokyo",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

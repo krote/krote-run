@@ -14,6 +14,11 @@ const { validateRace } = require('./validate-races');
 function makeRace(overrides = {}) {
   return {
     id: 'test-marathon-2026',
+    name_ja: 'テストマラソン',
+    name_en: 'Test Marathon',
+    prefecture: '13',
+    city_ja: '千代田区',
+    city_en: 'Chiyoda',
     date: '2026-03-01',
     entry_start_date: '2025-08-01',
     entry_end_date: '2025-10-31',
@@ -404,5 +409,67 @@ describe('Rule: entry_period_closed_before_start', () => {
     });
     const issues = validateRace(race, { now: NOW }).filter((i) => i.rule === 'entry_period_closed_before_start');
     assert.equal(issues.length, 0);
+  });
+});
+
+// ── Rule: DB の NOT NULL 列が null（seed が制約違反で失敗する） ──────
+
+describe('Rule: db_required_null', () => {
+  const REQUIRED = ['name_ja', 'name_en', 'date', 'prefecture', 'city_ja', 'city_en'];
+
+  for (const key of REQUIRED) {
+    test(`${key} が null なら error`, () => {
+      const issues = validateRace(makeRace({ [key]: null }));
+      const issue = issues.find(i => i.rule === 'db_required_null' && i.message.includes(key));
+      assert.ok(issue, `${key} の null が検出されない`);
+      assert.equal(issue.level, 'error');
+    });
+
+    test(`${key} が未定義でも error`, () => {
+      const race = makeRace();
+      delete race[key];
+      assert.ok(validateRace(race).some(i => i.rule === 'db_required_null' && i.message.includes(key)));
+    });
+  }
+
+  test('市区町村が空文字なのは許容する（既存データの慣行。DB 上も有効）', () => {
+    const issues = validateRace(makeRace({ city_ja: '', city_en: '' }));
+    assert.equal(issues.find(i => i.rule === 'db_required_null'), undefined);
+  });
+
+  test('categories[].distance_km が null なら error', () => {
+    const issues = validateRace(makeRace({ categories: [{ distance_type: 'full', distance_km: 42.195 }, { distance_type: 'other', distance_km: null }] }));
+    const issue = issues.find(i => i.rule === 'db_required_null' && i.message.includes('categories[1].distance_km'));
+    assert.ok(issue);
+    assert.equal(issue.level, 'error');
+  });
+
+  test('categories[].distance_type が null なら error', () => {
+    const issues = validateRace(makeRace({ categories: [{ distance_type: null, distance_km: 10 }] }));
+    assert.ok(issues.some(i => i.rule === 'db_required_null' && i.message.includes('categories[0].distance_type')));
+  });
+});
+
+// ── Rule: race_id の形式（英小文字スラッグ-年） ──────────────────────
+
+describe('Rule: race_id_format', () => {
+  test('スラッグが空の ID（-2026）は error', () => {
+    const issue = validateRace(makeRace({ id: '-2026' })).find(i => i.rule === 'race_id_format');
+    assert.ok(issue, 'スラッグ空の ID が検出されない');
+    assert.equal(issue.level, 'error');
+  });
+
+  test('年が無い ID は error', () => {
+    assert.ok(validateRace(makeRace({ id: 'test-marathon' })).some(i => i.rule === 'race_id_format'));
+  });
+
+  test('大文字・記号を含む ID は error', () => {
+    assert.ok(validateRace(makeRace({ id: 'Test_Marathon-2026' })).some(i => i.rule === 'race_id_format'));
+  });
+
+  test('英小文字・数字・ハイフンと末尾4桁の年なら問題なし', () => {
+    for (const id of ['test-marathon-2026', 'kix-senshu-marathon-2026', 'uprun21-half-2027']) {
+      assert.equal(validateRace(makeRace({ id })).find(i => i.rule === 'race_id_format'), undefined, id);
+    }
   });
 });

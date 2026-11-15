@@ -12,7 +12,7 @@ const {
   DEFAULT_EXCLUDE_KEYWORDS,
 } = require('./candidates');
 const {
-  buildOfficialUrlPrompt, parseJsonResponse, buildNewRacePrompt, buildLightRace, toRaceId,
+  buildOfficialUrlPrompt, parseJsonResponse, buildNewRacePrompt, buildLightRace, toRaceId, blockingReason,
 } = require('./generate');
 
 const FIXTURE = fs.readFileSync(path.join(__dirname, 'fixtures', 'sportsentry-list.html'), 'utf-8');
@@ -339,5 +339,24 @@ describe('computeRange / markGenerated（#204）', () => {
       { id: 'b', selected: true, skipped_reason: '公式サイトが見つからない' },
       { id: 'c', selected: false },
     ]);
+  });
+});
+
+describe('blockingReason（検査 error のある大会は書き出さない）', () => {
+  test('error が無ければ null（warning だけなら生成する）', () => {
+    assert.equal(blockingReason([]), null);
+    assert.equal(blockingReason([{ rule: 'entry_fee_missing', level: 'warning', message: '参加費なし' }]), null);
+  });
+
+  test('error があればスキップ理由を返し、メッセージを含める', () => {
+    const reason = blockingReason([
+      { rule: 'db_required_null', level: 'error', message: 'city_ja が null です' },
+      { rule: 'race_id_format', level: 'error', message: 'id "-2026" の形式が不正です' },
+      { rule: 'entry_fee_missing', level: 'warning', message: '参加費なし' },
+    ]);
+    assert.match(reason, /検査エラー/);
+    assert.match(reason, /city_ja が null/);
+    assert.match(reason, /-2026/);
+    assert.doesNotMatch(reason, /参加費なし/);
   });
 });

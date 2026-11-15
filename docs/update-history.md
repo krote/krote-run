@@ -1997,3 +1997,18 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `tools/crawl/pr.test.js`: checksums.json のみ／他の変更と混在の場合のテストを追加（`test:tools` 542件 pass）
 - `docs/crawl-rules.md` / `README.md`: 実行前チェックの条件を更新
 - 2026-11-15 のクロールで残っていた checksums.json は #226 で取り込み（`fail_count` を保持するため破棄しない）
+
+## 2026-11-15 discover で生成した不完全な大会を除外し、検査 error のある大会を生成しないように修正
+
+PR #228（discover で88大会を新規掲載）を stg に投入したところ `NOT NULL constraint failed: races.name_en` で失敗した（D1 はロールバックされ stg・本番とも変化なし）。
+
+- 原因: discover が LLM 抽出で埋まらなかった必須項目を null のまま JSON に書き出していた。`validateRace()` は DB の NOT NULL 列を検査しておらず、検査結果に error があっても書き出していた
+- `scripts/validate-races.js`: ルール追加
+  - `db_required_null`（error）: `name_ja` / `name_en` / `date` / `prefecture` / `city_ja` / `city_en`、`categories[].distance_type` / `distance_km` が null・未定義。空文字は既存データの慣行で DB 上も有効なため対象外
+  - `race_id_format`（error）: ID が「英小文字・数字のスラッグ + "-" + 4桁の年」でない（スラッグ空の `-2026` を検出）
+- `tools/discover/generate.js`: `blockingReason()` を追加。検査 error のある大会は JSON を書き出さずスキップ理由を返す
+- テスト: `scripts/validate-races.test.js` / `tools/discover/discover.test.js`（`test:tools` 563件・vitest 981件 pass）
+- データ: #228 の88件のうち新ルールで error になる26件の JSON を削除（市区町村 null 18件、種目の距離 null 5件、抽出失敗でスラッグ空の2件、海外大会1件）。discover の候補一覧に戻るため、次回の生成で再挑戦できる
+- `src/data/announcements.json`: 2026-11-15 のお知らせを「新たに62大会を掲載しました」に作り直し（slug は維持）
+- `migrations/seed-races-all.sql`: 再生成。ローカル D1 への投入成功を確認
+- `docs/crawl-rules.md`: discover の書き出し条件を追記

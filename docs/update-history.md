@@ -1934,6 +1934,15 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `migrations/seed-races-all.sql`: 再生成（差分は `race_travel_times` の DELETE 142行と生成日時のみ）
 - stg・本番の順に `migrations/seed-travel-times.sql` を再投入: 両環境とも 312件・39大会、最小10分〜最大862分、`races` に無い race_id は0件。本番の大会ページ（`yokohama-northdock-run-2026`）で移動時間がペイロードに含まれることを確認
 
+## 2026-11-14 クロール結果（PR #222）を stg・本番 D1 へ適用
+
+- `node scripts/generate-seed-races.js` で再生成し、コミット済みの `migrations/seed-races-all.sql` と生成日時以外の差分が無いことを確認
+- `pnpm run db:seed-races:stg` → `pnpm run db:seed-races:remote` の順に適用（changes 3,449 / rows_written 7,146、両環境とも同値）
+- 適用後、両環境で `races` が 144 → 145 件（`chiba-aqualine-marathon-2027` を新規追加）。`tokyo-marathon-2027` の `entry_end_date` / `updated_at` が JSON と一致することを確認
+- `race_travel_times`（312件）・`weather_history`（10件）は適用前後で変化なし（#221 の修正により移動時間が消えないことを実環境で確認）
+- お知らせ（`announcements.json`）はビルド同梱のため、`pnpm run cf:deploy:stg` で stg を main（e179eaa）に更新。本番は e179eaa がデプロイ済み
+- stg・本番とも `/ja/races/chiba-aqualine-marathon-2027` が 200、`/ja/news` に「新たに1大会を掲載・11大会の情報を更新しました」が表示されることを確認
+
 ## 2026-11-14 エントリー期間に途中終了フラグ（closed_early）を追加し、クロールで設定する
 
 人気の大会は締切日より前に定員到達・先着順で受付を終えることがあるが、データ上は締切日まで「受付中」と表示され続けていた。大会単位の `races.entry_closed` は手動設定のみでクロールは扱っておらず、期間単位で途中終了を表す項目も無かった。

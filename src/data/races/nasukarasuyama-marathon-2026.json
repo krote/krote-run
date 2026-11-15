@@ -1,0 +1,166 @@
+{
+  "id": "nasukarasuyama-marathon-2026",
+  "name_ja": "那須烏山マラソン大会",
+  "name_en": "Nasukarasuyama Marathon",
+  "full_name_ja": "第22回那須烏山マラソン大会",
+  "full_name_en": "The 22nd Nasukarasuyama Marathon",
+  "edition": 22,
+  "date": "2026-11-29",
+  "prefecture": "09",
+  "city_ja": "那須烏山市",
+  "city_en": "Nasukarasuyama City",
+  "description_ja": "ハーフマラソンは市内を周遊するコースで、里山や清流など景色の変化が豊かで、適度なアップダウンがあり走りごたえがある。5kmは初心者から経験者まで楽しめ、2kmと家族ペア1.4kmは平坦で安全なコース。スタート前の太鼓演奏や地元特産品の参加賞など、おもてなしも好評。",
+  "description_en": "The half marathon is a circuit course around the city with varied scenery such as satoyama countryside and clear streams, and moderate ups and downs that make it satisfying to run. The 5km course suits beginners through experienced runners, while the 2km and family pair 1.4km courses are flat and safe. Taiko drumming before the start and local specialty items in the participation gift are also well received.",
+  "official_url": "https://www.city.nasukarasuyama.lg.jp/board-of-education/sports/karasuyama-marathon/page006782.html",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2026-07-01",
+  "entry_end_date": "2026-09-30",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "アスリートビブス（計測チップ付）を11月中旬までに申込住所へ事前送付するため、当日受付は不要。出場種目のスタート時刻までにスタート地点に集合する。参加賞の引換時間は7:30〜11:30。",
+  "reception_note_en": "Athlete bibs (with timing chip) are mailed in advance to the registered address by mid-November, so no race-day check-in is required. Participants should gather at the start line by the start time of their event. Participation gifts can be collected from 7:30 to 11:30.",
+  "tags": [
+    "里山・清流の景色",
+    "適度なアップダウン",
+    "市内周遊コース"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 450,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "高校生以下の出場は保護者が認めた者に限る。",
+      "description_en": "High school students and younger may participate only with parental approval.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": 250,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": "中学生・高校生以上。",
+      "description_en": "Junior high school students, high school students and older.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "2km",
+      "name_en": "2km",
+      "description_ja": "女子・小学生。",
+      "description_en": "Girls and elementary school students.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.4,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "家族ペア1.4km",
+      "name_en": "Family Pair 1.4km",
+      "description_ja": "未就学児・小学1〜2年生。",
+      "description_en": "Preschool children and elementary school grades 1-2.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:34:29.906Z",
+  "updated_at": "2026-11-15T09:30:40.060Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://www.city.nasukarasuyama.lg.jp/board-of-education/sports/karasuyama-marathon/page006782.html）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106043）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典: 那須烏山市教育委員会公式ページ（第22回大会）。開催日・募集期間は公式サイトと一致。",
+      "参加費は公式ページに記載がなく（RUNNET参照とのみ記載）、null とした。",
+      "全体の定員は記載がなく、ハーフ450人・5km250人のみ種目別に記載。",
+      "制限時間・スタート時刻は記載がないため null とした。",
+      "ハーフの距離は一般的な21.0975kmを用いた（ページに数値の記載なし）。",
+      "生涯学習課窓口での申込は9月18日締切、ふるさと納税経由（ハーフ・5km）は9月30日締切。",
+      "公式タイムはグロスタイム。表彰は各種目・区分の上位6位まで。完走証はWEB発行のみ。",
+      "大会は毎年11月の最終日曜日に開催。雨天決行。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-07-01",
+      "end_date": "2026-09-30",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.city.nasukarasuyama.lg.jp/map.php?code=3",
+      "label": "アクセスマップはこちら"
+    },
+    {
+      "url": "https://www.city.nasukarasuyama.lg.jp/board-of-education/sports/karasuyama-marathon/page006782.html",
+      "label": "第22回那須烏山マラソン大会（募集期間　7月1日（水曜日）～9月30日（水曜日）まで）"
+    },
+    {
+      "url": "https://www.city.nasukarasuyama.lg.jp/board-of-education/sports/karasuyama-marathon/page006026.html",
+      "label": "第22回 那須烏山マラソン大会　協賛企業等を募集します"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "那須烏山市保健福祉センター",
+  "venue_name_en": "Nasukarasuyama City Health and Welfare Center",
+  "venue_address": "栃木県那須烏山市田野倉85-1",
+  "start_lat": 36.658985,
+  "start_lng": 140.097275
+}

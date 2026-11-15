@@ -1,0 +1,118 @@
+{
+  "id": "the-challenge-race-goat-2026",
+  "name_ja": "THE CHALLENGE RACE GOAT",
+  "name_en": "THE CHALLENGE RACE GOAT",
+  "full_name_ja": "THE CHALLENGE RACE GOAT 2026",
+  "full_name_en": "THE CHALLENGE RACE GOAT 2026",
+  "edition": null,
+  "date": "2026-12-27",
+  "prefecture": "13",
+  "city_ja": "板橋区",
+  "city_en": "Itabashi City",
+  "description_ja": "東京・荒川河川敷の高低差2m以内の1周10km周回コースで開催される日本陸連公認のフルマラソン大会。フルマラソン2時間15分〜3時間20分の12グループにペーサーを配置し、全給水所で水分とジェルを用意するなど記録更新を支える。参加資格はフルマラソン3時間30分以内の記録保持者で、スタート5分前までウォーミングアップができる。",
+  "description_en": "A JAAF-certified full marathon held on a 10 km loop course along the Arakawa riverbank in Tokyo, with an elevation difference of 2 m or less. Pacers are provided in 12 groups from 2:15 to 3:20, and every aid station offers both drinks and gels to support personal-best attempts. Entry requires a full marathon qualifying time under 3:30, and runners can warm up until 5 minutes before the start.",
+  "official_url": "https://goat.rdc-run.com/",
+  "entry_fee": 16500,
+  "entry_fee_by_category": false,
+  "entry_capacity": 200,
+  "entry_start_date": "2026-06-04",
+  "entry_end_date": "2026-12-20",
+  "reception_type": "race_day",
+  "reception_note_ja": "ゼッケン等の事前送付はなく、当日、荒川戸田橋陸上競技場前広場の受付でエントリーサイトの決済ページを提示して受け取る。受付時間は8:00〜9:00で、遅れると出走できない。",
+  "reception_note_en": "Bibs are not mailed in advance. On race day, show the payment page from the entry site at the reception area in front of Arakawa Toda-bashi Athletic Stadium to receive your bib. Reception is from 8:00 to 9:00, and late arrivals cannot start.",
+  "tags": [
+    "フラットコース",
+    "周回コース",
+    "日本陸連公認"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 210,
+      "start_time": "09:30",
+      "capacity": 200,
+      "entry_fee": 16500,
+      "entry_fee_u25": null,
+      "name_ja": "フルマラソン",
+      "name_en": "Full Marathon",
+      "description_ja": "18歳以上で、2023年1月以降のフルマラソン3時間30分00秒以内の記録を持つ人。",
+      "description_en": "Age 18 or older with a full marathon time within 3:30:00 recorded since January 2023.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:54:34.842Z",
+  "updated_at": "2026-11-15T09:30:45.388Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://goat.rdc-run.com/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105936）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイトの2026年12月27日開催の大会要項に基づいて抽出した。ニュース欄には2025年大会のリザルト等も載っているが、2026年大会の情報を採用した。",
+      "回数は公式サイトに記載がなく、候補名の「GOAT 3」だけでは確認できないため null とした。",
+      "エントリー期間の開始日は公式サイトに記載がなく null。終了日は要項の「レース開始1週間前まで」から算出した2026-12-20で、候補情報の2026-12-22とは食い違うため公式を優先した。定員200人に達した時点で受付終了。",
+      "公式サイトの本文は途中で切れており、備考（要項12）以降は確認できていない。",
+      "制限時間は3時間30分（210分）。公式サイトには開催日時が8:00-13:00とあるが、スタート時刻は9:30。",
+      "ペーサー表のGROUP9（2時間55分）のペースは「3分08秒」と記載されているが誤記の可能性があるため、抽出していない。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-06-04",
+      "end_date": "2026-12-20",
+      "entry_fee": 16500,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://goat.rdc-run.com/#section-86",
+      "label": "エントリーはこちら"
+    },
+    {
+      "url": "https://goat.rdc-run.com/#section-55",
+      "label": "概要"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "荒川河川敷マラソンコース（荒川戸田橋陸上競技場前発着）",
+  "venue_name_en": "Arakawa Riverbank Marathon Course (Arakawa Toda-bashi Athletic Stadium)",
+  "venue_address": "東京都板橋区舟渡4-7",
+  "start_lat": 35.796265,
+  "start_lng": 139.671936
+}

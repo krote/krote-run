@@ -1,0 +1,109 @@
+{
+  "id": "tama-half-marathon-2026",
+  "name_ja": "TAMAハーフマラソン",
+  "name_en": "TAMA Half Marathon",
+  "full_name_ja": null,
+  "full_name_en": null,
+  "edition": null,
+  "date": "2026-12-05",
+  "prefecture": "14",
+  "city_ja": null,
+  "city_en": null,
+  "description_ja": null,
+  "description_en": null,
+  "official_url": "http://sportswiz.jp/tamahalf/",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2026-04-06",
+  "entry_end_date": "2026-11-24",
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": null,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:35:07.026Z",
+  "updated_at": "2026-11-15T08:35:07.026Z",
+  "_metadata": {
+    "data_source": "公式サイト（http://sportswiz.jp/tamahalf/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105104）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイトのテキストは文字化けしており、ほとんど判読できなかった。判読できたのは大会名(TAMA HALF MARATHON)とカテゴリ名程度。",
+      "公式サイトにはペーサー募集(2025年10月〜2026年3月)など2025年の情報しか見当たらず、候補の第131回(2026-12-05開催)の内容は確認できなかった。そのため date・entry_periods・entry_fee・entry_capacity・参加費と定員は null とした。",
+      "候補情報にある回数(第131回)、開催日、エントリー期間(2026-04-06〜2026-11-24)、開催地(神奈川県)は公式サイトで裏付けが取れず、採用していない。",
+      "種目のハーフマラソンは大会名から判断した。距離21.0975kmは標準距離で、公式サイトの記載ではない。",
+      "会場、受付方法、制限時間、スタート時刻などは判読できなかったため null とした。文字コードを修正して再取得すれば補完できる可能性がある。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-04-06",
+      "end_date": "2026-11-24",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "http://sportswiz.jp/tamahalf/access.html",
+      "label": "�A�N�Z�X�X�^�b�t��W"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

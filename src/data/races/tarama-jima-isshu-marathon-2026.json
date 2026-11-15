@@ -1,0 +1,185 @@
+{
+  "id": "tarama-jima-isshu-marathon-2026",
+  "name_ja": "たらま島一周マラソン大会",
+  "name_en": "Tarama Island Circuit Marathon",
+  "full_name_ja": "第26回 たらま島一周マラソン大会",
+  "full_name_en": "The 26th Tarama Island Circuit Marathon",
+  "edition": 26,
+  "date": "2026-11-21",
+  "prefecture": "47",
+  "city_ja": "多良間村",
+  "city_en": "Tarama Village",
+  "description_ja": "宮古島と石垣島のほぼ中間に位置する沖縄県多良間島を走る大会で、「日本最南端の村を走ろう」をテーマに開催される。島を一周する23.75kmを中心に、10km・5km・3km・1kmの種目があり、小学生から参加できる。大会翌日までの交流を含め、島の自然と歴史文化に触れながら走れる。",
+  "description_en": "This race is held on Tarama Island in Okinawa, roughly midway between Miyakojima and Ishigakijima, under the theme 'Let's run in Japan's southernmost village.' The main event is the 23.75km island circuit, with 10km, 5km, 3km and 1km events also offered, and participation is open from elementary school age. Runners can enjoy the island's nature, history and culture, along with the Fureai Party and other exchange events.",
+  "official_url": "https://taramajima-run.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2026-07-13",
+  "entry_end_date": "2026-09-15",
+  "reception_type": "both",
+  "reception_note_ja": "前日受付は11月20日（金）13:00〜17:00に多良間村コミュニティー施設1階で行う。当日受付は11月21日（土）9:00〜11:00に大会本部受付で行う。",
+  "reception_note_en": "Pre-day reception is on Friday, November 20 from 13:00 to 17:00 at the first floor of the Tarama Village Community Facility. Race-day reception is on Saturday, November 21 from 9:00 to 11:00 at the race headquarters reception.",
+  "tags": [
+    "離島開催",
+    "島一周コース",
+    "日本最南端の村"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "other",
+      "distance_km": 23.75,
+      "time_limit_minutes": 210,
+      "start_time": "12:00",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "23.75km（Aコース）",
+      "name_en": "23.75km (Course A)",
+      "description_ja": "制限時間内に完走できる健康な方。中学生は5km以下、小学生は3km以下の種目のみ参加可能なため、実質的に高校生以上が対象。",
+      "description_en": "Healthy runners who can finish within the time limit. Junior high school students are limited to 5km or shorter and elementary school students to 3km or shorter, so this event is effectively for high school age and above.",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 100,
+      "start_time": "12:20",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "10km（Bコース）",
+      "name_en": "10km (Course B)",
+      "description_ja": "制限時間内に完走できる健康な方。中学生は5km以下の種目のみ参加可能なため、実質的に高校生以上が対象。",
+      "description_en": "Healthy runners who can finish within the time limit. Junior high school students are limited to 5km or shorter, so this event is effectively for high school age and above.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": 40,
+      "start_time": "12:05",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "3km（Cコース）",
+      "name_en": "3km (Course C)",
+      "description_ja": "小学生以上の健康な方。小学生は3km以下の種目に参加可能。",
+      "description_en": "Healthy runners of elementary school age or older. Elementary school students may enter events of 3km or shorter.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 50,
+      "start_time": "12:30",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "5km（Dコース）",
+      "name_en": "5km (Course D)",
+      "description_ja": "小学生以上の健康な方。中学生は5km以下の種目に参加可能。",
+      "description_en": "Healthy runners of elementary school age or older. Junior high school students may enter events of 5km or shorter.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1,
+      "time_limit_minutes": 20,
+      "start_time": "11:30",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "1km（Eコース）",
+      "name_en": "1km (Course E)",
+      "description_ja": "小学低学年（3年生以下）に限る。",
+      "description_en": "Limited to lower elementary school students (grade 3 and below).",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:22:28.166Z",
+  "updated_at": "2026-11-15T09:30:44.324Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://taramajima-run.com/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106029）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイトの第26回大会要項（taramajima-run.com/require/）に基づく内容で、候補情報の大会名・開催日・募集期間（2026-07-13〜2026-09-15）と一致している。",
+      "参加費は種目別ではなく、島内5,000円、島外6,500円、島外の小学生以上高校生未満3,500円と居住区分で異なるため、entry_feeはnull、entry_fee_by_categoryはfalseとした。医療従事者枠（先着10名）は1,500円引き。当日申込は500円増。",
+      "定員は公式サイトに記載がないためnullとした。",
+      "制限時間は大会要項の表記（分換算）を採用したが、一部の種目でスタート時刻と制限時刻の差が表記の所要時間と一致しない。10kmは12:20〜13:45（85分）だが表記は1時間40分、3kmは12:05〜12:50（45分）だが表記は40分、5kmは12:30〜13:05（35分）だが表記は50分。要確認。",
+      "要項のスケジュールには11:30スタート（多良間村役場前）とあるが、これは1kmの開始時刻で、他種目は種目別表の時刻を採用した。",
+      "会場の詳細な住所は記載がなく、事務局所在地は沖縄県宮古郡多良間村字仲筋99-2。venue_addressは村名までとした。",
+      "申込ページ（/apply/）のスポーツエントリーURL（event/t/101201）は、要項や最新情報のURL（event/t/106029）と異なる。申込ページには入院日額1,500円など、要項（1,000円）と食い違う旧情報の可能性がある記載もある。",
+      "ふれあいパーティーは11月21日17:30〜20:00に多良間小学校体育館で開催。選手は無料、選手・役員以外は2,500円（当日は500円増）。昼食は1,500円。",
+      "宿泊施設が限られており、宿泊の有無を申込時に申告する必要がある。11月20日・21日は多くの施設が満室または残りわずか（2026年7月22日時点）。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-07-13",
+      "end_date": "2026-09-15",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://taramajima-run.com/require/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://taramajima-run.com/26th-sp-entry",
+      "label": "【お知らせ】第26回大会募集開始"
+    },
+    {
+      "url": "https://taramajima-run.com/access/",
+      "label": "・交通アクセス・宿泊"
+    },
+    {
+      "url": "https://taramajima-run.com/apply/",
+      "label": "・お申込み"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "多良間小学校グラウンド・多良間小学校体育館",
+  "venue_name_en": "Tarama Elementary School Grounds and Gymnasium",
+  "venue_address": "沖縄県宮古郡多良間村",
+  "start_lat": 24.669327,
+  "start_lng": 124.701591
+}

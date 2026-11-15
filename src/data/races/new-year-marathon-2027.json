@@ -1,0 +1,199 @@
+{
+  "id": "new-year-marathon-2027",
+  "name_ja": "ニューイヤーマラソン in 国営昭和記念公園",
+  "name_en": "New Year Marathon in Showa Kinen Park",
+  "full_name_ja": "ニューイヤーマラソン in 国営昭和記念公園2027",
+  "full_name_en": "New Year Marathon in Showa Kinen Park 2027",
+  "edition": null,
+  "date": "2027-01-09",
+  "prefecture": "13",
+  "city_ja": null,
+  "city_en": null,
+  "description_ja": "新年最初のマラソン大会として、国営昭和記念公園で開催される走り初めの大会です。日本陸連公認コース（一周5km）を周回し、30km・ハーフマラソン・10kmは公認大会として正確な記録を残せます。5kmや親子ペア1kmも用意されています。",
+  "description_en": "This is a New Year's first-run race held in Showa Kinen Park. Runners complete laps of a JAAF-certified 5 km course, and the 30 km, half marathon and 10 km are certified events with officially recognized records. A 5 km race and a parent-child pair 1 km race are also offered.",
+  "official_url": "https://shining-foundation.wixsite.com/new-year-marathon",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 2100,
+  "entry_start_date": "2026-06-06",
+  "entry_end_date": "2026-12-20",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "大会の10日前から1週間前までに、公園入園券・参加案内書などを同封した封筒（受付番号、出場種目など印字）が登録住所へ郵送されます。大会当日は受付でこの封筒を提示し、ゼッケンや参加賞を受け取ります。封筒を忘れると受付できない場合があります。30km・ハーフ・親子ペアの受付は9:30〜（30km・ハーフは10:30まで、親子ペアは10:10まで）、10km・5kmは10:40〜11:30です。",
+  "reception_note_en": "An envelope containing the park admission ticket and participant guide is mailed to the registered address between 10 days and 1 week before the race. On race day, present the envelope at reception to collect your bib and participation gift. Reception may not be possible if you forget the envelope. Reception for the 30 km, half marathon and parent-child events opens at 9:30 (30 km and half until 10:30, parent-child until 10:10); for the 10 km and 5 km it runs 10:40-11:30.",
+  "tags": [
+    "日本陸連公認コース",
+    "5km周回コース",
+    "公園内コース"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "other",
+      "distance_km": 30,
+      "time_limit_minutes": 220,
+      "start_time": "10:50",
+      "capacity": 300,
+      "entry_fee": 5800,
+      "entry_fee_u25": null,
+      "name_ja": "30km",
+      "name_en": "30 km",
+      "description_ja": "2027年1月9日現在18歳以上の健康な男女（高校生は不可）。日本陸連公認大会。25km地点（5周終了時）に関門あり（13:50）。",
+      "description_en": "Healthy men and women aged 18 or over as of January 9, 2027 (high school students not eligible). JAAF-certified event. Cut-off at 25 km (end of lap 5) at 13:50.",
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 180,
+      "start_time": "11:00",
+      "capacity": 800,
+      "entry_fee": 5400,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "2027年1月9日現在18歳以上の健康な男女（高校生は不可）。日本陸連公認大会。15km地点（3周終了時）に関門あり（13:00）。",
+      "description_en": "Healthy men and women aged 18 or over as of January 9, 2027 (high school students not eligible). JAAF-certified event. Cut-off at 15 km (end of lap 3) at 13:00.",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 100,
+      "start_time": "11:50",
+      "capacity": 600,
+      "entry_fee": 4800,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10 km",
+      "description_ja": "高校生以上の健康な男女。日本陸連公認大会。",
+      "description_en": "Healthy men and women, high school age or older. JAAF-certified event.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 60,
+      "start_time": "11:55",
+      "capacity": 200,
+      "entry_fee": 4200,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5 km",
+      "description_ja": "中学生以上の健康な男女。",
+      "description_en": "Healthy men and women, junior high school age or older.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1,
+      "time_limit_minutes": 10,
+      "start_time": "10:25",
+      "capacity": 100,
+      "entry_fee": 3800,
+      "entry_fee_u25": null,
+      "name_ja": "親子ペア1km①（子は小学生）",
+      "name_en": "Parent-Child Pair 1 km (1) (child in elementary school)",
+      "description_ja": "親と子のペア（子は小学生）で、1kmを10分以内で走れること。定員50組（100名）。参加費は2名分。",
+      "description_en": "Parent and child pair (child in elementary school) who can run 1 km within 10 minutes. Capacity 50 pairs (100 people). Fee is for two people.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1,
+      "time_limit_minutes": 10,
+      "start_time": "10:26",
+      "capacity": 100,
+      "entry_fee": 3800,
+      "entry_fee_u25": null,
+      "name_ja": "親子ペア1km②（子は未就学）",
+      "name_en": "Parent-Child Pair 1 km (2) (child pre-school)",
+      "description_ja": "親と子のペア（子は未就学）で、1kmを10分以内で走れること。定員50組（100名）。参加費は2名分。",
+      "description_en": "Parent and child pair (child pre-school age) who can run 1 km within 10 minutes. Capacity 50 pairs (100 people). Fee is for two people.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:56:57.954Z",
+  "updated_at": "2026-11-15T08:56:57.954Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://shining-foundation.wixsite.com/new-year-marathon）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105818）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイト（大会要項・お申込・コース・アクセスの各ページ）で、2027年1月9日開催回の内容であり、候補情報の開催日・エントリー期間（2026-06-06〜2026-12-20）と一致している。",
+      "回数は公式サイトに記載がないため null。",
+      "市区町村と会場の住所は公式サイトに記載がないため null。",
+      "参加費は種目ごとに異なる（30km 5,800円、ハーフ 5,400円、10km 4,800円、5km 4,200円、親子ペア1km 3,800円（2名分））。参加費には国営昭和記念公園入園券（大人450円）が含まれる。",
+      "全体の定員2,100名は「お申込」ページの募集人数による。親子ペア1kmの定員は組数（各50組）を人数（各100名）に換算して記載した。",
+      "30kmは distance_type の選択肢にないため other とした。ハーフの距離は21.0975kmとした。",
+      "親子ペア1kmの開始時刻は、スケジュール上の10:25（①）と10:26（②）。",
+      "更衣室の場所について、大会要項（みんなの原っぱ中央管理棟内更衣室）とアクセスページ（レインボープール昭島棟内更衣室）で記載が異なる。",
+      "大会要項によれば、定員に達し次第、募集期間内でも受付を締め切る。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-06-06",
+      "end_date": "2026-12-20",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://shining-foundation.wixsite.com/new-year-marathon/outline",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://shining-foundation.wixsite.com/new-year-marathon/entry",
+      "label": "お申込"
+    },
+    {
+      "url": "https://shining-foundation.wixsite.com/new-year-marathon/access",
+      "label": "コース"
+    },
+    {
+      "url": "https://shining-foundation.wixsite.com/new-year-marathon/%E8%A4%87%E8%A3%BD-%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9",
+      "label": "アクセス"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "国営昭和記念公園「うんどう広場」",
+  "venue_name_en": "Showa Kinen Park \"Undo Hiroba\" (Sports Field)",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

@@ -1,0 +1,166 @@
+{
+  "id": "ako-gishi-marathon-2026",
+  "name_ja": "赤穂義士マラソン大会",
+  "name_en": "Ako Gishi Marathon",
+  "full_name_ja": "第35回 赤穂義士マラソン大会",
+  "full_name_en": "The 35th Ako Gishi Marathon",
+  "edition": 35,
+  "date": "2026-11-29",
+  "prefecture": "28",
+  "city_ja": "赤穂市",
+  "city_en": "Ako City",
+  "description_ja": "兵庫県立赤穂海浜公園内の1周5kmの特設周回コースで行われる大会で、フルマラソン・ハーフ・10km・5kmの4部門があります。安全な園内コースで、初マラソンの方も歓迎しています。",
+  "description_en": "This race is held on a 5 km-per-lap special loop course inside Hyogo Prefectural Ako Kaihin Park, with four divisions: full marathon, half marathon, 10 km and 5 km. The course is within the park and is described as safe, and first-time marathoners are welcome.",
+  "official_url": "https://htj.gr.jp/summary/akogishi",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": null,
+  "entry_start_date": "2026-05-14",
+  "entry_end_date": "2026-11-08",
+  "reception_type": "both",
+  "reception_note_ja": "参加決定通知・コース図・ナンバーカード引換用の封筒が11月11日発送で事前に郵送されます。当日は受付で封筒と引換えにナンバーカード、安全ピン、参加賞（Tシャツ）、プログラムを受け取ります。受付時間は1部・2部・4部が8:00〜9:30、3部（10km）が10:30までです。",
+  "reception_note_en": "Participation notices and course maps are mailed in advance (shipped Nov 11). On race day, participants exchange the mailed envelope at reception for their bib, safety pins, participation T-shirt and program. Reception hours: 8:00-9:30 for the full, half and 5 km divisions; until 10:30 for the 10 km division.",
+  "tags": [
+    "園内周回コース",
+    "1周5km",
+    "安全な園内コース"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": null,
+      "start_time": "10:00",
+      "capacity": 300,
+      "entry_fee": 6500,
+      "entry_fee_u25": null,
+      "name_ja": "1部 フルマラソン",
+      "name_en": "Division 1: Full Marathon",
+      "description_ja": "小学4年生以上の健康な男女。18歳未満は保護者の承諾が必要。定員は1部・2部合計300名。",
+      "description_en": "Healthy men and women in 4th grade of elementary school or above. Participants under 18 need parental consent. Capacity of 300 is shared between Divisions 1 and 2.",
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": null,
+      "start_time": "10:00",
+      "capacity": 300,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "2部 ハーフマラソン",
+      "name_en": "Division 2: Half Marathon",
+      "description_ja": "小学4年生以上の健康な男女。18歳未満は保護者の承諾が必要。定員は1部・2部合計300名。",
+      "description_en": "Healthy men and women in 4th grade of elementary school or above. Participants under 18 need parental consent. Capacity of 300 is shared between Divisions 1 and 2.",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": "11:00",
+      "capacity": 200,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": "3部 10km",
+      "name_en": "Division 3: 10 km",
+      "description_ja": "小学4年生以上の健康な男女。18歳未満は保護者の承諾が必要。女子は混雑防止のためスタートを2分遅らせる予定。定員は3部・4部合計200名。",
+      "description_en": "Healthy men and women in 4th grade of elementary school or above. Participants under 18 need parental consent. Women's start is planned 2 minutes later to avoid congestion. Capacity of 200 is shared between Divisions 3 and 4.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "10:00",
+      "capacity": 200,
+      "entry_fee": 3200,
+      "entry_fee_u25": null,
+      "name_ja": "4部 5km",
+      "name_en": "Division 4: 5 km",
+      "description_ja": "小学生以上の健康な男女。18歳未満は保護者の承諾が必要。女子は混雑防止のためスタートを2分遅らせる予定。定員は3部・4部合計200名。",
+      "description_en": "Healthy men and women in elementary school or above. Participants under 18 need parental consent. Women's start is planned 2 minutes later to avoid congestion. Capacity of 200 is shared between Divisions 3 and 4.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:33:53.817Z",
+  "updated_at": "2026-11-15T09:30:27.278Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://htj.gr.jp/summary/akogishi）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105431）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典: 公式サイト htj.gr.jp の大会要項（赤穂義士マラソン大会）。第35回・2026年11月29日開催の内容が掲載されている。",
+      "定員は1・2部合計300名、3・4部合計200名で、全体の定員の記載はないため entry_capacity は null。各種目の capacity にはそれぞれ所属グループの合計定員を記載。",
+      "参加費は種目ごとに異なるため entry_fee は null。申込締切は2026年11月8日（日）。エントリー開始日は公式サイトに記載がなく null（スポーツエントリー掲載の開始日2026-05-14は公式未確認のため不採用）。",
+      "制限時間は17時（日没）で、16:20までに最終周回に入れない場合は競技終了。種目別の分数の記載はないため time_limit_minutes は null。",
+      "ハーフの距離は 21.0975km として記載（公式は「ハーフマラソン」とのみ記載）。",
+      "公式サイトのエントリー受付表示は「受付中」だが、大会要項と参加申込の一覧では「受付終了」と表示されている。",
+      "受付時間は公式に1部・2部・4部が8:00〜9:30、3部が10:30までと記載。",
+      "抽出日（2026-11-15）時点で申込締切（2026-11-08）は過ぎている。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-05-14",
+      "end_date": "2026-11-08",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://htj.gr.jp/outline",
+      "label": "大会要項と参加申込"
+    },
+    {
+      "url": "https://htj.gr.jp/route",
+      "label": "会場とコース図"
+    },
+    {
+      "url": "https://htj.gr.jp/wp-content/uploads/2024/11/461db398d0170b9f3cd28bd4cf83112a.pdf",
+      "label": "参加申込された選手はコース図をご覧ください！ダウンロードはコチラから"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "兵庫県立赤穂海浜公園",
+  "venue_name_en": "Hyogo Prefectural Ako Kaihin Park",
+  "venue_address": "兵庫県赤穂市御崎1857-5",
+  "start_lat": 34.733856,
+  "start_lng": 134.404022
+}

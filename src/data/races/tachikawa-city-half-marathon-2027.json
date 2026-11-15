@@ -1,0 +1,198 @@
+{
+  "id": "tachikawa-city-half-marathon-2027",
+  "name_ja": "立川シティハーフマラソン",
+  "name_en": "Tachikawa City Half Marathon",
+  "full_name_ja": "立川シティハーフマラソン2027",
+  "full_name_en": "Tachikawa City Half Marathon 2027",
+  "edition": null,
+  "date": "2027-03-14",
+  "prefecture": "13",
+  "city_ja": "立川市",
+  "city_en": "Tachikawa City",
+  "description_ja": "日本陸上競技連盟公認・WA認証コースで、WAワールドランキングコンペティション対象の大会。陸上自衛隊立川駐屯地の幅40mの滑走路をスタートラインに、国営昭和記念公園とその周辺道路を走る。ハーフマラソン、10km、3km、1マイル、親子ペアの部と幅広い種目がある。",
+  "description_en": "A JAAF-certified and WA-certified course race that is a World Athletics Ranking Competition event. Runners start on the 40 m wide runway of the JGSDF Tachikawa Garrison and run through Showa Kinen Park and the surrounding roads. The event offers many races, including a half marathon, 10 km, 3 km, 1 mile and parent-child pair races.",
+  "official_url": "https://tachikawa-half.jp/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": null,
+  "entry_start_date": "2026-10-16",
+  "entry_end_date": "2026-11-16",
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "日本陸連公認コース",
+    "滑走路スタート",
+    "国営昭和記念公園"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 160,
+      "start_time": "10:00",
+      "capacity": 7000,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン（一般、知的障がいの部）",
+      "name_en": "Half Marathon (General / Intellectual Disability)",
+      "description_ja": "中学生を除く15歳以上の男女で完走できる方。定員7,000名は生徒・学生の部を含む。知的障がいの部は療育手帳の写しの提出が必要。",
+      "description_en": "Open to men and women aged 15 or older, excluding junior high school students, who can finish the race. The 7,000 capacity is shared with the Student division. The Intellectual Disability division requires submission of a copy of a rehabilitation certificate.",
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 160,
+      "start_time": "10:00",
+      "capacity": 7000,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン（生徒・学生の部）",
+      "name_en": "Half Marathon (Students)",
+      "description_ja": "生徒・学生が対象。参加賞・記念品なし。定員7,000名は一般・知的障がいの部を含む。",
+      "description_en": "For students. No participation gift or souvenir. The 7,000 capacity is shared with the General and Intellectual Disability divisions.",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": "09:30",
+      "capacity": 1000,
+      "entry_fee": 4500,
+      "entry_fee_u25": null,
+      "name_ja": "10kmレース",
+      "name_en": "10 km Race",
+      "description_ja": "中学生を除く15歳以上の男女で完走できる方。",
+      "description_en": "Open to men and women aged 15 or older, excluding junior high school students, who can finish the race.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": null,
+      "start_time": "12:40",
+      "capacity": 600,
+      "entry_fee": 3000,
+      "entry_fee_u25": null,
+      "name_ja": "ファンラン3kmの部",
+      "name_en": "Fun Run 3 km",
+      "description_ja": "中学生以上の男女。参加料は一般3,000円、中学生1,000円、立川市民の中学生は無料（記念品のみ）。男子は12:40、女子は12:50スタート。各区分150名上限。",
+      "description_en": "For men and women of junior high school age or older. Fee: general 3,000 yen, junior high school students 1,000 yen, Tachikawa-resident junior high school students free (souvenir only). Men start at 12:40 and women at 12:50. Cap of 150 per division.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.609,
+      "time_limit_minutes": null,
+      "start_time": "13:00",
+      "capacity": 1500,
+      "entry_fee": 2000,
+      "entry_fee_u25": null,
+      "name_ja": "1マイルレース",
+      "name_en": "1 Mile Race",
+      "description_ja": "小学3年生以上の男女。参加料は一般2,000円、小中学生1,000円、立川市民の小中学生は無料（記念品のみ）。学年別に13:00〜13:40スタート。",
+      "description_en": "For men and women in 3rd grade of elementary school or above. Fee: general 2,000 yen, elementary and junior high school students 1,000 yen, Tachikawa-resident elementary and junior high school students free (souvenir only). Start times run from 13:00 to 13:40 by grade.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.609,
+      "time_limit_minutes": null,
+      "start_time": "14:00",
+      "capacity": 450,
+      "entry_fee": 2000,
+      "entry_fee_u25": null,
+      "name_ja": "ファンラン親子ペアの部",
+      "name_en": "Fun Run Parent-Child Pair",
+      "description_ja": "小学1〜3年生と保護者のペア。1組2,000円（立川市民は無料で記念品のみ）。定員は各学年150組、計450組（900名）。学年別に14:00〜14:10スタート。",
+      "description_en": "Pairs of an elementary school student in grades 1 to 3 and a parent or guardian. 2,000 yen per pair (free for Tachikawa residents, souvenir only). Capacity is 150 pairs per grade, 450 pairs (900 people) in total. Start times run from 14:00 to 14:10 by grade.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T09:20:59.236Z",
+  "updated_at": "2026-11-15T09:20:59.236Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://tachikawa-half.jp/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105910）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイト tachikawa-half.jp（大会要項2027、エントリー、コース・アクセス、お知らせ）。",
+      "回数は公式サイトに記載がないため null。",
+      "エントリー期間は当初2026年10月16日〜11月4日だったが、11月16日まで延長された。",
+      "2026年11月6日の告知で、ハーフマラソン、10kmレース、親子ペアの部（小学1年生・2年生）は定員に達し受付終了。",
+      "全体の定員は公式に明記されていないため null。ハーフの定員7,000名は一般・知的障がいの部と生徒・学生の部の合計。",
+      "10kmレースと3km・1マイル・親子ペアの制限時間は記載がない。ハーフマラソンは12:40終了のため、10:00スタートから160分とした。",
+      "1マイルは約1.609kmに換算して記載。",
+      "会場の住所と受付方法（前日・当日など）は記載がないため null。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー（延長）",
+      "label_en": "General Entry (extended)",
+      "start_date": "2026-10-16",
+      "end_date": "2026-11-16",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://tachikawa-half.jp/pages/detail2027",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://tachikawa-half.jp/pages/%E3%82%B3%E3%83%BC%E3%82%B9-%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9",
+      "label": "コース・アクセス"
+    },
+    {
+      "url": "https://tachikawa-half.jp/pages/entry",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://tachikawa-half.jp/blogs/news/%E7%AB%8B%E5%B7%9D%E3%82%B7%E3%83%86%E3%82%A3%E3%83%8F%E3%83%BC%E3%83%95%E3%83%9E%E3%83%A9%E3%82%BD%E3%83%B32027%E4%B8%80%E9%83%A8%E7%A8%AE%E7%9B%AE%E3%82%92%E5%8F%97%E4%BB%98%E7%B5%82%E4%BA%86%E3%81%84%E3%81%9F%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F",
+      "label": "立川シティハーフマラソン2027 一部種目を受付終了いたしました"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "陸上自衛隊立川駐屯地、国営昭和記念公園及びその周辺道路",
+  "venue_name_en": "JGSDF Tachikawa Garrison, Showa Kinen Park and surrounding roads",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

@@ -1,0 +1,165 @@
+{
+  "id": "osaka-yodogawa-marathon-2027",
+  "name_ja": "大阪淀川マラソン",
+  "name_en": "Osaka Yodogawa Marathon",
+  "full_name_ja": "第25回 大阪淀川マラソン",
+  "full_name_en": "The 25th Osaka Yodogawa Marathon",
+  "edition": 25,
+  "date": "2027-01-17",
+  "prefecture": "27",
+  "city_ja": null,
+  "city_en": null,
+  "description_ja": "スポーツワン主催のシリーズ大会の一つで、30km・ハーフマラソン・10km・5kmの4種目が開催されます。2027年1月17日開催の第25回大会は、30kmが9時20分、ハーフが9時30分、10kmと5kmが11時40分スタートの予定です。",
+  "description_en": "This is one event in a series of races hosted by Sportsone, with four events: 30km, half marathon, 10km and 5km. The 25th edition will be held on January 17, 2027. The 30km starts at 9:20, the half marathon at 9:30, and the 10km and 5km at 11:40.",
+  "official_url": "https://sportsone.jp/running/osaka-half/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 750,
+  "entry_start_date": "2026-09-10",
+  "entry_end_date": "2027-01-10",
+  "reception_type": "race_day",
+  "reception_note_ja": "受付は当日8:30から開始。各種目のスタート20分前までに受付を済ませる必要があります。",
+  "reception_note_en": "Race-day reception opens at 8:30. Participants must complete reception at least 20 minutes before their event's start.",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "other",
+      "distance_km": 30,
+      "time_limit_minutes": null,
+      "start_time": "09:20",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "30km",
+      "name_en": "30km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": null,
+      "start_time": "09:30",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": "11:40",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "11:40",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T09:01:21.147Z",
+  "updated_at": "2026-11-15T09:01:21.147Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://sportsone.jp/running/osaka-half/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/107000）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイト（sportsone.jp/running/osaka-half/）のテキストは文字化けしており、会場名・住所・市区町村・各種目の参加資格は判読できなかったため null にしています。",
+      "大会名は候補情報に従いました。公式サイトの一覧で第25回が2027/1/17に開催されることは確認できましたが、サイト上の大会名は判読できません。",
+      "エントリー期間（2026-09-10〜2027-01-10）は候補情報（スポーツエントリー掲載）によるもので、公式サイトのテキストには記載がありませんでした。",
+      "参加費は公式サイトに「3,000円〜」とだけ記載されており、種目別の金額は不明です。そのため entry_fee は null、entry_fee_by_category は true としています。",
+      "定員の「750人（予定）」は公式サイトの概要欄の表記です。大会全体の定員か、各回の定員かは不明確です。",
+      "各種目のスタート時刻は2027年1月〜5月のタイムスケジュールによります。10kmと5kmの開会式・競技開始は11:40です。13:10は競技終了時刻で、種目別の制限時間は記載がないため null としています。",
+      "路面（ロード・トレイル）は記載がないため null としています。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-10",
+      "end_date": "2027-01-10",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://sportsone.jp/running/osaka-half/#entry",
+      "label": "�G���g���["
+    },
+    {
+      "url": "https://sportsone.jp/running/osaka-half/#access",
+      "label": "�A�N�Z�X"
+    },
+    {
+      "url": "https://sportsone.jp/running/osaka-half/#access_01",
+      "label": "������"
+    },
+    {
+      "url": "https://sportsone.jp/running/qa.html#qa_entry",
+      "label": "�G���g���[�ɂ���"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

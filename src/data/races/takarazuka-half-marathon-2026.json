@@ -1,0 +1,157 @@
+{
+  "id": "takarazuka-half-marathon-2026",
+  "name_ja": "宝塚ハーフマラソン大会",
+  "name_en": "Takarazuka Half Marathon",
+  "full_name_ja": "第22回 宝塚ハーフマラソン大会",
+  "full_name_en": "The 22nd Takarazuka Half Marathon",
+  "edition": 22,
+  "date": "2026-12-20",
+  "prefecture": "28",
+  "city_ja": "宝塚市",
+  "city_en": "Takarazuka City",
+  "description_ja": "宝塚市の花のみち河川敷をスタートし、末広中央公園にゴールする、年の走り収めの大会です。10マイル、クォーターマラソン、ファミリー3kmの3種目があり、市外・県外からも多くのランナーが参加します。ゼッケンと計測チップは事前に送付され、当日の選手受付は不要です。",
+  "description_en": "This year-end race starts at the Hana-no-Michi riverside in Takarazuka and finishes at Suehiro Chuo Park. It offers three events: the 10-mile, the quarter marathon and the Family 3km, and draws runners from inside and outside the city and prefecture. Bibs and timing chips are mailed in advance, so no race-day registration is needed.",
+  "official_url": "https://takarazuka-half.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 5000,
+  "entry_start_date": "2026-08-01",
+  "entry_end_date": "2026-11-03",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "10マイル・クォーターはゼッケン・計測チップ・Tシャツを12月上旬に事前送付し、当日の選手受付は不要です。ファミリー3kmはゼッケン引換証を事前送付し、当日に末広中央公園会場（10:00〜11:00）でゼッケン等と引き換えます。",
+  "reception_note_en": "For the 10-mile and quarter marathon, bibs, timing chips and T-shirts are mailed in early December, and no race-day registration is needed. For the Family 3km, a bib exchange voucher is mailed in advance and exchanged for the bib at Suehiro Chuo Park between 10:00 and 11:00 on race day.",
+  "tags": [
+    "河川敷コース",
+    "年末開催",
+    "家族で参加"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "other",
+      "distance_km": 16.0934,
+      "time_limit_minutes": 120,
+      "start_time": "09:15",
+      "capacity": 2500,
+      "entry_fee": 6500,
+      "entry_fee_u25": null,
+      "name_ja": "10マイル",
+      "name_en": "10 Miles",
+      "description_ja": "16歳以上（2011年4月1日以前生まれ）。65歳以上の部あり。13km関門は1時間50分。",
+      "description_en": "Ages 16 and over (born on or before April 1, 2011). A separate division for ages 65 and over is offered. The 13km checkpoint closes at 1 hour 50 minutes.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 10.54875,
+      "time_limit_minutes": 80,
+      "start_time": "09:15",
+      "capacity": 1000,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "クォーターマラソン",
+      "name_en": "Quarter Marathon",
+      "description_ja": "16歳以上（2011年4月1日以前生まれ）。65歳以上の部あり。",
+      "description_en": "Ages 16 and over (born on or before April 1, 2011). A separate division for ages 65 and over is offered.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": null,
+      "start_time": "12:00",
+      "capacity": 1500,
+      "entry_fee": 2500,
+      "entry_fee_u25": null,
+      "name_ja": "ファミリー3km",
+      "name_en": "Family 3km",
+      "description_ja": "小学生以上。1人での参加も可能です。親子参加は2人で2,500円で、子供は中学生までです。",
+      "description_en": "Elementary school students and older. Solo entry is also possible. Parent-and-child entry is 2,500 yen for two, and the child must be a junior high school student or younger.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:49:25.205Z",
+  "updated_at": "2026-11-15T08:49:25.205Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://takarazuka-half.com/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106581）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイト（takarazuka-half.com）の大会要項・エントリー・お知らせのページです。",
+      "大会名に「ハーフマラソン」とありますが、公式の種目は10マイル、クォーターマラソン、ファミリー3kmで、ハーフマラソンの種目は記載がありません。",
+      "エントリー期間は、エントリーページとお知らせ（10/23 期間延長、11/5 受付終了）に基づき、2026-08-01〜2026-11-03としました。大会要項の申込方法には旧締切の10月31日が残っています。",
+      "エントリーは2026-11-03で終了しています（2026-11-05付のお知らせ）。",
+      "entry_capacity は種目別定員の合計（2,500＋1,000＋1,500）です。公式に全体定員の記載はありません。",
+      "参加費は種目ごとに異なります。別途、RUNNET（4,000円まで240円、4,001円以上は6%）またはスポーツエントリー（4,000円まで220円、4,001円以上は5.3%）の手数料がかかります。",
+      "会場の番地までの住所は記載がないため null としました。事務局の住所は兵庫県宝塚市東洋町1番1号です。",
+      "路面の種類は公式の記載がなく、河川敷のコースであることから road としましたが、「未舗装の路面や一部狭い所がある」との注意書きがあります。",
+      "ファミリー3kmの制限時間は記載がなく、10マイルとクォーターのスタート時刻は9:15です。ファミリー3kmのスタートは12:00です。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-08-01",
+      "end_date": "2026-11-03",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://takarazuka-half.com/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://takarazuka-half.com/access/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://takarazuka-half.com/sponsorship/",
+      "label": "協賛募集"
+    },
+    {
+      "url": "https://takarazuka-half.com/entry/",
+      "label": "エントリー"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "花のみち河川敷会場（10マイル・クォーター）／末広中央公園会場（ファミリー3km・ゴール）",
+  "venue_name_en": "Hana-no-Michi Riverside Venue (10-mile and quarter marathon) / Suehiro Chuo Park Venue (Family 3km and finish)",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

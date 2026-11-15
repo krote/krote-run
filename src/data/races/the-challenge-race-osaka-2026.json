@@ -1,0 +1,199 @@
+{
+  "id": "the-challenge-race-osaka-2026",
+  "name_ja": "THE CHALLENGE RACE OSAKA",
+  "name_en": "THE CHALLENGE RACE OSAKA",
+  "full_name_ja": "THE CHALLENGE RACE OSAKA 6",
+  "full_name_en": "THE CHALLENGE RACE OSAKA 6",
+  "edition": 6,
+  "date": "2026-12-13",
+  "prefecture": "27",
+  "city_ja": "大阪市",
+  "city_en": "Osaka City",
+  "description_ja": "大阪・淀川河川敷の全長10km周回コースで行われる日本陸連公認の記録挑戦型大会。高低差1.5m以内のフラットな高速コースで、1マイルからフルマラソンまで6種目を実施する。目標タイムに応じた全12グループのペーサーを配置し、給水地点ではドリンクとジェルも用意される。",
+  "description_en": "A JAAF-certified, record-oriented race on a 10 km loop course along the Yodogawa riverbank in Osaka. The flat, fast course has an elevation difference of 1.5 m or less, and the race offers six events from the 1 mile to the full marathon. Pacers are placed in 12 groups according to target time, and the aid stations provide drinks and gels.",
+  "official_url": "https://race.rdc-run.com/series/osaka/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 500,
+  "entry_start_date": "2026-04-04",
+  "entry_end_date": "2026-12-08",
+  "reception_type": "race_day",
+  "reception_note_ja": "ゼッケンの事前送付はなく、当日8:00〜9:00に受付場所（淀川河川公園 西中島地区野球場）でエントリーサイトの決済ページを提示して受け取る。受付時間に遅れると出走できない。",
+  "reception_note_en": "Bibs are not mailed in advance. On race day, between 8:00 and 9:00, show the payment page of the entry site at the reception area (Yodogawa Riverside Park, Nishinakajima Baseball Field) to receive your bib. Runners who miss the reception hours cannot start.",
+  "tags": [
+    "フラットコース",
+    "高速コース",
+    "日本陸連公認"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 270,
+      "start_time": "09:30",
+      "capacity": 300,
+      "entry_fee": 11000,
+      "entry_fee_u25": null,
+      "name_ja": "フルマラソン",
+      "name_en": "Full Marathon",
+      "description_ja": "参加資格: 小学生以上。",
+      "description_en": "Eligibility: elementary school students and older.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 30,
+      "time_limit_minutes": 192,
+      "start_time": "09:30",
+      "capacity": 300,
+      "entry_fee": 7700,
+      "entry_fee_u25": null,
+      "name_ja": "30km",
+      "name_en": "30km",
+      "description_ja": "参加資格: 小学生以上。",
+      "description_en": "Eligibility: elementary school students and older.",
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 150,
+      "start_time": "09:30",
+      "capacity": 300,
+      "entry_fee": 7700,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "参加資格: 小学生以上。",
+      "description_en": "Eligibility: elementary school students and older.",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 90,
+      "start_time": "09:30",
+      "capacity": 200,
+      "entry_fee": 5500,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10km",
+      "description_ja": "参加資格: 小学生以上。",
+      "description_en": "Eligibility: elementary school students and older.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 40,
+      "start_time": "09:30",
+      "capacity": 200,
+      "entry_fee": 3300,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": "参加資格: 小学生以上。",
+      "description_en": "Eligibility: elementary school students and older.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": null,
+      "time_limit_minutes": null,
+      "start_time": "09:35",
+      "capacity": null,
+      "entry_fee": 3300,
+      "entry_fee_u25": null,
+      "name_ja": "1マイル",
+      "name_en": "1 Mile",
+      "description_ja": "参加資格: 小学生以上。コースはスタート→0.804km地点折返→フィニッシュ。",
+      "description_en": "Eligibility: elementary school students and older. The course runs from the start to a turnaround at 0.804 km and back to the finish.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:45:44.273Z",
+  "updated_at": "2026-11-15T09:30:48.729Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://race.rdc-run.com/series/osaka/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/105121）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイトは候補と同じ第6回（2026-12-13）の情報を掲載している。",
+      "エントリー開始日2026-04-04は公式サイトに記載がなく、候補情報（スポーツエントリー掲載）によるもの。",
+      "エントリー締切は公式サイトの「原則、開催週の火曜日いっぱい」に基づき2026-12-08とした。候補情報のスポーツエントリー掲載は12-07まで、大会要項は「レース開始1週間前まで」で、記載が一致しない。",
+      "定員は種目別（フル300・30km300・ハーフ300・10km200・5km200）で、全種目合計500人に達した時点で受付終了。",
+      "1マイルの距離は0.804km折返しの往復から約1.608kmと思われるが、明記がないためdistance_kmはnullとした。1マイルの制限時間と定員も記載なし。",
+      "大会要項では開催日時は「複数日開催のためホームページを確認」とあり、スタートは9:30（1マイルは9:35）。",
+      "スケジュールページでは本大会に世界陸連公認の表示があるが、大会概要は日本陸連公認のみ記載のため、公認区分はタグでは日本陸連公認とした。",
+      "給水地点の記載が一致しない（特徴欄: 3km・7km・10km、Q&A: 1km・4.9km・8km付近）。",
+      "参加料はR.LEAGUE会員10%OFF。エントリーページは設計プレビューのため参照していない。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-04-04",
+      "end_date": "2026-12-08",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://race.rdc-run.com/series/osaka/#overview",
+      "label": "概要"
+    },
+    {
+      "url": "https://race.rdc-run.com/schedule/?venue=OSAKA",
+      "label": "この大会にエントリー →"
+    },
+    {
+      "url": "https://race.rdc-run.com/entry?event=EVT_5f9cd5a9",
+      "label": "202612/13（日）\n        THE CHALLENGE RACE OSAKA 6\n                エントリー受付中"
+    },
+    {
+      "url": "https://race.rdc-run.com/entry?event=EVT_5d061104",
+      "label": "20272/13（土）\n        THE CHALLENGE RACE OSAKA 7\n                エントリー受付中"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "淀川河川敷（受付: 淀川河川公園 西中島地区野球場）",
+  "venue_name_en": "Yodogawa Riverside (Reception: Yodogawa Riverside Park Nishinakajima Baseball Field)",
+  "venue_address": "大阪府大阪市淀川区西中島1-11-15",
+  "start_lat": 34.724277,
+  "start_lng": 135.499084
+}

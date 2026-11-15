@@ -1,0 +1,167 @@
+{
+  "id": "osaka-yodogawa-marathon-2026",
+  "name_ja": "大阪淀川マラソン",
+  "name_en": "Osaka Yodogawa Marathon",
+  "full_name_ja": "第23回 大阪淀川マラソン",
+  "full_name_en": "The 23rd Osaka Yodogawa Marathon",
+  "edition": 23,
+  "date": "2026-11-22",
+  "prefecture": "27",
+  "city_ja": null,
+  "city_en": null,
+  "description_ja": "30km、ハーフマラソン、10km、5kmの4種目を同日に開催するランニング大会。ハーフマラソンは9:30、その他の種目は10:30にスタートする。",
+  "description_en": "A running event offering four races on the same day: 30km, half marathon, 10km and 5km. The half marathon starts at 9:30 and the other races start at 10:30.",
+  "official_url": "https://sportsone.jp/running/osaka-half/",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": 750,
+  "entry_start_date": "2026-08-26",
+  "entry_end_date": "2026-11-15",
+  "reception_type": "race_day",
+  "reception_note_ja": "当日08:30より受付開始（受付時間08:30〜10:10）。各種目のスタート20分前までに受付を済ませる。",
+  "reception_note_en": "Race-day registration opens at 08:30 (08:30-10:10). Complete registration at least 20 minutes before your race starts.",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "other",
+      "distance_km": 30,
+      "time_limit_minutes": null,
+      "start_time": "10:30",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "30km",
+      "name_en": "30km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": null,
+      "start_time": "09:30",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": "10:30",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "10:30",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": null,
+      "description_en": null,
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:27:58.751Z",
+  "updated_at": "2026-11-15T08:27:58.751Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://sportsone.jp/running/osaka-half/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106914）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイトのテキストは文字化けしており、一部しか判読できなかった。第23回（2026/11/22）の開催、種目、スケジュール、参加費「3,000円〜」は判読できた。",
+      "大会名・回数・開催日は大会情報サイトの掲載内容と、公式サイトの開催一覧が一致している。",
+      "会場名・住所・市区町村は文字化けのため読み取れず、null とした。候補情報には「大阪府」のみ記載がある。",
+      "参加費は「3,000円〜」とだけ記載があり、種目別の金額は不明。",
+      "参加規模「750名（予定）」は、全体の定員か種目ごとの人数か判別できない。",
+      "エントリー期間（2026-08-26〜2026-11-15）はスポーツエントリー掲載の候補情報による。公式サイトの文字化け部分では確認できていない。",
+      "制限時間は不明。競技終了時刻は14:00と記載されている。",
+      "参加資格（年齢条件）は文字化けのため正確に判読できず、null とした。",
+      "同じ公式サイト上に第24回以降（2026/12/5〜2027/5/15）の大会も掲載されているが、第23回のみを対象とした。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-08-26",
+      "end_date": "2026-11-15",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://sportsone.jp/running/osaka-half/#entry",
+      "label": "�G���g���["
+    },
+    {
+      "url": "https://sportsone.jp/running/osaka-half/#access",
+      "label": "�A�N�Z�X"
+    },
+    {
+      "url": "https://sportsone.jp/running/osaka-half/#access_01",
+      "label": "������"
+    },
+    {
+      "url": "https://sportsone.jp/running/qa.html#qa_entry",
+      "label": "�G���g���[�ɂ���"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

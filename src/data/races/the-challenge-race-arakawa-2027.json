@@ -1,0 +1,108 @@
+{
+  "id": "the-challenge-race-arakawa-2027",
+  "name_ja": "THE CHALLENGE RACE 東京荒川",
+  "name_en": "THE CHALLENGE RACE Tokyo Arakawa",
+  "full_name_ja": "THE CHALLENGE RACE 49",
+  "full_name_en": "THE CHALLENGE RACE 49 (Tokyo Arakawa)",
+  "edition": 49,
+  "date": "2027-03-28",
+  "prefecture": "13",
+  "city_ja": null,
+  "city_en": null,
+  "description_ja": "日本陸連公認の高速マラソン大会シリーズ「THE CHALLENGE RACE」の東京・荒川開催回。高低差2m以内の平坦な公認コースで、目標タイム別にペーサーが配置され、給水所にはドリンクとジェルが用意されます。",
+  "description_en": "This Tokyo Arakawa edition is part of THE CHALLENGE RACE, a series of fast, JAAF-certified marathon events. The certified course has an elevation difference of 2 m or less, pacers are placed by target finish time, and aid stations provide drinks and gels.",
+  "official_url": "https://race.rdc-run.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": false,
+  "entry_capacity": null,
+  "entry_start_date": "2026-10-27",
+  "entry_end_date": "2027-03-21",
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "フラットコース",
+    "日本陸連公認",
+    "ペーサーあり"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T09:25:36.474Z",
+  "updated_at": "2026-11-15T09:25:36.474Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://race.rdc-run.com/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/107650）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイトのスケジュールで、2027-03-28（日）東京荒川「THE CHALLENGE RACE 49」（日本陸連公認、エントリー受付中）を確認。開催日は候補情報と一致。",
+      "エントリー期間の日付は公式サイトに記載がない。候補情報のスポーツエントリー期間（2026-10-27〜2027-03-21）は、公式スケジュールの49回の申込方法（会員エントリー、e-moshicom）にスポーツエントリーが載っていないため採用せず、entry_periodsは空とした。",
+      "参加費は公式サイトで49回個別の記載がない。要項の標準額は種目・大会により異なる場合があるため、null/空とした。",
+      "定員、会場名、住所、スタート時刻は公式サイトの該当ページに記載がなく、null。",
+      "種目: 49回の実施種目は公式サイトに明記がなく、categoriesは空とした。同日(2027-03-28)に東京・荒川で「THE CHALLENGE RACE 50km TOKYO」（IAU50km世界選手権代表選考シリーズ第4戦）が別に案内されているが、49回との関係は不明。",
+      "市区町村は「東京・荒川」とのみ記載があり、行政上の市区町村名は明記されていないためnull。",
+      "公式サイトは各大会の個別ページ（49回）の本文を含まず、スケジュール一覧と共通要項に基づく抽出。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-10-27",
+      "end_date": "2027-03-21",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://race.rdc-run.com/schedule/",
+      "label": "Recommend\n        YOKOHAMA\n        2026.11.21 ／ エントリー受付中\n      \n      →"
+    },
+    {
+      "url": "https://race.rdc-run.com/50k/",
+      "label": "日本代表選考シリーズ\n          50K\n          50km 日本代表選考シリーズ\n          IAU 50km世界選手権へ。全国4会場のシリーズと決勝大会"
+    },
+    {
+      "url": "https://race.rdc-run.com/the-challenge-race-policy/",
+      "label": "大会要項・規約"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": null,
+  "venue_name_en": null,
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

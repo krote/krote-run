@@ -1,0 +1,170 @@
+{
+  "id": "uprun-ichikawa-edogawa-half-marathon-2026",
+  "name_ja": "UPRUN市川江戸川ハーフマラソン",
+  "name_en": "UPRUN Ichikawa Edogawa Half Marathon",
+  "full_name_ja": "第94回UPRUN市川江戸川ハーフマラソン",
+  "full_name_en": "The 94th UPRUN Ichikawa Edogawa Half Marathon",
+  "edition": 94,
+  "date": "2026-11-15",
+  "prefecture": "12",
+  "city_ja": "市川市",
+  "city_en": "Ichikawa City",
+  "description_ja": "江戸川河川敷で開催される、1周5kmの走りやすいコースの大会。市川駅から近く、初心者から上級者まで自己ベスト更新や練習に利用できる。自動計測システムにより、完走後すぐに記録入りの完走証が発行される。",
+  "description_en": "This race is held on the Edogawa riverbank on a runner-friendly 5 km loop course. It is close to Ichikawa Station and suits runners from beginners to advanced, whether they are chasing a personal best or training. An automatic timing system issues a finisher's certificate with the recorded time right after the finish.",
+  "official_url": "https://up-run.jp/events/up-ichikawa94/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 500,
+  "entry_start_date": "2026-08-09",
+  "entry_end_date": "2026-11-13",
+  "reception_type": "race_day",
+  "reception_note_ja": "受付時間は8:30から各種目スタート30分前まで。大会説明は各種目スタート20分前。ゼッケンと注意事項のパンフレットは当日受付で渡され、事前郵送はない。開催2日前までにメールで詳細が通知される。",
+  "reception_note_en": "Reception is open from 8:30 until 30 minutes before each event's start. The briefing is held 20 minutes before each start. Bibs and a pamphlet of precautions are handed out at race-day reception, and nothing is mailed in advance. Details are sent by email up to 2 days before the event.",
+  "tags": [
+    "河川敷コース",
+    "1周5kmの周回",
+    "自動計測"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 180,
+      "start_time": "09:30",
+      "capacity": null,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "男女、中学生以上。制限時間3時間。",
+      "description_en": "Open to men and women, junior high school students and older. Time limit 3 hours.",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": "10:00",
+      "capacity": null,
+      "entry_fee": 3500,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10 km",
+      "description_ja": "男女、中学生以上。制限時間なし。ペア割は1組6500円。",
+      "description_en": "Open to men and women, junior high school students and older. No time limit. Pair discount: 6,500 yen per pair.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "10:00",
+      "capacity": null,
+      "entry_fee": 3000,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5 km",
+      "description_ja": "誰でも参加可。制限時間なし。ペア割は1組5500円。",
+      "description_en": "Open to everyone. No time limit. Pair discount: 5,500 yen per pair.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "10:00",
+      "capacity": null,
+      "entry_fee": 2000,
+      "entry_fee_u25": null,
+      "name_ja": "親子5km",
+      "name_en": "Parent and Child 5 km",
+      "description_ja": "3歳から小学生のお子様と保護者が対象。参加費は保護者1名とお子様1名の1組料金。制限時間なし。",
+      "description_en": "For children aged 3 to elementary school and their parent or guardian. The fee is per pair of one guardian and one child. No time limit.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:17:36.877Z",
+  "updated_at": "2026-11-15T09:31:01.300Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://up-run.jp/events/up-ichikawa94/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106791）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイト（up-run.jp）は候補と同じ第94回・2026年11月15日の開催内容を掲載している。",
+      "エントリー期間（2026-08-09〜2026-11-13）は公式サイトに記載がなく、候補情報（スポーツエントリー掲載）によるもの。期間別の参加費は不明のため null。",
+      "早割は開催1か月前までの申込みで500円OFF。参加費は種目ごとに異なる。",
+      "種目別の定員は記載がなく、全体定員500名のみ。",
+      "路面（舗装・未舗装）の記載がないため surface は null。",
+      "ハーフの距離は21.0975kmとして記載。公式サイトには「ハーフ」とのみある。",
+      "会場住所は公式サイトの「開催地」の表記。",
+      "雨天決行。中止の場合は前日または当日朝6時までに大会詳細ページとメールで告知される。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-08-09",
+      "end_date": "2026-11-13",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://up-run.jp/directions/",
+      "label": "会場までの道順"
+    },
+    {
+      "url": "https://up-run.jp/events/up-ichikawa94/#entry",
+      "label": "大会エントリーはこちら"
+    },
+    {
+      "url": "https://up-run.jp/events/up-ichikawa94/#route",
+      "label": "会場までの道順はこちら"
+    },
+    {
+      "url": "https://up-run.jp/entrychk/",
+      "label": "～案内メールが届かない方へ～"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "市川江戸川河川敷緑地周辺",
+  "venue_name_en": "Around the Ichikawa Edogawa Riverside Green Area",
+  "venue_address": "千葉県市川市市川南4-4-24",
+  "start_lat": 35.726154,
+  "start_lng": 139.900421
+}

@@ -1,0 +1,162 @@
+{
+  "id": "sapporo-international-ski-marathon-2027",
+  "name_ja": "札幌国際スキーマラソン",
+  "name_en": "Sapporo International Ski Marathon",
+  "full_name_ja": null,
+  "full_name_en": null,
+  "edition": null,
+  "date": "2027-02-07",
+  "prefecture": "01",
+  "city_ja": "札幌市",
+  "city_en": "Sapporo City",
+  "description_ja": "白旗山競技場とその周辺コースで開催される、クロスカントリースキーの市民大会です。50km・25km・10km・5kmの種目があり、ワールドロペット公認大会です。50kmは25kmコースを2周します。",
+  "description_en": "A citizen cross-country ski race held at and around the Shirahatayama Stadium. It offers 50km, 25km, 10km and 5km events and is a certified Worldloppet race. The 50km race consists of two laps of the 25km course.",
+  "official_url": "https://www.sapporo-sport.jp/ski/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": null,
+  "entry_start_date": "2026-11-09",
+  "entry_end_date": "2027-01-05",
+  "reception_type": "race_day",
+  "reception_note_ja": "受付（トランスポンダ・Bib引換）は大会当日の2月7日。50kmは7:30～8:50、25kmは7:30～9:10、10kmは7:30～9:50、5kmは11:30～12:50（5kmはBibのみ）。トランスポンダを紛失した場合は実費負担。コース試走は2月5日（金）・6日（土）の10:00～15:00。",
+  "reception_note_en": "Bib and transponder pick-up is on race day, Feb 7: 50km 7:30-8:50, 25km 7:30-9:10, 10km 7:30-9:50, 5km 11:30-12:50 (Bib only). Lost transponders are charged at actual cost. Course trial runs are on Feb 5 (Fri) and Feb 6 (Sat), 10:00-15:00.",
+  "tags": [
+    "クロスカントリースキー",
+    "ワールドロペット公認",
+    "雪上コース"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "ultra",
+      "distance_km": 50,
+      "time_limit_minutes": 420,
+      "start_time": "09:00",
+      "capacity": null,
+      "entry_fee": 8000,
+      "entry_fee_u25": null,
+      "name_ja": "50km",
+      "name_en": "50km",
+      "description_ja": "男子49歳以下、男子50歳以上、女子の区分あり。フリーテクニック。通過制限は12km地点で90分、25km地点で180分、37km地点で270分。",
+      "description_en": "Divisions: men 49 and under, men 50 and over, women. Free technique. Checkpoint cut-offs: 12km at 90 min, 25km at 180 min, 37km at 270 min.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 25,
+      "time_limit_minutes": 270,
+      "start_time": "09:20",
+      "capacity": null,
+      "entry_fee": 6500,
+      "entry_fee_u25": null,
+      "name_ja": "25km",
+      "name_en": "25km",
+      "description_ja": "男子・女子の区分あり。フリーテクニック。12km地点の通過制限は120分。",
+      "description_en": "Men's and women's divisions. Free technique. Cut-off at the 12km point is 120 min.",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 150,
+      "start_time": "10:00",
+      "capacity": null,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10km",
+      "description_ja": "男子・女子の区分あり。フリーテクニック。",
+      "description_en": "Men's and women's divisions. Free technique.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": 120,
+      "start_time": "13:00",
+      "capacity": null,
+      "entry_fee": 3500,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": "一般、小・中学生、未就学児の区分あり。参加料は一般3,500円、小・中学生1,500円、未就学児は無料。クラシカル走法で、記録計測はない。中学生以下の参加は保護者の承認が必要。",
+      "description_en": "Divisions: general, elementary/junior high school students, preschoolers. Fees: general 3,500 yen, elementary/junior high 1,500 yen, preschool free. Classical technique, no timing. Participants in junior high or younger need parental approval.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T09:09:10.401Z",
+  "updated_at": "2026-11-15T09:30:42.198Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://www.sapporo-sport.jp/ski/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/107552）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイト（sapporo-sport.jp/ski/ の開催要項ページとアクセスページ）。開催日2027年2月7日と申込期間は候補情報と一致している。",
+      "公式サイトのテキストに今回の回数の記載がないため、edition、full_name_ja、full_name_en は null。候補情報には「第47回」とあるが公式で確認できず、トップページには「第37回大会ハイライト映像」とある。",
+      "定員は記載がないため null。",
+      "参加費は種目ごとに異なるため、全体の entry_fee は null。申込期間はインターネットがランネット／スポーツエントリーで2026年11月9日10:00～2027年1月5日。電話受付代行は2027年1月5日17:00まで。",
+      "路面は雪上のスキーコースで、road・trail・mixed のどれにも当てはまらないため surface は null。",
+      "25kmの distance_type は選択肢にないため other としている。",
+      "5kmのテキストは「2時間分 (120分)」と崩れているため、制限時間は120分と解釈した。",
+      "5kmの開始時刻13:00と制限時間は、表の並びから5kmのものと解釈した。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-11-09",
+      "end_date": "2027-01-05",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.sapporo-sport.jp/ski/about.html",
+      "label": "実施要項・エントリー"
+    },
+    {
+      "url": "https://www.sapporo-sport.jp/ski/access.html",
+      "label": "会場アクセス"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "白旗山競技場",
+  "venue_name_en": "Shirahatayama Stadium",
+  "venue_address": "札幌市清田区真栄502番地1",
+  "start_lat": 42.955894,
+  "start_lng": 141.433456
+}

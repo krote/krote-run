@@ -1,0 +1,169 @@
+{
+  "id": "setoda-lemon-marathon-2027",
+  "name_ja": "せとだレモンマラソン",
+  "name_en": "Setoda Lemon Marathon",
+  "full_name_ja": "せとだレモンマラソン2027",
+  "full_name_en": "Setoda Lemon Marathon 2027",
+  "edition": null,
+  "date": "2027-02-21",
+  "prefecture": "34",
+  "city_ja": "尾道市",
+  "city_en": "Onomichi City",
+  "description_ja": "しまなみ海道の生口島・瀬戸田を舞台に、凪いだ瀬戸内海と国産レモン生産量日本一のレモン畑を眺めながら走る大会です。マイボトル携帯を義務づけてごみの出ない給水システムを採用するなど、環境負荷の低減に取り組んでいます。前夜祭・後夜祭やマルシェも開催され、観光や食体験も楽しめます。",
+  "description_en": "Held in Setoda on Ikuchijima Island along the Shimanami Kaido, this race takes runners past the calm Seto Inland Sea and lemon groves in Japan's top lemon-producing area. It reduces environmental impact by requiring runners to carry their own bottles and by using a waste-free water station system. Pre- and post-race events and a marché let participants enjoy local sightseeing and food as well.",
+  "official_url": "https://lemon-marathon.jp/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 1600,
+  "entry_start_date": "2026-09-01",
+  "entry_end_date": "2026-12-15",
+  "reception_type": "both",
+  "reception_note_ja": "現地受付は前日2027年2月20日（土）12:00〜17:00、当日2月21日（日）8:00〜10:00。受付会場は瀬戸田市民会館。",
+  "reception_note_en": "On-site registration is available the day before (Sat, Feb 20, 2027, 12:00-17:00) and on race day (Sun, Feb 21, 2027, 8:00-10:00) at Setoda Civic Hall.",
+  "tags": [
+    "しまなみ海道",
+    "海沿いコース",
+    "レモン畑"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": null,
+      "start_time": "11:00",
+      "capacity": 1000,
+      "entry_fee": 9000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "2026年4月1日現在で満15歳以上の、健康に自信があり異常のない方。18歳未満は保護者の同意が必要。マイボトル／マイカップの携帯が必要。参加料は一般9,000円、尾道市民7,500円、尾道市在住または通学の高校生4,000円。",
+      "description_en": "Open to those aged 15 or older as of April 1, 2026 who are confident in their health. Participants under 18 need parental consent. Runners must carry their own bottle or cup. Fees: General 9,000 yen, Onomichi residents 7,500 yen, high school students living in or attending school in Onomichi 4,000 yen.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 9.1,
+      "time_limit_minutes": null,
+      "start_time": "11:15",
+      "capacity": 400,
+      "entry_fee": 5500,
+      "entry_fee_u25": null,
+      "name_ja": "シーサイドラン",
+      "name_en": "Seaside Run",
+      "description_ja": "中学生以上の、健康に自信があり異常のない方。18歳未満は保護者の同意が必要。マイボトル／マイカップの携帯が必要。参加料は一般5,500円、尾道市在住または通学の中学生3,000円。",
+      "description_en": "Open to junior high school students and older who are confident in their health. Participants under 18 need parental consent. Runners must carry their own bottle or cup. Fees: General 5,500 yen, junior high school students living in or attending school in Onomichi 3,000 yen.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3.2,
+      "time_limit_minutes": null,
+      "start_time": "10:40",
+      "capacity": 100,
+      "entry_fee": 1000,
+      "entry_fee_u25": null,
+      "name_ja": "キッズラン（高学年）",
+      "name_en": "Kids Run (Upper Grades)",
+      "description_ja": "小学4〜6年生とその保護者（小学生1名に対し保護者は1名まで）。保護者が参加する場合は子どもと一緒にスタート。小学生のみの参加も可。参加料は1組1,000円。",
+      "description_en": "For elementary school students in grades 4-6 and their guardians (up to one guardian per child). A participating guardian must start together with the child. Children may also participate alone. Fee: 1,000 yen per group.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 1.8,
+      "time_limit_minutes": null,
+      "start_time": "10:50",
+      "capacity": 100,
+      "entry_fee": 1000,
+      "entry_fee_u25": null,
+      "name_ja": "キッズラン（低学年）",
+      "name_en": "Kids Run (Lower Grades)",
+      "description_ja": "小学1〜3年生とその保護者（小学生1名に対し保護者は1名まで）。保護者が参加する場合は子どもと一緒にスタート。小学生のみの参加も可。参加料は1組1,000円。",
+      "description_en": "For elementary school students in grades 1-3 and their guardians (up to one guardian per child). A participating guardian must start together with the child. Children may also participate alone. Fee: 1,000 yen per group.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T09:14:53.412Z",
+  "updated_at": "2026-11-15T09:14:53.412Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://lemon-marathon.jp/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106858）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイト（lemon-marathon.jp）の大会概要・ボランティア・アクセス各ページ。開催日・エントリー期間は候補情報と公式サイトで一致。",
+      "回数は公式サイトに明記がないため null とした（「第1回につづき」との記述はあるが、今回の回数は明示されていない）。",
+      "会場（瀬戸田市民会館）の住所は記載がない。記載の住所（広島県尾道市瀬戸田町瀬戸田433）は実行委員会の所在地であり、会場住所としては使用していない。",
+      "関門・制限時間の欄は公式サイトに値の記載がないため null とした。",
+      "ハーフマラソンは11:00・11:03・11:06の3ウェーブ出走で、start_time は最初の11:00とした。",
+      "キッズランの距離は公式サイトで「3,2km」「1,8km」と表記されており、3.2km・1.8kmと解釈した。",
+      "参加料は種目・区分ごとに異なる。categories の entry_fee は各種目の一般料金（キッズランは1組あたり）で、区分別の料金は description_ja に記載した。",
+      "シーサイドランは公式サイトに距離区分の記載がないため distance_type を other とした。",
+      "コース名は「しおまち商店街・高根島・生口島循環線」。路面は road と判断した。",
+      "エントリー期間の参加料は種目別のため null とした。",
+      "参加賞はハーフ・シーサイドランで選択制（ソフトカップ、または500円分のお買い物券）。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-01",
+      "end_date": "2026-12-15",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://lemon-marathon.jp/gaiyou",
+      "label": "大会概要about"
+    },
+    {
+      "url": "https://lemon-marathon.jp/volunteer",
+      "label": "ボランティア募集get involved"
+    },
+    {
+      "url": "https://lemon-marathon.jp/access",
+      "label": "アクセスaccess"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "瀬戸田市民会館",
+  "venue_name_en": "Setoda Civic Hall",
+  "venue_address": null,
+  "start_lat": null,
+  "start_lng": null
+}

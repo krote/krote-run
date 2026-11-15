@@ -1,0 +1,167 @@
+{
+  "id": "chiba-ichigo-marathon-2027",
+  "name_ja": "千葉市いちごマラソン",
+  "name_en": "Chiba City Ichigo Marathon",
+  "full_name_ja": "第3回 千葉市いちごマラソン",
+  "full_name_en": "The 3rd Chiba City Ichigo Marathon",
+  "edition": 3,
+  "date": "2027-02-20",
+  "prefecture": "12",
+  "city_ja": "千葉市",
+  "city_en": "Chiba City",
+  "description_ja": "千葉市民ゴルフ場を舞台に、10kmマラソン、家族マラソン、リレーマラソンが開催される大会です。公道からゴルフ場のコースへ入る10kmは計測チップによるタイム計測があります。参加者全員に、帰りにいちご1パックがプレゼントされます。",
+  "description_en": "This event is held at the Chiba Municipal Golf Course and features a 10km marathon, a family marathon and a relay marathon. The 10km race starts on public roads and continues onto the golf course, with timing by measurement chip. All participants receive a pack of strawberries on their way home.",
+  "official_url": "https://chibaichigo.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": null,
+  "entry_start_date": "2026-10-01",
+  "entry_end_date": "2027-02-01",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "ナンバーカード、計測チップ（10kmのみ）、駐車券（要申込）は2月初旬に申込時の住所へ事前送付の予定。大会10日前までに届かない場合は事務局へ連絡。当日はナンバーカードと計測チップを持参する。",
+  "reception_note_en": "Bib numbers, timing chips (10km only) and parking passes (if applied for) will be mailed in advance to the address given at entry, scheduled for early February. If they have not arrived 10 days before the event, contact the organizer. Bring your bib and timing chip on race day.",
+  "tags": [
+    "ゴルフ場コース",
+    "家族で参加",
+    "いちごプレゼント"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "mixed",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 90,
+      "start_time": "09:00",
+      "capacity": 1500,
+      "entry_fee": 6500,
+      "entry_fee_u25": null,
+      "name_ja": "10kmマラソン",
+      "name_en": "10km Marathon",
+      "description_ja": "高校生以上。公道からゴルフ場のコースを走り、タイム計測あり。Tシャツ付き。",
+      "description_en": "High school students and older. The course runs from public roads onto the golf course, with timing. A T-shirt is included.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2.3,
+      "time_limit_minutes": 45,
+      "start_time": "11:15",
+      "capacity": 200,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "家族マラソン",
+      "name_en": "Family Marathon",
+      "description_ja": "6歳以上。1チーム2〜5人の家族で、ゴルフ場内の1周約2.3kmのコースを走る。参加費は1チーム2人5,000円、3人7,500円、4人10,000円、5人12,500円。定員200組（小学3年生までがいるチーム100組、小学4年生以上がいるチーム100組）。",
+      "description_en": "Ages 6 and older. Families of 2 to 5 run the roughly 2.3km lap on the golf course together. Fees per team: 2 people 5,000 yen, 3 people 7,500 yen, 4 people 10,000 yen, 5 people 12,500 yen. Capacity is 200 teams (100 teams with children up to 3rd grade, 100 teams with members in 4th grade or above).",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 2.3,
+      "time_limit_minutes": 100,
+      "start_time": "13:00",
+      "capacity": 250,
+      "entry_fee": 12500,
+      "entry_fee_u25": null,
+      "name_ja": "リレーマラソン",
+      "name_en": "Relay Marathon",
+      "description_ja": "小学生以上。1チーム2〜5人で、1周約2.3kmを100分間順番に走る。参加費は1チーム12,500円、定員250組。",
+      "description_en": "Elementary school students and older. Teams of 2 to 5 take turns running the roughly 2.3km lap for 100 minutes. The fee is 12,500 yen per team, and capacity is 250 teams.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T09:13:28.067Z",
+  "updated_at": "2026-11-15T09:30:30.486Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://chibaichigo.com/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/107160）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典は公式サイト chibaichigo.com の大会要項・エントリー・コース・お知らせページで、第3回（2027年2月20日）の内容。",
+      "公式サイトにエントリー終了日の記載はなく、「2026年10月1日開始、定員に達し次第終了、先着順」とのみある。候補情報にあるスポーツエントリー掲載の終了日（2027-01-20）は公式サイトで確認できないため採用せず、end_date は null とした。",
+      "参加費は種目ごとに異なる（家族マラソンは人数別）ため、全体の entry_fee は null、entry_fee_by_category は true とした。",
+      "定員は10kmが1,500名、家族マラソンが200組、リレーマラソンが250組と単位が異なるため、全体の entry_capacity は null とした。",
+      "家族マラソンとリレーマラソンの distance_km は1周の約2.3kmを記載した。家族マラソンは「1周走ります」とあるが45分間の開催で、周回数は公式サイトに明記がない。",
+      "家族マラソンの time_limit_minutes は開催時間（45分間）を、リレーマラソンは100分間を、10kmは90分間を記載した。",
+      "路面（surface）は公式サイトに明記がない。公道からゴルフ場内のコースを走るため mixed とした。",
+      "メディカルアシストランナー枠（参加料無料、定員10名程度）は、登録期間 2026-10-01〜2027-02-01 を別の entry_periods として記載した。",
+      "参加費にはスポーツエントリー利用料（参加料合計4,000円まで220円、4,001円以上は5.3％）が別途かかる。",
+      "参加費は自己都合の不参加や荒天等による中止の場合も返金されない。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-10-01",
+      "end_date": null,
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "メディカルアシストランナー（医師・看護師・救急救命士対象）",
+      "label_en": "Medical Assist Runner",
+      "start_date": "2026-10-01",
+      "end_date": "2027-02-01",
+      "entry_fee": 0,
+      "category_id": null,
+      "sort_order": 1
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://chibaichigo.com/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://chibaichigo.com/course/",
+      "label": "コース &amp; アクセス"
+    },
+    {
+      "url": "https://chibaichigo.com/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://chibaichigo.com/2026/09/30/medicalassist/",
+      "label": "お知らせ\n\t\n\t\t\t\t\t\n\t\t\t\t『メディカルアシストランナー』募集\t\t\t\t\t\t\t\t\n\t\t\t\t\t\n\t2026年9月30日"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "千葉市民ゴルフ場",
+  "venue_name_en": "Chiba Municipal Golf Course",
+  "venue_address": "千葉市若葉区下田1005",
+  "start_lat": 35.634335,
+  "start_lng": 140.211319
+}

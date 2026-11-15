@@ -1,0 +1,169 @@
+{
+  "id": "uprun-tsunashima-tsurumigawa-half-marathon-2026",
+  "name_ja": "UPRUN綱島鶴見川ハーフマラソン",
+  "name_en": "UPRUN Tsunashima Tsurumigawa Half Marathon",
+  "full_name_ja": "第1回UPRUN綱島鶴見川ハーフマラソン",
+  "full_name_en": "The 1st UPRUN Tsunashima Tsurumigawa Half Marathon",
+  "edition": 1,
+  "date": "2026-11-21",
+  "prefecture": "14",
+  "city_ja": "横浜市",
+  "city_en": "Yokohama City",
+  "description_ja": "鶴見川河川敷を走るフラットで走りやすいコースで、初心者から上級者まで楽しめる大会です。自己ベスト更新やランニング練習にも適しており、自動計測でタイムも測定できます。ハーフ、10km、5km、親子5kmの種目があります。",
+  "description_en": "This race is held on a flat, easy-to-run course along the Tsurumi River embankment and suits runners from beginners to advanced. It works well for chasing a personal best or for training, and times are recorded by automatic timing. Events include the half marathon, 10km, 5km and a parent-child 5km.",
+  "official_url": "https://up-run.jp/events/up-tsunashima1/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 500,
+  "entry_start_date": "2026-08-09",
+  "entry_end_date": "2026-11-19",
+  "reception_type": "race_day",
+  "reception_note_ja": "受付は8時30分から各種目スタート30分前まで、受付会場は鶴見川樽町公園。ゼッケンや注意事項のパンフは当日受付で渡され、事前郵送はありません。開催2日前までにメールで詳細が通知されます。大会説明は各種目スタート20分前です。",
+  "reception_note_en": "Reception opens at 8:30 and closes 30 minutes before each event start, at Tsurumigawa Tarumachi Park. Bibs and the information leaflet are handed out at race-day reception and are not mailed in advance. Details are sent by email up to 2 days before the event. The race briefing is held 20 minutes before each start.",
+  "tags": [
+    "フラットコース",
+    "河川敷",
+    "自動計測"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 180,
+      "start_time": "09:30",
+      "capacity": null,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "男女中学生以上",
+      "description_en": "Open to men and women, junior high school age and above.",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": null,
+      "start_time": "10:00",
+      "capacity": null,
+      "entry_fee": 3500,
+      "entry_fee_u25": null,
+      "name_ja": "10km",
+      "name_en": "10km",
+      "description_ja": "男女中学生以上。ペア割は1組6,500円",
+      "description_en": "Open to men and women, junior high school age and above. Pair discount: 6,500 yen per pair.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "10:00",
+      "capacity": null,
+      "entry_fee": 3000,
+      "entry_fee_u25": null,
+      "name_ja": "5km",
+      "name_en": "5km",
+      "description_ja": "誰でも参加可。ペア割は1組5,500円",
+      "description_en": "Open to everyone. Pair discount: 5,500 yen per pair.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "10:00",
+      "capacity": null,
+      "entry_fee": 2000,
+      "entry_fee_u25": null,
+      "name_ja": "親子5km",
+      "name_en": "Parent-Child 5km",
+      "description_ja": "3歳〜小学生のお子様と保護者。保護者1名とお子様1名の1組料金",
+      "description_en": "For children aged 3 to elementary school and their parent or guardian. Fee is per pair of one guardian and one child.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:23:13.227Z",
+  "updated_at": "2026-11-15T09:31:03.423Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://up-run.jp/events/up-tsunashima1/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106792）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "公式サイトは候補と同じ第1回（2026-11-21開催）の内容で、日付・種目・参加費・定員は公式サイトの記載に基づく。",
+      "エントリー期間（2026-08-09〜2026-11-19）は公式サイトに記載がなく、候補情報（スポーツエントリー掲載）の値を使用。種目別の期間・参加費は不明。",
+      "参加費は早割（開催1か月前までのお申込みで500円OFF）の適用前の通常料金。",
+      "種目別の定員は記載なし。全体定員500名のみ。",
+      "コースは鶴見川沿い5kmの特設周回コース（給水1か所）。路面（舗装かどうか）の明記がないため surface は null。",
+      "ハーフの距離は公式サイトに数値の記載がなく、ハーフマラソンの標準距離21.0975kmを設定。",
+      "公式サイトの別ページ（entrychk）にある「綱島マラソン」のスケジュールは別回のもので、本大会には使用していない。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-08-09",
+      "end_date": "2026-11-19",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://up-run.jp/directions/",
+      "label": "会場までの道順"
+    },
+    {
+      "url": "https://up-run.jp/events/up-tsunashima1/#entry",
+      "label": "大会エントリーはこちら"
+    },
+    {
+      "url": "https://up-run.jp/events/up-tsunashima1/#route",
+      "label": "会場までの道順はこちら"
+    },
+    {
+      "url": "https://up-run.jp/entrychk/",
+      "label": "～案内メールが届かない方へ～"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "鶴見川樽町公園（鶴見川河川敷）",
+  "venue_name_en": "Tsurumigawa Tarumachi Park (Tsurumi River embankment)",
+  "venue_address": "神奈川県横浜市港北区綱島東1丁目",
+  "start_lat": 35.535587,
+  "start_lng": 139.637436
+}

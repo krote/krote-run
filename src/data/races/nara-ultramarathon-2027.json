@@ -1,0 +1,143 @@
+{
+  "id": "nara-ultramarathon-2027",
+  "name_ja": "奈良ウルトラマラソン",
+  "name_en": "Nara Ultramarathon",
+  "full_name_ja": "第2回 奈良ウルトラマラソン",
+  "full_name_en": "The 2nd Nara Ultramarathon",
+  "edition": 2,
+  "date": "2027-05-30",
+  "prefecture": "29",
+  "city_ja": "橿原市",
+  "city_en": "Kashihara City",
+  "description_ja": "世界遺産シリーズとして開催される100kmのウルトラマラソン。橿原市の藤原宮跡を発着とし、明日香村、高取町、大淀町、下市町、五條市、黒滝村、吉野町など奈良県南部を巡る。25歳以下を対象としたU25枠も設けられている。",
+  "description_en": "A 100km ultramarathon held as part of the World Heritage series, starting and finishing at the Fujiwara Palace Site in Kashihara City. The course passes through southern Nara Prefecture, including Asuka, Takatori, Oyodo, Shimoichi, Gojo, Kurotaki and Yoshino. A special U25 category for runners aged 25 and under is also offered.",
+  "official_url": "https://www.r-wellness.com/nara/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 3200,
+  "entry_start_date": "2026-11-13",
+  "entry_end_date": "2027-02-26",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "ナンバーカード・計測タグは大会前に発送される。駐車場を申し込んだ場合は、ナンバーカード発送時に駐車証も送付される。",
+  "reception_note_en": "Bib numbers and timing tags are mailed before the event. If a parking space is reserved, the parking pass is sent together with the bib.",
+  "tags": [
+    "世界遺産シリーズ",
+    "100km",
+    "奈良県南部周回"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "ultra",
+      "distance_km": 100,
+      "time_limit_minutes": null,
+      "start_time": "04:30",
+      "capacity": 3150,
+      "entry_fee": 23000,
+      "entry_fee_u25": null,
+      "name_ja": "100km 一般",
+      "name_en": "100km General",
+      "description_ja": "大会当日満18歳以上の健康な男女（高校生は除く）。国内在住23,000円／海外在住26,000円。スタートはWAVE制（WAVE A 4:30〜WAVE K 5:00）。",
+      "description_en": "Healthy men and women aged 18 or over on race day (excluding high school students). Entry fee: JPY 23,000 for residents of Japan, JPY 26,000 for overseas residents. Wave start (Wave A 4:30 to Wave K 5:00).",
+      "waves": null
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 100,
+      "time_limit_minutes": null,
+      "start_time": "04:30",
+      "capacity": 50,
+      "entry_fee": 18400,
+      "entry_fee_u25": null,
+      "name_ja": "100km U25",
+      "name_en": "100km U25",
+      "description_ja": "大会当日に25歳以下の方が対象（満18歳以上、高校生は除く）。国内在住18,400円／海外在住20,800円。",
+      "description_en": "For runners aged 25 or under on race day (must also be 18 or over, excluding high school students). Entry fee: JPY 18,400 for residents of Japan, JPY 20,800 for overseas residents.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T09:30:24.009Z",
+  "updated_at": "2026-11-15T09:30:24.009Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://www.r-wellness.com/nara/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/107605）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典: 公式サイト（r-wellness.com/nara/）の大会要項ページ、アクセスページ、お知らせページ。",
+      "開催日・エントリー期間（2026-11-13 20:00〜2027-02-26 23:59）は公式サイトと候補情報が一致している。",
+      "定員は一般3,150名＋U25 50名の合計3,200名。ほかにふるさと納税エントリー100枠（89,000円）を予定しているが、申込方法等は未定で、上記定員に含まれるかは不明。",
+      "参加費は国内在住の金額を category の entry_fee に記載。海外在住は別料金（一般26,000円、U25 20,800円）。",
+      "制限時間は明記がなく null。フィニッシュ閉鎖時刻はWAVEにより19:10〜19:30。スタートからの制限時間は未記載のため算出していない。",
+      "スタート時刻は予定で、変更の可能性がある。表示した04:30は WAVE A の時刻。",
+      "路面は一般道路（交通規制なし）を走行するため road とした。",
+      "ふるさと納税エントリーは2027年1月開始予定。",
+      "アクセスマップ・駐車場案内は2026大会のものであり、2027大会用データは確定後に更新される予定。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-11-13",
+      "end_date": "2027-02-26",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://www.r-wellness.com/nara/entry/",
+      "label": "ENTRY"
+    },
+    {
+      "url": "https://www.r-wellness.com/nara/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://www.r-wellness.com/nara/access/",
+      "label": "アクセス・駐車場"
+    },
+    {
+      "url": "https://www.r-wellness.com/nara/261112-2/",
+      "label": "ー INFORMATION ー\n  \n\n  \n    エントリー受付開始に向けたお願い"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "藤原宮跡 朝堂院西門跡",
+  "venue_name_en": "Fujiwara Palace Site, West Gate of Chodoin",
+  "venue_address": "〒634-0073 奈良県橿原市縄手町324",
+  "start_lat": null,
+  "start_lng": null
+}

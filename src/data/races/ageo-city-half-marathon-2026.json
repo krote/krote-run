@@ -1,0 +1,159 @@
+{
+  "id": "ageo-city-half-marathon-2026",
+  "name_ja": "上尾シティハーフマラソン",
+  "name_en": "Ageo City Half Marathon",
+  "full_name_ja": "第39回2026上尾シティハーフマラソン",
+  "full_name_en": "39th 2026 Ageo City Half Marathon",
+  "edition": 39,
+  "date": "2026-11-22",
+  "prefecture": "11",
+  "city_ja": "上尾市",
+  "city_en": "Ageo City",
+  "description_ja": "世界陸連・日本陸連公認の上尾市内折り返しコースを走るハーフマラソン大会。公道（川越上尾線）をスタートし、上尾運動公園陸上競技場にフィニッシュする。5kmの部やジュニアチャレンジランも同時開催される。",
+  "description_en": "A half marathon run on a World Athletics and JAAF certified out-and-back course in Ageo City. The race starts on a public road (Kawagoe-Ageo Line) and finishes in the Ageo Athletic Stadium. A 5km race and a Junior Challenge Run are also held.",
+  "official_url": "https://ageocity-marathon.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": null,
+  "entry_start_date": "2026-07-01",
+  "entry_end_date": "2026-08-31",
+  "reception_type": null,
+  "reception_note_ja": null,
+  "reception_note_en": null,
+  "tags": [
+    "公認コース",
+    "折り返しコース",
+    "競技場フィニッシュ"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": null,
+    "notes_en": null
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 160,
+      "start_time": "09:00",
+      "capacity": 5500,
+      "entry_fee": 7000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフの部",
+      "name_en": "Half Marathon",
+      "description_ja": "15歳以上（中学生を除く）。健康な人、制限時間内に完走できる人。関門は15km地点で2時間00分。",
+      "description_en": "Age 15 and over (excluding junior high school students). Healthy runners who can finish within the time limit. Cut-off at 15km is 2 hours 00 minutes.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 5,
+      "time_limit_minutes": null,
+      "start_time": "09:15",
+      "capacity": 1600,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": "5kmの部",
+      "name_en": "5km",
+      "description_ja": "15歳以上（中学生を除く）。健康な人、制限時間内に完走できる人。",
+      "description_en": "Age 15 and over (excluding junior high school students). Healthy runners who can finish within the time limit.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-15T08:23:59.559Z",
+  "updated_at": "2026-11-15T09:30:24.110Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://ageocity-marathon.com/）の公開情報から自動生成（2026-11-15）",
+    "data_accuracy_notes": [
+      "スポーツエントリーの大会一覧（https://www.sportsentry.ne.jp/event/t/106112）で未掲載大会の候補として発見し、公式サイトの情報から自動生成（2026-11-15）",
+      "出典: 公式サイト（ageocity-marathon.com）の大会概要・エントリー・コース各ページ。公式サイトは候補と同じ第39回2026大会の内容。",
+      "候補情報のエントリー期間終了日は2026-09-10だが、公式サイトの申込期間は一般申込枠が7/4〜8/31。公式を優先した。ニュースに「申込締切延長のお知らせ」（2026.08.31）があるが、延長後の日付は本文に記載がなく不明。",
+      "参加費は種目ごとに異なる（ハーフ7,000円、5km4,000円）ため entry_fee は null。",
+      "全体の定員は公式に明記がないため null。開催要項ではハーフ5,500人・5km1,600人。エントリーページでは上尾市民優先枠500名と一般申込枠5,500名の記載があり、ハーフの5,500人に市民枠が含まれるかは不明。",
+      "5kmの部の制限時間は記載がなく null。ハーフの制限時間は号砲後2時間40分。",
+      "受付方法（前日・当日・事前送付）は公式サイトの本文に明記がなく null。ニュース見出しにアスリートビブス等の発送があるが、詳細は未確認。",
+      "ジュニアチャレンジラン（2026-11-21、上尾運動公園陸上競技場内、11:50スタート、親子ペアラン0.5km／小学生1〜2kmなど）も同時開催されるが、categories には含めていない。"
+    ],
+    "last_verified": "2026-11-15",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "上尾市民優先枠",
+      "label_en": "Ageo Resident Priority Entry",
+      "start_date": "2026-07-01",
+      "end_date": "2026-07-03",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "一般申込枠",
+      "label_en": "General Entry",
+      "start_date": "2026-07-04",
+      "end_date": "2026-08-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "ふるさと納税先行申込（ハーフの部）",
+      "label_en": "Furusato Tax Donation Early Entry (Half)",
+      "start_date": "2026-07-01",
+      "end_date": "2026-08-16",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 2
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://ageocity-marathon.com/outline/index.html",
+      "label": "大会概要OUTLINE"
+    },
+    {
+      "url": "https://ageocity-marathon.com/course/index.html",
+      "label": "コース・アクセスCOURSE"
+    },
+    {
+      "url": "https://ageocity-marathon.com/entry/index.html",
+      "label": "エントリーENTRY"
+    },
+    {
+      "url": "https://ageocity-marathon.com/news/index.html/article/%E3%83%97%E3%83%AC%E3%82%B9%E5%8F%97%E4%BB%98%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6",
+      "label": "プレス受付について"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "上尾運動公園陸上競技場",
+  "venue_name_en": "Ageo Athletic Stadium (Ageo Sports Park)",
+  "venue_address": "埼玉県上尾市愛宕3丁目28-30",
+  "start_lat": 35.968906,
+  "start_lng": 139.60173
+}

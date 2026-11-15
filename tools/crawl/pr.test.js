@@ -128,10 +128,21 @@ describe('findPreflightProblems', () => {
   });
 
   test('対象パスの未コミット変更を列挙する', () => {
-    const problems = findPreflightProblems({ ...ok, dirty: ['src/data/races/a-2027.json', 'tools/crawl/checksums.json'] });
+    const problems = findPreflightProblems({ ...ok, dirty: ['src/data/races/a-2027.json', 'src/data/announcements.json'] });
     assert.equal(problems.length, 1);
     assert.match(problems[0], /a-2027\.json/);
-    assert.match(problems[0], /checksums\.json/);
+    assert.match(problems[0], /announcements\.json/);
+  });
+
+  test('checksums.json だけの未コミット変更は許容する（更新0件のクロールが残す。次の PR へ持ち越す）', () => {
+    assert.deepEqual(findPreflightProblems({ ...ok, dirty: ['tools/crawl/checksums.json'] }), []);
+  });
+
+  test('checksums.json と他の変更が混在する場合は他の変更だけを列挙する', () => {
+    const problems = findPreflightProblems({ ...ok, dirty: ['tools/crawl/checksums.json', 'src/data/races/a-2027.json'] });
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /a-2027\.json/);
+    assert.doesNotMatch(problems[0], /checksums\.json/);
   });
 
   test('未コミット変更が多い場合は10件までに省略する', () => {
@@ -208,12 +219,17 @@ describe('runPreflight', () => {
   });
 
   test('先頭行の空白が trim された status 出力でもパスを正しく取り出す', () => {
-    const gitFn = fakeGit({ status: 'M src/data/races/a-2027.json\n M tools/crawl/checksums.json' });
+    const gitFn = fakeGit({ status: 'M src/data/races/a-2027.json\n M src/data/announcements.json' });
     assert.throws(() => runPreflight({ gitFn }), (err) => {
       assert.match(err.message, / src\/data\/races\/a-2027\.json/);
-      assert.match(err.message, / tools\/crawl\/checksums\.json/);
+      assert.match(err.message, / src\/data\/announcements\.json/);
       return true;
     });
+  });
+
+  test('checksums.json だけが変更されていても例外を投げない', () => {
+    const gitFn = fakeGit({ status: ' M tools/crawl/checksums.json' });
+    assert.doesNotThrow(() => runPreflight({ gitFn }));
   });
 
   test('fetch に失敗したら中断する（安全側に倒す）', () => {

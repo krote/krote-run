@@ -17,6 +17,12 @@ const MAX_COMMIT_BODY_LINES = 20;
 
 /** PR にコミットするパス。seed を含めないと DB 投入時に古い seed が使われる */
 const COMMIT_PATHS = ['src/data/races', 'tools/crawl/checksums.json', 'migrations/seed-races-all.sql', 'src/data/announcements.json'];
+/**
+ * 実行前チェックで未コミットでも許容するパス。
+ * 更新0件のクロールは PR を作らずチェックサム（last_checked / fail_count）だけを書き換えて終わるため、
+ * これを拒否すると次の crawl / discover が止まる。許容して次に作る PR へ持ち越す。
+ */
+const CARRY_OVER_PATHS = ['tools/crawl/checksums.json'];
 
 const SEED_SCRIPT = path.join(__dirname, '..', '..', 'scripts', 'generate-seed-races.js');
 
@@ -106,9 +112,10 @@ function findPreflightProblems(state, { baseBranch = 'main', remote = 'origin' }
     );
   }
 
-  if (state.dirty.length > 0) {
-    const listed = state.dirty.slice(0, MAX_DIRTY_LIST).map((p) => `    ${p}`);
-    if (state.dirty.length > MAX_DIRTY_LIST) listed.push(`    ほか${state.dirty.length - MAX_DIRTY_LIST}件`);
+  const dirty = state.dirty.filter((p) => !CARRY_OVER_PATHS.includes(p));
+  if (dirty.length > 0) {
+    const listed = dirty.slice(0, MAX_DIRTY_LIST).map((p) => `    ${p}`);
+    if (dirty.length > MAX_DIRTY_LIST) listed.push(`    ほか${dirty.length - MAX_DIRTY_LIST}件`);
     problems.push(`クロール対象パスに未コミットの変更があります。コミットするか破棄してください:\n${listed.join('\n')}`);
   }
 

@@ -1988,3 +1988,12 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - stg → 本番の順に実施。両環境とも `race_entry_periods.closed_early` 追加済み（275期間・true は0件）、`races` 145件、`race_travel_times` 312件で変化なし、`wrangler d1 migrations list` が「No migrations to apply」
 - `pnpm run cf:deploy:stg` → `pnpm run cf:deploy` で main（5dbc630）をデプロイ。両環境で `/ja`・`/ja/races`・`/ja/calendar`・大会詳細が 200、ペイロードに `closed_early` が含まれることを確認
 - 今後 `seed-travel-times.sql` は適用済み扱いになるため、移動時間を再計算して入れ直す場合は `wrangler d1 execute --file` で直接実行すること
+
+## 2026-11-15 更新0件のクロール後に crawl / discover が止まる問題を修正
+
+更新0件のクロールは PR を作らずに `tools/crawl/checksums.json` だけを書き換えて終わるため、main に未コミット変更が残り、次の crawl / discover `--generate` が実行前チェックで止まっていた。
+
+- `tools/crawl/pr.js`: `CARRY_OVER_PATHS`（`tools/crawl/checksums.json`）を追加し、`findPreflightProblems()` の未コミット変更チェックから除外。残った変更は次の PR に同梱される
+- `tools/crawl/pr.test.js`: checksums.json のみ／他の変更と混在の場合のテストを追加（`test:tools` 542件 pass）
+- `docs/crawl-rules.md` / `README.md`: 実行前チェックの条件を更新
+- 2026-11-15 のクロールで残っていた checksums.json は #226 で取り込み（`fail_count` を保持するため破棄しない）

@@ -1,0 +1,147 @@
+{
+  "id": "setonaikai-turtle-full-marathon-2027",
+  "name_ja": "瀬戸内海タートル・フルマラソン全国大会",
+  "name_en": "Setonaikai Turtle Full Marathon",
+  "full_name_ja": "第45回瀬戸内海タートル・フルマラソン全国大会",
+  "full_name_en": "The 45th Setonaikai Turtle Full Marathon National Championship",
+  "edition": 45,
+  "date": "2027-01-17",
+  "prefecture": "37",
+  "city_ja": "土庄町",
+  "city_en": "Tonosho Town",
+  "description_ja": "香川県小豆島の土庄町で開催される、45回目を迎える市民マラソン大会。旧土庄町役場前をスタートし小部方面を往復する瀬戸内海沿いのコースで、フル・ハーフ・10kmの3種目を実施。参加資格は大会当日満22歳以上。ウェーブスタート方式。",
+  "description_en": "A long-running citizens' marathon, now in its 45th edition, held in Tonosho Town on Shodoshima Island, Kagawa. The out-and-back course along the Seto Inland Sea starts in front of the former Tonosho Town Office and heads toward Obe. Full marathon, half marathon and 10 km races are held, with a wave start. Runners must be 22 or older on race day.",
+  "official_url": "https://setonaikai-turtle-m.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 2000,
+  "entry_start_date": "2026-08-01",
+  "entry_end_date": "2026-11-27",
+  "reception_type": "both",
+  "reception_note_ja": "前日受付は1月16日(土)13:00〜18:00（土庄港・予定）、当日受付は1月17日(日)7:30〜（中央公民館）。ナンバーカードと参加案内は大会の約2週間前に郵送。忘れた場合は有料で再発行。ロッカー・手荷物預かりはない。",
+  "reception_note_en": "Pre-race reception on Sat, Jan 16, 13:00-18:00 at Tonosho Port (planned); race-day reception from 7:30 on Sun, Jan 17 at the Central Community Hall. Bibs and the participant guide are mailed about two weeks before the race; reissue is charged if forgotten. No lockers or baggage storage.",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": null,
+    "highlights_en": null,
+    "notes_ja": "交通規制はスタート直後の700mのみ。規制外の区間は一般車両も通行するため、2列走行・歩道走行・往復とも海側を走行すること。小豆島へは高松・岡山・宇野などからフェリー・高速艇で土庄港へ。",
+    "notes_en": "Roads are closed only for the first 700 m after the start. On open sections, run in two lines on the sidewalk, staying on the sea side in both directions. Reach Tonosho Port by ferry or high-speed boat from Takamatsu, Okayama, Uno and other ports."
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 330,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "フルの部",
+      "name_en": "Full Marathon",
+      "description_ja": "大会当日満22歳以上",
+      "description_en": "Ages 22 and over on race day",
+      "waves": null
+    },
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 180,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフの部",
+      "name_en": "Half Marathon",
+      "description_ja": "大会当日満22歳以上",
+      "description_en": "Ages 22 and over on race day",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 90,
+      "start_time": null,
+      "capacity": null,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "10kmの部",
+      "name_en": "10 km",
+      "description_ja": "大会当日満22歳以上",
+      "description_en": "Ages 22 and over on race day",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-17T15:55:52.295Z",
+  "updated_at": "2026-11-17T15:56:36.470Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://setonaikai-turtle-m.com/）の公開情報から作成（2026-11-18）",
+    "data_accuracy_notes": [
+      "公式サイトの大会実施要項・エントリー・アクセスページから手動で作成（2026-11-18）",
+      "申込期間は 2026-08-01〜2026-11-27（RUNNET・郵便振替とも締切 11/27）。定員2,000名（全種目合計）に達し次第締切",
+      "ウェーブスタートで、スタート時刻は「後日お知らせ」のため start_time は null",
+      "会場は受付会場の土庄町立中央公民館とした（スタートは旧土庄町役場前、コースは旧土庄町役場〜小部）"
+    ],
+    "last_verified": "2026-11-18",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-08-01",
+      "end_date": "2026-11-27",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://setonaikai-turtle-m.com/about/guide/",
+      "label": "大会実施要項"
+    },
+    {
+      "url": "https://setonaikai-turtle-m.com/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://setonaikai-turtle-m.com/about/course/",
+      "label": "コース紹介"
+    },
+    {
+      "url": "https://setonaikai-turtle-m.com/access/",
+      "label": "アクセス"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "土庄町立中央公民館",
+  "venue_name_en": "Tonosho Town Central Community Hall",
+  "venue_address": "香川県小豆郡土庄町甲620",
+  "start_lat": 34.485962,
+  "start_lng": 134.183716
+}

@@ -1997,3 +1997,14 @@ Search Console の指摘（`description` / `offers.price` / `validFrom` 欠落�
 - `tools/crawl/pr.test.js`: checksums.json のみ／他の変更と混在の場合のテストを追加（`test:tools` 542件 pass）
 - `docs/crawl-rules.md` / `README.md`: 実行前チェックの条件を更新
 - 2026-11-15 のクロールで残っていた checksums.json は #226 で取り込み（`fail_count` を保持するため破棄しない）
+
+## 2026-11-18 東金・九十九里波乗りハーフマラソン、瀬戸内海タートル・フルマラソン、富士マラソンフェスタを新規掲載
+
+公式サイト（togane-99-half.com / setonaikai-turtle-m.com / fuji-marathon-festa.jp）の要項・エントリー・アクセスページから手動で収集して作成（`detail_level: light`）。RUNNET は利用規約上の方針（#203）により情報源に使っていない。
+
+- `src/data/races/togane-kujukuri-naminori-half-marathon-2027.json`（新規）: 2027-02-28、ハーフ・ペア3km、関門3か所、エントリー 2026-09-18〜（締切日は公式サイトに記載なし）
+- `src/data/races/setonaikai-turtle-full-marathon-2027.json`（新規）: 第45回、2027-01-17、フル・ハーフ・10km、エントリー 2026-08-01〜11-27
+- `src/data/races/fuji-marathon-festa-2027.json`（新規）: 2027-01-31、富士スピードウェイ、ハーフ・レーシングコース1/2周・駅伝2種、一般枠 2026-08-06〜11-26・ふるさと納税枠 08-17〜11-13
+- 会場住所が大会公式サイトに無い2件は施設側の公式サイト（東金文化・スポーツ振興財団、富士スピードウェイ）で確認し、`geocode-venues.js` で座標を補完
+- `src/data/announcements.json`: 「新たに3大会を掲載しました」を追加（slug `2026-11-18-race-data-update-2`）
+- `migrations/seed-races-all.sql`: 再生成。3大会分の SQL をローカル D1 に投入できることを確認

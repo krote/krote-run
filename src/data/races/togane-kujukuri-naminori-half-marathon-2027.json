@@ -1,0 +1,156 @@
+{
+  "id": "togane-kujukuri-naminori-half-marathon-2027",
+  "name_ja": "東金・九十九里波乗りハーフマラソン",
+  "name_en": "Togane Kujukuri Naminori Half Marathon",
+  "full_name_ja": "2027東金・九十九里波乗りハーフマラソン",
+  "full_name_en": "2027 Togane Kujukuri Naminori Half Marathon",
+  "edition": null,
+  "date": "2027-02-28",
+  "prefecture": "12",
+  "city_ja": "東金市",
+  "city_en": "Togane City",
+  "description_ja": "千葉県東金市・九十九里町で開催されるハーフマラソン大会。普段は走れない有料道路の波乗り道路を走り、ジャンクションや波乗り道路から太平洋の景色を楽しめる。ハーフマラソンの部は東金アリーナ陸上競技場、ペア（3km）の部は九十九里町片貝中央海岸がスタート・フィニッシュ会場。給食では温かい汁物やいちご（ペアの部はいわし団子汁）が振る舞われる。",
+  "description_en": "A half marathon held in Togane City and Kujukuri Town, Chiba. Runners use the Naminori Road, a toll road normally closed to runners, with views of the Pacific Ocean from the junction and coastal road. The half marathon starts and finishes at Togane Arena Athletic Stadium, and the 3 km pair run at Katakai Central Beach in Kujukuri. Food stations serve hot soup and strawberries (sardine dumpling soup for the pair run).",
+  "official_url": "https://togane-99-half.com/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 3600,
+  "entry_start_date": "2026-09-18",
+  "entry_end_date": null,
+  "reception_type": "pre_mail",
+  "reception_note_ja": "参加者案内・ナンバーカード・計測チップ（ハーフマラソンの部）は大会の10日〜1週間前に郵送。前日・当日の受付はない。紛失・忘れた場合は有料（1,000円、ペアの部は1人500円）で再発行。",
+  "reception_note_en": "The participant guide, bib and timing chip (half marathon) are mailed 7 to 10 days before the race. There is no reception on the day before or race day. Lost or forgotten bibs are reissued for a fee (1,000 yen; 500 yen per person for the pair run).",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "普段は走れない有料道路（波乗り道路）を走るコース。ジャンクションや波乗り道路から太平洋の絶景。およそ1kmごとにAED担当を配置。",
+    "highlights_en": "The course runs on the Naminori Road, a toll road normally closed to runners, with Pacific Ocean views from the junction and coastal road. AED staff are stationed roughly every 1 km.",
+    "notes_ja": "2027大会は2025大会と同じコース。電車の場合はJR東金駅から無料シャトルバス。駐車場はエントリー時に申込（駐車券発行手数料500円）。",
+    "notes_en": "The 2027 course is the same as in 2025. Free shuttle buses run from JR Togane Station. Parking must be reserved at entry (500 yen fee)."
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 180,
+      "start_time": "09:20",
+      "capacity": 3000,
+      "entry_fee": 7000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソンの部",
+      "name_en": "Half Marathon",
+      "description_ja": "15歳以上（中学生を除く）で3時間以内に完走できる方。18歳以下の参加料は6,000円。会場は東金アリーナ陸上競技場。スタート閉鎖9:30",
+      "description_en": "Ages 15 and over (excluding junior high school students) who can finish within 3 hours. Entry fee is 6,000 yen for ages 18 and under. Venue: Togane Arena Athletic Stadium. Start closes at 9:30.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": 50,
+      "start_time": "10:40",
+      "capacity": 600,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": "ペア（3km）の部",
+      "name_en": "Pair Run (3 km)",
+      "description_ja": "小学生以上・組合せ自由の2名1組（定員300組）。参加料は1組4,000円（3名1組は6,000円）。小学校低学年は高校生以上と出場。会場は九十九里町片貝中央海岸",
+      "description_en": "Teams of two (300 teams), elementary school age and up, any combination. Fee is 4,000 yen per pair (6,000 yen for a team of three). Lower elementary students must run with a high school student or older. Venue: Katakai Central Beach, Kujukuri.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [
+    {
+      "distance_km": 4,
+      "closing_time": "10:05"
+    },
+    {
+      "distance_km": 10.1,
+      "closing_time": "10:55"
+    },
+    {
+      "distance_km": 16.6,
+      "closing_time": "11:45"
+    }
+  ],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会記念品（記念Tシャツ等）",
+      "description_en": "Commemorative items (event T-shirt, etc.)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-11-17T15:55:52.295Z",
+  "updated_at": "2026-11-17T15:56:42.714Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://togane-99-half.com/）の公開情報から作成（2026-11-18）",
+    "data_accuracy_notes": [
+      "公式サイトの大会要項・エントリー・大会の魅力・お知らせページから手動で作成（2026-11-18）",
+      "エントリー開始は 2026-09-18 10:00（公式サイトのお知らせ）。締切日は公式サイトに記載がなく end_date は null。定員に達し次第締切",
+      "参加賞は公式サイトのメディカルランナー募集ページの「一般ランナーと同様に大会記念品(記念Ｔシャツ等)をお渡しします」による",
+      "会場の住所は大会公式サイトに記載がなく、施設を運営する東金文化・スポーツ振興財団の公式サイト（https://www.tobunspo.or.jp/zaidanhp/）の東金アリーナの住所による",
+      "entry_capacity はハーフ3,000名＋ペア300組600名の合計"
+    ],
+    "last_verified": "2026-11-18",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-09-18",
+      "end_date": null,
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://togane-99-half.com/about/requirements/index.html",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://togane-99-half.com/entry/index.html",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://togane-99-half.com/about/feature/index.html",
+      "label": "大会の魅力"
+    },
+    {
+      "url": "https://togane-99-half.com/about/course/index.html",
+      "label": "コース紹介"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "東金アリーナ陸上競技場",
+  "venue_name_en": "Togane Arena Athletic Stadium",
+  "venue_address": "千葉県東金市堀上1361-1",
+  "start_lat": 35.548084,
+  "start_lng": 140.386292
+}

@@ -12,7 +12,7 @@
   "description_ja": "宮古島と石垣島のほぼ中間に位置する沖縄県多良間島を走る大会で、「日本最南端の村を走ろう」をテーマに開催される。島を一周する23.75kmを中心に、10km・5km・3km・1kmの種目があり、小学生から参加できる。大会翌日までの交流を含め、島の自然と歴史文化に触れながら走れる。",
   "description_en": "This race is held on Tarama Island in Okinawa, roughly midway between Miyakojima and Ishigakijima, under the theme 'Let's run in Japan's southernmost village.' The main event is the 23.75km island circuit, with 10km, 5km, 3km and 1km events also offered, and participation is open from elementary school age. Runners can enjoy the island's nature, history and culture, along with the Fureai Party and other exchange events.",
   "official_url": "https://taramajima-run.com/",
-  "entry_fee": null,
+  "entry_fee": 6500,
   "entry_fee_by_category": false,
   "entry_capacity": null,
   "entry_start_date": "2026-07-13",
@@ -114,10 +114,19 @@
   "access_points": [],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "参加賞：Tシャツ",
+      "description_en": "Participation gift: T-shirt",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-11-15T08:22:28.166Z",
-  "updated_at": "2026-11-15T09:30:44.324Z",
+  "updated_at": "2026-11-17T15:12:21.705Z",
   "_metadata": {
     "data_source": "公式サイト（https://taramajima-run.com/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -130,9 +139,10 @@
       "会場の詳細な住所は記載がなく、事務局所在地は沖縄県宮古郡多良間村字仲筋99-2。venue_addressは村名までとした。",
       "申込ページ（/apply/）のスポーツエントリーURL（event/t/101201）は、要項や最新情報のURL（event/t/106029）と異なる。申込ページには入院日額1,500円など、要項（1,000円）と食い違う旧情報の可能性がある記載もある。",
       "ふれあいパーティーは11月21日17:30〜20:00に多良間小学校体育館で開催。選手は無料、選手・役員以外は2,500円（当日は500円増）。昼食は1,500円。",
-      "宿泊施設が限られており、宿泊の有無を申込時に申告する必要がある。11月20日・21日は多くの施設が満室または残りわずか（2026年7月22日時点）。"
+      "宿泊施設が限られており、宿泊の有無を申込時に申告する必要がある。11月20日・21日は多くの施設が満室または残りわずか（2026年7月22日時点）。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -141,7 +151,7 @@
       "label_en": "General Entry",
       "start_date": "2026-07-13",
       "end_date": "2026-09-15",
-      "entry_fee": null,
+      "entry_fee": 6500,
       "category_id": null,
       "sort_order": 0
     }

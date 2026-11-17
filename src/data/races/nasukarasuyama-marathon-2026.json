@@ -95,7 +95,38 @@
       "waves": null
     }
   ],
-  "aid_stations": [],
+  "aid_stations": [
+    {
+      "distance_km": 3,
+      "offerings_ja": null,
+      "offerings_en": null,
+      "is_featured": false
+    },
+    {
+      "distance_km": 6,
+      "offerings_ja": null,
+      "offerings_en": null,
+      "is_featured": false
+    },
+    {
+      "distance_km": 10,
+      "offerings_ja": null,
+      "offerings_en": null,
+      "is_featured": false
+    },
+    {
+      "distance_km": 12,
+      "offerings_ja": null,
+      "offerings_en": null,
+      "is_featured": false
+    },
+    {
+      "distance_km": 17,
+      "offerings_ja": null,
+      "offerings_en": null,
+      "is_featured": false
+    }
+  ],
   "checkpoints": [],
   "access_points": [],
   "nearby_spots": [],
@@ -103,7 +134,7 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T08:34:29.906Z",
-  "updated_at": "2026-11-15T09:30:40.060Z",
+  "updated_at": "2026-11-17T15:09:32.703Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.city.nasukarasuyama.lg.jp/board-of-education/sports/karasuyama-marathon/page006782.html）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -115,9 +146,10 @@
       "ハーフの距離は一般的な21.0975kmを用いた（ページに数値の記載なし）。",
       "生涯学習課窓口での申込は9月18日締切、ふるさと納税経由（ハーフ・5km）は9月30日締切。",
       "公式タイムはグロスタイム。表彰は各種目・区分の上位6位まで。完走証はWEB発行のみ。",
-      "大会は毎年11月の最終日曜日に開催。雨天決行。"
+      "大会は毎年11月の最終日曜日に開催。雨天決行。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

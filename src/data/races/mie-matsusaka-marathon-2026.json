@@ -9,8 +9,8 @@
   "prefecture": "24",
   "city_ja": "松阪市",
   "city_en": "Matsusaka City",
-  "description_ja": "三重県松阪市で開催。松阪牛の産地を走るフルマラソン。ご当地グルメのエイドが期待される。",
-  "description_en": "Held in Matsusaka, Mie, home of the famous Matsusaka beef. Expect local gourmet food at aid stations.",
+  "description_ja": "三重県唯一のフルマラソンとして2022年に初開催。クラギ文化ホール前をスタートし松阪市総合運動公園にフィニッシュする日本陸連公認コースで、制限時間は7時間。松阪牛など地元特産品を提供するエイドや、32km地点のトンネル内のプロジェクションマッピングが特徴。",
+  "description_en": "First held in 2022 as the only full marathon in Mie Prefecture. The JAAF-certified course starts at Kuragi Culture Hall and finishes at Matsusaka General Sports Park, with a 7-hour time limit. Features include aid stations serving local specialties such as Matsusaka beef and projection mapping in the tunnel at km 32.",
   "official_url": "https://mie-matsusaka-marathon.jp",
   "entry_fee": 12900,
   "entry_fee_by_category": true,
@@ -112,7 +112,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-11-14T03:01:52.959Z",
+  "updated_at": "2026-11-17T15:08:31.862Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -124,9 +124,10 @@
       "2026-07-31: 自動クロールで更新",
       "2026-08-24: 自動クロールで更新",
       "2026-09-04: 自動クロールで更新",
-      "2026-11-14: 自動クロールで更新"
+      "2026-11-14: 自動クロールで更新",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-14",
+    "last_verified": "2026-11-17",
     "detail_level": "medium"
   },
   "entry_periods": [

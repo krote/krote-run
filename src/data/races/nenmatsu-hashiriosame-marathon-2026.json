@@ -18,8 +18,8 @@
   "entry_start_date": "2026-07-24",
   "entry_end_date": "2026-12-26",
   "reception_type": "race_day",
-  "reception_note_ja": "当日、会場でゼッケン番号を確認し、受付で氏名とゼッケン番号を伝えてゼッケンと参加賞を受け取ります。各大会3日前までにメールで事前案内があります。受付時間は公式サイトの記載がありません。",
-  "reception_note_en": "On the day, check your bib number at the venue, then give your name and bib number at the reception desk to receive your bib and participation gift. Advance information is sent by email up to 3 days before the event. Reception hours are not stated on the official site.",
+  "reception_note_ja": "当日、会場でゼッケン番号を確認し、受付で氏名とゼッケン番号を伝えてゼッケンと参加賞を受け取ります。受付開始は8:30で、各部門スタートの20分前までに受付を済ませてください。各大会3日前までにメールで事前案内があります。",
+  "reception_note_en": "On the day, check your bib number at the venue, then give your name and bib number at the reception desk to receive your bib and participation gift. Reception opens at 08:30; please complete check-in at least 20 minutes before each event's start. Advance information is sent by email up to 3 days before the event.",
   "tags": [],
   "course_gpx_file": null,
   "course_info": {
@@ -93,13 +93,34 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "逆瀬川駅",
+      "station_name_en": "Sakasegawa Station",
+      "station_code": "",
+      "transport_to_venue_ja": "阪急今津線 逆瀬川駅下車、徒歩19分",
+      "transport_to_venue_en": "19 min walk from Sakasegawa Station (Hankyu Imazu Line)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 19,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "towel"
+      ],
+      "description_ja": "フル・ハーフの部に事前エントリーした方に「走り納め証」記念タオルを無料でプレゼント（5km・10kmの部は別売り 1,500円）",
+      "description_en": "Participants who pre-enter the full or half marathon receive a commemorative 'Hashiri-Osame' towel for free (sold separately for 5km and 10km at 1,500 yen)",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-11-15T08:52:51.688Z",
-  "updated_at": "2026-11-15T08:52:51.688Z",
+  "updated_at": "2026-11-17T15:16:31.926Z",
   "_metadata": {
     "data_source": "公式サイト（https://sportsone.jp/hashiriosame/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -111,9 +132,10 @@
       "開催日12/26は公式サイトの開催概要（26日：兵庫 宝塚新大橋公園 シンボル広場）による。",
       "公式サイトのお知らせ欄には2025年大会の情報（宝塚武庫川会場の詳細リンクなど）も混在しているが、2026年大会の情報のみを抽出した。",
       "お支払方法は当日エントリー・タオル購入ともPayPayのみ。計測チップ紛失・未返却は実費2,000円。駐車場なし。",
-      "フル・ハーフの事前エントリー者には「走り納め証」記念タオルを無料プレゼント。5km・10kmはタオル別売り（1,500円）。"
+      "フル・ハーフの事前エントリー者には「走り納め証」記念タオルを無料プレゼント。5km・10kmはタオル別売り（1,500円）。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -187,7 +209,7 @@
   "completion_gifts": [],
   "venue_name_ja": "宝塚新大橋公園 シンボル広場",
   "venue_name_en": "Takarazuka Shin-Ohashi Park Symbol Plaza",
-  "venue_address": null,
-  "start_lat": null,
-  "start_lng": null
+  "venue_address": "兵庫県宝塚市東洋町1",
+  "start_lat": 34.799294,
+  "start_lng": 135.360291
 }

@@ -123,15 +123,55 @@
       "waves": null
     }
   ],
-  "aid_stations": [],
-  "checkpoints": [],
+  "aid_stations": [
+    {
+      "distance_km": 0.1,
+      "offerings_ja": "ドリンク（アミノバイタルGOLD）・ジェル（アミノショット パーフェクトエネルギー。スタート1時間後に4.9km地点の給水地点に設置）",
+      "offerings_en": "Drink (Aminovital GOLD), gel (Amino Shot Perfect Energy; set out at the 4.9 km aid point one hour after the start)",
+      "is_featured": true
+    }
+  ],
+  "checkpoints": [
+    {
+      "distance_km": 5,
+      "closing_time": "10:02"
+    },
+    {
+      "distance_km": 10,
+      "closing_time": "10:34"
+    },
+    {
+      "distance_km": 15,
+      "closing_time": "11:06"
+    },
+    {
+      "distance_km": 20,
+      "closing_time": "11:38"
+    },
+    {
+      "distance_km": 25,
+      "closing_time": "12:10"
+    },
+    {
+      "distance_km": 30,
+      "closing_time": "12:42"
+    },
+    {
+      "distance_km": 35,
+      "closing_time": "13:14"
+    },
+    {
+      "distance_km": 40,
+      "closing_time": "13:46"
+    }
+  ],
   "access_points": [],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T09:02:01.240Z",
-  "updated_at": "2026-11-15T09:30:47.663Z",
+  "updated_at": "2026-11-17T15:13:04.429Z",
   "_metadata": {
     "data_source": "公式サイト（https://race.rdc-run.com/series/nagoya/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -143,9 +183,10 @@
       "周回コースの距離は『約2.3km』と『2.5km』の記載が混在している。",
       "定員は大会要項の『全種目合計500人で受付終了』を全体定員とした。1マイルの個別定員は記載なし。",
       "参加費は大会要項・料金表の共通額で、エントリー期間ごとの料金差は記載がないため、期間の entry_fee は null とした。",
-      "大会要項には『複数日開催のためHPを確認』とあり、回数「1」は大会名『NAGOYA 1』から採用した。"
+      "大会要項には『複数日開催のためHPを確認』とあり、回数「1」は大会名『NAGOYA 1』から採用した。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

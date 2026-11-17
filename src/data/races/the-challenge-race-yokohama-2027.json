@@ -29,11 +29,11 @@
   "course_info": {
     "max_elevation_m": null,
     "min_elevation_m": null,
-    "elevation_diff_m": null,
+    "elevation_diff_m": 3,
     "surface": "road",
     "certification": [],
-    "highlights_ja": null,
-    "highlights_en": null,
+    "highlights_ja": "鶴見川右岸の片道5km・全長10kmの周回コース。0.9km〜1km付近の片道100mの区間以外はフラットで、高低差3m以内の高速コースです。",
+    "highlights_en": "A 10km loop (5km each way) on the right bank of the Tsurumi River. Apart from a 100m section around the 0.9-1km point, the course is flat, with an elevation difference of 3m or less.",
     "notes_ja": null,
     "notes_en": null
   },
@@ -123,15 +123,79 @@
       "waves": null
     }
   ],
-  "aid_stations": [],
-  "checkpoints": [],
-  "access_points": [],
+  "aid_stations": [
+    {
+      "distance_km": 2,
+      "offerings_ja": "アミノバイタルGOLD（ドリンク）",
+      "offerings_en": "Aminovital GOLD (drink)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 4.7,
+      "offerings_ja": "アミノバイタルGOLD（ドリンク）・アミノショット パーフェクトエネルギー（ジェル、スタート1時間後に設置）",
+      "offerings_en": "Aminovital GOLD (drink), Amino Shot Perfect Energy (gel, set up 1 hour after the start)",
+      "is_featured": true
+    },
+    {
+      "distance_km": 8.4,
+      "offerings_ja": "アミノバイタルGOLD（ドリンク）",
+      "offerings_en": "Aminovital GOLD (drink)",
+      "is_featured": false
+    }
+  ],
+  "checkpoints": [
+    {
+      "distance_km": 5,
+      "closing_time": "10:02"
+    },
+    {
+      "distance_km": 10,
+      "closing_time": "10:34"
+    },
+    {
+      "distance_km": 15,
+      "closing_time": "11:06"
+    },
+    {
+      "distance_km": 20,
+      "closing_time": "11:38"
+    },
+    {
+      "distance_km": 25,
+      "closing_time": "12:10"
+    },
+    {
+      "distance_km": 30,
+      "closing_time": "12:42"
+    },
+    {
+      "distance_km": 35,
+      "closing_time": "13:14"
+    },
+    {
+      "distance_km": 40,
+      "closing_time": "13:46"
+    }
+  ],
+  "access_points": [
+    {
+      "station_name_ja": "新横浜駅",
+      "station_name_en": "Shin-Yokohama Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩10分（8番出口）",
+      "transport_to_venue_en": "10 min walk (Exit 8)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 10,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T09:05:22.489Z",
-  "updated_at": "2026-11-15T09:30:58.106Z",
+  "updated_at": "2026-11-17T15:14:14.882Z",
   "_metadata": {
     "data_source": "公式サイト（https://yokohama-race.rdc-run.com/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -143,9 +207,10 @@
       "1マイルの制限時間は記載がありません。距離は1マイル換算の約1.609kmとしました（公式は折返し0.804kmと記載）。ハーフの距離は21.0975kmとしました。",
       "会場住所は受付場所（新横浜駅前公園東側あずまや）の住所です。",
       "開会式は9:10〜9:20、全競技終了は14:00です。大会要項では開催日時が複数日開催のためホームページ確認とされています。",
-      "競技規約には50kmの部の関門に関する記載がありますが、本大会の種目一覧には50kmはありません。"
+      "競技規約には50kmの部の関門に関する記載がありますが、本大会の種目一覧には50kmはありません。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

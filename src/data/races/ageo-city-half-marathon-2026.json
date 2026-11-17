@@ -69,13 +69,25 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "上尾駅",
+      "station_name_en": "Ageo Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約20分",
+      "transport_to_venue_en": "About 20 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 20,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T08:23:59.559Z",
-  "updated_at": "2026-11-15T09:30:24.110Z",
+  "updated_at": "2026-11-17T15:04:59.460Z",
   "_metadata": {
     "data_source": "公式サイト（https://ageocity-marathon.com/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -86,9 +98,10 @@
       "全体の定員は公式に明記がないため null。開催要項ではハーフ5,500人・5km1,600人。エントリーページでは上尾市民優先枠500名と一般申込枠5,500名の記載があり、ハーフの5,500人に市民枠が含まれるかは不明。",
       "5kmの部の制限時間は記載がなく null。ハーフの制限時間は号砲後2時間40分。",
       "受付方法（前日・当日・事前送付）は公式サイトの本文に明記がなく null。ニュース見出しにアスリートビブス等の発送があるが、詳細は未確認。",
-      "ジュニアチャレンジラン（2026-11-21、上尾運動公園陸上競技場内、11:50スタート、親子ペアラン0.5km／小学生1〜2kmなど）も同時開催されるが、categories には含めていない。"
+      "ジュニアチャレンジラン（2026-11-21、上尾運動公園陸上競技場内、11:50スタート、親子ペアラン0.5km／小学生1〜2kmなど）も同時開催されるが、categories には含めていない。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

@@ -95,15 +95,75 @@
       "waves": null
     }
   ],
-  "aid_stations": [],
+  "aid_stations": [
+    {
+      "distance_km": 12,
+      "offerings_ja": "ゼリー・バナナ・チーズ等、スポーツドリンク（温・冷）・水（やぐら台、予定）",
+      "offerings_en": "Jelly, bananas, cheese, etc., sports drink (hot/cold) and water (Yagura-dai, planned)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 19,
+      "offerings_ja": "ゼリー・バナナ・チーズ等、スポーツドリンク（温・冷）・水（中央峠付近、予定）",
+      "offerings_en": "Jelly, bananas, cheese, etc., sports drink (hot/cold) and water (near Chuo Pass, planned)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 25,
+      "offerings_ja": "ゼリー・バナナ・チーズ等、スポーツドリンク（温・冷）・水（白旗山競技場、周回・フィニッシュ、予定）",
+      "offerings_en": "Jelly, bananas, cheese, etc., sports drink (hot/cold) and water (Shirahatayama Stadium, lap/finish, planned)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 37,
+      "offerings_ja": "ゼリー・バナナ・チーズ等、スポーツドリンク（温・冷）・水（やぐら台、予定）",
+      "offerings_en": "Jelly, bananas, cheese, etc., sports drink (hot/cold) and water (Yagura-dai, planned)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 44,
+      "offerings_ja": "ゼリー・バナナ・チーズ等、スポーツドリンク（温・冷）・水（中央峠付近、予定）",
+      "offerings_en": "Jelly, bananas, cheese, etc., sports drink (hot/cold) and water (near Chuo Pass, planned)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 50,
+      "offerings_ja": "ゼリー・バナナ・チーズ等、スポーツドリンク（温・冷）・水（白旗山競技場、フィニッシュ、予定）",
+      "offerings_en": "Jelly, bananas, cheese, etc., sports drink (hot/cold) and water (Shirahatayama Stadium, finish, planned)",
+      "is_featured": false
+    }
+  ],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "大谷地駅",
+      "station_name_en": "Ōyachi Station",
+      "station_code": "",
+      "transport_to_venue_ja": "地下鉄東西線 大通駅から大谷地駅、臨時バス（大会当日運行予定）",
+      "transport_to_venue_en": "Tozai Line from Odori to Ōyachi Station, then special shuttle bus (planned on race day)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 0,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "福住駅",
+      "station_name_en": "Fukuzumi Station",
+      "station_code": "",
+      "transport_to_venue_ja": "地下鉄東豊線 大通駅から福住駅、臨時バス（大会当日運行予定）",
+      "transport_to_venue_en": "Toho Line from Odori to Fukuzumi Station, then special shuttle bus (planned on race day)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 0,
+      "is_primary": false
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T09:09:10.401Z",
-  "updated_at": "2026-11-15T09:30:42.198Z",
+  "updated_at": "2026-11-17T15:11:08.803Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.sapporo-sport.jp/ski/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -115,9 +175,10 @@
       "路面は雪上のスキーコースで、road・trail・mixed のどれにも当てはまらないため surface は null。",
       "25kmの distance_type は選択肢にないため other としている。",
       "5kmのテキストは「2時間分 (120分)」と崩れているため、制限時間は120分と解釈した。",
-      "5kmの開始時刻13:00と制限時間は、表の並びから5kmのものと解釈した。"
+      "5kmの開始時刻13:00と制限時間は、表の並びから5kmのものと解釈した。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -153,7 +214,16 @@
       "label": "会場アクセス"
     }
   ],
-  "completion_gifts": [],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "50km・25km・10km：記念バッジ、完走メダル、完走記録証（Web発行）。5km：記念バッジ、完走記念品、完走記録証（Web発行）（予定）",
+      "description_en": "50km/25km/10km: commemorative badge, finisher's medal and finisher's certificate (issued online). 5km: commemorative badge, finisher's souvenir and finisher's certificate (issued online) (planned).",
+      "image": null
+    }
+  ],
   "venue_name_ja": "白旗山競技場",
   "venue_name_en": "Shirahatayama Stadium",
   "venue_address": "札幌市清田区真栄502番地1",

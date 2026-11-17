@@ -5,7 +5,7 @@
   "full_name_ja": "万里の長城マラソン2027",
   "full_name_en": "Great Wall Marathon 2027",
   "edition": null,
-  "date": "2027-05-01",
+  "date": "2027-05-15",
   "prefecture": null,
   "city_ja": null,
   "city_en": null,
@@ -71,7 +71,7 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T09:29:00.655Z",
-  "updated_at": "2026-11-15T09:29:00.655Z",
+  "updated_at": "2026-11-17T15:06:40.643Z",
   "_metadata": {
     "data_source": "公式サイト（https://great-wall-marathon.com.cn/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -81,9 +81,10 @@
       "エントリー締切は公式サイトのFAQに基づき2027-04-16（候補情報の2027-04-13とは異なる）。受付開始日は記載がないためnull。外国人ランナーの枠が限られるため、締切前に受付終了する可能性がある。締切後の申込は、空きがある場合に限り late booking policy による追加料金が必要。",
       "参加費、定員、制限時間、スタート時刻、受付方法、会場住所、市区町村はサイト本文に記載がないためnull。",
       "フル・ハーフの距離は種目名からの標準距離で、公式サイトに数値の記載はない。",
-      "開催地は「その他、海外」（中国）。路面（surface）は記載がないためnull。回数の記載なし。気象は例年16〜35℃、平均約25℃で高湿度に注意との記載あり。"
+      "開催地は「その他、海外」（中国）。路面（surface）は記載がないためnull。回数の記載なし。気象は例年16〜35℃、平均約25℃で高湿度に注意との記載あり。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

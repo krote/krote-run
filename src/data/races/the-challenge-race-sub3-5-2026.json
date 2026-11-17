@@ -14,7 +14,7 @@
   "official_url": "https://race.rdc-run.com/series/sub35-sub4/",
   "entry_fee": 13200,
   "entry_fee_by_category": false,
-  "entry_capacity": null,
+  "entry_capacity": 300,
   "entry_start_date": "2026-06-04",
   "entry_end_date": "2026-12-15",
   "reception_type": "race_day",
@@ -29,11 +29,13 @@
   "course_info": {
     "max_elevation_m": null,
     "min_elevation_m": null,
-    "elevation_diff_m": null,
+    "elevation_diff_m": 1.5,
     "surface": "road",
-    "certification": [],
-    "highlights_ja": null,
-    "highlights_en": null,
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "荒川河川敷の全長10km周回コース。高低差1.5m以内のフラットな高速コースで、日本陸連公認。",
+    "highlights_en": "A 10km loop course on the Arakawa riverbed. Flat and fast with an elevation difference of 1.5m or less, JAAF-certified.",
     "notes_ja": null,
     "notes_en": null
   },
@@ -53,15 +55,79 @@
       "waves": null
     }
   ],
-  "aid_stations": [],
-  "checkpoints": [],
-  "access_points": [],
+  "aid_stations": [
+    {
+      "distance_km": 3,
+      "offerings_ja": "アミノバイタルGOLD（ドリンク）・アミノショット パーフェクトエネルギー（ジェル）",
+      "offerings_en": "Aminovital GOLD drink, Amino Shot Perfect Energy gel",
+      "is_featured": false
+    },
+    {
+      "distance_km": 7,
+      "offerings_ja": "アミノバイタルGOLD（ドリンク）・アミノショット パーフェクトエネルギー（ジェル）",
+      "offerings_en": "Aminovital GOLD drink, Amino Shot Perfect Energy gel",
+      "is_featured": false
+    },
+    {
+      "distance_km": 10,
+      "offerings_ja": "アミノバイタルGOLD（ドリンク）・アミノショット パーフェクトエネルギー（ジェル）",
+      "offerings_en": "Aminovital GOLD drink, Amino Shot Perfect Energy gel",
+      "is_featured": false
+    }
+  ],
+  "checkpoints": [
+    {
+      "distance_km": 5,
+      "closing_time": "10:02"
+    },
+    {
+      "distance_km": 10,
+      "closing_time": "10:34"
+    },
+    {
+      "distance_km": 15,
+      "closing_time": "11:06"
+    },
+    {
+      "distance_km": 20,
+      "closing_time": "11:38"
+    },
+    {
+      "distance_km": 25,
+      "closing_time": "12:10"
+    },
+    {
+      "distance_km": 30,
+      "closing_time": "12:42"
+    },
+    {
+      "distance_km": 35,
+      "closing_time": "13:14"
+    },
+    {
+      "distance_km": 40,
+      "closing_time": "13:46"
+    }
+  ],
+  "access_points": [
+    {
+      "station_name_ja": "西台駅",
+      "station_name_en": "Nishidai Station",
+      "station_code": "",
+      "transport_to_venue_ja": "都営三田線 徒歩12分",
+      "transport_to_venue_en": "12 min walk (Toei Mita Line)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 12,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T08:48:32.932Z",
-  "updated_at": "2026-11-15T08:48:32.932Z",
+  "updated_at": "2026-11-17T15:13:26.868Z",
   "_metadata": {
     "data_source": "公式サイト（https://race.rdc-run.com/series/sub35-sub4/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -72,9 +138,10 @@
       "定員は要項でフルマラソン300人、かつ全種目合計500人で受付終了とあるが、SUB3.5とSUB4を合わせた枠か不明なため、全体定員はnullとした。",
       "ペーサー設定は3時間20分・25分・28分・30分（SUB3.5側）、3時間50分・55分・58分・4時間00分（SUB4側）。",
       "制限時間4時間30分。5kmごとに関門があり、30km地点は3時間12分、40km地点は4時間16分。",
-      "全競技終了は14:00。"
+      "全競技終了は14:00。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

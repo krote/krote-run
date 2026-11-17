@@ -155,7 +155,7 @@
   ],
   "result": null,
   "created_at": "2026-08-24T16:15:46.106Z",
-  "updated_at": "2026-10-05T14:05:10.508Z",
+  "updated_at": "2026-11-17T15:10:54.137Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -165,9 +165,10 @@
       "2026-08-25: categoriesが自動更新対象外（DIFF_FIELDSに未収録）のため空欄のままだった。公式サイト確認でマラソン（制限時間6.5時間・定員8,500人・14,500円）、ファンラン10km（定員1,500人・6,000円）、親子ペアラン1.5km（定員60組120名）を追加",
       "2026-08-31: info_urlsの/traffic/がHTTP 404だったため、公式サイトの現在のページ構成を確認し/access/（アクセス）に修正",
       "2026-09-18: 自動クロールで更新",
-      "2026-10-05: 自動クロールで更新"
+      "2026-10-05: 自動クロールで更新",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-05",
+    "last_verified": "2026-11-17",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -244,6 +245,14 @@
       ],
       "description_ja": "完走メダル",
       "description_en": "Finisher medal",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "towel"
+      ],
+      "description_ja": "フィニッシャータオル（フルマラソン：ブルー×ピンク、ファンラン：ホワイト）",
+      "description_en": "Finisher towel (Full Marathon: blue x pink; Fun Run: white)",
       "image": null
     }
   ],

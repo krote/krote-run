@@ -12,7 +12,7 @@
   "description_ja": "世界遺産シリーズとして開催される100kmのウルトラマラソン。橿原市の藤原宮跡を発着とし、明日香村、高取町、大淀町、下市町、五條市、黒滝村、吉野町など奈良県南部を巡る。25歳以下を対象としたU25枠も設けられている。",
   "description_en": "A 100km ultramarathon held as part of the World Heritage series, starting and finishing at the Fujiwara Palace Site in Kashihara City. The course passes through southern Nara Prefecture, including Asuka, Takatori, Oyodo, Shimoichi, Gojo, Kurotaki and Yoshino. A special U25 category for runners aged 25 and under is also offered.",
   "official_url": "https://www.r-wellness.com/nara/",
-  "entry_fee": null,
+  "entry_fee": 23000,
   "entry_fee_by_category": true,
   "entry_capacity": 3200,
   "entry_start_date": "2026-11-13",
@@ -69,13 +69,42 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "近鉄大和八木駅",
+      "station_name_en": "Kintetsu Yamato-Yagi Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約40分",
+      "transport_to_venue_en": "About 40 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 40,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "オリジナルTシャツ（THE NORTH FACE）。2027年1月4日までにお申し込みの方のうち先着2,000名が選択可能。",
+      "description_en": "Original T-shirt (THE NORTH FACE). Available to the first 2,000 entrants who register by January 4, 2027.",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "towel"
+      ],
+      "description_ja": "オリジナルタオル。Tシャツが先着数に達した後にお申し込みの方、およびふるさと納税枠の方に贈られる（参加賞はTシャツまたはタオルのいずれか1点）。",
+      "description_en": "Original towel. Given to entrants who register after the T-shirt allotment is filled and to hometown tax donation entrants (one item per runner: either T-shirt or towel).",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-11-15T09:30:24.009Z",
-  "updated_at": "2026-11-15T09:30:24.009Z",
+  "updated_at": "2026-11-17T15:09:26.024Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.r-wellness.com/nara/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -88,9 +117,10 @@
       "スタート時刻は予定で、変更の可能性がある。表示した04:30は WAVE A の時刻。",
       "路面は一般道路（交通規制なし）を走行するため road とした。",
       "ふるさと納税エントリーは2027年1月開始予定。",
-      "アクセスマップ・駐車場案内は2026大会のものであり、2027大会用データは確定後に更新される予定。"
+      "アクセスマップ・駐車場案内は2026大会のものであり、2027大会用データは確定後に更新される予定。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -134,7 +164,16 @@
       "label": "ー INFORMATION ー\n  \n\n  \n    エントリー受付開始に向けたお願い"
     }
   ],
-  "completion_gifts": [],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "完走者全員に完走メダルとWEB完走証。",
+      "description_en": "All finishers receive a finisher's medal and a web finisher's certificate.",
+      "image": null
+    }
+  ],
   "venue_name_ja": "藤原宮跡 朝堂院西門跡",
   "venue_name_en": "Fujiwara Palace Site, West Gate of Chodoin",
   "venue_address": "〒634-0073 奈良県橿原市縄手町324",

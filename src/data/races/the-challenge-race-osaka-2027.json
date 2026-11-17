@@ -29,11 +29,13 @@
   "course_info": {
     "max_elevation_m": null,
     "min_elevation_m": null,
-    "elevation_diff_m": null,
+    "elevation_diff_m": 1.5,
     "surface": "road",
-    "certification": [],
-    "highlights_ja": null,
-    "highlights_en": null,
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "淀川河川敷の全長10kmの周回コース。全てフラットな高速コースで、高低差は1.5m以内。",
+    "highlights_en": "A 10 km loop course along the Yodo River. The course is entirely flat and fast, with an elevation difference of 1.5 m or less.",
     "notes_ja": null,
     "notes_en": null
   },
@@ -124,14 +126,70 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
-  "access_points": [],
+  "checkpoints": [
+    {
+      "distance_km": 5,
+      "closing_time": "10:02"
+    },
+    {
+      "distance_km": 10,
+      "closing_time": "10:34"
+    },
+    {
+      "distance_km": 15,
+      "closing_time": "11:06"
+    },
+    {
+      "distance_km": 20,
+      "closing_time": "11:38"
+    },
+    {
+      "distance_km": 25,
+      "closing_time": "12:10"
+    },
+    {
+      "distance_km": 30,
+      "closing_time": "12:42"
+    },
+    {
+      "distance_km": 35,
+      "closing_time": "13:14"
+    },
+    {
+      "distance_km": 40,
+      "closing_time": "13:46"
+    }
+  ],
+  "access_points": [
+    {
+      "station_name_ja": "西中島南方駅",
+      "station_name_en": "Nishinakajima-Minamigata Station",
+      "station_code": "",
+      "transport_to_venue_ja": "御堂筋線 徒歩5分",
+      "transport_to_venue_en": "5 min walk (Midosuji Line)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 5,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "新大阪駅",
+      "station_name_en": "Shin-Osaka Station",
+      "station_code": "",
+      "transport_to_venue_ja": "JR線 徒歩15分",
+      "transport_to_venue_en": "15 min walk (JR Line)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 15,
+      "is_primary": false
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T09:18:12.648Z",
-  "updated_at": "2026-11-15T09:30:49.752Z",
+  "updated_at": "2026-11-17T15:13:14.539Z",
   "_metadata": {
     "data_source": "公式サイト（https://osaka-race.rdc-run.com）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -145,9 +203,10 @@
       "競技規約に50kmの部への言及があるが、種目一覧にはないため種目には含めていない。",
       "給水地点の記載が公式サイト内で食い違う（特徴欄：3km・7km・10km、Q&A：1km・4.9km・8km付近）。そのため抽出対象には含めていない。",
       "会場の住所は受付場所（淀川河川公園 西中島地区野球場）のもの。1マイルの距離1.609kmは1マイルの換算値。",
-      "ハーフマラソンと30km・フルの最終折返し位置など細かいコース設定は、公式サイトのコース説明を参照のこと。"
+      "ハーフマラソンと30km・フルの最終折返し位置など細かいコース設定は、公式サイトのコース説明を参照のこと。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

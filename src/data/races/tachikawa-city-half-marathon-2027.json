@@ -124,14 +124,82 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
-  "access_points": [],
+  "checkpoints": [
+    {
+      "distance_km": 5,
+      "closing_time": "10:37"
+    },
+    {
+      "distance_km": 7.5,
+      "closing_time": "10:55"
+    },
+    {
+      "distance_km": 10.5,
+      "closing_time": "11:16"
+    },
+    {
+      "distance_km": 15,
+      "closing_time": "11:47"
+    }
+  ],
+  "access_points": [
+    {
+      "station_name_ja": "西立川駅",
+      "station_name_en": "Nishi-Tachikawa Station",
+      "station_code": "",
+      "transport_to_venue_ja": "JR青梅線 西立川駅から西立川口まで徒歩約2分",
+      "transport_to_venue_en": "About 2 min walk from Nishi-Tachikawa Station (JR Ome Line) to Nishi-Tachikawa Gate",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 2,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "立川駅",
+      "station_name_en": "Tachikawa Station",
+      "station_code": "",
+      "transport_to_venue_ja": "JR中央線 立川駅から立川口まで徒歩約15分",
+      "transport_to_venue_en": "About 15 min walk from Tachikawa Station (JR Chuo Line) to Tachikawa Gate",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 15,
+      "is_primary": false
+    },
+    {
+      "station_name_ja": "立川北駅",
+      "station_name_en": "Tachikawa-Kita Station",
+      "station_code": "",
+      "transport_to_venue_ja": "多摩都市モノレール 立川北駅から立川口まで徒歩約13分",
+      "transport_to_venue_en": "About 13 min walk from Tachikawa-Kita Station (Tama Monorail) to Tachikawa Gate",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 13,
+      "is_primary": false
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "towel"
+      ],
+      "description_ja": "オリジナルタオル（ハーフマラソン、10kmレース、1マイルレース、ファンラン3kmの部（一般））",
+      "description_en": "Original towel (half marathon, 10 km, 1 mile, and 3 km fun run for general participants)",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "other"
+      ],
+      "description_ja": "オリジナルシール（1マイルレース（小中学生）、ファンラン3kmの部（中学生）、ファンラン親子ペアの部）",
+      "description_en": "Original stickers (1 mile for elementary and junior high school students, 3 km fun run for junior high school students, parent-child pair fun run)",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-11-15T09:20:59.236Z",
-  "updated_at": "2026-11-15T09:20:59.236Z",
+  "updated_at": "2026-11-17T15:11:58.595Z",
   "_metadata": {
     "data_source": "公式サイト（https://tachikawa-half.jp/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -143,9 +211,10 @@
       "全体の定員は公式に明記されていないため null。ハーフの定員7,000名は一般・知的障がいの部と生徒・学生の部の合計。",
       "10kmレースと3km・1マイル・親子ペアの制限時間は記載がない。ハーフマラソンは12:40終了のため、10:00スタートから160分とした。",
       "1マイルは約1.609kmに換算して記載。",
-      "会場の住所と受付方法（前日・当日など）は記載がないため null。"
+      "会場の住所と受付方法（前日・当日など）は記載がないため null。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

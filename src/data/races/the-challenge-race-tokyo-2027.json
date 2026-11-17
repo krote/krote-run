@@ -29,11 +29,13 @@
   "course_info": {
     "max_elevation_m": null,
     "min_elevation_m": null,
-    "elevation_diff_m": null,
+    "elevation_diff_m": 1.5,
     "surface": "road",
-    "certification": [],
-    "highlights_ja": null,
-    "highlights_en": null,
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "全長10kmの周回コース。高低差1.5m以内のフラットな高速コース。",
+    "highlights_en": "A 10 km loop course that is flat and fast, with an elevation difference of 1.5 m or less.",
     "notes_ja": null,
     "notes_en": null
   },
@@ -137,15 +139,79 @@
       "waves": null
     }
   ],
-  "aid_stations": [],
-  "checkpoints": [],
-  "access_points": [],
+  "aid_stations": [
+    {
+      "distance_km": 3,
+      "offerings_ja": "アミノバイタルGOLD（ドリンク）・アミノショット パーフェクトエネルギー（ジェル）",
+      "offerings_en": "Aminovital GOLD (drink), Amino Shot Perfect Energy (gel)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 7,
+      "offerings_ja": "アミノバイタルGOLD（ドリンク）・アミノショット パーフェクトエネルギー（ジェル）",
+      "offerings_en": "Aminovital GOLD (drink), Amino Shot Perfect Energy (gel)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 10,
+      "offerings_ja": "アミノバイタルGOLD（ドリンク）・アミノショット パーフェクトエネルギー（ジェル）",
+      "offerings_en": "Aminovital GOLD (drink), Amino Shot Perfect Energy (gel)",
+      "is_featured": false
+    }
+  ],
+  "checkpoints": [
+    {
+      "distance_km": 5,
+      "closing_time": "10:02"
+    },
+    {
+      "distance_km": 10,
+      "closing_time": "10:34"
+    },
+    {
+      "distance_km": 15,
+      "closing_time": "11:06"
+    },
+    {
+      "distance_km": 20,
+      "closing_time": "11:38"
+    },
+    {
+      "distance_km": 25,
+      "closing_time": "12:10"
+    },
+    {
+      "distance_km": 30,
+      "closing_time": "12:42"
+    },
+    {
+      "distance_km": 35,
+      "closing_time": "13:14"
+    },
+    {
+      "distance_km": 40,
+      "closing_time": "13:46"
+    }
+  ],
+  "access_points": [
+    {
+      "station_name_ja": "西台駅",
+      "station_name_en": "Nishidai Station",
+      "station_code": "",
+      "transport_to_venue_ja": "都営三田線 西台駅から徒歩12分",
+      "transport_to_venue_en": "12 min walk from Nishidai Station (Toei Mita Line)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 12,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T09:00:28.192Z",
-  "updated_at": "2026-11-15T09:00:28.192Z",
+  "updated_at": "2026-11-17T15:13:46.848Z",
   "_metadata": {
     "data_source": "公式サイト（https://race.rdc-run.com/series/tokyo-arakawa/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -159,9 +225,10 @@
       "会場は荒川河川敷で、市区町村は受付場所の住所(板橋区舟渡)から板橋区とした。",
       "1マイルの距離は公式サイトに記載がなく、一般的な換算値(約1.609km)を入れた。コース説明では折返し点が0.804km地点とある。",
       "50kmのスタート時刻は、公式サイトのスケジュール表で5km〜フルと同じ9:30と記載されている。",
-      "公式サイトのテキストに回(45)専用の説明はなく、特徴や説明文はシリーズ共通の内容に基づく。"
+      "公式サイトのテキストに回(45)専用の説明はなく、特徴や説明文はシリーズ共通の内容に基づく。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

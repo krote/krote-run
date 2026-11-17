@@ -32,8 +32,8 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [],
-    "highlights_ja": null,
-    "highlights_en": null,
+    "highlights_ja": "舗装された荒川河川敷のコースで、近くを流れる荒川を眺めながら走れる。半周(5.274375km)ごとのラップ計測も行う。",
+    "highlights_en": "A paved course along the Arakawa riverbank, running beside the river. Lap times are also recorded at every half lap (5.274375 km).",
     "notes_ja": null,
     "notes_en": null
   },
@@ -114,10 +114,19 @@
   "access_points": [],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "オリジナルドライTシャツ（グレー・オレンジの2色、5サイズ）。参加賞なしでのエントリーも選択可能。",
+      "description_en": "Original dry T-shirt (gray or orange, 5 sizes). Entrants may also choose to enter without the participation prize.",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-11-15T08:41:32.042Z",
-  "updated_at": "2026-11-15T08:41:32.042Z",
+  "updated_at": "2026-11-17T15:14:29.940Z",
   "_metadata": {
     "data_source": "公式サイト（https://akabane-marathon.tokyo/yearend/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -129,9 +138,10 @@
       "参加費は参加賞の有無で異なる。categoriesのentry_feeは参加賞不要の場合の金額。ハーフリレーのチーム料金は人数別のためentry_feeはnull。",
       "種目のdistance_typeについて、スリークォーターとハーフリレーは other、クォーターは約10.5kmのため10k、ワンエイトは約5.3kmのため5kとした。",
       "制限時間は公式記載の各種目の時間。全種目共通の関門時刻は13:35。",
-      "アクセスの徒歩時間は大会要項（赤羽駅徒歩約20分、赤羽岩淵駅約10分）とアクセス欄（約18分、約12分）で記載が異なる。"
+      "アクセスの徒歩時間は大会要項（赤羽駅徒歩約20分、赤羽岩淵駅約10分）とアクセス欄（約18分、約12分）で記載が異なる。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

@@ -125,13 +125,25 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "武蔵浦和駅",
+      "station_name_en": "Musashi-Urawa Station",
+      "station_code": "",
+      "transport_to_venue_ja": "駅前ロータリーより路線バス「美女木経由 下笹目行き」で約15分、「彩湖・道満グリーンパーク入口」下車後、徒歩約10分",
+      "transport_to_venue_en": "Take the bus bound for Shimosasame via Bijogi from the station rotary (about 15 min) to Saiko Doman Green Park Iriguchi, then walk about 10 min",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 10,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T09:03:12.989Z",
-  "updated_at": "2026-11-15T09:30:35.817Z",
+  "updated_at": "2026-11-17T15:07:48.605Z",
   "_metadata": {
     "data_source": "公式サイト（https://sportswiz.jp/kisetu_saiko/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -142,9 +154,10 @@
       "参加費は種目別（1km 1,500円、3km 2,500円、5km 3,200円、10km 3,700円、ハーフ4,200円、30km 4,700円）で、定員は記載なし。",
       "ハーフの距離は公式サイトに数値の記載がなく、一般的なハーフマラソン距離（21.0975km）とした。",
       "公式サイト掲載のコースマップは2026年版。",
-      "会場名は「彩湖サッカー場隣」の記載から付けた。正式な施設名は公式サイトに明記がなく、管理事務所の名称（彩湖・道満グリーンパーク）から補った。"
+      "会場名は「彩湖サッカー場隣」の記載から付けた。正式な施設名は公式サイトに明記がなく、管理事務所の名称（彩湖・道満グリーンパーク）から補った。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

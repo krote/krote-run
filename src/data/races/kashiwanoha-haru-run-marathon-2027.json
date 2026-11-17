@@ -181,13 +181,33 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "柏の葉キャンパス駅",
+      "station_name_en": "Kashiwanoha-campus Station",
+      "station_code": "",
+      "transport_to_venue_ja": "西口から路線バス10分(「東大西」または「東大前」下車)",
+      "transport_to_venue_en": "10 min by bus from the West Exit (get off at Todai-nishi or Todai-mae)",
+      "latitude": 0,
+      "longitude": 0,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "other"
+      ],
+      "description_ja": "クールノット(結ばない靴ヒモ)。チャレンジランはキャラクターグッズを予定。",
+      "description_en": "Coolknot (no-tie shoelaces). Character goods are planned for the Challenge Run.",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-11-15T09:23:21.798Z",
-  "updated_at": "2026-11-15T09:23:21.798Z",
+  "updated_at": "2026-11-17T15:07:32.638Z",
   "_metadata": {
     "data_source": "公式サイト（https://gsrun.jp/kashiwanoha-haru/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -198,9 +218,10 @@
       "全体の定員は記載がなく null。種目別の定員の合計は参考値であり、全体定員としては採用していない。",
       "リレー種目の参加費はチーム人数により異なるため、categories の entry_fee は null とし、説明文に記載。",
       "3kmコースを周回する形式で、制限時間を超えると新たな周回には入れない。",
-      "路面はコースの詳細記載がないため、周回コースの一般的な形態から road としたが、公式サイトには明記されていない。"
+      "路面はコースの詳細記載がないため、周回コースの一般的な形態から road としたが、公式サイトには明記されていない。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

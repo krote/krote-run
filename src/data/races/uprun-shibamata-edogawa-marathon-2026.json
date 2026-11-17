@@ -32,8 +32,8 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [],
-    "highlights_ja": null,
-    "highlights_en": null,
+    "highlights_ja": "江戸川河川敷の勾配差のない平坦な1周5kmの周回コース。給水は2箇所。",
+    "highlights_en": "A flat 5 km loop course along the Edogawa riverbank with no elevation changes. Two water stations.",
     "notes_ja": null,
     "notes_en": null
   },
@@ -125,13 +125,25 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "柴又駅",
+      "station_name_en": "Shibamata Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩11分",
+      "transport_to_venue_en": "11 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 11,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T08:53:59.337Z",
-  "updated_at": "2026-11-15T09:31:02.361Z",
+  "updated_at": "2026-11-17T15:15:23.412Z",
   "_metadata": {
     "data_source": "公式サイト（https://up-run.jp/events/up-shibamata3/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -143,9 +155,10 @@
       "10km・5km・親子の部の制限時間は「無し」のため null。30km・ハーフ・フルは公式記載の制限時間を分に換算。",
       "定員500名は大会全体の人数で、種目別の定員は記載なし。",
       "コース路面は河川敷の周回コースと記載されているが、舗装等の明記はなく、surface は road と推定。",
-      "大会名は「第3回UPRUN柴又江戸川マラソン」。開催地住所は公式サイトの開催地欄の記載に基づく。"
+      "大会名は「第3回UPRUN柴又江戸川マラソン」。開催地住所は公式サイトの開催地欄の記載に基づく。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

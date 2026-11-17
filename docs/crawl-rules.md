@@ -193,6 +193,7 @@ pnpm run discover -- --generate            # race JSON 生成 → 座標補完 �
 - 公式サイトが見つからない候補・既に同じ ID のファイルがある候補は生成せず、PR 本文の「生成しなかった候補」に理由を出す。選択は残るので再実行で再挑戦できる
 - 開催日は候補（スポーツエントリーの最新回）を正とする。公式サイトが前回大会の内容のままなら、日程・参加費・定員は空にして注記する
 - 生成した JSON は `detail_level: light`。`_metadata.data_accuracy_notes` に発見元と LLM の注記が入る。検査ゲートで新たな違反を生む項目は外す
+- 検査ゲート後も `validateRace()` の error が残る大会（必須項目が null・ID が不正など）は JSON を書き出さず「生成しなかった候補」に回す（`blockingReason()`）。DB の NOT NULL 列が null の JSON が1件でもあると `seed-races-all.sql` 全体の投入が失敗するため（2026-11-15 #228 で発生）
 - `candidates.json` / `candidates.md` は作業ファイル（`.gitignore` 済み）
 - Web 検索の結果は実行ごとに揺れる（同じ候補でも公式サイトが見つかったり見つからなかったりする）。PR では公式サイトの URL を必ず確認する
 

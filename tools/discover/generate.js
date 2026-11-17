@@ -288,7 +288,23 @@ async function generateRace(candidate, deps) {
   for (const h of held) screened[h.key] = Array.isArray(fields[h.key]) ? [] : null;
   Object.assign(screened, applied);
 
-  return { race: screened, held, issues: validateRace(screened), metas };
+  const issues = validateRace(screened);
+  // 必須項目の欠落・不正な ID などの error は seed 全体を失敗させるため、書き出さずにスキップする
+  const blocked = blockingReason(issues);
+  if (blocked) return { skipped: blocked, metas };
+
+  return { race: screened, held, issues, metas };
+}
+
+/**
+ * 検査結果に error があればスキップ理由を返す（warning だけなら null）
+ * @param {{ rule: string, level: 'error'|'warning', message: string }[]} issues
+ * @returns {string|null}
+ */
+function blockingReason(issues) {
+  const errors = issues.filter((i) => i.level === 'error');
+  if (errors.length === 0) return null;
+  return `検査エラー: ${errors.map((i) => i.message).join(' / ')}`;
 }
 
 module.exports = {
@@ -298,5 +314,6 @@ module.exports = {
   buildLightRace,
   toRaceId,
   generateRace,
+  blockingReason,
   SYSTEM_PROMPT_FILE,
 };

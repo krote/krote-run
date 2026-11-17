@@ -29,11 +29,11 @@
   "course_info": {
     "max_elevation_m": null,
     "min_elevation_m": null,
-    "elevation_diff_m": null,
+    "elevation_diff_m": 1.5,
     "surface": "road",
     "certification": [],
-    "highlights_ja": null,
-    "highlights_en": null,
+    "highlights_ja": "高低差1.5m以内のフラットな高速コース。全長5kmの周回コースで、芦田川河川敷を走る。",
+    "highlights_en": "A flat, fast course with an elevation difference of 1.5 m or less. A 5 km loop along the Ashida River.",
     "notes_ja": null,
     "notes_en": null
   },
@@ -123,15 +123,67 @@
       "waves": null
     }
   ],
-  "aid_stations": [],
-  "checkpoints": [],
+  "aid_stations": [
+    {
+      "distance_km": 0.2,
+      "offerings_ja": "ドリンク（アミノバイタルGOLD）",
+      "offerings_en": "Drink (Aminovital GOLD)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 2.3,
+      "offerings_ja": "ドリンク（アミノバイタルGOLD）",
+      "offerings_en": "Drink (Aminovital GOLD)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 4.9,
+      "offerings_ja": "ジェル（アミノショット パーフェクトエネルギー）。スタート1時間後に設置",
+      "offerings_en": "Gel (Amino Shot Perfect Energy), set up 1 hour after the start",
+      "is_featured": false
+    }
+  ],
+  "checkpoints": [
+    {
+      "distance_km": 5,
+      "closing_time": "10:02"
+    },
+    {
+      "distance_km": 10,
+      "closing_time": "10:34"
+    },
+    {
+      "distance_km": 15,
+      "closing_time": "11:06"
+    },
+    {
+      "distance_km": 20,
+      "closing_time": "11:38"
+    },
+    {
+      "distance_km": 25,
+      "closing_time": "12:10"
+    },
+    {
+      "distance_km": 30,
+      "closing_time": "12:42"
+    },
+    {
+      "distance_km": 35,
+      "closing_time": "13:14"
+    },
+    {
+      "distance_km": 40,
+      "closing_time": "13:46"
+    }
+  ],
   "access_points": [],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T09:04:04.793Z",
-  "updated_at": "2026-11-15T09:30:46.451Z",
+  "updated_at": "2026-11-17T15:12:51.349Z",
   "_metadata": {
     "data_source": "公式サイト（https://race.rdc-run.com/series/hiroshima/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -143,9 +195,10 @@
       "50kmは大会要項に日本陸連登録者のみ・代表選考対象大会のみ開催とあり、この回で実施されるか不明なため種目に含めていない。",
       "公式ページ内では当日スケジュール上のスタート時刻が9:30（1マイルは9:33）。大会要項では複数日開催と記載されている。",
       "会場住所は受付場所（芦田川かわまち広場）の住所。",
-      "年間プランやポイント利用、会員限定エントリー（10%割引など）の条件がある。表示の参加費は通常料金。"
+      "年間プランやポイント利用、会員限定エントリー（10%割引など）の条件がある。表示の参加費は通常料金。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

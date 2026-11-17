@@ -29,11 +29,13 @@
   "course_info": {
     "max_elevation_m": null,
     "min_elevation_m": null,
-    "elevation_diff_m": null,
+    "elevation_diff_m": 1.5,
     "surface": "road",
-    "certification": [],
-    "highlights_ja": null,
-    "highlights_en": null,
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "豊洲ぐるり公園の全長5kmの周回コース。高低差1.5m以内のフラットな高速コースで、日本陸連公認。",
+    "highlights_en": "A 5km loop course in Toyosu Gururi Park. The flat, fast course has an elevation difference of 1.5m or less and is JAAF-certified.",
     "notes_ja": null,
     "notes_en": null
   },
@@ -123,15 +125,40 @@
       "waves": null
     }
   ],
-  "aid_stations": [],
+  "aid_stations": [
+    {
+      "distance_km": 1.2,
+      "offerings_ja": "ドリンク（アミノバイタルGOLD）",
+      "offerings_en": "Drinks (Amino Vital GOLD)",
+      "is_featured": false
+    },
+    {
+      "distance_km": 4.9,
+      "offerings_ja": "ドリンク（アミノバイタルGOLD）・ジェル（アミノショット パーフェクトエネルギー、スタート1時間後に設置）",
+      "offerings_en": "Drinks (Amino Vital GOLD) and gels (Amino Shot Perfect Energy, set out one hour after the start)",
+      "is_featured": false
+    }
+  ],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "豊洲駅",
+      "station_name_en": "Toyosu Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩3分",
+      "transport_to_venue_en": "3 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 3,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T09:25:04.943Z",
-  "updated_at": "2026-11-15T09:30:55.988Z",
+  "updated_at": "2026-11-17T15:13:58.390Z",
   "_metadata": {
     "data_source": "公式サイト（https://race.rdc-run.com/event/tokyo-toyosu/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -143,9 +170,10 @@
       "参加費は種目別（フル11,000円、30km・ハーフ7,700円、10km 5,500円、5km・1マイル3,300円）。R.LEAGUE会員は10%OFF。",
       "1マイルの距離1.609kmは「1マイル」表記からの換算値。",
       "会場住所は受付場所の住所（東京都江東区豊洲2丁目3）。",
-      "エントリーページは設計プレビューのため、情報源としては使用していない。"
+      "エントリーページは設計プレビューのため、情報源としては使用していない。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

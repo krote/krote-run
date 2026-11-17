@@ -58,7 +58,7 @@
       "time_limit_minutes": 210,
       "start_time": null,
       "capacity": 200,
-      "entry_fee": null,
+      "entry_fee": 6000,
       "entry_fee_u25": null,
       "name_ja": "21Kmの部",
       "name_en": "21km",
@@ -72,7 +72,7 @@
       "time_limit_minutes": 100,
       "start_time": null,
       "capacity": 200,
-      "entry_fee": null,
+      "entry_fee": 5000,
       "entry_fee_u25": null,
       "name_ja": "10Kmの部",
       "name_en": "10km",
@@ -86,7 +86,7 @@
       "time_limit_minutes": 50,
       "start_time": null,
       "capacity": 150,
-      "entry_fee": null,
+      "entry_fee": 4500,
       "entry_fee_u25": null,
       "name_ja": "5Kmの部",
       "name_en": "5km",
@@ -156,10 +156,19 @@
   "access_points": [],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "other"
+      ],
+      "description_ja": "大会オリジナル記念シューズケース（未就学児は記念品）",
+      "description_en": "Official original commemorative shoe case (commemorative gift for preschool children)",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-11-15T08:47:24.249Z",
-  "updated_at": "2026-11-15T08:47:24.249Z",
+  "updated_at": "2026-11-17T15:16:11.091Z",
   "_metadata": {
     "data_source": "公式サイト（https://yaocitymarathon.jimdofree.com/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -172,9 +181,10 @@
       "参加資格は「18歳以上の健康な方」「中学中学生以上の健康な方」の2種のみで種目との対応が不明確なためnull。",
       "全体の定員は記載なし（午前の部合計750名、午後の部は未就学児50名・小学低学年100名・小学高学年100名・親子50組）。",
       "会場の住所は記載なし（ページ記載の住所は主催事務局のもの）。市名は大会名および候補情報（大阪府）からの判断。",
-      "路面は園路・トラック主体のため road とした。北地区にウッドチップ舗装あり。"
+      "路面は園路・トラック主体のため road とした。北地区にウッドチップ舗装あり。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

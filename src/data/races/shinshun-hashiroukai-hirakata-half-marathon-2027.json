@@ -12,7 +12,7 @@
   "description_ja": "「気軽に走ろうかい」を合言葉に、様々な種別を用意し、気軽に参加できるマラソン大会です。淀川左岸の河川敷道路を使い、ハーフマラソンから5km、10km、小中高生の部、ジョギングや仮装のパフォーマンスの部まで幅広い種目があります。市民の健康増進やスポーツ推進、生涯の生きがいづくりに貢献することを目指しています。",
   "description_en": "Under the motto \"Let's run casually,\" this marathon event offers a wide variety of divisions so that anyone can take part easily. Held on the riverside road along the left bank of the Yodo River, it features events ranging from the half marathon, 5km and 10km to elementary, junior high and high school divisions, as well as a jogging division and a costume performance division. It aims to contribute to citizens' health, the promotion of sports and lifelong fulfillment.",
   "official_url": "http://hirakata-taikyo.org/hhm/guide.html",
-  "entry_fee": null,
+  "entry_fee": 4000,
   "entry_fee_by_category": false,
   "entry_capacity": null,
   "entry_start_date": "2026-08-01",
@@ -187,7 +187,7 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T08:59:40.362Z",
-  "updated_at": "2026-11-15T08:59:40.362Z",
+  "updated_at": "2026-11-17T15:11:41.602Z",
   "_metadata": {
     "data_source": "公式サイト（http://hirakata-taikyo.org/hhm/guide.html）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -197,9 +197,10 @@
       "種目の距離、参加資格、ハーフの制限時間3時間、コース（淀川左岸緊急用河川敷道路、淀川河川公園枚方地区発着～樟葉ゴルフ場前折り返し）、会場は回によって変わりにくい項目として公式サイトから抽出しました。",
       "会場の住所は公式サイトに記載がないため null です（最寄り駅は京阪電車「枚方公園」駅から徒歩5分）。",
       "受付方法（reception_type）は第42回の情報しかなく最新回の内容を確認できないため null としました。",
-      "小学生・中学生・高校生・二十歳・視覚障がい者の各種目は、カテゴリを主要なものに絞って掲載しています。"
+      "小学生・中学生・高校生・二十歳・視覚障がい者の各種目は、カテゴリを主要なものに絞って掲載しています。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

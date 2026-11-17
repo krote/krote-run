@@ -86,10 +86,27 @@
   "access_points": [],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "10kmマラソンの参加者にTシャツをプレゼント",
+      "description_en": "A T-shirt is given to all 10km marathon participants",
+      "image": null
+    },
+    {
+      "gift_categories": [
+        "food"
+      ],
+      "description_ja": "参加者全員に、帰りにいちご1パックをプレゼント",
+      "description_en": "All participants receive a pack of strawberries on their way home",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-11-15T09:13:28.067Z",
-  "updated_at": "2026-11-15T09:30:30.486Z",
+  "updated_at": "2026-11-17T15:06:27.335Z",
   "_metadata": {
     "data_source": "公式サイト（https://chibaichigo.com/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -103,9 +120,10 @@
       "路面（surface）は公式サイトに明記がない。公道からゴルフ場内のコースを走るため mixed とした。",
       "メディカルアシストランナー枠（参加料無料、定員10名程度）は、登録期間 2026-10-01〜2027-02-01 を別の entry_periods として記載した。",
       "参加費にはスポーツエントリー利用料（参加料合計4,000円まで220円、4,001円以上は5.3％）が別途かかる。",
-      "参加費は自己都合の不参加や荒天等による中止の場合も返金されない。"
+      "参加費は自己都合の不参加や荒天等による中止の場合も返金されない。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

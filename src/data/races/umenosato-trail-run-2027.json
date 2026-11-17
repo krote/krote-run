@@ -67,15 +67,54 @@
       "waves": null
     }
   ],
-  "aid_stations": [],
-  "checkpoints": [],
+  "aid_stations": [
+    {
+      "distance_km": 5,
+      "offerings_ja": null,
+      "offerings_en": null,
+      "is_featured": false
+    },
+    {
+      "distance_km": 10,
+      "offerings_ja": null,
+      "offerings_en": null,
+      "is_featured": false
+    },
+    {
+      "distance_km": 15,
+      "offerings_ja": null,
+      "offerings_en": null,
+      "is_featured": false
+    },
+    {
+      "distance_km": 20,
+      "offerings_ja": null,
+      "offerings_en": null,
+      "is_featured": false
+    }
+  ],
+  "checkpoints": [
+    {
+      "distance_km": 10,
+      "closing_time": "11:00"
+    }
+  ],
   "access_points": [],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "local_specialty"
+      ],
+      "description_ja": "地元特産品など",
+      "description_en": "Local specialty products, etc.",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-11-15T09:15:21.730Z",
-  "updated_at": "2026-11-15T09:31:00.244Z",
+  "updated_at": "2026-11-17T15:15:09.905Z",
   "_metadata": {
     "data_source": "公式サイト（https://umenosatotrail.wixsite.com/umenosatotrail）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -88,9 +127,10 @@
       "定員はショート200名・ミドル200名の先着で、合計400名。定員になり次第締切。",
       "制限時間はショート3時間30分、ミドル7時間30分。",
       "ミドルの距離27kmは distance_type を other とした。",
-      "公式サイトの要項では第1エイドは5km地点、関門は清川球場11:00と上木台14:00。"
+      "公式サイトの要項では第1エイドは5km地点、関門は清川球場11:00と上木台14:00。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

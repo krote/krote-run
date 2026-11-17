@@ -32,8 +32,8 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [],
-    "highlights_ja": null,
-    "highlights_en": null,
+    "highlights_ja": "1周5kmの起伏に富んだ周回コース。最大斜度27％の超ハードなアップダウンがある。",
+    "highlights_en": "A hilly 5 km loop course with extremely tough ups and downs, reaching a maximum gradient of 27%.",
     "notes_ja": null,
     "notes_en": null
   },
@@ -111,13 +111,25 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "森林公園駅",
+      "station_name_en": "Shinrin-koen Station",
+      "station_code": "",
+      "transport_to_venue_ja": "北口バス乗り場から「公園南口行」直通バスで終点下車（約7分）。受付会場の運動広場は南口から徒歩約20分",
+      "transport_to_venue_en": "Take the direct bus bound for Koen Minamiguchi from the north exit bus stop to the last stop (about 7 min). The Undo Hiroba reception area is about a 20 min walk from the South Gate.",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 20,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T08:36:43.581Z",
-  "updated_at": "2026-11-15T09:30:43.256Z",
+  "updated_at": "2026-11-17T15:11:33.223Z",
   "_metadata": {
     "data_source": "公式サイト（https://up-run.jp/events/up-shinrinkoen1/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -129,9 +141,10 @@
       "路面（surface）は公式サイトに明記がないため null。",
       "ハーフの距離21.0975kmは種目名からの標準値で、公式サイトに数値の記載はない。",
       "定員1000名は大会全体の数値。種目別定員の記載なし。",
-      "スタート時間は12:00で、5km・10km・親子・20kmリレーが同時刻。競技終了予定は14:30。"
+      "スタート時間は12:00で、5km・10km・親子・20kmリレーが同時刻。競技終了予定は14:30。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

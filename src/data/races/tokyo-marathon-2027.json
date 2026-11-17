@@ -18,8 +18,8 @@
   "entry_start_date": "2026-06-24",
   "entry_end_date": "2026-08-28",
   "reception_type": "pre_day",
-  "reception_note_ja": "EXPO会場（東京ビッグサイト）にて前日受付。大会当日の受付なし。",
-  "reception_note_en": "Pre-race registration at EXPO venue (Tokyo Big Sight). No registration on race day.",
+  "reception_note_ja": "東京ビッグサイト南展示棟にて事前受付（2027年3月4日(木)・5日(金) 10:00〜20:30、3月6日(土) 10:00〜17:30）。大会当日のランナー受付は行わない。",
+  "reception_note_en": "Pre-race registration at Tokyo Big Sight South Hall (Mar 4 and 5, 2027: 10:00-20:30; Mar 6: 10:00-17:30). No runner registration on race day.",
   "tags": [
     "フラット",
     "ワールドメジャーズ",
@@ -134,7 +134,7 @@
   ],
   "result": null,
   "created_at": "2026-06-24T00:00:00Z",
-  "updated_at": "2026-11-14T03:03:25.161Z",
+  "updated_at": "2026-11-17T15:14:37.096Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -142,9 +142,10 @@
       "2026-06-22: 自動クロールで取得した2027年大会情報を元に新規作成",
       "2026-06-27: 自動クロールでエントリー区分を更新",
       "2026-07-27: 自動クロールで更新",
-      "2026-11-14: 自動クロールで更新"
+      "2026-11-14: 自動クロールで更新",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-14",
+    "last_verified": "2026-11-17",
     "detail_level": "medium"
   },
   "entry_periods": [

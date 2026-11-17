@@ -100,10 +100,19 @@
   "access_points": [],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "other"
+      ],
+      "description_ja": "ハーフマラソン・シーサイドラン参加者は選択制。Goldwin × せとだレモンマラソン ソフトカップ（先着順・数量限定、初エントリーの方におすすめ）、またはしおまち商店街とマルシェで使えるお買い物券500円分（先着順・数量限定、すでにカップをお持ちの方におすすめ）。",
+      "description_en": "Half Marathon and Seaside Run participants choose one: a Goldwin × Setoda Lemon Marathon soft cup (first come, first served, limited quantity; recommended for first-time entrants) or a 500-yen shopping voucher usable at Shiomachi shopping street and the marché (first come, first served, limited quantity; recommended for those who already own a cup).",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-11-15T09:14:53.412Z",
-  "updated_at": "2026-11-15T09:14:53.412Z",
+  "updated_at": "2026-11-17T15:11:22.685Z",
   "_metadata": {
     "data_source": "公式サイト（https://lemon-marathon.jp/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -118,9 +127,10 @@
       "シーサイドランは公式サイトに距離区分の記載がないため distance_type を other とした。",
       "コース名は「しおまち商店街・高根島・生口島循環線」。路面は road と判断した。",
       "エントリー期間の参加料は種目別のため null とした。",
-      "参加賞はハーフ・シーサイドランで選択制（ソフトカップ、または500円分のお買い物券）。"
+      "参加賞はハーフ・シーサイドランで選択制（ソフトカップ、または500円分のお買い物券）。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

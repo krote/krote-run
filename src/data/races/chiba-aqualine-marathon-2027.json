@@ -15,8 +15,8 @@
   "entry_fee": 16500,
   "entry_fee_by_category": true,
   "entry_capacity": 12000,
-  "entry_start_date": null,
-  "entry_end_date": null,
+  "entry_start_date": "2026-03-01",
+  "entry_end_date": "2026-06-08",
   "reception_type": "pre_mail",
   "reception_note_ja": "一般枠：3/22〜4/12。アスリート・学生・女性・海外枠：3/22〜5/7。レイトエントリー枠：5/31〜6/8。システム利用料別途。",
   "reception_note_en": "General entry: Mar 22 - Apr 12. Athlete/Student/Women/Overseas entries: Mar 22 - May 7. Late entry: May 31 - Jun 8. System fee applies separately.",
@@ -135,16 +135,116 @@
   ],
   "result": null,
   "created_at": "2026-11-14T03:00:04.587Z",
-  "updated_at": "2026-11-14T03:00:04.587Z",
+  "updated_at": "2026-11-17T15:06:18.734Z",
   "_metadata": {
     "data_source": "公式サイト（https://chiba-aqualine-marathon.com/）・募集要項ページ",
     "data_accuracy_notes": [
-      "2026-11-14: 自動クロールで chiba-aqualine-marathon-2026 を元に2027年大会ファイルを新規作成"
+      "2026-11-14: 自動クロールで chiba-aqualine-marathon-2026 を元に2027年大会ファイルを新規作成",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-14",
+    "last_verified": "2026-11-17",
     "detail_level": "basic"
   },
-  "entry_periods": [],
+  "entry_periods": [
+    {
+      "label_ja": "ちば県民先行枠",
+      "label_en": "Chiba Resident Priority Entry",
+      "start_date": "2026-03-15",
+      "end_date": "2026-03-18",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0,
+      "closed_early": true
+    },
+    {
+      "label_ja": "一般枠",
+      "label_en": "General Entry",
+      "start_date": "2026-03-22",
+      "end_date": "2026-04-12",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1,
+      "closed_early": true
+    },
+    {
+      "label_ja": "アスリートランナー枠",
+      "label_en": "Athlete Runner Entry",
+      "start_date": "2026-03-22",
+      "end_date": "2026-05-07",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 2,
+      "closed_early": true
+    },
+    {
+      "label_ja": "パラ・スポーツ枠",
+      "label_en": "Para Sports Entry",
+      "start_date": "2026-03-22",
+      "end_date": "2026-05-07",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 3,
+      "closed_early": true
+    },
+    {
+      "label_ja": "チャリティ枠",
+      "label_en": "Charity Entry",
+      "start_date": "2026-03-22",
+      "end_date": "2026-05-07",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 4,
+      "closed_early": true
+    },
+    {
+      "label_ja": "宿泊プラン枠",
+      "label_en": "Accommodation Plan Entry",
+      "start_date": "2026-03-22",
+      "end_date": "2026-05-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 5
+    },
+    {
+      "label_ja": "海外ランナー枠",
+      "label_en": "Overseas Runner Entry",
+      "start_date": "2026-03-22",
+      "end_date": "2026-05-07",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 6
+    },
+    {
+      "label_ja": "学生応援枠",
+      "label_en": "Student Support Entry",
+      "start_date": "2026-03-22",
+      "end_date": "2026-05-07",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 7,
+      "closed_early": true
+    },
+    {
+      "label_ja": "女性応援枠",
+      "label_en": "Women Support Entry",
+      "start_date": "2026-03-22",
+      "end_date": "2026-05-07",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 8,
+      "closed_early": true
+    },
+    {
+      "label_ja": "レイトエントリー枠",
+      "label_en": "Late Entry",
+      "start_date": "2026-05-31",
+      "end_date": "2026-06-08",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 9,
+      "closed_early": true
+    }
+  ],
   "motif": "海",
   "motif_color": "#0ea5e9",
   "motif_romaji": "Umi",
@@ -185,7 +285,7 @@
     }
   ],
   "venue_name_ja": "潮浜公園前（木更津市）",
-  "venue_name_en": null,
+  "venue_name_en": "In front of Shiohama Park (Kisarazu)",
   "venue_address": "千葉県木更津市潮浜1-12",
   "start_lat": 35.379101,
   "start_lng": 139.908676,

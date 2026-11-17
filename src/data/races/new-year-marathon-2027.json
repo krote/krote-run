@@ -29,11 +29,11 @@
   "course_info": {
     "max_elevation_m": null,
     "min_elevation_m": null,
-    "elevation_diff_m": null,
+    "elevation_diff_m": 7,
     "surface": "road",
     "certification": [],
-    "highlights_ja": null,
-    "highlights_en": null,
+    "highlights_ja": "日本陸連公認コース。うんどう広場横「いちょう並木」を発着し、公園管理用道路を時計回りに周回（一周5km）。フラットで走りやすい北側と、高低差約7mのアップダウンが続く南側の変化に富んだコース。",
+    "highlights_en": "JAAF-certified course starting and finishing at the Ginkgo Avenue beside Undo Hiroba, running clockwise on park service roads (5 km per lap). The north side is flat and fast, while the south side has rolling ups and downs of about 7 m.",
     "notes_ja": null,
     "notes_en": null
   },
@@ -124,14 +124,46 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
-  "access_points": [],
+  "checkpoints": [
+    {
+      "distance_km": 15,
+      "closing_time": "13:00"
+    },
+    {
+      "distance_km": 25,
+      "closing_time": "13:50"
+    }
+  ],
+  "access_points": [
+    {
+      "station_name_ja": "西立川駅",
+      "station_name_en": "Nishi-Tachikawa Station",
+      "station_code": "",
+      "transport_to_venue_ja": "JR青梅線 西立川駅から徒歩1分で西立川口、そこからうんどう広場まで徒歩10分",
+      "transport_to_venue_en": "JR Ome Line: 1 min walk to Nishi-Tachikawa Gate, then 10 min walk to Undo Hiroba",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 11,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "立川駅",
+      "station_name_en": "Tachikawa Station",
+      "station_code": "",
+      "transport_to_venue_ja": "JR中央線 立川駅から徒歩15分で公園立川口、そこからうんどう広場まで徒歩15分",
+      "transport_to_venue_en": "JR Chuo Line: 15 min walk to Tachikawa Gate, then 15 min walk to Undo Hiroba",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 30,
+      "is_primary": false
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T08:56:57.954Z",
-  "updated_at": "2026-11-15T08:56:57.954Z",
+  "updated_at": "2026-11-17T15:09:55.509Z",
   "_metadata": {
     "data_source": "公式サイト（https://shining-foundation.wixsite.com/new-year-marathon）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -144,9 +176,10 @@
       "30kmは distance_type の選択肢にないため other とした。ハーフの距離は21.0975kmとした。",
       "親子ペア1kmの開始時刻は、スケジュール上の10:25（①）と10:26（②）。",
       "更衣室の場所について、大会要項（みんなの原っぱ中央管理棟内更衣室）とアクセスページ（レインボープール昭島棟内更衣室）で記載が異なる。",
-      "大会要項によれば、定員に達し次第、募集期間内でも受付を締め切る。"
+      "大会要項によれば、定員に達し次第、募集期間内でも受付を締め切る。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

@@ -83,13 +83,34 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "野辺山駅",
+      "station_name_en": "Nobeyama Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約3分",
+      "transport_to_venue_en": "About 3 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 3,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "オリジナルTシャツ（THE NORTH FACE）。2027年1月20日までにお申し込みの方のうち先着2,000名が対象です。先着数に達した後にお申し込みの方にはオリジナルタオルが贈られます（Tシャツまたはタオルのいずれか1点）。",
+      "description_en": "Original T-shirt (THE NORTH FACE) for the first 2,000 entrants who apply by January 20, 2027. Entrants after that receive an original towel instead (either a T-shirt or a towel, one item only).",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-11-15T09:29:46.084Z",
-  "updated_at": "2026-11-15T09:29:46.084Z",
+  "updated_at": "2026-11-17T15:16:20.665Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.r-wellness.com/nobeyama/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -100,9 +121,10 @@
       "42kmは42.195kmと明記されていないため distance_type を other としました。",
       "スタート時刻は予定で、変更の可能性があります。start_time は WAVE A の時刻です。",
       "路面は一般道路を走るコースであることから road としましたが、公式サイトに路面の明記はありません。",
-      "2027年大会の駐車場・シャトルバスの詳細は調整中です（アクセスページ掲載分は2026年大会の情報）。"
+      "2027年大会の駐車場・シャトルバスの詳細は調整中です（アクセスページ掲載分は2026年大会の情報）。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -113,7 +135,8 @@
       "end_date": "2027-03-12",
       "entry_fee": null,
       "category_id": null,
-      "sort_order": 0
+      "sort_order": 0,
+      "closed_early": true
     }
   ],
   "motif": null,
@@ -146,7 +169,16 @@
       "label": "ー INFORMATION ー \n        一般種目エントリー受付終了のお知らせ"
     }
   ],
-  "completion_gifts": [],
+  "completion_gifts": [
+    {
+      "gift_categories": [
+        "medal"
+      ],
+      "description_ja": "完走者全員に完走メダルとWEB完走証が贈られます。",
+      "description_en": "All finishers receive a finisher's medal and a web finisher's certificate.",
+      "image": null
+    }
+  ],
   "venue_name_ja": "南牧村社会体育館",
   "venue_name_en": "Minamimaki Village Gymnasium",
   "venue_address": "〒384-1305 長野県南佐久郡南牧村大字野辺山120",

@@ -20,6 +20,13 @@ const JAPAN_LAT_MAX = 46;
 const JAPAN_LNG_MIN = 122;
 const JAPAN_LNG_MAX = 154;
 
+/** races テーブルの NOT NULL 列のうち、seed が JSON の値をそのまま入れるもの */
+const DB_REQUIRED_KEYS = ['name_ja', 'name_en', 'date', 'prefecture', 'city_ja', 'city_en'];
+/** race_categories テーブルの NOT NULL 列のうち、既定値の無いもの */
+const DB_REQUIRED_CATEGORY_KEYS = ['distance_type', 'distance_km'];
+/** race_id: 英小文字・数字のスラッグ + 4桁の年（例: tottori-marathon-2026） */
+const RACE_ID_PATTERN = /^[a-z0-9]+(-[a-z0-9]+)*-\d{4}$/;
+
 // 当日受付を示すキーワード
 const RACE_DAY_KEYWORDS = ['当日受付', '当日 受付', '当日(', '当日（'];
 
@@ -178,6 +185,39 @@ function validateRace(race, { now = new Date() } = {}) {
         message: '参加費が entry_fee・categories[].entry_fee・entry_periods[].entry_fee のいずれにも設定されていません',
       });
     }
+  }
+
+  // ── Rule 8: DB の NOT NULL 列が null ───────────────────────────────
+  // seed は null を NULL として INSERT するため、1件でも残ると seed 全体が失敗する。
+  // 空文字は DB 上有効で既存データでも使っているので対象外。
+  for (const key of DB_REQUIRED_KEYS) {
+    if (race[key] == null) {
+      issues.push({
+        rule: 'db_required_null',
+        level: 'error',
+        message: `${key} が null です（DB の NOT NULL 制約で seed が失敗する）`,
+      });
+    }
+  }
+  for (let i = 0; i < (race.categories ?? []).length; i++) {
+    for (const key of DB_REQUIRED_CATEGORY_KEYS) {
+      if (race.categories[i][key] == null) {
+        issues.push({
+          rule: 'db_required_null',
+          level: 'error',
+          message: `categories[${i}].${key} が null です（DB の NOT NULL 制約で seed が失敗する）`,
+        });
+      }
+    }
+  }
+
+  // ── Rule 9: race_id の形式 ─────────────────────────────────────────
+  if (!RACE_ID_PATTERN.test(String(race.id ?? ''))) {
+    issues.push({
+      rule: 'race_id_format',
+      level: 'error',
+      message: `id "${race.id}" の形式が不正です（英小文字・数字のスラッグ + "-" + 4桁の年）`,
+    });
   }
 
   return issues;

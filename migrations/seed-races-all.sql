@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-11-17T16:01:21.595Z
--- 対象ファイル数: 205 件（既存 2 件はskip）
+-- 生成日時: 2026-11-17T16:14:57.515Z
+-- 対象ファイル数: 208 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -4589,6 +4589,148 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
   ('foodvalley-tokachi-marathon-2026', '[]', '参加賞、大会オリジナルタオル、会場内の飲食・物販ブースで使用できる食券（550円分）', 'Finisher gift, original towel, and food voucher (¥550) usable at venue food stalls', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
   ('foodvalley-tokachi-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-06-22', '2026-09-06', NULL, 0, 0);
+
+-- ==================
+-- 富士マラソンフェスタ (fuji-marathon-festa-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'fuji-marathon-festa-2027';
+DELETE FROM race_categories WHERE race_id = 'fuji-marathon-festa-2027';
+DELETE FROM aid_stations WHERE race_id = 'fuji-marathon-festa-2027';
+DELETE FROM checkpoints WHERE race_id = 'fuji-marathon-festa-2027';
+DELETE FROM access_points WHERE race_id = 'fuji-marathon-festa-2027';
+DELETE FROM nearby_spots WHERE race_id = 'fuji-marathon-festa-2027';
+DELETE FROM weather_history WHERE race_id = 'fuji-marathon-festa-2027';
+DELETE FROM participation_gifts WHERE race_id = 'fuji-marathon-festa-2027';
+DELETE FROM completion_gifts WHERE race_id = 'fuji-marathon-festa-2027';
+DELETE FROM race_entry_links WHERE race_id = 'fuji-marathon-festa-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'fuji-marathon-festa-2027';
+DELETE FROM reception_sessions WHERE race_id = 'fuji-marathon-festa-2027';
+DELETE FROM race_results WHERE race_id = 'fuji-marathon-festa-2027';
+DELETE FROM race_gallery WHERE race_id = 'fuji-marathon-festa-2027';
+DELETE FROM race_voices WHERE race_id = 'fuji-marathon-festa-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'fuji-marathon-festa-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'fuji-marathon-festa-2027',
+  '富士マラソンフェスタ',
+  'Fuji Marathon Festa',
+  '2027-01-31',
+  '22',
+  '小山町',
+  'Oyama Town',
+  '静岡県小山町の富士スピードウェイで開催されるランニング大会。普段は入れない国際レーシングコースを周回する特設コースで、ハーフマラソン、レーシングコース1・2周、駅伝（一般・小中学生）を実施。富士山を望む開放的なコースで、約36mの高低差がある。',
+  'A running event at Fuji Speedway in Oyama Town, Shizuoka. Runners lap the international racing circuit, normally closed to the public, on a special course. Events include a half marathon, one- and two-lap circuit races, and ekiden relays for adults and students. The open course faces Mt. Fuji and has about 36 m of elevation change.',
+  'https://fuji-marathon-festa.jp/',
+  NULL,
+  1,
+  0,
+  '2026-08-06',
+  '2026-11-26',
+  0,
+  'race_day',
+  '当日、会場の受付・参加賞配付所で受付。参加賞（大会オリジナルタオル）は当日渡し。各種目のスタート15分前が集合時間。',
+  'Race-day reception at the venue''s reception and gift desk. The participation gift (original towel) is handed out on the day. Gather at the start 15 minutes before each race.',
+  '[]',
+  NULL,
+  0,
+  0,
+  36,
+  'road',
+  '[]',
+  '富士スピードウェイのレーシングコースを走る。メインスタンド前のコース幅は15m。富士山を望む開放的なコース。',
+  'Run the Fuji Speedway racing circuit. The course is 15 m wide in front of the main grandstand, with open views of Mt. Fuji.',
+  '無料駐車場2,000台。電車の場合はJR御殿場駅（富士山口0番乗り場）から臨時バス（片道約30分・720円）。',
+  'Free parking for 2,000 cars. By train, take the special bus from JR Gotemba Station (Fujisan exit, stop 0): about 30 minutes, 720 yen one way.',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  '富士スピードウェイ',
+  'Fuji Speedway',
+  '静岡県駿東郡小山町中日向694',
+  35.372055,
+  138.928589,
+  '2026-11-17T15:55:52.295Z',
+  '2026-11-17T15:56:34.334Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fuji-marathon-festa-2027', 'half', 21.0975, 150, '10:40', 0, 6000, NULL, 'ハーフマラソン', 'Half Marathon', '高校生以上。高校生の参加費は2,000円', 'High school students and older. High school students pay 2,000 yen.', NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fuji-marathon-festa-2027', 'other', 9.12, 90, '11:00', 0, 5000, NULL, 'レーシングコース2周（約9.12km）', 'Racing Circuit 2 Laps (approx. 9.12 km)', '高校生以上。高校生の参加費は2,000円', 'High school students and older. High school students pay 2,000 yen.', NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fuji-marathon-festa-2027', '5k', 4.56, 45, '11:15', 0, 5000, NULL, 'レーシングコース1周（約4.56km）', 'Racing Circuit 1 Lap (approx. 4.56 km)', '高校生以上。高校生の参加費は2,000円', 'High school students and older. High school students pay 2,000 yen.', NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fuji-marathon-festa-2027', 'other', 10, 60, '09:30', 0, 10000, NULL, '駅伝の部 一般（2.0km×5名）', 'Ekiden Relay, General (2.0 km x 5)', '1チーム10,000円。補員2名まで', '10,000 yen per team. Up to 2 reserves.', NULL, NULL, NULL, '[]', 3);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('fuji-marathon-festa-2027', 'other', 6, 40, '13:20', 0, 5000, NULL, '駅伝の部 小中学生（1.5km×4名）', 'Ekiden Relay, Students (1.5 km x 4)', '中学生男子・中学生女子・小学生（男女混合）。1チーム5,000円。補員2名まで', 'Junior high boys, junior high girls, and elementary (mixed). 5,000 yen per team. Up to 2 reserves.', NULL, NULL, NULL, '[]', 4);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('fuji-marathon-festa-2027', '["towel"]', '大会オリジナルタオル（大会当日のお渡し）', 'Original event towel (handed out on race day)', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
+  ('fuji-marathon-festa-2027', NULL, '一般枠', 'General Entry', '2026-08-06', '2026-11-26', NULL, 0, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
+  ('fuji-marathon-festa-2027', NULL, 'ふるさと納税枠', 'Hometown Tax Donation Entry', '2026-08-17', '2026-11-13', NULL, 1, 0);
 
 -- ==================
 -- 富士登山競走 (fuji-mountain-race-2026)
@@ -21480,6 +21622,140 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
   ('setoda-lemon-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-09-01', '2026-12-15', NULL, 0, 0);
 
 -- ==================
+-- 瀬戸内海タートル・フルマラソン全国大会 (setonaikai-turtle-full-marathon-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+DELETE FROM race_categories WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+DELETE FROM aid_stations WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+DELETE FROM checkpoints WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+DELETE FROM access_points WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+DELETE FROM nearby_spots WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+DELETE FROM weather_history WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+DELETE FROM participation_gifts WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+DELETE FROM completion_gifts WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+DELETE FROM race_entry_links WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+DELETE FROM reception_sessions WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+DELETE FROM race_results WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+DELETE FROM race_gallery WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+DELETE FROM race_voices WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'setonaikai-turtle-full-marathon-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'setonaikai-turtle-full-marathon-2027',
+  '瀬戸内海タートル・フルマラソン全国大会',
+  'Setonaikai Turtle Full Marathon',
+  '2027-01-17',
+  '37',
+  '土庄町',
+  'Tonosho Town',
+  '香川県小豆島の土庄町で開催される、45回目を迎える市民マラソン大会。旧土庄町役場前をスタートし小部方面を往復する瀬戸内海沿いのコースで、フル・ハーフ・10kmの3種目を実施。参加資格は大会当日満22歳以上。ウェーブスタート方式。',
+  'A long-running citizens'' marathon, now in its 45th edition, held in Tonosho Town on Shodoshima Island, Kagawa. The out-and-back course along the Seto Inland Sea starts in front of the former Tonosho Town Office and heads toward Obe. Full marathon, half marathon and 10 km races are held, with a wave start. Runners must be 22 or older on race day.',
+  'https://setonaikai-turtle-m.com/',
+  NULL,
+  1,
+  2000,
+  '2026-08-01',
+  '2026-11-27',
+  0,
+  'both',
+  '前日受付は1月16日(土)13:00〜18:00（土庄港・予定）、当日受付は1月17日(日)7:30〜（中央公民館）。ナンバーカードと参加案内は大会の約2週間前に郵送。忘れた場合は有料で再発行。ロッカー・手荷物預かりはない。',
+  'Pre-race reception on Sat, Jan 16, 13:00-18:00 at Tonosho Port (planned); race-day reception from 7:30 on Sun, Jan 17 at the Central Community Hall. Bibs and the participant guide are mailed about two weeks before the race; reissue is charged if forgotten. No lockers or baggage storage.',
+  '[]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '',
+  '',
+  '交通規制はスタート直後の700mのみ。規制外の区間は一般車両も通行するため、2列走行・歩道走行・往復とも海側を走行すること。小豆島へは高松・岡山・宇野などからフェリー・高速艇で土庄港へ。',
+  'Roads are closed only for the first 700 m after the start. On open sections, run in two lines on the sidewalk, staying on the sea side in both directions. Reach Tonosho Port by ferry or high-speed boat from Takamatsu, Okayama, Uno and other ports.',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  '土庄町立中央公民館',
+  'Tonosho Town Central Community Hall',
+  '香川県小豆郡土庄町甲620',
+  34.485962,
+  134.183716,
+  '2026-11-17T15:55:52.295Z',
+  '2026-11-17T15:56:36.470Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('setonaikai-turtle-full-marathon-2027', 'full', 42.195, 330, '', 0, 6000, NULL, 'フルの部', 'Full Marathon', '大会当日満22歳以上', 'Ages 22 and over on race day', NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('setonaikai-turtle-full-marathon-2027', 'half', 21.0975, 180, '', 0, 6000, NULL, 'ハーフの部', 'Half Marathon', '大会当日満22歳以上', 'Ages 22 and over on race day', NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('setonaikai-turtle-full-marathon-2027', '10k', 10, 90, '', 0, 6000, NULL, '10kmの部', '10 km', '大会当日満22歳以上', 'Ages 22 and over on race day', NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
+  ('setonaikai-turtle-full-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-08-01', '2026-11-27', NULL, 0, 0);
+
+-- ==================
 -- 志賀高原100 (shiga-kogen100-2026)
 -- ==================
 DELETE FROM race_course_highlights WHERE race_id = 'shiga-kogen100-2026';
@@ -26215,6 +26491,146 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
   ('tobetsu-sweden-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-07-03', '2026-09-03', NULL, 0, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('tobetsu-sweden-marathon-2026', NULL, NULL, 'スウェーデンヒルズ', 'Sweden Hills', NULL, NULL, 0);
+
+-- ==================
+-- 東金・九十九里波乗りハーフマラソン (togane-kujukuri-naminori-half-marathon-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+DELETE FROM race_categories WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+DELETE FROM aid_stations WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+DELETE FROM checkpoints WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+DELETE FROM access_points WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+DELETE FROM nearby_spots WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+DELETE FROM weather_history WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+DELETE FROM participation_gifts WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+DELETE FROM completion_gifts WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+DELETE FROM race_entry_links WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+DELETE FROM reception_sessions WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+DELETE FROM race_results WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+DELETE FROM race_gallery WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+DELETE FROM race_voices WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'togane-kujukuri-naminori-half-marathon-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'togane-kujukuri-naminori-half-marathon-2027',
+  '東金・九十九里波乗りハーフマラソン',
+  'Togane Kujukuri Naminori Half Marathon',
+  '2027-02-28',
+  '12',
+  '東金市',
+  'Togane City',
+  '千葉県東金市・九十九里町で開催されるハーフマラソン大会。普段は走れない有料道路の波乗り道路を走り、ジャンクションや波乗り道路から太平洋の景色を楽しめる。ハーフマラソンの部は東金アリーナ陸上競技場、ペア（3km）の部は九十九里町片貝中央海岸がスタート・フィニッシュ会場。給食では温かい汁物やいちご（ペアの部はいわし団子汁）が振る舞われる。',
+  'A half marathon held in Togane City and Kujukuri Town, Chiba. Runners use the Naminori Road, a toll road normally closed to runners, with views of the Pacific Ocean from the junction and coastal road. The half marathon starts and finishes at Togane Arena Athletic Stadium, and the 3 km pair run at Katakai Central Beach in Kujukuri. Food stations serve hot soup and strawberries (sardine dumpling soup for the pair run).',
+  'https://togane-99-half.com/',
+  NULL,
+  1,
+  3600,
+  '2026-09-18',
+  NULL,
+  0,
+  'pre_mail',
+  '参加者案内・ナンバーカード・計測チップ（ハーフマラソンの部）は大会の10日〜1週間前に郵送。前日・当日の受付はない。紛失・忘れた場合は有料（1,000円、ペアの部は1人500円）で再発行。',
+  'The participant guide, bib and timing chip (half marathon) are mailed 7 to 10 days before the race. There is no reception on the day before or race day. Lost or forgotten bibs are reissued for a fee (1,000 yen; 500 yen per person for the pair run).',
+  '[]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '普段は走れない有料道路（波乗り道路）を走るコース。ジャンクションや波乗り道路から太平洋の絶景。およそ1kmごとにAED担当を配置。',
+  'The course runs on the Naminori Road, a toll road normally closed to runners, with Pacific Ocean views from the junction and coastal road. AED staff are stationed roughly every 1 km.',
+  '2027大会は2025大会と同じコース。電車の場合はJR東金駅から無料シャトルバス。駐車場はエントリー時に申込（駐車券発行手数料500円）。',
+  'The 2027 course is the same as in 2025. Free shuttle buses run from JR Togane Station. Parking must be reserved at entry (500 yen fee).',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  '東金アリーナ陸上競技場',
+  'Togane Arena Athletic Stadium',
+  '千葉県東金市堀上1361-1',
+  35.548084,
+  140.386292,
+  '2026-11-17T15:55:52.295Z',
+  '2026-11-17T15:56:42.714Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('togane-kujukuri-naminori-half-marathon-2027', 'half', 21.0975, 180, '09:20', 3000, 7000, NULL, 'ハーフマラソンの部', 'Half Marathon', '15歳以上（中学生を除く）で3時間以内に完走できる方。18歳以下の参加料は6,000円。会場は東金アリーナ陸上競技場。スタート閉鎖9:30', 'Ages 15 and over (excluding junior high school students) who can finish within 3 hours. Entry fee is 6,000 yen for ages 18 and under. Venue: Togane Arena Athletic Stadium. Start closes at 9:30.', NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('togane-kujukuri-naminori-half-marathon-2027', 'other', 3, 50, '10:40', 600, 4000, NULL, 'ペア（3km）の部', 'Pair Run (3 km)', '小学生以上・組合せ自由の2名1組（定員300組）。参加料は1組4,000円（3名1組は6,000円）。小学校低学年は高校生以上と出場。会場は九十九里町片貝中央海岸', 'Teams of two (300 teams), elementary school age and up, any combination. Fee is 4,000 yen per pair (6,000 yen for a team of three). Lower elementary students must run with a high school student or older. Venue: Katakai Central Beach, Kujukuri.', NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('togane-kujukuri-naminori-half-marathon-2027', 4, '10:05');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('togane-kujukuri-naminori-half-marathon-2027', 10.1, '10:55');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('togane-kujukuri-naminori-half-marathon-2027', 16.6, '11:45');
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('togane-kujukuri-naminori-half-marathon-2027', '["tshirt"]', '大会記念品（記念Tシャツ等）', 'Commemorative items (event T-shirt, etc.)', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
+  ('togane-kujukuri-naminori-half-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-09-18', NULL, NULL, 0, 0);
 
 -- ==================
 -- とかしきマラソン (tokashiki-marathon-2027)

@@ -1,0 +1,191 @@
+{
+  "id": "fuji-marathon-festa-2027",
+  "name_ja": "富士マラソンフェスタ",
+  "name_en": "Fuji Marathon Festa",
+  "full_name_ja": "富士マラソンフェスタ2027 in FUJI SPEEDWAY",
+  "full_name_en": "Fuji Marathon Festa 2027 in FUJI SPEEDWAY",
+  "edition": null,
+  "date": "2027-01-31",
+  "prefecture": "22",
+  "city_ja": "小山町",
+  "city_en": "Oyama Town",
+  "description_ja": "静岡県小山町の富士スピードウェイで開催されるランニング大会。普段は入れない国際レーシングコースを周回する特設コースで、ハーフマラソン、レーシングコース1・2周、駅伝（一般・小中学生）を実施。富士山を望む開放的なコースで、約36mの高低差がある。",
+  "description_en": "A running event at Fuji Speedway in Oyama Town, Shizuoka. Runners lap the international racing circuit, normally closed to the public, on a special course. Events include a half marathon, one- and two-lap circuit races, and ekiden relays for adults and students. The open course faces Mt. Fuji and has about 36 m of elevation change.",
+  "official_url": "https://fuji-marathon-festa.jp/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": null,
+  "entry_start_date": "2026-08-06",
+  "entry_end_date": "2026-11-26",
+  "reception_type": "race_day",
+  "reception_note_ja": "当日、会場の受付・参加賞配付所で受付。参加賞（大会オリジナルタオル）は当日渡し。各種目のスタート15分前が集合時間。",
+  "reception_note_en": "Race-day reception at the venue's reception and gift desk. The participation gift (original towel) is handed out on the day. Gather at the start 15 minutes before each race.",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": 36,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "富士スピードウェイのレーシングコースを走る。メインスタンド前のコース幅は15m。富士山を望む開放的なコース。",
+    "highlights_en": "Run the Fuji Speedway racing circuit. The course is 15 m wide in front of the main grandstand, with open views of Mt. Fuji.",
+    "notes_ja": "無料駐車場2,000台。電車の場合はJR御殿場駅（富士山口0番乗り場）から臨時バス（片道約30分・720円）。",
+    "notes_en": "Free parking for 2,000 cars. By train, take the special bus from JR Gotemba Station (Fujisan exit, stop 0): about 30 minutes, 720 yen one way."
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 150,
+      "start_time": "10:40",
+      "capacity": null,
+      "entry_fee": 6000,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソン",
+      "name_en": "Half Marathon",
+      "description_ja": "高校生以上。高校生の参加費は2,000円",
+      "description_en": "High school students and older. High school students pay 2,000 yen.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 9.12,
+      "time_limit_minutes": 90,
+      "start_time": "11:00",
+      "capacity": null,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "レーシングコース2周（約9.12km）",
+      "name_en": "Racing Circuit 2 Laps (approx. 9.12 km)",
+      "description_ja": "高校生以上。高校生の参加費は2,000円",
+      "description_en": "High school students and older. High school students pay 2,000 yen.",
+      "waves": null
+    },
+    {
+      "distance_type": "5k",
+      "distance_km": 4.56,
+      "time_limit_minutes": 45,
+      "start_time": "11:15",
+      "capacity": null,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "レーシングコース1周（約4.56km）",
+      "name_en": "Racing Circuit 1 Lap (approx. 4.56 km)",
+      "description_ja": "高校生以上。高校生の参加費は2,000円",
+      "description_en": "High school students and older. High school students pay 2,000 yen.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 10,
+      "time_limit_minutes": 60,
+      "start_time": "09:30",
+      "capacity": null,
+      "entry_fee": 10000,
+      "entry_fee_u25": null,
+      "name_ja": "駅伝の部 一般（2.0km×5名）",
+      "name_en": "Ekiden Relay, General (2.0 km x 5)",
+      "description_ja": "1チーム10,000円。補員2名まで",
+      "description_en": "10,000 yen per team. Up to 2 reserves.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 6,
+      "time_limit_minutes": 40,
+      "start_time": "13:20",
+      "capacity": null,
+      "entry_fee": 5000,
+      "entry_fee_u25": null,
+      "name_ja": "駅伝の部 小中学生（1.5km×4名）",
+      "name_en": "Ekiden Relay, Students (1.5 km x 4)",
+      "description_ja": "中学生男子・中学生女子・小学生（男女混合）。1チーム5,000円。補員2名まで",
+      "description_en": "Junior high boys, junior high girls, and elementary (mixed). 5,000 yen per team. Up to 2 reserves.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "towel"
+      ],
+      "description_ja": "大会オリジナルタオル（大会当日のお渡し）",
+      "description_en": "Original event towel (handed out on race day)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-11-17T15:55:52.295Z",
+  "updated_at": "2026-11-17T15:56:34.334Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://fuji-marathon-festa.jp/）の公開情報から作成（2026-11-18）",
+    "data_accuracy_notes": [
+      "公式サイトの大会要項・エントリー・コース&アクセスページから手動で作成（2026-11-18）",
+      "ふるさと納税枠の対象はハーフマラソン・レーシングコース2周・1周。締切は大会要項で 11月13日（金）、エントリーページで 11月13日（木）と曜日が食い違うが、日付は 2026-11-13 で一致",
+      "参加資格は小学4年生以上。ハーフ・レーシングコースは部門が高校生以上のため、各種目の説明に高校生以上と記載",
+      "レーシングコース1周（4.56km）は distance_type を 5k とした",
+      "高低差約36m は公式サイトのコース概要による。最高・最低標高は不明",
+      "会場の住所は大会公式サイトに記載がなく、富士スピードウェイ公式サイト（https://www.fsw.tv/）による"
+    ],
+    "last_verified": "2026-11-18",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般枠",
+      "label_en": "General Entry",
+      "start_date": "2026-08-06",
+      "end_date": "2026-11-26",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "ふるさと納税枠",
+      "label_en": "Hometown Tax Donation Entry",
+      "start_date": "2026-08-17",
+      "end_date": "2026-11-13",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://fuji-marathon-festa.jp/outline/",
+      "label": "大会要項"
+    },
+    {
+      "url": "https://fuji-marathon-festa.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://fuji-marathon-festa.jp/course/",
+      "label": "コース&アクセス"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "富士スピードウェイ",
+  "venue_name_en": "Fuji Speedway",
+  "venue_address": "静岡県駿東郡小山町中日向694",
+  "start_lat": 35.372055,
+  "start_lng": 138.928589
+}

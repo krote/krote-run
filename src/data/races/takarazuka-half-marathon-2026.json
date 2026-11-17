@@ -82,14 +82,62 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
-  "access_points": [],
+  "checkpoints": [
+    {
+      "distance_km": 13,
+      "closing_time": "11:05"
+    }
+  ],
+  "access_points": [
+    {
+      "station_name_ja": "阪急宝塚駅",
+      "station_name_en": "Hankyu Takarazuka Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩5分（花のみち河川敷会場）",
+      "transport_to_venue_en": "5 min walk (Hana-no-Michi Riverside Venue)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 5,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "JR宝塚駅",
+      "station_name_en": "JR Takarazuka Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩5分（花のみち河川敷会場）",
+      "transport_to_venue_en": "5 min walk (Hana-no-Michi Riverside Venue)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 5,
+      "is_primary": false
+    },
+    {
+      "station_name_ja": "逆瀬川駅",
+      "station_name_en": "Sakasegawa Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩15分（末広中央公園会場）",
+      "transport_to_venue_en": "15 min walk (Suehiro Chuo Park Venue)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 15,
+      "is_primary": false
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "クリスマスランを盛り上げるデザインの参加賞Tシャツ（サイズ：SS・S・M・L・2L）",
+      "description_en": "Participation T-shirt with a Christmas run themed design (sizes SS, S, M, L, 2L)",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-11-15T08:49:25.205Z",
-  "updated_at": "2026-11-15T08:49:25.205Z",
+  "updated_at": "2026-11-17T15:12:10.602Z",
   "_metadata": {
     "data_source": "公式サイト（https://takarazuka-half.com/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -102,9 +150,10 @@
       "参加費は種目ごとに異なります。別途、RUNNET（4,000円まで240円、4,001円以上は6%）またはスポーツエントリー（4,000円まで220円、4,001円以上は5.3%）の手数料がかかります。",
       "会場の番地までの住所は記載がないため null としました。事務局の住所は兵庫県宝塚市東洋町1番1号です。",
       "路面の種類は公式の記載がなく、河川敷のコースであることから road としましたが、「未舗装の路面や一部狭い所がある」との注意書きがあります。",
-      "ファミリー3kmの制限時間は記載がなく、10マイルとクォーターのスタート時刻は9:15です。ファミリー3kmのスタートは12:00です。"
+      "ファミリー3kmの制限時間は記載がなく、10マイルとクォーターのスタート時刻は9:15です。ファミリー3kmのスタートは12:00です。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

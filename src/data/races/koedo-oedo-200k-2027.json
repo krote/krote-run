@@ -111,13 +111,69 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
-  "nearby_spots": [],
+  "access_points": [
+    {
+      "station_name_ja": "本川越駅",
+      "station_name_en": "Hon-Kawagoe Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩8分",
+      "transport_to_venue_en": "8 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 8,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "川越市駅",
+      "station_name_en": "Kawagoeshi Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩15分",
+      "transport_to_venue_en": "15 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 15,
+      "is_primary": false
+    },
+    {
+      "station_name_ja": "川越駅",
+      "station_name_en": "Kawagoe Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩20分",
+      "transport_to_venue_en": "20 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 20,
+      "is_primary": false
+    }
+  ],
+  "nearby_spots": [
+    {
+      "type": "温泉",
+      "name_ja": "川越湯遊ランド",
+      "name_en": "Kawagoe Yuyu Land",
+      "description_ja": "ゴール後に参加賞の入浴券で3時間入浴できる。清掃のため朝7時〜9時は入浴不可。",
+      "description_en": "Runners can bathe for 3 hours after finishing with the bath ticket from the participation gifts. Closed for cleaning from 7:00 to 9:00.",
+      "distance_from_venue": null,
+      "url": "http://kawagoe-yuyu.com/",
+      "latitude": 0,
+      "longitude": 0
+    }
+  ],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "other"
+      ],
+      "description_ja": "オリジナルTシャツ、湯遊ランド入浴券、川越特産品など。発送は行わず、受付に来場した方のみへの手渡し。",
+      "description_en": "Original T-shirt, a Yuyu Land bath ticket, local Kawagoe specialty products and more. Items are not shipped and are handed out only at reception.",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-11-15T09:18:45.371Z",
-  "updated_at": "2026-11-15T09:30:36.877Z",
+  "updated_at": "2026-11-17T15:08:14.234Z",
   "_metadata": {
     "data_source": "公式サイト（https://trainic-world.org/coedo-oedo/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -127,9 +183,10 @@
       "種目の定員は優先枠と一般枠の合計。優先枠が定員に満たない場合は一般枠を増やして募集。200kmの優先枠にはレジェンド枠20名(65歳以上)を含む。",
       "全体の定員は公式サイトに明記がないため null。",
       "スタッフ募集ページは第16回(2026年)の内容で、抽出に使用していない。",
-      "種目名は概要の表記が「大江戸ナイト115km」と「大江戸115km」で揺れている。"
+      "種目名は概要の表記が「大江戸ナイト115km」と「大江戸115km」で揺れている。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

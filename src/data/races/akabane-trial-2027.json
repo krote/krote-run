@@ -125,13 +125,45 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "赤羽岩淵",
+      "station_name_en": "Akabane-Iwabuchi Station",
+      "station_code": "",
+      "transport_to_venue_ja": "南北線「岩淵赤羽」より約700m",
+      "transport_to_venue_en": "Approx. 700 m from the station on the Namboku Line",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 9,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "赤羽",
+      "station_name_en": "Akabane Station",
+      "station_code": "",
+      "transport_to_venue_ja": "埼京線「赤羽駅」より約3km",
+      "transport_to_venue_en": "Approx. 3 km from the station on the Saikyo Line",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": null,
+      "is_primary": false
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
-  "participation_gifts": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "other"
+      ],
+      "description_ja": "スポーツドリンク、ポイントカード、蘇シール",
+      "description_en": "Sports drink, point card, and Yomigaeri sticker",
+      "image": null
+    }
+  ],
   "result": null,
   "created_at": "2026-11-15T09:16:10.533Z",
-  "updated_at": "2026-11-15T09:30:26.206Z",
+  "updated_at": "2026-11-17T15:05:10.455Z",
   "_metadata": {
     "data_source": "公式サイト（https://takashi.daa.jp/akabane_c/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -142,9 +174,10 @@
       "参加費は種目別（公式サイト記載の料金）。定員は公式サイトに記載なし。",
       "受付締切は、詳細欄の「スタート15分前」と早見表の「スタート30分前」で食い違いがある。",
       "路面は河川敷の往復コースであることから road とした。公式サイトに明記はない。",
-      "30km・フルは10月〜翌3月大会のみ。2月27日の大会は日程表で全6種目が記載されている。"
+      "30km・フルは10月〜翌3月大会のみ。2月27日の大会は日程表で全6種目が記載されている。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

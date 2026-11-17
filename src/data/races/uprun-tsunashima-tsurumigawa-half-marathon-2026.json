@@ -32,8 +32,8 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [],
-    "highlights_ja": null,
-    "highlights_en": null,
+    "highlights_ja": "鶴見川河川敷を走るフラットで走りやすいコース。綱島の鶴見川に設けた1周5kmの特設コースで、給水は1箇所。",
+    "highlights_en": "A flat, easy-to-run course along the Tsurumi River embankment. It is a 5km-per-lap special course set up on the Tsurumi River in Tsunashima, with one water station.",
     "notes_ja": null,
     "notes_en": null
   },
@@ -97,13 +97,36 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "新綱島駅",
+      "station_name_en": "Shin-Tsunashima Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約5分",
+      "transport_to_venue_en": "About 5 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 5,
+      "is_primary": true
+    },
+    {
+      "station_name_ja": "綱島駅",
+      "station_name_en": "Tsunashima Station",
+      "station_code": "",
+      "transport_to_venue_ja": "徒歩約6分",
+      "transport_to_venue_en": "About 6 min walk",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 6,
+      "is_primary": false
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T08:23:13.227Z",
-  "updated_at": "2026-11-15T09:31:03.423Z",
+  "updated_at": "2026-11-17T15:15:33.017Z",
   "_metadata": {
     "data_source": "公式サイト（https://up-run.jp/events/up-tsunashima1/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -114,9 +137,10 @@
       "種目別の定員は記載なし。全体定員500名のみ。",
       "コースは鶴見川沿い5kmの特設周回コース（給水1か所）。路面（舗装かどうか）の明記がないため surface は null。",
       "ハーフの距離は公式サイトに数値の記載がなく、ハーフマラソンの標準距離21.0975kmを設定。",
-      "公式サイトの別ページ（entrychk）にある「綱島マラソン」のスケジュールは別回のもので、本大会には使用していない。"
+      "公式サイトの別ページ（entrychk）にある「綱島マラソン」のスケジュールは別回のもので、本大会には使用していない。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

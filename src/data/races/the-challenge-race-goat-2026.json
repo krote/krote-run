@@ -32,8 +32,8 @@
     "elevation_diff_m": null,
     "surface": "road",
     "certification": [],
-    "highlights_ja": null,
-    "highlights_en": null,
+    "highlights_ja": "高低差2m以内の1周10km周回コース。荒川河川敷を使用し、日本陸連公認レースとして開催。1周につき3か所の給水地点があり、全てで水分とジェルを提供。",
+    "highlights_en": "A 10 km loop course along the Arakawa riverbank with an elevation difference of 2 m or less, held as a JAAF-certified race. Each lap has 3 aid stations, all offering drinks and gels.",
     "notes_ja": null,
     "notes_en": null
   },
@@ -55,13 +55,25 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "西台駅",
+      "station_name_en": "Nishidai Station",
+      "station_code": "",
+      "transport_to_venue_ja": "都営三田線 西台駅から徒歩12分",
+      "transport_to_venue_en": "12 min walk from Nishidai Station (Toei Mita Line)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 12,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T08:54:34.842Z",
-  "updated_at": "2026-11-15T09:30:45.388Z",
+  "updated_at": "2026-11-17T15:12:40.963Z",
   "_metadata": {
     "data_source": "公式サイト（https://goat.rdc-run.com/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -71,9 +83,10 @@
       "エントリー期間の開始日は公式サイトに記載がなく null。終了日は要項の「レース開始1週間前まで」から算出した2026-12-20で、候補情報の2026-12-22とは食い違うため公式を優先した。定員200人に達した時点で受付終了。",
       "公式サイトの本文は途中で切れており、備考（要項12）以降は確認できていない。",
       "制限時間は3時間30分（210分）。公式サイトには開催日時が8:00-13:00とあるが、スタート時刻は9:30。",
-      "ペーサー表のGROUP9（2時間55分）のペースは「3分08秒」と記載されているが誤記の可能性があるため、抽出していない。"
+      "ペーサー表のGROUP9（2時間55分）のペースは「3分08秒」と記載されているが誤記の可能性があるため、抽出していない。",
+      "2026-11-17: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-17",
     "detail_level": "light"
   },
   "entry_periods": [

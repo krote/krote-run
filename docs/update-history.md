@@ -2012,3 +2012,4 @@ PR #228（discover で88大会を新規掲載）を stg に投入したところ
 - `src/data/announcements.json`: 2026-11-15 のお知らせを「新たに62大会を掲載しました」に作り直し（slug は維持）
 - `migrations/seed-races-all.sql`: 再生成。ローカル D1 への投入成功を確認
 - `docs/crawl-rules.md`: discover の書き出し条件を追記
+- main（#230 クロール）の取り込み: #230 が更新した `great-wall-marathon-2027` / `new-year-marathon-2027` は依然として必須項目が null のため削除を維持。2026-11-18 のお知らせを2件除いた「38大会の情報を更新しました」に作り直し、seed を再生成（ローカル D1 投入成功）

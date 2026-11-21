@@ -2024,3 +2024,11 @@ PR #228（discover で88大会を新規掲載）を stg に投入したところ
 - 会場住所が大会公式サイトに無い2件は施設側の公式サイト（東金文化・スポーツ振興財団、富士スピードウェイ）で確認し、`geocode-venues.js` で座標を補完
 - `src/data/announcements.json`: 「新たに3大会を掲載しました」を追加（slug `2026-11-18-race-data-update-2`）
 - `migrations/seed-races-all.sql`: 再生成。3大会分の SQL をローカル D1 に投入できることを確認
+
+## 2026-11-18 #228・#229・#230・#231 の内容を stg・本番 D1 へ適用
+
+- `pnpm run db:seed-races:stg` → `pnpm run db:seed-races:remote` の順に適用（changes 4,068 / rows_written 9,016、両環境とも同値）
+- 適用後、両環境で `races` が 145 → 210 件（JSON 210件と ID が完全一致）、`race_categories` が 295 → 578 件。discover の62大会と手動追加の3大会（東金・九十九里波乗りハーフ、瀬戸内海タートル・フルマラソン、富士マラソンフェスタ）を新規掲載
+- `race_travel_times`（312件）・`weather_history`（10件）は適用前後で変化なし
+- stg は `pnpm run cf:deploy:stg` で main（c79ee13）をデプロイ。本番は c79ee13 がデプロイ済み
+- stg・本番とも新規大会ページが 200、削除した大会（`great-wall-marathon-2027`）は 404、`/ja/news` に「新たに3大会を掲載」「38大会の情報を更新」「新たに62大会を掲載」が表示されることを確認

@@ -1,0 +1,185 @@
+{
+  "id": "osj-ontake100-2027",
+  "name_ja": "OSJ ONTAKE100",
+  "name_en": "OSJ ONTAKE100",
+  "full_name_ja": "OSJ ONTAKE100 2027",
+  "full_name_en": "OSJ ONTAKE100 2027",
+  "edition": null,
+  "date": "2027-07-17",
+  "prefecture": "20",
+  "city_ja": "長野県木曽郡王滝村",
+  "city_en": "Otaki Village, Kiso District, Nagano",
+  "description_ja": "御嶽山（標高3,067m）麓の通常立入禁止の国有林を特別開放して行われる夜間スタートのロングレース。100Kと100マイルの2種目。深い森と御嶽山の雄大な景色の中を走る。「フィニッシュの感動は格別」と称されるOSJが誇るロングレースシリーズの一戦。",
+  "description_en": "A night-start long race through special-access national forest at the foot of Mt. Ontake (3,067m). Two distances: 100K and 100 Miles. Run through deep forest with majestic views of Mt. Ontake. Part of OSJ's premier long-race series, renowned for an exceptional finish experience.",
+  "official_url": "https://www.outdoorsportsjapan.com/trail/ontake100/",
+  "entry_fee": 21000,
+  "entry_fee_by_category": true,
+  "entry_capacity": 1400,
+  "entry_start_date": "2026-11-23",
+  "entry_end_date": "2027-06-13",
+  "reception_type": "pre_day",
+  "reception_note_ja": "選手受付：7月17日(土) 13:00〜19:00（松原スポーツ公園）",
+  "reception_note_en": "Athlete check-in: Jul 17 (Sat) 13:00–19:00 (Matsubara Sports Park)",
+  "tags": [
+    "ウルトラマラソン",
+    "アップダウン多い",
+    "景色が良い",
+    "歴史ある大会",
+    "火山"
+  ],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "trail",
+    "certification": [],
+    "highlights_ja": "御嶽山麓国有林、特別開放区域",
+    "highlights_en": "National forest at Mt. Ontake base, specially opened restricted area",
+    "notes_ja": "100マイル：7/17(土)20:00スタート。100K：7/18(日)0:00スタート。",
+    "notes_en": "100 Mile: Jul 17 (Sat) 20:00 start. 100K: Jul 18 (Sun) 00:00 start."
+  },
+  "categories": [
+    {
+      "distance_type": "ultra",
+      "distance_km": 163,
+      "entry_fee": 21000,
+      "capacity": 200,
+      "time_limit_minutes": 1440,
+      "start_time": "20:00"
+    },
+    {
+      "distance_type": "ultra",
+      "distance_km": 109,
+      "entry_fee": 19000,
+      "capacity": 1200,
+      "time_limit_minutes": 1200,
+      "start_time": "00:00"
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [],
+  "access_points": [
+    {
+      "station_name_ja": "木曽福島駅",
+      "station_name_en": "Kiso-Fukushima Station",
+      "station_code": "",
+      "transport_to_venue_ja": "無料シャトルバスで約40分",
+      "transport_to_venue_en": "Free shuttle bus, approx. 40 min",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": null,
+      "is_primary": true
+    }
+  ],
+  "nearby_spots": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt"
+      ],
+      "description_ja": "大会記念Tシャツ（HUNGERKNOCK ORIGINALSデザイン、参加費に含む）",
+      "description_en": "Commemorative T-shirt (HUNGERKNOCK ORIGINALS design, included in entry fee)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-11-21T05:28:18.120Z",
+  "updated_at": "2026-11-21T05:28:18.120Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://www.outdoorsportsjapan.com/trail/ontake100/）・大会概要ページ",
+    "data_accuracy_notes": [
+      "2026-11-21: 自動クロールで osj-ontake100-2026 を元に2027年大会ファイルを新規作成"
+    ],
+    "last_verified": "2026-11-21",
+    "detail_level": "basic"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-11-23",
+      "end_date": "2026-12-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "OSJ ONTAKE50ロング完走者エントリー",
+      "label_en": "OSJ ONTAKE50 Long Finisher Entry",
+      "start_date": "2026-11-23",
+      "end_date": "2026-12-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    },
+    {
+      "label_ja": "パワースポーツ感謝祭枠",
+      "label_en": "Power Sports Festival Entry",
+      "start_date": "2026-11-27",
+      "end_date": "2026-11-29",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 2
+    },
+    {
+      "label_ja": "追加エントリー",
+      "label_en": "Additional Entry",
+      "start_date": "2027-02-01",
+      "end_date": "2027-06-13",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 3
+    }
+  ],
+  "motif": "御嶽山",
+  "motif_color": "#1c1917",
+  "motif_romaji": "Ontake-san",
+  "tagline_ja": "霊峰・御嶽山の麓を巡る、100kmの山岳路",
+  "tagline_en": "100km through the sacred slopes of Mt. Ontake",
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [
+    {
+      "name_ja": "御嶽山麓国有林",
+      "name_en": "National forest at Mt. Ontake base",
+      "description_ja": null,
+      "description_en": null
+    },
+    {
+      "name_ja": "特別開放区域",
+      "name_en": "specially opened restricted area",
+      "description_ja": null,
+      "description_en": null
+    }
+  ],
+  "info_urls": [
+    {
+      "url": "https://www.outdoorsportsjapan.com/trail/ontake100/race-ontake100/",
+      "label": "大会の特色"
+    },
+    {
+      "url": "https://www.outdoorsportsjapan.com/trail/ontake100/course-ontake100/",
+      "label": "コース情報"
+    },
+    {
+      "url": "https://www.outdoorsportsjapan.com/trail/ontake100/access-ontake100/",
+      "label": "アクセス"
+    },
+    {
+      "url": "https://www.outdoorsportsjapan.com/trail/ontake100/entry-list-ontake100/",
+      "label": "エントリー"
+    }
+  ],
+  "venue_name_ja": "松原スポーツ公園",
+  "venue_name_en": "Matsubara Sports Park",
+  "venue_address": "長野県木曽郡王滝村",
+  "start_lat": 35.809395,
+  "start_lng": 137.550903,
+  "entry_closed": false,
+  "weather_history": []
+}

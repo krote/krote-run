@@ -2032,3 +2032,18 @@ PR #228（discover で88大会を新規掲載）を stg に投入したところ
 - `race_travel_times`（312件）・`weather_history`（10件）は適用前後で変化なし
 - stg は `pnpm run cf:deploy:stg` で main（c79ee13）をデプロイ。本番は c79ee13 がデプロイ済み
 - stg・本番とも新規大会ページが 200、削除した大会（`great-wall-marathon-2027`）は 404、`/ja/news` に「新たに3大会を掲載」「38大会の情報を更新」「新たに62大会を掲載」が表示されることを確認
+
+## 2026-11-21 津山加茂郷フルマラソン、イーハトーブ花巻ハーフマラソンを新規掲載
+
+公式サイト（kamogo.jp / hanamaki-half.jp）から手動で収集して作成（`detail_level: light`）。RUNNET は情報源に使っていない（#203 の方針）。
+
+- `src/data/races/tsuyama-kamogo-full-marathon-2027.json`（新規）
+  - 第34回、2027-04-18、フル・ミニ4.2195km・ミニのペアの部、関門3か所
+  - エントリー 2026-11-25〜2027-01-31、ふるさと納税枠は〜2027-01-10
+  - 種目・参加料・関門は第34回開催要項PDFによる。ミニの距離は公式サイトに記載がなく、山陽新聞の報道による
+- `src/data/races/ihatov-hanamaki-half-marathon-2027.json`（新規）
+  - 第15回、2027-04-25（公式サイトのお知らせで決定）、ハーフ・10km・3km
+  - エントリー期間・参加料は未発表のため空・null。種目・関門・参加賞は第14回の大会概要により、前回の参加料は各種目の説明に記載
+- 2大会とも `geocode-venues.js` で座標を補完
+- `src/data/announcements.json`: 2026-11-21 のお知らせを「新たに4大会を掲載・9大会の情報を更新しました」に作り直し（slug は維持）
+- `migrations/seed-races-all.sql`: 再生成。ローカル D1 への投入成功を確認

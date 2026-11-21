@@ -1,0 +1,167 @@
+{
+  "id": "tsuyama-kamogo-full-marathon-2027",
+  "name_ja": "津山加茂郷フルマラソン全国大会",
+  "name_en": "Tsuyama Kamogo Full Marathon",
+  "full_name_ja": "第34回津山加茂郷フルマラソン全国大会",
+  "full_name_en": "The 34th Tsuyama Kamogo Full Marathon National Championship",
+  "edition": 34,
+  "date": "2027-04-18",
+  "prefecture": "33",
+  "city_ja": "津山市",
+  "city_en": "Tsuyama City",
+  "description_ja": "岡山県津山市加茂町で開催される、34回目を迎えるフルマラソン大会。「走ろう!! 新緑と清流の里（加茂・阿波）」をテーマに、新緑の里山と清流沿いを走る。加茂町スポーツセンター総合グラウンドを発着し、フルマラソン（年代別6部門）とミニマラソン（4.2195km）を実施。フル6部門の各優勝者はおかやまマラソンに招待される。",
+  "description_en": "A full marathon, now in its 34th edition, held in Kamo Town, Tsuyama City, Okayama, under the theme \"Run through the village of fresh greenery and clear streams (Kamo and Aba)\". The race starts and finishes at the Kamo Town Sports Center ground and offers a full marathon (six age divisions) and a 4.2195 km mini marathon. Winners of the six full marathon divisions are invited to the Okayama Marathon.",
+  "official_url": "https://kamogo.jp/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 2000,
+  "entry_start_date": "2026-11-25",
+  "entry_end_date": "2027-01-31",
+  "reception_type": "pre_mail",
+  "reception_note_ja": "プログラム・参加賞等と荷物用のナンバー入りナイロン袋を事前に発送。大会当日の参加申込は受け付けない。荷物預かりはなく、更衣室も限りがあるため出走する服装で来場する。",
+  "reception_note_en": "The program, participation gift and a numbered plastic bag for belongings are mailed in advance. No race-day entries. There is no baggage storage and changing rooms are limited, so arrive dressed to run.",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [],
+    "highlights_ja": "新緑の里山と清流沿いを走るコース。給水所は5kmごと（20km以降はバナナ・一口パンも）。1kmごとに距離表示あり。",
+    "highlights_en": "The course runs through green hills and along clear streams. Water stations every 5 km (bananas and bite-size bread from 20 km). Distance markers every 1 km.",
+    "notes_ja": "開会式9:40〜9:55。交差点や踏切で選手を止め、車両を優先させることがある。伴走車は禁止。",
+    "notes_en": "Opening ceremony 9:40-9:55. Runners may be held at intersections and railroad crossings to let vehicles pass. Support vehicles are not allowed."
+  },
+  "categories": [
+    {
+      "distance_type": "full",
+      "distance_km": 42.195,
+      "time_limit_minutes": 360,
+      "start_time": "10:00",
+      "capacity": 1600,
+      "entry_fee": 8000,
+      "entry_fee_u25": null,
+      "name_ja": "フルマラソン",
+      "name_en": "Full Marathon",
+      "description_ja": "大会当日に満18歳以上で6時間以内に完走できる方。男子4部門（18〜39歳・40〜49歳・50〜59歳・60歳以上）、女子2部門（18〜49歳・50歳以上）",
+      "description_en": "Ages 18 and over on race day who can finish within 6 hours. Four divisions for men (18-39, 40-49, 50-59, 60+) and two for women (18-49, 50+).",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 4.2195,
+      "time_limit_minutes": 60,
+      "start_time": "10:30",
+      "capacity": null,
+      "entry_fee": 2000,
+      "entry_fee_u25": null,
+      "name_ja": "ミニマラソン（4.2195km）",
+      "name_en": "Mini Marathon (4.2195 km)",
+      "description_ja": "小学生以上。男女別に小学生の部・中学生以上の部。定員はペアの部と合わせて400名",
+      "description_en": "Elementary school age and up. Separate elementary and junior-high-and-older divisions for boys and girls. Capacity 400 including the pair division.",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 4.2195,
+      "time_limit_minutes": 60,
+      "start_time": "10:30",
+      "capacity": null,
+      "entry_fee": 4000,
+      "entry_fee_u25": null,
+      "name_ja": "ミニマラソン ペアの部（4.2195km）",
+      "name_en": "Mini Marathon Pair (4.2195 km)",
+      "description_ja": "小学生と18歳以上のペア。参加料は1組4,000円",
+      "description_en": "A pair of an elementary school student and an adult aged 18 or over. 4,000 yen per pair.",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [
+    {
+      "distance_km": 10,
+      "closing_time": "11:30"
+    },
+    {
+      "distance_km": 21.0975,
+      "closing_time": "13:00"
+    },
+    {
+      "distance_km": 30,
+      "closing_time": "14:30"
+    }
+  ],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [],
+  "result": null,
+  "created_at": "2026-11-21T05:40:15.221Z",
+  "updated_at": "2026-11-21T05:40:22.844Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://kamogo.jp/）の公開情報から作成（2026-11-21）",
+    "data_accuracy_notes": [
+      "公式サイトの開催概要ページと第34回開催要項PDF・ポスターPDFから手動で作成（2026-11-21）",
+      "募集開始 2026-11-25、締切は郵便振替・インターネットとも 2027-01-31（定員になり次第締切）。ふるさと納税枠の締切 2027-01-10 はポスターによる。ふるさと納税枠の受付開始日は公式サイトに記載がなく、一般と同じ 2026-11-25 とした",
+      "ミニマラソンの距離 4.2195km は公式サイトに記載がなく、山陽新聞の報道（フル6部門・ミニ4.2195km5部門）による",
+      "中間関門の「折り返し地点」はフルの中間点として 21.0975km とした",
+      "venue_address は要項の申込先（事務局）住所。会場の住所は公式サイトに記載がない",
+      "要項に参加賞の内容がないため participation_gifts は空（参加賞Tシャツのデザインを募集中）"
+    ],
+    "last_verified": "2026-11-21",
+    "detail_level": "light"
+  },
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-11-25",
+      "end_date": "2027-01-31",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    },
+    {
+      "label_ja": "ふるさと納税枠",
+      "label_en": "Hometown Tax Donation Entry",
+      "start_date": "2026-11-25",
+      "end_date": "2027-01-10",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 1
+    }
+  ],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://kamogo.jp/regon/",
+      "label": "開催概要"
+    },
+    {
+      "url": "https://kamogo.jp/course/",
+      "label": "コース略図"
+    },
+    {
+      "url": "https://kamogo.jp/accommodation/",
+      "label": "宿泊のご案内"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "津山市加茂町スポーツセンター総合グラウンド",
+  "venue_name_en": "Kamo Town Sports Center Ground",
+  "venue_address": "岡山県津山市加茂町中原493-3",
+  "start_lat": 35.173176,
+  "start_lng": 134.049438
+}

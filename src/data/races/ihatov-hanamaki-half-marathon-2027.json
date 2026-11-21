@@ -1,0 +1,160 @@
+{
+  "id": "ihatov-hanamaki-half-marathon-2027",
+  "name_ja": "イーハトーブ花巻ハーフマラソン大会",
+  "name_en": "Ihatov Hanamaki Half Marathon",
+  "full_name_ja": "第15回イーハトーブ花巻ハーフマラソン大会",
+  "full_name_en": "The 15th Ihatov Hanamaki Half Marathon",
+  "edition": 15,
+  "date": "2027-04-25",
+  "prefecture": "03",
+  "city_ja": "花巻市",
+  "city_en": "Hanamaki City",
+  "description_ja": "岩手県花巻市で開催されるハーフマラソン大会。日居城野陸上競技場を発着し、花巻温泉方面へ向かう日本陸連公認コース。ハーフマラソン・10km・3kmの3種目を男女・年代別に実施する。アップダウンが少なく初心者でも走りやすい。ナンバーカードと計測チップは事前発送で当日受付はない。ハーフ完走者から抽選で東京マラソンなどの出場権が贈られる。",
+  "description_en": "A half marathon held in Hanamaki City, Iwate. The JAAF-certified course starts and finishes at Hiijirono Athletic Stadium and heads toward Hanamaki Onsen. Half marathon, 10 km and 3 km races are held by gender and age group. The course has few hills and suits beginners. Bibs and timing chips are mailed in advance, so there is no race-day check-in. Half marathon finishers can win entries to races such as the Tokyo Marathon by lottery.",
+  "official_url": "https://hanamaki-half.jp/",
+  "entry_fee": null,
+  "entry_fee_by_category": true,
+  "entry_capacity": 3000,
+  "entry_start_date": null,
+  "entry_end_date": null,
+  "reception_type": "pre_mail",
+  "reception_note_ja": "ナンバーカードと計測タグ（ランナーズチップ）は大会の10日前までに郵送され、当日の受付はない（第14回大会の例）。参加賞の引き換えは前日と当日に花巻市総合体育館で行う。忘れた場合の再発行は手数料1,500円。",
+  "reception_note_en": "Bibs and timing tags (RunnersChip) are mailed at least 10 days before the race; there is no race-day check-in (as at the 14th edition). Participation gifts are collected at Hanamaki City General Gymnasium on the day before and on race day. Reissue costs 1,500 yen if forgotten.",
+  "tags": [],
+  "course_gpx_file": null,
+  "course_info": {
+    "max_elevation_m": null,
+    "min_elevation_m": null,
+    "elevation_diff_m": null,
+    "surface": "road",
+    "certification": [
+      "JAAF"
+    ],
+    "highlights_ja": "アップダウンの少ないコースで制限時間は3時間。ネットタイムも計測。ゴール後のおふるまいと市内温泉の入浴割引券あり。",
+    "highlights_en": "A course with few hills and a 3-hour time limit. Net times are recorded. Post-race refreshments and discount tickets for local hot springs.",
+    "notes_ja": "交通規制は最大8:00〜12:00。主要地方道盛岡和賀線の膝立交差点は10:30以降は信号に従う。",
+    "notes_en": "Roads are closed for up to 8:00-12:00. After 10:30, runners must obey signals at the Hizatate intersection on the Morioka-Waga road."
+  },
+  "categories": [
+    {
+      "distance_type": "half",
+      "distance_km": 21.0975,
+      "time_limit_minutes": 180,
+      "start_time": "08:50",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "ハーフマラソンの部",
+      "name_en": "Half Marathon",
+      "description_ja": "18歳以上（高校生を除く）。男子6種別・女子5種別の年代別。第14回大会の参加料は7,000円",
+      "description_en": "Ages 18 and over (excluding high school students), with six age groups for men and five for women. The fee at the 14th edition was 7,000 yen.",
+      "waves": null
+    },
+    {
+      "distance_type": "10k",
+      "distance_km": 10,
+      "time_limit_minutes": 90,
+      "start_time": "09:15",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "10kmの部",
+      "name_en": "10 km",
+      "description_ja": "高校生以上。男子6種別・女子5種別の年代別。第14回大会の参加料は5,000円（中高生2,000円）",
+      "description_en": "High school students and older, with six age groups for men and five for women. The fee at the 14th edition was 5,000 yen (2,000 yen for students).",
+      "waves": null
+    },
+    {
+      "distance_type": "other",
+      "distance_km": 3,
+      "time_limit_minutes": null,
+      "start_time": "09:25",
+      "capacity": null,
+      "entry_fee": null,
+      "entry_fee_u25": null,
+      "name_ja": "3kmの部",
+      "name_en": "3 km",
+      "description_ja": "中学生以上。男女別に年代別6種別と中学生の部。スタートは女子9:25・男子9:30。第14回大会の参加料は4,000円（中高生2,000円）",
+      "description_en": "Junior high school students and older, by gender with six age groups plus a junior high division. Women start at 9:25, men at 9:30. The fee at the 14th edition was 4,000 yen (2,000 yen for students).",
+      "waves": null
+    }
+  ],
+  "aid_stations": [],
+  "checkpoints": [
+    {
+      "distance_km": 10.66938,
+      "closing_time": "10:25"
+    },
+    {
+      "distance_km": 15,
+      "closing_time": "11:10"
+    }
+  ],
+  "access_points": [],
+  "nearby_spots": [],
+  "weather_history": [],
+  "participation_gifts": [
+    {
+      "gift_categories": [
+        "tshirt",
+        "towel",
+        "local_product"
+      ],
+      "description_ja": "大会オリジナルTシャツ・スポーツタオル・エーデルワイン ハーフボトル（360ml）から1つを選択（第14回大会の例。ワインは20歳以上）",
+      "description_en": "Choice of an original T-shirt, a sports towel, or a half bottle (360 ml) of Edelwein wine (as at the 14th edition; wine for ages 20 and over)",
+      "image": null
+    }
+  ],
+  "result": null,
+  "created_at": "2026-11-21T05:40:15.221Z",
+  "updated_at": "2026-11-21T05:40:15.510Z",
+  "_metadata": {
+    "data_source": "公式サイト（https://hanamaki-half.jp/）の公開情報から作成（2026-11-21）",
+    "data_accuracy_notes": [
+      "公式サイトのお知らせ（2026-11-09）で第15回の開催日 2027-04-25 が決定。エントリー開始日などの詳細は未発表のため entry_periods は空",
+      "種目・スタート時刻・制限時間・関門・参加賞・受付方法は第14回大会（2026-04-26）の大会概要による。第15回で変わる可能性がある",
+      "参加料は第15回が未発表のため categories[].entry_fee は null とし、第14回の金額を各種目の説明に記載した",
+      "entry_capacity 3,000名は第14回大会の定員（全種目合計）",
+      "certification JAAF は第14回の大会概要の「日本陸上競技連盟公認コース」による"
+    ],
+    "last_verified": "2026-11-21",
+    "detail_level": "light"
+  },
+  "entry_periods": [],
+  "motif": null,
+  "motif_color": null,
+  "motif_romaji": null,
+  "tagline_ja": null,
+  "tagline_en": null,
+  "hero_image_url": null,
+  "hero_caption_ja": null,
+  "hero_caption_en": null,
+  "gallery": [],
+  "voices": [],
+  "time_buckets": [],
+  "course_highlights": [],
+  "info_urls": [
+    {
+      "url": "https://hanamaki-half.jp/outline/",
+      "label": "大会概要"
+    },
+    {
+      "url": "https://hanamaki-half.jp/entry/",
+      "label": "エントリー"
+    },
+    {
+      "url": "https://hanamaki-half.jp/course/",
+      "label": "コース&アクセス"
+    },
+    {
+      "url": "https://hanamaki-half.jp/feature/",
+      "label": "大会の特徴"
+    }
+  ],
+  "completion_gifts": [],
+  "venue_name_ja": "日居城野陸上競技場",
+  "venue_name_en": "Hiijirono Athletic Stadium",
+  "venue_address": "岩手県花巻市松園町613",
+  "start_lat": 39.410019,
+  "start_lng": 141.097351
+}

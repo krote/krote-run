@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-11-21T05:30:08.012Z
--- 対象ファイル数: 210 件（既存 2 件はskip）
+-- 生成日時: 2026-11-21T05:41:07.094Z
+-- 対象ファイル数: 212 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -8327,6 +8327,144 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
   ('igaueno-city-marathon-2026', NULL, '郵便振替・実行委員会事務局持参', 'Postal Transfer / In-person at Committee Office', '2026-07-01', '2026-09-11', NULL, 2, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('igaueno-city-marathon-2026', NULL, NULL, '伊賀上野城下町', 'Igaueno castle town', NULL, NULL, 0);
+
+-- ==================
+-- イーハトーブ花巻ハーフマラソン大会 (ihatov-hanamaki-half-marathon-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+DELETE FROM race_categories WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+DELETE FROM aid_stations WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+DELETE FROM checkpoints WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+DELETE FROM access_points WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+DELETE FROM nearby_spots WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+DELETE FROM weather_history WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+DELETE FROM participation_gifts WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+DELETE FROM completion_gifts WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+DELETE FROM race_entry_links WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+DELETE FROM reception_sessions WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+DELETE FROM race_results WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+DELETE FROM race_gallery WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+DELETE FROM race_voices WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'ihatov-hanamaki-half-marathon-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'ihatov-hanamaki-half-marathon-2027',
+  'イーハトーブ花巻ハーフマラソン大会',
+  'Ihatov Hanamaki Half Marathon',
+  '2027-04-25',
+  '03',
+  '花巻市',
+  'Hanamaki City',
+  '岩手県花巻市で開催されるハーフマラソン大会。日居城野陸上競技場を発着し、花巻温泉方面へ向かう日本陸連公認コース。ハーフマラソン・10km・3kmの3種目を男女・年代別に実施する。アップダウンが少なく初心者でも走りやすい。ナンバーカードと計測チップは事前発送で当日受付はない。ハーフ完走者から抽選で東京マラソンなどの出場権が贈られる。',
+  'A half marathon held in Hanamaki City, Iwate. The JAAF-certified course starts and finishes at Hiijirono Athletic Stadium and heads toward Hanamaki Onsen. Half marathon, 10 km and 3 km races are held by gender and age group. The course has few hills and suits beginners. Bibs and timing chips are mailed in advance, so there is no race-day check-in. Half marathon finishers can win entries to races such as the Tokyo Marathon by lottery.',
+  'https://hanamaki-half.jp/',
+  NULL,
+  1,
+  3000,
+  NULL,
+  NULL,
+  0,
+  'pre_mail',
+  'ナンバーカードと計測タグ（ランナーズチップ）は大会の10日前までに郵送され、当日の受付はない（第14回大会の例）。参加賞の引き換えは前日と当日に花巻市総合体育館で行う。忘れた場合の再発行は手数料1,500円。',
+  'Bibs and timing tags (RunnersChip) are mailed at least 10 days before the race; there is no race-day check-in (as at the 14th edition). Participation gifts are collected at Hanamaki City General Gymnasium on the day before and on race day. Reissue costs 1,500 yen if forgotten.',
+  '[]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '["JAAF"]',
+  'アップダウンの少ないコースで制限時間は3時間。ネットタイムも計測。ゴール後のおふるまいと市内温泉の入浴割引券あり。',
+  'A course with few hills and a 3-hour time limit. Net times are recorded. Post-race refreshments and discount tickets for local hot springs.',
+  '交通規制は最大8:00〜12:00。主要地方道盛岡和賀線の膝立交差点は10:30以降は信号に従う。',
+  'Roads are closed for up to 8:00-12:00. After 10:30, runners must obey signals at the Hizatate intersection on the Morioka-Waga road.',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  '日居城野陸上競技場',
+  'Hiijirono Athletic Stadium',
+  '岩手県花巻市松園町613',
+  39.410019,
+  141.097351,
+  '2026-11-21T05:40:15.221Z',
+  '2026-11-21T05:40:15.510Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ihatov-hanamaki-half-marathon-2027', 'half', 21.0975, 180, '08:50', 0, NULL, NULL, 'ハーフマラソンの部', 'Half Marathon', '18歳以上（高校生を除く）。男子6種別・女子5種別の年代別。第14回大会の参加料は7,000円', 'Ages 18 and over (excluding high school students), with six age groups for men and five for women. The fee at the 14th edition was 7,000 yen.', NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ihatov-hanamaki-half-marathon-2027', '10k', 10, 90, '09:15', 0, NULL, NULL, '10kmの部', '10 km', '高校生以上。男子6種別・女子5種別の年代別。第14回大会の参加料は5,000円（中高生2,000円）', 'High school students and older, with six age groups for men and five for women. The fee at the 14th edition was 5,000 yen (2,000 yen for students).', NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('ihatov-hanamaki-half-marathon-2027', 'other', 3, 0, '09:25', 0, NULL, NULL, '3kmの部', '3 km', '中学生以上。男女別に年代別6種別と中学生の部。スタートは女子9:25・男子9:30。第14回大会の参加料は4,000円（中高生2,000円）', 'Junior high school students and older, by gender with six age groups plus a junior high division. Women start at 9:25, men at 9:30. The fee at the 14th edition was 4,000 yen (2,000 yen for students).', NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('ihatov-hanamaki-half-marathon-2027', 10.66938, '10:25');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('ihatov-hanamaki-half-marathon-2027', 15, '11:10');
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('ihatov-hanamaki-half-marathon-2027', '["tshirt","towel","local_product"]', '大会オリジナルTシャツ・スポーツタオル・エーデルワイン ハーフボトル（360ml）から1つを選択（第14回大会の例。ワインは20歳以上）', 'Choice of an original T-shirt, a sports towel, or a half bottle (360 ml) of Edelwein wine (as at the 14th edition; wine for ages 20 and over)', NULL, 0);
 
 -- ==================
 -- 壱岐の島新春マラソン大会 (iki-no-shima-shinshun-marathon-2027)
@@ -29070,6 +29208,148 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('tsuwabuki-half-marathon-in-nichinan-2026', 'other', 1.5, 0, '09:15', 50, 4000, NULL, '親子1.5kmの部', 'Parent-Child 1.5km', '親1名と小学生以下1名の2人1組（未就学児含む）。参加料1組4,000円（昼食・保険料込）。定員は50組。必ず手をつないでゴールすること。', 'Teams of one adult and one child (elementary school age or younger, including preschoolers). Fee: 4,000 yen per pair (lunch and insurance included). Capacity is 50 pairs. Pairs must cross the finish line holding hands.', NULL, NULL, NULL, '[]', 4);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
   ('tsuwabuki-half-marathon-in-nichinan-2026', NULL, '一般エントリー', 'General Entry', '2026-07-01', '2026-09-30', NULL, 0, 0);
+
+-- ==================
+-- 津山加茂郷フルマラソン全国大会 (tsuyama-kamogo-full-marathon-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+DELETE FROM race_categories WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+DELETE FROM aid_stations WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+DELETE FROM checkpoints WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+DELETE FROM access_points WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+DELETE FROM nearby_spots WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+DELETE FROM weather_history WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+DELETE FROM participation_gifts WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+DELETE FROM completion_gifts WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+DELETE FROM race_entry_links WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+DELETE FROM reception_sessions WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+DELETE FROM race_results WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+DELETE FROM race_gallery WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+DELETE FROM race_voices WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'tsuyama-kamogo-full-marathon-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'tsuyama-kamogo-full-marathon-2027',
+  '津山加茂郷フルマラソン全国大会',
+  'Tsuyama Kamogo Full Marathon',
+  '2027-04-18',
+  '33',
+  '津山市',
+  'Tsuyama City',
+  '岡山県津山市加茂町で開催される、34回目を迎えるフルマラソン大会。「走ろう!! 新緑と清流の里（加茂・阿波）」をテーマに、新緑の里山と清流沿いを走る。加茂町スポーツセンター総合グラウンドを発着し、フルマラソン（年代別6部門）とミニマラソン（4.2195km）を実施。フル6部門の各優勝者はおかやまマラソンに招待される。',
+  'A full marathon, now in its 34th edition, held in Kamo Town, Tsuyama City, Okayama, under the theme "Run through the village of fresh greenery and clear streams (Kamo and Aba)". The race starts and finishes at the Kamo Town Sports Center ground and offers a full marathon (six age divisions) and a 4.2195 km mini marathon. Winners of the six full marathon divisions are invited to the Okayama Marathon.',
+  'https://kamogo.jp/',
+  NULL,
+  1,
+  2000,
+  '2026-11-25',
+  '2027-01-31',
+  0,
+  'pre_mail',
+  'プログラム・参加賞等と荷物用のナンバー入りナイロン袋を事前に発送。大会当日の参加申込は受け付けない。荷物預かりはなく、更衣室も限りがあるため出走する服装で来場する。',
+  'The program, participation gift and a numbered plastic bag for belongings are mailed in advance. No race-day entries. There is no baggage storage and changing rooms are limited, so arrive dressed to run.',
+  '[]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '新緑の里山と清流沿いを走るコース。給水所は5kmごと（20km以降はバナナ・一口パンも）。1kmごとに距離表示あり。',
+  'The course runs through green hills and along clear streams. Water stations every 5 km (bananas and bite-size bread from 20 km). Distance markers every 1 km.',
+  '開会式9:40〜9:55。交差点や踏切で選手を止め、車両を優先させることがある。伴走車は禁止。',
+  'Opening ceremony 9:40-9:55. Runners may be held at intersections and railroad crossings to let vehicles pass. Support vehicles are not allowed.',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  '津山市加茂町スポーツセンター総合グラウンド',
+  'Kamo Town Sports Center Ground',
+  '岡山県津山市加茂町中原493-3',
+  35.173176,
+  134.049438,
+  '2026-11-21T05:40:15.221Z',
+  '2026-11-21T05:40:22.844Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tsuyama-kamogo-full-marathon-2027', 'full', 42.195, 360, '10:00', 1600, 8000, NULL, 'フルマラソン', 'Full Marathon', '大会当日に満18歳以上で6時間以内に完走できる方。男子4部門（18〜39歳・40〜49歳・50〜59歳・60歳以上）、女子2部門（18〜49歳・50歳以上）', 'Ages 18 and over on race day who can finish within 6 hours. Four divisions for men (18-39, 40-49, 50-59, 60+) and two for women (18-49, 50+).', NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tsuyama-kamogo-full-marathon-2027', 'other', 4.2195, 60, '10:30', 0, 2000, NULL, 'ミニマラソン（4.2195km）', 'Mini Marathon (4.2195 km)', '小学生以上。男女別に小学生の部・中学生以上の部。定員はペアの部と合わせて400名', 'Elementary school age and up. Separate elementary and junior-high-and-older divisions for boys and girls. Capacity 400 including the pair division.', NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('tsuyama-kamogo-full-marathon-2027', 'other', 4.2195, 60, '10:30', 0, 4000, NULL, 'ミニマラソン ペアの部（4.2195km）', 'Mini Marathon Pair (4.2195 km)', '小学生と18歳以上のペア。参加料は1組4,000円', 'A pair of an elementary school student and an adult aged 18 or over. 4,000 yen per pair.', NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('tsuyama-kamogo-full-marathon-2027', 10, '11:30');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('tsuyama-kamogo-full-marathon-2027', 21.0975, '13:00');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('tsuyama-kamogo-full-marathon-2027', 30, '14:30');
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
+  ('tsuyama-kamogo-full-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-11-25', '2027-01-31', NULL, 0, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
+  ('tsuyama-kamogo-full-marathon-2027', NULL, 'ふるさと納税枠', 'Hometown Tax Donation Entry', '2026-11-25', '2027-01-10', NULL, 1, 0);
 
 -- ==================
 -- 上野の森ハーフマラソン 東京新聞杯 (ueno-no-mori-half-marathon-2026)

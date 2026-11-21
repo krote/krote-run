@@ -12,7 +12,7 @@
   "description_ja": "香川県小豆島の土庄町で開催される、45回目を迎える市民マラソン大会。旧土庄町役場前をスタートし小部方面を往復する瀬戸内海沿いのコースで、フル・ハーフ・10kmの3種目を実施。参加資格は大会当日満22歳以上。ウェーブスタート方式。",
   "description_en": "A long-running citizens' marathon, now in its 45th edition, held in Tonosho Town on Shodoshima Island, Kagawa. The out-and-back course along the Seto Inland Sea starts in front of the former Tonosho Town Office and heads toward Obe. Full marathon, half marathon and 10 km races are held, with a wave start. Runners must be 22 or older on race day.",
   "official_url": "https://setonaikai-turtle-m.com/",
-  "entry_fee": null,
+  "entry_fee": 6000,
   "entry_fee_by_category": true,
   "entry_capacity": 2000,
   "entry_start_date": "2026-08-01",
@@ -85,16 +85,17 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-17T15:55:52.295Z",
-  "updated_at": "2026-11-17T15:56:36.470Z",
+  "updated_at": "2026-11-21T05:28:34.166Z",
   "_metadata": {
     "data_source": "公式サイト（https://setonaikai-turtle-m.com/）の公開情報から作成（2026-11-18）",
     "data_accuracy_notes": [
       "公式サイトの大会実施要項・エントリー・アクセスページから手動で作成（2026-11-18）",
       "申込期間は 2026-08-01〜2026-11-27（RUNNET・郵便振替とも締切 11/27）。定員2,000名（全種目合計）に達し次第締切",
       "ウェーブスタートで、スタート時刻は「後日お知らせ」のため start_time は null",
-      "会場は受付会場の土庄町立中央公民館とした（スタートは旧土庄町役場前、コースは旧土庄町役場〜小部）"
+      "会場は受付会場の土庄町立中央公民館とした（スタートは旧土庄町役場前、コースは旧土庄町役場〜小部）",
+      "2026-11-21: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-18",
+    "last_verified": "2026-11-21",
     "detail_level": "light"
   },
   "entry_periods": [
@@ -103,7 +104,7 @@
       "label_en": "General Entry",
       "start_date": "2026-08-01",
       "end_date": "2026-11-27",
-      "entry_fee": null,
+      "entry_fee": 6000,
       "category_id": null,
       "sort_order": 0
     }

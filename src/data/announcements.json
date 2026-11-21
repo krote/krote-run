@@ -97,5 +97,16 @@
     "link_href": "/races",
     "link_label_ja": "大会一覧を見る",
     "link_label_en": "Browse all races"
+  },
+  {
+    "slug": "2026-11-21-race-data-update",
+    "date": "2026-11-21",
+    "title_ja": "新たに2大会を掲載・9大会の情報を更新しました",
+    "title_en": "2 Races Added, 9 Races Updated",
+    "body_ja": "以下の2大会を新たに掲載しました。\n・リバーサイドマラソン淀川大会【上流コース】（1/31・大阪府大阪市）\n・OSJ ONTAKE100（7/17・長野県長野県木曽郡王滝村）\nあわせて、以下の9大会の情報を各公式サイトの最新内容に更新しました。\n・AWAJI ISLAND TRAIL（11/29・兵庫県洲本市）\n・伊勢崎シティマラソン（12/6・群馬県伊勢崎市）\n・いすみ健康マラソン（12/6・千葉県いすみ市）\n・湘南国際マラソン（12/6・神奈川県大磯町〜江の島）\n・瀬戸内海タートル・フルマラソン全国大会（1/17・香川県土庄町）\n・たつの市 梅と潮の香マラソン（1/31・兵庫県たつの市）\n・そうじゃ吉備路マラソン（2/28・岡山県総社市）\n・名古屋ウィメンズマラソン（3/14・愛知県名古屋市）\n・THE CHALLENGE RACE TOYOSU（3/27・東京都江東区）\n主な更新内容は、エントリー期間、関門、参加費、エイドステーション、コース情報、アクセスです。",
+    "body_en": "We've added the following 2 races:\n- Riverside Marathon Yodogawa (Upstream Course) (Jan 31, Osaka)\n- OSJ ONTAKE100 (Jul 17, Otaki Village, Kiso District, Nagano, Nagano)\nWe've also updated the following 9 races with the latest information from their official websites:\n- AWAJI ISLAND TRAIL (Nov 29, Sumoto, Hyogo)\n- Isesaki City Marathon (Dec 6, Isesaki, Gunma)\n- Isumi Health Marathon (Dec 6, Isumi, Chiba)\n- Shonan International Marathon (Dec 6, Oiso to Enoshima, Kanagawa)\n- Setonaikai Turtle Full Marathon (Jan 17, Tonosho, Kagawa)\n- Tatsuno Ume to Shio no Kaori Marathon (Jan 31, Tatsuno, Hyogo)\n- Soja Kibiji Marathon (Feb 28, Soja, Okayama)\n- Nagoya Women's Marathon (Mar 14, Nagoya, Aichi)\n- THE CHALLENGE RACE TOYOSU (Mar 27, Koto, Tokyo)\nUpdates mainly cover entry periods, cutoffs, entry fees, aid stations, course information, and access.",
+    "link_href": "/races",
+    "link_label_ja": "大会一覧を見る",
+    "link_label_en": "Browse all races"
   }
 ]

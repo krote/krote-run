@@ -1,6 +1,6 @@
 -- 自動生成: generate-seed-races.js
--- 生成日時: 2026-11-17T16:14:57.515Z
--- 対象ファイル数: 208 件（既存 2 件はskip）
+-- 生成日時: 2026-11-21T05:30:08.012Z
+-- 対象ファイル数: 210 件（既存 2 件はskip）
 
 -- ==================
 -- オホーツク網走マラソン (abashiri-marathon-2026)
@@ -2572,10 +2572,10 @@ INSERT INTO races (
   0,
   'trail',
   '[]',
-  '',
-  '',
-  NULL,
-  NULL,
+  'ロング・ショート共通の新しい下山ルートとして、落差約20mの「宮滝」がある美耶渓を通過する。',
+  'Both the Long and Short courses use a new descent route through Miyakei, which features the roughly 20 m Miyataki waterfall.',
+  '2026年11月18日発表のコース変更。柏原山から竹原ダム方面への下りは使用せず、ショートコースの登りとして使用する。ゴール手前のロード区間も、できる限りトレイルを通るルートに変更。また、ロング4km地点のトレイル入口から諭鶴羽山(15km地点)まで、ショート5km地点のトレイル入口から柏原山(11km地点)までは私有地のため、大会当日まで試走禁止。',
+  'Course changes announced on Nov 18, 2026: the descent from Mt. Kashiwara toward Takehara Dam is no longer used and is instead used as the climb on the Short course. The road section before the finish was also rerouted onto trails where possible. Pre-race course practice is prohibited on private land: from the trail entrance at 4 km to Mt. Yuzuruha (15 km) on the Long course, and from the trail entrance at 5 km to Mt. Kashiwara (11 km) on the Short course.',
   NULL,
   NULL,
   NULL,
@@ -2590,7 +2590,7 @@ INSERT INTO races (
   34.3419,
   134.902695,
   '2026-11-15T08:31:57.170Z',
-  '2026-11-17T15:05:47.773Z'
+  '2026-11-21T05:25:59.374Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -8832,7 +8832,7 @@ INSERT INTO races (
   NULL,
   NULL,
   '2026-08-31T00:00:00Z',
-  '2026-11-17T15:07:16.044Z'
+  '2026-11-21T05:26:35.505Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -8885,6 +8885,10 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('isesaki-city-marathon-2026', '5k', 5, 0, '09:25', 400, 2500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 2);
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('isesaki-city-marathon-2026', 'other', 1.5, 0, '08:30', 200, 500, NULL, '1.5kmコース', '1.5km Course', NULL, NULL, NULL, NULL, NULL, '[]', 3);
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('isesaki-city-marathon-2026', 11, '10:12');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('isesaki-city-marathon-2026', 16.2, '10:46');
 INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
   ('isesaki-city-marathon-2026', '伊勢崎駅', 'Isesaki Station', '', '北口より無料シャトルバス運行（徒歩の場合は約20分）', 'Free shuttle bus from the north exit (about 20 min walk if on foot)', 0, 0, 20, 1, 0);
 INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
@@ -9142,7 +9146,7 @@ INSERT INTO races (
   35.300663,
   140.387711,
   '2026-11-15T08:37:17.362Z',
-  '2026-11-15T09:30:33.687Z'
+  '2026-11-21T05:26:40.988Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -9187,6 +9191,8 @@ INSERT INTO races (
   start_lat = excluded.start_lat,
   start_lng = excluded.start_lng,
   updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('isumi-kenko-marathon-2026', '長者町駅', 'Chojamachi Station', '', '', '', 0, 0, NULL, 1, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
   ('isumi-kenko-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-07-07', '2026-09-15', NULL, 0, 0);
 
@@ -17125,7 +17131,7 @@ INSERT INTO races (
   NULL,
   NULL,
   '2026-08-31T13:37:53.674Z',
-  '2026-11-14T03:02:32.944Z'
+  '2026-11-21T05:27:35.296Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -17203,7 +17209,7 @@ INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
   ('nagoya-womens-marathon-2027', NULL, 'アディショナルエントリー', 'Additional Entry', '2026-11-17', '2026-11-22', 19000, 10, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
-  ('nagoya-womens-marathon-2027', NULL, 'エリートエントリー', 'Elite Entry', '2026-12-01', NULL, 19000, 11, 0);
+  ('nagoya-womens-marathon-2027', NULL, 'エリートエントリー', 'Elite Entry', '2026-12-01', '2027-02-01', 19000, 11, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
   ('nagoya-womens-marathon-2027', NULL, '海外エントリー（アーリー）', 'Overseas Entry (Early)', '2026-08-11', '2026-08-24', 24000, 12, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
@@ -19849,6 +19855,152 @@ INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja
   ('osj-ontake100-2026', NULL, NULL, '特別開放区域', 'specially opened restricted area', NULL, NULL, 1);
 
 -- ==================
+-- OSJ ONTAKE100 (osj-ontake100-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'osj-ontake100-2027';
+DELETE FROM race_categories WHERE race_id = 'osj-ontake100-2027';
+DELETE FROM aid_stations WHERE race_id = 'osj-ontake100-2027';
+DELETE FROM checkpoints WHERE race_id = 'osj-ontake100-2027';
+DELETE FROM access_points WHERE race_id = 'osj-ontake100-2027';
+DELETE FROM nearby_spots WHERE race_id = 'osj-ontake100-2027';
+DELETE FROM weather_history WHERE race_id = 'osj-ontake100-2027';
+DELETE FROM participation_gifts WHERE race_id = 'osj-ontake100-2027';
+DELETE FROM completion_gifts WHERE race_id = 'osj-ontake100-2027';
+DELETE FROM race_entry_links WHERE race_id = 'osj-ontake100-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'osj-ontake100-2027';
+DELETE FROM reception_sessions WHERE race_id = 'osj-ontake100-2027';
+DELETE FROM race_results WHERE race_id = 'osj-ontake100-2027';
+DELETE FROM race_gallery WHERE race_id = 'osj-ontake100-2027';
+DELETE FROM race_voices WHERE race_id = 'osj-ontake100-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'osj-ontake100-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'osj-ontake100-2027',
+  'OSJ ONTAKE100',
+  'OSJ ONTAKE100',
+  '2027-07-17',
+  '20',
+  '長野県木曽郡王滝村',
+  'Otaki Village, Kiso District, Nagano',
+  '御嶽山（標高3,067m）麓の通常立入禁止の国有林を特別開放して行われる夜間スタートのロングレース。100Kと100マイルの2種目。深い森と御嶽山の雄大な景色の中を走る。「フィニッシュの感動は格別」と称されるOSJが誇るロングレースシリーズの一戦。',
+  'A night-start long race through special-access national forest at the foot of Mt. Ontake (3,067m). Two distances: 100K and 100 Miles. Run through deep forest with majestic views of Mt. Ontake. Part of OSJ''s premier long-race series, renowned for an exceptional finish experience.',
+  'https://www.outdoorsportsjapan.com/trail/ontake100/',
+  21000,
+  1,
+  1400,
+  '2026-11-23',
+  '2027-06-13',
+  0,
+  'pre_day',
+  '選手受付：7月17日(土) 13:00〜19:00（松原スポーツ公園）',
+  'Athlete check-in: Jul 17 (Sat) 13:00–19:00 (Matsubara Sports Park)',
+  '["ウルトラマラソン","アップダウン多い","景色が良い","歴史ある大会","火山"]',
+  NULL,
+  0,
+  0,
+  0,
+  'trail',
+  '[]',
+  '御嶽山麓国有林、特別開放区域',
+  'National forest at Mt. Ontake base, specially opened restricted area',
+  '100マイル：7/17(土)20:00スタート。100K：7/18(日)0:00スタート。',
+  '100 Mile: Jul 17 (Sat) 20:00 start. 100K: Jul 18 (Sun) 00:00 start.',
+  '御嶽山',
+  '#1c1917',
+  'Ontake-san',
+  '霊峰・御嶽山の麓を巡る、100kmの山岳路',
+  '100km through the sacred slopes of Mt. Ontake',
+  NULL,
+  NULL,
+  NULL,
+  '松原スポーツ公園',
+  'Matsubara Sports Park',
+  '長野県木曽郡王滝村',
+  35.809395,
+  137.550903,
+  '2026-11-21T05:28:18.120Z',
+  '2026-11-21T05:28:18.120Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('osj-ontake100-2027', 'ultra', 163, 1440, '20:00', 200, 21000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('osj-ontake100-2027', 'ultra', 109, 1200, '00:00', 1200, 19000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
+  ('osj-ontake100-2027', '木曽福島駅', 'Kiso-Fukushima Station', '', '無料シャトルバスで約40分', 'Free shuttle bus, approx. 40 min', 0, 0, NULL, 1, 0);
+INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
+  ('osj-ontake100-2027', '["tshirt"]', '大会記念Tシャツ（HUNGERKNOCK ORIGINALSデザイン、参加費に含む）', 'Commemorative T-shirt (HUNGERKNOCK ORIGINALS design, included in entry fee)', NULL, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
+  ('osj-ontake100-2027', NULL, '一般エントリー', 'General Entry', '2026-11-23', '2026-12-31', NULL, 0, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
+  ('osj-ontake100-2027', NULL, 'OSJ ONTAKE50ロング完走者エントリー', 'OSJ ONTAKE50 Long Finisher Entry', '2026-11-23', '2026-12-31', NULL, 1, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
+  ('osj-ontake100-2027', NULL, 'パワースポーツ感謝祭枠', 'Power Sports Festival Entry', '2026-11-27', '2026-11-29', NULL, 2, 0);
+INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
+  ('osj-ontake100-2027', NULL, '追加エントリー', 'Additional Entry', '2027-02-01', '2027-06-13', NULL, 3, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('osj-ontake100-2027', NULL, NULL, '御嶽山麓国有林', 'National forest at Mt. Ontake base', NULL, NULL, 0);
+INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
+  ('osj-ontake100-2027', NULL, NULL, '特別開放区域', 'specially opened restricted area', NULL, NULL, 1);
+
+-- ==================
 -- リバーサイドマラソン淀川大会【上流コース】 (riverside-marathon-yodogawa-2026)
 -- ==================
 DELETE FROM race_course_highlights WHERE race_id = 'riverside-marathon-yodogawa-2026';
@@ -19983,6 +20135,140 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
   ('riverside-marathon-yodogawa-2026', '5k', 5, 50, '', 100, 3500, NULL, '5kmの部', '5 km', NULL, NULL, NULL, NULL, NULL, '[]', 3);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
   ('riverside-marathon-yodogawa-2026', NULL, '一般エントリー', 'General Entry', '2026-03-28', '2026-11-08', NULL, 0, 0);
+
+-- ==================
+-- リバーサイドマラソン淀川大会【上流コース】 (riverside-marathon-yodogawa-2027)
+-- ==================
+DELETE FROM race_course_highlights WHERE race_id = 'riverside-marathon-yodogawa-2027';
+DELETE FROM race_categories WHERE race_id = 'riverside-marathon-yodogawa-2027';
+DELETE FROM aid_stations WHERE race_id = 'riverside-marathon-yodogawa-2027';
+DELETE FROM checkpoints WHERE race_id = 'riverside-marathon-yodogawa-2027';
+DELETE FROM access_points WHERE race_id = 'riverside-marathon-yodogawa-2027';
+DELETE FROM nearby_spots WHERE race_id = 'riverside-marathon-yodogawa-2027';
+DELETE FROM weather_history WHERE race_id = 'riverside-marathon-yodogawa-2027';
+DELETE FROM participation_gifts WHERE race_id = 'riverside-marathon-yodogawa-2027';
+DELETE FROM completion_gifts WHERE race_id = 'riverside-marathon-yodogawa-2027';
+DELETE FROM race_entry_links WHERE race_id = 'riverside-marathon-yodogawa-2027';
+DELETE FROM race_entry_periods WHERE race_id = 'riverside-marathon-yodogawa-2027';
+DELETE FROM reception_sessions WHERE race_id = 'riverside-marathon-yodogawa-2027';
+DELETE FROM race_results WHERE race_id = 'riverside-marathon-yodogawa-2027';
+DELETE FROM race_gallery WHERE race_id = 'riverside-marathon-yodogawa-2027';
+DELETE FROM race_voices WHERE race_id = 'riverside-marathon-yodogawa-2027';
+DELETE FROM race_time_buckets WHERE race_id = 'riverside-marathon-yodogawa-2027';
+INSERT INTO races (
+  id, name_ja, name_en, date, prefecture, city_ja, city_en,
+  description_ja, description_en, official_url,
+  entry_fee, entry_fee_by_category, entry_capacity,
+  entry_start_date, entry_end_date, entry_closed,
+  reception_type, reception_note_ja, reception_note_en,
+  tags, course_gpx_file,
+  course_max_elevation_m, course_min_elevation_m, course_elevation_diff_m,
+  course_surface, course_certification,
+  course_highlights_ja, course_highlights_en,
+  course_notes_ja, course_notes_en,
+  motif, motif_color, motif_romaji,
+  tagline_ja, tagline_en,
+  hero_image_url, hero_caption_ja, hero_caption_en,
+  venue_name_ja, venue_name_en, venue_address, start_lat, start_lng,
+  created_at, updated_at
+) VALUES (
+  'riverside-marathon-yodogawa-2027',
+  'リバーサイドマラソン淀川大会【上流コース】',
+  'Riverside Marathon Yodogawa (Upstream Course)',
+  '2027-01-31',
+  '27',
+  '大阪市',
+  'Osaka City',
+  '大阪を代表する一級河川・淀川の淀川河川公園西中島地区を利用した、1周5kmの周回コースのマラソン大会。「競争」ではなく「共走」の理念に基づき、完走率100%を目指す。30km・20km・10km・5kmの部があり、フラットな河川敷コースでビギナーから経験者まで楽しめる。',
+  'This race is held at the Yodogawa Riverside Park Nishinakajima area along the Yodo River, one of Osaka''s leading first-class rivers, on a 5 km loop course. Based on the philosophy of running together rather than competing, it aims for a 100% finish rate. It offers 30 km, 20 km, 10 km and 5 km events on a flat riverside course suited to both beginners and experienced runners.',
+  'https://riverside-marathon.jimdofree.com/',
+  NULL,
+  1,
+  400,
+  NULL,
+  NULL,
+  0,
+  'race_day',
+  '受付時間は8:50〜9:40。大会1週間前に参加案内通知書とエントリーシートがメールで送られる。貴重品は受付テントで500円で預かり。',
+  'Reception is open from 8:50 to 9:40. A participation notice and entry sheet are emailed one week before the event. Valuables can be left at the reception tent for 500 yen.',
+  '["フラットコース","河川敷","周回コース"]',
+  NULL,
+  0,
+  0,
+  0,
+  'road',
+  '[]',
+  '',
+  '',
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  NULL,
+  '淀川河川公園西中島地区',
+  'Yodogawa Riverside Park, Nishinakajima Area',
+  NULL,
+  NULL,
+  NULL,
+  '2026-11-21T05:28:23.855Z',
+  '2026-11-21T05:28:23.855Z'
+) ON CONFLICT(id) DO UPDATE SET
+  name_ja = excluded.name_ja,
+  name_en = excluded.name_en,
+  date = excluded.date,
+  prefecture = excluded.prefecture,
+  city_ja = excluded.city_ja,
+  city_en = excluded.city_en,
+  description_ja = excluded.description_ja,
+  description_en = excluded.description_en,
+  official_url = excluded.official_url,
+  entry_fee = excluded.entry_fee,
+  entry_fee_by_category = excluded.entry_fee_by_category,
+  entry_capacity = excluded.entry_capacity,
+  entry_start_date = excluded.entry_start_date,
+  entry_end_date = excluded.entry_end_date,
+  entry_closed = excluded.entry_closed,
+  reception_type = excluded.reception_type,
+  reception_note_ja = excluded.reception_note_ja,
+  reception_note_en = excluded.reception_note_en,
+  tags = excluded.tags,
+  course_gpx_file = excluded.course_gpx_file,
+  course_max_elevation_m = excluded.course_max_elevation_m,
+  course_min_elevation_m = excluded.course_min_elevation_m,
+  course_elevation_diff_m = excluded.course_elevation_diff_m,
+  course_surface = excluded.course_surface,
+  course_certification = excluded.course_certification,
+  course_highlights_ja = excluded.course_highlights_ja,
+  course_highlights_en = excluded.course_highlights_en,
+  course_notes_ja = excluded.course_notes_ja,
+  course_notes_en = excluded.course_notes_en,
+  motif = excluded.motif,
+  motif_color = excluded.motif_color,
+  motif_romaji = excluded.motif_romaji,
+  tagline_ja = excluded.tagline_ja,
+  tagline_en = excluded.tagline_en,
+  hero_image_url = excluded.hero_image_url,
+  hero_caption_ja = excluded.hero_caption_ja,
+  hero_caption_en = excluded.hero_caption_en,
+  venue_name_ja = excluded.venue_name_ja,
+  venue_name_en = excluded.venue_name_en,
+  venue_address = excluded.venue_address,
+  start_lat = excluded.start_lat,
+  start_lng = excluded.start_lng,
+  updated_at = excluded.updated_at;
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('riverside-marathon-yodogawa-2027', 'other', 30, 240, '', 100, 6000, NULL, '30kmの部', '30 km', NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('riverside-marathon-yodogawa-2027', 'other', 20, 180, '', 100, 5000, NULL, '20kmの部', '20 km', NULL, NULL, NULL, NULL, NULL, '[]', 1);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('riverside-marathon-yodogawa-2027', '10k', 10, 90, '', 100, 4000, NULL, '10kmの部', '10 km', NULL, NULL, NULL, NULL, NULL, '[]', 2);
+INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
+  ('riverside-marathon-yodogawa-2027', '5k', 5, 50, '', 100, 3500, NULL, '5kmの部', '5 km', NULL, NULL, NULL, NULL, NULL, '[]', 3);
 
 -- ==================
 -- 佐渡トキマラソン (sado-toki-marathon-2026)
@@ -21667,7 +21953,7 @@ INSERT INTO races (
   '香川県小豆島の土庄町で開催される、45回目を迎える市民マラソン大会。旧土庄町役場前をスタートし小部方面を往復する瀬戸内海沿いのコースで、フル・ハーフ・10kmの3種目を実施。参加資格は大会当日満22歳以上。ウェーブスタート方式。',
   'A long-running citizens'' marathon, now in its 45th edition, held in Tonosho Town on Shodoshima Island, Kagawa. The out-and-back course along the Seto Inland Sea starts in front of the former Tonosho Town Office and heads toward Obe. Full marathon, half marathon and 10 km races are held, with a wave start. Runners must be 22 or older on race day.',
   'https://setonaikai-turtle-m.com/',
-  NULL,
+  6000,
   1,
   2000,
   '2026-08-01',
@@ -21701,7 +21987,7 @@ INSERT INTO races (
   34.485962,
   134.183716,
   '2026-11-17T15:55:52.295Z',
-  '2026-11-17T15:56:36.470Z'
+  '2026-11-21T05:28:34.166Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -21753,7 +22039,7 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('setonaikai-turtle-full-marathon-2027', '10k', 10, 90, '', 0, 6000, NULL, '10kmの部', '10 km', '大会当日満22歳以上', 'Ages 22 and over on race day', NULL, NULL, NULL, '[]', 2);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
-  ('setonaikai-turtle-full-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-08-01', '2026-11-27', NULL, 0, 0);
+  ('setonaikai-turtle-full-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-08-01', '2026-11-27', 6000, 0, 0);
 
 -- ==================
 -- 志賀高原100 (shiga-kogen100-2026)
@@ -22795,7 +23081,7 @@ INSERT INTO races (
   '湘南の海岸線を走るフルマラソン。江の島と富士山を望みながら走れる人気大会。マイボトル・マイカップ必携。',
   'A full marathon along the Shonan coast. A popular race with views of Enoshima and Mt. Fuji. Must carry your own bottle/cup.',
   'https://www.shonan-kokusai.jp',
-  NULL,
+  16500,
   1,
   0,
   '2026-04-04',
@@ -22829,7 +23115,7 @@ INSERT INTO races (
   NULL,
   NULL,
   '2026-03-15T00:00:00Z',
-  '2026-09-18T14:35:17.877Z'
+  '2026-11-21T05:28:46.531Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -22879,17 +23165,17 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('shonan-international-marathon-2026', '10k', 10, 0, '10:00', 4800, 8500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 1);
 INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
-  ('shonan-international-marathon-2026', 10.8, '補食', 'Food', 1);
+  ('shonan-international-marathon-2026', 10.8, '熱中飴タブレット・ドライフルーツ・ドーナツ', 'Netsuu candy tablets, dried fruit, donuts', 1);
 INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
-  ('shonan-international-marathon-2026', 14.2, '補食', 'Food', 1);
+  ('shonan-international-marathon-2026', 14.2, '熱中飴タブレット・ドライフルーツ・不二家チョコ', 'Netsuu candy tablets, dried fruit, Fujiya chocolate', 1);
 INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
-  ('shonan-international-marathon-2026', 19.2, '補食', 'Food', 1);
+  ('shonan-international-marathon-2026', 19.2, '熱中飴タブレット・ドライフルーツ・バナナ', 'Netsuu candy tablets, dried fruit, bananas', 1);
 INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
-  ('shonan-international-marathon-2026', 23.9, '補食', 'Food', 1);
+  ('shonan-international-marathon-2026', 23.9, '熱中飴タブレット・ドライフルーツ・ういろう', 'Netsuu candy tablets, dried fruit, uiro', 1);
 INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
-  ('shonan-international-marathon-2026', 28.3, '補食', 'Food', 1);
+  ('shonan-international-marathon-2026', 28.3, '熱中飴タブレット・ドライフルーツ・バナナ・MANABAR', 'Netsuu candy tablets, dried fruit, bananas, MANABAR', 1);
 INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
-  ('shonan-international-marathon-2026', 33.9, '補食', 'Food', 1);
+  ('shonan-international-marathon-2026', 33.9, '熱中飴タブレット・エナジージェル・湘南銘菓（湘南バターどら焼き、高麗山、湘南平、ほっくり）', 'Netsuu candy tablets, energy gel, Shonan local sweets (Shonan butter dorayaki, Komayama, Shonandaira, Hokkuri)', 1);
 INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
   ('shonan-international-marathon-2026', 5.1, '10:10');
 INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
@@ -22919,7 +23205,7 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('shonan-international-marathon-2026', '["medal"]', '完走メダル', 'Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
-  ('shonan-international-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-04', '2026-09-09', 16000, 0, 0);
+  ('shonan-international-marathon-2026', NULL, '一般エントリー', 'General Entry', '2026-04-04', '2026-09-09', 16500, 0, 0);
 
 -- ==================
 -- そうじゃ吉備路マラソン (soja-kibiji-marathon-2026)
@@ -23116,7 +23402,7 @@ INSERT INTO races (
   1,
   15000,
   '2026-10-01',
-  NULL,
+  '2027-01-03',
   0,
   'pre_mail',
   'すべての種目でナンバーカードを事前に発送させていただきます。
@@ -23149,7 +23435,7 @@ Therefore, there is no registration required.',
   34.67255,
   133.746735,
   '2026-07-27T14:33:45.113Z',
-  '2026-10-31T15:36:43.432Z'
+  '2026-11-21T05:28:55.928Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -23196,6 +23482,42 @@ Therefore, there is no registration required.',
   updated_at = excluded.updated_at;
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('soja-kibiji-marathon-2027', 'full', 42.195, 360, '09:20', 2000, 9100, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('soja-kibiji-marathon-2027', 5, '給水・給食', 'Water and food', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('soja-kibiji-marathon-2027', 10, '給水・給食', 'Water and food', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('soja-kibiji-marathon-2027', 15, '給水・給食', 'Water and food', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('soja-kibiji-marathon-2027', 20, '給水・給食', 'Water and food', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('soja-kibiji-marathon-2027', 25, '給水・給食', 'Water and food', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('soja-kibiji-marathon-2027', 30, '給水・給食', 'Water and food', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('soja-kibiji-marathon-2027', 32.5, '給水・給食', 'Water and food', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('soja-kibiji-marathon-2027', 35, '給水・給食', 'Water and food', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('soja-kibiji-marathon-2027', 37.5, '給水・給食', 'Water and food', 0);
+INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
+  ('soja-kibiji-marathon-2027', 40, '給水・給食', 'Water and food', 0);
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('soja-kibiji-marathon-2027', 7.8, '10:25');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('soja-kibiji-marathon-2027', 12, '11:05');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('soja-kibiji-marathon-2027', 16.4, '11:40');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('soja-kibiji-marathon-2027', 21.8, '12:25');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('soja-kibiji-marathon-2027', 25, '12:55');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('soja-kibiji-marathon-2027', 31.7, '13:50');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('soja-kibiji-marathon-2027', 35.7, '14:25');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('soja-kibiji-marathon-2027', 38.5, '14:50');
 INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
   ('soja-kibiji-marathon-2027', '総社駅', 'Soja Station', '', '徒歩約20分', 'approx. 20 min walk', 0, 0, 20, 1, 0);
 INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
@@ -23207,7 +23529,7 @@ INSERT OR REPLACE INTO participation_gifts (race_id, gift_categories, descriptio
 INSERT OR REPLACE INTO completion_gifts (race_id, gift_categories, description_ja, description_en, image, sort_order) VALUES
   ('soja-kibiji-marathon-2027', '["medal"]', '完走メダル', 'Finisher medal', NULL, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
-  ('soja-kibiji-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-10-01', NULL, NULL, 0, 0);
+  ('soja-kibiji-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-10-01', '2027-01-03', NULL, 0, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
   ('soja-kibiji-marathon-2027', NULL, NULL, '備中国分寺五重塔', 'Bitchu Kokubunji five-story pagoda', NULL, NULL, 0);
 INSERT OR REPLACE INTO race_course_highlights (race_id, category_id, km, name_ja, name_en, note_ja, note_en, sort_order) VALUES
@@ -24299,7 +24621,7 @@ INSERT INTO races (
   1,
   2700,
   '2026-09-26',
-  '2026-11-20',
+  '2026-11-29',
   0,
   'pre_mail',
   '',
@@ -24329,7 +24651,7 @@ INSERT INTO races (
   34.783268,
   134.556366,
   '2026-09-18T00:00:00Z',
-  '2026-09-18T14:38:38.006Z'
+  '2026-11-21T05:29:06.067Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -24385,7 +24707,7 @@ INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, tim
 INSERT OR REPLACE INTO race_categories (race_id, distance_type, distance_km, time_limit_minutes, start_time, capacity, entry_fee, entry_fee_u25, name_ja, name_en, description_ja, description_en, eligibility_ja, eligibility_en, course_gpx_file, waves, sort_order) VALUES
   ('tatsuno-umeshio-marathon-2027', '2k', 2, 0, '08:40', 0, NULL, NULL, 'ファミリー・ジョギングの部', 'Family / Jogging', '定員制限なし', 'No capacity limit', NULL, NULL, NULL, '[]', 4);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES
-  ('tatsuno-umeshio-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-09-26', '2026-11-20', NULL, 0, 0);
+  ('tatsuno-umeshio-marathon-2027', NULL, '一般エントリー', 'General Entry', '2026-09-26', '2026-11-29', NULL, 0, 0);
 
 -- ==================
 -- 田沢湖マラソン (tazawako-marathon-2026)
@@ -25978,7 +26300,7 @@ INSERT INTO races (
   35.652561,
   139.792892,
   '2026-11-15T09:25:04.943Z',
-  '2026-11-17T15:13:58.390Z'
+  '2026-11-21T05:29:13.435Z'
 ) ON CONFLICT(id) DO UPDATE SET
   name_ja = excluded.name_ja,
   name_en = excluded.name_en,
@@ -26039,6 +26361,22 @@ INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerin
   ('the-challenge-race-toyosu-2027', 1.2, 'ドリンク（アミノバイタルGOLD）', 'Drinks (Amino Vital GOLD)', 0);
 INSERT OR REPLACE INTO aid_stations (race_id, distance_km, offerings_ja, offerings_en, is_featured) VALUES
   ('the-challenge-race-toyosu-2027', 4.9, 'ドリンク（アミノバイタルGOLD）・ジェル（アミノショット パーフェクトエネルギー、スタート1時間後に設置）', 'Drinks (Amino Vital GOLD) and gels (Amino Shot Perfect Energy, set out one hour after the start)', 0);
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('the-challenge-race-toyosu-2027', 5, '10:02');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('the-challenge-race-toyosu-2027', 10, '10:34');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('the-challenge-race-toyosu-2027', 15, '11:06');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('the-challenge-race-toyosu-2027', 20, '11:38');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('the-challenge-race-toyosu-2027', 25, '12:10');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('the-challenge-race-toyosu-2027', 30, '12:42');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('the-challenge-race-toyosu-2027', 35, '13:14');
+INSERT OR REPLACE INTO checkpoints (race_id, distance_km, closing_time) VALUES
+  ('the-challenge-race-toyosu-2027', 40, '13:46');
 INSERT OR REPLACE INTO access_points (race_id, station_name_ja, station_name_en, station_code, transport_to_venue_ja, transport_to_venue_en, latitude, longitude, walk_minutes, is_primary, sort_order) VALUES
   ('the-challenge-race-toyosu-2027', '豊洲駅', 'Toyosu Station', '', '徒歩3分', '3 min walk', 0, 0, 3, 1, 0);
 INSERT OR REPLACE INTO race_entry_periods (race_id, category_id, label_ja, label_en, start_date, end_date, entry_fee, sort_order, closed_early) VALUES

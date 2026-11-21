@@ -12,7 +12,7 @@
   "description_ja": "湘南の海岸線を走るフルマラソン。江の島と富士山を望みながら走れる人気大会。マイボトル・マイカップ必携。",
   "description_en": "A full marathon along the Shonan coast. A popular race with views of Enoshima and Mt. Fuji. Must carry your own bottle/cup.",
   "official_url": "https://www.shonan-kokusai.jp",
-  "entry_fee": null,
+  "entry_fee": 16500,
   "entry_fee_by_category": true,
   "entry_capacity": null,
   "entry_start_date": "2026-04-04",
@@ -73,38 +73,38 @@
   "aid_stations": [
     {
       "distance_km": 10.8,
-      "offerings_ja": "補食",
-      "offerings_en": "Food",
+      "offerings_ja": "熱中飴タブレット・ドライフルーツ・ドーナツ",
+      "offerings_en": "Netsuu candy tablets, dried fruit, donuts",
       "is_featured": true
     },
     {
       "distance_km": 14.2,
-      "offerings_ja": "補食",
-      "offerings_en": "Food",
+      "offerings_ja": "熱中飴タブレット・ドライフルーツ・不二家チョコ",
+      "offerings_en": "Netsuu candy tablets, dried fruit, Fujiya chocolate",
       "is_featured": true
     },
     {
       "distance_km": 19.2,
-      "offerings_ja": "補食",
-      "offerings_en": "Food",
+      "offerings_ja": "熱中飴タブレット・ドライフルーツ・バナナ",
+      "offerings_en": "Netsuu candy tablets, dried fruit, bananas",
       "is_featured": true
     },
     {
       "distance_km": 23.9,
-      "offerings_ja": "補食",
-      "offerings_en": "Food",
+      "offerings_ja": "熱中飴タブレット・ドライフルーツ・ういろう",
+      "offerings_en": "Netsuu candy tablets, dried fruit, uiro",
       "is_featured": true
     },
     {
       "distance_km": 28.3,
-      "offerings_ja": "補食",
-      "offerings_en": "Food",
+      "offerings_ja": "熱中飴タブレット・ドライフルーツ・バナナ・MANABAR",
+      "offerings_en": "Netsuu candy tablets, dried fruit, bananas, MANABAR",
       "is_featured": true
     },
     {
       "distance_km": 33.9,
-      "offerings_ja": "補食",
-      "offerings_en": "Food",
+      "offerings_ja": "熱中飴タブレット・エナジージェル・湘南銘菓（湘南バターどら焼き、高麗山、湘南平、ほっくり）",
+      "offerings_en": "Netsuu candy tablets, energy gel, Shonan local sweets (Shonan butter dorayaki, Komayama, Shonandaira, Hokkuri)",
       "is_featured": true
     }
   ],
@@ -194,7 +194,7 @@
   ],
   "result": null,
   "created_at": "2026-03-15T00:00:00Z",
-  "updated_at": "2026-09-18T14:35:17.877Z",
+  "updated_at": "2026-11-21T05:28:46.531Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
@@ -203,9 +203,10 @@
       "2026-06-08: 自動クロールで更新",
       "2026-07-27: 自動クロールで更新",
       "2026-08-24: 自動クロールで更新",
-      "2026-09-18: 自動クロールで更新"
+      "2026-09-18: 自動クロールで更新",
+      "2026-11-21: 自動クロールで更新"
     ],
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-21",
     "detail_level": "medium"
   },
   "entry_periods": [
@@ -214,7 +215,7 @@
       "label_en": "General Entry",
       "start_date": "2026-04-04",
       "end_date": "2026-09-09",
-      "entry_fee": 16000,
+      "entry_fee": 16500,
       "category_id": null,
       "sort_order": 0
     }

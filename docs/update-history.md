@@ -2047,3 +2047,11 @@ PR #228（discover で88大会を新規掲載）を stg に投入したところ
 - 2大会とも `geocode-venues.js` で座標を補完
 - `src/data/announcements.json`: 2026-11-21 のお知らせを「新たに4大会を掲載・9大会の情報を更新しました」に作り直し（slug は維持）
 - `migrations/seed-races-all.sql`: 再生成。ローカル D1 への投入成功を確認
+
+## 2026-11-21 #233 の内容を stg・本番 D1 へ適用
+
+- `pnpm run db:seed-races:stg` → `pnpm run db:seed-races:remote` の順に適用（changes 4,647 / rows_written 9,658、両環境とも同値）
+- 適用後、両環境で `races` が 210 → 214 件（JSON 214件と一致）、`race_categories` が 578 → 590 件。新規はリバーサイドマラソン淀川【上流コース】・OSJ ONTAKE100・津山加茂郷フルマラソン・イーハトーブ花巻ハーフマラソン
+- `race_travel_times`（312件）・`weather_history`（10件）は変化なし
+- 本番は #233 マージ時の GitHub Actions（Deploy to Cloudflare Pages）でデプロイ済み。stg は `pnpm run cf:deploy:stg` で main（67eaabb）をデプロイ
+- stg・本番とも新規4大会のページが 200、`/ja/news` に「新たに4大会を掲載・9大会の情報を更新しました」が表示されることを確認

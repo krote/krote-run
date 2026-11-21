@@ -32,10 +32,10 @@
     "elevation_diff_m": null,
     "surface": "trail",
     "certification": [],
-    "highlights_ja": null,
-    "highlights_en": null,
-    "notes_ja": null,
-    "notes_en": null
+    "highlights_ja": "ロング・ショート共通の新しい下山ルートとして、落差約20mの「宮滝」がある美耶渓を通過する。",
+    "highlights_en": "Both the Long and Short courses use a new descent route through Miyakei, which features the roughly 20 m Miyataki waterfall.",
+    "notes_ja": "2026年11月18日発表のコース変更。柏原山から竹原ダム方面への下りは使用せず、ショートコースの登りとして使用する。ゴール手前のロード区間も、できる限りトレイルを通るルートに変更。また、ロング4km地点のトレイル入口から諭鶴羽山(15km地点)まで、ショート5km地点のトレイル入口から柏原山(11km地点)までは私有地のため、大会当日まで試走禁止。",
+    "notes_en": "Course changes announced on Nov 18, 2026: the descent from Mt. Kashiwara toward Takehara Dam is no longer used and is instead used as the climb on the Short course. The road section before the finish was also rerouted onto trails where possible. Pre-race course practice is prohibited on private land: from the trail entrance at 4 km to Mt. Yuzuruha (15 km) on the Long course, and from the trail entrance at 5 km to Mt. Kashiwara (11 km) on the Short course."
   },
   "categories": [
     {
@@ -119,7 +119,7 @@
   ],
   "result": null,
   "created_at": "2026-11-15T08:31:57.170Z",
-  "updated_at": "2026-11-17T15:05:47.773Z",
+  "updated_at": "2026-11-21T05:25:59.374Z",
   "_metadata": {
     "data_source": "公式サイト（https://okushinano100.com/ITA/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -131,9 +131,10 @@
       "distance_type は42km・23kmのトレイルでフル・ハーフに該当しないため other とした。",
       "会場の city は、フィニッシュ会場の大浜海浜公園がある洲本市とした。スタート会場は南あわじ市の阿万海岸海水浴場。",
       "エントリーは公式サイト記載のとおり2026年7月5日18:00〜11月8日23:59で、スポーツエントリーで受付。公式サイトのニュースは2026年11月12日更新で、エントリー期間は終了している。",
-      "2026-11-17: 自動クロールで更新"
+      "2026-11-17: 自動クロールで更新",
+      "2026-11-21: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-17",
+    "last_verified": "2026-11-21",
     "detail_level": "light"
   },
   "entry_periods": [

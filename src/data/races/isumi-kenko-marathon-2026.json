@@ -36,13 +36,25 @@
   "categories": [],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "長者町駅",
+      "station_name_en": "Chojamachi Station",
+      "station_code": "",
+      "transport_to_venue_ja": null,
+      "transport_to_venue_en": null,
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": null,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T08:37:17.362Z",
-  "updated_at": "2026-11-15T09:30:33.687Z",
+  "updated_at": "2026-11-21T05:26:40.988Z",
   "_metadata": {
     "data_source": "公式サイト（https://www.isumi-marathon.info/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -51,9 +63,10 @@
       "エントリー期間は、公式サイトに「7月7日（火）～8月31日（月）」と「9月15日（火曜日）」が併記されており、終了日が8月31日から9月15日へ変更されたと解釈した。候補情報の9月15日とも一致する。なお、サイトには「エントリーは終了しました」との表示がある。",
       "参加費、定員、種目（距離・制限時間・スタート時刻など）は公式サイトに記載がなく、「大会詳細につきましては、後日ご案内いたします」とあるため null / 空配列とした。",
       "受付方法、路面（surface）、コースの特徴も記載がないため null / 空とした。",
-      "サイト内の「12月14日（日）」の雨天予報に関するX投稿は2025年12月12日付で、前回（第18回）大会の内容のため使用していない。"
+      "サイト内の「12月14日（日）」の雨天予報に関するX投稿は2025年12月12日付で、前回（第18回）大会の内容のため使用していない。",
+      "2026-11-21: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-15",
+    "last_verified": "2026-11-21",
     "detail_level": "light"
   },
   "entry_periods": [

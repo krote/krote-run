@@ -139,7 +139,40 @@
       "is_featured": false
     }
   ],
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "distance_km": 5,
+      "closing_time": "10:02"
+    },
+    {
+      "distance_km": 10,
+      "closing_time": "10:34"
+    },
+    {
+      "distance_km": 15,
+      "closing_time": "11:06"
+    },
+    {
+      "distance_km": 20,
+      "closing_time": "11:38"
+    },
+    {
+      "distance_km": 25,
+      "closing_time": "12:10"
+    },
+    {
+      "distance_km": 30,
+      "closing_time": "12:42"
+    },
+    {
+      "distance_km": 35,
+      "closing_time": "13:14"
+    },
+    {
+      "distance_km": 40,
+      "closing_time": "13:46"
+    }
+  ],
   "access_points": [
     {
       "station_name_ja": "豊洲駅",
@@ -158,7 +191,7 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-15T09:25:04.943Z",
-  "updated_at": "2026-11-17T15:13:58.390Z",
+  "updated_at": "2026-11-21T05:29:13.435Z",
   "_metadata": {
     "data_source": "公式サイト（https://race.rdc-run.com/event/tokyo-toyosu/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
@@ -171,9 +204,10 @@
       "1マイルの距離1.609kmは「1マイル」表記からの換算値。",
       "会場住所は受付場所の住所（東京都江東区豊洲2丁目3）。",
       "エントリーページは設計プレビューのため、情報源としては使用していない。",
-      "2026-11-17: 自動クロールで更新"
+      "2026-11-17: 自動クロールで更新",
+      "2026-11-21: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-17",
+    "last_verified": "2026-11-21",
     "detail_level": "light"
   },
   "entry_periods": [

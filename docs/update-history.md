@@ -2055,3 +2055,14 @@ PR #228（discover で88大会を新規掲載）を stg に投入したところ
 - `race_travel_times`（312件）・`weather_history`（10件）は変化なし
 - 本番は #233 マージ時の GitHub Actions（Deploy to Cloudflare Pages）でデプロイ済み。stg は `pnpm run cf:deploy:stg` で main（67eaabb）をデプロイ
 - stg・本番とも新規4大会のページが 200、`/ja/news` に「新たに4大会を掲載・9大会の情報を更新しました」が表示されることを確認
+
+## 2026-11-28 Workers の CPU 制限超過対策（robots.txt 追加・カレンダーの表示範囲制限）
+
+Cloudflare から「無料プランの CPU 時間制限に 100 回以上到達」の通知を受けて調査。GraphQL 分析 API で直近24時間を集計したところ、超過は本番 700 件・stg 96 件で、いずれも数分間に集中した外部クローラーのアクセス（本番 11/22 15:33〜15:36 JST、stg 11/22 03:22〜03:56 JST）によるものだった。robots.txt が無く、カレンダーの前月・翌月リンクを無制限に辿れる（`?year=2112` 等）ことがクローラーを呼び込む要因になっていた。
+
+- `src/app/robots.ts`（新規）: `/api/` と `/*/calendar?`（年月クエリ付き）を Disallow、サイトマップを指定。静的生成されるため SSR は発生しない
+- `src/lib/calendar-range.ts`（新規）: `resolveCalendarMonth()` で表示年月を解決。範囲は前年1月〜翌年12月、範囲外・不正値は null
+- `src/app/[locale]/calendar/page.tsx`: 範囲外・不正値は D1 を引く前に `notFound()`。範囲の端では前月/翌月リンクを無効表示にし、年月リンクに `rel="nofollow"` を付与
+- テスト: `src/app/__tests__/robots.test.ts`、`src/lib/__tests__/calendar-range.test.ts`
+- `wrangler pages dev`（本番相当ランタイム）で、範囲内 200・範囲外/不正値 404・robots.txt の内容を確認
+- 未対応（ダッシュボード側）: `*.krote-run.pages.dev` から hashiru.run への Bulk Redirect、stg の Access 保護、Bot Fight Mode / AI クローラーブロックの有効化

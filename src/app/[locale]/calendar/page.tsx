@@ -6,6 +6,11 @@ import { getTodayJST } from '@/lib/utils';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/lib/types';
 import CalendarView from '@/components/calendar/CalendarView';
+import { notFound } from 'next/navigation';
+import { resolveCalendarMonth } from '@/lib/calendar-range';
+
+const monthNavClass = 'px-4 py-1.5 text-sm font-medium rounded-[3px] transition-colors no-underline';
+const monthNavStyle = { background: 'var(--color-cream)', color: 'var(--color-ink)', border: '1px solid var(--color-border)' };
 
 export async function generateMetadata({
   params,
@@ -28,9 +33,10 @@ export default async function CalendarPage({
   const locale = rawLocale as Locale;
   const sp = await searchParams;
   const todayJST = getTodayJST();
-  const [todayYear, todayMonth0] = todayJST.split('-').map(Number);
-  const year = parseInt(sp.year ?? String(todayYear));
-  const month = parseInt(sp.month ?? String(todayMonth0 - 1)); // 0-indexed
+  // 表示範囲外・不正な年月は 404（無限に辿れるとクローラーの巡回で CPU 制限を超えるため）
+  const resolved = resolveCalendarMonth(sp, todayJST);
+  if (!resolved) notFound();
+  const { year, month, prev: prevMonth, next: nextMonth, today, isCurrent } = resolved;
 
   const t = await getTranslations({ locale, namespace: 'calendar' });
   const tNav = await getTranslations({ locale, namespace: 'nav' });
@@ -47,9 +53,6 @@ export default async function CalendarPage({
 
   // 地方名一覧（重複排除・順序保持）
   const regions = [...new Set(prefectures.map((p) => isJa ? p.region : p.regionEn))];
-
-  const prevMonth = month === 0 ? { year: year - 1, month: 11 } : { year, month: month - 1 };
-  const nextMonth = month === 11 ? { year: year + 1, month: 0 } : { year, month: month + 1 };
 
   const monthNames = t.raw('months') as string[];
   const monthLabel = isJa ? `${year}年${monthNames[month]}` : `${monthNames[month]} ${year}`;
@@ -69,18 +72,26 @@ export default async function CalendarPage({
 
       {/* Month navigation */}
       <div className="flex items-center justify-between mb-4">
-        <Link
-          href={`?year=${prevMonth.year}&month=${prevMonth.month}`}
-          className="px-4 py-1.5 text-sm font-medium rounded-[3px] transition-colors no-underline"
-          style={{ background: 'var(--color-cream)', color: 'var(--color-ink)', border: '1px solid var(--color-border)' }}
-        >
-          ← {t('prev')}
-        </Link>
+        {prevMonth ? (
+          <Link
+            href={`?year=${prevMonth.year}&month=${prevMonth.month}`}
+            rel="nofollow"
+            className={monthNavClass}
+            style={monthNavStyle}
+          >
+            ← {t('prev')}
+          </Link>
+        ) : (
+          <span className={monthNavClass} style={{ ...monthNavStyle, opacity: 0.4 }} aria-disabled="true">
+            ← {t('prev')}
+          </span>
+        )}
         <div className="flex items-center gap-3">
           <h2 className="text-lg font-bold">{monthLabel}</h2>
-          {(year !== todayYear || month !== todayMonth0 - 1) && (
+          {!isCurrent && (
             <Link
-              href={`?year=${todayYear}&month=${todayMonth0 - 1}`}
+              href={`?year=${today.year}&month=${today.month}`}
+              rel="nofollow"
               className="px-3 py-1 text-xs font-medium rounded-[3px] transition-colors no-underline"
               style={{ background: 'var(--color-primary)', color: 'white' }}
             >
@@ -88,13 +99,20 @@ export default async function CalendarPage({
             </Link>
           )}
         </div>
-        <Link
-          href={`?year=${nextMonth.year}&month=${nextMonth.month}`}
-          className="px-4 py-1.5 text-sm font-medium rounded-[3px] transition-colors no-underline"
-          style={{ background: 'var(--color-cream)', color: 'var(--color-ink)', border: '1px solid var(--color-border)' }}
-        >
-          {t('next')} →
-        </Link>
+        {nextMonth ? (
+          <Link
+            href={`?year=${nextMonth.year}&month=${nextMonth.month}`}
+            rel="nofollow"
+            className={monthNavClass}
+            style={monthNavStyle}
+          >
+            {t('next')} →
+          </Link>
+        ) : (
+          <span className={monthNavClass} style={{ ...monthNavStyle, opacity: 0.4 }} aria-disabled="true">
+            {t('next')} →
+          </span>
+        )}
       </div>
 
       <CalendarView

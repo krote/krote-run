@@ -81,7 +81,56 @@
       "waves": null
     }
   ],
-  "aid_stations": [],
+  "aid_stations": [
+    {
+      "distance_km": 6,
+      "offerings_ja": "スポーツドリンク・水・塩タブ・アメ",
+      "offerings_en": "Sports drink, water, salt tablets, candy",
+      "is_featured": false
+    },
+    {
+      "distance_km": 11,
+      "offerings_ja": "スポーツドリンク・水・塩タブ・バナナ・ラムネ・アメ",
+      "offerings_en": "Sports drink, water, salt tablets, bananas, ramune candy, candy",
+      "is_featured": false
+    },
+    {
+      "distance_km": 15,
+      "offerings_ja": "スポーツドリンク・水・塩タブ・バナナ・牛乳せんべい・アメ",
+      "offerings_en": "Sports drink, water, salt tablets, bananas, milk senbei crackers, candy",
+      "is_featured": false
+    },
+    {
+      "distance_km": 21,
+      "offerings_ja": "スポーツドリンク・水・塩タブ・バナナ・塩羊かん・花菜っ娘・ラムネ・アメ",
+      "offerings_en": "Sports drink, water, salt tablets, bananas, salted yokan, Hanana-kko, ramune candy, candy",
+      "is_featured": false
+    },
+    {
+      "distance_km": 27,
+      "offerings_ja": "スポーツドリンク・水・塩タブ・バナナ・温かい麦茶（砂糖入・無）・塩羊かん・ラムネ・アメ",
+      "offerings_en": "Sports drink, water, salt tablets, bananas, warm barley tea (with or without sugar), salted yokan, ramune candy, candy",
+      "is_featured": false
+    },
+    {
+      "distance_km": 32,
+      "offerings_ja": "スポーツドリンク・水・塩タブ・バナナ・温かい麦茶（砂糖入・無）・塩羊かん・タコせんべい・ラムネ・アメ",
+      "offerings_en": "Sports drink, water, salt tablets, bananas, warm barley tea (with or without sugar), salted yokan, octopus senbei crackers, ramune candy, candy",
+      "is_featured": false
+    },
+    {
+      "distance_km": 37,
+      "offerings_ja": "スポーツドリンク・水・塩タブ・バナナ・温かい麦茶（砂糖入・無）・塩羊かん・ちいずさぶれ・アメ",
+      "offerings_en": "Sports drink, water, salt tablets, bananas, warm barley tea (with or without sugar), salted yokan, cheese sablé, candy",
+      "is_featured": false
+    },
+    {
+      "distance_km": 40,
+      "offerings_ja": "スポーツドリンク・水・塩タブ・バナナ・温かい麦茶（砂糖入・無）・塩羊かん・アメ",
+      "offerings_en": "Sports drink, water, salt tablets, bananas, warm barley tea (with or without sugar), salted yokan, candy",
+      "is_featured": false
+    }
+  ],
   "checkpoints": [
     {
       "distance_km": 10,
@@ -151,16 +200,17 @@
   ],
   "result": null,
   "created_at": "2026-08-24T16:18:08.658Z",
-  "updated_at": "2026-10-09T14:05:56.047Z",
+  "updated_at": "2026-11-27T23:12:16.515Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "2026-08-24: 自動クロールで tateyama-wakashio-2026 を元に2027年大会ファイルを新規作成",
       "2026-08-25: categoriesが自動更新対象外（DIFF_FIELDSに未収録）のため10km・ファンランが欠落していた。公式サイト確認で3種目とも定員・参加料・スタート時刻・制限時間を追加。ふるさと納税エントリー終了日(10/2)は公式サイトで再確認し正しい値と確認済み",
       "2026-10-02: 自動クロールで更新",
-      "2026-10-09: 自動クロールで更新"
+      "2026-10-09: 自動クロールで更新",
+      "2026-11-27: 自動クロールで更新"
     ],
-    "last_verified": "2026-10-09",
+    "last_verified": "2026-11-27",
     "detail_level": "medium"
   },
   "entry_periods": [

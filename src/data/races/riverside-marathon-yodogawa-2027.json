@@ -16,7 +16,7 @@
   "entry_fee_by_category": true,
   "entry_capacity": 400,
   "entry_start_date": null,
-  "entry_end_date": null,
+  "entry_end_date": "2027-01-24",
   "reception_type": "race_day",
   "reception_note_ja": "受付時間は8:50〜9:40。大会1週間前に参加案内通知書とエントリーシートがメールで送られる。貴重品は受付テントで500円で預かり。",
   "reception_note_en": "Reception is open from 8:50 to 9:40. A participation notice and entry sheet are emailed one week before the event. Valuables can be left at the reception tent for 500 yen.",
@@ -97,19 +97,32 @@
   ],
   "aid_stations": [],
   "checkpoints": [],
-  "access_points": [],
+  "access_points": [
+    {
+      "station_name_ja": "西中島南方駅",
+      "station_name_en": "Nishinakajima-Minamigata Station",
+      "station_code": "",
+      "transport_to_venue_ja": "Osaka Metro御堂筋線「西中島南方駅」2番出口より南へ徒歩5分",
+      "transport_to_venue_en": "5 min walk south from Exit 2 of Nishinakajima-Minamigata Station (Osaka Metro Midosuji Line)",
+      "latitude": 0,
+      "longitude": 0,
+      "walk_minutes": 5,
+      "is_primary": true
+    }
+  ],
   "nearby_spots": [],
   "weather_history": [],
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-21T05:28:23.855Z",
-  "updated_at": "2026-11-21T05:28:23.855Z",
+  "updated_at": "2026-11-27T23:11:21.077Z",
   "_metadata": {
     "data_source": "公式サイト（https://riverside-marathon.jimdofree.com/）の公開情報から自動生成（2026-11-15）",
     "data_accuracy_notes": [
-      "2026-11-21: 自動クロールで riverside-marathon-yodogawa-2026 を元に2027年大会ファイルを新規作成"
+      "2026-11-21: 自動クロールで riverside-marathon-yodogawa-2026 を元に2027年大会ファイルを新規作成",
+      "2026-11-27: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-21",
+    "last_verified": "2026-11-27",
     "detail_level": "light"
   },
   "entry_periods": [],

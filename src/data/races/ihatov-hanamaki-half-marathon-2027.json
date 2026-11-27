@@ -15,8 +15,8 @@
   "entry_fee": null,
   "entry_fee_by_category": true,
   "entry_capacity": 3000,
-  "entry_start_date": null,
-  "entry_end_date": null,
+  "entry_start_date": "2026-11-28",
+  "entry_end_date": "2027-02-28",
   "reception_type": "pre_mail",
   "reception_note_ja": "ナンバーカードと計測タグ（ランナーズチップ）は大会の10日前までに郵送され、当日の受付はない（第14回大会の例）。参加賞の引き換えは前日と当日に花巻市総合体育館で行う。忘れた場合の再発行は手数料1,500円。",
   "reception_note_en": "Bibs and timing tags (RunnersChip) are mailed at least 10 days before the race; there is no race-day check-in (as at the 14th edition). Participation gifts are collected at Hanamaki City General Gymnasium on the day before and on race day. Reissue costs 1,500 yen if forgotten.",
@@ -107,7 +107,7 @@
   ],
   "result": null,
   "created_at": "2026-11-21T05:40:15.221Z",
-  "updated_at": "2026-11-21T05:40:15.510Z",
+  "updated_at": "2026-11-27T23:09:50.918Z",
   "_metadata": {
     "data_source": "公式サイト（https://hanamaki-half.jp/）の公開情報から作成（2026-11-21）",
     "data_accuracy_notes": [
@@ -115,12 +115,23 @@
       "種目・スタート時刻・制限時間・関門・参加賞・受付方法は第14回大会（2026-04-26）の大会概要による。第15回で変わる可能性がある",
       "参加料は第15回が未発表のため categories[].entry_fee は null とし、第14回の金額を各種目の説明に記載した",
       "entry_capacity 3,000名は第14回大会の定員（全種目合計）",
-      "certification JAAF は第14回の大会概要の「日本陸上競技連盟公認コース」による"
+      "certification JAAF は第14回の大会概要の「日本陸上競技連盟公認コース」による",
+      "2026-11-27: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-21",
+    "last_verified": "2026-11-27",
     "detail_level": "light"
   },
-  "entry_periods": [],
+  "entry_periods": [
+    {
+      "label_ja": "一般エントリー",
+      "label_en": "General Entry",
+      "start_date": "2026-11-28",
+      "end_date": "2027-02-28",
+      "entry_fee": null,
+      "category_id": null,
+      "sort_order": 0
+    }
+  ],
   "motif": null,
   "motif_color": null,
   "motif_romaji": null,

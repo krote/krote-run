@@ -77,7 +77,50 @@
       "waves": null
     }
   ],
-  "aid_stations": [],
+  "aid_stations": [
+    {
+      "distance_km": 5,
+      "offerings_ja": "水・食塩",
+      "offerings_en": "Water, salt",
+      "is_featured": false
+    },
+    {
+      "distance_km": 10,
+      "offerings_ja": "水・食塩・スポーツドリンク",
+      "offerings_en": "Water, salt, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 15,
+      "offerings_ja": "水・食塩・スポーツドリンク",
+      "offerings_en": "Water, salt, sports drink",
+      "is_featured": false
+    },
+    {
+      "distance_km": 20,
+      "offerings_ja": "水・食塩・スポーツドリンク・バナナ・一口パン",
+      "offerings_en": "Water, salt, sports drink, banana, bite-size bread",
+      "is_featured": false
+    },
+    {
+      "distance_km": 30,
+      "offerings_ja": "水・食塩・スポーツドリンク・バナナ・一口パン",
+      "offerings_en": "Water, salt, sports drink, banana, bite-size bread",
+      "is_featured": false
+    },
+    {
+      "distance_km": 35,
+      "offerings_ja": "水・食塩・スポーツドリンク・バナナ・一口パン",
+      "offerings_en": "Water, salt, sports drink, banana, bite-size bread",
+      "is_featured": false
+    },
+    {
+      "distance_km": 40,
+      "offerings_ja": "水・食塩・スポーツドリンク・バナナ・一口パン",
+      "offerings_en": "Water, salt, sports drink, banana, bite-size bread",
+      "is_featured": false
+    }
+  ],
   "checkpoints": [
     {
       "distance_km": 10,
@@ -98,7 +141,7 @@
   "participation_gifts": [],
   "result": null,
   "created_at": "2026-11-21T05:40:15.221Z",
-  "updated_at": "2026-11-21T05:40:22.844Z",
+  "updated_at": "2026-11-27T23:13:20.946Z",
   "_metadata": {
     "data_source": "公式サイト（https://kamogo.jp/）の公開情報から作成（2026-11-21）",
     "data_accuracy_notes": [
@@ -107,9 +150,10 @@
       "ミニマラソンの距離 4.2195km は公式サイトに記載がなく、山陽新聞の報道（フル6部門・ミニ4.2195km5部門）による",
       "中間関門の「折り返し地点」はフルの中間点として 21.0975km とした",
       "venue_address は要項の申込先（事務局）住所。会場の住所は公式サイトに記載がない",
-      "要項に参加賞の内容がないため participation_gifts は空（参加賞Tシャツのデザインを募集中）"
+      "要項に参加賞の内容がないため participation_gifts は空（参加賞Tシャツのデザインを募集中）",
+      "2026-11-27: 自動クロールで更新"
     ],
-    "last_verified": "2026-11-21",
+    "last_verified": "2026-11-27",
     "detail_level": "light"
   },
   "entry_periods": [

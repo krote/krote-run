@@ -17,9 +17,9 @@
   "entry_capacity": 1000,
   "entry_start_date": "2026-07-01",
   "entry_end_date": "2026-09-11",
-  "reception_type": null,
-  "reception_note_ja": null,
-  "reception_note_en": null,
+  "reception_type": "pre_mail",
+  "reception_note_ja": "ナンバーカード（ゼッケン）・計測用チップ等は大会の約2週間前に郵送します。",
+  "reception_note_en": "Bib numbers and timing chips will be mailed approximately two weeks before the race.",
   "tags": [],
   "course_gpx_file": null,
   "course_info": {
@@ -106,7 +106,20 @@
     }
   ],
   "aid_stations": [],
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "distance_km": 6.3,
+      "closing_time": "10:30"
+    },
+    {
+      "distance_km": 12.5,
+      "closing_time": "11:20"
+    },
+    {
+      "distance_km": 17.8,
+      "closing_time": "11:40"
+    }
+  ],
   "access_points": [],
   "nearby_spots": [],
   "weather_history": [],
@@ -122,16 +135,17 @@
   ],
   "result": null,
   "created_at": "2026-08-25T00:00:00Z",
-  "updated_at": "2026-08-31T13:28:35.599Z",
+  "updated_at": "2026-11-27T23:09:44.137Z",
   "_metadata": {
     "data_source": "公式サイト等の公開情報から転記",
     "data_accuracy_notes": [
       "ライト版：基本情報のみ。ジョギング（ファミリーの部）はcategoriesに未収録",
       "2026-08-25: runnet.jp紹介記事を起点に新規登録",
       "2026-08-24: 自動クロールで更新",
-      "2026-08-31: 自動クロールで更新"
+      "2026-08-31: 自動クロールで更新",
+      "2026-11-27: 自動クロールで更新"
     ],
-    "last_verified": "2026-08-31",
+    "last_verified": "2026-11-27",
     "detail_level": "medium"
   },
   "entry_periods": [
